@@ -1,51 +1,11 @@
 // oper.h - Wrapper for XLOPER
 #pragma once
 #include <utility>
-#include <Windows.h>
-#include "XLCALL.H"
+#include "xloper.h"
 
 #pragma warning(disable: 4996)
 
 namespace xll {
-
-	// predefined XLOPERs
-	inline const XLOPER Missing 
-		= { .xltype = xltypeMissing };
-	inline const XLOPER12 Missing12 
-		= { .xltype = xltypeMissing };
-	inline const XLOPER Nil 
-		= { .xltype = xltypeNil };
-	inline const XLOPER12 Nil12 
-		= { .xltype = xltypeNil };
-
-	inline const XLOPER ErrNull 
-		= { .val = { .err = xlerrNull }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrNull12 
-		= { .val = { .err = xlerrNull }, .xltype = xltypeErr };
-	inline const XLOPER ErrDiv0
-		= { .val = { .err = xlerrDiv0 }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrDiv012
-		= { .val = { .err = xlerrDiv0 }, .xltype = xltypeErr };
-	inline const XLOPER ErrValue
-		= { .val = { .err = xlerrValue }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrValue12
-		= { .val = { .err = xlerrValue }, .xltype = xltypeErr };
-	inline const XLOPER ErrRef
-		= { .val = { .err = xlerrRef }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrRef12
-		= { .val = { .err = xlerrRef }, .xltype = xltypeErr };
-	inline const XLOPER ErrName
-		= { .val = { .err = xlerrName }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrName12
-		= { .val = { .err = xlerrName }, .xltype = xltypeErr };
-	inline const XLOPER ErrNum
-		= { .val = { .err = xlerrNum }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrNum12
-		= { .val = { .err = xlerrNum }, .xltype = xltypeErr };
-	inline const XLOPER ErrNA
-		= { .val = { .err = xlerrNA }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrNA12
-		= { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 
 	// XLOPER/XLOPER12 traits
 	// ???Put in traits.h???
@@ -96,6 +56,7 @@ namespace xll {
 			if (o.xltype == xltypeStr) {
 				alloc_str(o.val.str + 1, o.val.str[0]);
 			}
+			// else if (o.xltype == xltypeMulti) { ... }
 			else {
 				xltype = o.xltype;
 				val = o.val;
@@ -104,7 +65,8 @@ namespace xll {
 		OPERX(OPERX&& o) noexcept
 		{
 			xltype = o.xltype;
-			std::exchange(val, o.val);
+			val = o.val;
+			o.xltype = xltypeMissing;
 		}
 		OPERX& operator=(const OPERX& o)
 		{
@@ -126,7 +88,8 @@ namespace xll {
 		{
 			if (this != &o) {
 				xltype = o.xltype;
-				std::exchange(val, o.val);
+				val = o.val;
+				o.xltype = xltypeMissing;
 			}
 
 			return *this;
@@ -138,13 +101,15 @@ namespace xll {
 			}
 			// else if (xltype == xltypeMulti) { }
 		}
-		/*
+		
 		template<class T>
 		OPERX& operator=(const T& t)
 		{
-			return OPERX(t);
+			operator=(OPERX(t));
+
+			return *this;
 		}
-		*/
+		
 		// floating point number
 		explicit OPERX(double num)
 		{

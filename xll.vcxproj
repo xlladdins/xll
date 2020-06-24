@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="xll\args.h" />
     <ClInclude Include="xll\oper.h" />
     <ClInclude Include="xll\xll.h" />
+    <ClInclude Include="xll\xloper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp" />
@@ -110,6 +112,7 @@
     <Lib>
       <AdditionalDependencies>
       </AdditionalDependencies>
+      <ForceSymbolReferences>crtDbg</ForceSymbolReferences>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,6 +163,7 @@
     <Lib>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
+      <ForceSymbolReferences>crtDbg</ForceSymbolReferences>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

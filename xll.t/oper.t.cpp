@@ -11,6 +11,7 @@ int test_oper_adt()
 		OPER o2(o);
 		o = o2;
 	}
+
 	return 0;
 }
 
@@ -37,6 +38,18 @@ int test_oper_num()
 	}
 	{
 		OPER12 o(1.23);
+		assert(o.xltype == xltypeNum);
+		assert(o.val.num == 1.23);
+	}
+	{
+		OPER o;
+		o = 1.23;
+		assert(o.xltype == xltypeNum);
+		assert(o.val.num == 1.23);
+	}
+	{
+		OPER12 o;
+		o = 1.23;
 		assert(o.xltype == xltypeNum);
 		assert(o.val.num == 1.23);
 	}
@@ -86,6 +99,21 @@ int test_oper_str()
 		assert(o.val.str[0] == (char)wcslen(L"abc"));
 		assert(0 == wcsncmp(L"abc", o.val.str + 1, o.val.str[0]));
 	}
+	{
+		OPER o;
+		o = "abc";
+		assert(o.xltype == xltypeStr);
+		assert(o.val.str[0] == (char)strlen("abc"));
+		assert(0 == strncmp("abc", o.val.str + 1, o.val.str[0]));
+	}
+	{
+		OPER12 o;
+		auto abc = L"abc";
+		o = abc;
+		assert(o.xltype == xltypeStr);
+		assert(o.val.str[0] == (wchar_t)wcslen(abc));
+		assert(0 == wcsncmp(abc, o.val.str + 1, o.val.str[0]));
+	}
 
 	return 0;
 }
@@ -99,6 +127,16 @@ int test_oper_bool()
 	}
 	{
 		OPER12 o(false);
+		assert(o.xltype == xltypeBool);
+		assert(o.val.xbool == FALSE);
+	}
+	{
+		OPER o;
+		assert(o.xltype == xltypeMissing);
+		o = true;
+		assert(o.xltype == xltypeBool);
+		assert(o.val.xbool == TRUE);
+		o = false;
 		assert(o.xltype == xltypeBool);
 		assert(o.val.xbool == FALSE);
 	}
