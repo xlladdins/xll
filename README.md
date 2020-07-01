@@ -12,10 +12,10 @@ that can be called from Excel.
 <dd>The Excel SDK is not supported on MacOS.</dd>
 </dl>
 
-<dl>
-[Visual Studio 2019](https://visualstudio.microsoft.com/)
-<dd>Use the Community Edition and choose the `Desktop development with C++` workload.</dd>
-</dl>
+
+[Visual Studio 2019](https://visualstudio.microsoft.com/)  
+  Use the Community Edition and choose the `Desktop development with C++` workload.</dd>
+
 
 <dl>
 <dt>[Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)</dt>
