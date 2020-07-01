@@ -2,13 +2,15 @@
 
 This library is a C++ wrapper for the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit)
-It makes it simple to create add-ins that register C/C++ functions 
+that makes it simple to create add-ins that register C/C++ functions 
 that can be called from Excel.
 
 ## Prerequisites
 
-Windows 10
-: The Excel SDK is not supported on MacOS.
+<dl>
+<dt>Windows 10</dt>
+<dd>The Excel SDK is not supported on MacOS.</dd>
+</dl>
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)
 : Use the Community Edition and choose the `Desktop development with C++` workload.
