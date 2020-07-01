@@ -27,6 +27,12 @@
     <ClInclude Include="xll\xloper.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="xll\defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xll\exports.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">

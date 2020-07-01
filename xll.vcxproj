@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xll\args.h" />
+    <ClInclude Include="xll\defines.h" />
+    <ClInclude Include="xll\exports.h" />
     <ClInclude Include="xll\oper.h" />
     <ClInclude Include="xll\xll.h" />
     <ClInclude Include="xll\xloper.h" />
