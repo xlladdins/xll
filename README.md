@@ -33,5 +33,5 @@ file extension `.xll`), and starts Excel with the add-in loaded.
 
 This is controlled by the project properties.
 
-[!debug properties](images/debug.png)
+![debug properties](images/debug.png)
 
