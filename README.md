@@ -28,4 +28,10 @@ Run the `setup.bat` script in the top level `xll` folder.
 
 Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
 select `XLL Project`. At this point you can compile and run the add-in
-using `Debug ► Start Debuggiing` (`F5`). 
+using `Debug ► Start Debugging` (`F5`). This compiles the dll, (with
+file extension `.xll`), and starts Excel with the add-in loaded.
+
+This is controlled by the project properties.
+
+[!debug properties](images/debug.png)
+
