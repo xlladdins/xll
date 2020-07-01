@@ -64,7 +64,7 @@ namespace xll {
 
 		/// Common default.
 		Args()
-			: args(1, ARG::ArgumentHelp)
+			: args(1, ARG::ArgumentHelp1)
 		{
 			std::fill(args.begin(), args.end(), OPER12(xltype::Nil));
             args[ARG::MacroType] = OPER(-1); // default is document

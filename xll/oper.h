@@ -7,38 +7,6 @@
 
 namespace xll {
 
-	// XLOPER/XLOPER12 traits
-	// ???Put in traits.h???
-	template<class X>
-	struct traits {
-	};
-	template<>
-	struct traits<XLOPER> {
-		typedef CHAR xchar;
-		typedef short int xint;
-		static size_t len(const xchar* s)
-		{
-			return strlen(s);
-		}
-		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
-		{
-			return strncpy(dest, src, n);
-		}
-	};
-	template<>
-	struct traits<XLOPER12> {
-		typedef XCHAR xchar;
-		typedef int xint;
-		static size_t len(const xchar* s)
-		{
-			return wcslen(s);
-		}
-		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
-		{
-			return wcsncpy(dest, src, n);
-		}
-	};
-
 	template<class X>
 	class OPERX : public X {
 	public:
