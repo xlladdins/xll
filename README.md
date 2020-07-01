@@ -13,7 +13,7 @@ that can be called from Excel.
 </dl>
 
 <dl>
-<dt> [Visual Studio 2019](https://visualstudio.microsoft.com/) </dt>
+[Visual Studio 2019](https://visualstudio.microsoft.com/)
 <dd>Use the Community Edition and choose the `Desktop development with C++` workload.</dd>
 </dl>
 
