@@ -12,14 +12,20 @@ that can be called from Excel.
 <dd>The Excel SDK is not supported on MacOS.</dd>
 </dl>
 
-[Visual Studio 2019](https://visualstudio.microsoft.com/)
-: Use the Community Edition and choose the `Desktop development with C++` workload.
+<dl>
+<dt>[Visual Studio 2019](https://visualstudio.microsoft.com/)</dt>
+<dd>Use the Community Edition and choose the `Desktop development with C++` workload.</dd>
+</dl>
 
-[Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)
-: Install the 64-bit version of Office 365 for the best experience. 
+<dl>
+<dt>[Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)</dt>
+<dd>Install the 64-bit version of Office 365 for the best experience.</dd>
+</dl>
 
-[Sandcastle Help File Builder](https://github.com/EWSoftware/SHFB)
-: This is optional if you want to create help files integrated into Excel.
+<dl>
+<dt>[Sandcastle Help File Builder](https://github.com/EWSoftware/SHFB)</dt>
+<dd>This is optional if you want to create help files integrated into Excel.</dd>
+</dl>
 
 ## Get Started
 
