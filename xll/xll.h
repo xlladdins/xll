@@ -2,3 +2,4 @@
 #pragma once
 #include <Windows.h>
 #include "XLCALL.H"
+#include "exports.h"

@@ -2,6 +2,8 @@
 #pragma once
 #include "defines.h"
 
+//#define XLL_EXPORT(s,n) __pragma(comment(linker, "/export:" XLL_DECORATE(s, n) )
+
 #pragma comment(linker, "/include:" XLL_DECORATE("DllMain", 12))
 //#pragma comment(linker, "/export:" XLL_DECORATE("XLCallVer", 0))
 #pragma comment(linker, "/export:xlAutoOpen" XLL_X32("@0=xlAutoOpen"))

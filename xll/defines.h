@@ -39,4 +39,4 @@
 #define XLL_VOID     L">"	    // return type to use for asynchronous functions
 
 #define XLL_HANDLE XLL_DOUBLE // pointer to C++ object
-#define XLL_DATE   XLL_DOUBLE // Excel Julian date
+#define XLL_DATE   XLL_DOUBLE // Excel Julian date. Days from 1 Jan 1900
