@@ -1,9 +1,8 @@
 ﻿# xll - a library for creating Excel add-ins
 
-This library is a C++ wrapper for the Microsoft
-[Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit)
-that makes it simple to create add-ins that register C/C++ functions 
-that can be called from Excel.
+This library makes it simple call C and C++ functions from Excel.
+It is much easier to use than the Microsoft
+[Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 
 ## Prerequisites
 
@@ -31,14 +30,15 @@ select `XLL Project`. At this point you can compile and run the add-in
 using `Debug ► Start Debugging` (`F5`). This compiles the dll, (with
 file extension `.xll`), and starts Excel with the add-in loaded.
 
-This is controlled by the _project properties_. Right click on a project
-and select `Properties` (`Alt-Enter`) at the bottom of the popup menu.
+The program to start and the arguments to use are specified in _project properties_.
+Right click on a project and select `Properties` (`Alt-Enter`) at the bottom of the 
+popup menu.
 Navigate to `Debugging` in `Configuration Properties`.
 
 ![debug properties](images/debug.png)
 
 The `Command` `$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\excel.exe)`
-looks up the registry entry for the full path of the Excel executable.
+looks in the registry for the full path of the Excel executable.
 The `Command Arguments` `"$(TargetPath)" /p "$(ProjectDir)"` are passed to
 Excel when the debugger starts. The variable `$(TargetPath)` is the
 full path to the xll that was built and is opened by Excel. 
@@ -57,7 +57,7 @@ AddIn xai_tgamma(
 	.Args({
 		Arg(XLL_DOUBLE, L"x", L"is the value for which you want to calculate Gamma.")
 	})
-	.FunctionHelp(L"Returns the Gamma function value.")
+	.FunctionHelp(L"Return the Gamma function value.")
 	.Category(L"Cmath")
 );
 double WINAPI xll_tgamma(double x)
@@ -67,6 +67,20 @@ XLLEXPORT
 }
 ```
 
-This add-in adds the function `TGAMMA` to Excel that calls the
-`tgamma` function declared in the `<cmath>` library. THe
-Gamma function is <math>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> dx</math>
+This add-in registers the function `TGAMMA` with Excel to call the C++ function
+`xll_tgamma` that returns a floating point `double`. It has one argument that
+is also a `double` and is added to the Excel function wizard under the
+`Cmath` category with the specified function help. Compare this to
+the built-in Excel functon [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
+
+The function `xll_gamma` calls the `tgamma` function` declared in 
+the `<cmath>` library. All functions called from Excel must be declared
+with [`WINAPI`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall?view=vs-2019).
+The macro `XLLEXPORT` causes the function to be exported
+from the dll so it will be visible to Excel.
+
+Recall the Gamma function is 
+<math>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> t<sup>x - 1</sup>
+e<sup>-t</sup>&nbsp;dt</math>. It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
+for <math>x &ge; 0</math>. <math>x!</math>
+if <math>x</math> is a non-negative integer.
