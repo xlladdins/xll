@@ -75,7 +75,7 @@ the built-in Excel functon [`GAMMA`](https://support.microsoft.com/en-us/office/
 
 The function `xll_gamma` calls the `tgamma` function` declared in 
 the `<cmath>` library. All functions called from Excel must be declared
-with [WINAPI](https://docs.microsoft.com/en-us/cpp/cpp/stdcall?view=vs-2019).
+with [`WINAPI`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 The macro `XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel.
 
@@ -83,6 +83,6 @@ Recall the Gamma function is
 <math><i>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
 t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</i></math>. 
 It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
-for <math>x &ge; 0</math>. Since <math>&Gamma;(1) = 1</math> we have
+for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
 <math>&Gamma;(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.
