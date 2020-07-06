@@ -80,9 +80,9 @@ The macro `XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel.
 
 Recall the Gamma function is 
-<math>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
-t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</math>. 
+<math><i>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
+t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</i></math>. 
 It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
 for <math>x &ge; 0</math>. Since <math>&Gamma;(1) = 1</math> we have
-<math>&Gamma(x + 1) = x!</math>
+<math>&Gamma;(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.
