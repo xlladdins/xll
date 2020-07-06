@@ -27,7 +27,7 @@ namespace xll {
                         return TRUE;
                     }
                     catch (const std::exception& ex) {
-                        MessageBoxA(GetForegroundWindow(), ex.what(), "AddIn Auto<Close> failed", MB_OK | MB_ICONERROR);
+                        MessageBoxA(GetForegroundWindow(), ex.what(), "AddIn Auto<Open> failed", MB_OK | MB_ICONERROR);
 
                         return FALSE;
                     }

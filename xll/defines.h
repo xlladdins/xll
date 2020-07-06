@@ -1,17 +1,6 @@
 // defines.h
 #pragma once
 
-// 64-bit uses different symbol name decoration
-#ifdef _M_X64 
-#define XLL_DECORATE(s,n) s
-#define XLL_X64(x) x
-#define XLL_X32(x)
-#else
-#define XLL_DECORATE(s,n) "_" s "@" #n
-#define XLL_X64(x)	
-#define XLL_X32(x) x
-#endif 
-
 // Excel C data types for Excel12 xlfRegister/AddIn.
 #define XLL_BOOL     L"A"  // short int used as logical
 #define XLL_DOUBLE   L"B"  // double
@@ -40,3 +29,17 @@
 
 #define XLL_HANDLE XLL_DOUBLE // pointer to C++ object
 #define XLL_DATE   XLL_DOUBLE // Excel Julian date. Days from 1 Jan 1900
+
+// 64-bit uses different symbol name decoration
+#ifdef _M_X64 
+#define XLL_DECORATE(s,n) s
+#define XLL_X64(x) x
+#define XLL_X32(x)
+#else
+#define XLL_DECORATE(s,n) "_" s "@" #n
+#define XLL_X64(x)	
+#define XLL_X32(x) x
+#endif
+
+// Used to export undecorated function name from a dll.
+#define XLLEXPORT __pragma(comment(linker, "/export:" __FUNCDNAME__ "=" __FUNCTION__)

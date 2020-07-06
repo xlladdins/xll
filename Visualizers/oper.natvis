@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- save into %USERPROFILE%\My Documents\Visual Studio 20xx\Visualizers\ -->
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="xlref">
+    <DisplayString>{{rwFirst = {rwFirst} colFirst = {colFirst}}}</DisplayString>
+    <Expand>
+      <Item Name="height">rwLast - rwFirst + 1</Item>
+      <Item Name="width">colLast - colFirst + 1</Item>
+    </Expand>
+  </Type>
+  <Type Name="xlmref">
+    <DisplayString>{{count = {count} xlref = {*reftbl}}}</DisplayString>
+  </Type>
+  <Type Name="xloper">
+    <DisplayString Condition="xltype == 0x1">xltypeNum = {val.num,na}</DisplayString>
+    <DisplayString Condition="xltype == 0x2">xltypeStr[{val.str[0],u}] = {val.str+1,[val.str[0]]na}</DisplayString>
+    <DisplayString Condition="xltype == 0x1002">xltypeStr*[{val.str[0],u}] = {val.str+1,[val.str[0]]na}</DisplayString>
+    <DisplayString Condition="xltype == 0x4">xltypeBool = {val.xbool,na}</DisplayString>
+    <!--<DisplayString Condition="xltype == 0x8">{*(val.mref.lpmref)}</DisplayString>-->
+    <DisplayString Condition="xltype == 0x10">xltypeErr = {val.err,na}</DisplayString>
+    <DisplayString Condition="xltype == 0x40">xltypeMulti rows = {val.array.rows} columns = {val.array.columns}</DisplayString>
+    <DisplayString Condition="xltype == 0x1040">xltypeMulti* rows = {val.array.rows} columns = {val.array.columns}</DisplayString>
+    <DisplayString Condition="xltype == 0x80">xltypeMissing</DisplayString>
+    <DisplayString Condition="xltype == 0x100">xltypeNil</DisplayString>
+    <DisplayString Condition="xltype == 0x400">xltypeSRef {val.sref.ref}</DisplayString>
+    <DisplayString Condition="xltype == 0x800">xltypeInt = {val.w,na}</DisplayString>
+    <DisplayString Condition="xltype > 0x800">xltype = {xltype}</DisplayString>
+    <Expand>
+      <Item Name="[size]">val.array.rows*val.array.columns</Item>
+      <ArrayItems>
+        <Size>val.array.rows*val.array.columns</Size>
+        <ValuePointer>val.array.lparray</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+</AutoVisualizer>

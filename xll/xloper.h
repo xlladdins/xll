@@ -1,6 +1,8 @@
 // xloper.h - XLOPER related code
 #pragma once
+#include <concepts>
 #include <cstring>
+#include <type_traits>
 #include <Windows.h>
 #include "XLCALL.H"
 
@@ -9,6 +11,11 @@ namespace xll {
 #pragma warning(push)
 #pragma warning(disable: 4996)
 
+	template<typename X>
+	concept XLOPERX = requires {
+		std::is_same_v<X, XLOPER> || std::is_same_v<X, XLOPER12>
+	};
+		
 	// XLOPER/XLOPER12 traits
 	template<class X>
 	struct traits {
@@ -80,6 +87,5 @@ namespace xll {
 		= { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 	inline const XLOPER12 ErrNA12
 		= { .val = { .err = xlerrNA }, .xltype = xltypeErr };
-
 
 }

@@ -1,5 +1,6 @@
 // oper.h - Wrapper for XLOPER
 #pragma once
+#include <concepts>
 #include <utility>
 #include "xloper.h"
 
@@ -7,7 +8,14 @@
 
 namespace xll {
 
-	template<class X>
+	/// <summary>
+	///  Wrapper for XLOPER/XLOPER12 structs.
+	/// </summary>
+	/// <typeparam name="X">
+	/// Either XLOPER or XLOPER12 
+	/// </typeparam>
+	template<class X>  
+	requires std::is_same_v<X,XLOPER> || std::is_same_v<X,XLOPER12>
 	class OPERX : public X {
 	public:
 		using X::xltype;

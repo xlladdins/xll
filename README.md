@@ -53,7 +53,7 @@ an `AddIn` object that has information Excel requires.
 ```C++
 #include <cmath>
 AddIn xai_tgamma(
-	Function(XLL_DOUBLE, :"xll_tgamma", "TGAMMA")
+	Function(XLL_DOUBLE, L"xll_tgamma", L"TGAMMA")
 	.Args({
 		Arg(XLL_DOUBLE, L"x", L"is the value for which you want to calculate Gamma.")
 	})
@@ -75,12 +75,14 @@ the built-in Excel functon [`GAMMA`](https://support.microsoft.com/en-us/office/
 
 The function `xll_gamma` calls the `tgamma` function` declared in 
 the `<cmath>` library. All functions called from Excel must be declared
-with [`WINAPI`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall?view=vs-2019).
+with [WINAPI](https://docs.microsoft.com/en-us/cpp/cpp/stdcall?view=vs-2019).
 The macro `XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel.
 
 Recall the Gamma function is 
-<math>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> t<sup>x - 1</sup>
-e<sup>-t</sup>&nbsp;dt</math>. It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
-for <math>x &ge; 0</math>. <math>x!</math>
+<math>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
+t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</math>. 
+It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
+for <math>x &ge; 0</math>. Since <math>&Gamma;(1) = 1</math> we have
+<math>&Gamma(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.

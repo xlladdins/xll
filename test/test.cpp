@@ -1,3 +1,4 @@
+#include <cmath>
 #include "../xll/xll.h"
 
 double WINAPI xll_tgamma(double x)
