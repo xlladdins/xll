@@ -19,7 +19,7 @@ namespace xll {
 		ShortcutText, // single character for Ctrl-Shift-char shortcut
 		HelpTopic,    // filepath!HelpContextID or http://host/path!0
 		FunctionHelp, // for function wizard
-		ArgumentHelp1 // ... 2, 3 1-based index
+		ArgumentHelp  // 1-based index...
 	};
 
 	using xcstr = const wchar_t*;

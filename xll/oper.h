@@ -11,23 +11,22 @@ namespace xll {
 	/// <summary>
 	///  Wrapper for XLOPER/XLOPER12 structs.
 	/// </summary>
-	/// <typeparam name="X">
+	/// <typeparam name="XLOPERX">
 	/// Either XLOPER or XLOPER12 
 	/// </typeparam>
 	template<class X>  
-	requires std::is_same_v<X,XLOPER> || std::is_same_v<X,XLOPER12>
-	class OPERX : public X {
+	class XOPER : public X {
 	public:
 		using X::xltype;
 		using X::val;
 		typedef typename traits<X>::xchar xchar;
 		typedef typename traits<X>::xint xint;
 
-		OPERX()
+		XOPER()
 		{
 			xltype = xltypeMissing;
 		}
-		OPERX(const OPERX& o)
+		XOPER(const XOPER& o)
 		{
 			if (o.xltype == xltypeStr) {
 				alloc_str(o.val.str + 1, o.val.str[0]);
@@ -38,16 +37,16 @@ namespace xll {
 				val = o.val;
 			}
 		}
-		OPERX(OPERX&& o) noexcept
+		XOPER(XOPER&& o) noexcept
 		{
 			xltype = o.xltype;
 			val = o.val;
 			o.xltype = xltypeMissing;
 		}
-		OPERX& operator=(const OPERX& o)
+		XOPER& operator=(const XOPER& o)
 		{
 			if (this != &o) {
-				this->~OPERX();
+				this->~XOPER();
 				if (o.xltype == xltypeStr) {
 					alloc_str(o.val.str + 1, o.val.str[0]);
 				}
@@ -60,7 +59,7 @@ namespace xll {
 
 			return *this;
 		}
-		OPERX& operator=(OPERX&& o) noexcept
+		XOPER& operator=(XOPER&& o) noexcept
 		{
 			if (this != &o) {
 				xltype = o.xltype;
@@ -70,7 +69,7 @@ namespace xll {
 
 			return *this;
 		}
-		~OPERX()
+		~XOPER()
 		{
 			if (xltype == xltypeStr) {
 				free_str();
@@ -79,33 +78,33 @@ namespace xll {
 		}
 		
 		template<class T>
-		OPERX& operator=(const T& t)
+		XOPER& operator=(const T& t)
 		{
-			operator=(OPERX(t));
+			operator=(XOPER(t));
 
 			return *this;
 		}
 		
 		// floating point number
-		explicit OPERX(double num)
+		explicit XOPER(double num)
 		{
 			xltype = xltypeNum;
 			val.num = num;
 		}
 
 		// Counted character string
-		explicit OPERX(const xchar* str)
+		explicit XOPER(const xchar* str)
 		{
 			alloc_str(str, 0);
 		}		
 		// Construct from string literal
 		template<size_t N>
-		OPERX(const xchar (&str)[N])
+		XOPER(const xchar (&str)[N])
 		{
 			alloc_str(&str[0], N);
 		}
 
-		explicit OPERX(bool xbool)
+		explicit XOPER(bool xbool)
 		{
 			xltype = xltypeBool;
 			val.xbool = xbool;
@@ -115,12 +114,18 @@ namespace xll {
 		// xltypeErr
 		// xltypeFlow
 		// xltypeMulti
+		/*
+		OPER(xrw rw, xcol col)
+		{
+
+		}
+		*/
 		// xltypeMissing
 		// xltypeNil
 		// xltypeSRef
 
 		// Excel usually converts this to num.
-		explicit OPERX(int w)
+		explicit XOPER(int w)
 		{
 			xltype = xltypeInt;
 			val.w = static_cast<xint>(w);
@@ -135,6 +140,7 @@ namespace xll {
 			}
 			xltype = xltypeStr;
 			val.str = (xchar*)malloc((n + 1) * sizeof(xchar));
+			// ensure val.str!!!
 			val.str[0] = static_cast<xchar>(n);
 			traits<X>::cpy(val.str + 1, str, n);
 		}
@@ -146,7 +152,7 @@ namespace xll {
 	};
 
 
-	using OPER = OPERX<XLOPER>;
-	using OPER12 = OPERX<XLOPER12>;
-
+	using OPER = XOPER<XLOPER>;
+	using OPER12 = XOPER<XLOPER12>;
+	//using OPERX = XOPER<XLOPERX>;
 }

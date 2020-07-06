@@ -7,6 +7,11 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoOpen(void)
 {
+	/*
+	for (const auto& [key, args] : xll::AddIns::Map) {
+		args.Register();
+	}
+	*/
     return TRUE;
 }
 

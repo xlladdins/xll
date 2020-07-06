@@ -9,47 +9,19 @@
 namespace xll {
 
 	/// Manage the lifecycle of an Excel add-in.
-	class AddIn {
+    template<class X>
+	class XAddIn {
     public:
-        static inline std::map<OPER, Args> KeyArgsMap;
-        static inline std::map<double, OPER> RegIdKeyMap;
+        static inline std::map<XOPER<X>, Arg<X>> Map;
 
-        /// Register and Unregister an add-in when Excel calls xlAutoOpen and xlAutoClose.
-        AddIn(const Args& args)
+        XAddIn(const Arg<X>& arg)
         {
-            for (const OPER& key : args.Key()) {
-                Auto<Open> ao([=]() {
-                    try {
-                        OPER oReg = args.Register();
-                        RegIdKeyMap.insert(std::pair{ oReg.val.num, key });
-                        KeyArgsMap.insert(std::pair{ key, args });
-
-                        return TRUE;
-                    }
-                    catch (const std::exception& ex) {
-                        MessageBoxA(GetForegroundWindow(), ex.what(), "AddIn Auto<Open> failed", MB_OK | MB_ICONERROR);
-
-                        return FALSE;
-                    }
-                });
-                
-                Auto<Close> ac([=]() {
-                    try {
-                        args.Unregister();
-                    }
-                    catch (const std::exception& ex) {
-                        MessageBoxA(GetForegroundWindow(), ex.what(), "AddIn Auto<Close> failed", MB_OK | MB_ICONERROR);
-
-                        return FALSE;
-                    }
-
-                    return TRUE;
-                });
-            }
+            //Map[arg[ARG::FunctionText]] = arg;
         }
     };
-	using AddIn12 = AddIn;
-	using AddInX = AddIn;
+	using AddIn12 = XAddIn<XLOPER12>;
+	using AddIn = XAddIn<XLOPER>;
+    //using AddInX = XAddIn<XLOPERX>;
 } // xll namespace
 
 

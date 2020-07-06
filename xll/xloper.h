@@ -1,53 +1,11 @@
 // xloper.h - XLOPER related code
 #pragma once
-#include <concepts>
-#include <cstring>
-#include <type_traits>
-#include <Windows.h>
-#include "XLCALL.H"
+#include "traits.h"
 
 namespace xll {
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
-
-	template<typename X>
-	concept XLOPERX = requires {
-		std::is_same_v<X, XLOPER> || std::is_same_v<X, XLOPER12>
-	};
-		
-	// XLOPER/XLOPER12 traits
-	template<class X>
-	struct traits {
-	};
-	template<>
-	struct traits<XLOPER> {
-		typedef CHAR xchar;
-		typedef short int xint;
-		static size_t len(const xchar* s)
-		{
-			return strlen(s);
-		}
-		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
-		{
-			return strncpy(dest, src, n);
-		}
-	};
-	template<>
-	struct traits<XLOPER12> {
-		typedef XCHAR xchar;
-		typedef int xint;
-		static size_t len(const xchar* s)
-		{
-			return wcslen(s);
-		}
-		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
-		{
-			return wcsncpy(dest, src, n);
-		}
-	};
-
-#pragma warning(pop)
 
 	// predefined XLOPERs
 	inline const XLOPER Missing
