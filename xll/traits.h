@@ -34,6 +34,10 @@ namespace xll {
 		{
 			return strncpy(dest, src, n);
 		}
+		static int cmp(const xchar* dest, const xchar* src, size_t n)
+		{
+			return strncmp(dest, src, n);
+		}
 	};
 	template<>
 	struct traits<XLOPER12> {
@@ -51,6 +55,10 @@ namespace xll {
 		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
 		{
 			return wcsncpy(dest, src, n);
+		}
+		static int cmp(const xchar* dest, const xchar* src, size_t n)
+		{
+			return wcsncmp(dest, src, n);
 		}
 	};
 

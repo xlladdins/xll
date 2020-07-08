@@ -99,6 +99,26 @@ namespace xll {
 
 			return *this;
 		}
+
+		auto operator<=>(const XOPER& o)
+		{
+			if (xltype != o.xltype) {
+				return xltype - o.xltype;
+			}
+			if (xltype == xltypeErr) {
+				return false;
+			}
+			if (xltype == xltypeStr) {
+				if (val.str[0] != o.val.str[0]) {
+					return val.str[0] - o.val.str[0];
+				}
+				else {
+					return traits<X>::cmp(val.str[0] + 1, o.val.str[0] + 1, val.str[0]);
+				}
+			}
+			// if (xltype == xltypeMulti) ...
+			return val - o.val;
+		}
 		
 		// floating point number
 		explicit XOPER(double num)
@@ -117,6 +137,12 @@ namespace xll {
 		XOPER(const xchar (&str)[N])
 		{
 			alloc_str(&str[0], N);
+		}
+		XOPER& operator&=(const xchar* str)
+		{
+			append(str, 0);
+
+			return *this;
 		}
 
 		explicit XOPER(bool xbool)
@@ -156,8 +182,19 @@ namespace xll {
 			xltype = xltypeStr;
 			val.str = (xchar*)malloc((n + 1) * sizeof(xchar));
 			// ensure (val.str);
-			val.str[0] = static_cast<xchar>(n);
 			traits<X>::cpy(val.str + 1, str, n);
+			val.str[0] = static_cast<xchar>(n);
+		}
+		void append(const xchar* str, size_t n)
+		{
+			ensure(xltype == xltypeStr);
+			if (n == 0) {
+				n = traits<X>::len(str);
+			}
+			val.str = (xchar*)realloc(val.str, (val.str[0] + n + 1) * sizeof(xchar));
+			// ensure (val.str);
+			traits<X>::cpy(val.str + val.str[0] + 1, str, n);
+			val.str[0] = static_cast<xchar>(val.str[0] + n);
 		}
 		void free_str()
 		{
@@ -168,5 +205,5 @@ namespace xll {
 
 	using OPER = XOPER<XLOPER>;
 	using OPER12 = XOPER<XLOPER12>;
-	//using OPERX = XOPER<XLOPERX>;
+	using OPERX = XOPER<XLOPERX>;
 }
