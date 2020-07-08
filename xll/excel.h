@@ -1,4 +1,4 @@
-// excel.h - Wrapper functions for Excel* functions.
+// excel.h - Wrapper functions for Excel
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 #include "oper.h"

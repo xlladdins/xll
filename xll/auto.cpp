@@ -20,6 +20,11 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoClose(void)
 {
+	/*
+	for (const auto& [key, args] : xll::AddIns::Map) {
+		args.UnRegister();
+	}
+	*/
 	return TRUE;
 }
 
@@ -80,17 +85,6 @@ xlAutoRegister12(LPXLOPER12 pxName)
 }
 */
 
-static const XLOPER12 xErrValue = XLOPER12{ .val = { .err = xlerrValue }, .xltype = xltypeErr };
-
-LPXLOPER12 GetName()
-{
-	static XLOPER12 xName;
-
-	Excel12(xlGetName, &xName, 0);
-
-	return &xName; // needs to be xlFree'd
-}
-
 // Called by Microsoft Excel when the Add-in Manager is invoked for the first time.
 // This function is used to provide the Add-In Manager with information about your add-in.
 LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
@@ -107,7 +101,7 @@ LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
 		o.val.str = (XCHAR*)L"\06Add-In"; // use xlGetName!!!
 	}
 	else {
-		o = xErrValue;
+		o = xll::ErrValue12;
 	}
 
 	return &o;

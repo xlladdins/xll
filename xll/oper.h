@@ -76,6 +76,21 @@ namespace xll {
 			}
 			// else if (xltype == xltypeMulti) { }
 		}
+		XOPER(const X& x)
+		{
+			if (x.xltype == xltypeStr) {
+				alloc_str(x.val.str + 1, x.val.str[0]);
+			}
+			// else if (x.xltype == xltypeMulti) ...
+			else {
+				xltype = x.xltype;
+				val = x.val;
+			}
+		}
+		XOPER& operator=(const X& x)
+		{
+			return operator=(XOPER(x));
+		}
 		
 		template<class T>
 		XOPER& operator=(const T& t)
@@ -140,7 +155,7 @@ namespace xll {
 			}
 			xltype = xltypeStr;
 			val.str = (xchar*)malloc((n + 1) * sizeof(xchar));
-			// ensure val.str!!!
+			// ensure (val.str);
 			val.str[0] = static_cast<xchar>(n);
 			traits<X>::cpy(val.str + 1, str, n);
 		}
@@ -150,7 +165,6 @@ namespace xll {
 			free(val.str);
 		}
 	};
-
 
 	using OPER = XOPER<XLOPER>;
 	using OPER12 = XOPER<XLOPER12>;

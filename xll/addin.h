@@ -4,7 +4,7 @@
 #include <cwctype>
 #include <map>
 #include "auto.h"
-#include "args.h"
+#include "arg.h"
 
 namespace xll {
 
@@ -12,16 +12,18 @@ namespace xll {
     template<class X>
 	class XAddIn {
     public:
-        static inline std::map<XOPER<X>, Arg<X>> Map;
+        static inline std::map<XOPER<X>, XArg<X>> Map;
 
-        XAddIn(const Arg<X>& arg)
+        XAddIn(const XArg<X>& arg)
         {
             //Map[arg[ARG::FunctionText]] = arg;
         }
     };
+
 	using AddIn12 = XAddIn<XLOPER12>;
 	using AddIn = XAddIn<XLOPER>;
-    //using AddInX = XAddIn<XLOPERX>;
+    using AddInX = XAddIn<XLOPERX>;
+
 } // xll namespace
 
 

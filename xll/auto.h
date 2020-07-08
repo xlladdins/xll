@@ -1,6 +1,7 @@
 // auto.h - export xlAutoXXX functions
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+#if 0
 #include <algorithm>
 #include <functional>
 #include <vector>
@@ -58,3 +59,4 @@ namespace xll {
 		}
 	};
 } // namespace xll
+#endif // 0

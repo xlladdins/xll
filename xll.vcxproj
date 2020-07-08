@@ -21,11 +21,12 @@
   <ItemGroup>
     <ClInclude Include="xll\addin.h" />
     <ClInclude Include="xll\arg.h" />
-    <ClInclude Include="xll\args.h" />
     <ClInclude Include="xll\defines.h" />
+    <ClInclude Include="xll\excel.h" />
     <ClInclude Include="xll\exports.h" />
     <ClInclude Include="xll\oper.h" />
     <ClInclude Include="xll\traits.h" />
+    <ClInclude Include="xll\XLCALL.H" />
     <ClInclude Include="xll\xll.h" />
     <ClInclude Include="xll\xloper.h" />
   </ItemGroup>
