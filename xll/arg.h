@@ -94,7 +94,7 @@ namespace xll {
 
 		int Register()
 		{
-			int count = 10 + argumentHelp.size();
+			size_t count = 10 + argumentHelp.size();
 			const X* oper[255];
 
 			if (moduleText.xltype == xltypeNil) {
@@ -119,7 +119,7 @@ namespace xll {
 			}
 
 			X x;
-			int ret = traits<X>::Excelv(xlfRegister, &x, count, const_cast<X**>(&oper[0]));
+			int ret = traits<X>::Excelv(xlfRegister, &x, static_cast<int>(count), const_cast<X**>(&oper[0]));
 		
 			return ret;
 		}
