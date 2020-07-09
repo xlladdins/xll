@@ -12,11 +12,11 @@ namespace xll {
     template<class X>
 	class XAddIn {
     public:
-        static inline std::map<XOPER<X>, XArg<X>> Map;
+        static inline std::map<XOPER<X>, XArgs<X>> Map;
 
-        XAddIn(const XArg<X>& arg)
+        XAddIn(const XArgs<X>& args)
         {
-            Map[arg.FunctionText()] = arg;
+            Map[args.FunctionText()] = args;
         }
     };
 

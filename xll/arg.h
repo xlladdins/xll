@@ -7,7 +7,22 @@
 namespace xll {
 
 	template<class X>
-	class XArg {
+	struct XArg {
+		using xcstr = typename traits<X>::xcstr;
+
+		xcstr type;
+		xcstr name;
+		xcstr help;
+		//xcstr init;
+	};
+	using Arg = XArg<XLOPER>;
+	using Arg12 = XArg<XLOPER12>;
+	using ArgX = XArg<XLOPERX>;
+
+
+	template<class X>
+	class XArgs {
+		using xchar = typename traits<X>::xchar;
 		using xcstr = typename traits<X>::xcstr;
 
 		XOPER<X> moduleText;   // from xlGetName
@@ -23,14 +38,14 @@ namespace xll {
 		std::vector<XOPER<X>> argumentHelp;
 
 	public:
-		XArg()
+		XArgs()
 		{ }
-		XArg(xcstr type, xcstr procedure, xcstr functionText)
+		XArgs(xcstr type, xcstr procedure, xcstr functionText)
 			: typeText(type), procedure(procedure), functionText(functionText)
 		{
 			macroType = 1; // Function
 		}
-		XArg(xcstr procedure, xcstr functionText)
+		XArgs(xcstr procedure, xcstr functionText)
 			: procedure(procedure), functionText(functionText)
 		{
 			macroType = 2; // Macro
@@ -42,37 +57,30 @@ namespace xll {
 			return functionText;
 		}
 
-		struct Arg {
-			xcstr type;
-			xcstr name;
-			xcstr help;
-			//xcstr init;
-		};
-
-		XArg& Args(std::initializer_list<Arg> arg)
+		XArgs& Args(std::initializer_list<XArg<X>> args)
 		{
-			static xcstr comma{2, ',', ' ' };
+			static xchar comma[3] = {2, ',', ' ' };
 			static X xComma = { .val = { .str = comma }, .xltype = xltypeStr };
 			
-			for (int i = 0; i < arg.size(); ++i) {
-				typeText &= arg[i].type;
-				if (i > 0) {
+			for (const auto& arg : args) {
+				typeText &= arg.type;
+				if (argumentHelp.size() != 0) {
 					argumentText &= xComma;
 				}
-				argumentText &= arg[i].name;
-				argumentHelp[i] = arg[i].help;
+				argumentText &= arg.name;
+				argumentHelp.push_back(XOPER<X>(arg.help));
 			}
 			
 			return *this;
 		}
 		
-		XArg& Category(xcstr category)
+		XArgs& Category(xcstr category)
 		{
 			this->ategory = category;
 
 			return *this;
 		}
-		XArg& FunctionHelp(xcstr functionHelp)
+		XArgs& FunctionHelp(xcstr functionHelp)
 		{
 			this->unctionHelp = functionHelp;
 
@@ -112,11 +120,11 @@ namespace xll {
 		}
 	};
 
-	using Function = XArg<XLOPER>;
-	using Function12 = XArg<XLOPER12>;
-	using FunctionX = XArg<XLOPERX>;
+	using Function = XArgs<XLOPER>;
+	using Function12 = XArgs<XLOPER12>;
+	using FunctionX = XArgs<XLOPERX>;
 
-	using Macro = XArg<XLOPER>;
-	using Macro12 = XArg<XLOPER12>;
-	using MacroX = XArg<XLOPERX>;
+	using Macro = XArgs<XLOPER>;
+	using Macro12 = XArgs<XLOPER12>;
+	using MacroX = XArgs<XLOPERX>;
 }

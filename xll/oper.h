@@ -14,6 +14,9 @@ namespace xll {
 	/// <typeparam name="XLOPERX">
 	/// Either XLOPER or XLOPER12 
 	/// </typeparam>
+	/// An OPER corresponds to a cell or a 2-dimensional range of cells.
+	/// It is a variant type that can be either a number, string,
+	/// error, range, integer, or boolean. 
 	template<class X>  
 	class XOPER : public X {
 	public:
@@ -166,9 +169,9 @@ namespace xll {
 		// Like the Excel ampersand operator
 		XOPER& operator&=(const XOPER& str)
 		{
-			ensure(str.xltype == xltypeStr);
+			//ensure(str.xltype == xltypeStr);
 
-			append(str.val.str + 1, str.val[0]);
+			append(str.val.str + 1, str.val.str[0]);
 
 			return *this;
 		}
@@ -221,14 +224,19 @@ namespace xll {
 		}
 		void append(const xchar* str, size_t n)
 		{
-			ensure(xltype == xltypeStr);
+			//ensure(xltype == xltypeStr);
 			if (n == 0) {
 				n = traits<X>::len(str);
 			}
-			val.str = (xchar*)realloc(val.str, (val.str[0] + n + 1) * sizeof(xchar));
-			// ensure (val.str);
-			traits<X>::cpy(val.str + val.str[0] + 1, str, n);
-			val.str[0] = static_cast<xchar>(val.str[0] + n);
+			if (xltype == xltypeNil) {
+				alloc_str(str, n);
+			}
+			else {
+				val.str = (xchar*)realloc(val.str, (val.str[0] + n + 1) * sizeof(xchar));
+				// ensure (val.str);
+				traits<X>::cpy(val.str + val.str[0] + 1, str, n);
+				val.str[0] = static_cast<xchar>(val.str[0] + n);
+			}
 		}
 		void free_str()
 		{
