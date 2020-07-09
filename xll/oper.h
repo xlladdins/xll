@@ -100,26 +100,51 @@ namespace xll {
 			return *this;
 		}
 
-		auto operator<=>(const XOPER& o)
+		bool operator==(const XOPER& o) const
 		{
 			if (xltype != o.xltype) {
-				return xltype - o.xltype;
-			}
-			if (xltype == xltypeErr) {
 				return false;
 			}
-			if (xltype == xltypeStr) {
-				if (val.str[0] != o.val.str[0]) {
-					return val.str[0] - o.val.str[0];
-				}
-				else {
-					return traits<X>::cmp(val.str[0] + 1, o.val.str[0] + 1, val.str[0]);
-				}
+
+			switch (xltype) {
+			case xltypeNum:
+				return val.num == o.val.num;
+			case xltypeStr:
+				return val.str[0] != o.val.str[0]
+					? false
+				    : 0 == traits<X>::cmp(val.str + 1, o.val.str + 1, val.str[0]);
+			//case xltypeMulti:
+			case xltypeInt:
+				return val.w == o.val.w;
+			case xltypeBool:
+				return val.xbool == o.val.xbool;
+			default:
+				return false;
 			}
-			// if (xltype == xltypeMulti) ...
-			return val - o.val;
 		}
-		
+		bool operator<(const XOPER& o) const
+		{
+			if (xltype != o.xltype) {
+				return false;
+			}
+
+			switch (xltype) {
+			case xltypeNum:
+				return val.num < o.val.num;
+			case xltypeStr:
+				return val.str[0] != o.val.str[0]
+					? val.str[0] < o.val.str[0]
+					: traits<X>::cmp(val.str + 1, o.val.str + 1, val.str[0]) < 0;
+				//case xltypeMulti:
+			case xltypeInt:
+				return val.w < o.val.w;
+			case xltypeBool:
+				return val.xbool < o.val.xbool;
+			default:
+				return false;
+			}
+		}
+
 		// floating point number
 		explicit XOPER(double num)
 		{
@@ -137,6 +162,15 @@ namespace xll {
 		XOPER(const xchar (&str)[N])
 		{
 			alloc_str(&str[0], N);
+		}
+		// Like the Excel ampersand operator
+		XOPER& operator&=(const XOPER& str)
+		{
+			ensure(str.xltype == xltypeStr);
+
+			append(str.val.str + 1, str.val[0]);
+
+			return *this;
 		}
 		XOPER& operator&=(const xchar* str)
 		{

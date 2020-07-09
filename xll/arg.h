@@ -10,29 +10,34 @@ namespace xll {
 	class XArg {
 		using xcstr = typename traits<X>::xcstr;
 
-		XOPER<X> ModuleText;   // from xlGetName
-		XOPER<X> Procedure;    // C function
-		XOPER<X> TypeText;     // return type and arg codes 
-		XOPER<X> FunctionText; // Excel function
-		XOPER<X> ArgumentText; // Ctrl-Shift-A text
-		XOPER<X> MacroType;    // function; 2 for macro; 0 for hidden
-		XOPER<X> Category;     // for function wizard
-		XOPER<X> ShortcutText; // single character for Ctrl-Shift-char shortcut
-		XOPER<X> HelpTopic;    // filepath!HelpContextID or http://host/path!0
-		XOPER<X> FunctionHelp; // for function wizard
-		std::vector<XOPER<X>> ArgumentHelp;
+		XOPER<X> moduleText;   // from xlGetName
+		XOPER<X> procedure;    // C function
+		XOPER<X> typeText;     // return type and arg codes 
+		XOPER<X> functionText; // Excel function
+		XOPER<X> argumentText; // Ctrl-Shift-A text
+		XOPER<X> macroType;    // function; 2 for macro; 0 for hidden
+		XOPER<X> category;     // for function wizard
+		XOPER<X> shortcutText; // single character for Ctrl-Shift-char shortcut
+		XOPER<X> helpTopic;    // filepath!HelpContextID or http://host/path!0
+		XOPER<X> functionHelp; // for function wizard
+		std::vector<XOPER<X>> argumentHelp;
 
 	public:
 
-		XArg(xcstr Type, xcstr Procedure, xcstr FunctionText)
-			: TypeText(Type), Procedure(Procedure), FunctionText(FunctionText)
+		XArg(xcstr type, xcstr procedure, xcstr functionText)
+			: typeText(type), procedure(procedure), functionText(functionText)
 		{
-			MacroType = 1; // Function
+			macroType = 1; // Function
 		}
-		XArg(xcstr Procedure, xcstr FunctionText)
-			: Procedure(Procedure), FunctionText(FunctionText)
+		XArg(xcstr procedure, xcstr functionText)
+			: procedure(procedure), functionText(functionText)
 		{
-			MacroType = 2; // Macro
+			macroType = 2; // Macro
+		}
+
+		const XOPER<X>& FunctionText() const
+		{
+			return functionText;
 		}
 
 		struct Arg {
@@ -44,56 +49,57 @@ namespace xll {
 
 		XArg& Args(std::initializer_list<Arg> arg)
 		{
-			/*
+			static xcstr comma{2, ',', ' ' };
+			static X xComma = { .val = { .str = comma }, .xltype = xltypeStr };
+			
 			for (int i = 0; i < arg.size(); ++i) {
-				TypeText &= arg[i].type;
+				typeText &= arg[i].type;
 				if (i > 0) {
-					ArgumentText &= ',';
+					argumentText &= xComma;
 				}
-				ArgumentText &= arg[i].name;
-				ArgumentHelp[i] = arg[i].help;
+				argumentText &= arg[i].name;
+				argumentHelp[i] = arg[i].help;
 			}
-			*/
-
+			
 			return *this;
 		}
-		/*
+		
 		XArg& Category(xcstr category)
 		{
-			//Category = category;
+			this->ategory = category;
 
 			return *this;
 		}
 		XArg& FunctionHelp(xcstr functionHelp)
 		{
-			//FunctionHelp = functionHelp;
+			this->unctionHelp = functionHelp;
 
 			return *this;
 		}
-		*/
+		
 		int Register()
 		{
-			int count = 10 + ArgumentHelp.size();
+			int count = 10 + argumentHelp.size();
 			std::vector<traits<X>::type> oper(count);
 
-			if (ModuleText.xltype == xltypeMissing) {
+			if (moduleText.xltype == xltypeMissing) {
 				X x;
 				traits::Excel(xlGetName, &x, 0, nullptr);
-				ModuleText = x;
+				moduleText = x;
 			}
 
-			oper[0] = &ModuleText;
-			oper[1] = &Procedure;    // C function
-			oper[2] = &TypeText;     // return type and arg codes 
-			oper[3] = &FunctionText; // Excel function
-			oper[4] = &ArgumentText; // Ctrl-Shift-A text
-			oper[5] = &MacroType;    // function; 2 for macro; 0 for hidden
-			oper[6] = &Category;     // for function wizard
-			oper[7] = &ShortcutText; // single character for Ctrl-Shift-char shortcut
-			oper[8] = &HelpTopic;    // filepath!HelpContextID or http://host/path!0
-			oper[9] = &FunctionHelp; // for function wizard
-			for (int i = 0; i < ArgumentHelp.size(); ++i) {
-				oper[10 + i] = &ArgumentHelp[i];
+			oper[0] = &moduleText;
+			oper[1] = &procedure;    // C function
+			oper[2] = &typeText;     // return type and arg codes 
+			oper[3] = &functionText; // Excel function
+			oper[4] = &argumentText; // Ctrl-Shift-A text
+			oper[5] = &macroType;    // function; 2 for macro; 0 for hidden
+			oper[6] = &category;     // for function wizard
+			oper[7] = &shortcutText; // single character for Ctrl-Shift-char shortcut
+			oper[8] = &helpTopic;    // filepath!HelpContextID or http://host/path!0
+			oper[9] = &functionHelp; // for function wizard
+			for (size_t i = 0; i < argumentHelp.size(); ++i) {
+				oper[10 + i] = &argumentHelp[i];
 			}
 
 			return traits<X>::Excel(xlfRegister, NULL, count, &oper[0]);
@@ -103,4 +109,8 @@ namespace xll {
 	using Function = XArg<XLOPER>;
 	using Function12 = XArg<XLOPER12>;
 	using FunctionX = XArg<XLOPERX>;
+
+	using Macro = XArg<XLOPER>;
+	using Macro12 = XArg<XLOPER12>;
+	using MacroX = XArg<XLOPERX>;
 }

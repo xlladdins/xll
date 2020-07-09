@@ -14,6 +14,7 @@ int test_oper_adt()
 
 	return 0;
 }
+int test_oper_adt_ = test_oper_adt();
 
 int test_oper_default()
 {
@@ -28,6 +29,7 @@ int test_oper_default()
 
 	return 0;
 }
+int test_oper_default_ = test_oper_default();
 
 int test_oper_num()
 {
@@ -56,6 +58,7 @@ int test_oper_num()
 
 	return 0;
 }
+int test_oper_num_ = test_oper_num();
 
 int test_oper_str()
 {
@@ -117,6 +120,8 @@ int test_oper_str()
 
 	return 0;
 }
+int test_oper_str_ = test_oper_str();
+
 
 int test_oper_bool()
 {
@@ -159,9 +164,27 @@ int test_oper_int()
 
 	return 0;
 }
-
-int test_oper_adt_ = test_oper_adt();
-int test_oper_default_ = test_oper_default();
-int test_oper_num_ = test_oper_num();
-int test_oper_str_ = test_oper_str();
 int test_oper_bool_ = test_oper_bool();
+
+int test_compare()
+{
+	{
+		OPER o1(1.23), o1_(2.34);
+		assert(o1 == o1);
+		assert(o1 < o1_);
+		//assert(o1 != o1_);
+		//assert(o1 <= o1_);
+		//assert(o1_ > o1);
+		//assert(o1_ >= o1);
+	}
+	{
+		OPER s1("abc"), s1_("def");
+		assert(s1 == s1);
+		assert(s1 < s1_);
+		//assert(s1 <= s1_);
+		//assert(!((s1 == s1_) == 0));
+	}
+
+	return 0;
+}
+int test_compare_ = test_compare();
