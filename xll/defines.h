@@ -42,4 +42,4 @@
 #endif
 
 // Used to export undecorated function name from a dll.
-#define XLLEXPORT __pragma(comment(linker, "/export:" __FUNCDNAME__ "=" __FUNCTION__)
+#define XLLEXPORT comment(linker, "/export:" __FUNCDNAME__ "=" __FUNCTION__)

@@ -24,7 +24,7 @@ namespace xll {
 
 		XOPER()
 		{
-			xltype = xltypeMissing;
+			xltype = xltypeNil;
 		}
 		XOPER(const XOPER& o)
 		{

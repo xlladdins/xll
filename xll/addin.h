@@ -16,7 +16,7 @@ namespace xll {
 
         XAddIn(const XArg<X>& arg)
         {
-            //Map[arg[ARG::FunctionText]] = arg;
+            Map[arg.FunctionText()] = arg;
         }
     };
 

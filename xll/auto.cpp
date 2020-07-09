@@ -7,12 +7,11 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoOpen(void)
 {
-	/*
-	for (const auto& [key, args] : xll::AddIns::Map) {
-		args.Register();
+	for (auto& [key, arg] : xll::AddIn12::Map) {
+		arg.Register();
 	}
-	*/
-    return TRUE;
+
+	return TRUE;
 }
 
 // Called by Microsoft Excel whenever the xll is deactivated.

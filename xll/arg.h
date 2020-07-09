@@ -23,7 +23,8 @@ namespace xll {
 		std::vector<XOPER<X>> argumentHelp;
 
 	public:
-
+		XArg()
+		{ }
 		XArg(xcstr type, xcstr procedure, xcstr functionText)
 			: typeText(type), procedure(procedure), functionText(functionText)
 		{
@@ -35,6 +36,7 @@ namespace xll {
 			macroType = 2; // Macro
 		}
 
+		// Used as key in add-in map.
 		const XOPER<X>& FunctionText() const
 		{
 			return functionText;
@@ -80,12 +82,13 @@ namespace xll {
 		int Register()
 		{
 			int count = 10 + argumentHelp.size();
-			std::vector<traits<X>::type> oper(count);
+			const X* oper[255];
 
-			if (moduleText.xltype == xltypeMissing) {
-				X x;
-				traits::Excel(xlGetName, &x, 0, nullptr);
-				moduleText = x;
+			if (moduleText.xltype == xltypeNil) {
+				X x[1];
+				traits<X>::Excelv(xlGetName, &x[0], 0, nullptr);
+				moduleText = x[0];
+				traits<X>::Excelv(xlFree, 0, 1, (X**)&x);
 			}
 
 			oper[0] = &moduleText;
@@ -102,7 +105,10 @@ namespace xll {
 				oper[10 + i] = &argumentHelp[i];
 			}
 
-			return traits<X>::Excel(xlfRegister, NULL, count, &oper[0]);
+			X x;
+			int ret = traits<X>::Excelv(xlfRegister, &x, count, const_cast<X**>(&oper[0]));
+		
+			return ret;
 		}
 	};
 
