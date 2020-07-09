@@ -20,11 +20,11 @@ int test_oper_default()
 {
 	{
 		OPER o;
-		assert(o.xltype == xltypeMissing);
+		assert(o.xltype == xltypeNil);
 	}
 	{
 		OPER12 o;
-		assert(o.xltype == xltypeMissing);
+		assert(o.xltype == xltypeNil);
 	}
 
 	return 0;
@@ -137,7 +137,7 @@ int test_oper_bool()
 	}
 	{
 		OPER o;
-		assert(o.xltype == xltypeMissing);
+		assert(o.xltype == xltypeNil);
 		o = true;
 		assert(o.xltype == xltypeBool);
 		assert(o.val.xbool == TRUE);
