@@ -86,7 +86,12 @@ namespace xll {
 
 			return *this;
 		}
-		
+
+		double RegisterId() const
+		{
+			return 0; // Excel(xlfEvaluate, functionText)
+		}
+
 		int Register()
 		{
 			int count = 10 + argumentHelp.size();
