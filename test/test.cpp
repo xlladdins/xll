@@ -3,7 +3,7 @@
 
 using namespace xll;
 
-AddInX xai_macro(MacroX(L"?xll_macro", L"XLL.MACRO"));
+AddInX xai_macro(MacroX(X_("?xll_macro"), X_("XLL.MACRO")));
 int WINAPI xll_macro(void)
 {
 #pragma XLLEXPORT
@@ -11,9 +11,9 @@ int WINAPI xll_macro(void)
 }
 
 AddInX xai_tgamma(
-	FunctionX(XLL_DOUBLE, L"?xll_tgamma", L"TGAMMA")
+	FunctionX(XLL_DOUBLE, X_("?xll_tgamma"), X_("TGAMMA"))
 	.Args({
-		ArgX({ XLL_DOUBLE, L"x", L"is an arg" })
+		ArgX({ XLL_DOUBLE, X_("x"), X_("is an arg") })
 	})
 );
 double WINAPI xll_tgamma(double x)

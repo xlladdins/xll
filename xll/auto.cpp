@@ -19,11 +19,10 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoClose(void)
 {
-	/*
-	for (const auto& [key, args] : xll::AddIns::Map) {
-		args.UnRegister();
+	for (const auto& [key, args] : xll::AddIn12::Map) {
+		args.Unregister();
 	}
-	*/
+
 	return TRUE;
 }
 

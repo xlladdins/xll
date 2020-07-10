@@ -62,7 +62,7 @@ AddIn xai_tgamma(
 );
 double WINAPI xll_tgamma(double x)
 {
-XLLEXPORT
+#pragma XLLEXPORT
 	return tgamma(x);
 }
 ```
@@ -73,15 +73,15 @@ is also a `double` and is added to the Excel function wizard under the
 `Cmath` category with the specified function help. Compare this to
 the built-in Excel functon [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
-The function `xll_gamma` calls the `tgamma` function` declared in 
+The function `xll_tgamma` calls the `tgamma` function declared in 
 the `<cmath>` library. All functions called from Excel must be declared
 with [`WINAPI`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
-The macro `XLLEXPORT` causes the function to be exported
+The line `#pragma XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel.
 
 Recall the Gamma function is 
 <math><i>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
-t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</i></math>. 
+t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</i></math>, <math>x > 0</math>. 
 It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
 for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
 <math>&Gamma;(x + 1) = x!</math>
