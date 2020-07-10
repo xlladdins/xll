@@ -1,14 +1,12 @@
 // addin.h - convenience wrapper for Excel add-ins
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
-#include <cwctype>
 #include <map>
-#include "auto.h"
-#include "arg.h"
+#include "args.h"
 
 namespace xll {
 
-	/// Manage the lifecycle of an Excel add-in.
+	/// Excel functions and macros.
     template<class X>
 	class XAddIn {
     public:

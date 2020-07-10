@@ -2,7 +2,7 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 
 #pragma once
-#include "traits.h"
+#include "defines.h"
 
 namespace xll {
 

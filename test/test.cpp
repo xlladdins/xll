@@ -11,9 +11,9 @@ int WINAPI xll_macro(void)
 }
 
 AddInX xai_tgamma(
-	FunctionX(XLL_DOUBLE, X_("?xll_tgamma"), X_("TGAMMA"))
+	FunctionX(XLL_DOUBLEX, X_("?xll_tgamma"), X_("TGAMMA"))
 	.Args({
-		ArgX({ XLL_DOUBLE, X_("x"), X_("is an arg") })
+		ArgX({ XLL_DOUBLEX, X_("x"), X_("is an arg") })
 	})
 );
 double WINAPI xll_tgamma(double x)

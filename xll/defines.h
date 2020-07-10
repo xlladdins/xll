@@ -1,7 +1,7 @@
 // defines.h
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
-
 #pragma once
+#include "traits.h"
 
 // Build for Excel 2007 and later by default
 #ifndef XLL_VERSION
@@ -83,6 +83,7 @@ X(VOID,     ">",  "return type to use for asynchronous functions")      \
 #define X(a,b,c) \
 inline const char* XLL_##a##4 = b; \
 inline const wchar_t* XLL_##a##12 = L#b; \
+inline xll::traits<XLOPERX>::xcstr XLL_##a##X = X_(b);
 
 XLL_ARG_TYPE(X)
 #undef X

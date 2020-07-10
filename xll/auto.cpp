@@ -19,6 +19,7 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoClose(void)
 {
+	// call Unregister on moduleText???
 	for (const auto& [key, args] : xll::AddIn12::Map) {
 		args.Unregister();
 	}

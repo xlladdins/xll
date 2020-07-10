@@ -4,7 +4,7 @@
 #pragma once
 #include <Windows.h>
 #include "XLCALL.H"
-#include "defines.h"
+#include "ensure.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4996)

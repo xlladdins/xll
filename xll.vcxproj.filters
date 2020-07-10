@@ -33,9 +33,6 @@
     <ClInclude Include="xll\xloper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="xll\arg.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="xll\traits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -46,6 +43,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="xll\ensure.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xll\args.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
