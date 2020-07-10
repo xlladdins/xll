@@ -1,11 +1,10 @@
 // traits.h - parameterized by XLOPER type
+// Copyright (c) KALX, LLC. All rights reserved. No warranty made.
+
 #pragma once
 #include <Windows.h>
 #include "XLCALL.H"
-
-#ifndef XLOPERX
-#define XLOPERX XLOPER12
-#endif
+#include "defines.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4996)
@@ -15,7 +14,6 @@ namespace xll {
 	// XLOPER/XLOPER12 traits
 	template<class X>
 	struct traits {
-		typedef X type;
 	};
 	template<>
 	struct traits<XLOPER> {
