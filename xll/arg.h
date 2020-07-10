@@ -1,4 +1,6 @@
 // arg.h - Argument for xlfRegister
+// Copyright (c) KALX, LLC. All rights reserved. No warranty made.
+
 #pragma once
 #include <initializer_list>
 #include <vector>
@@ -87,9 +89,13 @@ namespace xll {
 			return *this;
 		}
 
-		double RegisterId() const
+		X RegisterId() const
 		{
-			return 0; // Excel(xlfEvaluate, functionText)
+			X id, text[1];
+			text[0] = functionText;
+			traits<X>::Excelv(xlfEvaluate, &id, 1, (X**)&text);
+
+			return id;
 		}
 
 		int Register()
@@ -99,7 +105,7 @@ namespace xll {
 
 			if (moduleText.xltype == xltypeNil) {
 				X x[1];
-				traits<X>::Excelv(xlGetName, &x[0], 0, nullptr);
+				traits<X>::Excelv(xlGetName, &x[0], 0, NULL);
 				moduleText = x[0];
 				traits<X>::Excelv(xlFree, 0, 1, (X**)&x);
 			}
@@ -123,6 +129,14 @@ namespace xll {
 		
 			return ret;
 		}
+		int Unregister() const
+		{
+			X id[1];
+			id[0] = RegisterId();
+			int ret = traits<X>::Excelv(xlfUnregister, NULL, 1, (X**)&id);
+
+			return ret;
+		}
 	};
 
 	using Function = XArgs<XLOPER>;
@@ -132,4 +146,13 @@ namespace xll {
 	using Macro = XArgs<XLOPER>;
 	using Macro12 = XArgs<XLOPER12>;
 	using MacroX = XArgs<XLOPERX>;
+
+	/*
+	template<typename X>
+	struct Enum : public XArgs<X> {
+		using xcstr = typename traits<X>::xcstr;
+		Enum(xcstr name, xcstr value, xcstr category, xcstr description, xcstr doc = 0)
+			: ???
+	};
+	*/
 }

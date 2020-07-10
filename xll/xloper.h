@@ -1,49 +1,25 @@
 // xloper.h - XLOPER related code
+// Copyright (c) KALX, LLC. All rights reserved. No warranty made.
+
 #pragma once
 #include "traits.h"
 
 namespace xll {
 
-#pragma warning(push)
-#pragma warning(disable: 4996)
 
-	// predefined XLOPERs
-	inline const XLOPER Missing
-		= { .xltype = xltypeMissing };
-	inline const XLOPER12 Missing12
-		= { .xltype = xltypeMissing };
-	inline const XLOPER Nil
-		= { .xltype = xltypeNil };
-	inline const XLOPER12 Nil12
-		= { .xltype = xltypeNil };
+#define X(a, b) \
+	inline const XLOPER a = { .xltype = xltype ## a };         \
+	inline const XLOPER12 a ## 12 = { .xltype = xltype ## a }; \
 
-	inline const XLOPER ErrNull
-		= { .val = { .err = xlerrNull }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrNull12
-		= { .val = { .err = xlerrNull }, .xltype = xltypeErr };
-	inline const XLOPER ErrDiv0
-		= { .val = { .err = xlerrDiv0 }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrDiv012
-		= { .val = { .err = xlerrDiv0 }, .xltype = xltypeErr };
-	inline const XLOPER ErrValue
-		= { .val = { .err = xlerrValue }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrValue12
-		= { .val = { .err = xlerrValue }, .xltype = xltypeErr };
-	inline const XLOPER ErrRef
-		= { .val = { .err = xlerrRef }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrRef12
-		= { .val = { .err = xlerrRef }, .xltype = xltypeErr };
-	inline const XLOPER ErrName
-		= { .val = { .err = xlerrName }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrName12
-		= { .val = { .err = xlerrName }, .xltype = xltypeErr };
-	inline const XLOPER ErrNum
-		= { .val = { .err = xlerrNum }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrNum12
-		= { .val = { .err = xlerrNum }, .xltype = xltypeErr };
-	inline const XLOPER ErrNA
-		= { .val = { .err = xlerrNA }, .xltype = xltypeErr };
-	inline const XLOPER12 ErrNA12
-		= { .val = { .err = xlerrNA }, .xltype = xltypeErr };
+	XLL_NULL_TYPE(X)
+#undef X
+
+#define X(a, b) \
+	inline XLOPER Err##a = { .val = { .err = xlerr##a }, .xltype = xltypeErr };       \
+	inline XLOPER12 Err##a##12 = { .val = { .err = xlerr##a }, .xltype = xltypeErr }; \
+
+	XLL_ERROR_TYPE(X)
+#undef X
 
 }
+

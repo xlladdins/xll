@@ -2,13 +2,6 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 // #define NENSURE before including to turn ensure checking off
 #pragma once
-#ifdef _WIN32
-#define NOMINMAX
-#define VC_EXTRALEAN
-#define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-#endif
-#include <limits>
 #include <stdexcept>
 
 // Define NENSURE to turn off ensure.

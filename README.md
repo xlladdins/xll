@@ -74,7 +74,7 @@ is also a `double` and is added to the Excel function wizard under the
 the built-in Excel functon [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
 The function `xll_tgamma` calls the `tgamma` function declared in 
-the `&lt;cmath&gt;` library. All functions called from Excel must be declared
+the `<cmath>` library. All functions called from Excel must be declared
 with [`WINAPI`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 The line `#pragma XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel.
