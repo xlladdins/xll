@@ -8,14 +8,14 @@ namespace xll {
 	template<typename X, typename... Args>
 	inline XOPER<X> Excel(int xlf, const Args&... args)
 	{
-		X x[1];
+		X x;
 		std::vector<const X*> xargs { &args... };
 
-		int ret = traits<X>::Excelv(xlf, &x[0], sizeof...(args), (X**)xargs.data());
+		int ret = traits<X>::Excelv(xlf, &x, sizeof...(args), (X**)xargs.data());
 		ensure(ret == xlretSuccess);
 
-		XOPER<X> o = x[0];
-		traits<X>::Excelv(xlFree, 0, 1, (X**)&x);
+		XOPER<X> o = x;
+		traits<X>::Excelv(xlFree, NULL, 0, NULL);
 
 		return o;
 	}

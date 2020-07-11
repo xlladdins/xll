@@ -64,7 +64,7 @@ namespace xll {
 		{
 			static xchar comma[3] = {2, ',', ' ' };
 			static X xComma = { .val = { .str = comma }, .xltype = xltypeStr };
-			
+
 			for (const auto& arg : args) {
 				typeText &= arg.type;
 				if (argumentHelp.size() != 0) {
@@ -77,26 +77,23 @@ namespace xll {
 			return *this;
 		}
 		
-		XArgs& Category(xcstr category)
+		XArgs& Category(xcstr _category)
 		{
-			this->ategory = category;
+			category = _category;
 
 			return *this;
 		}
-		XArgs& FunctionHelp(xcstr functionHelp)
+		XArgs& FunctionHelp(xcstr _functionHelp)
 		{
-			this->unctionHelp = functionHelp;
+			functionHelp = _functionHelp;
 
 			return *this;
 		}
 
+		// slice since it is xltypeNum
 		X RegisterId() const
 		{
-			X id, text[1];
-			text[0] = functionText;
-			traits<X>::Excelv(xlfEvaluate, &id, 1, (X**)&text);
-
-			return id;
+			return Excel<X>(xlfEvaluate, functionText);
 		}
 
 		int Register()
@@ -123,7 +120,12 @@ namespace xll {
 			}
 
 			int ret = traits<X>::Excelv(xlfRegister, &registerId, static_cast<int>(count), const_cast<X**>(&oper[0]));
-		
+			if (registerId.xltype != xltypeNum) {
+				Excel<X>(xlcAlert, functionText, XOPER<X>(3)); // error
+
+				return xlretFailed;
+			}
+
 			return ret;
 		}
 		XOPER<X> Unregister() const

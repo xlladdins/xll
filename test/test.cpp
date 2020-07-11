@@ -13,8 +13,10 @@ int WINAPI xll_macro(void)
 AddInX xai_tgamma(
 	FunctionX(XLL_DOUBLEX, X_("?xll_tgamma"), X_("TGAMMA"))
 	.Args({
-		ArgX({ XLL_DOUBLEX, X_("x"), X_("is an arg") })
-	})
+		ArgX({ XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma.") })
+		})
+	.FunctionHelp(X_("Return the Gamma function value."))
+	.Category(X_("Cmath"))
 );
 double WINAPI xll_tgamma(double x)
 {

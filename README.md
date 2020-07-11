@@ -52,13 +52,13 @@ an `AddIn` object that has information Excel requires.
 
 ```C++
 #include <cmath>
-AddIn xai_tgamma(
-	Function(XLL_DOUBLE, L"xll_tgamma", L"TGAMMA")
+AddInX xai_tgamma(
+	FunctionX(XLL_DOUBLE, X_("xll_tgamma"), X_("TGAMMA"))
 	.Args({
-		Arg(XLL_DOUBLE, L"x", L"is the value for which you want to calculate Gamma.")
+		ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
 	})
-	.FunctionHelp(L"Return the Gamma function value.")
-	.Category(L"Cmath")
+	.FunctionHelp(X_("Return the Gamma function value."))
+	.Category(X_("Cmath"))
 );
 double WINAPI xll_tgamma(double x)
 {
