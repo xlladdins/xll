@@ -4,20 +4,15 @@
 #include "traits.h"
 
 // Build for Excel 2007 and later by default
-#ifndef XLL_VERSION
+#ifndef XLOPERX
 #define XLL_VERSION 12
+#define XLOPERX XLOPER12
 #else
 #define XLL_VERSION 4
-#endif
-
-#if XLL_VERSION == 4
 #define XLOPERX XLOPER
-#else
-static_assert(XLL_VERSION == 12);
-#define XLOPERX XLOPER12
 #endif
 
-// ASCII or wide character strings
+// ASCII vs wide character strings
 #if XLL_VERSION == 4
 #define X_(t) t
 #define TX_(t) #t

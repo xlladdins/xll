@@ -221,8 +221,10 @@ namespace xll {
 			xltype = xltypeStr;
 			val.str = (xchar*)malloc((n + 1) * sizeof(xchar));
 			// ensure (val.str);
-			traits<X>::cpy(val.str + 1, str, n);
-			val.str[0] = static_cast<xchar>(n);
+			if (val.str != nullptr) {
+				traits<X>::cpy(val.str + 1, str, n);
+				val.str[0] = static_cast<xchar>(n);
+			}
 		}
 		void append(const xchar* str, size_t n)
 		{
@@ -236,8 +238,10 @@ namespace xll {
 			else {
 				val.str = (xchar*)realloc(val.str, (val.str[0] + n + 1) * sizeof(xchar));
 				// ensure (val.str);
-				traits<X>::cpy(val.str + val.str[0] + 1, str, n);
-				val.str[0] = static_cast<xchar>(val.str[0] + n);
+				if (val.str != nullptr) {
+					traits<X>::cpy(val.str + val.str[0] + 1, str, n);
+					val.str[0] = static_cast<xchar>(val.str[0] + n);
+				}
 			}
 		}
 		void free_str()

@@ -1,4 +1,5 @@
 #include <cmath>
+//#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
