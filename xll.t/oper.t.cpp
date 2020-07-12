@@ -10,6 +10,41 @@ int test_oper_adt()
 		OPER o("abc");
 		OPER o2(o);
 		o = o2;
+		assert(o.xltype == xltypeStr);
+		assert(o.val.str[0] == 3);
+		assert(o.val.str[3] == 'c');
+	}
+	{
+		const char* abc = "abc";
+		OPER o(abc);
+		assert(o.xltype == xltypeStr);
+		assert(o.val.str[0] == 3);
+		assert(o.val.str[3] == 'c');
+		const char* de = "de";
+		o = de;
+		assert(o.xltype == xltypeStr);
+		assert(o.val.str[0] == 2);
+		assert(o.val.str[2] == 'e');
+	}
+	{
+		OPER12 o(L"abc");
+		OPER12 o2(o);
+		o = o2;
+		assert(o.xltype == xltypeStr);
+		assert(o.val.str[0] == 3);
+		assert(o.val.str[3] == 'c');
+	}
+	{
+		const wchar_t* abc = L"abc";
+		OPER12 o(abc);
+		assert(o.xltype == xltypeStr);
+		assert(o.val.str[0] == 3);
+		assert(o.val.str[3] == 'c');
+		const wchar_t* de = L"de";
+		o = de;
+		assert(o.xltype == xltypeStr);
+		assert(o.val.str[0] == 2);
+		assert(o.val.str[2] == 'e');
 	}
 
 	return 0;
@@ -169,20 +204,31 @@ int test_oper_bool_ = test_oper_bool();
 int test_compare()
 {
 	{
+		OPER o1(1.23);
+		XLOPER o1_ = { .val = { .num = 2.34 }, .xltype = xltypeNum };
+		assert(o1 == o1);
+		assert(o1_ == o1_);
+		assert(o1 < o1_);
+		assert(o1 <= o1_);
+		assert(o1_ > o1);
+		assert(o1_ >= o1);
+	}
+	{
 		OPER o1(1.23), o1_(2.34);
 		assert(o1 == o1);
 		assert(o1 < o1_);
 		//assert(o1 != o1_);
-		//assert(o1 <= o1_);
-		//assert(o1_ > o1);
-		//assert(o1_ >= o1);
+		assert(o1 <= o1_);
+		assert(o1_ > o1);
+		assert(o1_ >= o1);
 	}
 	{
 		OPER s1("abc"), s1_("def");
+		assert(xloper_cmp(s1, s1_) < 0);
 		assert(s1 == s1);
 		assert(s1 < s1_);
-		//assert(s1 <= s1_);
-		//assert(!((s1 == s1_) == 0));
+		assert(s1 <= s1_);
+		assert(!(s1 == s1_));
 	}
 
 	return 0;
