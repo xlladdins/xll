@@ -5,8 +5,8 @@ It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 
 It also provides high performance access to numeric arrays 
-(the [`FP`](#the-fp-data-type) data type) in Excel 
-and a way (`xll::handle`) to embed C++ objects that repects 
+(the [`FP`](#the-fp-data-type) data type)
+and a way ([`xll::handle`)[#handles]) to embed C++ objects that repects 
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance).
 
 ## Prerequisites
@@ -116,6 +116,9 @@ typedef struct _FP12
     double array[1];        /* Actually, array[rows][columns] */
 } FP12;
 ```
+
+The classes `xll::FP` and `xll::FP12` make these into well-behaved
+C++ value types.
 
 ## Handles
 
