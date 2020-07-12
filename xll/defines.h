@@ -75,39 +75,12 @@ X(CLUSTER_SAFE, "&", "declares function to be cluster safe")            \
 X(ASYNCHRONOUS, "X", "declares function to be asynchronous")            \
 X(VOID,     ">",  "return type to use for asynchronous functions")      \
 
+#define X__(x) X_(x)
 #define X(a,b,c) \
-inline const char* XLL_##a##4 = b; \
+inline const char* XLL_##a = b; \
 inline const wchar_t* XLL_##a##12 = L#b; \
-inline xll::traits<XLOPERX>::xcstr XLL_##a##X = X_(b);
+inline const xll::traits<XLOPERX>::xchar* XLL_##a##X = X__(b); \
 
 XLL_ARG_TYPE(X)
 #undef X
-
-// Excel C data types for Excel12 xlfRegister/AddIn.
-#define XLL_BOOL     L"A"  // short int used as logical
-#define XLL_DOUBLE   L"B"  // double
-#define XLL_CSTRING  L"C%" // XCHAR* to C style NULL terminated unicode string
-#define XLL_PSTRING  L"D%" // XCHAR* to Pascal style byte counted unicode string
-#define XLL_DOUBLE_  L"E"  // pointer to double
-#define XLL_CSTRING_ L"F%" // reference to a null terminated unicode string
-#define XLL_PSTRING_ L"G%" // reference to a byte counted unicode string
-#define XLL_USHORT   L"H"  // unsigned 2 byte int
-#define XLL_WORD     L"H"  // unsigned 2 byte int
-#define XLL_SHORT    L"I"  // signed 2 byte int
-#define XLL_LONG     L"J"  // signed 4 byte int
-#define XLL_FP       L"K%" // pointer to struct FP
-#define XLL_BOOL_    L"L"  // reference to a boolean
-#define XLL_SHORT_   L"M"  // reference to signed 2 byte int
-#define XLL_LONG_    L"N"  // reference to signed 4 byte int
-#define XLL_LPOPER   L"Q"  // pointer to OPER struct (never a reference type).
-#define XLL_LPXLOPER L"U"  // pointer to XLOPER struct
-// Modify add-in function behavior.
-#define XLL_VOLATILE L"!"  // called every time sheet is recalced
-#define XLL_UNCALCED L"#"  // dereferencing uncalced cells returns old value
-#define XLL_THREAD_SAFE L"$"    // declares function to be thread safe
-#define XLL_CLUSTER_SAFE L"&"	// declares function to be cluster safe
-#define XLL_ASYNCHRONOUS L"X"	// declares function to be asynchronous
-#define XLL_VOID     L">"	    // return type to use for asynchronous functions
-
-#define XLL_HANDLE XLL_DOUBLE // pointer to C++ object
-#define XLL_DATE   XLL_DOUBLE // Excel Julian date. Days from 12AM 1 Jan 1900
+#undef X__

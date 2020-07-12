@@ -320,20 +320,26 @@ namespace xll {
 			free(val.str);
 			xltype = xltypeNil;
 		}
-		void multi_alloc(xrw rw, xcol col)
+		void multi_alloc(xrw r, xcol c)
 		{
 			xltype = xltypeMulti;
-			val.array.rows = rw;
-			val.array.columns = col;
+			val.array.rows = r;
+			val.array.columns = c;
+			size_t rw = static_cast<size_t>(r);
+			size_t col = static_cast<size_t>(c);
 			val.array.lparray = (X*)malloc(rw * col * sizeof(X*));
 			for (size_t i = 0; i < rw * col; ++i) {
 				val.array.lparray[i] = XOPER{};
 			}
 		}
-		void multi_realloc(xrw rw, xcol col)
+		void multi_realloc(xrw r, xcol c)
 		{
 			ensure(xltype == xltypeMulti);
 	
+			val.array.rows = r;
+			val.array.columns = c;
+			size_t rw = static_cast<size_t>(r);
+			size_t col = static_cast<size_t>(c);
 			size_t size = this->size();
 			if (size > rw * col) {
 				for (size_t i = rw * col; i < size; ++i) {
@@ -350,8 +356,6 @@ namespace xll {
 				}
 			}
 			ensure(val.array.lparray);
-			val.array.rows = rw;
-			val.array.columns = col;
 		}
 		void multi_free()
 		{
@@ -366,4 +370,8 @@ namespace xll {
 	using OPER = XOPER<XLOPER>;
 	using OPER12 = XOPER<XLOPER12>;
 	using OPERX = XOPER<XLOPERX>;
+
+	typedef OPER* LPOPER;
+	typedef OPER12* LPOPER12;
+	typedef OPERX* LPOPERX;
 }

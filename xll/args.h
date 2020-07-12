@@ -89,6 +89,18 @@ namespace xll {
 
 			return *this;
 		}
+		XArgs& Uncalced()
+		{
+			typeText &= XLL_UNCALCEDX; //!!! traits !!!
+
+			return *this;
+		}
+		XArgs& Volatile()
+		{
+			typeText &= XLL_VOLATILEX; //!!! traits !!!
+
+			return *this;
+		}
 
 		// slice since it is xltypeNum
 		X RegisterId() const

@@ -148,5 +148,75 @@ both `const` and non-const iterators over array elements.
 
 ## Handles
 
-Handles are used to access C++ object in Excel. A handle is just
-the pointer to the object.
+Handles are used to access C++ objects in Excel. A handle is just
+the pointer to the object. Use `xll::handle<T> h(new T(...))`
+to create a handle to an object of type `T` from any constructor.
+If the cell a function is being called from alread has a handle
+then `delete` is called on the corresponding C++ object. This
+provides some measure of garbage collection. 
+
+Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
+the handle to be returned to Excel. The value returned to Excel
+is a `double` but `typedef double HANDLEX` is provided for clarity.
+
+To access a handle use `xll::handle<T> h(handle);` where `handle`
+is an argument of type `XLL_HANDLEX` (or `XLL_DOUBLEX`).
+This looks for a handle
+of type `T` and converts it to the correponding pointer. If
+the handle is not found the pointer is a `nullptr`. This
+provides some measure of type safety.
+
+The `xll::handle` class has a member function `operator->()` so
+`h->member(...)` works as expected.
+
+For example, if we have the class
+```C++
+class base {
+	OPERX x;
+public:
+	base() { }
+	base(const OPERX& x) : x(x) { }
+	base(const base&) = default;
+	base(base&&) = default;
+	base& operator=(const base&) = default;
+	base& operator=(base&&) = default;
+	virtual ~OPERX() { }
+	OPERX& get() { return x; }
+}
+```
+then we can embed `base` objects in Excel using
+```C++
+AddInX xai_base(
+	FunctionX(XLL_HANDLEX, X_("?xll_base"), X_("XLL.BASE")))
+	.Args({
+		ArgX(XLL_LPOPERX, X_("x"), X_("is a cell or range of cells"))
+	})
+	.FunctionHelp(X_("Return a handle to a base object."))
+	.Uncalced() // required for functions creating handles
+);
+HANDLEX WINAPI xll_base(LPOPERX px)
+{
+#pragam XLLEXPORT
+	xll::handle h(new base(*x));
+
+	return h.get();
+}
+```
+and access it using
+```C++
+AddInX xai_base_get(
+	FunctionX(XLL_LPOPERX, X_("?xll_base_get"), X_("XLL.BASE.GET"))
+	.Args({
+		ArgX(XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE"))
+	})
+	.FunctionHelp(X_("Return the value stored in base."))
+)
+LPOPERX WINAPI xll_base_get(HANDLEX _h)
+{
+#pragma XLLEXPORT
+	xll::handle<base> h(_h);
+
+	return &h->get();
+}
+```
+
