@@ -1,8 +1,13 @@
 ﻿# xll - a library for creating Excel add-ins
 
-This library makes it simple call C and C++ functions from Excel.
+This library makes it simple to call C and C++ functions from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
+
+It also provides high performance access to numeric arrays 
+(the [`FP`](#the-fp-data-type) data type) in Excel 
+and a way (`xll::handle`) to embed C++ objects that repects 
+[single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance).
 
 ## Prerequisites
 
@@ -91,7 +96,7 @@ if <math>x</math> is a non-negative integer.
 
 The `FP` data type is a two dimensional array of floating point numbers. It is
 the fastest way of interacting with numerical data in Excel. It is
-defined in [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
+defined in [`XLCALL.H`](xll/XLCALL.H)
 for versions of Excel prior to 2007 as
 ```C
 typedef struct _FP
