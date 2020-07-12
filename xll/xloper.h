@@ -53,7 +53,7 @@ namespace {
 		case xltypeBool:
 			return x.val.xbool - y.val.xbool;
 		default:
-			return INT_MAX;
+			return 0;
 		}
 	}
 	inline int xloper_cmp(const XLOPER12& x, const XLOPER12& y)

@@ -89,16 +89,6 @@ namespace xll {
 			oper_free();
 		}
 
-		/*
-		template<class T>
-		XOPER& operator=(const T& t)
-		{
-			operator=(XOPER(t));
-
-			return *this;
-		}
-		*/
-
 		// floating point number
 		explicit XOPER(double num)
 		{
@@ -112,6 +102,10 @@ namespace xll {
 
 			return *this;
 		}
+		bool operator==(double num) const
+		{
+			return xltype == xltypeNum && val.num == num;
+		}
 
 		// NULL terminated string
 		explicit XOPER(xcstr str)
@@ -123,6 +117,10 @@ namespace xll {
 		XOPER(const xchar (&str)[N])
 		{
 			str_cpy(str, N - 1);
+		}
+		bool operator==(xcstr str) const
+		{
+			return xltype == xltypeStr && traits<X>::cmp(str, val.str + 1, val.str[0]) == 0;
 		}
 		XOPER operator=(xcstr str)
 		{
@@ -151,6 +149,10 @@ namespace xll {
 			xltype = xltypeBool;
 			val.xbool = xbool;
 		}
+		bool operator==(bool xbool) const
+		{
+			return xltype == xltypeBool && val.xbool == xbool;
+		}
 		XOPER operator=(bool xbool)
 		{
 			oper_free();
@@ -166,18 +168,87 @@ namespace xll {
 		
 		XOPER(xrw rw, xcol col)
 		{
-			alloc_multi(rw, col);
+			multi_alloc(rw, col);
+		}
+		XOPER& resize(xrw rw, xcol col)
+		{
+			multi_realloc(rw, col);
+
+			return *this;
+		}
+		xrw rows() const
+		{
+			return xltype == xltypeMulti ? val.array.rows : (xrw)1;
+		}
+		xcol columns() const
+		{
+			return static_cast<xcol>(xltype == xltypeMulti ? val.array.columns : 1);
+		}
+		size_t size() const
+		{
+			return xltype == xltypeMulti ? rows() * columns() : 1;
+		}
+		const XOPER* begin() const
+		{
+			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray) : this;
+		}
+		XOPER* begin()
+		{
+			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray) : this;
+		}
+		const XOPER* end() const
+		{
+			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray + size()) : this + 1;
+		}
+		XOPER* end()
+		{
+			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray + size()) : this + 1;
+		}
+		const XOPER& operator[](size_t i) const
+		{
+			if (xltype == xltypeMulti) {
+				return static_cast<const XOPER&>(val.array.lparray[i]);
+			}
+			else {
+				ensure(i == 0);
+				return *this;
+			}
+		}
+		XOPER& operator[](size_t i)
+		{
+			if (xltype == xltypeMulti) {
+				return static_cast<XOPER&>(val.array.lparray[i]);
+			}
+			else {
+				ensure(i == 0);
+				return *this;
+			}
 		}
 		
 		// xltypeMissing
 		// xltypeNil
 		// xltypeSRef
+		XOPER(xrw row, xcol col, xrw height, xcol width)
+		{
+			xltype = xltypeSRef;
+			val.sref.count = 1;
+			val.sref.rwFirst = row;
+			val.sref.rwLast = row + height;
+			val.sref.colFirst = col;
+			val.sref.colLast = col + width;
+		}
 
 		// Excel usually converts this to num.
 		explicit XOPER(int w)
 		{
 			xltype = xltypeInt;
 			val.w = static_cast<xint>(w);
+		}
+		bool operator==(int w) const
+		{
+			return xltype == xltypeInt ? val.w == w
+				: xltype == xltypeNum ? val.num == w
+				: false;
 		}
 		XOPER operator=(int w)
 		{
@@ -191,10 +262,10 @@ namespace xll {
 		void oper_free()
 		{
 			if (xltype == xltypeStr) {
-				free_str();
+				str_free();
 			}
 			else if (xltype == xltypeMulti) {
-				free_multi();
+				multi_free();
 			}
 			else {
 				xltype = xltypeNil;
@@ -222,6 +293,7 @@ namespace xll {
 		void str_realloc(size_t n)
 		{
 			ensure(xltype == xltypeStr);
+			
 			val.str = (xchar*)realloc(val.str, (n + 1) * sizeof(xchar));
 			if (val.str) {
 				val.str[0] = static_cast<xchar>(n);
@@ -242,28 +314,52 @@ namespace xll {
 				}
 			}
 		}
-		void free_str()
+		void str_free()
 		{
 			//ensure(xltype == xltypeStr);
 			free(val.str);
 			xltype = xltypeNil;
 		}
-		void alloc_multi(xrw rw, xcol col)
+		void multi_alloc(xrw rw, xcol col)
 		{
 			xltype = xltypeMulti;
-			val.array.rw = rw;
-			val.array.col = col;
-			val.array.lparray = (X*)malloc(sizeof(X) + rw * col * sizeof(X*));
-			if (val.array.lparray) {
-				for (size_t i = 0; i < rw * col; ++i) {
-					val.array.lparray = XOPER{};
+			val.array.rows = rw;
+			val.array.columns = col;
+			val.array.lparray = (X*)malloc(rw * col * sizeof(X*));
+			for (size_t i = 0; i < rw * col; ++i) {
+				val.array.lparray[i] = XOPER{};
+			}
+		}
+		void multi_realloc(xrw rw, xcol col)
+		{
+			ensure(xltype == xltypeMulti);
+	
+			size_t size = this->size();
+			if (size > rw * col) {
+				for (size_t i = rw * col; i < size; ++i) {
+					static_cast<XOPER*>(val.array.lparray + i)->oper_free();
+				}
+				val.array.lparray = (X*)realloc(val.array.lparray, rw * col * sizeof(X*));
+			}
+			else if (size < rw * col) {
+				val.array.lparray = (X*)realloc(val.array.lparray, rw * col * sizeof(X*));
+				if (val.array.lparray) {
+					for (size_t i = size; i < rw * col; ++i) {
+						val.array.lparray[i] = XOPER{};
+					}
 				}
 			}
-			xltype = xltypeNil;
+			ensure(val.array.lparray);
+			val.array.rows = rw;
+			val.array.columns = col;
 		}
-		void free_multi()
+		void multi_free()
 		{
+			for (size_t i = 0; i < size(); ++i) {
+				static_cast<XOPER*>(val.array.lparray + i)->oper_free();
+			}
 
+			xltype = xltypeNil;
 		}
 	};
 

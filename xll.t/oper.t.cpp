@@ -157,6 +157,29 @@ int test_oper_str()
 }
 int test_oper_str_ = test_oper_str();
 
+int test_oper_multi()
+{
+	{
+		OPER m(2, 3);
+		assert(m.xltype == xltypeMulti);
+		assert(m.rows() == 2);
+		assert(m.columns() == 3);
+		assert(m.size() == 6);
+		assert(m[1] == OPER{});
+		m[1] = "foo";
+		assert(m[1].xltype == xltypeStr);
+		assert(m[1] == OPER("foo"));
+		m.resize(3, 2);
+		assert(m.xltype == xltypeMulti);
+		assert(m.rows() == 3);
+		assert(m.columns() == 2);
+		assert(m.size() == 6);
+		assert(m[1] == OPER("foo"));
+	}
+
+	return 0;
+}
+int test_oper_multi_ = test_oper_multi();
 
 int test_oper_bool()
 {
