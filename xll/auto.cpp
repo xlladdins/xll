@@ -38,7 +38,7 @@ xlAutoClose(void)
 }
 
 // Called when the user activates the xll using the Add-In Manager. 
-// This function is not called when Excel starts up and loads a pre-installed add-in.
+// This function is *not* called when Excel starts up.
 extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoAdd(void)
@@ -47,7 +47,7 @@ xlAutoAdd(void)
 }
 
 // Called when user deactivates the xll using the Add-In Manager. 
-// This function is not called when an Excel session closes, normally or abnormally, with the add-in installed.
+// This function is *not* called when an Excel session closes.
 extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoRemove(void)
