@@ -57,6 +57,10 @@ an `AddIn` object that has information Excel requires.
 
 ```C++
 #include <cmath>
+#include "xll/xll.h"
+
+using namespace xll;
+
 AddInX xai_tgamma(
 	FunctionX(XLL_DOUBLE, X_("xll_tgamma"), X_("TGAMMA"))
 	.Args({
@@ -76,7 +80,8 @@ This add-in registers the function `TGAMMA` with Excel to call the C++ function
 `xll_tgamma` that returns a floating point `double`. It has one argument that
 is also a `double` and is added to the Excel function wizard under the
 `Cmath` category with the specified function help. Compare this to
-the built-in Excel functon [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
+the built-in Excel functon 
+[`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
 The function `xll_tgamma` calls the `tgamma` function declared in 
 the `<cmath>` library. All functions called from Excel must be declared
@@ -91,6 +96,18 @@ It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
 for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
 <math>&Gamma;(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.
+
+## The `X` Suffix
+
+The Excel SDK has two versions of most data types, one for pre 2007 Excel and one for post 2007 Excel.
+The post 2007 verions allow for large grids and wide character Unicode strings. The new data types
+have names with the suffix `12`. This library uses the suffix `X` to make it possible to
+write add-ins that work with all version of Excel. 
+
+This is controlled by the macro `XLOPERX`.
+Define it to be `XLOPER` for pre 2007 Excel and `XLOPER12` for post 2007 Excel before including `xll/xll.h`.
+By default it is defined to be `XLOPER12`. Use the macro `X_` to create strings of the appropriate type.
+E.g., `X_("foo")` is either `"foo"` or `L"foo"` depending on the type of `XLOPERX`. 
 
 ## The FP Data Type
 
@@ -118,7 +135,16 @@ typedef struct _FP12
 ```
 
 The classes `xll::FP` and `xll::FP12` make these into well-behaved
-C++ value types.
+[C++ value types](https://docs.microsoft.com/en-us/cpp/cpp/value-types-modern-cpp).
+
+Use `xll::FPX a(2,3)` to create a 2 by 3 array of `OPERX` and `a(1,0)` access
+the second row, first column of `a`. (Indexing is 0-based.). The same element
+can be accessed using one-dimesional indexing via `a[3]` since data are 
+stored in row-major order. Use the member function `resize` to resize the array.
+
+The `FPX` data type also has member functions for `rows`, `columns`, and `size`.
+To be STL friendly the member functions `begin` and `end` are provided for
+both `const` and non-const iterators over array elements.
 
 ## Handles
 

@@ -15,11 +15,11 @@
 // ASCII vs wide character strings
 #if XLL_VERSION == 4
 #define X_(t) t
-#define TX_(t) #t
+//#define TX_(t) #t
 #else
 static_assert(XLL_VERSION == 12);
 #define X_(t) L##t
-#define TX_(t) L#t
+//#define TX_(t) L#t
 #endif
 
 // 64-bit uses different symbol name decoration

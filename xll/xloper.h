@@ -30,6 +30,7 @@ namespace xll {
 }
 
 namespace {
+	// use std::strong_ordering!!!
 	inline int xloper_cmp(const XLOPER& x, const XLOPER& y)
 	{
 		if (x.xltype != y.xltype) {
@@ -84,6 +85,7 @@ namespace {
 	}
 }
 
+// works for any compination of XLOPER and OPER.
 template<typename X, typename Y>
 inline bool operator==(const X& x, const Y& y)
 {
