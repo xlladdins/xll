@@ -1,8 +1,13 @@
 ﻿# xll - a library for creating Excel add-ins
 
-This library makes it simple call C and C++ functions from Excel.
+This library makes it simple to call C and C++ functions from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
+
+It also provides high performance access to numeric arrays 
+(the [`FP`](#the-fp-data-type) data type)
+and a way ([`xll::handle`)[#handles]) to embed C++ objects that repects 
+[single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance).
 
 ## Prerequisites
 
@@ -86,3 +91,36 @@ It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
 for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
 <math>&Gamma;(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.
+
+## The FP Data Type
+
+The `FP` data type is a two dimensional array of floating point numbers. It is
+the fastest way of interacting with numerical data in Excel. It is
+defined in [`XLCALL.H`](xll/XLCALL.H)
+for versions of Excel prior to 2007 as
+```C
+typedef struct _FP
+{
+    unsigned short int rows;
+    unsigned short int columns;
+    double array[1];        /* Actually, array[rows][columns] */
+} FP;
+
+```
+and for versions after 2007 as
+```C
+typedef struct _FP12
+{
+    signed int rows;
+    signed int columns;
+    double array[1];        /* Actually, array[rows][columns] */
+} FP12;
+```
+
+The classes `xll::FP` and `xll::FP12` make these into well-behaved
+C++ value types.
+
+## Handles
+
+Handles are used to access C++ object in Excel. A handle is just
+the pointer to the object.

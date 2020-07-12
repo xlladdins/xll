@@ -7,11 +7,11 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoOpen(void)
 {
-	/*
+#ifndef _M_X64 
 	for (auto& [key, arg] : xll::AddIn::Map) {
 		arg.Register();
 	}
-	*/
+#endif	
 	for (auto& [key, arg] : xll::AddIn12::Map) {
 		arg.Register();
 	}
@@ -28,11 +28,12 @@ xlAutoClose(void)
 	for (const auto& [key, args] : xll::AddIn12::Map) {
 		args.Unregister();
 	}
-	/*
+#ifndef _M_X64 
 	for (const auto& [key, args] : xll::AddIn::Map) {
 		args.Unregister();
 	}
-	*/
+#endif
+	
 
 	return TRUE;
 }
