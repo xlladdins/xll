@@ -6,7 +6,7 @@ It is much easier to use than the Microsoft
 
 It also provides high performance access to numeric arrays 
 (the [`FP`](#the-fp-data-type) data type)
-and a way ([`xll::handle`)[#handles]) to embed C++ objects that repects 
+and a way (`xll::handle`)[#handles]) to embed C++ objects that repects 
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance).
 
 ## Prerequisites
@@ -15,7 +15,7 @@ Windows 10
   The Excel SDK is not supported on MacOS.
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)  
-  Use the Community Edition and choose the `Desktop development with C++` workload.</dd>
+  Use the Community Edition and install the `Desktop development with C++` workload.</dd>
 
 [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)  
   Install the 64-bit version of Office 365 for the best experience.
@@ -57,22 +57,24 @@ an `AddIn` object that has information Excel requires.
 
 ```C++
 #include <cmath>
+// Uncomment to build for versions of Excel prior to 2007.
+// #define XLOPERX XLOPER
 #include "xll/xll.h"
 
 using namespace xll;
 
 AddInX xai_tgamma(
-	FunctionX(XLL_DOUBLE, X_("xll_tgamma"), X_("TGAMMA"))
-	.Args({
-		ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
-	})
-	.FunctionHelp(X_("Return the Gamma function value."))
-	.Category(X_("Cmath"))
+    FunctionX(XLL_DOUBLEX, X_("xll_tgamma"), X_("TGAMMA"))
+    .Args({
+        ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
+    })
+    .FunctionHelp(X_("Return the Gamma function value."))
+    .Category(X_("Cmath"))
 );
 double WINAPI xll_tgamma(double x)
 {
 #pragma XLLEXPORT
-	return tgamma(x);
+    return tgamma(x);
 }
 ```
 
@@ -83,12 +85,13 @@ is also a `double` and is added to the Excel function wizard under the
 the built-in Excel functon 
 [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
-The function `xll_tgamma` calls the `tgamma` function declared in 
-the `<cmath>` library. All functions called from Excel must be declared
+All functions called from Excel must be declared
 with [`WINAPI`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 The line `#pragma XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel.
 
+The function `xll_tgamma` calls the `tgamma` function declared in 
+the `<cmath>` library. 
 Recall the Gamma function is 
 <math><i>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
 t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</i></math>, <math>x > 0</math>. 
@@ -138,7 +141,7 @@ The classes `xll::FP` and `xll::FP12` make these into well-behaved
 [C++ value types](https://docs.microsoft.com/en-us/cpp/cpp/value-types-modern-cpp).
 
 Use `xll::FPX a(2,3)` to create a 2 by 3 array of `OPERX` and `a(1,0)` access
-the second row, first column of `a`. (Indexing is 0-based.). The same element
+the second row, first column (indexing is 0-based) of `a`. The same element
 can be accessed using one-dimesional indexing via `a[3]` since data are 
 stored in row-major order. Use the member function `resize` to resize the array.
 
@@ -148,8 +151,8 @@ both `const` and non-const iterators over array elements.
 
 ## Handles
 
-Handles are used to access C++ objects in Excel. A handle is just
-the pointer to the object. Use `xll::handle<T> h(new T(...))`
+Handles are used to access C++ objects in Excel. 
+Call `xll::handle<T> h(new T(...))`
 to create a handle to an object of type `T` from any constructor.
 If the cell a function is being called from alread has a handle
 then `delete` is called on the corresponding C++ object. This
@@ -162,55 +165,55 @@ is a `double` but `typedef double HANDLEX` is provided for clarity.
 To access a handle use `xll::handle<T> h(handle);` where `handle`
 is an argument of type `XLL_HANDLEX` (or `XLL_DOUBLEX`).
 This looks for a handle
-of type `T` and converts it to the correponding pointer. If
+for type `T` and converts it to the correponding pointer. If
 the handle is not found the pointer is a `nullptr`. This
 provides some measure of type safety.
 
 The `xll::handle` class has a member function `operator->()` so
 `h->member(...)` works as expected.
 
-For example, if we have the class
+For example if we have the class
 ```C++
 class base {
-	OPERX x;
+    OPERX x;
 public:
-	base(const OPERX& x) : x(x) { }
-	OPERX& get() { return x; }
+    base(const OPERX& x) : x(x) { }
+    OPERX& get() { return x; }
 };
 ```
 then we can embed `base` objects in Excel using
 ```C++
 AddInX xai_base(
-	FunctionX(XLL_HANDLEX, X_("?xll_base"), X_("XLL.BASE"))
-	.Args({
-		ArgX({ XLL_LPOPERX, X_("x"), X_("is a cell or range of cells") })
-	})
-	.FunctionHelp(X_("Return a handle to a base object."))
-	.Uncalced() // required for functions creating handles
+    FunctionX(XLL_HANDLEX, X_("?xll_base"), X_("XLL.BASE"))
+    .Args({
+        ArgX({ XLL_LPOPERX, X_("x"), X_("is a cell or range of cells") })
+    })
+    .FunctionHelp(X_("Return a handle to a base object."))
+    .Uncalced() // required for functions creating handles
 );
 HANDLEX WINAPI xll_base(LPOPERX px)
 {
 #pragma XLLEXPORT
-	xll::handle h(new base(*px));
+    xll::handle h(new base(*px));
 
-	return h.get();
+    return h.get();
 }
 ```
 and access it using
 ```C++
 AddInX xai_base_get(
-	FunctionX(XLL_LPOPERX, X_("?xll_base_get"), X_("XLL.BASE.GET"))
-	.Args({
-		ArgX({ XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE") })
-	})
-	.FunctionHelp(X_("Return the value stored in base."))
+    FunctionX(XLL_LPOPERX, X_("?xll_base_get"), X_("XLL.BASE.GET"))
+    .Args({
+        ArgX({ XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE") })
+    })
+    .FunctionHelp(X_("Return the value stored in base."))
 );
 LPOPERX WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
-	xll::handle<base> h(_h);
+    xll::handle<base> h(_h);
 
-	return &h->get();
+    return &h->get();
 }
 ```
 
