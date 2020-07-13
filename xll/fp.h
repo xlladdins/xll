@@ -19,15 +19,15 @@ namespace xll {
 		}
 		XFP(const XFP& a)
 		{
-			fp_alloc(a.rows, a.columns);
-			std::copy(a.begin(), a.end(), begin(), end());
+			fp_alloc(a.rows(), a.columns());
+			std::copy(a.begin(), a.end(), begin());
 		}
 		XFP(XFP&& a) = default;
 		XFP& operator=(const XFP& a)
 		{
 			if (this != &a) {
 				fp_realloc(a.rows(), a.columns());
-				std::copy(a.begin(), a.end(), begin(), end());
+				std::copy(a.begin(), a.end(), begin());
 			}
 
 			return *this;

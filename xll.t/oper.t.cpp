@@ -301,9 +301,12 @@ int test_fp()
 		FP a;
  		assert(a.rows() == 0);
 		assert(a.columns() == 0);
+		a[0] = 1.23;
 	}
 	{
 		FP a(2,3);
+		FP b{ a };
+		a = b;
 		assert(a.rows() == 2);
 		assert(a.columns() == 3);
 		assert(a.size() == 6);
