@@ -154,13 +154,14 @@ both `const` and non-const iterators over array elements.
 Handles are used to access C++ objects in Excel. 
 Call `xll::handle<T> h(new T(...))`
 to create a handle to an object of type `T` from any constructor.
-If the cell a function is being called from alread has a handle
+If the cell a function is being called from has a handle from
+a previous call
 then `delete` is called on the corresponding C++ object. This
 provides some measure of garbage collection. 
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
-the handle to be returned to Excel. The value returned to Excel
-is a `double` but `typedef double HANDLEX` is provided for clarity.
+the handle to be returned to Excel. A handle is just a `double` but
+for clarity `using HANDLEX = double` is provided.
 
 To access a handle use `xll::handle<T> h(handle);` where `handle`
 is an argument of type `XLL_HANDLEX` (or `XLL_DOUBLEX`).
@@ -199,7 +200,7 @@ HANDLEX WINAPI xll_base(LPOPERX px)
     return h.get();
 }
 ```
-and access it using
+and access them with
 ```C++
 AddInX xai_base_get(
     FunctionX(XLL_LPOPERX, X_("?xll_base_get"), X_("XLL.BASE.GET"))
@@ -216,4 +217,4 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
     return &h->get();
 }
 ```
-
+For a production quality version of this example see [base.cpp](test/handle.cpp).
