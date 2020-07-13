@@ -75,12 +75,13 @@ X(CLUSTER_SAFE, "&", "declares function to be cluster safe")            \
 X(ASYNCHRONOUS, "X", "declares function to be asynchronous")            \
 X(VOID,     ">",  "return type to use for asynchronous functions")      \
 
-#define X__(x) X_(x)
-#define X(a,b,c) \
-inline const char* XLL_##a = b; \
-inline const wchar_t* XLL_##a##12 = L#b; \
-inline const xll::traits<XLOPERX>::xchar* XLL_##a##X = X__(b); \
+#define X(a,b,c)                                                                                         \
+template<class T> struct XLL_X##a    { inline static const typename xll::traits<T>::xchar* value; };     \
+template<> struct XLL_X##a<XLOPER>   { inline static const xll::traits<XLOPER>::xchar* value = b; };     \
+template<> struct XLL_X##a<XLOPER12> { inline static const xll::traits<XLOPER12>::xchar* value = L#b; }; \
+inline const xll::traits<XLOPER>::xchar*   XLL_##a     = XLL_X##a<XLOPER>::value;                        \
+inline const xll::traits<XLOPER12>::xchar* XLL_##a##12 = XLL_X##a<XLOPER12>::value;                      \
+inline const xll::traits<XLOPERX>::xchar*  XLL_##a##X  = XLL_X##a<XLOPERX>::value;                       \
 
 XLL_ARG_TYPE(X)
 #undef X
-#undef X__

@@ -1,4 +1,5 @@
 // handle.cpp - Illustrate the use of handles
+#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
@@ -9,13 +10,17 @@ namespace xll {
 	using HANDLEX = double;
 	template<class T>
 	class handle {
+		HANDLEX h;
 		T* pt;
 	public:
 		handle()
-			: pt(nullptr)
+			: h(0), pt(nullptr)
 		{ }
 		handle(T* pt)
 			: pt(pt)
+		{ }
+		handle(HANDLEX h)
+			: h(h)
 		{ }
 		T* operator->()
 		{
@@ -64,10 +69,10 @@ HANDLEX WINAPI xll_base(LPOPERX px)
 AddInX xai_base_get(
 	FunctionX(XLL_LPOPERX, X_("?xll_base_get"), X_("XLL.BASE.GET"))
 	.Args({
-		ArgX(XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE"))
-	})
+		ArgX({ XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE") })
+		})
 	.FunctionHelp(X_("Return the value stored in base."))
-)
+);
 LPOPERX WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT

@@ -308,7 +308,7 @@ namespace xll {
 				if (n == 0) {
 					n = traits<X>::len(str);
 				}
-				realloc_str(val.str[0] + n);
+				str_realloc(val.str[0] + n);
 				if (val.str) {
 					traits<X>::cpy(val.str + val.str[0] + 1, str, n);
 				}
