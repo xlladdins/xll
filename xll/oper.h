@@ -17,8 +17,8 @@ namespace xll {
 	/// Either XLOPER or XLOPER12 
 	/// </typeparam>
 	/// An OPER corresponds to a cell or a 2-dimensional range of cells.
-	/// It is a variant type that can be either a number, string,
-	/// error, range, integer, or boolean. 
+	/// It is a variant type that can be either a number, string, boolean,
+	/// error, range, single reference, or integer. 
 	template<class X>  
 	class XOPER : public X {
 	public:
@@ -42,7 +42,10 @@ namespace xll {
 			if (x.xltype == xltypeStr) {
 				str_cpy(x.val.str + 1, x.val.str[0]);
 			}
-			// else if (x.xltype == xltypeMulti) { ... }
+			else if (x.xltype == xltypeMulti) {
+				multi_alloc(x.val.array.rows, x.val.array.columns);
+				std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
+			}
 			else {
 				xltype = x.xltype;
 				val = x.val;
@@ -65,7 +68,10 @@ namespace xll {
 				if (x.xltype == xltypeStr) {
 					str_cpy(x.val.str + 1, x.val.str[0]);
 				}
-				// else if (x.xltype == xltypeMulti) { }
+				else if (x.xltype == xltypeMulti) {
+					multi_alloc(x.val.array.rows, x.val.array.columns);
+					std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
+				}
 				else {
 					xltype = x.xltype;
 					val = x.val;
@@ -107,7 +113,7 @@ namespace xll {
 			return xltype == xltypeNum && val.num == num;
 		}
 
-		// NULL terminated string
+		// xltypeStr from NULL terminated string
 		explicit XOPER(xcstr str)
 		{
 			str_cpy(str, 0);
@@ -120,7 +126,17 @@ namespace xll {
 		}
 		bool operator==(xcstr str) const
 		{
-			return xltype == xltypeStr && traits<X>::cmp(str, val.str + 1, val.str[0]) == 0;
+			if (xltype != xltypeStr) {
+				return false;
+			}
+
+			size_t n = traits<X>::len(str);
+			ensure(n < static_cast<size_t>(std::numeric_limits<xchar>::max()));
+			
+			if (val.str[0] != static_cast<xchar>(n))
+				return false;
+
+			return traits<X>::cmp(str, val.str + 1, val.str[0]) == 0;
 		}
 		XOPER operator=(xcstr str)
 		{
@@ -144,6 +160,7 @@ namespace xll {
 			return *this;
 		}
 
+		// xltypeBool
 		explicit XOPER(bool xbool)
 		{
 			xltype = xltypeBool;
@@ -151,7 +168,7 @@ namespace xll {
 		}
 		bool operator==(bool xbool) const
 		{
-			return xltype == xltypeBool && val.xbool == xbool;
+			return xltype == xltypeBool && val.xbool == static_cast<typename traits<X>::xbool>(xbool);
 		}
 		XOPER operator=(bool xbool)
 		{
@@ -207,6 +224,8 @@ namespace xll {
 		// one-dimensional index
 		const XOPER& operator[](size_t i) const
 		{
+			ensure(i < size());
+
 			if (xltype == xltypeMulti) {
 				return static_cast<const XOPER&>(val.array.lparray[i]);
 			}
@@ -217,6 +236,8 @@ namespace xll {
 		}
 		XOPER& operator[](size_t i)
 		{
+			ensure(i < size());
+
 			if (xltype == xltypeMulti) {
 				return static_cast<XOPER&>(val.array.lparray[i]);
 			}
@@ -248,7 +269,7 @@ namespace xll {
 			val.sref.colLast = col + width;
 		}
 
-		// Excel usually converts this to num.
+		// xltypeInt. Excel usually converts this to num.
 		explicit XOPER(int w)
 		{
 			xltype = xltypeInt;
@@ -258,6 +279,7 @@ namespace xll {
 		{
 			return xltype == xltypeInt ? val.w == w
 				: xltype == xltypeNum ? val.num == w
+				: xltype == xltypeBool ? val.xbool == w
 				: false;
 		}
 		XOPER operator=(int w)
@@ -277,9 +299,8 @@ namespace xll {
 			else if (xltype == xltypeMulti) {
 				multi_free();
 			}
-			else {
-				xltype = xltypeNil;
-			}
+			
+			xltype = xltypeNil;
 		}
 		void str_alloc(size_t n)
 		{
@@ -311,14 +332,14 @@ namespace xll {
 		}
 		void str_append(xcstr str, size_t n)
 		{
-			if (xltype == xltypeNil || xltype == xltypeMissing) {
+			if (xltype == xltypeNil) {
 				str_cpy(str, n);
 			}
 			else {
 				if (n == 0) {
 					n = traits<X>::len(str);
 				}
-				str_realloc(val.str[0] + n);
+				str_realloc(val.str[0] + n + 1);
 				if (val.str) {
 					traits<X>::cpy(val.str + val.str[0] + 1, str, n);
 				}
@@ -326,7 +347,7 @@ namespace xll {
 		}
 		void str_free()
 		{
-			//ensure(xltype == xltypeStr);
+			ensure(xltype == xltypeStr);
 			free(val.str);
 			xltype = xltypeNil;
 		}
@@ -335,43 +356,41 @@ namespace xll {
 			xltype = xltypeMulti;
 			val.array.rows = r;
 			val.array.columns = c;
-			size_t rw = static_cast<size_t>(r);
-			size_t col = static_cast<size_t>(c);
-			val.array.lparray = (X*)malloc(rw * col * sizeof(X*));
-			for (size_t i = 0; i < rw * col; ++i) {
-				val.array.lparray[i] = XOPER{};
+			val.array.lparray = (X*)malloc(size() * sizeof(X));
+			if (val.array.lparray) {
+				std::fill(begin(), end(), XOPER{});
 			}
 		}
 		void multi_realloc(xrw r, xcol c)
 		{
 			ensure(xltype == xltypeMulti);
 	
+			// current size
+			size_t n = size();
 			val.array.rows = r;
 			val.array.columns = c;
-			size_t rw = static_cast<size_t>(r);
-			size_t col = static_cast<size_t>(c);
-			size_t size = this->size();
-			if (size > rw * col) {
-				for (size_t i = rw * col; i < size; ++i) {
-					static_cast<XOPER*>(val.array.lparray + i)->oper_free();
+			if (n > size()) {
+				for (XOPER* po = begin() + size(); po != begin() + n; ++po) {
+					po->oper_free();
 				}
-				val.array.lparray = (X*)realloc(val.array.lparray, rw * col * sizeof(X*));
+				val.array.lparray = (X*)realloc(val.array.lparray, size() * sizeof(X));
+				ensure(val.array.lparray);
 			}
-			else if (size < rw * col) {
-				val.array.lparray = (X*)realloc(val.array.lparray, rw * col * sizeof(X*));
-				if (val.array.lparray) {
-					for (size_t i = size; i < rw * col; ++i) {
-						val.array.lparray[i] = XOPER{};
-					}
+			else if (n < size()) {
+				val.array.lparray = (X*)realloc(val.array.lparray, size() * sizeof(X));
+				ensure(val.array.lparray);
+				for (XOPER* po = begin() + n; po != begin() + size(); ++po) {
+					*po = XOPER{};
 				}
 			}
-			ensure(val.array.lparray);
 		}
 		void multi_free()
 		{
-			for (size_t i = 0; i < size(); ++i) {
-				static_cast<XOPER*>(val.array.lparray + i)->oper_free();
+			ensure(xltype == xltypeMulti);
+			for (XOPER* po = begin(); po != end(); ++po) {
+				po->oper_free();
 			}
+			free(val.array.lparray);
 
 			xltype = xltypeNil;
 		}

@@ -2,22 +2,30 @@
 #pragma once
 #include <set>
 
-namespace xll {
+typedef double HANDLEX;
 
-	using HANDLEX = double;
+namespace xll {
 
 	inline HANDLEX p2h(void* p)
 	{
-		return 0;
+		HANDLEX h = 0;
+	
+		union {
+			void* p;
+			uint64_t ui;
+		} u = { .p = p };
+		h = static_cast<HANDLEX>(u.ui);
+
+		return h;
 	}
-	inline void* h2p(HANDLEX h)
+	inline void* h2p(HANDLEX /*h*/)
 	{
 		return nullptr;
 	}
 
 	template<class T>
 	class handle {
-		static set<T> ptr_;
+		static std::set<T*> ptr_;
 		T* pt;
 	public:
 		handle(T* pt)

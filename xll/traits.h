@@ -1,7 +1,7 @@
 // traits.h - parameterized by XLOPER type
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
-
 #pragma once
+#define NOMINMAX
 #include <Windows.h>
 #include "XLCALL.H"
 #include "ensure.h"
@@ -20,8 +20,9 @@ namespace xll {
 		typedef CHAR xchar;
 		typedef const CHAR* xcstr;
 		typedef WORD xrw;
-		typedef BYTE xcol;
+		typedef WORD xcol; // BYTE???
 		typedef short int xint;
+		typedef WORD xbool;
 		typedef FP xfp;
 		static int Excelv(int xlfn, LPXLOPER operRes, int count, LPXLOPER opers[])
 		{
@@ -48,6 +49,7 @@ namespace xll {
 		typedef RW xrw;
 		typedef COL xcol;
 		typedef FP12 xfp;
+		typedef INT32 xbool;
 		static int Excelv(int xlfn, LPXLOPER12 operRes, int count, LPXLOPER12 opers[])
 		{
 			return ::Excel12v(xlfn, operRes, count, opers);

@@ -5,3 +5,4 @@
 #include "exports.h"
 #include "addin.h"
 #include "fp.h"
+#include "handle.h"

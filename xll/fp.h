@@ -102,17 +102,18 @@ namespace xll {
 	private:
 		void fp_alloc(xint r, xint c)
 		{
-			fp = malloc(sizeof(xfp) + r * c * sizeof(double));
+			size_t n = r * c;
+			fp = malloc(sizeof(xfp) + n * sizeof(double));
 			if (fp) {
 				auto& pfx = operator xfp&();
 				pfx.rows = r;
 				pfx.columns = c;
-				pfx.array[0] = 0;
 			}
 		}
 		void fp_realloc(xint r, xint c)
 		{
-			fp = realloc(fp, sizeof(xfp) + r * c * sizeof(double));
+			size_t n = r * c;
+			fp = realloc(fp, sizeof(xfp) + n * sizeof(double));
 			if (fp) {
 				auto& pfx = operator xfp&();
 				pfx.rows = r;
