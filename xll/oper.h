@@ -204,6 +204,7 @@ namespace xll {
 		{
 			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray + size()) : this + 1;
 		}
+		// one-dimensional index
 		const XOPER& operator[](size_t i) const
 		{
 			if (xltype == xltypeMulti) {
@@ -224,7 +225,16 @@ namespace xll {
 				return *this;
 			}
 		}
-		
+		// two-dimensional index
+		const XOPER& operator()(RW rw, COL col) const
+		{
+			return operator[](columns() * rw + col);
+		}
+		XOPER& operator()(RW rw, COL col)
+		{
+			return operator[](columns() * rw + col);
+		}
+
 		// xltypeMissing
 		// xltypeNil
 		// xltypeSRef

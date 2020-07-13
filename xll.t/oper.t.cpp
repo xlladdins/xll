@@ -1,6 +1,21 @@
 // oper.t.cpp - test OPER type
 #include <cassert>
+#include <functional>
 #include "../xll/oper.h"
+
+/*
+struct test {
+	test(std::function<void(void)> f)
+	{
+		try {
+			f();
+		}
+		catch (const std::exception& ex) {
+			MessageBoxA(0, ex.what(), NULL, MB_OK);
+		}
+	}
+};
+*/
 
 using namespace xll;
 
@@ -166,15 +181,35 @@ int test_oper_multi()
 		assert(m.columns() == 3);
 		assert(m.size() == 6);
 		assert(m[1] == OPER{});
-		m[1] = "foo";
-		assert(m[1].xltype == xltypeStr);
-		assert(m[1] == OPER("foo"));
+
+		m(1,0) = "foo";
+		assert(m(1,0).xltype == xltypeStr);
+		assert(m(1,0) == "foo");
+		assert(m[3] == "foo");
+
 		m.resize(3, 2);
 		assert(m.xltype == xltypeMulti);
 		assert(m.rows() == 3);
 		assert(m.columns() == 2);
 		assert(m.size() == 6);
-		assert(m[1] == OPER("foo"));
+		assert(m[3] == "foo");
+		assert(m(1, 1) == "foo");
+
+		m.resize(2, 2);
+		assert(m.xltype == xltypeMulti);
+		assert(m.rows() == 2);
+		assert(m.columns() == 2);
+		assert(m.size() == 4);
+		assert(m[3] == "foo");
+		assert(m(1, 1) == "foo");
+
+		m.resize(3, 3);
+		assert(m.xltype == xltypeMulti);
+		assert(m.rows() == 3);
+		assert(m.columns() == 3);
+		assert(m.size() == 9);
+		assert(m[3] == "foo");
+		assert(m(1, 0) == "foo");
 	}
 
 	return 0;

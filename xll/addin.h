@@ -6,7 +6,9 @@
 
 namespace xll {
 
-	/// Excel functions and macros.
+    /// <summary>
+    /// Store add-in data for xlAutoOpen/Close
+    /// </summary>
     template<class X>
 	class XAddIn {
     public:
@@ -18,8 +20,8 @@ namespace xll {
         }
     };
 
-	using AddIn12 = XAddIn<XLOPER12>;
 	using AddIn = XAddIn<XLOPER>;
+    using AddIn12 = XAddIn<XLOPER12>;
     using AddInX = XAddIn<XLOPERX>;
 
 } // xll namespace

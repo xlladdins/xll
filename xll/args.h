@@ -1,4 +1,4 @@
-// arg.h - Argument for xlfRegister
+// args.h - Arguments for xlfRegister
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 
 #pragma once
@@ -8,6 +8,10 @@
 
 namespace xll {
 
+	/// <summary>
+	/// Individual argument for add-in function.
+	/// Use ArgX({type, name, help}) to construct.
+	/// </summary>
 	template<class X>
 	struct XArg {
 		using xcstr = typename traits<X>::xcstr;
@@ -20,7 +24,6 @@ namespace xll {
 	using Arg = XArg<XLOPER>;
 	using Arg12 = XArg<XLOPER12>;
 	using ArgX = XArg<XLOPERX>;
-
 
 	template<class X>
 	class XArgs {
@@ -102,31 +105,32 @@ namespace xll {
 			return *this;
 		}
 
-		// slice since it is xltypeNum
+		// slice okay since it is xltypeNum
 		X RegisterId() const
 		{
 			return Excel<X>(xlfEvaluate, functionText);
 		}
 
+		// Register add-in with Excel
 		int Register()
 		{
 			size_t count = 10 + argumentHelp.size();
-			const X* oper[255];
+			std::vector<X*> oper(count);
 
 			if (moduleText.xltype == xltypeNil) {
 				moduleText = Excel<X>(xlGetName);
 			}
 
 			oper[0] = &moduleText;
-			oper[1] = &procedure;    // C function
-			oper[2] = &typeText;     // return type and arg codes 
-			oper[3] = &functionText; // Excel function
-			oper[4] = &argumentText; // Ctrl-Shift-A text
-			oper[5] = &macroType;    // function; 2 for macro; 0 for hidden
-			oper[6] = &category;     // for function wizard
-			oper[7] = &shortcutText; // single character for Ctrl-Shift-char shortcut
-			oper[8] = &helpTopic;    // filepath!HelpContextID or http://host/path!0
-			oper[9] = &functionHelp; // for function wizard
+			oper[1] = &procedure;
+			oper[2] = &typeText; 
+			oper[3] = &functionText;
+			oper[4] = &argumentText;
+			oper[5] = &macroType;
+			oper[6] = &category;
+			oper[7] = &shortcutText;
+			oper[8] = &helpTopic;
+			oper[9] = &functionHelp;
 			for (size_t i = 0; i < argumentHelp.size(); ++i) {
 				oper[10 + i] = &argumentHelp[i];
 			}
@@ -140,6 +144,7 @@ namespace xll {
 
 			return ret;
 		}
+		// Unregister add-in.
 		XOPER<X> Unregister() const
 		{
 			return Excel<X>(xlfUnregister, registerId);
