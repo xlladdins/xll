@@ -156,8 +156,7 @@ Call `xll::handle<T> h(new T(...))`
 to create a handle to an object of type `T` from any constructor.
 If the cell a function is being called from has a handle from
 a previous call
-then `delete` is called on the corresponding C++ object. This
-provides some measure of garbage collection. 
+then `delete` is called on the corresponding C++ object.
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
 the handle to be returned to Excel. A handle is just a `double` but
@@ -167,8 +166,7 @@ To access a handle use `xll::handle<T> h(handle);` where `handle`
 is an argument of type `XLL_HANDLEX` (or `XLL_DOUBLEX`).
 This looks for a handle
 for type `T` and converts it to the correponding pointer. If
-the handle is not found the pointer is a `nullptr`. This
-provides some measure of type safety.
+the handle is not found the pointer is a `nullptr`.
 
 The `xll::handle` class has a member function `operator->()` so
 `h->member(...)` works as expected.

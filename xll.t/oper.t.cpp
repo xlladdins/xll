@@ -1,7 +1,7 @@
 // oper.t.cpp - test OPER type
 #include <cassert>
 #include <functional>
-#include "../xll/oper.h"
+#include "../xll/xll.h"
 
 /*
 struct test {
@@ -292,3 +292,26 @@ int test_compare()
 	return 0;
 }
 int test_compare_ = test_compare();
+
+int test_fp()
+{
+	using xll::FP;
+
+	{
+		FP a;
+ 		assert(a.rows() == 0);
+		assert(a.columns() == 0);
+	}
+	{
+		FP a(2,3);
+		assert(a.rows() == 2);
+		assert(a.columns() == 3);
+		assert(a.size() == 6);
+
+		a(1, 0) = 1.23;
+		assert(a[3] == 1.23);
+	}
+
+	return 0;
+}
+int test_fp_ = test_fp();

@@ -4,3 +4,4 @@
 #pragma once
 #include "exports.h"
 #include "addin.h"
+#include "fp.h"

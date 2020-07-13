@@ -22,6 +22,10 @@ namespace xll {
 		handle(HANDLEX h)
 			: h(h)
 		{ }
+		operator bool() const
+		{
+			return pt != nullptr;
+		}
 		T* operator->()
 		{
 			return pt;
@@ -57,7 +61,7 @@ AddInX xai_base(
 	})
 	.FunctionHelp(X_("Return a handle to a base object."))
 	.Uncalced() // required for functions creating handles
-	);
+);
 HANDLEX WINAPI xll_base(LPOPERX px)
 {
 #pragma XLLEXPORT
@@ -73,10 +77,10 @@ AddInX xai_base_get(
 		})
 	.FunctionHelp(X_("Return the value stored in base."))
 );
-LPOPERX WINAPI xll_base_get(HANDLEX _h)
+LPXLOPERX WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
 	xll::handle<base> h(_h);
 
-	return &h->get();
+	return h ? &h->get() : &ErrNAX;
 }

@@ -22,6 +22,7 @@ namespace xll {
 		typedef WORD xrw;
 		typedef BYTE xcol;
 		typedef short int xint;
+		typedef FP xfp;
 		static int Excelv(int xlfn, LPXLOPER operRes, int count, LPXLOPER opers[])
 		{
 			return ::Excel4v(xlfn, operRes, count, opers);
@@ -43,9 +44,10 @@ namespace xll {
 	struct traits<XLOPER12> {
 		typedef XCHAR xchar;
 		typedef const XCHAR* xcstr;
-		typedef int xint;
+		typedef INT32 xint;
 		typedef RW xrw;
 		typedef COL xcol;
+		typedef FP12 xfp;
 		static int Excelv(int xlfn, LPXLOPER12 operRes, int count, LPXLOPER12 opers[])
 		{
 			return ::Excel12v(xlfn, operRes, count, opers);

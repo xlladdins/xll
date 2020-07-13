@@ -6,6 +6,14 @@
 
 namespace xll {
 
+#if XLL_VERSION == 4
+	typedef XLOPER XLOPERX;
+#else
+	static_assert(XLL_VERSION == 12);
+	typedef XLOPER12 XLOPERX;
+#endif
+
+
 #define X(a, b)                                        \
 	template<class T>                                  \
 	inline constexpr T X##a = { .xltype = xltype##a }; \
@@ -29,7 +37,7 @@ namespace xll {
 
 }
 
-namespace {
+namespace { // doesn't hide xloper_cmp!!!
 	// use std::strong_ordering!!!
 	inline int xloper_cmp(const XLOPER& x, const XLOPER& y)
 	{
