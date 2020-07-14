@@ -37,12 +37,13 @@ namespace xll {
 		handle(T* p) noexcept
 			: p(p)
 		{
-			// delete if from previous call
+			// value in calling cell
 			OPERX x = Excel<XLOPERX>(xlCoerce, Excel<XLOPERX>(xlfCaller));
 			if (x.xltype == xltypeNum && x.val.num != 0) {
+				// looks like a handle
 				T* px = (T*)h2p(x.val.num);
 				auto pi = ps.find(px);
-				// garbage collect
+				// if so, garbage collect
 				if (pi != ps.end()) {
 					delete* pi;
 					ps.erase(pi);
@@ -70,6 +71,7 @@ namespace xll {
 		{
 			return p;
 		}
+		// return value for Excel
 		HANDLEX get()
 		{
 			return p2h(p);
