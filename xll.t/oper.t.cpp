@@ -338,6 +338,11 @@ int test_xloper = []()
 	{
 		ensure(0 == strcmp(XLL_DOUBLE, "B"));
 	}
+	
+	{
+		ensure(0 == wcscmp(XLL_DOUBLE12, L"B"));
+	}
+	
 
 	return 0;
 }

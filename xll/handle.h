@@ -20,9 +20,12 @@ namespace xll {
 		return (void*)((uint64_t)h);
 	}
 
+	/// <summary>
+	/// Collection of handles parameterized by type.
+	/// </summary>
 	template<class T>
 	class handle {
-		// garbage collect on exit
+		/// garbage collect handles on exit
 		struct pointers : public std::set<T*> {
 			using std::set<T*>::begin;
 			using std::set<T*>::end;
@@ -34,6 +37,11 @@ namespace xll {
 		inline static pointers ps;
 		T* p;
 	public:
+		/// <summary>
+		/// Add a handle to the collection.
+		/// If the calling cell has what looks like a handle then
+		/// delete the object and remove handle from collecton.
+		/// </summary>
 		handle(T* p) noexcept
 			: p(p)
 		{
@@ -55,6 +63,7 @@ namespace xll {
 		handle(HANDLEX h) noexcept
 			: p((T*)h2p(h))
 		{
+			// some measure of type safety
 			if (!ps.contains(p)) {
 				p = nullptr;
 			}

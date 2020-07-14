@@ -76,11 +76,11 @@ X(ASYNCHRONOUS, "X", "declares function to be asynchronous")            \
 X(VOID,     ">",  "return type to use for asynchronous functions")      \
 
 #define X__(s) X_(s)
-#define X(a,b,c)                                                                                         \
-inline const xll::traits<XLOPER>::xchar*   XLL_##a     = b;                        \
-inline const xll::traits<XLOPER12>::xchar* XLL_##a##12 = L#b;                      \
-inline const xll::traits<XLOPERX>::xchar * XLL_##a##X = X__(b);                       \
+#define X(a,b,c)                                                 \
+inline const xll::traits<XLOPER>::xchar*   XLL_##a     = b;      \
+inline const xll::traits<XLOPER12>::xchar* XLL_##a##12 = L##b;   \
+inline const xll::traits<XLOPERX>::xchar*  XLL_##a##X  = X__(b); \
 
 XLL_ARG_TYPE(X)
 #undef X
-
+#undef X__
