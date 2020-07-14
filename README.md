@@ -215,4 +215,4 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
     return &h->get();
 }
 ```
-For a production quality version of this example see [base.cpp](test/handle.cpp).
+For a production quality version of this example see [handle.cpp](test/handle.cpp).
