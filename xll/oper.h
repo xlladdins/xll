@@ -339,9 +339,10 @@ namespace xll {
 				if (n == 0) {
 					n = traits<X>::len(str);
 				}
-				str_realloc(val.str[0] + n + 1);
+				xchar len = val.str[0];
+				str_realloc(len + n);
 				if (val.str) {
-					traits<X>::cpy(val.str + val.str[0] + 1, str, n);
+					traits<X>::cpy(val.str + len + 1, str, n);
 				}
 			}
 		}

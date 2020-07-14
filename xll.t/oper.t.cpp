@@ -109,6 +109,8 @@ int test_oper_str = []()
 		ensure(o == "abc");
 		o = "def";
 		ensure(o == "def");
+		o &= "abc";
+		ensure(o == "defabc");
 	}
 	{
 		const char* abc = "abc";
@@ -318,9 +320,12 @@ int test_fp = []()
 int test_handle = []()
 {
 	{
-		int* pi = new int(2);
+  		int* pi = new int(2);
 		HANDLEX h = p2h(pi);
 		ensure(h);
+		void* p = h2p(h);
+		ensure(p == pi);
+
 		delete pi;
 	}
 

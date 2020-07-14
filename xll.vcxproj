@@ -39,9 +39,6 @@
     <ClCompile Include="xll\dllmain.cpp" />
     <ClCompile Include="xll\XLCALL.CPP" />
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="xll\XLCALL32.LIB" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -117,6 +114,7 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -125,12 +123,10 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>XLCALL32.LIB</AdditionalDependencies>
       <ForceSymbolReferences>
       </ForceSymbolReferences>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)xll</AdditionalLibraryDirectories>
       <ExportNamedFunctions>Excel4v</ExportNamedFunctions>
     </Lib>
   </ItemDefinitionGroup>
@@ -156,10 +152,8 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>XLCALL32.LIB</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)xll</AdditionalLibraryDirectories>
       <ExportNamedFunctions>Excel4v</ExportNamedFunctions>
     </Lib>
   </ItemDefinitionGroup>
@@ -174,6 +168,7 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -182,12 +177,10 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>XLCALL32.LIB</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)xll\x64</AdditionalLibraryDirectories>
       <ForceSymbolReferences>
       </ForceSymbolReferences>
       <ExportNamedFunctions>Excel4v</ExportNamedFunctions>
@@ -215,12 +208,10 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>XLCALL32.LIB</AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)xll\x64</AdditionalLibraryDirectories>
       <ExportNamedFunctions>Excel4v</ExportNamedFunctions>
     </Lib>
   </ItemDefinitionGroup>

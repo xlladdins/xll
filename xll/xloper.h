@@ -8,9 +8,11 @@ namespace xll {
 
 #if XLL_VERSION == 4
 	typedef XLOPER XLOPERX;
+	typedef LPXLOPER LPXLOPERX;
 #else
 	static_assert(XLL_VERSION == 12);
 	typedef XLOPER12 XLOPERX;
+	typedef LPXLOPER12 LPXLOPERX;
 #endif
 
 
@@ -25,12 +27,12 @@ namespace xll {
 #undef X
 
 #define X(a, b) \
-	template<class T>                                        \
-	inline constexpr T X##a =                                \
-		{ .val = { .err = xlerr##a }, .xltype = xltypeErr }; \
-	inline constexpr XLOPER Err##a = X##a<XLOPER>;           \
-	inline constexpr XLOPER12 Err##a##12 = X##a<XLOPER12>;   \
-	inline constexpr XLOPERX Err##a##X = X##a<XLOPERX>;      \
+	template<class T>                                         \
+	inline constexpr T XErr##a =                              \
+		{ .val = { .err = xlerr##a }, .xltype = xltypeErr };  \
+	inline constexpr XLOPER Err##a = XErr##a<XLOPER>;         \
+	inline constexpr XLOPER12 Err##a##12 = XErr##a<XLOPER12>; \
+	inline constexpr XLOPERX Err##a##X = XErr##a<XLOPERX>;    \
 
 	XLL_ERROR_TYPE(X)
 #undef X

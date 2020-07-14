@@ -1,54 +1,68 @@
 // handle.h - handles to C++ objects
 #pragma once
 #include <set>
+#include "excel.h"
 
 typedef double HANDLEX;
+inline const auto XLL_HANDLEX = XLL_DOUBLEX;
 
 namespace xll {
 
 	inline HANDLEX p2h(void* p)
 	{
-		HANDLEX h = 0;
-	
-		union {
-			void* p;
-			uint64_t ui;
-		} u = { .p = p };
-		h = static_cast<HANDLEX>(u.ui);
-
-		return h;
+		// first 16 bits are 0 so (uint64_t)p < 2^48
+		// double perfectly represents ints < 2^53
+		return (HANDLEX)((uint64_t)p);
 	}
-	inline void* h2p(HANDLEX /*h*/)
+	inline void* h2p(HANDLEX h)
 	{
-		return nullptr;
+		return (void*)((uint64_t)h);
 	}
 
 	template<class T>
 	class handle {
-		static std::set<T*> ptr_;
-		T* pt;
+		inline static std::set<T*> ps;
+		T* p;
 	public:
-		handle(T* pt)
-			: pt(pt)
+		handle(T* p = nullptr) noexcept
+			: p(p)
 		{
-			// if coerce caller in map delete
+			OPERX x = Excel<XLOPERX>(xlCoerce, Excel<XLOPERX>(xlfCaller));
+			if (x.xltype == xltypeNum && x.val.num != 0) {
+				T* px = (T*)h2p(x.val.num);
+				auto pi = ps.find(px);
+				if (pi != ps.end()) {
+					ps.erase(pi);
+					delete *pi;
+				}
+			}
+
+			if (p) {
+				ps.insert(p);
+			}
 		}
-		handle(HANDLEX h)
+		handle(HANDLEX h) noexcept
+			: p((T*)h2p(h))
 		{
-			// convert to pointer
-			// look up in set
+			if (!ps.contains(p)) {
+				p = nullptr;
+			}
 		}
-		T* ptr()
+		operator bool() const
 		{
-			return pt;
+			return p != nullptr;
 		}
 		T* operator->()
 		{
-			return pt;
+			return p;
+		}
+		T* ptr()
+		{
+			return p;
 		}
 		HANDLEX get()
 		{
-			return p2h(pt);
+			return p2h(p);
 		}
 
 	};

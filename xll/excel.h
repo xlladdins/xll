@@ -12,7 +12,9 @@ namespace xll {
 		std::vector<const X*> xargs { &args... };
 
 		int ret = traits<X>::Excelv(xlf, &x, sizeof...(args), (X**)xargs.data());
-		ensure(ret == xlretSuccess);
+		if (ret != xlretSuccess) {
+			return XErrValue<X>;
+		}
 
 		XOPER<X> o = x;
 		traits<X>::Excelv(xlFree, NULL, 0, NULL);

@@ -1,45 +1,8 @@
 // handle.cpp - Illustrate the use of handles
-#define XLOPERX XLOPER
+//#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
-
-const auto XLL_HANDLEX = XLL_DOUBLEX;
-
-namespace xll {
-	using HANDLEX = double;
-	template<class T>
-	class handle {
-		HANDLEX h;
-		T* pt;
-	public:
-		handle()
-			: h(0), pt(nullptr)
-		{ }
-		handle(T* pt)
-			: pt(pt)
-		{ }
-		handle(HANDLEX h)
-			: h(h)
-		{ }
-		operator bool() const
-		{
-			return pt != nullptr;
-		}
-		T* operator->()
-		{
-			return pt;
-		}
-		T* ptr()
-		{
-			return pt;
-		}
-		HANDLEX get()
-		{
-			return 0;
-		}
-	};
-}
 
 class base {
 	OPERX x;
@@ -55,7 +18,7 @@ public:
 };
 
 AddInX xai_base(
-	FunctionX(XLL_HANDLEX, X_("?xll_base"), X_("XLL.BASE"))
+	FunctionX(XLL_XDOUBLE<XLOPERX>::value, X_("?xll_base"), X_("XLL.BASE"))
 	.Args({
 		ArgX({ XLL_LPOPERX, X_("x"), X_("is a cell or range of cells") })
 	})
@@ -73,14 +36,15 @@ HANDLEX WINAPI xll_base(LPOPERX px)
 AddInX xai_base_get(
 	FunctionX(XLL_LPOPERX, X_("?xll_base_get"), X_("XLL.BASE.GET"))
 	.Args({
-		ArgX({ XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE") })
-		})
+		ArgX({ XLL_DOUBLEX, X_("handle"), X_("is a handle returned by XLL.BASE") })
+	})
 	.FunctionHelp(X_("Return the value stored in base."))
 );
-LPXLOPERX WINAPI xll_base_get(HANDLEX _h)
+LPOPERX WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
 	xll::handle<base> h(_h);
 
-	return h ? &h->get() : &ErrNAX;
+	return &(h->get());
+	//return h ? &h->get() : &ErrNAX;
 }
