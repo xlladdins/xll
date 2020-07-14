@@ -18,7 +18,7 @@ public:
 };
 
 AddInX xai_base(
-	FunctionX(XLL_XDOUBLE<XLOPERX>::value, X_("?xll_base"), X_("XLL.BASE"))
+	FunctionX(XLL_DOUBLEX, X_("?xll_base"), X_("XLL.BASE"))
 	.Args({
 		ArgX({ XLL_LPOPERX, X_("x"), X_("is a cell or range of cells") })
 	})

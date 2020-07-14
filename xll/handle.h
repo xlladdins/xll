@@ -1,5 +1,6 @@
 // handle.h - handles to C++ objects
 #pragma once
+#include <algorithm>
 #include <set>
 #include "excel.h"
 
@@ -21,25 +22,34 @@ namespace xll {
 
 	template<class T>
 	class handle {
-		inline static std::set<T*> ps;
+		// garbage collect on exit
+		struct pointers : public std::set<T*> {
+			using std::set<T*>::begin;
+			using std::set<T*>::end;
+			~pointers()
+			{
+				std::for_each(begin(), end(), [](auto i) { delete i; });
+			}
+		};
+		inline static pointers ps;
 		T* p;
 	public:
-		handle(T* p = nullptr) noexcept
+		handle(T* p) noexcept
 			: p(p)
 		{
+			// delete if from previous call
 			OPERX x = Excel<XLOPERX>(xlCoerce, Excel<XLOPERX>(xlfCaller));
 			if (x.xltype == xltypeNum && x.val.num != 0) {
 				T* px = (T*)h2p(x.val.num);
 				auto pi = ps.find(px);
+				// garbage collect
 				if (pi != ps.end()) {
+					delete* pi;
 					ps.erase(pi);
-					delete *pi;
 				}
 			}
 
-			if (p) {
-				ps.insert(p);
-			}
+			ps.insert(p);
 		}
 		handle(HANDLEX h) noexcept
 			: p((T*)h2p(h))

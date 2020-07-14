@@ -332,3 +332,13 @@ int test_handle = []()
 	return 0;
 }
 ();
+
+int test_xloper = []()
+{
+	{
+		ensure(0 == strcmp(XLL_DOUBLE, "B"));
+	}
+
+	return 0;
+}
+();
