@@ -6,16 +6,7 @@
 
 namespace xll {
 
-#if XLL_VERSION == 4
-	typedef XLOPER XLOPERX;
-	typedef LPXLOPER LPXLOPERX;
-#else
-	static_assert(XLL_VERSION == 12);
-	typedef XLOPER12 XLOPERX;
-	typedef LPXLOPER12 LPXLOPERX;
-#endif
-
-
+// Missing and Nil
 #define X(a, b)                                        \
 	template<class T>                                  \
 	inline constexpr T X##a = { .xltype = xltype##a }; \
@@ -26,6 +17,7 @@ namespace xll {
 	XLL_NULL_TYPE(X)
 #undef X
 
+// Error types
 #define X(a, b) \
 	template<class T>                                         \
 	inline constexpr T XErr##a =                              \

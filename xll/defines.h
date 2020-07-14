@@ -1,26 +1,9 @@
 // defines.h
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+#include <set>
+#include <string>
 #include "traits.h"
-
-// Build for Excel 2007 and later by default
-#ifndef XLOPERX
-#define XLL_VERSION 12
-#define XLOPERX XLOPER12
-#else
-#define XLL_VERSION 4
-#define XLOPERX XLOPER
-#endif
-
-// ASCII vs wide character strings
-#if XLL_VERSION == 4
-#define X_(t) t
-//#define TX_(t) #t
-#else
-static_assert(XLL_VERSION == 12);
-#define X_(t) L##t
-//#define TX_(t) L#t
-#endif
 
 // 64-bit uses different symbol name decoration
 #ifdef _M_X64 
@@ -75,12 +58,20 @@ X(CLUSTER_SAFE, "&", "declares function to be cluster safe")            \
 X(ASYNCHRONOUS, "X", "declares function to be asynchronous")            \
 X(VOID,     ">",  "return type to use for asynchronous functions")      \
 
-#define X__(s) X_(s)
+#define T_(s) _T(s)
 #define X(a,b,c)                                                 \
 inline const xll::traits<XLOPER>::xchar*   XLL_##a     = b;      \
 inline const xll::traits<XLOPER12>::xchar* XLL_##a##12 = L##b;   \
-inline const xll::traits<XLOPERX>::xchar*  XLL_##a##X  = X__(b); \
+inline const xll::traits<XLOPERX>::xchar*  XLL_##a##X  = T_(b); \
 
 XLL_ARG_TYPE(X)
 #undef X
-#undef X__
+/*
+#define X(a,b,c) T_(b)
+//std::basic_string<xll::traits<XLOPERX>::xchar>(T_(b)),
+inline std::set<std::string> xll_arg_types {
+	XLL_ARG_TYPE(X)
+};
+#undef X
+*/
+#undef T_

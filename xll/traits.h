@@ -1,8 +1,37 @@
-// traits.h - parameterized by XLOPER type
+// traits.h - Top level include file to parameterized by XLOPER type
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+
+#ifndef XLOPERX
+	#define XLOPERX XLOPER12
+	#define LPXLOPERX LPXLOPER12
+
+	#undef _MBCS
+
+	#ifndef _UNICODE
+	#define _UNICODE
+	#endif
+
+	#ifndef UNICODE
+	#define UNICODE
+	#endif
+#else
+	#define XLOPERX XLOPER
+	#define LPXLOPERX LPXLOPER
+
+	#ifndef _MBCS
+	#define _MBCS
+	#endif
+
+	#undef _UNICODE
+	#undef UNICODE
+#endif
+
+#define X_ _T
+
 #define NOMINMAX
 #include <Windows.h>
+#include <tchar.h>
 #include "XLCALL.H"
 #include "ensure.h"
 

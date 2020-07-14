@@ -14,12 +14,24 @@ namespace xll {
 	/// </summary>
 	template<class X>
 	struct XArg {
+		using xchar = typename traits<X>::xchar;
 		using xcstr = typename traits<X>::xcstr;
 
 		xcstr type;
 		xcstr name;
 		xcstr help;
 		//xcstr init;
+		XArg(xcstr type, xcstr name, xcstr help)
+			: type(type), name(name), help(help)
+		{
+			/*
+			if (!xll_arg_types.contains(type)) {
+				std::basic_string<xchar> msg{ _T("Unknown Excel argument type: ") };
+				msg += type;
+				MessageBox(GetForegroundWindow(), msg.c_str(), 0, MB_OK);
+			}
+			*/
+		}
 	};
 	using Arg = XArg<XLOPER>;
 	using Arg12 = XArg<XLOPER12>;
