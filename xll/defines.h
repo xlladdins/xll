@@ -66,12 +66,12 @@ inline const xll::traits<XLOPERX>::xchar*  XLL_##a##X  = T_(b); \
 
 XLL_ARG_TYPE(X)
 #undef X
-/*
-#define X(a,b,c) T_(b)
-//std::basic_string<xll::traits<XLOPERX>::xchar>(T_(b)),
-inline std::set<std::string> xll_arg_types {
+
+#define X(a,b,c)T_(b), 
+inline std::set<std::basic_string<xll::traits<XLOPERX>::xchar>> xll_arg_types {
 	XLL_ARG_TYPE(X)
 };
+
 #undef X
-*/
+
 #undef T_

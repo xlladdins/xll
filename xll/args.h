@@ -24,13 +24,11 @@ namespace xll {
 		XArg(xcstr type, xcstr name, xcstr help)
 			: type(type), name(name), help(help)
 		{
-			/*
 			if (!xll_arg_types.contains(type)) {
 				std::basic_string<xchar> msg{ _T("Unknown Excel argument type: ") };
 				msg += type;
 				MessageBox(GetForegroundWindow(), msg.c_str(), 0, MB_OK);
 			}
-			*/
 		}
 	};
 	using Arg = XArg<XLOPER>;
@@ -39,9 +37,6 @@ namespace xll {
 
 	template<class X>
 	class XArgs {
-		using xchar = typename traits<X>::xchar;
-		using xcstr = typename traits<X>::xcstr;
-
 		XOPER<X> moduleText;   // from xlGetName
 		XOPER<X> procedure;    // C function
 		XOPER<X> typeText;     // return type and arg codes 
@@ -54,8 +49,10 @@ namespace xll {
 		XOPER<X> functionHelp; // for function wizard
 		std::vector<XOPER<X>> argumentHelp;
 		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
-
 	public:
+		using xchar = typename traits<X>::xchar;
+		using xcstr = typename traits<X>::xcstr;
+
 		XArgs()
 		{ }
 		XArgs(xcstr type, xcstr procedure, xcstr functionText)

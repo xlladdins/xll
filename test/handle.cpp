@@ -9,10 +9,12 @@ class base {
 public:
 	base() { }
 	base(const OPERX& x) : x(x) { }
+	/*
 	base(const base&) = default;
 	base(base&&) = default;
 	base& operator=(const base&) = default;
 	base& operator=(base&&) = default;
+	*/
 	virtual ~base() { }
 	OPERX& get() 
 	{ 

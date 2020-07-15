@@ -51,7 +51,7 @@ namespace xll {
 				// looks like a handle
 				T* px = (T*)h2p(x.val.num);
 				auto pi = ps.find(px);
-				// if so, garbage collect
+				// already seen so garbage collect
 				if (pi != ps.end()) {
 					delete* pi;
 					ps.erase(pi);
