@@ -31,7 +31,7 @@ public:
 AddInX xai_base(
 	FunctionX(XLL_DOUBLEX, X_("?xll_base"), X_("XLL.BASE"))
 	.Args({
-		ArgX({ XLL_LPOPERX, X_("cell"), X_("is a cell or range of cells") })
+		ArgX(XLL_LPOPERX, X_("cell"), X_("is a cell or range of cells"))
 	})
 	.FunctionHelp(X_("Return a handle to a base object."))
 	.Uncalced() // required for functions creating handles
@@ -47,7 +47,7 @@ HANDLEX WINAPI xll_base(LPOPERX px)
 AddInX xai_base_get(
 	FunctionX(XLL_LPOPERX, X_("?xll_base_get"), X_("XLL.BASE.GET"))
 	.Args({
-		ArgX({ XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE") })
+		ArgX(XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE"))
 	})
 	.FunctionHelp(X_("Return the value stored in base."))
 );
@@ -60,10 +60,10 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 }
 
 AddInX xai_base_set(
-	FunctionX(XLL_LPOPERX, X_("?xll_base_set"), X_("XLL.BASE.SET"))
+	FunctionX(XLL_HANDLEX, X_("?xll_base_set"), X_("XLL.BASE.SET"))
 	.Args({
-		ArgX({ XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE") }),
-		ArgX({ XLL_LPOPERX, X_("cell"), X_("is a cell or range of cells") })
+		ArgX(XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE")),
+		ArgX(XLL_LPOPERX, X_("cell"), X_("is a cell or range of cells"))
 	})
 	.FunctionHelp(X_("Set the value of base to cell."))
 );

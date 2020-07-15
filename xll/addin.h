@@ -10,13 +10,16 @@ namespace xll {
     /// Store add-in data for xlAutoOpen/Close
     /// </summary>
     template<class X>
-	class XAddIn {
-    public:
+	struct XAddIn {
         static inline std::map<XOPER<X>, XArgs<X>> Map;
-
         XAddIn(const XArgs<X>& args)
         {
             Map[args.FunctionText()] = args;
+        }
+        // Get arguments using Excel function name.
+        static XArgs<X>& Args(typename traits<X>::xcstr name)
+        {
+            return Map[XOPER<X>(name)];
         }
     };
 
