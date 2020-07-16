@@ -15,7 +15,7 @@ Windows 10
   The Excel SDK is not supported on MacOS.
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)  
-  Use the Community Edition and install the `Desktop development with C++` workload.</dd>
+  Use the Community Edition and install the `Desktop development with C++` workload.
 
 [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)  
   Install the 64-bit version of Office 365 for the best experience.

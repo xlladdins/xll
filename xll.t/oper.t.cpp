@@ -342,7 +342,13 @@ int test_xloper = []()
 	{
 		ensure(0 == wcscmp(XLL_DOUBLE12, L"B"));
 	}
-	
+	{
+		ensure(0 == _tcscmp(XLL_DOUBLEX, _T("B")));
+	}
+	{
+		ensure(0 == _tcscmp(XLL_DOUBLEX, X_("B")));
+	}
+
 
 	return 0;
 }
