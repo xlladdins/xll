@@ -57,6 +57,9 @@
     <ClInclude Include="xll\auto.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="xll\on.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">

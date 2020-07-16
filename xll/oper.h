@@ -404,4 +404,14 @@ namespace xll {
 	typedef OPER* LPOPER;
 	typedef OPER12* LPOPER12;
 	typedef OPERX* LPOPERX;
+
+	// Just like Excel.
+	inline xll::OPER operator&(const XLOPER& x, const XLOPER& y)
+	{
+		return xll::OPER(x) &= y;
+	}
+	inline xll::OPER12 operator&(const XLOPER12& x, const XLOPER12& y)
+	{
+		return xll::OPER12(x) &= y;
+	}
 }

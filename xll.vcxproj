@@ -28,6 +28,7 @@
     <ClInclude Include="xll\exports.h" />
     <ClInclude Include="xll\fp.h" />
     <ClInclude Include="xll\handle.h" />
+    <ClInclude Include="xll\on.h" />
     <ClInclude Include="xll\oper.h" />
     <ClInclude Include="xll\traits.h" />
     <ClInclude Include="xll\XLCALL.H" />
