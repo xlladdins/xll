@@ -5,19 +5,6 @@
 #include <string>
 #include "traits.h"
 
-// 64-bit uses different symbol name decoration
-#ifdef _M_X64 
-#define XLL_DECORATE(s,n) s
-#define XLL_X64(x) x
-#define XLL_X32(x)
-#else
-#define XLL_DECORATE(s,n) "_" s "@" #n
-#define XLL_X64(x)	
-#define XLL_X32(x) x
-#endif
-
-// Used to export undecorated function name from a dll.
-#define XLLEXPORT comment(linker, "/export:" __FUNCDNAME__ "=" __FUNCTION__)
 
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \

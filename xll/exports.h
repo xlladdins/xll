@@ -1,10 +1,23 @@
 // exports.h - Functions to export to xlls
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
-
 #pragma once
 #include "defines.h"
 
-//#define XLL_EXPORT(s,n) __pragma(comment(linker, "/export:" XLL_DECORATE(s, n) )
+#ifndef _CONSOLE
+// Used to export undecorated function name from a dll.
+// Put '#pragma XLLEXPORT' in every add-in function body.
+#define XLLEXPORT comment(linker, "/export:" __FUNCDNAME__ "=" __FUNCTION__)
+
+// 64-bit uses different symbol name decoration
+#ifdef _M_X64 
+#define XLL_DECORATE(s,n) s
+#define XLL_X64(x) x
+#define XLL_X32(x)
+#else
+#define XLL_DECORATE(s,n) "_" s "@" #n
+#define XLL_X64(x)	
+#define XLL_X32(x) x
+#endif
 
 #pragma comment(linker, "/include:" XLL_DECORATE("DllMain", 12))
 //#pragma comment(linker, "/export:" XLL_DECORATE("XLCallVer", 0))
@@ -14,10 +27,13 @@
 #pragma comment(linker, "/export:xlAutoRemove" XLL_X32("@0=xlAutoRemove"))
 #pragma comment(linker, "/export:xlAutoFree" XLL_X32("@4=xlAutoFree"))
 #pragma comment(linker, "/export:xlAutoFree12" XLL_X32("@4=xlAutoFree12"))
+//#pragma comment(linker, "/export:xlAutoRegister" XLL_X32("@4=xlAutoRegister"))
 //#pragma comment(linker, "/export:xlAutoRegister12" XLL_X32("@4=xlAutoRegister12"))
-//#pragma comment(linker, "/export:xlAddInManagerInfo12@4=xlAddInManagerInfo12")
+//#pragma comment(linker, "/export:xlAddInManagerInfo" XLL_X32("@4=xlAddInManagerInfo"))
+#pragma comment(linker, "/export:xlAddInManagerInfo12" XLL_X32("@4=xlAddInManagerInfo12"))
+#endif // CONSOLE
+
 #ifdef _DEBUG
 #pragma comment(linker, "/export:?crtDbg@@3UCrtDbg@@A")
-#endif
-
+#endif // _DEBUG
 
