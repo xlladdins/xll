@@ -20,15 +20,16 @@ namespace xll {
 	/// It is a variant type that can be either a number, string, boolean,
 	/// error, range, single reference, or integer. 
 	template<class X>  
-	class XOPER : public X {
-	public:
-		using X::xltype;
-		using X::val;
+	class XOPER final : public X {
 		typedef typename traits<X>::xchar xchar;
 		typedef typename traits<X>::xcstr xcstr;
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xrw xrw;
 		typedef typename traits<X>::xcol xcol;
+
+	public:
+		using X::xltype;
+		using X::val;
 
 		XOPER()
 		{

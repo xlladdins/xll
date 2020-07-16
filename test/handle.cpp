@@ -39,7 +39,7 @@ AddInX xai_base(
 HANDLEX WINAPI xll_base(LPOPERX px)
 {
 #pragma XLLEXPORT
-	xll::handle h(new base(*px));
+	xll::handle<base> h(new base(*px));
 
 	return h.get();
 }
@@ -77,4 +77,53 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPERX px)
 	}
 
 	return _h;
+}
+
+class derived : public base {
+	OPERX x2;
+public:
+	derived(const OPERX x, const OPERX x2)
+		: base(x), x2(x2)
+	{ }
+	OPERX& get2()
+	{
+		return x2;
+	}
+};
+
+AddInX xai_derived(
+	FunctionX(XLL_DOUBLEX, X_("?xll_derived"), X_("XLL.DERIVED"))
+	.Args({
+		ArgX(XLL_LPOPERX, X_("cell"), X_("is a cell or range of cells")),
+		ArgX(XLL_LPOPERX, X_("cell2"), X_("is a cell or range of cells"))
+	})
+	.FunctionHelp(X_("Return a handle to a derived object."))
+	.Uncalced() // required for functions creating handles
+);
+HANDLEX WINAPI xll_derived(LPOPERX px, LPOPERX px2)
+{
+#pragma XLLEXPORT
+	// derived isa base
+	xll::handle<base> h(new derived(*px, *px2));
+
+	return h.get();
+}
+
+// XLL.BASE.GET calls base::get for handles returned by XLL.DERIVED.
+AddInX xai_derived_get(
+	FunctionX(XLL_LPOPERX, X_("?xll_derived_get"), X_("XLL.DERIVED.GET"))
+	.Args({
+		ArgX(XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.DERIVED"))
+	})
+	.FunctionHelp(X_("Return the second value stored in derived."))
+);
+LPOPERX WINAPI xll_derived_get(HANDLEX _h)
+{
+#pragma XLLEXPORT
+	// get handle to base class
+	xll::handle<base> h(_h);
+	// cast to derived
+	derived* pd = dynamic_cast<derived*>(h.ptr());
+
+	return pd ? &pd->get2() : (LPOPERX)&ErrNAX;
 }
