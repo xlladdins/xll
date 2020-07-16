@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="xll\addin.h" />
     <ClInclude Include="xll\args.h" />
+    <ClInclude Include="xll\auto.h" />
     <ClInclude Include="xll\defines.h" />
     <ClInclude Include="xll\ensure.h" />
     <ClInclude Include="xll\excel.h" />

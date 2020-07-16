@@ -7,11 +7,19 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoOpen(void)
 {
+	if (!xll::Auto<xll::Open>::Call()) {
+		return FALSE;
+	}
+
 	for (auto& [key, arg] : xll::AddIn::Map) {
 		arg.Register();
 	}
 	for (auto& [key, arg] : xll::AddIn12::Map) {
 		arg.Register();
+	}
+
+	if (!xll::Auto<xll::OpenAfter>::Call()) {
+		return FALSE;
 	}
 
 	return TRUE;
@@ -22,6 +30,10 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoClose(void)
 {
+	if (!xll::Auto<xll::CloseBefore>::Call()) {
+		return FALSE;
+	}
+
 	// No need to call xlfUnregister, just delete names.
 	for (const auto& [key, args] : xll::AddIn12::Map) {
 		Excel<XLOPER12>(xlfSetName, key);
@@ -29,7 +41,11 @@ xlAutoClose(void)
 	for (const auto& [key, args] : xll::AddIn::Map) {
 		Excel<XLOPER>(xlfSetName, key);
 	}
-	
+
+	if (!xll::Auto<xll::Close>::Call()) {
+		return FALSE;
+	}
+
 	return TRUE;
 }
 
@@ -39,6 +55,10 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoAdd(void)
 {
+	if (!xll::Auto<xll::Add>::Call()) {
+		return FALSE;
+	}
+
 	return TRUE;
 }
 
@@ -48,6 +68,10 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoRemove(void)
 {
+	if (!xll::Auto<xll::Remove>::Call()) {
+		return FALSE;
+	}
+
 	return TRUE;
 }
 

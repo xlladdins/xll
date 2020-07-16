@@ -3,5 +3,6 @@
 #pragma once
 #include "exports.h"
 #include "addin.h"
+#include "auto.h"
 #include "fp.h"
 #include "handle.h"

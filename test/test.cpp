@@ -24,3 +24,8 @@ double WINAPI xll_tgamma(double x)
 #pragma XLLEXPORT
 	return tgamma(x);
 }
+
+Auto<Open> xai_open([]() { 
+	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Open> called")));
+	return TRUE;  
+});
