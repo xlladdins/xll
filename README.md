@@ -160,7 +160,7 @@ then `delete` is called on the corresponding C++ object.
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
 the handle to be returned to Excel. A handle is just a `double` but
-for clarity `using HANDLEX = double` is provided.
+for clarity `typedef double HANDLEX` is provided.
 
 To access a handle use `xll::handle<T> h(handle);` where `handle`
 is an argument of type `XLL_HANDLEX` (or `XLL_DOUBLEX`).

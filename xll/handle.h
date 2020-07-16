@@ -13,6 +13,9 @@ namespace xll {
 	{
 		// first 16 bits are 0 so (uint64_t)p < 2^48
 		// double perfectly represents ints < 2^53
+		if (((uint64_t)p) >> 48) {
+			MessageBox(GetForegroundWindow(), _T("handle > 2^48"), 0, MB_OK);
+		}
 		return (HANDLEX)((uint64_t)p);
 	}
 	inline void* h2p(HANDLEX h)
@@ -39,7 +42,7 @@ namespace xll {
 	public:
 		/// <summary>
 		/// Add a handle to the collection.
-		/// If the calling cell has what looks like a handle then
+		/// If the calling cell has a known handle then
 		/// delete the object and remove handle from collecton.
 		/// </summary>
 		handle(T* p) noexcept
