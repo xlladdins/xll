@@ -8,14 +8,11 @@ class base {
 	OPERX x;
 public:
 	base() { }
-	base(const OPERX& x) : x(x) { }
-	/*
-	base(const base&) = default;
-	base(base&&) = default;
-	base& operator=(const base&) = default;
-	base& operator=(base&&) = default;
-	*/
-	virtual ~base() { }
+	base(const OPERX& x) 
+		: x(x) 
+	{ }
+	virtual ~base() 
+	{ }
 	OPERX& get() 
 	{ 
 		return x; 

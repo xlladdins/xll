@@ -1,6 +1,5 @@
 // args.h - Arguments for xlfRegister
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
-
 #pragma once
 #include <initializer_list>
 #include <vector>
@@ -114,14 +113,14 @@ namespace xll {
 			return *this;
 		}
 
-		// slice okay since it is xltypeNum
+		// slice okay since it is xltypeNum/Err
 		X RegisterId() const
 		{
 			return Excel<X>(xlfEvaluate, functionText);
 		}
 
 		// Register add-in with Excel
-		int Register()
+		X* Register()
 		{
 			size_t count = 10 + argumentHelp.size();
 			std::vector<X*> oper(count);
@@ -145,13 +144,11 @@ namespace xll {
 			}
 
 			int ret = traits<X>::Excelv(xlfRegister, &registerId, static_cast<int>(count), const_cast<X**>(&oper[0]));
-			if (registerId.xltype != xltypeNum) {
-				Excel<X>(xlcAlert, functionText, XOPER<X>(3)); // error
-
-				return xlretFailed;
+			if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
+				Excel<X>(xlcAlert, functionText, XOPER<X>(2));
 			}
 
-			return ret;
+			return &registerId;
 		}
 		// Unregister add-in.
 		XOPER<X> Unregister() const

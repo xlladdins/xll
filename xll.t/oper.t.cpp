@@ -321,9 +321,9 @@ int test_handle = []()
 {
 	{
   		int* pi = new int(2);
-		HANDLEX h = p2h(pi);
+		HANDLEX h = to_handle(pi);
 		ensure(h);
-		void* p = h2p(h);
+		int* p = to_pointer<int>(h);
 		ensure(p == pi);
 
 		delete pi;

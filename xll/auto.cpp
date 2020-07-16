@@ -7,11 +7,9 @@ extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoOpen(void)
 {
-#ifndef _M_X64 
 	for (auto& [key, arg] : xll::AddIn::Map) {
 		arg.Register();
 	}
-#endif	
 	for (auto& [key, arg] : xll::AddIn12::Map) {
 		arg.Register();
 	}
@@ -19,22 +17,19 @@ xlAutoOpen(void)
 	return TRUE;
 }
 
-// Called by Microsoft Excel whenever the xll is deactivated.
+// Called by Microsoft Excel when the xll is deactivated.
 extern "C"
 int __declspec(dllexport) WINAPI
 xlAutoClose(void)
 {
-	// call Unregister on moduleText???
+	// No need to call xlfUnregister, just delete names.
 	for (const auto& [key, args] : xll::AddIn12::Map) {
-		args.Unregister();
+		Excel<XLOPER12>(xlfSetName, key);
 	}
-#ifndef _M_X64 
 	for (const auto& [key, args] : xll::AddIn::Map) {
-		args.Unregister();
+		Excel<XLOPER>(xlfSetName, key);
 	}
-#endif
 	
-
 	return TRUE;
 }
 
@@ -83,17 +78,32 @@ xlAutoFree12(LPXLOPER12 px)
 		}
 	}
 }
-/*
+
+// Look up name and register.
+extern "C"
+LPXLOPER __declspec(dllexport) WINAPI
+xlAutoRegister(LPXLOPER pxName)
+{
+	return xll::AddIn::Map[*pxName].Register();
+}
+
 // Look up name and register.
 extern "C"
 LPXLOPER12 __declspec(dllexport) WINAPI 
 xlAutoRegister12(LPXLOPER12 pxName)
 {
-	static XLOPER12 xResult;
-
-	return &xResult;
+	return xll::AddIn12::Map[*pxName].Register();
 }
-*/
+
+// Name of dll with suffix stripped off.
+template<class X>
+xll::XOPER<X> DllName()
+{
+	xll::XOPER<X> xName = Excel<X>(xlfGetName);
+
+	return xName;
+}
+
 
 // Called by Microsoft Excel when the Add-in Manager is invoked for the first time.
 // This function is used to provide the Add-In Manager with information about your add-in.

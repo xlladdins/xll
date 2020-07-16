@@ -9,18 +9,20 @@ inline const auto XLL_HANDLEX = XLL_DOUBLEX;
 
 namespace xll {
 
-	inline HANDLEX p2h(void* p)
+	template<class T>
+	inline HANDLEX to_handle(T* p)
 	{
-		// first 16 bits are 0 so (uint64_t)p < 2^48
+		// first 16 bits are 0
 		// double perfectly represents ints < 2^53
-		if (((uint64_t)p) >> 48) {
+		if (((uint64_t)p) >> (64 - 16)) {
 			MessageBox(GetForegroundWindow(), _T("handle > 2^48"), 0, MB_OK);
 		}
 		return (HANDLEX)((uint64_t)p);
 	}
-	inline void* h2p(HANDLEX h)
+	template<class T>
+	inline T* to_pointer(HANDLEX h)
 	{
-		return (void*)((uint64_t)h);
+		return (T*)((uint64_t)h);
 	}
 
 	/// <summary>
@@ -52,7 +54,7 @@ namespace xll {
 			OPERX x = Excel<XLOPERX>(xlCoerce, Excel<XLOPERX>(xlfCaller));
 			if (x.xltype == xltypeNum && x.val.num != 0) {
 				// looks like a handle
-				T* px = (T*)h2p(x.val.num);
+				T* px = to_pointer<T>(x.val.num);
 				auto pi = ps.find(px);
 				// already seen so garbage collect
 				if (pi != ps.end()) {
@@ -64,7 +66,7 @@ namespace xll {
 			ps.insert(p);
 		}
 		handle(HANDLEX h) noexcept
-			: p((T*)h2p(h))
+			: p(to_pointer<T>(h))
 		{
 			// some measure of type safety
 			if (!ps.contains(p)) {
@@ -86,7 +88,7 @@ namespace xll {
 		// return value for Excel
 		HANDLEX get()
 		{
-			return p2h(p);
+			return to_handle(p);
 		}
 
 	};

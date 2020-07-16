@@ -1,6 +1,5 @@
 // oper.h - Wrapper for XLOPER
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
-
 #pragma once
 #include <concepts>
 #include <utility>
