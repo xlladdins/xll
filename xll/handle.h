@@ -4,7 +4,12 @@
 #include <set>
 #include "excel.h"
 
-typedef double HANDLEX;
+// handle data type
+using HANDLEX = double;
+
+// argument types for add-ins
+inline const auto XLL_HANDLE= XLL_DOUBLE;
+inline const auto XLL_HANDLE12 = XLL_DOUBLE12;
 inline const auto XLL_HANDLEX = XLL_DOUBLEX;
 
 namespace xll {
@@ -77,10 +82,6 @@ namespace xll {
 		{
 			return p != nullptr;
 		}
-		T* operator->()
-		{
-			return p;
-		}
 		T* ptr()
 		{
 			return p;
@@ -90,7 +91,14 @@ namespace xll {
 		{
 			return to_handle(p);
 		}
-
+		T* operator->()
+		{
+			return p;
+		}
+		const T* operator->() const
+		{
+			return p;
+		}
 	};
 
 }

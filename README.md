@@ -154,22 +154,21 @@ both `const` and non-const iterators over array elements.
 Handles are used to access C++ objects in Excel. 
 Call `xll::handle<T> h(new T(...))`
 to create a handle to an object of type `T` from any constructor.
-If the cell a function is being called from has a handle from
+If the cell a function is being called from contains a handle from
 a previous call
 then `delete` is called on the corresponding C++ object.
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
-the handle to be returned to Excel. A handle is just a `double` but
-for clarity `typedef double HANDLEX` is provided.
+the handle to be returned to Excel. This has type `HANDLEX` and
+is specified in add-in arguments as `XLL_HANDLEX`.
 
-To access a handle use `xll::handle<T> h(handle);` where `handle`
-is an argument of type `XLL_HANDLEX` (or `XLL_DOUBLEX`).
-This looks for a handle
-for type `T` and converts it to the correponding pointer. If
-the handle is not found the pointer is a `nullptr`.
+To access a handle use `xll::handle<T> h(handle);`.
+This converts  `HANDLEX handle` to a pointer an ensures it
+was created as described above.
+If the handle is not found the pointer is set to `nullptr`.
 
 The `xll::handle` class has a member function `operator->()` so
-`h->member(...)` works as expected.
+`h->member(...)` works as if `h` were a `T*`.
 
 For example if we have the class
 ```C++
@@ -188,7 +187,7 @@ AddInX xai_base(
         ArgX({ XLL_LPOPERX, X_("x"), X_("is a cell or range of cells") })
     })
     .FunctionHelp(X_("Return a handle to a base object."))
-    .Uncalced() // required for functions creating handles
+    .Uncalced() // Required for functions creating handles!!!
 );
 HANDLEX WINAPI xll_base(LPOPERX px)
 {
@@ -216,3 +215,8 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 }
 ```
 For a production quality version of this example see [handle.cpp](test/handle.cpp).
+That file also has examples illustrating how single inheritance can be used in Excel.
+
+## [Excel 4 Macro Functions](docs/Excel4Macros/README.md)
+
+Excel features are available from xlls via the `Excel` function.
