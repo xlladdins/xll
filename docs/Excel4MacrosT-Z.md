@@ -60,8 +60,8 @@ affected.
 
 **TABLE**?(row\_ref, column\_ref)
 
-Row\_ref    specifies the one cell to use as the row input for your
-table.
+Row\_ref&nbsp;&nbsp;&nbsp;&nbsp;specifies the one cell to use as the row
+input for your table.
 
   - > Row\_ref should be either an external reference to a single cell
     > on the active worksheet, such as \!$A$1 or \!Price, or an
@@ -71,10 +71,11 @@ table.
   - > If row\_ref is an R1C1-style reference, it is assumed to be
     > relative to the active cell in the selection.
 
->  
+> &nbsp;
 
-Column\_ref    specifies the one cell to use as the column input for
-your table. Column\_ref is subject to the same restrictions as row\_ref.
+Column\_ref&nbsp;&nbsp;&nbsp;&nbsp;specifies the one cell to use as the
+column input for your table. Column\_ref is subject to the same
+restrictions as row\_ref.
 
 Return to [top](#T)
 
@@ -98,11 +99,11 @@ selected when the user presses the TAB key.
 
 **Related Functions**
 
-BRING.TO.FRONT   Puts the selected object or objects on top of all other
-objects
+BRING.TO.FRONT&nbsp;&nbsp;&nbsp;Puts the selected object or objects on
+top of all other objects
 
-SEND.TO.BACK   Puts the selected object or objects behind all other
-objects
+SEND.TO.BACK&nbsp;&nbsp;&nbsp;Puts the selected object or objects behind
+all other objects
 
 Return to [top](#T)
 
@@ -116,19 +117,20 @@ finished communicating with another application.
 
 **TERMINATE**(**channel\_num**)
 
-**Important   **Microsoft Excel for the Macintosh requires system
-software version 7.0 or later for this function.
+**Important&nbsp;&nbsp;&nbsp;**Microsoft Excel for the Macintosh
+requires system software version 7.0 or later for this function.
 
-Channel\_num    is the number returned by a previously run INITIATE
-function. Channel\_num identifies a DDE channel to close.
+Channel\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number returned by a
+previously run INITIATE function. Channel\_num identifies a DDE channel
+to close.
 
 If TERMINATE is not successful, it returns the \#VALUE\! error value.
 
 **Related Functions**
 
-EXEC   Starts another application
+EXEC&nbsp;&nbsp;&nbsp;Starts another application
 
-INITIATE   Opens a channel to another application
+INITIATE&nbsp;&nbsp;&nbsp;Opens a channel to another application
 
 Return to [top](#T)
 
@@ -140,21 +142,23 @@ Replaces characters in a text box or button with the text you specify.
 
 **TEXT.BOX**(**add\_text**, object\_id\_text, start\_num, num\_chars)
 
-Add\_text    is the text you want to add to the text box or button.
+Add\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text you want to add to the text
+box or button.
 
-Object\_id\_text    is the name of the text box or button to which you
-want to add text (for example, "Text 1" or "Button 2"). If
-object\_id\_text is omitted, it is assumed to be the selected item.
+Object\_id\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the text box or
+button to which you want to add text (for example, "Text 1" or "Button
+2"). If object\_id\_text is omitted, it is assumed to be the selected
+item.
 
-Start\_num    is a number specifying the position of the first character
-you want to replace (or the position at which you want to insert
-characters if you do not want to replace any). If start\_num is omitted,
-it is assumed to be 1.
+Start\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the position of
+the first character you want to replace (or the position at which you
+want to insert characters if you do not want to replace any). If
+start\_num is omitted, it is assumed to be 1.
 
-Num\_chars    is the number of characters you want to replace. If
-num\_chars is 0, then no characters are replaced, and add\_text is
-inserted starting at the position start\_num. If num\_chars is omitted,
-all the characters are replaced.
+Num\_chars&nbsp;&nbsp;&nbsp;&nbsp;is the number of characters you want
+to replace. If num\_chars is 0, then no characters are replaced, and
+add\_text is inserted starting at the position start\_num. If num\_chars
+is omitted, all the characters are replaced.
 
 **Examples**
 
@@ -170,11 +174,11 @@ TEXT.BOX("Account Summary for 1991", "Text 6", 1, 0)
 
 **Related Functions**
 
-CREATE.OBJECT   Creates an object
+CREATE.OBJECT&nbsp;&nbsp;&nbsp;Creates an object
 
-FONT.PROPERTIES   Applies a font to the selection
+FONT.PROPERTIES&nbsp;&nbsp;&nbsp;Applies a font to the selection
 
-GET.OBJECT   Returns information about an object
+GET.OBJECT&nbsp;&nbsp;&nbsp;Returns information about an object
 
 Return to [top](#T)
 
@@ -188,11 +192,12 @@ can use them with other functions, such as OFFSET.
 
 **TEXTREF**(**text**, a1)
 
-Text    is a reference in the form of text.
+Text&nbsp;&nbsp;&nbsp;&nbsp;is a reference in the form of text.
 
-A1    is a logical value specifying the reference type of text. If a1 is
-TRUE, text is assumed to be an A1-style reference; if FALSE or omitted,
-text is assumed to be an R1C1-style reference.
+A1&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying the reference
+type of text. If a1 is TRUE, text is assumed to be an A1-style
+reference; if FALSE or omitted, text is assumed to be an R1C1-style
+reference.
 
 **Remarks**
 
@@ -204,11 +209,11 @@ text is assumed to be an R1C1-style reference.
   - > If you use TEXTREF as a reference argument to a function,
     > Microsoft Excel does not convert the reference to a value.
 
->  
+> &nbsp;
 
-**Tip   **You can convert a reference to text with REFTEXT, manipulate
-it with the REPLACE and MID functions, and convert it back to a
-reference with TEXTREF.
+**Tip&nbsp;&nbsp;&nbsp;**You can convert a reference to text with
+REFTEXT, manipulate it with the REPLACE and MID functions, and convert
+it back to a reference with TEXTREF.
 
 **Examples**
 
@@ -221,9 +226,9 @@ be interpreted as an R1C1-style reference.
 
 **Related Functions**
 
-DEREF   Returns the values of the cells in a reference
+DEREF&nbsp;&nbsp;&nbsp;Returns the values of the cells in a reference
 
-REFTEXT   Converts a reference to text
+REFTEXT&nbsp;&nbsp;&nbsp;Converts a reference to text
 
 Return to [top](#T)
 
@@ -243,14 +248,14 @@ The following arguments correspond to check boxes, option buttons and
 text buttons in the Text To Columns Wizard, which is started with the
 Text To Columns command on the Data menu.
 
-Destination\_Ref    is a single cell reference to specifies where to
-place the converted text.
+Destination\_Ref&nbsp;&nbsp;&nbsp;&nbsp;is a single cell reference to
+specifies where to place the converted text.
 
-Data\_Type    is a number specifying whether that data is delimited (1)
-or fixed width (2)
+Data\_Type&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying whether that
+data is delimited (1) or fixed width (2)
 
-Text\_Delim    denotes how text strings are represented, and can be one
-of the following values:
+Text\_Delim&nbsp;&nbsp;&nbsp;&nbsp;denotes how text strings are
+represented, and can be one of the following values:
 
 |            |                 |
 | ---------- | --------------- |
@@ -259,40 +264,41 @@ of the following values:
 | 2          | '               |
 | 3          | none            |
 
-Consecutive\_delim    is a logical value corresponding to the Treat
-Consecutive Delimiters as One check box which, if TRUE, allows
-consecutive delimiters (such as ",,,") to be treated as a single
-delimiter. If FALSE, all consecutive delimiters are considered separate
-column breaks.
+Consecutive\_delim&nbsp;&nbsp;&nbsp;&nbsp;is a logical value
+corresponding to the Treat Consecutive Delimiters as One check box
+which, if TRUE, allows consecutive delimiters (such as ",,,") to be
+treated as a single delimiter. If FALSE, all consecutive delimiters are
+considered separate column breaks.
 
-Tab    is a logical value which, if TRUE, specifies that the column has
-tab delimiters. If FALSE, the column does not have tab delimiters. Tab
-is ignored if data\_type is 2.
+Tab&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE, specifies
+that the column has tab delimiters. If FALSE, the column does not have
+tab delimiters. Tab is ignored if data\_type is 2.
 
-Semicolon    is a logical value which, if TRUE, specifies that the
-column has semicolon delimiters. If FALSE, the column does not have
-semicolon delimiters. Semicolon is ignored if data\_type is 2.
+Semicolon&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+specifies that the column has semicolon delimiters. If FALSE, the column
+does not have semicolon delimiters. Semicolon is ignored if data\_type
+is 2.
 
-Comma    is a logical value which, if TRUE, specifies that the column
-has comma delimiters. If FALSE, the column does not have comma
-delimiters. Comma is ignored if data\_type is 2.
+Comma&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+specifies that the column has comma delimiters. If FALSE, the column
+does not have comma delimiters. Comma is ignored if data\_type is 2.
 
-Space    is a logical value which, if TRUE, specifies that the column
-has space delimiters. If FALSE, the column does not have space
-delimiters. Space is ignored if data\_type is 2.
+Space&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+specifies that the column has space delimiters. If FALSE, the column
+does not have space delimiters. Space is ignored if data\_type is 2.
 
-Other    is a logical value which, if TRUE, specifies that the column
-has custom delimiters. If FALSE, the column does not have custom
-delimiters. Other is ignored if data\_type is 2.
+Other&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+specifies that the column has custom delimiters. If FALSE, the column
+does not have custom delimiters. Other is ignored if data\_type is 2.
 
-Other\_Char    is a single character that specifies a delimiter not
-included in the list of delimiters. Other\_Char is ignored if data\_type
-is 2 and if the argument other is FALSE.
+Other\_Char&nbsp;&nbsp;&nbsp;&nbsp;is a single character that specifies
+a delimiter not included in the list of delimiters. Other\_Char is
+ignored if data\_type is 2 and if the argument other is FALSE.
 
-Field\_Info    is an array which consists of the following elements:
-"column number, data\_format", if data\_type is 1; or "start\_pos,
-data\_format" if data\_type is 2. The second number defines the column's
-data format, and can be one of the following.
+Field\_Info&nbsp;&nbsp;&nbsp;&nbsp;is an array which consists of the
+following elements: "column number, data\_format", if data\_type is 1;
+or "start\_pos, data\_format" if data\_type is 2. The second number
+defines the column's data format, and can be one of the following.
 
 |                           |                             |
 | ------------------------- | --------------------------- |
@@ -325,8 +331,8 @@ selection is something other than worksheet.
 
 **Related Function**
 
-TRACER.DISPLAY   Allows tracer arrow to be displayed showing
-relationship among cells
+TRACER.DISPLAY&nbsp;&nbsp;&nbsp;Allows tracer arrow to be displayed
+showing relationship among cells
 
 Return to [top](#T)
 
@@ -340,13 +346,15 @@ graphically displayed showing relationship among cells.
 
 **TRACER.DISPLAY**(direction, create)
 
-Direction    is logical value which, if TRUE, displays tracer arrows for
-precedents. If FALSE tracer arrows for dependents are displayed.
+Direction&nbsp;&nbsp;&nbsp;&nbsp;is logical value which, if TRUE,
+displays tracer arrows for precedents. If FALSE tracer arrows for
+dependents are displayed.
 
-Create    is a logical value which, if TRUE displays the next level of
-tracer arrows in the direction specified by direction. If FALSE, removes
-the current level of tracer arrows in the direction specified by
-direction. A level is the number of "arrows" away from the source cell.
+Create&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE displays
+the next level of tracer arrows in the direction specified by direction.
+If FALSE, removes the current level of tracer arrows in the direction
+specified by direction. A level is the number of "arrows" away from the
+source cell.
 
 **Remark**
 
@@ -356,7 +364,7 @@ traced.
 
 **Related Function**
 
-TRACER.CLEAR   Clears all tracer arrows on the worksheet
+TRACER.CLEAR&nbsp;&nbsp;&nbsp;Clears all tracer arrows on the worksheet
 
 Return to [top](#T)
 
@@ -383,9 +391,9 @@ error occurred. Returns FALSE if an error is not found.
 
 **Related Functions**
 
-TRACER.DISPLAY   Allows tracer arrow to be displayed
+TRACER.DISPLAY&nbsp;&nbsp;&nbsp;Allows tracer arrow to be displayed
 
-TRACER.CLEAR   Clears all tracer arrows on the worksheet
+TRACER.CLEAR&nbsp;&nbsp;&nbsp;Clears all tracer arrows on the worksheet
 
 Return to [top](#T)
 
@@ -399,19 +407,20 @@ tracer arrow, then the selection goes to the end of the branch.
 
 **TRACER.NAVIGATE**(direction, arrow\_num, ref\_num)
 
-Direction    is a logical value which, if TRUE, moves the selection to
-the arrow endpoint in the precedents direction. If FALSE, moves the
-selection to the arrow endpoint in the dependents direction.
+Direction&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+moves the selection to the arrow endpoint in the precedents direction.
+If FALSE, moves the selection to the arrow endpoint in the dependents
+direction.
 
-Arrow\_num    is a number specifying which reference a tracer arrow will
-follow. For example, a 1 indicates that the arrow will follow the first
-reference in the formula. 1 is the default.
+Arrow\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying which reference
+a tracer arrow will follow. For example, a 1 indicates that the arrow
+will follow the first reference in the formula. 1 is the default.
 
-Ref\_num    If the arrow is an external reference arrow with multiple
-links, this argument tells which of the links to follow. Refer to the
-Links dialog, which is displayed with the Links command from the Edit
-menu. If ref\_num is 1, the link in the first reference in the Links
-dialog box will be followed. The default is 1.
+Ref\_num&nbsp;&nbsp;&nbsp;&nbsp;If the arrow is an external reference
+arrow with multiple links, this argument tells which of the links to
+follow. Refer to the Links dialog, which is displayed with the Links
+command from the Edit menu. If ref\_num is 1, the link in the first
+reference in the Links dialog box will be followed. The default is 1.
 
 **Remarks**
 
@@ -426,8 +435,8 @@ dialog box will be followed. The default is 1.
 
 **Related Function**
 
-TRACER.DISPLAY   Allows tracer arrow to be displayed showing which cells
-formulas in other cells depend on
+TRACER.DISPLAY&nbsp;&nbsp;&nbsp;Allows tracer arrow to be displayed
+showing which cells formulas in other cells depend on
 
 Return to [top](#T)
 
@@ -445,15 +454,18 @@ add-in.
 
 **TTESTM**?(inprng1, inprng2, outrng, labels, alpha, difference)
 
-Inprng1    is the input range for the first data set.
+Inprng1&nbsp;&nbsp;&nbsp;&nbsp;is the input range for the first data
+set.
 
-Inprng2    is the input range for the second data set.
+Inprng2&nbsp;&nbsp;&nbsp;&nbsp;is the input range for the second data
+set.
 
-Outrng    is the first cell (the upper-left cell) in the output table or
-the name, as text, of a new sheet to contain the output table. If FALSE,
-blank, or omitted, places the output table in a new workbook.
+Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+the output table or the name, as text, of a new sheet to contain the
+output table. If FALSE, blank, or omitted, places the output table in a
+new workbook.
 
-Labels    is a logical value.
+Labels&nbsp;&nbsp;&nbsp;&nbsp;is a logical value.
 
   - > If labels is TRUE, then labels are in the first row or column of
     > the input ranges.
@@ -462,20 +474,21 @@ Labels    is a logical value.
     > are considered data. The output table will include default row or
     > column headings.
 
->  
+> &nbsp;
 
-Alpha    is the confidence level for the test. If omitted, alpha is
-0.05.
+Alpha&nbsp;&nbsp;&nbsp;&nbsp;is the confidence level for the test. If
+omitted, alpha is 0.05.
 
-Difference    is the hypothesized difference in means. If omitted,
-difference is 0.
+Difference&nbsp;&nbsp;&nbsp;&nbsp;is the hypothesized difference in
+means. If omitted, difference is 0.
 
 **Related Functions**
 
-PTTESTM   Performs a paired two-sample Student's t-Test for means
+PTTESTM&nbsp;&nbsp;&nbsp;Performs a paired two-sample Student's t-Test
+for means
 
-PTTESTV   Performs a two-sample Student's t-Test, assuming unequal
-variances
+PTTESTV&nbsp;&nbsp;&nbsp;Performs a two-sample Student's t-Test,
+assuming unequal variances
 
 Return to [top](#T)
 
@@ -505,7 +518,7 @@ If the selection is not a grouped object, UNGROUP returns FALSE.
 
 **Related Function**
 
-GROUP   Groups selected objects
+GROUP&nbsp;&nbsp;&nbsp;Groups selected objects
 
 Return to [top](#T)
 
@@ -518,19 +531,20 @@ to display hidden windows.
 
 **UNHIDE**(**window\_text**)
 
-Window\_text    is the name of the window to unhide. If window\_text is
-not the name of an open workbook, an error value is returned and the
-macro is interrupted. You cannot unhide a window of an add-in workbook.
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the window to unhide.
+If window\_text is not the name of an open workbook, an error value is
+returned and the macro is interrupted. You cannot unhide a window of an
+add-in workbook.
 
-**Tip   **You can use UNHIDE to activate an embedded chart in order to
-edit and format it. Use the HIDE function to de-activate the chart
-window.
+**Tip&nbsp;&nbsp;&nbsp;**You can use UNHIDE to activate an embedded
+chart in order to edit and format it. Use the HIDE function to
+de-activate the chart window.
 
 **Related Functions**
 
-GET.WINDOW   Returns information about a window
+GET.WINDOW&nbsp;&nbsp;&nbsp;Returns information about a window
 
-HIDE   Hides the active window
+HIDE&nbsp;&nbsp;&nbsp;Hides the active window
 
 Return to [top](#T)
 
@@ -548,9 +562,11 @@ want to control which cell is active on a protected sheet.
 
 **Related Functions**
 
-CELL.PROTECTION   Controls protection for the selected cells
+CELL.PROTECTION&nbsp;&nbsp;&nbsp;Controls protection for the selected
+cells
 
-PROTECT.DOCUMENT   Controls protection for the active sheet
+PROTECT.DOCUMENT&nbsp;&nbsp;&nbsp;Controls protection for the active
+sheet
 
 Return to [top](#T)
 
@@ -568,9 +584,9 @@ resource regardless of the use count.
 
 **UNREGISTER**(**register\_id**)
 
-Register\_id    is the register ID returned by the REGISTER or
-REGISTER.ID function, which corresponds to the function or code resource
-to be removed from memory.
+Register\_id&nbsp;&nbsp;&nbsp;&nbsp;is the register ID returned by the
+REGISTER or REGISTER.ID function, which corresponds to the function or
+code resource to be removed from memory.
 
 Microsoft Excel counts the number of times you register a function or
 code resource. This number is called the use count. Each time you
@@ -580,9 +596,10 @@ memory. Therefore, if you register a function or code resource more than
 once, you must use a corresponding number of UNREGISTER functions to
 ensure that it is completely unregistered.
 
-**Note   **Because Microsoft Excel for Windows and Microsoft Excel for
-the Macintosh use different types of code resources, UNREGISTER has a
-slightly different syntax form when used in each operating environment.
+**Note&nbsp;&nbsp;&nbsp;**Because Microsoft Excel for Windows and
+Microsoft Excel for the Macintosh use different types of code resources,
+UNREGISTER has a slightly different syntax form when used in each
+operating environment.
 
 **Syntax 2a**
 
@@ -596,10 +613,10 @@ For Microsoft Excel for the Macintosh
 
 **UNREGISTER**(**file\_text**)
 
-Module\_text or file\_text    is text specifying the name of the dynamic
-link library (DLL) that contains the function (in Microsoft Excel for
-Windows) or the name of the file that contains the code resource (in
-Microsoft Excel for the Macintosh).
+Module\_text or file\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the
+name of the dynamic link library (DLL) that contains the function (in
+Microsoft Excel for Windows) or the name of the file that contains the
+code resource (in Microsoft Excel for the Macintosh).
 
 If you use this syntax of UNREGISTER, all functions in the DLL (or all
 code resources in the file) are immediately unregistered, regardless of
@@ -624,15 +641,15 @@ unregisters all functions in that DLL:
 
 UNREGISTER("User")
 
-**Tip   **If you register a function or code resource, and use the
-optional function\_text argument to specify a custom name that will
-appear in the Paste Function dialog box, this custom name will not be
-removed by the UNREGISTER function. To remove the custom name, use the
-SET.NAME function without its second argument.
+**Tip&nbsp;&nbsp;&nbsp;**If you register a function or code resource,
+and use the optional function\_text argument to specify a custom name
+that will appear in the Paste Function dialog box, this custom name will
+not be removed by the UNREGISTER function. To remove the custom name,
+use the SET.NAME function without its second argument.
 
 **Related Function**
 
-REGISTER   Registers a code resource
+REGISTER&nbsp;&nbsp;&nbsp;Registers a code resource
 
 Return to [top](#T)
 
@@ -647,12 +664,13 @@ information from a supporting document.
 
 **UPDATE.LINK**(link\_text, type\_of\_link)
 
-Link\_text    is a text string describing the full path of the link as
-displayed in the Links dialog box. If link\_text is omitted, only links
-from the active workbook to other Microsoft Excel workbooks are updated.
+Link\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text string describing the full
+path of the link as displayed in the Links dialog box. If link\_text is
+omitted, only links from the active workbook to other Microsoft Excel
+workbooks are updated.
 
-Type\_of\_link    is a number from 1 to 4 that specifies the type of
-link to update.
+Type\_of\_link&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 that
+specifies the type of link to update.
 
 |                    |                        |
 | ------------------ | ---------------------- |
@@ -664,11 +682,11 @@ link to update.
 
 **Related Functions**
 
-CHANGE.LINK   Changes supporting links
+CHANGE.LINK&nbsp;&nbsp;&nbsp;Changes supporting links
 
-GET.LINK.INFO   Returns information about a link
+GET.LINK.INFO&nbsp;&nbsp;&nbsp;Returns information about a link
 
-OPEN.LINKS   Opens specified supporting documents
+OPEN.LINKS&nbsp;&nbsp;&nbsp;Opens specified supporting documents
 
 Return to [top](#T)
 
@@ -681,8 +699,9 @@ module.
 
 **VBA.INSERT.FILE**(**filename\_text**)
 
-Filename\_text    is the name of a text file that contains Microsoft
-Visual Basic code that is inserted into the currently active module.
+Filename\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a text file that
+contains Microsoft Visual Basic code that is inserted into the currently
+active module.
 
 Return to [top](#T)
 
@@ -694,8 +713,8 @@ Converts a workbook containing Visual Basic procedures into an add-in.
 
 **VBA.MAKE.ADDIN**(**filename\_text**)
 
-Filename\_text    is the name of the workbook that you want to convert
-to an add-in.
+Filename\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the workbook that
+you want to convert to an add-in.
 
 **Remarks**
 
@@ -719,9 +738,10 @@ angles and perspectives.
 
 **VIEW.3D**?(elevation, perspective, rotation, axes, height%, autoscale)
 
-Elevation    is a number from -90 to 90 specifying the viewing elevation
-of the chart and is measured in degrees. Elevation corresponds to the
-Elevation box in the 3-D View dialog box in Microsoft Excel version 4.0.
+Elevation&nbsp;&nbsp;&nbsp;&nbsp;is a number from -90 to 90 specifying
+the viewing elevation of the chart and is measured in degrees. Elevation
+corresponds to the Elevation box in the 3-D View dialog box in Microsoft
+Excel version 4.0.
 
   - > If elevation is 0, you view the chart straight on. If elevation is
     > 90, you view the chart from above (a "bird's eye view"). If
@@ -732,11 +752,11 @@ Elevation box in the 3-D View dialog box in Microsoft Excel version 4.0.
   - > Elevation is limited to 0 to 44 for 3-D bar charts and 0 to 80 for
     > 3-D pie charts.
 
->  
+> &nbsp;
 
-Perspective    is a number from 0 to 100% specifying the perspective of
-the chart. Perspective corresponds to the Perspective box in the 3-D
-View dialog box in Microsoft Excel version 4.0.
+Perspective&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 100% specifying
+the perspective of the chart. Perspective corresponds to the Perspective
+box in the 3-D View dialog box in Microsoft Excel version 4.0.
 
   - > A higher perspective value simulates a closer view.
 
@@ -744,24 +764,24 @@ View dialog box in Microsoft Excel version 4.0.
 
   - > Perspective is ignored on 3-D bar and pie charts.
 
->  
+> &nbsp;
 
-Rotation    is a number from 0 to 360 specifying the rotation of the
-chart around the value (z) axis and is measured in degrees. Rotation
-corresponds to the Rotation box in the 3-D View dialog box in Microsoft
-Excel version 4.0. As you rotate the chart, the back and side walls are
-moved so that they do not block the chart.
+Rotation&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 360 specifying the
+rotation of the chart around the value (z) axis and is measured in
+degrees. Rotation corresponds to the Rotation box in the 3-D View dialog
+box in Microsoft Excel version 4.0. As you rotate the chart, the back
+and side walls are moved so that they do not block the chart.
 
   - > If rotation is omitted, the current value is used..
 
   - > Rotation is limited to 0 to 44 for 3-D bar charts.
 
->  
+> &nbsp;
 
-Axes    is a logical value specifying whether axes are fixed in the
-plane of the screen or can rotate with the chart. Axes corresponds to
-the Right Angle Axes check box in the 3-D View dialog box in Microsoft
-Excel version 4.0.
+Axes&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether axes
+are fixed in the plane of the screen or can rotate with the chart. Axes
+corresponds to the Right Angle Axes check box in the 3-D View dialog box
+in Microsoft Excel version 4.0.
 
   - > If axes is TRUE, Microsoft Excel locks the axes.
 
@@ -772,23 +792,23 @@ Excel version 4.0.
 
   - > Axes is TRUE for 3-D bar charts and ignored for 3-D pie charts.
 
->  
+> &nbsp;
 
-Height%    is a number from 5 to 500 specifying the height of the chart
-as a percentage of the length of the base. Height% corresponds to the
-Height box in the 3-D View dialog box in Microsoft Excel version 4.0.
-Height% is useful for controlling the appearance of charts with many
-series or data points. If height% is omitted, the current value is
-used..
+Height%&nbsp;&nbsp;&nbsp;&nbsp;is a number from 5 to 500 specifying the
+height of the chart as a percentage of the length of the base. Height%
+corresponds to the Height box in the 3-D View dialog box in Microsoft
+Excel version 4.0. Height% is useful for controlling the appearance of
+charts with many series or data points. If height% is omitted, the
+current value is used..
 
-Autoscale    is a logical value corresponding to the Auto Scaling check
-box in the 3-D View dialog box in Microsoft Excel version 4.0. If TRUE,
-automatic scaling is used; if FALSE, it is not; if omitted, the current
-setting is not changed.
+Autoscale&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Auto Scaling check box in the 3-D View dialog box in Microsoft Excel
+version 4.0. If TRUE, automatic scaling is used; if FALSE, it is not; if
+omitted, the current setting is not changed.
 
 **Related Function**
 
-FORMAT.MAIN   Formats a main chart
+FORMAT.MAIN&nbsp;&nbsp;&nbsp;Formats a main chart
 
 Return to [top](#T)
 
@@ -807,23 +827,24 @@ versions, you must install the View Manager add-in.
 
 **VIEW.DEFINE**(**view\_name**, print\_settings\_log, row\_col\_log)
 
-View\_name    is text enclosed in quotation marks and specifies the name
-of the view you want to define for the sheet. If the workbook already
-contains a view with view\_name, the new view replaces the existing one.
+View\_name&nbsp;&nbsp;&nbsp;&nbsp;is text enclosed in quotation marks
+and specifies the name of the view you want to define for the sheet. If
+the workbook already contains a view with view\_name, the new view
+replaces the existing one.
 
-Print\_settings\_log    is a logical value that, if TRUE or omitted,
-includes current print settings in the view or, if FALSE, does not
-include current print settings in the view.
+Print\_settings\_log&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if
+TRUE or omitted, includes current print settings in the view or, if
+FALSE, does not include current print settings in the view.
 
-Row\_col\_log    is a logical value that, if TRUE or omitted, includes
-current row and column settings in the view or, if FALSE, does not
-include current row and column settings in the view.
+Row\_col\_log&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if TRUE or
+omitted, includes current row and column settings in the view or, if
+FALSE, does not include current row and column settings in the view.
 
 **Related Functions**
 
-VIEW.DELETE   Removes a view from the active workbook
+VIEW.DELETE&nbsp;&nbsp;&nbsp;Removes a view from the active workbook
 
-VIEW.SHOW   Shows a view
+VIEW.SHOW&nbsp;&nbsp;&nbsp;Shows a view
 
 Return to [top](#T)
 
@@ -843,8 +864,9 @@ versions, you must install the View Manager add-in.
 
 **VIEW.DELETE**(**view\_name**)
 
-View\_name    is text enclosed in quotation marks and specifies the name
-of the view in the current workbook that you want to delete.
+View\_name&nbsp;&nbsp;&nbsp;&nbsp;is text enclosed in quotation marks
+and specifies the name of the view in the current workbook that you want
+to delete.
 
 **Remarks**
 
@@ -853,9 +875,9 @@ if the workbook is protected.
 
 **Related Functions**
 
-VIEW.DEFINE   Creates or replaces a view
+VIEW.DEFINE&nbsp;&nbsp;&nbsp;Creates or replaces a view
 
-VIEW.SHOW   Shows a view
+VIEW.SHOW&nbsp;&nbsp;&nbsp;Shows a view
 
 Return to [top](#T)
 
@@ -874,8 +896,8 @@ versions, you must install the View Manager add-in.
 
 **VIEW.GET**(**type\_num**, view\_name)
 
-Type\_num    is a number from 1 to 3 that specifies the type of
-information to return, as shown in the following table.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 that specifies
+the type of information to return, as shown in the following table.
 
 |               |                                                                                                                                                                                                                               |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -884,9 +906,9 @@ information to return, as shown in the following table.
 | 2             | Returns TRUE if print settings are included in the specified view. Returns FALSE if print settings are not included. Returns the \#VALUE\! error value if the name is invalid or the workbook is protected.                   |
 | 3             | Returns TRUE if row and column settings are included in the specified view. Returns FALSE if row and column settings are not included. Returns the \#VALUE\! error value if the name is invalid or the workbook is protected. |
 
-View\_name    is text enclosed in quotation marks and specifies the name
-of a view in the active workbook. View\_name is required if type\_num is
-2 or 3.
+View\_name&nbsp;&nbsp;&nbsp;&nbsp;is text enclosed in quotation marks
+and specifies the name of a view in the active workbook. View\_name is
+required if type\_num is 2 or 3.
 
 **Example**
 
@@ -897,11 +919,11 @@ VIEW.GET(1)
 
 **Related Functions**
 
-VIEW.DEFINE   Creates or replaces a view
+VIEW.DEFINE&nbsp;&nbsp;&nbsp;Creates or replaces a view
 
-VIEW.DELETE   Removes a view from the active workbook
+VIEW.DELETE&nbsp;&nbsp;&nbsp;Removes a view from the active workbook
 
-VIEW.SHOW   Shows a view
+VIEW.SHOW&nbsp;&nbsp;&nbsp;Shows a view
 
 Return to [top](#T)
 
@@ -922,8 +944,8 @@ versions, you must install the View Manager add-in.
 
 **VIEW.SHOW**?(view\_name)
 
-View\_name    is text enclosed in quotation marks and specifies the name
-of a view in the active workbook.
+View\_name&nbsp;&nbsp;&nbsp;&nbsp;is text enclosed in quotation marks
+and specifies the name of a view in the active workbook.
 
 **Remarks**
 
@@ -932,9 +954,9 @@ the workbook is protected.
 
 **Related Functions**
 
-VIEW.DEFINE   Creates or replaces a view
+VIEW.DEFINE&nbsp;&nbsp;&nbsp;Creates or replaces a view
 
-VIEW.DELETE   Removes a view from the active workbook
+VIEW.DELETE&nbsp;&nbsp;&nbsp;Removes a view from the active workbook
 
 Return to [top](#T)
 
@@ -947,7 +969,8 @@ specify.
 
 **VLINE**(**num\_rows**)
 
-Num\_rows    is a number that specifies how many rows to scroll.
+Num\_rows&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies how many
+rows to scroll.
 
   - > If num\_rows is positive, Microsoft Excel scrolls down by the
     > number of rows indicated by num\_rows.
@@ -955,23 +978,24 @@ Num\_rows    is a number that specifies how many rows to scroll.
   - > If num\_rows is negative, Microsoft Excel scrolls up by the number
     > of rows indicated by num\_rows.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-HLINE   Horizontally scrolls through the active window by columns
+HLINE&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window by
+columns
 
-HPAGE   Horizontally scrolls through the active window one window at a
-time
+HPAGE&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window
+one window at a time
 
-HSCROLL   Horizontally scrolls through a worksheet by percentage or by
-column number
+HSCROLL&nbsp;&nbsp;&nbsp;Horizontally scrolls through a worksheet by
+percentage or by column number
 
-VPAGE   Vertically scrolls through the active window one window at a
-time
+VPAGE&nbsp;&nbsp;&nbsp;Vertically scrolls through the active window one
+window at a time
 
-VSCROLL   Vertically scrolls through a worksheet by percentage or by row
-number
+VSCROLL&nbsp;&nbsp;&nbsp;Vertically scrolls through a worksheet by
+percentage or by row number
 
 Return to [top](#T)
 
@@ -985,9 +1009,9 @@ calculation occurs on the worksheet.
 
 **VOLATILE**(logical)
 
-Logical    is a logical value specifying whether the custom function is
-volatile or nonvolatile. If logical is TRUE or omitted, the function is
-volatile; if FALSE, nonvolatile.
+Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether the
+custom function is volatile or nonvolatile. If logical is TRUE or
+omitted, the function is volatile; if FALSE, nonvolatile.
 
 **Remarks**
 
@@ -1004,11 +1028,12 @@ volatile; if FALSE, nonvolatile.
     > VOLATILE(FALSE) to prevent these functions from being recalculated
     > unnecessarily often.
 
->  
+> &nbsp;
 
 **Related Function**
 
-RESULT   Specifies the data type a custom function returns
+RESULT&nbsp;&nbsp;&nbsp;Specifies the data type a custom function
+returns
 
 Return to [top](#T)
 
@@ -1021,29 +1046,30 @@ VPAGE to change the displayed area of a worksheet or macro sheet.
 
 **VPAGE**(**num\_windows**)
 
-Num\_windows    specifies the number of windows to scroll through the
-active window vertically. A window is defined as the number of visible
-rows. If 20 rows are visible in the window, VPAGE scrolls in increments
-of 20 rows.
+Num\_windows&nbsp;&nbsp;&nbsp;&nbsp;specifies the number of windows to
+scroll through the active window vertically. A window is defined as the
+number of visible rows. If 20 rows are visible in the window, VPAGE
+scrolls in increments of 20 rows.
 
   - > If num\_windows is positive, VPAGE scrolls down.
 
   - > If num\_windows is negative, VPAGE scrolls up.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-HPAGE   Horizontally scrolls through the active window one window at a
-time
+HPAGE&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window
+one window at a time
 
-HSCROLL   Horizontally scrolls through a worksheet by percentage or by
-column number
+HSCROLL&nbsp;&nbsp;&nbsp;Horizontally scrolls through a worksheet by
+percentage or by column number
 
-VLINE   Vertically scrolls through the active window by rows
+VLINE&nbsp;&nbsp;&nbsp;Vertically scrolls through the active window by
+rows
 
-VSCROLL   Vertically scrolls through a worksheet by percentage or by row
-number
+VSCROLL&nbsp;&nbsp;&nbsp;Vertically scrolls through a worksheet by
+percentage or by row number
 
 Return to [top](#T)
 
@@ -1056,16 +1082,17 @@ number.
 
 **VSCROLL**(**position**, row\_logical)
 
-Position    specifies the row you want to scroll to. Position can be an
-integer representing the row number or a fraction or percentage
-representing the vertical position of the row in the sheet. If position
-is 0, VSCROLL scrolls through your sheet to its top edge, which is row
-1. If position is 1, VSCROLL scrolls through your sheet to its bottom
-edge, which is row 16, 384 in Microsoft Excel 95 or earlier, or row
-65,536 in Microsoft Excel 97 or later. For charts that do not size with
-the window, use a fraction or percentage.
+Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the row you want to scroll to.
+Position can be an integer representing the row number or a fraction or
+percentage representing the vertical position of the row in the sheet.
+If position is 0, VSCROLL scrolls through your sheet to its top edge,
+which is row 1. If position is 1, VSCROLL scrolls through your sheet to
+its bottom edge, which is row 16, 384 in Microsoft Excel 95 or earlier,
+or row 65,536 in Microsoft Excel 97 or later. For charts that do not
+size with the window, use a fraction or percentage.
 
-Row\_logical    is a logical value specifying how the function scrolls.
+Row\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying how
+the function scrolls.
 
   - > If row\_logical is TRUE, VSCROLL scrolls through the sheet to row
     > position.
@@ -1074,7 +1101,7 @@ Row\_logical    is a logical value specifying how the function scrolls.
     > sheet to the vertical position represented by the fraction
     > position.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -1090,26 +1117,29 @@ Row\_logical    is a logical value specifying how the function scrolls.
     > scroll box, omitting any intermediate steps. Remember that
     > scrolling does not change the active cell or the selection.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-FORMULA.GOTO   Selects a named area or reference on any open workbook
+FORMULA.GOTO&nbsp;&nbsp;&nbsp;Selects a named area or reference on any
+open workbook
 
-HLINE   Horizontally scrolls through the active window by columns
+HLINE&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window by
+columns
 
-HPAGE   Horizontally scrolls through the active window one window at a
-time
+HPAGE&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window
+one window at a time
 
-HSCROLL   Horizontally scrolls through a sheet by percentage or by
-column number
+HSCROLL&nbsp;&nbsp;&nbsp;Horizontally scrolls through a sheet by
+percentage or by column number
 
-SELECT   Selects a cell, object, or chart item
+SELECT&nbsp;&nbsp;&nbsp;Selects a cell, object, or chart item
 
-VLINE   Vertically scrolls through the active window by rows
+VLINE&nbsp;&nbsp;&nbsp;Vertically scrolls through the active window by
+rows
 
-VPAGE   Vertically scrolls through the active window one window at a
-time
+VPAGE&nbsp;&nbsp;&nbsp;Vertically scrolls through the active window one
+window at a time
 
 Return to [top](#T)
 
@@ -1121,15 +1151,17 @@ Pauses the macro until the time specified by the serial number.
 
 **WAIT**(**serial\_number**)
 
-Serial\_number    is the date-time code used by Microsoft Excel for date
-and time calculations. You can give serial\_number as text, such as
-"4:30 PM", or as a formula, such as NOW()+"00:00:04", instead of as a
-number. The text or formula is automatically converted to a serial
-number. For more information about serial\_number, see NOW.
+Serial\_number&nbsp;&nbsp;&nbsp;&nbsp;is the date-time code used by
+Microsoft Excel for date and time calculations. You can give
+serial\_number as text, such as "4:30 PM", or as a formula, such as
+NOW()+"00:00:04", instead of as a number. The text or formula is
+automatically converted to a serial number. For more information about
+serial\_number, see NOW.
 
-**Important   **WAIT suspends all Microsoft Excel activity and may
-prevent you from performing other operations on your computer.
-Background processes, such as printing and recalculation, are continued.
+**Important&nbsp;&nbsp;&nbsp;**WAIT suspends all Microsoft Excel
+activity and may prevent you from performing other operations on your
+computer. Background processes, such as printing and recalculation, are
+continued.
 
 **Example**
 
@@ -1141,7 +1173,7 @@ WAIT(NOW()+"00:00:03")
 
 **Related Function**
 
-ON.TIME   Runs a macro at a specific time
+ON.TIME&nbsp;&nbsp;&nbsp;Runs a macro at a specific time
 
 Return to [top](#T)
 
@@ -1155,11 +1187,12 @@ a series of macro formulas while a certain condition remains TRUE.
 
 **WHILE**(**logical\_test**)
 
-Logical\_test    is a value or formula that evaluates to TRUE or FALSE.
-If logical\_test is FALSE the first time the WHILE function is reached,
-the macro skips the loop and resumes running at the statement after the
-next NEXT function. If there is no NEXT function in the same column,
-WHILE displays an error message and interrupts the macro.
+Logical\_test&nbsp;&nbsp;&nbsp;&nbsp;is a value or formula that
+evaluates to TRUE or FALSE. If logical\_test is FALSE the first time the
+WHILE function is reached, the macro skips the loop and resumes running
+at the statement after the next NEXT function. If there is no NEXT
+function in the same column, WHILE displays an error message and
+interrupts the macro.
 
 **Remarks**
 
@@ -1182,13 +1215,14 @@ in the open file identified as FileNumber reaches the end of the file:
 
 **Related Functions**
 
-FOR   Starts a FOR-NEXT loop
+FOR&nbsp;&nbsp;&nbsp;Starts a FOR-NEXT loop
 
-FOR.CELL   Starts a FOR.CELL-NEXT loop
+FOR.CELL&nbsp;&nbsp;&nbsp;Starts a FOR.CELL-NEXT loop
 
-IF   Specifies an action to take if a logical test is TRUE
+IF&nbsp;&nbsp;&nbsp;Specifies an action to take if a logical test is
+TRUE
 
-NEXT   Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
+NEXT&nbsp;&nbsp;&nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
 Return to [top](#T)
 
@@ -1204,10 +1238,10 @@ double-clicking the title bar or clicking the zoom box.
 
 **WINDOW.MAXIMIZE**(window\_text)
 
-Window\_text    specifies which window to switch to and maximize.
-Window\_text is text enclosed in quotation marks or a reference to a
-cell containing text. If window\_text is omitted, the active window is
-maximized.
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to switch to
+and maximize. Window\_text is text enclosed in quotation marks or a
+reference to a cell containing text. If window\_text is omitted, the
+active window is maximized.
 
 **Remarks**
 
@@ -1216,13 +1250,13 @@ Excel.
 
 **Related Functions**
 
-WINDOW.MINIMIZE   Minimizes a window
+WINDOW.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes a window
 
-WINDOW.MOVE   Moves a window
+WINDOW.MOVE&nbsp;&nbsp;&nbsp;Moves a window
 
-WINDOW.RESTORE   Restores a window to its previous size
+WINDOW.RESTORE&nbsp;&nbsp;&nbsp;Restores a window to its previous size
 
-WINDOW.SIZE   Changes the size of a window
+WINDOW.SIZE&nbsp;&nbsp;&nbsp;Changes the size of a window
 
 Return to [top](#T)
 
@@ -1237,7 +1271,7 @@ feature is not supported.
 
 **WINDOW.MINIMIZE**(window\_text)
 
-Window\_text    specifies which window to minimize.
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to minimize.
 
   - > Window\_text is text enclosed in quotation marks or a reference to
     > a cell containing text.
@@ -1245,7 +1279,7 @@ Window\_text    specifies which window to minimize.
   - > If window\_text is omitted, Microsoft Excel minimizes the active
     > window.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -1253,13 +1287,13 @@ If a window is already minimized, WINDOW.MINIMIZE has no effect.
 
 **Related Functions**
 
-WINDOW.MAXIMIZE   Maximizes a window
+WINDOW.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes a window
 
-WINDOW.MOVE   Moves a window
+WINDOW.MOVE&nbsp;&nbsp;&nbsp;Moves a window
 
-WINDOW.RESTORE   Restores a window to its previous size
+WINDOW.RESTORE&nbsp;&nbsp;&nbsp;Restores a window to its previous size
 
-WINDOW.SIZE   Changes the size of a window
+WINDOW.SIZE&nbsp;&nbsp;&nbsp;Changes the size of a window
 
 Return to [top](#T)
 
@@ -1277,8 +1311,9 @@ WINDOW.MOVE?, is supported only in Microsoft Excel for Windows.
 
 **WINDOW.MOVE**?(x\_pos, y\_pos, window\_text)
 
-X\_pos    is the horizontal position to which you want to move the
-window. X\_pos is measured in points. A point is 1/72nd of an inch.
+X\_pos&nbsp;&nbsp;&nbsp;&nbsp;is the horizontal position to which you
+want to move the window. X\_pos is measured in points. A point is 1/72nd
+of an inch.
 
   - > In Microsoft Excel for Windows, x\_pos is measured from the left
     > edge of your workspace to the left edge of the window.
@@ -1288,12 +1323,12 @@ window. X\_pos is measured in points. A point is 1/72nd of an inch.
 
   - > If x\_pos is omitted, the window does not move horizontally.
 
-Y\_pos    is the vertical position to which you want to move the window.
-Y\_pos in measured in points from the bottom edge of the formula bar to
-the top edge of the window. If y\_pos is omitted, the window does not
-move vertically.
+Y\_pos&nbsp;&nbsp;&nbsp;&nbsp;is the vertical position to which you want
+to move the window. Y\_pos in measured in points from the bottom edge of
+the formula bar to the top edge of the window. If y\_pos is omitted, the
+window does not move vertically.
 
-Window\_text    specifies which window to restore.
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to restore.
 
   - > Window\_text is text enclosed in quotation marks or a reference to
     > a cell containing text.
@@ -1301,7 +1336,7 @@ Window\_text    specifies which window to restore.
   - > If window\_text is omitted, it is assumed to be the name of the
     > active window.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -1319,19 +1354,19 @@ Window\_text    specifies which window to restore.
 
   - > WINDOW.MOVE replaces MOVE in earlier versions of Microsoft Excel.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-FORMAT.MOVE   Moves the selected object
+FORMAT.MOVE&nbsp;&nbsp;&nbsp;Moves the selected object
 
-WINDOW.MAXIMIZE   Maximizes a window
+WINDOW.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes a window
 
-WINDOW.MINIMIZE   Minimizes a window
+WINDOW.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes a window
 
-WINDOW.RESTORE   Restores a window to its previous size
+WINDOW.RESTORE&nbsp;&nbsp;&nbsp;Restores a window to its previous size
 
-WINDOW.SIZE   Changes the size of a window
+WINDOW.SIZE&nbsp;&nbsp;&nbsp;Changes the size of a window
 
 Return to [top](#T)
 
@@ -1348,7 +1383,8 @@ title bar or clicking the zoom box.
 
 **WINDOW.RESTORE**(window\_text)
 
-Window\_text    specifies which window to switch to and restore.
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to switch to
+and restore.
 
   - > Window\_text is text enclosed in quotation marks or a reference to
     > a cell containing text.
@@ -1356,7 +1392,7 @@ Window\_text    specifies which window to switch to and restore.
   - > If window\_text is omitted, Microsoft Excel restores the active
     > window.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -1367,17 +1403,17 @@ Window\_text    specifies which window to switch to and restore.
   - > WINDOW.RESTORE replaces FULL(FALSE) in earlier versions of
     > Microsoft Excel.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-WINDOW.MAXIMIZE   Maximizes a window
+WINDOW.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes a window
 
-WINDOW.MINIMIZE   Minimizes a window
+WINDOW.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes a window
 
-WINDOW.MOVE   Moves a window
+WINDOW.MOVE&nbsp;&nbsp;&nbsp;Moves a window
 
-WINDOW.SIZE   Changes the size of a window
+WINDOW.SIZE&nbsp;&nbsp;&nbsp;Changes the size of a window
 
 Return to [top](#T)
 
@@ -1395,8 +1431,8 @@ name is the window directly under the active window, and so on.
 
 **WINDOWS**(type\_num, match\_text)
 
-Type\_num    is a number that specifies which types of workbooks are
-returned by WINDOWS, according to the following table.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies which types
+of workbooks are returned by WINDOWS, according to the following table.
 
 |               |                                                        |
 | ------------- | ------------------------------------------------------ |
@@ -1405,9 +1441,9 @@ returned by WINDOWS, according to the following table.
 | 2             | Add-in workbooks only                                  |
 | 3             | All types of workbooks                                 |
 
-Match\_text    specifies the windows whose names you want returned and
-can include wildcard characters. If match\_text is omitted, WINDOWS
-returns the names of all open windows.
+Match\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies the windows whose names you
+want returned and can include wildcard characters. If match\_text is
+omitted, WINDOWS returns the names of all open windows.
 
 **Tips**
 
@@ -1421,7 +1457,7 @@ returns the names of all open windows.
   - > You can use the COLUMNS functions to count the number of entries
     > in the array, which is the number of windows.
 
->  
+> &nbsp;
 
 **Examples**
 
@@ -1432,15 +1468,17 @@ WINDOWS() equals {"BOOK1", "MACROS:2", "MACROS:1"}
 
 **Related Functions**
 
-ACTIVATE   Switches to a window
+ACTIVATE&nbsp;&nbsp;&nbsp;Switches to a window
 
-DOCUMENTS   Returns the names of the specified open workbooks
+DOCUMENTS&nbsp;&nbsp;&nbsp;Returns the names of the specified open
+workbooks
 
-GET.WINDOW   Returns information about a window
+GET.WINDOW&nbsp;&nbsp;&nbsp;Returns information about a window
 
-NEW.WINDOW   Creates a new window for an existing sheet or macro sheet
+NEW.WINDOW&nbsp;&nbsp;&nbsp;Creates a new window for an existing sheet
+or macro sheet
 
-ON.WINDOW   Runs a macro when you switch to a window
+ON.WINDOW&nbsp;&nbsp;&nbsp;Runs a macro when you switch to a window
 
 Return to [top](#T)
 
@@ -1461,12 +1499,13 @@ inactive.
 
 **WINDOW.SIZE**?(width, height, window\_text)
 
-Width    specifies the width of the window and is measured in points. A
-point is 1/72nd of an inch.
+Width&nbsp;&nbsp;&nbsp;&nbsp;specifies the width of the window and is
+measured in points. A point is 1/72nd of an inch.
 
-Height    specifies the height of the window and is measured in points.
+Height&nbsp;&nbsp;&nbsp;&nbsp;specifies the height of the window and is
+measured in points.
 
-Window\_text    specifies which window to size.
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to size.
 
   - > Window\_text is text enclosed in quotation marks or a reference to
     > a cell containing text.
@@ -1474,7 +1513,7 @@ Window\_text    specifies which window to size.
   - > If window\_text is omitted, it is assumed to be the name of the
     > active window.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -1486,19 +1525,19 @@ Window\_text    specifies which window to size.
 
   - > WINDOW.SIZE replaces SIZE in earlier versions of Microsoft Excel.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-FORMAT.SIZE   Sizes an object
+FORMAT.SIZE&nbsp;&nbsp;&nbsp;Sizes an object
 
-WINDOW.MAXIMIZE   Maximizes a window
+WINDOW.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes a window
 
-WINDOW.MINIMIZE   Minimizes a window
+WINDOW.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes a window
 
-WINDOW.MOVE   Moves a window
+WINDOW.MOVE&nbsp;&nbsp;&nbsp;Moves a window
 
-WINDOW.RESTORE   Restores a window to its previous size
+WINDOW.RESTORE&nbsp;&nbsp;&nbsp;Restores a window to its previous size
 
 Return to [top](#T)
 
@@ -1513,13 +1552,13 @@ custom application.
 
 **WINDOW.TITLE**(text)
 
-Text    is the title you want to assign to the window. If text is
-omitted, it is assumed to be the name of the workbook as it is stored on
-your disk. Empty text ("") specifies no title.
+Text&nbsp;&nbsp;&nbsp;&nbsp;is the title you want to assign to the
+window. If text is omitted, it is assumed to be the name of the workbook
+as it is stored on your disk. Empty text ("") specifies no title.
 
-**Important**   WINDOW.TITLE changes the name of the window, not the
-actual name of the workbook as it is stored on your disk. To change the
-name of the workbook, use the SAVE.AS function.
+**Important**&nbsp;&nbsp;&nbsp;WINDOW.TITLE changes the name of the
+window, not the actual name of the workbook as it is stored on your
+disk. To change the name of the workbook, use the SAVE.AS function.
 
 **Remarks**
 
@@ -1536,7 +1575,7 @@ name of the workbook, use the SAVE.AS function.
   - > If you use NEW.WINDOW to create new windows on the workbook, the
     > window title will be restored to its original name.
 
->  
+> &nbsp;
 
 **Example**
 
@@ -1547,10 +1586,11 @@ WINDOW.TITLE("First Quarter")
 
 **Related Functions**
 
-APP.TITLE   Changes the title of the application workspace
+APP.TITLE&nbsp;&nbsp;&nbsp;Changes the title of the application
+workspace
 
-SAVE.AS   Specifies a new filename, file type, protection password, or
-write-reservation password, or to create a backup file
+SAVE.AS&nbsp;&nbsp;&nbsp;Specifies a new filename, file type, protection
+password, or write-reservation password, or to create a backup file
 
 Return to [top](#T)
 
@@ -1562,16 +1602,19 @@ Equivalent to activating a worksheet by clicking on its tab.
 
 **WORKBOOK.ACTIVATE**(**sheet\_name**)
 
-Sheet\_name    is the name of the sheet you want to activate. You can
-use WORKBOOK.ACTIVATE to activate a sheet within the active workbook, or
-you can also activate a sheet in another workbook by using the
-\[workbook\]sheet\_name reference for the sheet\_name argument.
+Sheet\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of the sheet you want to
+activate. You can use WORKBOOK.ACTIVATE to activate a sheet within the
+active workbook, or you can also activate a sheet in another workbook by
+using the \[workbook\]sheet\_name reference for the sheet\_name
+argument.
 
 **Related Functions**
 
-WORKBOOK.SELECT   Selects one or more sheets for group editing
+WORKBOOK.SELECT&nbsp;&nbsp;&nbsp;Selects one or more sheets for group
+editing
 
-WORKBOOK.OPTIONS   Changes the settings of a workbook sheet
+WORKBOOK.OPTIONS&nbsp;&nbsp;&nbsp;Changes the settings of a workbook
+sheet
 
 Return to [top](#T)
 
@@ -1589,23 +1632,23 @@ Microsoft Excel version 5.0 or later use WORKBOOK.MOVE.
 
 **WORKBOOK.ADD**?(name\_array, dest\_book, position\_num)
 
-Name\_array    is the name of a sheet, or an array of names of sheets,
-that you want to move.
+Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is the name of a sheet, or an array
+of names of sheets, that you want to move.
 
-Dest\_book     is the name of the workbook to which you want to add
-name\_array. If dest\_book is omitted, it is assumed to be the active
-workbook.
+Dest\_book&nbsp;&nbsp;&nbsp;&nbsp; is the name of the workbook to which
+you want to add name\_array. If dest\_book is omitted, it is assumed to
+be the active workbook.
 
-Position\_num    is a number that specifies the position of the sheet
-within the workbook.
+Position\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies the
+position of the sheet within the workbook.
 
 **Related Functions**
 
-WORKBOOK.MOVE   Moves one or more sheets between workbooks or changes a
-sheet's position within a workbook
+WORKBOOK.MOVE&nbsp;&nbsp;&nbsp;Moves one or more sheets between
+workbooks or changes a sheet's position within a workbook
 
-WORKBOOK.COPY   Copies one or more documents from their current workbook
-to another workbook
+WORKBOOK.COPY&nbsp;&nbsp;&nbsp;Copies one or more documents from their
+current workbook to another workbook
 
 Return to [top](#T)
 
@@ -1621,16 +1664,18 @@ position in the same workbook or to another workbook.
 
 **WORKBOOK.COPY**?(name\_array, dest\_book, position\_num)
 
-Name\_array    is the name of a sheet, or an array of names of sheets,
-that you want to copy in the currently active workbook.
+Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is the name of a sheet, or an array
+of names of sheets, that you want to copy in the currently active
+workbook.
 
-Dest\_book    is the name of the workbook to which you want to copy
-name\_array. If dest\_book is the current workbook, name\_array is
-copied within the workbook. If dest\_book is omitted, the copy of
-name\_array becomes a separate workbook.
+Dest\_book&nbsp;&nbsp;&nbsp;&nbsp;is the name of the workbook to which
+you want to copy name\_array. If dest\_book is the current workbook,
+name\_array is copied within the workbook. If dest\_book is omitted, the
+copy of name\_array becomes a separate workbook.
 
-Position\_num    is a number that specifies the target position for the
-sheet within the new workbook. The first position is 1.
+Position\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies the
+target position for the sheet within the new workbook. The first
+position is 1.
 
   - > If position\_num is specified, Microsoft Excel inserts the copy of
     > the sheet at the specified position in the workbook.
@@ -1640,7 +1685,7 @@ sheet within the new workbook. The first position is 1.
 
   - > If dest\_book is omitted, position\_num is ignored.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -1651,8 +1696,8 @@ sheet within the new workbook. The first position is 1.
 
 **Related Function**
 
-WORKBOOK.MOVE   Moves one or more documents from one workbook to another
-workbook or to another position in the same workbook
+WORKBOOK.MOVE&nbsp;&nbsp;&nbsp;Moves one or more documents from one
+workbook to another workbook or to another position in the same workbook
 
 Return to [top](#T)
 
@@ -1665,8 +1710,8 @@ Deletes a sheet or group of sheets from the current workbook.
 
 **WORKBOOK.DELETE**(sheet\_text)
 
-Sheet\_text    is the name of the sheet to delete. If omitted, the
-currently active sheet or sheets is deleted.
+Sheet\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the sheet to delete.
+If omitted, the currently active sheet or sheets is deleted.
 
 **Remarks**
 
@@ -1693,14 +1738,14 @@ clicking Hide on the Sheet submenu. Hides sheets in the active workbook.
 
 **WORKBOOK.HIDE**(sheet\_text, very\_hidden)
 
-Sheet\_text    is the name of the sheet to hide. If omitted, the
-currently selected sheet(s) are hidden.
+Sheet\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the sheet to hide. If
+omitted, the currently selected sheet(s) are hidden.
 
-Very\_hidden    specifies how the sheet is hidden. If TRUE, then the
-sheet name does not appear in the Unhide dialog box. After using this
-argument, use WORKBOOK.UNHIDE to unhide the sheet. If FALSE or omitted,
-hides the sheet but does not prevent the sheet's name from appearing in
-the Unhide dialog box.
+Very\_hidden&nbsp;&nbsp;&nbsp;&nbsp;specifies how the sheet is hidden.
+If TRUE, then the sheet name does not appear in the Unhide dialog box.
+After using this argument, use WORKBOOK.UNHIDE to unhide the sheet. If
+FALSE or omitted, hides the sheet but does not prevent the sheet's name
+from appearing in the Unhide dialog box.
 
 **Remarks**
 
@@ -1726,7 +1771,8 @@ Insert menu. Inserts one or more new sheets into the current workbook.
 
 **WORKBOOK.INSERT**?(**type\_num**)
 
-**Type\_num**    specifies the type of sheet to insert.
+**Type\_num**&nbsp;&nbsp;&nbsp;&nbsp;specifies the type of sheet to
+insert.
 
 |               |                                               |
 | ------------- | --------------------------------------------- |
@@ -1769,17 +1815,18 @@ within a workbook.
 
 **WORKBOOK.MOVE**?(name\_array, dest\_book, position\_num)
 
-Name\_array    is the name of a sheet or an array of names of sheets in
-the active workbook that you want to move.
+Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is the name of a sheet or an array of
+names of sheets in the active workbook that you want to move.
 
-Dest\_book    is the name of the workbook to which you want to move
-name\_array. If dest\_book is omitted, WORKBOOK.MOVE moves the sheet out
-of the workbook and puts it in a new separate workbook. If dest\_book is
-the same as the current book, then the sheet is moved within the
-workbook.
+Dest\_book&nbsp;&nbsp;&nbsp;&nbsp;is the name of the workbook to which
+you want to move name\_array. If dest\_book is omitted, WORKBOOK.MOVE
+moves the sheet out of the workbook and puts it in a new separate
+workbook. If dest\_book is the same as the current book, then the sheet
+is moved within the workbook.
 
-Position\_num    is a number that specifies the target position for the
-sheet within dest\_book. The first position is 1.
+Position\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies the
+target position for the sheet within dest\_book. The first position is
+1.
 
   - > If position\_num is specified, Microsoft Excel inserts the sheet
     > at the specified position in the workbook.
@@ -1788,12 +1835,12 @@ sheet within dest\_book. The first position is 1.
     > the last position in the workbook. If you move the last sheet out
     > of a workbook, the workbook closes.
 
->  
+> &nbsp;
 
 **Related Function**
 
-WORKBOOK.COPY   Copies one or more documents from their current workbook
-into another workbook
+WORKBOOK.COPY&nbsp;&nbsp;&nbsp;Copies one or more documents from their
+current workbook into another workbook
 
 Return to [top](#T)
 
@@ -1808,9 +1855,10 @@ Format menu. Renames a sheet in a workbook.
 
 **WORKBOOK.NAME**?(oldname\_text, newname\_text)
 
-Oldname\_text    is the name of the sheet that you want to rename.
+Oldname\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the sheet that you
+want to rename.
 
-Newname\_text    is the new name of the sheet.
+Newname\_text&nbsp;&nbsp;&nbsp;&nbsp;is the new name of the sheet.
 
 **Remarks**
 
@@ -1840,7 +1888,7 @@ workbooks.
 
 **Related Function**
 
-WORKBOOK.INSERT   Adds sheets to workbooks
+WORKBOOK.INSERT&nbsp;&nbsp;&nbsp;Adds sheets to workbooks
 
 Return to [top](#T)
 
@@ -1872,22 +1920,24 @@ Excel version 5.0, use the WORKBOOK.NAME function.
 
 **WORKBOOK.OPTIONS**(**sheet\_name**, bound\_logical, new\_name)
 
-Sheet\_name    is the name of a sheet.
+Sheet\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of a sheet.
 
-Bound\_logical    is for compatibility with Microsoft Excel version 4.0.
-In Microsoft Excel version 5.0 and later versions, this should be TRUE
-or omitted because FALSE returns an error.
+Bound\_logical&nbsp;&nbsp;&nbsp;&nbsp;is for compatibility with
+Microsoft Excel version 4.0. In Microsoft Excel version 5.0 and later
+versions, this should be TRUE or omitted because FALSE returns an error.
 
-New\_name    is the sheet name to assign to sheet\_name. If new\_name is
-omitted, then the sheet name is not changed.
+New\_name&nbsp;&nbsp;&nbsp;&nbsp;is the sheet name to assign to
+sheet\_name. If new\_name is omitted, then the sheet name is not
+changed.
 
 **Related Functions**
 
-GET.WORKBOOK   Returns information about a workbook sheet
+GET.WORKBOOK&nbsp;&nbsp;&nbsp;Returns information about a workbook sheet
 
-WORKBOOK.NAME   Changes the name of a sheet in a workbook
+WORKBOOK.NAME&nbsp;&nbsp;&nbsp;Changes the name of a sheet in a workbook
 
-WORKBOOK.SELECT   Selects the specified sheets in a workbook
+WORKBOOK.SELECT&nbsp;&nbsp;&nbsp;Selects the specified sheets in a
+workbook
 
 Return to [top](#T)
 
@@ -1919,18 +1969,18 @@ submenu of the Tools menu. Controls protection of workbooks.
 
 **WORKBOOK.PROTECT**?(structure, windows, password)
 
-Structure    specifies whether the structure of the workbook is
-protected. If TRUE, the structure is protected. If FALSE or omitted, the
-structure is not protected.
+Structure&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the structure of the
+workbook is protected. If TRUE, the structure is protected. If FALSE or
+omitted, the structure is not protected.
 
-Windows    specifies whether the windows of the workbook are protected.
-If TRUE, the windows are protected. If FALSE or omitted, the windows are
-not protected.
+Windows&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the windows of the
+workbook are protected. If TRUE, the windows are protected. If FALSE or
+omitted, the windows are not protected.
 
-Password    specifies whether to protect the workbook with a password.
-If omitted no password is used. When recording a macro, this argument is
-not recorded. In the dialog box form of this function, you can specify a
-password.
+Password&nbsp;&nbsp;&nbsp;&nbsp;specifies whether to protect the
+workbook with a password. If omitted no password is used. When recording
+a macro, this argument is not recorded. In the dialog box form of this
+function, you can specify a password.
 
 **Remarks**
 
@@ -1938,7 +1988,7 @@ To protect a sheet in a workbook, use the PROTECT.DOCUMENT function.
 
 **Related Function**
 
-PROTECT.DOCUMENT   Protects a sheet in a workbook
+PROTECT.DOCUMENT&nbsp;&nbsp;&nbsp;Protects a sheet in a workbook
 
 Return to [top](#T)
 
@@ -1955,10 +2005,10 @@ direction of scrolling. Positive numbers scroll forward by that many
 sheets. Negative numbers scroll backward by that many sheets. Zero (0)
 does not scroll.
 
-Firstlast\_logical    specifies whether to scroll to the first or last
-sheet in the workbook. If TRUE, scrolls to the last sheet in the
-workbook. If FALSE, scrolls to the first sheet in the workbook. If this
-argument is specified, then num\_sheets is ignored.
+Firstlast\_logical&nbsp;&nbsp;&nbsp;&nbsp;specifies whether to scroll to
+the first or last sheet in the workbook. If TRUE, scrolls to the last
+sheet in the workbook. If FALSE, scrolls to the first sheet in the
+workbook. If this argument is specified, then num\_sheets is ignored.
 
 Return to [top](#T)
 
@@ -1972,23 +2022,24 @@ all the sheets in the group.
 
 **WORKBOOK.SELECT**(name\_array, active\_name, replace)
 
-Name\_array    is a horizontal array of text names of sheets you want to
-select. If name\_array is omitted, no sheets are selected.
+Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is a horizontal array of text names
+of sheets you want to select. If name\_array is omitted, no sheets are
+selected.
 
-Active\_name    is the name of a single sheet in the workbook that you
-want to be the active sheet. If active\_name is omitted, the first sheet
-in name\_array is made the active sheet.
+Active\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of a single sheet in the
+workbook that you want to be the active sheet. If active\_name is
+omitted, the first sheet in name\_array is made the active sheet.
 
-Replace    specifies whether the currently selected sheets or macro
-sheets are to be replaced by name\_array. If TRUE or omitted, then the
-current sheet selection is replaced by name\_array. If FALSE, then
-name\_array will be appended to the current sheet.
+Replace&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the currently selected
+sheets or macro sheets are to be replaced by name\_array. If TRUE or
+omitted, then the current sheet selection is replaced by name\_array. If
+FALSE, then name\_array will be appended to the current sheet.
 
 **Related Functions**
 
-GET.WORKBOOK   Returns information about a workbook
+GET.WORKBOOK&nbsp;&nbsp;&nbsp;Returns information about a workbook
 
-SELECT   Selects a cell, worksheet object, or chart item
+SELECT&nbsp;&nbsp;&nbsp;Selects a cell, worksheet object, or chart item
 
 Return to [top](#T)
 
@@ -2000,8 +2051,8 @@ Sets the ratio of the tabs to the horizontal scrollbar.
 
 **WORKBOOK.TAB.SPLIT**(ratio\_num)
 
-Ratio\_num    is the ratio of tabs to horizontal scroll, as a decimal
-value between 0 and 1. If omitted defaults to 6.
+Ratio\_num&nbsp;&nbsp;&nbsp;&nbsp;is the ratio of tabs to horizontal
+scroll, as a decimal value between 0 and 1. If omitted defaults to 6.
 
 **Remarks**
 
@@ -2010,11 +2061,11 @@ value between 0 and 1. If omitted defaults to 6.
 
   - > Use GET.WINDOW(28) to find out what the current ratio is.
 
->  
+> &nbsp;
 
 **Related Function**
 
-GET.WINDOW   Returns information about a workbook window
+GET.WINDOW&nbsp;&nbsp;&nbsp;Returns information about a workbook window
 
 Return to [top](#T)
 
@@ -2039,7 +2090,7 @@ If the workbook is protected, you cannot unhide any sheets in the book.
 
 **Related Function**
 
-WORKBOOK.HIDE   Hides sheets in the active workbook
+WORKBOOK.HIDE&nbsp;&nbsp;&nbsp;Hides sheets in the active workbook
 
 Return to [top](#T)
 
@@ -2056,8 +2107,8 @@ versions, you can create a group by using the WORKBOOK.SELECT function.
 
 **WORKGROUP**?(name\_array)
 
-Name\_array    is the list of workbooks or sheets in workbooks that you
-want grouped.
+Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is the list of workbooks or sheets in
+workbooks that you want grouped.
 
   - > If name\_array is omitted, the most recently created group is
     > recreated.
@@ -2068,7 +2119,7 @@ want grouped.
   - > If you specify just the name of a workbook, WORKGROUP adds the
     > first sheet of the workbook to the group.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -2078,10 +2129,11 @@ is a chart or module.
 
 **Related Functions**
 
-FILL.GROUP   Fills the contents of the active worksheet's selection to
-the same area on all other worksheets in the group
+FILL.GROUP&nbsp;&nbsp;&nbsp;Fills the contents of the active worksheet's
+selection to the same area on all other worksheets in the group
 
-WORKBOOK.SELECT   Selects one or more sheets in a workbook
+WORKBOOK.SELECT&nbsp;&nbsp;&nbsp;Selects one or more sheets in a
+workbook
 
 Return to [top](#T)
 
@@ -2107,35 +2159,36 @@ dialog box. Arguments corresponding to check boxes are logical values.
 If an argument is TRUE, the check box is selected; if FALSE, the check
 box is cleared; if omitted, the current setting is not changed.
 
-Fixed    corresponds to the Fixed Decimal check box.
+Fixed&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Fixed Decimal check box.
 
-Decimals    specifies the number of decimal places. Decimals is ignored
-if fixed is FALSE or omitted.
+Decimals&nbsp;&nbsp;&nbsp;&nbsp;specifies the number of decimal places.
+Decimals is ignored if fixed is FALSE or omitted.
 
-R1c1    corresponds to the R1C1 check box.
+R1c1&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the R1C1 check box.
 
-Scroll    corresponds to the Scroll Bars check box.
+Scroll&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Scroll Bars check box.
 
-Status    corresponds to the Status Bar check box.
+Status&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Status Bar check box.
 
-Formula    corresponds to the Formula Bar check box.
+Formula&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Formula Bar check box.
 
-Menu\_key    is a text value indicating an alternate menu key, and
-corresponds to the Alternate Menu Or Help Key box.
+Menu\_key&nbsp;&nbsp;&nbsp;&nbsp;is a text value indicating an alternate
+menu key, and corresponds to the Alternate Menu Or Help Key box.
 
-Remote    corresponds to the Ignore Remote Requests check box.
+Remote&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Ignore Remote Requests
+check box.
 
-**Important   **Microsoft Excel for the Macintosh requires system
-software version 7.0 or later for this argument.
+**Important&nbsp;&nbsp;&nbsp;**Microsoft Excel for the Macintosh
+requires system software version 7.0 or later for this argument.
 
-Entermove    corresponds to the Move Selection After Enter/Return check
-box.
+Entermove&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Move Selection After
+Enter/Return check box.
 
-Underlines    is a number corresponding to the Command Underline options
-as shown in the following table.
+Underlines&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Command Underline options as shown in the following table.
 
-**Note   **This argument is only available in Microsoft Excel for the
-Macintosh.
+**Note&nbsp;&nbsp;&nbsp;**This argument is only available in Microsoft
+Excel for the Macintosh.
 
 |                      |                            |
 | -------------------- | -------------------------- |
@@ -2144,18 +2197,20 @@ Macintosh.
 | 2                    | Off                        |
 | 3                    | Automatic                  |
 
-Tools    is a logical value. If TRUE, the Standard toolbar is displayed;
-if FALSE, all visible toolbars are hidden. If omitted, the current
-toolbar display is not changed.
+Tools&nbsp;&nbsp;&nbsp;&nbsp;is a logical value. If TRUE, the Standard
+toolbar is displayed; if FALSE, all visible toolbars are hidden. If
+omitted, the current toolbar display is not changed.
 
-Notes    corresponds to the Note Indicator check box.
+Notes&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Note Indicator check
+box.
 
-Nav\_keys    corresponds to the Alternate Navigation Keys check box. In
-Microsoft Excel for the Macintosh, nav\_keys is ignored.
+Nav\_keys&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Alternate Navigation
+Keys check box. In Microsoft Excel for the Macintosh, nav\_keys is
+ignored.
 
-Menu\_key\_action    is the number 1 or 2 specifying options for the
-alternate menu or Help key. In Microsoft Excel for the Macintosh,
-menu\_key\_action is ignored.
+Menu\_key\_action&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 specifying
+options for the alternate menu or Help key. In Microsoft Excel for the
+Macintosh, menu\_key\_action is ignored.
 
 |                       |                                          |
 | --------------------- | ---------------------------------------- |
@@ -2163,13 +2218,15 @@ menu\_key\_action is ignored.
 | 1 or omitted          | Microsoft Excel menus                    |
 | 2                     | Lotus 1-2-3 Help                         |
 
-Drag\_drop    corresponds to the Cell Drag And Drop check box.
+Drag\_drop&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Cell Drag And Drop
+check box.
 
-Show\_info    corresponds to the Info Window check box.
+Show\_info&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Info Window check
+box.
 
 **Related Function**
 
-GET.WORKSPACE   Returns information about the workspace
+GET.WORKSPACE&nbsp;&nbsp;&nbsp;Returns information about the workspace
 
 Return to [top](#T)
 
@@ -2184,8 +2241,8 @@ at a larger size.
 
 **ZOOM**(magnification)
 
-Magnification    is a logical value or a number specifying the amount of
-enlargement or reduction.
+Magnification&nbsp;&nbsp;&nbsp;&nbsp;is a logical value or a number
+specifying the amount of enlargement or reduction.
 
   - > Magnification can be a number from 10 to 400 specifying the
     > percentage of enlargement or reduction.
@@ -2196,11 +2253,12 @@ enlargement or reduction.
   - > If magnification is FALSE, the sheet is restored to normal 100%
     > magnification.
 
->  
+> &nbsp;
 
 **Related Function**
 
-PRINT.PREVIEW   Previews pages and page breaks before printing.
+PRINT.PREVIEW&nbsp;&nbsp;&nbsp;Previews pages and page breaks before
+printing.
 
 Return to [top](#T)
 
@@ -2220,15 +2278,18 @@ add-in.
 **ZTESTM**?(inprng1, inprng2, outrng, labels, alpha, difference, var1,
 var2)
 
-Inprng1    is the input range for the first data set.
+Inprng1&nbsp;&nbsp;&nbsp;&nbsp;is the input range for the first data
+set.
 
-Inprng2    is the input range for the second data set.
+Inprng2&nbsp;&nbsp;&nbsp;&nbsp;is the input range for the second data
+set.
 
-Outrng    is the first cell (the upper-left cell) in the output table or
-the name, as text, of a new sheet to contain the output table. If FALSE,
-blank, or omitted, places the output table in a new workbook.
+Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+the output table or the name, as text, of a new sheet to contain the
+output table. If FALSE, blank, or omitted, places the output table in a
+new workbook.
 
-Labels    is a logical value.
+Labels&nbsp;&nbsp;&nbsp;&nbsp;is a logical value.
 
   - > If labels is TRUE, then the first row or column of the input
     > ranges contains labels.
@@ -2237,16 +2298,16 @@ Labels    is a logical value.
     > are considered data. Microsoft Excel will then generate the
     > appropriate data labels for the output table.
 
->  
+> &nbsp;
 
-Alpha    is the confidence level for the test. If omitted, alpha is
-0.05.
+Alpha&nbsp;&nbsp;&nbsp;&nbsp;is the confidence level for the test. If
+omitted, alpha is 0.05.
 
-Difference    is the hypothesized difference in means. If omitted,
-difference is 0.
+Difference&nbsp;&nbsp;&nbsp;&nbsp;is the hypothesized difference in
+means. If omitted, difference is 0.
 
-Var1    is the variance of the first data set.
+Var1&nbsp;&nbsp;&nbsp;&nbsp;is the variance of the first data set.
 
-Var2    is the variance of the second data set.
+Var2&nbsp;&nbsp;&nbsp;&nbsp;is the variance of the second data set.
 
 Return to [top](#T)

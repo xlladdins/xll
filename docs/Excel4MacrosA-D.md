@@ -81,9 +81,10 @@ style.
 
 **A1.R1C1**(**logical**)
 
-Logical    is a logical value specifying which reference style to use.
-If logical is TRUE, all worksheets and macro sheets use A1 references;
-if FALSE, all worksheets and macro sheets use R1C1 references.
+Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying which
+reference style to use. If logical is TRUE, all worksheets and macro
+sheets use A1 references; if FALSE, all worksheets and macro sheets use
+R1C1 references.
 
 **Example**
 
@@ -107,8 +108,9 @@ absolute reference in text form.
 
 **ABSREF**(**ref\_text**, **reference**)
 
-Ref\_text    specifies a position relative to reference. Think of
-ref\_text as "directions" from one range of cells to another.
+Ref\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies a position relative to
+reference. Think of ref\_text as "directions" from one range of cells to
+another.
 
   - > Ref\_text must be an R1C1-style relative reference in the form of
     > text, such as "R\[1\]C\[1\]".
@@ -116,11 +118,11 @@ ref\_text as "directions" from one range of cells to another.
   - > Ref\_text is considered relative to the cell in the upper-left
     > corner of reference.
 
->  
+> &nbsp;
 
-Reference    is a cell or range of cells specifying a starting point
-that ref\_text uses to locate another range of cells. Reference can be
-an external reference.
+Reference&nbsp;&nbsp;&nbsp;&nbsp;is a cell or range of cells specifying
+a starting point that ref\_text uses to locate another range of cells.
+Reference can be an external reference.
 
 **Remarks**
 
@@ -138,7 +140,7 @@ an external reference.
     > can then store or manipulate (or convert back to a reference with
     > TEXTREF). See the third example following.
 
->  
+> &nbsp;
 
 **Examples**
 
@@ -160,7 +162,7 @@ In Microsoft Excel for the Macintosh ABSREF("R\[-2\]C\[-2\]",
 
 **Related Function**
 
-RELREF   Returns a relative reference
+RELREF&nbsp;&nbsp;&nbsp;Returns a relative reference
 
 Return to [top](#A)
 
@@ -177,8 +179,8 @@ which operate only on the active pane.
 
 **ACTIVATE**?(window\_text, pane\_num)
 
-Window\_text    is text specifying the name of a window to switch to:
-for example, "Book1" or "Book1:2".
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the name of a
+window to switch to: for example, "Book1" or "Book1:2".
 
   - > If a workbook is displayed in more than one window and
     > window\_text does not specify which window to switch to, the first
@@ -186,11 +188,11 @@ for example, "Book1" or "Book1:2".
 
   - > If window\_text is omitted, the active window is not changed.
 
->  
+> &nbsp;
 
-Pane\_num    is a number from 1 to 4 specifying which pane to switch to.
-If pane\_num is omitted and the window has more than one pane, the
-active pane is not changed.
+Pane\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying
+which pane to switch to. If pane\_num is omitted and the window has more
+than one pane, the active pane is not changed.
 
 |               |                                                                                                                                                                                                                          |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -202,23 +204,25 @@ active pane is not changed.
 
 **Related Functions**
 
-ACTIVATE.NEXT   Switches to the next window, or switches to the next
-sheet in a workbook
+ACTIVATE.NEXT&nbsp;&nbsp;&nbsp;Switches to the next window, or switches
+to the next sheet in a workbook
 
-ACTIVATE.PREV   Switches to the previous window, or switches to the
-previous sheet in a workbook
+ACTIVATE.PREV&nbsp;&nbsp;&nbsp;Switches to the previous window, or
+switches to the previous sheet in a workbook
 
-DOCUMENTS   Returns the names of the specified open workbooks
+DOCUMENTS&nbsp;&nbsp;&nbsp;Returns the names of the specified open
+workbooks
 
-FREEZE.PANES   Freezes the panes of a window so that they do not scroll
+FREEZE.PANES&nbsp;&nbsp;&nbsp;Freezes the panes of a window so that they
+do not scroll
 
-ON.WINDOW   Runs a macro when you switch to a window
+ON.WINDOW&nbsp;&nbsp;&nbsp;Runs a macro when you switch to a window
 
-SPLIT   Splits a window
+SPLIT&nbsp;&nbsp;&nbsp;Splits a window
 
-WINDOWS   Returns the names of all open windows
+WINDOWS&nbsp;&nbsp;&nbsp;Returns the names of all open windows
 
-WORKBOOK.SELECT   Select a sheet in a workbook
+WORKBOOK.SELECT&nbsp;&nbsp;&nbsp;Select a sheet in a workbook
 
 Return to [top](#A)
 
@@ -233,8 +237,8 @@ the next or previous sheet in a workbook.
 
 **ACTIVATE.PREV**(workbook\_text)
 
-Workbook\_text    is the name of the workbook for which you want to
-activate a window.
+Workbook\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the workbook for
+which you want to activate a window.
 
   - > If workbook\_text is specified, ACTIVATE.NEXT and ACTIVATE.PREV
     > are equivalent to pressing CTRL+PAGE DOWN and CTRL+PAGE UP (in
@@ -248,19 +252,20 @@ activate a window.
     > the Macintosh). These functions switch to the next and previous
     > windows, respectively.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-ACTIVATE   Switches to a window
+ACTIVATE&nbsp;&nbsp;&nbsp;Switches to a window
 
-ON.WINDOW   Runs a macro when you switch to a window
+ON.WINDOW&nbsp;&nbsp;&nbsp;Runs a macro when you switch to a window
 
-WORKBOOK.NEXT   Switches to the next sheet in a workbook
+WORKBOOK.NEXT&nbsp;&nbsp;&nbsp;Switches to the next sheet in a workbook
 
-WORKBOOK.PREV   Switches to the previous sheet in a workbook
+WORKBOOK.PREV&nbsp;&nbsp;&nbsp;Switches to the previous sheet in a
+workbook
 
-WORKBOOK.SELECT   Select a sheet in a workbook
+WORKBOOK.SELECT&nbsp;&nbsp;&nbsp;Select a sheet in a workbook
 
 Return to [top](#A)
 
@@ -294,8 +299,8 @@ reference.
     > can then store or manipulate (or convert back to a reference with
     > TEXTREF). See the second example following.
 
-**Tip   **Use the following macro formula to verify that the current
-selection is a cell or range of cells:
+**Tip&nbsp;&nbsp;&nbsp;**Use the following macro formula to verify that
+the current selection is a cell or range of cells:
 
 \=ISREF(ACTIVE.CELL( ))
 
@@ -329,11 +334,11 @@ ACTIVE.CELL() equals SALES\!$A$1
 In Microsoft Excel for the Macintosh, if the sheet in the active window
 is named SALES 1 and A1 is the active cell, then:
 
-ACTIVE.CELL() equals 'SALES 1'\!$A$1
+ACTIVE.CELL() equals 'SALES&nbsp;1'\!$A$1
 
 **Related Function**
 
-SELECT   Selects a cell, worksheet object, or chart item
+SELECT&nbsp;&nbsp;&nbsp;Selects a cell, worksheet object, or chart item
 
 Return to [top](#A)
 
@@ -352,7 +357,8 @@ FONT.PROPERTIES.
 
 **Related Function**
 
-FONT.PROPERTIES   Applies a font and other attributes to the selection
+FONT.PROPERTIES&nbsp;&nbsp;&nbsp;Applies a font and other attributes to
+the selection
 
 Return to [top](#A)
 
@@ -375,15 +381,15 @@ size of the arrow.
 
 **Related Functions**
 
-CREATE.OBJECT   Creates an object
+CREATE.OBJECT&nbsp;&nbsp;&nbsp;Creates an object
 
-DELETE.ARROW   Deletes the selected arrow
+DELETE.ARROW&nbsp;&nbsp;&nbsp;Deletes the selected arrow
 
-FORMAT.MOVE   Moves the selected object
+FORMAT.MOVE&nbsp;&nbsp;&nbsp;Moves the selected object
 
-FORMAT.SIZE   Changes the size of the selected object
+FORMAT.SIZE&nbsp;&nbsp;&nbsp;Changes the size of the selected object
 
-PATTERNS   Changes the appearance of the selected object
+PATTERNS&nbsp;&nbsp;&nbsp;Changes the appearance of the selected object
 
 Return to [top](#A)
 
@@ -398,15 +404,15 @@ menu bar with its original menus and commands.
 
 **ADD.BAR**(bar\_num)
 
-Bar\_num    is the number of a built-in menu bar that you want to
-restore. Use ADD.BAR(bar\_num) to restore an unaltered version of a
-built-in menu bar after you have made changes to the menu bar's menus
-and commands. See ADD.COMMAND for a list of ID numbers for built-in menu
-bars.
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of a built-in menu bar
+that you want to restore. Use ADD.BAR(bar\_num) to restore an unaltered
+version of a built-in menu bar after you have made changes to the menu
+bar's menus and commands. See ADD.COMMAND for a list of ID numbers for
+built-in menu bars.
 
-**Important   **Restoring a built-in menu bar will remove menus and
-commands added by other macros. Use ADD.COMMAND and ADD.MENU to restore
-individual commands and menus.
+**Important&nbsp;&nbsp;&nbsp;**Restoring a built-in menu bar will remove
+menus and commands added by other macros. Use ADD.COMMAND and ADD.MENU
+to restore individual commands and menus.
 
 **Remarks**
 
@@ -429,13 +435,13 @@ ADD.BAR()
 
 **Related Functions**
 
-ADD.COMMAND   Adds a command to a menu
+ADD.COMMAND&nbsp;&nbsp;&nbsp;Adds a command to a menu
 
-ADD.MENU   Adds a menu to a menu bar
+ADD.MENU&nbsp;&nbsp;&nbsp;Adds a menu to a menu bar
 
-DELETE.BAR   Deletes a menu bar
+DELETE.BAR&nbsp;&nbsp;&nbsp;Deletes a menu bar
 
-SHOW.BAR   Displays a menu bar
+SHOW.BAR&nbsp;&nbsp;&nbsp;Displays a menu bar
 
 Return to [top](#A)
 
@@ -449,15 +455,15 @@ dialog box.
 
 **ADD.CHART.AUTOFORMAT**(**name\_text**, desc\_text)
 
-Name\_text    is the name you want to appear in the list of custom
-formats.
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name you want to appear in the
+list of custom formats.
 
-Desc\_text    is the description you want to appear when the custom
-format is selected.
+Desc\_text&nbsp;&nbsp;&nbsp;&nbsp;is the description you want to appear
+when the custom format is selected.
 
 **Related Function**
 
-DELETE.CHART.AUTOFORMAT   Deletes a custom template
+DELETE.CHART.AUTOFORMAT&nbsp;&nbsp;&nbsp;Deletes a custom template
 
 Return to [top](#A)
 
@@ -473,8 +479,8 @@ menu.
 
 **ADD.COMMAND**(**bar\_num, menu, command\_ref**, position1, position2)
 
-Bar\_num    is the number corresponding to a menu bar or a type of
-shortcut menu to which you want to add a command.
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number corresponding to a menu
+bar or a type of shortcut menu to which you want to add a command.
 
   - > Bar\_num can be the ID number of a built-in or custom menu bar.
     > The ID number of a custom menu bar is the number returned by the
@@ -483,7 +489,7 @@ shortcut menu to which you want to add a command.
   - > Bar\_num can also refer to a type of shortcut menu; use menu to
     > identify the specific shortcut menu.
 
->  
+> &nbsp;
 
 The ID numbers of the built-in menu bars and the types of shortcut menus
 are listed in the following tables. Short menus are abbreviated versions
@@ -506,7 +512,8 @@ SHORT.MENUS function.
 | 11           | Chart                                                                    |
 | 12           | Visual Basic                                                             |
 
-Menu    is the menu to which you want the new command added.
+Menu&nbsp;&nbsp;&nbsp;&nbsp;is the menu to which you want the new
+command added.
 
   - > Menu can be either the name of a menu as text or the number of a
     > menu.
@@ -518,7 +525,7 @@ Menu    is the menu to which you want the new command added.
     > menu. The combination of bar\_num and menu determines which
     > shortcut menu to modify, as shown in the following table.
 
->  
+> &nbsp;
 
 |              |          |                                                                    |
 | ------------ | -------- | ------------------------------------------------------------------ |
@@ -550,11 +557,12 @@ Menu    is the menu to which you want the new command added.
 | 9            | 7        | Chart floor and arrows                                             |
 | 9            | 8        | Chart legend                                                       |
 
-**Note**   Any commands that you add to the toolbar buttons, watch pane,
-immediate pane or debug code pane shortcut menus will be dimmed.
+**Note**&nbsp;&nbsp;&nbsp;Any commands that you add to the toolbar
+buttons, watch pane, immediate pane or debug code pane shortcut menus
+will be dimmed.
 
-Command\_ref    is an array or a reference to an area on the macro sheet
-that describes the new command or commands.
+Command\_ref&nbsp;&nbsp;&nbsp;&nbsp;is an array or a reference to an
+area on the macro sheet that describes the new command or commands.
 
   - > Command\_ref must be at least two columns wide. The first column
     > specifies command names; the second specifies macro names.
@@ -571,9 +579,10 @@ that describes the new command or commands.
     > value returned by the DELETE.COMMAND formula that deleted the
     > command.
 
->  
+> &nbsp;
 
-Position1    specifies the placement of the new command.
+Position1&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of the new
+command.
 
   - > Use a hyphen (-) to represent a line separating commands on a
     > menu. If you want to place a command before the second separator
@@ -595,9 +604,10 @@ Position1    specifies the placement of the new command.
     > 4.0 (bar\_num 7, menu 3), you cannot add commands to the middle of
     > the toolbar name list or the middle of the workbook contents list.
 
->  
+> &nbsp;
 
-Position2    specifies the placement of the new command on a submenu.
+Position2&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of the new
+command on a submenu.
 
   - > Position2 can be a number indicating the position of the command
     > on the submenu. Commands are numbered from the top of the menu
@@ -611,10 +621,11 @@ Position2    specifies the placement of the new command on a submenu.
 
   - > To add a command to the bottom of a submenu, use 0 for position2.
 
-**Tip**   In general, use menu and command names rather than numbers for
-arguments. The numbers assigned to menus and commands change as you add
-and delete menus and commands. Using names ensures that your menu and
-command macro functions always refer to the correct items.
+**Tip**&nbsp;&nbsp;&nbsp;In general, use menu and command names rather
+than numbers for arguments. The numbers assigned to menus and commands
+change as you add and delete menus and commands. Using names ensures
+that your menu and command macro functions always refer to the correct
+items.
 
 **Example**
 
@@ -625,21 +636,22 @@ ADD.COMMAND(7, 4, G16:J16)
 
 **Related Functions**
 
-ADD.BAR   Adds a menu bar
+ADD.BAR&nbsp;&nbsp;&nbsp;Adds a menu bar
 
-ADD.MENU   Adds a menu to a menu bar
+ADD.MENU&nbsp;&nbsp;&nbsp;Adds a menu to a menu bar
 
-ADD.TOOL   Adds one or more buttons to a toolbar
+ADD.TOOL&nbsp;&nbsp;&nbsp;Adds one or more buttons to a toolbar
 
-ADD.TOOLBAR   Creates a toolbar with the specified tools
+ADD.TOOLBAR&nbsp;&nbsp;&nbsp;Creates a toolbar with the specified tools
 
-DELETE.COMMAND   Deletes a command from a menu
+DELETE.COMMAND&nbsp;&nbsp;&nbsp;Deletes a command from a menu
 
-ENABLE.COMMAND   Enables or disables a menu or custom command
+ENABLE.COMMAND&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+command
 
-GET.TOOLBAR   Retrieves information about a toolbar
+GET.TOOLBAR&nbsp;&nbsp;&nbsp;Retrieves information about a toolbar
 
-RENAME.COMMAND   Changes the name of a command or menu
+RENAME.COMMAND&nbsp;&nbsp;&nbsp;Changes the name of a command or menu
 
 Return to [top](#A)
 
@@ -655,8 +667,8 @@ already be installed.
 
 **ADDIN.MANAGER**?(operation\_num, addinname\_text, copy\_logical)
 
-Operation\_num    determines the operation that the add-in manager will
-perform.
+Operation\_num&nbsp;&nbsp;&nbsp;&nbsp;determines the operation that the
+add-in manager will perform.
 
 |                    |                                                                                                                                                                       |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -665,14 +677,15 @@ perform.
 | 2                  | Removes an add-in from the working set, using the descriptive name in the Add-Ins dialog box.                                                                         |
 | 3                  | Adds a new add-in to the list of add-ins that Microsoft Excel knows about. Equivalent to clicking on the Browse button in the Add-Ins dialog box and clicking a file. |
 
-Addinname\_text    specifies the name of the add-in. If operation\_num
-is 1 or 2, use the descriptive name of the add-in, such as "SOLVER". If
-operation\_num is 3, this contains the filename of the add-in.
+Addinname\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies the name of the add-in.
+If operation\_num is 1 or 2, use the descriptive name of the add-in,
+such as "SOLVER". If operation\_num is 3, this contains the filename of
+the add-in.
 
-Copy\_logical    specifies whether the add-in should be copied to the
-library directory. This argument is only used if operation\_num is 3. If
-omitted, and the file is on removable media, the user will be asked if
-they want to copy it to removable media.
+Copy\_logical&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the add-in should
+be copied to the library directory. This argument is only used if
+operation\_num is 3. If omitted, and the file is on removable media, the
+user will be asked if they want to copy it to removable media.
 
 Return to [top](#A)
 
@@ -685,12 +698,13 @@ sheet control.
 
 **ADD.LIST.ITEM**(**text**, index\_num)
 
-Text    specifies the text of the item to be added. Instead of text, an
-empty string may be inserted.
+Text&nbsp;&nbsp;&nbsp;&nbsp;specifies the text of the item to be added.
+Instead of text, an empty string may be inserted.
 
-Index\_num    is the list index to be used for the new item. Blank
-entries are created from the end of the current list to the new item
-index. If index\_num is omitted the new item is appended to the list.
+Index\_num&nbsp;&nbsp;&nbsp;&nbsp;is the list index to be used for the
+new item. Blank entries are created from the end of the current list to
+the new item index. If index\_num is omitted the new item is appended to
+the list.
 
 **Remarks**
 
@@ -700,9 +714,11 @@ causes the fillrange contents to be discarded in favor of the new list.
 
 **Related Functions**
 
-REMOVE.LIST.ITEM   Removes an item in a list box or drop-down box
+REMOVE.LIST.ITEM&nbsp;&nbsp;&nbsp;Removes an item in a list box or
+drop-down box
 
-SELECT.LIST.ITEM   Selects an item in a list box or in a group box
+SELECT.LIST.ITEM&nbsp;&nbsp;&nbsp;Selects an item in a list box or in a
+group box
 
 Return to [top](#A)
 
@@ -717,20 +733,20 @@ position number in the menu bar of the new menu.
 
 **ADD.MENU**(**bar\_num, menu\_ref**, position1, position2)
 
-Bar\_num    is the menu bar to which you want a menu added. Bar\_num can
-be the ID number of a built-in or custom menu bar. See ADD.COMMAND for a
-list of ID numbers for built-in menu bars.
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the menu bar to which you want a menu
+added. Bar\_num can be the ID number of a built-in or custom menu bar.
+See ADD.COMMAND for a list of ID numbers for built-in menu bars.
 
-Menu\_ref    is an array or a reference to an area on the macro sheet
-that describes the new menu or the name of a deleted built-in menu you
-want to restore.
+Menu\_ref&nbsp;&nbsp;&nbsp;&nbsp;is an array or a reference to an area
+on the macro sheet that describes the new menu or the name of a deleted
+built-in menu you want to restore.
 
   - > Menu\_ref must be made up of at least two rows and two columns of
     > cells. The upper-left cell of menu\_ref specifies the menu title,
     > which is displayed in the menu bar. In the following example, the
     > range A3:E10 is a valid menu\_ref.
 
-![](media/image1.png)
+![](./media/image1.png)
 
 > The rest of the first column indicates the names of the commands. The
 > corresponding rows in the second column give the names of the macros
@@ -741,12 +757,12 @@ want to restore.
     > Macintosh, you can specify shortcut keys in the third column of
     > menu\_ref.
 
->  
+> &nbsp;
 
-Position1    specifies the placement of the new menu. Position can be
-the name of a menu, as text, or the number of a menu. Menus are numbered
-from left to right starting with 1. Menus are added to the left of the
-position specified.
+Position1&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of the new
+menu. Position can be the name of a menu, as text, or the number of a
+menu. Menus are numbered from left to right starting with 1. Menus are
+added to the left of the position specified.
 
   - > Use a hyphen (-) to represent a line separating commands on a
     > menu. If you want to place a command before the second separator
@@ -766,9 +782,9 @@ position specified.
     > is omitted, the menu is added to the right of the last menu
     > restored.
 
->  
+> &nbsp;
 
-Position2    specifies the placement of a submenu.
+Position2&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of a submenu.
 
   - > Use a hyphen (-) to represent a line separating commands on a
     > menu. If you want to place a command before the second separator
@@ -785,7 +801,7 @@ Position2    specifies the placement of a submenu.
   - > If position2 is omitted, the command is added to the main menu,
     > not the submenu.
 
->  
+> &nbsp;
 
 **Example**
 
@@ -796,13 +812,14 @@ ADD.MENU(1, A10:B15)
 
 **Related Functions**
 
-ADD.BAR   Adds a menu bar
+ADD.BAR&nbsp;&nbsp;&nbsp;Adds a menu bar
 
-ADD.COMMAND   Adds a command to a menu
+ADD.COMMAND&nbsp;&nbsp;&nbsp;Adds a command to a menu
 
-DELETE.MENU   Deletes a menu
+DELETE.MENU&nbsp;&nbsp;&nbsp;Deletes a menu
 
-ENABLE.COMMAND   Enables or disables a menu or custom command
+ENABLE.COMMAND&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+command
 
 Return to [top](#A)
 
@@ -820,9 +837,9 @@ with charts that have only one chart type.
 
 **Related Functions**
 
-ADD.ARROW   Adds an arrow to a chart
+ADD.ARROW&nbsp;&nbsp;&nbsp;Adds an arrow to a chart
 
-LEGEND   Adds a legend to a chart
+LEGEND&nbsp;&nbsp;&nbsp;Adds a legend to a chart
 
 Return to [top](#A)
 
@@ -834,8 +851,8 @@ Adds one or more buttons to a toolbar.
 
 **ADD.TOOL**(**bar\_id, position, tool\_ref**)
 
-Bar\_id    is either a number specifying one of the built-in toolbars or
-the name of a custom toolbar.
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;is either a number specifying one of the
+built-in toolbars or the name of a custom toolbar.
 
 |             |                      |
 | ----------- | -------------------- |
@@ -854,13 +871,14 @@ the name of a custom toolbar.
 | 12          | Microsoft            |
 | 13          | Full Screen          |
 
-Position    specifies the position of the button within the toolbar.
-Position starts with 1 at the left side (if horizontal) or at the top
-(if vertical).
+Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the position of the button
+within the toolbar. Position starts with 1 at the left side (if
+horizontal) or at the top (if vertical).
 
-Tool\_ref    is either a number specifying a built-in button or a
-reference to an area on the macro sheet that defines a custom button or
-set of buttons (or an array containing this information).
+Tool\_ref&nbsp;&nbsp;&nbsp;&nbsp;is either a number specifying a
+built-in button or a reference to an area on the macro sheet that
+defines a custom button or set of buttons (or an array containing this
+information).
 
 For customized buttons, the following example shows the components of a
 button reference area on a macro sheet and defines custom tools. The
@@ -868,7 +886,7 @@ range A1:I5 is a valid tool\_ref. Row 1 refers to a built-in tool. Row 2
 defines a gap. For this illustration, values are displayed instead of
 formulas so that text can wrap in cells.
 
-![](media/image2.png)
+![](./media/image2.png)
 
   - > Tool\_id is a number associated with the tool. A zero specifies a
     > gap on the toolbar. To specify a custom button, use a name, or a
@@ -905,7 +923,7 @@ formulas so that text can wrap in cells.
   - > Tip\_text is the text, if any, that you want displayed as a
     > ToolTip when the mouse pointer moves over a tool button.
 
->  
+> &nbsp;
 
 To indicate that a particular component of tool\_ref is not used, clear
 the contents of the corresponding cell.
@@ -928,7 +946,7 @@ the contents of the corresponding cell.
     > In Microsoft Excel for the Macintosh, the object must be a picture
     > object.
 
->  
+> &nbsp;
 
 **Examples**
 
@@ -944,15 +962,16 @@ ADD.TOOL(1, 5, 6)
 
 **Related Functions**
 
-ADD.COMMAND   Adds a command to a menu
+ADD.COMMAND&nbsp;&nbsp;&nbsp;Adds a command to a menu
 
-ADD.TOOLBAR   Creates a toolbar with the specified tools
+ADD.TOOLBAR&nbsp;&nbsp;&nbsp;Creates a toolbar with the specified tools
 
-DELETE.TOOL   Deletes a button from a toolbar
+DELETE.TOOL&nbsp;&nbsp;&nbsp;Deletes a button from a toolbar
 
-DELETE.TOOLBAR   Deletes custom toolbars
+DELETE.TOOLBAR&nbsp;&nbsp;&nbsp;Deletes custom toolbars
 
-RESET.TOOLBAR   Resets a built-in toolbar to its default initial setting
+RESET.TOOLBAR&nbsp;&nbsp;&nbsp;Resets a built-in toolbar to its default
+initial setting
 
 Return to [top](#A)
 
@@ -964,12 +983,13 @@ Creates a new toolbar with the specified buttons.
 
 **ADD.TOOLBAR**(**bar\_name**, tool\_ref)
 
-Bar\_name    is a text string identifying the toolbar you want to
-create.
+Bar\_name&nbsp;&nbsp;&nbsp;&nbsp;is a text string identifying the
+toolbar you want to create.
 
-Tool\_ref    is either a number specifying a built-in button or a
-reference to an area on the macro sheet that defines a custom button or
-set of buttons (or an array containing this information).
+Tool\_ref&nbsp;&nbsp;&nbsp;&nbsp;is either a number specifying a
+built-in button or a reference to an area on the macro sheet that
+defines a custom button or set of buttons (or an array containing this
+information).
 
 For a complete description of tool\_ref, see ADD.TOOL.
 
@@ -987,15 +1007,16 @@ ADD.TOOLBAR("Toolbar9", B7:I7)
 
 **Related Functions**
 
-ADD.TOOL   Adds a button to a toolbar
+ADD.TOOL&nbsp;&nbsp;&nbsp;Adds a button to a toolbar
 
-DELETE.TOOL   Deletes a button from a toolbar
+DELETE.TOOL&nbsp;&nbsp;&nbsp;Deletes a button from a toolbar
 
-DELETE.TOOLBAR   Deletes custom toolbars
+DELETE.TOOLBAR&nbsp;&nbsp;&nbsp;Deletes custom toolbars
 
-RESET.TOOLBAR   Resets a built-in toolbar to its default initial setting
+RESET.TOOLBAR&nbsp;&nbsp;&nbsp;Resets a built-in toolbar to its default
+initial setting
 
-SHOW.TOOLBAR   Hides or displays a toolbar
+SHOW.TOOLBAR&nbsp;&nbsp;&nbsp;Hides or displays a toolbar
 
 Return to [top](#A)
 
@@ -1010,10 +1031,12 @@ message.
 
 **ALERT**(message\_text, type\_num, help\_ref)
 
-Message\_text    is the message displayed in the dialog box.
+Message\_text&nbsp;&nbsp;&nbsp;&nbsp;is the message displayed in the
+dialog box.
 
-Type\_num    is a number from 1 to 3 specifying which type of dialog box
-to display. If you omit type\_num, it is assumed to be 2.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying
+which type of dialog box to display. If you omit type\_num, it is
+assumed to be 2.
 
   - > If type\_num is 1, ALERT displays a dialog box containing the OK
     > and Cancel buttons. Click a button to continue or cancel an
@@ -1028,10 +1051,10 @@ to display. If you omit type\_num, it is assumed to be 2.
     > notes or to present general information, and 3 for errors or
     > warnings.
 
->  
+> &nbsp;
 
-Help\_ref    is a reference to a custom online Help topic, in the form
-"filename\! topic\_number".
+Help\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a custom online Help
+topic, in the form "filename\! topic\_number".
 
   - > If help\_ref is present, a Help button appears in the lower-right
     > corner of the alert message. Clicking the Help button starts Help
@@ -1041,10 +1064,10 @@ Help\_ref    is a reference to a custom online Help topic, in the form
 
   - > Help\_ref must be given in text form.
 
->  
+> &nbsp;
 
-**Note   **In Microsoft Excel for the Macintosh, the ALERT dialog box is
-not a movable window.
+**Note&nbsp;&nbsp;&nbsp;**In Microsoft Excel for the Macintosh, the
+ALERT dialog box is not a movable window.
 
 **Examples**
 
@@ -1058,16 +1081,16 @@ these three dialog boxes.
 ALERT("Are you sure you want to delete this item?", 1,
 "CUSTHELP.HLP\!101")
 
-![](media/image3.png)
+![](./media/image3.png)
 
 ALERT("The number should be between 1 and 100", 2)
 
-![](media/image4.png)
+![](./media/image4.png)
 
 ALERT("Your debits and credits are not equal; do not end this
 transaction.", 3)
 
-![](media/image5.png)
+![](./media/image5.png)
 
 In Microsoft Excel for the Macintosh, the following macro formulas
 display these three dialog boxes.
@@ -1075,16 +1098,16 @@ display these three dialog boxes.
 ALERT("Are you sure you want to delete this item?", 1, "'Custom
 Help'\!101")
 
-![](media/image6.png)
+![](./media/image6.png)
 
 ALERT("The number should be between 1 and 100", 2)
 
-![](media/image7.png)
+![](./media/image7.png)
 
 ALERT("Your debits and credits are not equal; do not end this
 transaction.", 3)
 
-![](media/image8.png)
+![](./media/image8.png)
 
 A common use of the ALERT function is to give the user a choice of two
 actions. The following macro formula in an Auto\_Open macro asks which
@@ -1094,9 +1117,9 @@ A1.R1C1(ALERT("Click OK for A1 style; Cancel for R1C1", 1))
 
 **Related Functions**
 
-INPUT   Displays a dialog box for user input
+INPUT&nbsp;&nbsp;&nbsp;Displays a dialog box for user input
 
-MESSAGE   Displays a message in the status bar
+MESSAGE&nbsp;&nbsp;&nbsp;Displays a message in the status bar
 
 Return to [top](#A)
 
@@ -1114,9 +1137,9 @@ shrink\_to\_fit, merge\_cells)
 **ALIGNMENT**?(horiz\_align, wrap, vert\_align, orientation,
 add\_indent, shrink\_to\_fit, merge\_cells)
 
-Horiz\_align    is a number from 1 to 7 specifying the type of
-horizontal alignment, as shown in the following table. If horiz\_align
-is omitted, horizontal alignment does not change.
+Horiz\_align&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 7 specifying
+the type of horizontal alignment, as shown in the following table. If
+horiz\_align is omitted, horizontal alignment does not change.
 
 |                  |                          |
 | ---------------- | ------------------------ |
@@ -1129,15 +1152,15 @@ is omitted, horizontal alignment does not change.
 | 6                | Justify                  |
 | 7                | Center across selection  |
 
-Wrap    is a logical value corresponding to the Wrap Text check box in
-the Alignment tab. If wrap is TRUE, Microsoft Excel selects the check
-box and wraps text in cells; if FALSE, Microsoft Excel clears the check
-box and does not wrap text. If wrap is omitted, wrapping does not
-change.
+Wrap&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the Wrap
+Text check box in the Alignment tab. If wrap is TRUE, Microsoft Excel
+selects the check box and wraps text in cells; if FALSE, Microsoft Excel
+clears the check box and does not wrap text. If wrap is omitted,
+wrapping does not change.
 
-Vert\_align    is a number from 1 to 4 specifying the vertical alignment
-of the text. If vert\_align is omitted, vertical alignment does not
-change.
+Vert\_align&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying
+the vertical alignment of the text. If vert\_align is omitted, vertical
+alignment does not change.
 
 |                 |                        |
 | --------------- | ---------------------- |
@@ -1147,8 +1170,9 @@ change.
 | 3               | Bottom                 |
 | 4               | Justify                |
 
-Orientation    is a number from 0 to 4 specifying the orientation of the
-text. If orientation is omitted, text orientation does not change.
+Orientation&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 4 specifying
+the orientation of the text. If orientation is omitted, text orientation
+does not change.
 
 |                 |                                               |
 | --------------- | --------------------------------------------- |
@@ -1159,23 +1183,24 @@ text. If orientation is omitted, text orientation does not change.
 | 3               | Downward                                      |
 | 4               | Automatic (applies to only chart tick labels) |
 
-Add\_indent     This argument is for only Far East versions of Microsoft
-Excel.
+Add\_indent&nbsp;&nbsp;&nbsp;&nbsp; This argument is for only Far East
+versions of Microsoft Excel.
 
-Shrink\_to\_fit    is a logical value corresponding to the Shrink To Fit
-check box in the Alignment tab.
+Shrink\_to\_fit&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding
+to the Shrink To Fit check box in the Alignment tab.
 
-Merge\_cells    is a logical value corresponding to the Merge Cells
-check box in the Alignment tab. If merge\_cells is TRUE, Microsoft Excel
-selects the check box and merges the selected cells; the merged cell
-contains the value of the left-most cell that was merged. If FALSE,
-Microsoft Excel clears the check box and unmerges the selected cells;
-the left-most cell takes the formula or value of the cell that was
-unmerged. If merge\_cells is omitted, cell mergers do not change.
+Merge\_cells&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
+the Merge Cells check box in the Alignment tab. If merge\_cells is TRUE,
+Microsoft Excel selects the check box and merges the selected cells; the
+merged cell contains the value of the left-most cell that was merged. If
+FALSE, Microsoft Excel clears the check box and unmerges the selected
+cells; the left-most cell takes the formula or value of the cell that
+was unmerged. If merge\_cells is omitted, cell mergers do not change.
 
 **Related Function**
 
-FORMAT.TEXT   Formats a worksheet text box or a chart text item
+FORMAT.TEXT&nbsp;&nbsp;&nbsp;Formats a worksheet text box or a chart
+text item
 
 Return to [top](#A)
 
@@ -1193,22 +1218,24 @@ add-in.
 
 **ANOVA1**?(inprng, outrng, grouped, labels, alpha)
 
-Inprng    is the input range.
+Inprng&nbsp;&nbsp;&nbsp;&nbsp;is the input range.
 
-Outrng    is the first cell (the upper-left cell) in the output table or
-the name, as text, of a new sheet to contain the output table. If FALSE,
-blank, or omitted, places the output table in a new workbook.
+Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+the output table or the name, as text, of a new sheet to contain the
+output table. If FALSE, blank, or omitted, places the output table in a
+new workbook.
 
-Grouped    is a text character that indicates whether the data in the
-input range is organized by row or column.
+Grouped&nbsp;&nbsp;&nbsp;&nbsp;is a text character that indicates
+whether the data in the input range is organized by row or column.
 
   - > If grouped is "C" or omitted, then the data is organized by
     > column.
 
   - > If grouped is "R", then the data is organized by row.
 
-Labels    is a logical value that describes where the labels are located
-in the input range, as shown in the following table:
+Labels&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that describes where
+the labels are located in the input range, as shown in the following
+table:
 
 |                  |             |                                                   |
 | ---------------- | ----------- | ------------------------------------------------- |
@@ -1217,14 +1244,16 @@ in the input range, as shown in the following table:
 | TRUE             | "R"         | First column of the input range.                  |
 | FALSE or omitted | (ignored)   | No labels. All cells in the input range are data. |
 
-Alpha    is the significance level at which to evaluate critical values
-for the F statistic. If omitted, alpha is 0.05.
+Alpha&nbsp;&nbsp;&nbsp;&nbsp;is the significance level at which to
+evaluate critical values for the F statistic. If omitted, alpha is 0.05.
 
 **Related Functions**
 
-ANOVA2   Performs two-factor analysis of variance with replication
+ANOVA2&nbsp;&nbsp;&nbsp;Performs two-factor analysis of variance with
+replication
 
-ANOVA3   Performs two-factor analysis of variance without replication
+ANOVA3&nbsp;&nbsp;&nbsp;Performs two-factor analysis of variance without
+replication
 
 Return to [top](#A)
 
@@ -1241,23 +1270,26 @@ add-in.
 
 **ANOVA2**?(inprng, outrng, sample\_rows, alpha)
 
-Inprng    is the input range. The input range should contain labels in
-the first row and column.
+Inprng&nbsp;&nbsp;&nbsp;&nbsp;is the input range. The input range should
+contain labels in the first row and column.
 
-Outrng    is the first cell (the upper-left cell) in the output table or
-the name, as text, of a new sheet to contain the output table. If FALSE,
-blank, or omitted, places the output table in a new workbook.
+Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+the output table or the name, as text, of a new sheet to contain the
+output table. If FALSE, blank, or omitted, places the output table in a
+new workbook.
 
-Sample\_rows    is the number of rows in each sample.
+Sample\_rows&nbsp;&nbsp;&nbsp;&nbsp;is the number of rows in each
+sample.
 
-Alpha    is the significance level at which to evaluate critical values
-for the F statistic. If omitted, alpha is 0.05.
+Alpha&nbsp;&nbsp;&nbsp;&nbsp;is the significance level at which to
+evaluate critical values for the F statistic. If omitted, alpha is 0.05.
 
 **Related Functions**
 
-ANOVA1   Performs single-factor analysis of variance
+ANOVA1&nbsp;&nbsp;&nbsp;Performs single-factor analysis of variance
 
-ANOVA3   Performs two-factor analysis of variance without replication
+ANOVA3&nbsp;&nbsp;&nbsp;Performs two-factor analysis of variance without
+replication
 
 Return to [top](#A)
 
@@ -1274,13 +1306,14 @@ add-in.
 
 **ANOVA3**?(inprng, outrng, labels, alpha)
 
-Inprng    is the input range.
+Inprng&nbsp;&nbsp;&nbsp;&nbsp;is the input range.
 
-Outrng    is the first cell (the upper-left cell) in the output table or
-the name, as text, of a new sheet to contain the output table. If FALSE,
-blank, or omitted, places the output table in a new workbook.
+Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+the output table or the name, as text, of a new sheet to contain the
+output table. If FALSE, blank, or omitted, places the output table in a
+new workbook.
 
-Labels    is a logical value.
+Labels&nbsp;&nbsp;&nbsp;&nbsp;is a logical value.
 
   - > If labels is TRUE, then the first row and column of the input
     > range contain labels.
@@ -1289,16 +1322,17 @@ Labels    is a logical value.
     > data. Microsoft Excel will then generate the appropriate data
     > labels for the output table.
 
->  
+> &nbsp;
 
-Alpha    is the significance level at which to evaluate critical values
-for the F statistic. If omitted, alpha is 0.05.
+Alpha&nbsp;&nbsp;&nbsp;&nbsp;is the significance level at which to
+evaluate critical values for the F statistic. If omitted, alpha is 0.05.
 
 **Related Functions**
 
-ANOVA1   Performs single-factor analysis of variance
+ANOVA1&nbsp;&nbsp;&nbsp;Performs single-factor analysis of variance
 
-ANOVA2   Performs two-factor analysis of variance with replication
+ANOVA2&nbsp;&nbsp;&nbsp;Performs two-factor analysis of variance with
+replication
 
 Return to [top](#A)
 
@@ -1312,11 +1346,11 @@ EXEC.
 
 **APP.ACTIVATE**(title\_text, wait\_logical)
 
-**Important   **Microsoft Excel for the Macintosh requires system
-software version 7.0 or later for this function.
+**Important&nbsp;&nbsp;&nbsp;**Microsoft Excel for the Macintosh
+requires system software version 7.0 or later for this function.
 
-Title\_text    is the name of an application as displayed in its title
-bar.
+Title\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of an application as
+displayed in its title bar.
 
   - > If title\_text is omitted, APP.ACTIVATE switches to Microsoft
     > Excel.
@@ -1334,10 +1368,10 @@ bar.
     > to the Process Serial Number (PSN) that is returned by an EXEC
     > function.
 
->  
+> &nbsp;
 
-Wait\_logical    is a logical value determining when to switch to the
-application specified by title\_text.
+Wait\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value determining when
+to switch to the application specified by title\_text.
 
   - > If wait\_logical is TRUE, Microsoft Excel waits to be switched to
     > before switching to the application specified by title\_text.
@@ -1345,7 +1379,7 @@ application specified by title\_text.
   - > If wait\_logical is FALSE or omitted, Microsoft Excel immediately
     > switches to the application specified by title\_text.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -1367,25 +1401,30 @@ switches to Microsoft Word:
 
 APP.ACTIVATE("MICROSOFT WORD")
 
-**Tip**   Use an IF statement with APP.ACTIVATE to run an EXEC function
-if the application you want to switch to is not yet running.
+**Tip**&nbsp;&nbsp;&nbsp;Use an IF statement with APP.ACTIVATE to run an
+EXEC function if the application you want to switch to is not yet
+running.
 
 **Related Functions**
 
 The first five functions following are only for Microsoft Excel for
 Windows.
 
-APP.MAXIMIZE   Maximizes the Microsoft Excel application window
+APP.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes the Microsoft Excel application
+window
 
-APP.MINIMIZE   Minimizes the Microsoft Excel application window
+APP.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes the Microsoft Excel application
+window
 
-APP.MOVE   Moves the Microsoft Excel application window
+APP.MOVE&nbsp;&nbsp;&nbsp;Moves the Microsoft Excel application window
 
-APP.RESTORE   Restores the Microsoft Excel application window
+APP.RESTORE&nbsp;&nbsp;&nbsp;Restores the Microsoft Excel application
+window
 
-APP.SIZE   Changes the size of the Microsoft Excel application window
+APP.SIZE&nbsp;&nbsp;&nbsp;Changes the size of the Microsoft Excel
+application window
 
-EXEC   Starts another application
+EXEC&nbsp;&nbsp;&nbsp;Starts another application
 
 Return to [top](#A)
 
@@ -1398,7 +1437,8 @@ activated, this function will load the application into memory.
 
 **APP.ACTIVATE.MICROSOFT**(**app\_id**)
 
-App\_id    is the ID number associated with the Microsoft Application.
+App\_id&nbsp;&nbsp;&nbsp;&nbsp;is the ID number associated with the
+Microsoft Application.
 
 |             |                                               |
 | ----------- | --------------------------------------------- |
@@ -1418,7 +1458,7 @@ if the application is not activated successfully.
 
 **Related Function**
 
-APP.ACTIVATE   Switches to an application.
+APP.ACTIVATE&nbsp;&nbsp;&nbsp;Switches to an application.
 
 Return to [top](#A)
 
@@ -1438,8 +1478,8 @@ omit\_row, order\_num, append\_last)
 **APPLY.NAMES**?(name\_array, ignore, use\_rowcol, omit\_col, omit\_row,
 order\_num, append\_last)
 
-Name\_array    is the name or names to apply as text elements in an
-array.
+Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is the name or names to apply as text
+elements in an array.
 
   - > To give more than one name as the argument, you must use an array.
     > For example:
@@ -1450,26 +1490,29 @@ array.
     > replaced all of the appropriate references or values, the
     > \#VALUE\! error value is returned.
 
->  
+> &nbsp;
 
 The next four arguments correspond to check boxes and options in the
 Apply Names dialog box. Arguments that correspond to check boxes are
 logical values. If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box.
 
-Ignore    corresponds to the Ignore Relative/Absolute check box.
+Ignore&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Ignore
+Relative/Absolute check box.
 
-Use\_rowcol    corresponds to the Use Row And Column Names check box. If
-use\_rowcol is FALSE, the next three arguments are ignored.
+Use\_rowcol&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Use Row And Column
+Names check box. If use\_rowcol is FALSE, the next three arguments are
+ignored.
 
-Omit\_col    corresponds to the Omit Column Name If Same Column check
-box.
+Omit\_col&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Omit Column Name If
+Same Column check box.
 
-Omit\_row    corresponds to the Omit Row Name If Same Row check box.
+Omit\_row&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Omit Row Name If
+Same Row check box.
 
-Order\_num    determines which range name is listed first when a cell
-reference is replaced by a row-oriented and a column-oriented range
-name, as shown in the following table.
+Order\_num&nbsp;&nbsp;&nbsp;&nbsp;determines which range name is listed
+first when a cell reference is replaced by a row-oriented and a
+column-oriented range name, as shown in the following table.
 
 |                |                          |
 | -------------- | ------------------------ |
@@ -1477,8 +1520,8 @@ name, as shown in the following table.
 | 1              | Row Column               |
 | 2              | Column Row               |
 
-Append\_last    determines whether the names most recently defined are
-also replaced.
+Append\_last&nbsp;&nbsp;&nbsp;&nbsp;determines whether the names most
+recently defined are also replaced.
 
   - > If append\_last is TRUE, Microsoft Excel replaces the definitions
     > of the names in name\_array and also replaces the definitions of
@@ -1487,15 +1530,16 @@ also replaced.
   - > If append\_last is FALSE or omitted, Microsoft Excel replaces the
     > definitions of the names in name\_array only.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-CREATE.NAMES   Creates names automatically from text labels on a sheet
+CREATE.NAMES&nbsp;&nbsp;&nbsp;Creates names automatically from text
+labels on a sheet
 
-DEFINE.NAME   Defines a name in the active workbook
+DEFINE.NAME&nbsp;&nbsp;&nbsp;Defines a name in the active workbook
 
-LIST.NAMES   Lists names and their associated information
+LIST.NAMES&nbsp;&nbsp;&nbsp;Lists names and their associated information
 
 Return to [top](#A)
 
@@ -1511,19 +1555,19 @@ the current selection.
 
 **APPLY.STYLE**?(style\_text)
 
-Style\_text    is the name, as text, of a previously defined style. If
-style\_text is not defined, APPLY.STYLE returns the \#VALUE\! error
-value and interrupts the macro. If style\_text is omitted, the Normal
-style is applied to the selection.
+Style\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name, as text, of a previously
+defined style. If style\_text is not defined, APPLY.STYLE returns the
+\#VALUE\! error value and interrupts the macro. If style\_text is
+omitted, the Normal style is applied to the selection.
 
 **Related Functions**
 
-DEFINE.STYLE   Defines a cell style
+DEFINE.STYLE&nbsp;&nbsp;&nbsp;Defines a cell style
 
-DELETE.STYLE   Deletes a cell style
+DELETE.STYLE&nbsp;&nbsp;&nbsp;Deletes a cell style
 
-MERGE.STYLES   Imports styles from another workbook into the active
-workbook
+MERGE.STYLES&nbsp;&nbsp;&nbsp;Imports styles from another workbook into
+the active workbook
 
 Return to [top](#A)
 
@@ -1536,23 +1580,26 @@ application window. Maximizes the Microsoft Excel window.
 
 **APP.MAXIMIZE**( )
 
-**Note**   This function is only for Microsoft Excel for Windows. You
-can use this function in macros created with Microsoft Excel for the
-Macintosh, but it will return the \#N/A error value.
+**Note**&nbsp;&nbsp;&nbsp;This function is only for Microsoft Excel for
+Windows. You can use this function in macros created with Microsoft
+Excel for the Macintosh, but it will return the \#N/A error value.
 
 **Related Functions**
 
-APP.ACTIVATE   Switches to an application
+APP.ACTIVATE&nbsp;&nbsp;&nbsp;Switches to an application
 
-APP.MINIMIZE   Minimizes the Microsoft Excel application window
+APP.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes the Microsoft Excel application
+window
 
-APP.MOVE   Moves the Microsoft Excel application window
+APP.MOVE&nbsp;&nbsp;&nbsp;Moves the Microsoft Excel application window
 
-APP.RESTORE   Restores the Microsoft Excel application window
+APP.RESTORE&nbsp;&nbsp;&nbsp;Restores the Microsoft Excel application
+window
 
-APP.SIZE   Changes the size of the Microsoft Excel application window
+APP.SIZE&nbsp;&nbsp;&nbsp;Changes the size of the Microsoft Excel
+application window
 
-FULL.SCREEN   Controls full screen display
+FULL.SCREEN&nbsp;&nbsp;&nbsp;Controls full screen display
 
 Return to [top](#A)
 
@@ -1565,21 +1612,24 @@ application window. Minimizes the Microsoft Excel window.
 
 **APP.MINIMIZE**( )
 
-**Note**   This function is only for Microsoft Excel for Windows. You
-can use this function in macros created with Microsoft Excel for the
-Macintosh, but it will return the \#N/A error value.
+**Note**&nbsp;&nbsp;&nbsp;This function is only for Microsoft Excel for
+Windows. You can use this function in macros created with Microsoft
+Excel for the Macintosh, but it will return the \#N/A error value.
 
 **Related Functions**
 
-APP.ACTIVATE   Switches to an application
+APP.ACTIVATE&nbsp;&nbsp;&nbsp;Switches to an application
 
-APP.MAXIMIZE   Maximizes the Microsoft Excel application window
+APP.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes the Microsoft Excel application
+window
 
-APP.MOVE   Moves the Microsoft Excel application window
+APP.MOVE&nbsp;&nbsp;&nbsp;Moves the Microsoft Excel application window
 
-APP.RESTORE   Restores the Microsoft Excel application window
+APP.RESTORE&nbsp;&nbsp;&nbsp;Restores the Microsoft Excel application
+window
 
-APP.SIZE   Changes the size of the Microsoft Excel application window
+APP.SIZE&nbsp;&nbsp;&nbsp;Changes the size of the Microsoft Excel
+application window
 
 Return to [top](#A)
 
@@ -1596,17 +1646,17 @@ returns the \#VALUE\! error value and interrupts the macro.
 
 **APP.MOVE**?(x\_num, y\_num)
 
-**Note**   This function is only for Microsoft Excel for Windows. You
-can use this function in macros created with Microsoft Excel for the
-Macintosh, but it will return the \#N/A error value.
+**Note**&nbsp;&nbsp;&nbsp;This function is only for Microsoft Excel for
+Windows. You can use this function in macros created with Microsoft
+Excel for the Macintosh, but it will return the \#N/A error value.
 
-X\_num    specifies the horizontal position of the Microsoft Excel
-window measured in points from the left edge of your screen to the left
-side of the Microsoft Excel window.
+X\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the horizontal position of the
+Microsoft Excel window measured in points from the left edge of your
+screen to the left side of the Microsoft Excel window.
 
-Y\_num    specifies the vertical position of the Microsoft Excel window
-measured in points from the top edge of your screen to the top of the
-Microsoft Excel window.
+Y\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the vertical position of the
+Microsoft Excel window measured in points from the top edge of your
+screen to the top of the Microsoft Excel window.
 
 **Remarks**
 
@@ -1621,15 +1671,19 @@ Microsoft Excel window.
 
 **Related Functions**
 
-APP.ACTIVATE   Switches to an application
+APP.ACTIVATE&nbsp;&nbsp;&nbsp;Switches to an application
 
-APP.MAXIMIZE   Maximizes the Microsoft Excel application window
+APP.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes the Microsoft Excel application
+window
 
-APP.MINIMIZE   Minimizes the Microsoft Excel application window
+APP.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes the Microsoft Excel application
+window
 
-APP.RESTORE   Restores the Microsoft Excel application window
+APP.RESTORE&nbsp;&nbsp;&nbsp;Restores the Microsoft Excel application
+window
 
-APP.SIZE   Changes the size of the Microsoft Excel application window
+APP.SIZE&nbsp;&nbsp;&nbsp;Changes the size of the Microsoft Excel
+application window
 
 Return to [top](#A)
 
@@ -1643,21 +1697,24 @@ size and location.
 
 **APP.RESTORE**( )
 
-**Note **  This function is only for Microsoft Excel for Windows. You
-can use this function in macros created with Microsoft Excel for the
-Macintosh, but it will return the \#N/A error value.
+**Note&nbsp;**&nbsp;&nbsp;This function is only for Microsoft Excel for
+Windows. You can use this function in macros created with Microsoft
+Excel for the Macintosh, but it will return the \#N/A error value.
 
 **Related Functions**
 
-APP.ACTIVATE   Switches to an application
+APP.ACTIVATE&nbsp;&nbsp;&nbsp;Switches to an application
 
-APP.MAXIMIZE   Maximizes the Microsoft Excel application window
+APP.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes the Microsoft Excel application
+window
 
-APP.MINIMIZE   Minimizes the Microsoft Excel application window
+APP.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes the Microsoft Excel application
+window
 
-APP.MOVE   Moves the Microsoft Excel application window
+APP.MOVE&nbsp;&nbsp;&nbsp;Moves the Microsoft Excel application window
 
-APP.SIZE   Changes the size of the Microsoft Excel application window
+APP.SIZE&nbsp;&nbsp;&nbsp;Changes the size of the Microsoft Excel
+application window
 
 Return to [top](#A)
 
@@ -1672,13 +1729,15 @@ application window. Changes the size of the Microsoft Excel window.
 
 **APP.SIZE**?(x\_num, y\_num)
 
-**Note   **This function is only for Microsoft Excel for Windows. You
-can use this function in macros created with Microsoft Excel for the
-Macintosh, but it will return the \#N/A error value.
+**Note&nbsp;&nbsp;&nbsp;**This function is only for Microsoft Excel for
+Windows. You can use this function in macros created with Microsoft
+Excel for the Macintosh, but it will return the \#N/A error value.
 
-X\_num    specifies the width of the Microsoft Excel window in points.
+X\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the width of the Microsoft Excel
+window in points.
 
-Y\_num    specifies the height of the Microsoft Excel window in points.
+Y\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the height of the Microsoft
+Excel window in points.
 
 APP.SIZE?, the dialog-box form of the function, doesn't display a dialog
 box. Instead, it is equivalent to pressing ALT, SPACEBAR, S or to
@@ -1689,15 +1748,18 @@ according to the specified coordinates, and you are left in size mode.
 
 **Related Functions**
 
-APP.ACTIVATE   Switches to an application
+APP.ACTIVATE&nbsp;&nbsp;&nbsp;Switches to an application
 
-APP.MAXIMIZE   Maximizes the Microsoft Excel application window
+APP.MAXIMIZE&nbsp;&nbsp;&nbsp;Maximizes the Microsoft Excel application
+window
 
-APP.MINIMIZE   Minimizes the Microsoft Excel application window
+APP.MINIMIZE&nbsp;&nbsp;&nbsp;Minimizes the Microsoft Excel application
+window
 
-APP.MOVE   Moves the Microsoft Excel application window
+APP.MOVE&nbsp;&nbsp;&nbsp;Moves the Microsoft Excel application window
 
-APP.RESTORE   Restores the Microsoft Excel application window
+APP.RESTORE&nbsp;&nbsp;&nbsp;Restores the Microsoft Excel application
+window
 
 Return to [top](#A)
 
@@ -1713,9 +1775,9 @@ apply to Microsoft Excel for the Macintosh.
 
 **APP.TITLE**(text)
 
-Text    is the title you want to assign to the Microsoft Excel
-application workspace. If text is omitted, it is restored to Microsoft
-Excel.
+Text&nbsp;&nbsp;&nbsp;&nbsp;is the title you want to assign to the
+Microsoft Excel application workspace. If text is omitted, it is
+restored to Microsoft Excel.
 
 **Remarks**
 
@@ -1726,11 +1788,11 @@ Excel.
   - > APP.TITLE does not affect DDE communications. You will still refer
     > to the application as "Excel".
 
->  
+> &nbsp;
 
 **Related Function**
 
-WINDOW.TITLE   Changes the title of the active window
+WINDOW.TITLE&nbsp;&nbsp;&nbsp;Changes the title of the active window
 
 Return to [top](#A)
 
@@ -1756,12 +1818,13 @@ For cell storage
 
 **ARGUMENT**(name\_text, data\_type\_num, **reference**)
 
-Name\_text    is the name of the argument or of the cells containing the
-argument. Name\_text is required if you omit reference.
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the argument or of the
+cells containing the argument. Name\_text is required if you omit
+reference.
 
-Data\_type\_num    is a number that determines what type of values
-Microsoft Excel accepts for the argument. The following table lists the
-possible data types.
+Data\_type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that determines what
+type of values Microsoft Excel accepts for the argument. The following
+table lists the possible data types.
 
 |                     |                   |
 | ------------------- | ----------------- |
@@ -1773,7 +1836,7 @@ possible data types.
 | 16                  | Error             |
 | 64                  | Array             |
 
- 
+&nbsp;
 
   - > Data\_type\_num can be a sum of the preceding different numbers to
     > allow for more than one possible type of data. For example, if
@@ -1788,10 +1851,10 @@ possible data types.
     > to convert it to the specified type. If the value cannot be
     > converted, the macro returns the \#VALUE\! error value.
 
->  
+> &nbsp;
 
-Reference    is the cell or cells in which you want to store the
-argument's value.
+Reference&nbsp;&nbsp;&nbsp;&nbsp;is the cell or cells in which you want
+to store the argument's value.
 
   - > If you specify reference, the value that is passed to ARGUMENT is
     > entered as a constant in the specified cell, and name\_text
@@ -1802,7 +1865,7 @@ argument's value.
     > and refers to the value that is passed to ARGUMENT. Once
     > name\_text is defined, you can use it in formulas.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -1813,7 +1876,7 @@ argument's value.
     > corresponding argument in the function that starts the macro, the
     > macro uses the \#N/A error value as the value of the argument.
 
->  
+> &nbsp;
 
 **Examples**
 
@@ -1828,9 +1891,11 @@ ARGUMENT("UnitPrice", 1)
 
 **Related Functions**
 
-RESULT   Specifies the data type a custom function returns
+RESULT&nbsp;&nbsp;&nbsp;Specifies the data type a custom function
+returns
 
-VOLATILE   Makes custom functions recalculate automatically
+VOLATILE&nbsp;&nbsp;&nbsp;Makes custom functions recalculate
+automatically
 
 Return to [top](#A)
 
@@ -1846,8 +1911,8 @@ used to synchronize scrolling of windows of the active sheet.
 
 **ARRANGE.ALL**?(arrange\_num, active\_doc, sync\_horiz, sync\_vert)
 
-Arrange\_num    is a number from 1 to 7 specifying how to arrange the
-windows.
+Arrange\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 7 specifying
+how to arrange the windows.
 
 |                  |                                                                                                             |
 | ---------------- | ----------------------------------------------------------------------------------------------------------- |
@@ -1863,12 +1928,13 @@ windows.
 If you want to change whether the windows are synchronized for scrolling
 but not how they are arranged, make sure arrange\_num is 4.
 
-Active\_doc    is a logical value specifying which windows to arrange.
-If active\_doc is TRUE, Microsoft Excel arranges only windows on the
-active workbook; if FALSE or omitted, all open windows are arranged.
+Active\_doc&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying which
+windows to arrange. If active\_doc is TRUE, Microsoft Excel arranges
+only windows on the active workbook; if FALSE or omitted, all open
+windows are arranged.
 
-Sync\_horiz    is a logical value corresponding to the Sync Horizontal
-check box in Microsoft Excel version 4.0.
+Sync\_horiz&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
+the Sync Horizontal check box in Microsoft Excel version 4.0.
 
   - > If sync\_horiz is TRUE, Microsoft Excel selects the check box and
     > synchronizes horizontal scrolling.
@@ -1879,10 +1945,10 @@ check box in Microsoft Excel version 4.0.
 
   - > This argument is used only when active\_doc is TRUE.
 
->  
+> &nbsp;
 
-Sync\_vert    is a logical value corresponding to the Sync Vertical
-check box in Microsoft Excel version 4.0.
+Sync\_vert&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
+the Sync Vertical check box in Microsoft Excel version 4.0.
 
   - > If sync\_vert is TRUE, Microsoft Excel selects the check box and
     > synchronizes vertical scrolling.
@@ -1893,11 +1959,11 @@ check box in Microsoft Excel version 4.0.
 
   - > This argument is used only when active\_doc is TRUE.
 
->  
+> &nbsp;
 
-**Note**   If arguments are omitted in the dialog box form of this
-function, the default values are the previous settings, if any;
-otherwise the default values are as described above.
+**Note**&nbsp;&nbsp;&nbsp;If arguments are omitted in the dialog box
+form of this function, the default values are the previous settings, if
+any; otherwise the default values are as described above.
 
 **Remarks**
 
@@ -1908,15 +1974,16 @@ otherwise the default values are as described above.
     > corresponding icons horizontally along the bottom of the
     > workspace.
 
->  
+> &nbsp;
 
-**Tip**   You can use synchronized horizontal or vertical scrolling when
-you need to scroll while viewing macro formulas in one window and
-corresponding macro values in another window of the same macro sheet.
+**Tip**&nbsp;&nbsp;&nbsp;You can use synchronized horizontal or vertical
+scrolling when you need to scroll while viewing macro formulas in one
+window and corresponding macro values in another window of the same
+macro sheet.
 
 **Related Function**
 
-ACTIVATE   Switches to a window
+ACTIVATE&nbsp;&nbsp;&nbsp;Switches to a window
 
 Return to [top](#A)
 
@@ -1930,10 +1997,10 @@ Assigns a macro to the currently select object.
 
 **ASSIGN.TO.OBJECT**?(macro\_ref)
 
-Macro\_ref    is the name of, or a reference to, the macro you want to
-run when the object is clicked. If macro\_ref is omitted, Microsoft
-Excel no longer runs the previously specified macro (ASSIGN.TO.OBJECT is
-turned off).
+Macro\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or a reference to, the
+macro you want to run when the object is clicked. If macro\_ref is
+omitted, Microsoft Excel no longer runs the previously specified macro
+(ASSIGN.TO.OBJECT is turned off).
 
 **Remarks**
 
@@ -1944,13 +2011,13 @@ turned off).
     > use ASSIGN.TO.OBJECT again, using the reference to the new macro
     > as macro\_ref. The previous macro is replaced with the new macro.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-CREATE.OBJECT   Creates an object
+CREATE.OBJECT&nbsp;&nbsp;&nbsp;Creates an object
 
-RUN   Runs a macro
+RUN&nbsp;&nbsp;&nbsp;Runs a macro
 
 Return to [top](#A)
 
@@ -1962,26 +2029,28 @@ Assigns a macro to be run when a button is clicked with the mouse.
 
 **ASSIGN.TO.TOOL**(**bar\_id, position**, macro\_ref)
 
-Bar\_id    specifies the number or name of a toolbar to which you want
-to assign a macro. For more information about bar\_id, see ADD.TOOL.
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;specifies the number or name of a toolbar
+to which you want to assign a macro. For more information about bar\_id,
+see ADD.TOOL.
 
-Position    specifies the position of the button within the toolbar.
-Position starts with 1 at the left side (if horizontal) or at the top
-(if vertical).
+Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the position of the button
+within the toolbar. Position starts with 1 at the left side (if
+horizontal) or at the top (if vertical).
 
-Macro\_ref    is the name of, or a reference to, the macro you want to
-run when the button is clicked. If macro\_ref is omitted, Microsoft
-Excel no longer runs the previously specified macro. After canceling the
-macro, if the button is a built-in button, Microsoft Excel performs the
-normal default action when the button is clicked. If the button is a
-custom button, Microsoft Excel displays the Assign Macro dialog box when
-the button is clicked.
+Macro\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or a reference to, the
+macro you want to run when the button is clicked. If macro\_ref is
+omitted, Microsoft Excel no longer runs the previously specified macro.
+After canceling the macro, if the button is a built-in button, Microsoft
+Excel performs the normal default action when the button is clicked. If
+the button is a custom button, Microsoft Excel displays the Assign Macro
+dialog box when the button is clicked.
 
 **Related Functions**
 
-ADD.TOOL   Adds one or more buttons to a toolbar
+ADD.TOOL&nbsp;&nbsp;&nbsp;Adds one or more buttons to a toolbar
 
-GET.TOOL   Returns information about a button or buttons on a toolbar
+GET.TOOL&nbsp;&nbsp;&nbsp;Returns information about a button or buttons
+on a toolbar
 
 Return to [top](#A)
 
@@ -1996,9 +2065,9 @@ attach text as a title or as a label for an axis or data point.
 
 **ATTACH.TEXT**?(attach\_to\_num, series\_num, point\_num)
 
-Attach\_to\_num    specifies which item on a chart to attach text to.
-Attach\_to\_num is different for 2-D and 3-D charts. Attach\_to\_num
-values for 2-D charts are shown in the following table.
+Attach\_to\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies which item on a chart
+to attach text to. Attach\_to\_num is different for 2-D and 3-D charts.
+Attach\_to\_num values for 2-D charts are shown in the following table.
 
 |                     |                             |
 | ------------------- | --------------------------- |
@@ -2021,13 +2090,14 @@ Attach\_to\_num values for 3-D charts are shown in the following table.
 | 4                   | Category (x) axis     |
 | 5                   | Series and data point |
 
-Series\_num    specifies the series number if attach\_to\_num specifies
-a series or data point. If attach\_to\_num specifies a series or data
-point and series\_num is omitted, the macro is interrupted.
+Series\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the series number if
+attach\_to\_num specifies a series or data point. If attach\_to\_num
+specifies a series or data point and series\_num is omitted, the macro
+is interrupted.
 
-Point\_num    specifies the number of the data point, but only if you
-specify a series number. Point\_num is required if series\_num is
-specified, unless the chart is an area chart.
+Point\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the number of the data
+point, but only if you specify a series number. Point\_num is required
+if series\_num is specified, unless the chart is an area chart.
 
 **Remarks**
 
@@ -2046,9 +2116,10 @@ FORMULA("Quarterly Sales")
 
 **Related Functions**
 
-DATA.LABEL   Assigns text labels to point on a chart
+DATA.LABEL&nbsp;&nbsp;&nbsp;Assigns text labels to point on a chart
 
-FORMULA   Enters values into a cell or range or onto a chart
+FORMULA&nbsp;&nbsp;&nbsp;Enters values into a cell or range or onto a
+chart
 
 Return to [top](#A)
 
@@ -2077,10 +2148,10 @@ single cell is selected, creates an outline for the entire sheet.
 
 **Related Functions**
 
-CLEAR.OUTLINE   Removes outlining from the current sheet
+CLEAR.OUTLINE&nbsp;&nbsp;&nbsp;Removes outlining from the current sheet
 
-OUTLINE   Creates an outline and defines settings for automatically
-creating outlines
+OUTLINE&nbsp;&nbsp;&nbsp;Creates an outline and defines settings for
+automatically creating outlines
 
 Return to [top](#A)
 
@@ -2117,27 +2188,29 @@ Axes dialog box.
 
   - > If an argument is omitted, the display of that axis is unchanged.
 
->  
+> &nbsp;
 
-X\_primary    corresponds to the primary category (x) axis.
+X\_primary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the primary category
+(x) axis.
 
-Y\_primary    corresponds to the primary value (y) axis.
+Y\_primary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the primary value (y)
+axis.
 
-Z\_primary    corresponds to the value (z) axis on the primary 3-D
-chart.
+Z\_primary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the value (z) axis on
+the primary 3-D chart.
 
-X\_secondary    corresponds to the secondary category (x) axis on a 2-D
-chart only.
+X\_secondary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the secondary
+category (x) axis on a 2-D chart only.
 
-Y\_secondary    corresponds to the secondary value (y) axis on a 2-D
-chart only.
+Y\_secondary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the secondary value
+(y) axis on a 2-D chart only.
 
 If a 2-D chart has no secondary axis, only the first two arguments are
 used.
 
 **Related Function**
 
-GRIDLINES   Controls whether chart gridlines are visible
+GRIDLINES&nbsp;&nbsp;&nbsp;Controls whether chart gridlines are visible
 
 Return to [top](#A)
 
@@ -2150,7 +2223,8 @@ a macro, or whenever you need to get the user's attention.
 
 **BEEP**(tone\_num)
 
-Tone\_num    is a number from 1 to 4 specifying the tone to be played.
+Tone\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying the
+tone to be played.
 
   - > On most computers, all numbers produce the same sound, the sound
     > that you hear when an error occurs or when you click outside some
@@ -2158,7 +2232,7 @@ Tone\_num    is a number from 1 to 4 specifying the tone to be played.
 
   - > If tone\_num is omitted, it is assumed to be 1.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -2168,13 +2242,13 @@ Tone\_num    is a number from 1 to 4 specifying the tone to be played.
   - > With Microsoft Windows version 3.0 or later, you can turn off the
     > tone by using the Control Panel.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-ALERT   Displays a dialog box and a message
+ALERT&nbsp;&nbsp;&nbsp;Displays a dialog box and a message
 
-MESSAGE   Displays a message in the status bar
+MESSAGE&nbsp;&nbsp;&nbsp;Displays a message in the status bar
 
 Return to [top](#A)
 
@@ -2208,13 +2282,13 @@ the following table.
 | 6            | Double line   |
 | 7            | Hairline      |
 
-**Note   **For compatibility with earlier versions of Microsoft Excel,
-TRUE and FALSE values for the above arguments create a thin border or no
-border, respectively.
+**Note&nbsp;&nbsp;&nbsp;**For compatibility with earlier versions of
+Microsoft Excel, TRUE and FALSE values for the above arguments create a
+thin border or no border, respectively.
 
-Shade    corresponds to the Shade check box in the Border dialog box of
-Microsoft Excel version 4.0. This argument is included for compatibility
-only.
+Shade&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Shade check box in the
+Border dialog box of Microsoft Excel version 4.0. This argument is
+included for compatibility only.
 
 Outline\_color, left\_color, right\_color, top\_color, and bottom\_color
 are numbers from 1 to 56 corresponding to the Color box in the Border
@@ -2243,13 +2317,13 @@ a WHILE-NEXT loop when a certain value is encountered:
 
 **Related Functions**
 
-FOR   Starts a FOR-NEXT loop
+FOR&nbsp;&nbsp;&nbsp;Starts a FOR-NEXT loop
 
-FOR.CELL   Starts a FOR.CELL-NEXT loop
+FOR.CELL&nbsp;&nbsp;&nbsp;Starts a FOR.CELL-NEXT loop
 
-NEXT   Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
+NEXT&nbsp;&nbsp;&nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
-WHILE   Starts a WHILE-NEXT loop
+WHILE&nbsp;&nbsp;&nbsp;Starts a WHILE-NEXT loop
 
 Return to [top](#A)
 
@@ -2269,7 +2343,8 @@ returns the \#VALUE\! error value.
 
 **Related Function**
 
-SEND.TO.BACK   Sends selected objects behind other objects
+SEND.TO.BACK&nbsp;&nbsp;&nbsp;Sends selected objects behind other
+objects
 
 Return to [top](#A)
 
@@ -2290,9 +2365,9 @@ value.
 
 **Related Functions**
 
-CALCULATE.NOW   Calculates all open workbooks immediately
+CALCULATE.NOW&nbsp;&nbsp;&nbsp;Calculates all open workbooks immediately
 
-CALCULATION   Controls calculation settings
+CALCULATION&nbsp;&nbsp;&nbsp;Controls calculation settings
 
 Return to [top](#A)
 
@@ -2309,9 +2384,9 @@ calculation is set to manual.
 
 **Related Functions**
 
-CALCULATE.DOCUMENT   Calculates the active sheet only
+CALCULATE.DOCUMENT&nbsp;&nbsp;&nbsp;Calculates the active sheet only
 
-CALCULATION   Controls calculation settings
+CALCULATION&nbsp;&nbsp;&nbsp;Controls calculation settings
 
 Return to [top](#A)
 
@@ -2334,7 +2409,8 @@ dialog box. Arguments that correspond to check boxes are logical values.
 If an argument is TRUE, Microsoft Excel selects the check box; if FALSE,
 Microsoft Excel clears the check box.
 
-Type\_num    is a number from 1 to 3 indicating the type of calculation.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 indicating the
+type of calculation.
 
 |               |                         |
 | ------------- | ----------------------- |
@@ -2343,32 +2419,34 @@ Type\_num    is a number from 1 to 3 indicating the type of calculation.
 | 2             | Automatic except tables |
 | 3             | Manual                  |
 
-Iter    corresponds to the Iteration check box. The default is FALSE.
-
-Max\_num    is the maximum number of iterations. The default is 100.
-
-Max\_change    is the maximum change of each iteration. The default is
-0.001.
-
-Update    corresponds to the Update Remote References check box. The
-default is TRUE.
-
-Precision    corresponds to the Precision As Displayed check box. The
+Iter&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Iteration check box. The
 default is FALSE.
 
-Date\_1904    corresponds to the 1904 Date System check box. The default
-is FALSE in Microsoft Excel for Windows and TRUE in Microsoft Excel for
-the Macintosh.
+Max\_num&nbsp;&nbsp;&nbsp;&nbsp;is the maximum number of iterations. The
+default is 100.
 
-Calc\_save    corresponds to the Recalculate Before Save check box. If
-calc\_save is FALSE, the workbook is not recalculated before saving when
-in manual calculation mode. The default is TRUE.
+Max\_change&nbsp;&nbsp;&nbsp;&nbsp;is the maximum change of each
+iteration. The default is 0.001.
 
-Save\_values    corresponds to the Save External Link Values check box.
-The default is TRUE.
+Update&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Update Remote
+References check box. The default is TRUE.
 
-Alt\_exp    corresponds to the Transition Formula Evaluation check box
-in the Transition tab of the Options dialog box.
+Precision&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Precision As
+Displayed check box. The default is FALSE.
+
+Date\_1904&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the 1904 Date System
+check box. The default is FALSE in Microsoft Excel for Windows and TRUE
+in Microsoft Excel for the Macintosh.
+
+Calc\_save&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Recalculate Before
+Save check box. If calc\_save is FALSE, the workbook is not recalculated
+before saving when in manual calculation mode. The default is TRUE.
+
+Save\_values&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Save External
+Link Values check box. The default is TRUE.
+
+Alt\_exp&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Transition Formula
+Evaluation check box in the Transition tab of the Options dialog box.
 
   - > If alt\_exp is TRUE, Microsoft Excel uses a set of rules
     > compatible with that of Lotus 1-2-3 when calculating formulas.
@@ -2379,10 +2457,10 @@ in the Transition tab of the Options dialog box.
   - > If alt\_exp is FALSE or omitted, Microsoft Excel calculates
     > normally.
 
->  
+> &nbsp;
 
-Alt\_form    corresponds to the Transition Formula Entry check box in
-the Transition tab of the Options dialog box.
+Alt\_form&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Transition Formula
+Entry check box in the Transition tab of the Options dialog box.
 
   - > This argument is available only in Microsoft Excel for Windows.
 
@@ -2392,14 +2470,15 @@ the Transition tab of the Options dialog box.
   - > If alt\_form is FALSE or omitted, Microsoft Excel only accepts
     > formulas entered in Microsoft Excel style.
 
->  
+> &nbsp;
 
-**Note   **Microsoft Excel for Windows and Microsoft Excel for the
-Macintosh use different date systems as their default. Excel for Windows
-uses the 1900 date system, in which serial numbers correspond to the
-dates January 1, 1900, through December 31, 9999. Excel for the
-Macintosh uses the 1904 date system, in which serial numbers correspond
-to the dates January 1, 1904, through December 31, 9999.
+**Note&nbsp;&nbsp;&nbsp;**Microsoft Excel for Windows and Microsoft
+Excel for the Macintosh use different date systems as their default.
+Excel for Windows uses the 1900 date system, in which serial numbers
+correspond to the dates January 1, 1900, through December 31, 9999.
+Excel for the Macintosh uses the 1904 date system, in which serial
+numbers correspond to the dates January 1, 1904, through December 31,
+9999.
 
 **Remarks**
 
@@ -2408,15 +2487,15 @@ workbook. For more information, see GET.DOCUMENT.
 
 **Related Functions**
 
-CALCULATE.DOCUMENT   Calculates the active sheet only
+CALCULATE.DOCUMENT&nbsp;&nbsp;&nbsp;Calculates the active sheet only
 
-CALCULATE.NOW   Calculates all open workbooks immediately
+CALCULATE.NOW&nbsp;&nbsp;&nbsp;Calculates all open workbooks immediately
 
-GET.DOCUMENT   Returns information about a workbook
+GET.DOCUMENT&nbsp;&nbsp;&nbsp;Returns information about a workbook
 
-OPTIONS.CALCULATION   Controls calculation
+OPTIONS.CALCULATION&nbsp;&nbsp;&nbsp;Controls calculation
 
-OPTIONS.TRANSITION   Controls transition options
+OPTIONS.TRANSITION&nbsp;&nbsp;&nbsp;Controls transition options
 
 Return to [top](#A)
 
@@ -2463,7 +2542,7 @@ depends on the location, size, name, or other attribute of the caller.
   - > If CALLER appears in a macro that was run manually, or for any
     > reason not described above, it returns the \#REF\! error value.
 
->  
+> &nbsp;
 
 **Examples**
 
@@ -2492,10 +2571,10 @@ the following values would be returned.
 
 **Related Functions**
 
-GET.BAR   Returns the name or position number of menu bars, menus, and
-commands
+GET.BAR&nbsp;&nbsp;&nbsp;Returns the name or position number of menu
+bars, menus, and commands
 
-GET.CELL   Returns information about the specified cell
+GET.CELL&nbsp;&nbsp;&nbsp;Returns information about the specified cell
 
 Return to [top](#A)
 
@@ -2509,10 +2588,10 @@ marquee after you copy or cut a selection.
 
 **CANCEL.COPY**(render\_logical)
 
-Render\_logical    is a logical value that, if TRUE, places the contents
-of the Microsoft Excel Clipboard on the Clipboard or, if FALSE or
-omitted, does not place them on the Clipboard. Render\_logical is
-available only in Microsoft Excel for the Macintosh.
+Render\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if TRUE,
+places the contents of the Microsoft Excel Clipboard on the Clipboard
+or, if FALSE or omitted, does not place them on the Clipboard.
+Render\_logical is available only in Microsoft Excel for the Macintosh.
 
 Return to [top](#A)
 
@@ -2526,9 +2605,9 @@ interrupted.
 
 **CANCEL.KEY**(**enable**, macro\_ref)
 
-Enable    specifies whether the macro can be interrupted by pressing ESC
-in Microsoft Excel for Windows or ESC or COMMAND+PERIOD in Microsoft
-Excel for the Macintosh.
+Enable&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the macro can be
+interrupted by pressing ESC in Microsoft Excel for Windows or ESC or
+COMMAND+PERIOD in Microsoft Excel for the Macintosh.
 
 |                                  |                                                           |
 | -------------------------------- | --------------------------------------------------------- |
@@ -2537,8 +2616,9 @@ Excel for the Macintosh.
 | TRUE and macro\_ref is omitted   | Pressing ESC or COMMAND+PERIOD interrupts a macro         |
 | TRUE and macro\_ref is specified | Macro\_ref runs when ESC or COMMAND+PERIOD is pressed     |
 
-Macro\_ref    is a reference to a macro, as a cell reference or a name,
-that runs when enable is TRUE and ESC or COMMAND+PERIOD is pressed.
+Macro\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a macro, as a cell
+reference or a name, that runs when enable is TRUE and ESC or
+COMMAND+PERIOD is pressed.
 
 **Remarks**
 
@@ -2549,7 +2629,7 @@ that runs when enable is TRUE and ESC or COMMAND+PERIOD is pressed.
   - > When CANCEL.KEY is in effect, users can still cancel a dialog box
     > displayed while the macro is running.
 
->  
+> &nbsp;
 
 **Examples**
 
@@ -2570,12 +2650,12 @@ CANCEL.KEY(TRUE, CheckCancel)
 
 **Related Functions**
 
-ERROR   Specifies an action to take if an error occurs while a macro is
-running
+ERROR&nbsp;&nbsp;&nbsp;Specifies an action to take if an error occurs
+while a macro is running
 
-ON.KEY   Runs a macro when a specified key is pressed
+ON.KEY&nbsp;&nbsp;&nbsp;Runs a macro when a specified key is pressed
 
-ON.TIME   Runs a macro at a specified time
+ON.TIME&nbsp;&nbsp;&nbsp;Runs a macro at a specified time
 
 Return to [top](#A)
 
@@ -2597,9 +2677,11 @@ defaults, the setting is not changed.
 
 **CELL.PROTECTION**?(locked, hidden)
 
-Locked    corresponds to the Locked check box. The default is TRUE.
+Locked&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Locked check box. The
+default is TRUE.
 
-Hidden    corresponds to the Hidden check box. The default is FALSE.
+Hidden&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Hidden check box. The
+default is FALSE.
 
 **Remarks**
 
@@ -2610,10 +2692,11 @@ the PROTECT.DOCUMENT function is used to select protection.
 
 **Related Functions**
 
-PROTECT.DOCUMENT   Controls protection for the active sheet
+PROTECT.DOCUMENT&nbsp;&nbsp;&nbsp;Controls protection for the active
+sheet
 
-SAVE.AS   Saves a workbook and allows you to specify the name, file
-type, password, backup file, and location of the workbook
+SAVE.AS&nbsp;&nbsp;&nbsp;Saves a workbook and allows you to specify the
+name, file type, password, backup file, and location of the workbook
 
 Return to [top](#A)
 
@@ -2629,13 +2712,14 @@ a link from one supporting workbook to another.
 
 **CHANGE.LINK**?(old\_text, new\_text, type\_of\_link)
 
-Old\_text    is the path of the link from the active dependent workbook
-you want to change.
+Old\_text&nbsp;&nbsp;&nbsp;&nbsp;is the path of the link from the active
+dependent workbook you want to change.
 
-New\_text    is the path of the link you want to change to.
+New\_text&nbsp;&nbsp;&nbsp;&nbsp;is the path of the link you want to
+change to.
 
-Type\_of\_link    is the number 1 or 2 specifying what type of link you
-want to change.
+Type\_of\_link&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 specifying
+what type of link you want to change.
 
 |                    |                        |
 | ------------------ | ---------------------- |
@@ -2650,15 +2734,15 @@ function is calculated.
 
 **Related Functions**
 
-GET.LINK.INFO   Returns information about a link
+GET.LINK.INFO&nbsp;&nbsp;&nbsp;Returns information about a link
 
-LINKS   Returns the name of all linked workbooks
+LINKS&nbsp;&nbsp;&nbsp;Returns the name of all linked workbooks
 
-OPEN.LINKS   Opens specified supporting workbooks
+OPEN.LINKS&nbsp;&nbsp;&nbsp;Opens specified supporting workbooks
 
-SET.UPDATE.STATUS   Controls the update status of a link
+SET.UPDATE.STATUS&nbsp;&nbsp;&nbsp;Controls the update status of a link
 
-UPDATE.LINK   Updates a link to another workbook
+UPDATE.LINK&nbsp;&nbsp;&nbsp;Updates a link to another workbook
 
 Return to [top](#A)
 
@@ -2671,16 +2755,16 @@ an existing chart.
 
 **CHART.ADD.DATA**(**ref**, rowcol, titles, categories, replace, series)
 
-Ref    is the cell reference for the data that is being dragged onto the
-chart
+Ref&nbsp;&nbsp;&nbsp;&nbsp;is the cell reference for the data that is
+being dragged onto the chart
 
-Rowcol    is the number 1 or 2 and specifies whether the values
-corresponding to a particular data series are in rows or columns. Enter
-1 for rows or 2 for columns.
+Rowcol&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 and specifies whether
+the values corresponding to a particular data series are in rows or
+columns. Enter 1 for rows or 2 for columns.
 
-Titles    is a logical value corresponding to the Series Names In First
-Column check box (or First Row, depending on the value of rowcol) in the
-Paste Special dialog box.
+Titles&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Series Names In First Column check box (or First Row, depending on the
+value of rowcol) in the Paste Special dialog box.
 
   - > If titles is TRUE, Microsoft Excel selects the check box and uses
     > the contents of the cell in the first column of each row (or first
@@ -2691,9 +2775,9 @@ Paste Special dialog box.
     > the contents of the cell in the first column of each row (or first
     > row of each column) as the first data point of the data series.
 
-Categories    is a logical value corresponding to the Categories (X
-Labels) In First Row (or First Column, depending on the value of rowcol)
-check box in the Paste Special dialog box.
+Categories&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
+the Categories (X Labels) In First Row (or First Column, depending on
+the value of rowcol) check box in the Paste Special dialog box.
 
   - > If categories is TRUE, Microsoft Excel selects the check box and
     > uses the contents of the first row (or column) of the selection as
@@ -2703,10 +2787,10 @@ check box in the Paste Special dialog box.
     > uses the contents of the first row (or column) as the first data
     > series in the chart.
 
->  
+> &nbsp;
 
-Replace    is a logical value corresponding to the Replace Existing
-Categories check box in the Paste Special dialog box.
+Replace&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Replace Existing Categories check box in the Paste Special dialog box.
 
   - > If replace is TRUE, Microsoft Excel selects the check box and
     > applies categories while replacing existing categories with
@@ -2715,7 +2799,8 @@ Categories check box in the Paste Special dialog box.
   - > If replace is FALSE, Microsoft Excel clears the check box and
     > applies new categories without replacing any old ones.
 
-Series    is a number specifying how cells are added to a chart.
+Series&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying how cells are added
+to a chart.
 
 |            |              |
 | ---------- | ------------ |
@@ -2735,7 +2820,7 @@ stacked column, scatter, line, and area.
 **CHART.TREND**(**type**, ord\_per, forecast, backcast, intercept,
 equation, r\_squared, name)
 
-Type    is the type of trend or regression.
+Type&nbsp;&nbsp;&nbsp;&nbsp;is the type of trend or regression.
 
 |            |                |
 | ---------- | -------------- |
@@ -2747,36 +2832,38 @@ Type    is the type of trend or regression.
 | 5          | Exponential    |
 | 6          | Moving Average |
 
-Ord\_per    depends on type. If type is 3, then ord\_per is the order of
-the polynomial. If type is 6, ord\_per is the number of periods for the
-moving average. If type is neither 3 nor 6, then ord\_per is ignored.
+Ord\_per&nbsp;&nbsp;&nbsp;&nbsp;depends on type. If type is 3, then
+ord\_per is the order of the polynomial. If type is 6, ord\_per is the
+number of periods for the moving average. If type is neither 3 nor 6,
+then ord\_per is ignored.
 
-Forecast    is the number of periods or units to extrapolate the
-trendline in the positive or forward direction. This argument is ignored
-for moving averages (type 6). The default is zero.
-
-Backcast    is a number specifying the number of periods or units to
-extrapolate the trendline in the negative or backward direction. This
+Forecast&nbsp;&nbsp;&nbsp;&nbsp;is the number of periods or units to
+extrapolate the trendline in the positive or forward direction. This
 argument is ignored for moving averages (type 6). The default is zero.
 
-Intercept    is a number specifying the value of the y-intercept of the
-trendline, if it is already known. If FALSE or omitted, Microsoft Excel
-will calculate the y-intercept . This argument is ignored for moving
-averages.
+Backcast&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the number of
+periods or units to extrapolate the trendline in the negative or
+backward direction. This argument is ignored for moving averages (type
+6). The default is zero.
 
-Equation    is a logical value specifying whether the trend equation
-should be displayed on the chart. If TRUE, the equation will be
-displayed on the chart. If FALSE or omitted, the equation will not be
-displayed on the chart.
+Intercept&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the value of the
+y-intercept of the trendline, if it is already known. If FALSE or
+omitted, Microsoft Excel will calculate the y-intercept . This argument
+is ignored for moving averages.
 
-R\_squared    is a logical value specifying whether the r-squared
-equation should be displayed on the chart. If TRUE, the value will be
-displayed on the chart. If FALSE or omitted, the equation will not be
-displayed on the chart.
+Equation&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
+the trend equation should be displayed on the chart. If TRUE, the
+equation will be displayed on the chart. If FALSE or omitted, the
+equation will not be displayed on the chart.
 
-Name    is a text string specifying the custom name of the trendline.
-Can also be a logical value. If TRUE or omitted, the automatic name will
-be used instead.
+R\_squared&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
+the r-squared equation should be displayed on the chart. If TRUE, the
+value will be displayed on the chart. If FALSE or omitted, the equation
+will not be displayed on the chart.
+
+Name&nbsp;&nbsp;&nbsp;&nbsp;is a text string specifying the custom name
+of the trendline. Can also be a logical value. If TRUE or omitted, the
+automatic name will be used instead.
 
 **Remarks**
 
@@ -2784,38 +2871,38 @@ be used instead.
     > an 100% chart.
 
   - > The linear model calculates the least squares fit for a line
-    > represented by the equation y = mx + b, where m is the slope and b
-    > is the intercept.
+    > represented by the equation y&nbsp;=&nbsp;mx&nbsp;+&nbsp;b, where
+    > m is the slope and b is the intercept.
 
   - > The logarithmic model calculates the least squares fit through
-    > points using the equation y = c\*ln(x) + b, where c and b are
-    > constants.
+    > points using the equation y&nbsp;=&nbsp;c\*ln(x)&nbsp;+&nbsp;b,
+    > where c and b are constants.
 
   - > The exponential model calculates the least squares fit through
     > points using the following equation:
 
-> ![](media/image9.png)
+> ![](./media/image9.png)
 > 
 > where c and b are constants.
 
   - > The polynomial model calculates the least squares fit through
     > points using the following equation:
 
-> ![](media/image10.png)
+> ![](./media/image10.png)
 > 
 > where b, c1, c2, c3, etc. are constants.
 
   - > The power model calculates the least squares fit through points
     > using the following equation:
 
-> ![](media/image11.png)
+> ![](./media/image11.png)
 > 
 > where b and c are constants.
 
 **Related Function**
 
-CHART.WIZARD   Equivalent to clicking the ChartWizard button on the
-Standard toolbar
+CHART.WIZARD&nbsp;&nbsp;&nbsp;Equivalent to clicking the ChartWizard
+button on the Standard toolbar
 
 Return to [top](#A)
 
@@ -2835,8 +2922,8 @@ number\_cats, number\_titles)
 categories, ser\_titles, legend, title, x\_title, y\_title, z\_title,
 number\_cats, number\_titles)
 
-Long    is a logical value that determines which type of ChartWizard
-button CHART.WIZARD is equivalent to.
+Long&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines which
+type of ChartWizard button CHART.WIZARD is equivalent to.
 
   - > If long is TRUE, CHART.WIZARD is equivalent to using the five-step
     > ChartWizard button.
@@ -2845,14 +2932,14 @@ button CHART.WIZARD is equivalent to.
     > the two-step ChartWizard button, and gallery\_num, type\_num,
     > legend, and the title arguments are ignored.
 
->  
+> &nbsp;
 
-Ref    is a reference to the range of cells on the active worksheet that
-contains the source data for the chart, or the object identifier of the
-chart if it has already been created.
+Ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the range of cells on the
+active worksheet that contains the source data for the chart, or the
+object identifier of the chart if it has already been created.
 
-Gallery\_num    is a number from 1 to 15 specifying the type of chart
-you want to create.
+Gallery\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 15 specifying
+the type of chart you want to create.
 
 |                  |              |
 | ---------------- | ------------ |
@@ -2873,50 +2960,54 @@ you want to create.
 | 14               | 3-D surface  |
 | 15               | Doughnut     |
 
-Type\_num    is a number identifying a formatting option. The first
-formatting option in any gallery is 1.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number identifying a formatting
+option. The first formatting option in any gallery is 1.
 
-Plot\_by    is the number 1 or 2 and specifies whether the data for each
-data series is in rows or columns. 1 specifies rows; 2 specifies
-columns. If plot\_by is omitted, Microsoft Excel uses the appropriate
-value for the chart you're creating.
+Plot\_by&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 and specifies
+whether the data for each data series is in rows or columns. 1 specifies
+rows; 2 specifies columns. If plot\_by is omitted, Microsoft Excel uses
+the appropriate value for the chart you're creating.
 
-Categories    is the number 1 or 2 and specifies whether the first row
-or column contains a list of x-axis labels, or data for the first data
-series. 1 specifies x-axis labels; 2 specifies the first data series. If
-categories is omitted, Microsoft Excel uses the appropriate value for
-the chart you're creating. If number\_cats is specified, this argument
-is ignored.
+Categories&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 and specifies
+whether the first row or column contains a list of x-axis labels, or
+data for the first data series. 1 specifies x-axis labels; 2 specifies
+the first data series. If categories is omitted, Microsoft Excel uses
+the appropriate value for the chart you're creating. If number\_cats is
+specified, this argument is ignored.
 
-Ser\_titles    is the number 1 or 2 and specifies whether the first
-column or row contains series titles, or data for the first data point
-in each series. 1 specifies series titles; 2 specifies the first data
-point. If ser\_titles is omitted, Microsoft Excel uses the appropriate
-value for the chart you're creating. If number\_titles is specified,
-this argument is ignored.
+Ser\_titles&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 and specifies
+whether the first column or row contains series titles, or data for the
+first data point in each series. 1 specifies series titles; 2 specifies
+the first data point. If ser\_titles is omitted, Microsoft Excel uses
+the appropriate value for the chart you're creating. If number\_titles
+is specified, this argument is ignored.
 
-Legend    is the number 1 or 2 and specifies whether to include a
-legend. 1 specifies a legend; 2 specifies no legend. If legend is
-omitted, Microsoft Excel does not include a legend.
+Legend&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 and specifies whether
+to include a legend. 1 specifies a legend; 2 specifies no legend. If
+legend is omitted, Microsoft Excel does not include a legend.
 
 For the following arguments, if an argument is omitted or is empty text
 (""), no title is specified.
 
-Title    is text that you want to use as a chart title.
+Title&nbsp;&nbsp;&nbsp;&nbsp;is text that you want to use as a chart
+title.
 
-X\_title    is text that you want to use as an x-axis title.
+X\_title&nbsp;&nbsp;&nbsp;&nbsp;is text that you want to use as an
+x-axis title.
 
-Y\_title    is text that you want to use as a y-axis title.
+Y\_title&nbsp;&nbsp;&nbsp;&nbsp;is text that you want to use as a y-axis
+title.
 
-Z\_title    is text that you want to use as a z-axis title.
+Z\_title&nbsp;&nbsp;&nbsp;&nbsp;is text that you want to use as a z-axis
+title.
 
-Number\_cats    specifies the number of rows or columns (depending on
-the value of plot\_by) to use for the category labels in the chart. This
-argument overrides the categories argument.
+Number\_cats&nbsp;&nbsp;&nbsp;&nbsp;specifies the number of rows or
+columns (depending on the value of plot\_by) to use for the category
+labels in the chart. This argument overrides the categories argument.
 
-Number\_titles    specifies the number of rows or columns (depending on
-the value of plot\_by) to use for the series labels in the chart. This
-argument overrides the ser\_title argument.
+Number\_titles&nbsp;&nbsp;&nbsp;&nbsp;specifies the number of rows or
+columns (depending on the value of plot\_by) to use for the series
+labels in the chart. This argument overrides the ser\_title argument.
 
 **Remarks**
 
@@ -2928,7 +3019,7 @@ recorder.
 
 **Related Function**
 
-CREATE.OBJECT   Creates an object
+CREATE.OBJECT&nbsp;&nbsp;&nbsp;Creates an object
 
 Return to [top](#A)
 
@@ -2945,8 +3036,8 @@ accel\_text2)
 **CHECKBOX.PROPERTIES**?(value, link, accel\_text, 3d\_shading,
 accel\_text2,)
 
-Value    is the value of the check box or option button setting that
-determines whether it is selected or not.
+Value&nbsp;&nbsp;&nbsp;&nbsp;is the value of the check box or option
+button setting that determines whether it is selected or not.
 
 |            |                           |
 | ---------- | ------------------------- |
@@ -2955,29 +3046,29 @@ determines whether it is selected or not.
 | 1 or TRUE  | On                        |
 | 2          | Mixed                     |
 
-Link    is the cell on the sheet to which the check box or option button
-value is linked. Whenever one of these two controls is changed, the
-value of the control is entered into the cell. Similarly, whenever the
-value in the cell is changed, the setting for the corresponding check
-box or option button is also changed. To clear the link, set this value
-to an empty string. For example, entering "TRUE" into a cell linked to a
-check box will select that check box.
+Link&nbsp;&nbsp;&nbsp;&nbsp;is the cell on the sheet to which the check
+box or option button value is linked. Whenever one of these two controls
+is changed, the value of the control is entered into the cell.
+Similarly, whenever the value in the cell is changed, the setting for
+the corresponding check box or option button is also changed. To clear
+the link, set this value to an empty string. For example, entering
+"TRUE" into a cell linked to a check box will select that check box.
 
-3d\_shading    is a logical value that specifies whether the check box
-appears as 3-D. If TRUE, the check box will appear as 3-D. If FALSE or
-omitted, the check box will not be 3-D. This argument is available for
-only worksheets.
+3d\_shading&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
+whether the check box appears as 3-D. If TRUE, the check box will appear
+as 3-D. If FALSE or omitted, the check box will not be 3-D. This
+argument is available for only worksheets.
 
-Accel\_text    is a text string containing the character to use as the
-control's accelerator key on a dialog sheet. The character is matched
-against the text of the control, and the first matching character is
-underlined. When the user presses ALT+accel\_text in Microsoft Excel for
-Windows or COMMAND+accel\_text in Microsoft Excel for the Macintosh, the
-control is clicked.
+Accel\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text string containing the
+character to use as the control's accelerator key on a dialog sheet. The
+character is matched against the text of the control, and the first
+matching character is underlined. When the user presses ALT+accel\_text
+in Microsoft Excel for Windows or COMMAND+accel\_text in Microsoft Excel
+for the Macintosh, the control is clicked.
 
-Accel\_text2    is a text string containing the second accelerator key
-on a dialog sheet. This argument is for only Far East versions of
-Microsoft Excel.
+Accel\_text2&nbsp;&nbsp;&nbsp;&nbsp;is a text string containing the
+second accelerator key on a dialog sheet. This argument is for only Far
+East versions of Microsoft Excel.
 
 **Remarks**
 
@@ -2986,16 +3077,17 @@ controls cannot have accelerator keys.
 
 **Related Functions**
 
-PUSHBUTTON.PROPERTIES   Sets the properties of the push button control
+PUSHBUTTON.PROPERTIES&nbsp;&nbsp;&nbsp;Sets the properties of the push
+button control
 
-EDITBOX.PROPERTIES   Sets the properties of an edit box on a worksheet
-or dialog sheet
+EDITBOX.PROPERTIES&nbsp;&nbsp;&nbsp;Sets the properties of an edit box
+on a worksheet or dialog sheet
 
-LABEL.PROPERTIES   Sets the accelerator property of the label and group
-box control
+LABEL.PROPERTIES&nbsp;&nbsp;&nbsp;Sets the accelerator property of the
+label and group box control
 
-LISTBOX.PROPERTIES   Sets the properties of a list box and drop-down box
-controls on a worksheet or dialog sheet
+LISTBOX.PROPERTIES&nbsp;&nbsp;&nbsp;Sets the properties of a list box
+and drop-down box controls on a worksheet or dialog sheet
 
 Return to [top](#A)
 
@@ -3009,24 +3101,24 @@ check mark beside a command indicates that the command has been chosen.
 **CHECK.COMMAND**(**bar\_num**, **menu**, **command**, **check**,
 position)
 
-Bar\_num    is the menu bar containing the command. Bar\_num can be the
-ID number of a built-in or custom menu bar.
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the menu bar containing the command.
+Bar\_num can be the ID number of a built-in or custom menu bar.
 
-Menu    is the menu containing the command. Menu can be either the name
-of a menu as text or the number of a menu. Menus are numbered starting
-with 1 from the left of the screen.
+Menu&nbsp;&nbsp;&nbsp;&nbsp;is the menu containing the command. Menu can
+be either the name of a menu as text or the number of a menu. Menus are
+numbered starting with 1 from the left of the screen.
 
-Command    is the command you want to check or the submenu containing
-the command you want to check. Command can be the name of the command as
-text or the number of the command; the first command on a menu is in
-position 1.
+Command&nbsp;&nbsp;&nbsp;&nbsp;is the command you want to check or the
+submenu containing the command you want to check. Command can be the
+name of the command as text or the number of the command; the first
+command on a menu is in position 1.
 
-Check    is a logical value corresponding to the check mark. If check is
-TRUE, Microsoft Excel adds a check mark to the command; if FALSE,
-Microsoft Excel removes the check mark.
+Check&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+check mark. If check is TRUE, Microsoft Excel adds a check mark to the
+command; if FALSE, Microsoft Excel removes the check mark.
 
-position    is the name of a command on a submenu that you want to
-check.
+position&nbsp;&nbsp;&nbsp;&nbsp;is the name of a command on a submenu
+that you want to check.
 
 **Remarks**
 
@@ -3043,7 +3135,7 @@ check.
     > version 4.0 menu bar, the corresponding command on the Microsoft
     > Excel version 5.0 or later menu bar will not be effected.
 
->  
+> &nbsp;
 
 **Example**
 
@@ -3055,13 +3147,14 @@ CHECK.COMMAND(Reports, "Weekly", "Sales", TRUE)
 
 **Related Functions**
 
-ADD.COMMAND   Adds a command to a menu
+ADD.COMMAND&nbsp;&nbsp;&nbsp;Adds a command to a menu
 
-DELETE.COMMAND   Deletes a command from a menu
+DELETE.COMMAND&nbsp;&nbsp;&nbsp;Deletes a command from a menu
 
-ENABLE.COMMAND   Enables or disables a menu or custom command
+ENABLE.COMMAND&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+command
 
-RENAME.COMMAND   Changes the name of a command or menu
+RENAME.COMMAND&nbsp;&nbsp;&nbsp;Changes the name of a command or menu
 
 Return to [top](#A)
 
@@ -3077,8 +3170,9 @@ macro sheet. Clears series or formats from the active chart.
 
 **CLEAR**?(type\_num)
 
-Type\_num    is a number from 1 to 4 specifying what to clear. Only
-values 1, 2, and 3 are valid if the selected item is a chart.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying what
+to clear. Only values 1, 2, and 3 are valid if the selected item is a
+chart.
 
 On a worksheet or macro sheet, or if an entire chart is selected, the
 following occurs.
@@ -3113,7 +3207,7 @@ following table.
 
 **Related Function**
 
-EDIT.DELETE   Removes cells from a sheet
+EDIT.DELETE&nbsp;&nbsp;&nbsp;Removes cells from a sheet
 
 Return to [top](#A)
 
@@ -3130,10 +3224,10 @@ entire sheet.
 
 **Related Functions**
 
-AUTO.OUTLINE   Creates an outline
+AUTO.OUTLINE&nbsp;&nbsp;&nbsp;Creates an outline
 
-OUTLINE   Creates an outline and defines settings for automatically
-creating outlines
+OUTLINE&nbsp;&nbsp;&nbsp;Creates an outline and defines settings for
+automatically creating outlines
 
 Return to [top](#A)
 
@@ -3146,8 +3240,8 @@ the routing slip.
 
 **CLEAR.ROUTING.SLIP**(reset\_only\_logical)
 
-Reset\_only\_logical    is a logical value that specifies whether the
-routing slip should be cleared.
+Reset\_only\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that
+specifies whether the routing slip should be cleared.
 
   - > This option is valid only after every recipient on the routing
     > slip has received and forwarded the workbook. Setting
@@ -3175,8 +3269,8 @@ the close box.
 
 **CLOSE**(save\_logical, route\_logical)
 
-Save\_logical    is a logical value that specifies whether to save the
-file before closing the window.
+Save\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
+whether to save the file before closing the window.
 
 |                   |                                                                                               |
 | ----------------- | --------------------------------------------------------------------------------------------- |
@@ -3185,9 +3279,9 @@ file before closing the window.
 | FALSE             | Does not save the file                                                                        |
 | Omitted           | If you've made changes to the file, displays a dialog box asking if you want to save the file |
 
-Route\_logical    is a logical value that specifies whether to route the
-file after closing it. This argument is ignored if there is not a
-routing slip present.
+Route\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
+whether to route the file after closing it. This argument is ignored if
+there is not a routing slip present.
 
 |                    |                                                                                                       |
 | ------------------ | ----------------------------------------------------------------------------------------------------- |
@@ -3202,16 +3296,16 @@ Users of Microsoft Excel versions earlier than 4.0 should note that if
 the macro sheet containing the function is the active sheet, CLOSE now
 closes the workbook.
 
-**Note   **When you use the CLOSE function, Microsoft Excel does not run
-any Auto\_Close macros before closing the workbook.
+**Note&nbsp;&nbsp;&nbsp;**When you use the CLOSE function, Microsoft
+Excel does not run any Auto\_Close macros before closing the workbook.
 
 **Related Functions**
 
-CLOSE.ALL   Closes all windows
+CLOSE.ALL&nbsp;&nbsp;&nbsp;Closes all windows
 
-FILE.CLOSE   Closes the active workbook
+FILE.CLOSE&nbsp;&nbsp;&nbsp;Closes the active workbook
 
-SAVE   Saves the active workbook
+SAVE&nbsp;&nbsp;&nbsp;Saves the active workbook
 
 Return to [top](#A)
 
@@ -3230,13 +3324,13 @@ workbook.
 
 **Related Functions**
 
-CLOSE   Closes the active window
+CLOSE&nbsp;&nbsp;&nbsp;Closes the active window
 
-FILE.CLOSE   Closes the active workbook
+FILE.CLOSE&nbsp;&nbsp;&nbsp;Closes the active workbook
 
-QUIT   Ends a Microsoft Excel session
+QUIT&nbsp;&nbsp;&nbsp;Ends a Microsoft Excel session
 
-SAVE   Saves the active workbook
+SAVE&nbsp;&nbsp;&nbsp;Saves the active workbook
 
 Return to [top](#A)
 
@@ -3251,15 +3345,15 @@ COLOR.PALETTE to share color palettes between workbooks.
 
 **COLOR.PALETTE**?(file\_text)
 
-File\_text    is the name of a workbook, as a text string, that you want
-to copy a color palette from. The workbook specified by file\_text must
-be open, or COLOR.PALETTE returns the \#VALUE\! error value and
-interrupts the macro. If file\_text is empty text (""), then
-COLOR.PALETTE sets colors to the default values.
+File\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a workbook, as a text
+string, that you want to copy a color palette from. The workbook
+specified by file\_text must be open, or COLOR.PALETTE returns the
+\#VALUE\! error value and interrupts the macro. If file\_text is empty
+text (""), then COLOR.PALETTE sets colors to the default values.
 
 **Related Function**
 
-EDIT.COLOR   Defines a color on the color palette
+EDIT.COLOR&nbsp;&nbsp;&nbsp;Defines a color on the color palette
 
 Return to [top](#A)
 
@@ -3277,12 +3371,13 @@ standard\_num)
 **COLUMN.WIDTH**?(width\_num, reference, standard, type\_num,
 standard\_num)
 
-Width\_num    specifies how wide you want the columns to be in units of
-one character of the font corresponding to the Normal cell style.
-Width\_num is ignored if standard is TRUE or if type\_num is provided.
+Width\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies how wide you want the
+columns to be in units of one character of the font corresponding to the
+Normal cell style. Width\_num is ignored if standard is TRUE or if
+type\_num is provided.
 
-Reference    specifies the columns for which you want to change the
-width.
+Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies the columns for which you
+want to change the width.
 
   - > If reference is specified, it must be either an external reference
     > to the active worksheet, such as \!$A:$C or \!Database, or an
@@ -3295,10 +3390,10 @@ width.
   - > If reference is omitted, it is assumed to be the current
     > selection.
 
->  
+> &nbsp;
 
-Standard\_num    is a logical value corresponding to the Standard Width
-command from the Column submenu on the Format menu.
+Standard\_num&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
+the Standard Width command from the Column submenu on the Format menu.
 
   - > If standard is TRUE, Microsoft Excel sets the column width to the
     > currently defined standard (default) width and ignores width\_num.
@@ -3306,11 +3401,11 @@ command from the Column submenu on the Format menu.
   - > If standard is FALSE or omitted, Microsoft Excel sets the width
     > according to width\_num or type\_num.
 
->  
+> &nbsp;
 
-Type\_num    is a number from 1 to 3 corresponding to the Hide, Unhide,
-or AutoFit Selection commands, respectively, on the Column submenu of
-the Format menu.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 corresponding
+to the Hide, Unhide, or AutoFit Selection commands, respectively, on the
+Column submenu of the Format menu.
 
 |               |                                                                                                                                                     |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3319,9 +3414,9 @@ the Format menu.
 | 2             | Unhides the column selection by setting the column width to the value set before the selection was hidden                                           |
 | 3             | Sets the column selection to a best-fit width, which varies from column to column depending on the length of the longest data string in each column |
 
-Standard\_num    specifies how wide the standard width is, and is
-measured in points. If standard\_num is omitted, the standard width
-setting remains unchanged.
+Standard\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies how wide the standard
+width is, and is measured in points. If standard\_num is omitted, the
+standard width setting remains unchanged.
 
 **Remarks**
 
@@ -3337,11 +3432,11 @@ setting remains unchanged.
     > records the references of the columns using R1C1-style references
     > in the form of text.
 
->  
+> &nbsp;
 
 **Related Function**
 
-ROW.HEIGHT   Changes the heights of rows
+ROW.HEIGHT&nbsp;&nbsp;&nbsp;Changes the heights of rows
 
 Return to [top](#A)
 
@@ -3356,8 +3451,8 @@ combination chart types.
 
 **COMBINATION**?(type\_num)
 
-Type\_num    is a number corresponding to the combination chart you
-want.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+combination chart you want.
 
 |               |                                                                                                                                             |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -3371,9 +3466,9 @@ want.
 
 **Related Functions**
 
-FORMAT.MAIN   Formats a main chart
+FORMAT.MAIN&nbsp;&nbsp;&nbsp;Formats a main chart
 
-FORMAT.OVERLAY   Formats an overlay chart
+FORMAT.OVERLAY&nbsp;&nbsp;&nbsp;Formats an overlay chart
 
 Return to [top](#A)
 
@@ -3391,21 +3486,22 @@ create\_links)
 **CONSOLIDATE**?(source\_refs, function\_num, top\_row, left\_col,
 create\_links)
 
-Source\_refs    are references to areas that contain data to be
-consolidated on the destination worksheet. Source\_refs must be in text
-form and include the full path of the file and the cell reference or
-named ranges in the workbook to be consolidated. Source\_refs are
-usually external references and must be given as an array, for example:
-{"SHEET1\!IncomeOne", "SHEET2\!IncomeTwo"}.
+Source\_refs&nbsp;&nbsp;&nbsp;&nbsp;are references to areas that contain
+data to be consolidated on the destination worksheet. Source\_refs must
+be in text form and include the full path of the file and the cell
+reference or named ranges in the workbook to be consolidated.
+Source\_refs are usually external references and must be given as an
+array, for example: {"SHEET1\!IncomeOne", "SHEET2\!IncomeTwo"}.
 
 To add or delete source\_refs from an existing consolidation on a
 worksheet, reuse the CONSOLIDATE function, specifying the new
 source\_refs.
 
-Function\_num    is a number from 1 to 11 that specifies one of the 11
-functions you can use to consolidate data. If function\_num is omitted,
-the SUM function, number 9, is used. The functions and their
-corresponding numbers are listed in the following table.
+Function\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 11 that
+specifies one of the 11 functions you can use to consolidate data. If
+function\_num is omitted, the SUM function, number 9, is used. The
+functions and their corresponding numbers are listed in the following
+table.
 
 |                   |              |
 | ----------------- | ------------ |
@@ -3427,16 +3523,17 @@ Consolidate dialog box. Arguments that correspond to check boxes are
 logical values. If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box.
 
-Top\_row    corresponds to the Top Row check box. The default is FALSE.
+Top\_row&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Top Row check box.
+The default is FALSE.
 
-Left\_col    corresponds to the Left Column check box. The default is
-FALSE.
+Left\_col&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Left Column check
+box. The default is FALSE.
 
 If top\_row and left\_col are both FALSE or omitted, the data is
 consolidated by position.
 
-Create\_links    corresponds to the Create Links To Source Data check
-box.
+Create\_links&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Create Links To
+Source Data check box.
 
 **Remarks**
 
@@ -3449,17 +3546,17 @@ box.
     > no consolidation on the active worksheet, the function returns the
     > \#VALUE\! error value.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-CHANGE.LINK   Changes supporting workbook links
+CHANGE.LINK&nbsp;&nbsp;&nbsp;Changes supporting workbook links
 
-LINKS   Returns the names of all linked workbooks
+LINKS&nbsp;&nbsp;&nbsp;Returns the names of all linked workbooks
 
-OPEN.LINKS   Opens specified supporting workbooks
+OPEN.LINKS&nbsp;&nbsp;&nbsp;Opens specified supporting workbooks
 
-UPDATE.LINK   Updates a link to another workbook
+UPDATE.LINK&nbsp;&nbsp;&nbsp;Updates a link to another workbook
 
 Return to [top](#A)
 
@@ -3474,17 +3571,17 @@ only. Use this function in a macro to improve the accuracy of
 handwriting recognition when the user is entering a series of numbers or
 formulas.
 
-**Note   **This function is only available if you are using Microsoft
-Windows for Pen Computing.
+**Note&nbsp;&nbsp;&nbsp;**This function is only available if you are
+using Microsoft Windows for Pen Computing.
 
 **Syntax**
 
 **CONSTRAIN.NUMERIC**(numeric\_only)
 
-Numeric\_only    is a logical value that turns the numeric constraint on
-or off. If numeric\_only is TRUE, only numbers and digits are
-recognized; if FALSE, all characters are recognized as usual. if
-numeric\_only is omitted, the numeric constraint is toggled.
+Numeric\_only&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that turns the
+numeric constraint on or off. If numeric\_only is TRUE, only numbers and
+digits are recognized; if FALSE, all characters are recognized as usual.
+if numeric\_only is omitted, the numeric constraint is toggled.
 
 **Remarks**
 
@@ -3493,8 +3590,8 @@ following symbols:
 
 0 1 2 3 4 5 6 7 8 9 $ \# @ % ( ) - + = { } : \< \> , ? | .
 
-**Tip**   Use GET.WORKSPACE(45) to make sure you're running Microsoft
-Windows for Pen Computing.
+**Tip**&nbsp;&nbsp;&nbsp;Use GET.WORKSPACE(45) to make sure you're
+running Microsoft Windows for Pen Computing.
 
 Return to [top](#A)
 
@@ -3507,12 +3604,12 @@ pastes data or objects.
 
 **COPY**(from\_reference, to\_reference)
 
-From\_reference    is a reference to the cell or range of cells you want
-to copy. If from\_reference is omitted, it is assumed to be the current
-selection.
+From\_reference&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell or
+range of cells you want to copy. If from\_reference is omitted, it is
+assumed to be the current selection.
 
-To\_reference    is a reference to the cell or range of cells where you
-want to paste what you have copied.
+To\_reference&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell or range
+of cells where you want to paste what you have copied.
 
   - > To\_reference should be a single cell or an enlarged multiple of
     > from\_reference. For example, if from\_reference is a 2 by 4
@@ -3521,18 +3618,18 @@ want to paste what you have copied.
   - > To\_reference can be omitted so that you can subsequently paste
     > using the PASTE, PASTE.LINK, or PASTE.SPECIAL functions.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-CUT   Cuts or moves data or objects
+CUT&nbsp;&nbsp;&nbsp;Cuts or moves data or objects
 
-PASTE   Pastes cut or copied data
+PASTE&nbsp;&nbsp;&nbsp;Pastes cut or copied data
 
-PASTE.LINK   Pastes copied data or objects and establishes a link to the
-source of the data or object
+PASTE.LINK&nbsp;&nbsp;&nbsp;Pastes copied data or objects and
+establishes a link to the source of the data or object
 
-PASTE.SPECIAL   Pastes specific components of copied data
+PASTE.SPECIAL&nbsp;&nbsp;&nbsp;Pastes specific components of copied data
 
 Return to [top](#A)
 
@@ -3547,8 +3644,8 @@ COPY.PICTURE function by omitting the appearance\_num argument.
 
 **COPY.CHART**(**size\_num**)
 
-Size\_num    is a number describing how to copy the picture and is only
-available if the current selection is a chart.
+Size\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number describing how to copy the
+picture and is only available if the current selection is a chart.
 
 |               |                                                                          |
 | ------------- | ------------------------------------------------------------------------ |
@@ -3558,8 +3655,8 @@ available if the current selection is a chart.
 
 **Related Function**
 
-COPY.PICTURE   Creates a picture of the current selection for use in
-another program
+COPY.PICTURE&nbsp;&nbsp;&nbsp;Creates a picture of the current selection
+for use in another program
 
 Return to [top](#A)
 
@@ -3582,7 +3679,8 @@ chart for use in another program.
 Graphics are created differently on screen and on a printer. Thus, the
 printed picture may look different from the one on screen.
 
-Appearance\_num    is a number describing how to copy the picture.
+Appearance\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number describing how to
+copy the picture.
 
 |                     |                                                                                 |
 | ------------------- | ------------------------------------------------------------------------------- |
@@ -3590,8 +3688,8 @@ Appearance\_num    is a number describing how to copy the picture.
 | 1 or omitted        | Copies a picture as closely as possible to the picture displayed on your screen |
 | 2                   | Copies what you would see if you printed the selection                          |
 
-Size\_num    is a number describing how to copy the picture and is only
-available if the current selection is a chart.
+Size\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number describing how to copy the
+picture and is only available if the current selection is a chart.
 
 |               |                                                                          |
 | ------------- | ------------------------------------------------------------------------ |
@@ -3599,8 +3697,9 @@ available if the current selection is a chart.
 | 1 or omitted  | Copies the chart in the same size as the window on which it is displayed |
 | 2             | Copies what you would see if you printed the chart                       |
 
-Type\_num    is a number specifying the format of the picture. This
-argument is available only in Microsoft Excel for Windows.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the format of
+the picture. This argument is available only in Microsoft Excel for
+Windows.
 
 |               |                           |
 | ------------- | ------------------------- |
@@ -3610,16 +3709,16 @@ argument is available only in Microsoft Excel for Windows.
 
 **Related Functions**
 
-COPY   Copies and pastes data or objects
+COPY&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
 
-CUT   Cuts or moves data or objects
+CUT&nbsp;&nbsp;&nbsp;Cuts or moves data or objects
 
-PASTE   Pastes cut or copied data
+PASTE&nbsp;&nbsp;&nbsp;Pastes cut or copied data
 
-PASTE.PICTURE.LINK   Pastes a linked picture of the currently copied
-area
+PASTE.PICTURE.LINK&nbsp;&nbsp;&nbsp;Pastes a linked picture of the
+currently copied area
 
-PASTE.SPECIAL   Pastes specific components of copied data
+PASTE.SPECIAL&nbsp;&nbsp;&nbsp;Pastes specific components of copied data
 
 Return to [top](#A)
 
@@ -3631,22 +3730,23 @@ Copies a button face to the Clipboard.
 
 **COPY.TOOL**(bar\_id, position)
 
-Bar\_id    specifies the number or name of a toolbar from which you want
-to copy the button face. For detailed information about bar\_id, see
-ADD.TOOL.
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;specifies the number or name of a toolbar
+from which you want to copy the button face. For detailed information
+about bar\_id, see ADD.TOOL.
 
-Position    specifies the position of the button within the toolbar.
-Position starts with 1 at the left side (if horizontal) or at the top
-(if vertical).
+Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the position of the button
+within the toolbar. Position starts with 1 at the left side (if
+horizontal) or at the top (if vertical).
 
 **Related Functions**
 
-ADD.TOOL   Adds one or more buttons to a toolbar
+ADD.TOOL&nbsp;&nbsp;&nbsp;Adds one or more buttons to a toolbar
 
-GET.TOOL   Returns information about a button or buttons on a toolbar
+GET.TOOL&nbsp;&nbsp;&nbsp;Returns information about a button or buttons
+on a toolbar
 
-PASTE.TOOL   Pastes a button face from the Clipboard to a specified
-position on a toolbar
+PASTE.TOOL&nbsp;&nbsp;&nbsp;Pastes a button face from the Clipboard to a
+specified position on a toolbar
 
 Return to [top](#A)
 
@@ -3666,13 +3766,13 @@ check box; if FALSE or omitted, Microsoft Excel clears the check box.
 
 **CREATE.NAMES**?(top, left, bottom, right)
 
-Top    corresponds to the Top Row check box.
+Top&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Top Row check box.
 
-Left    corresponds to the Left Column check box.
+Left&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Left Column check box.
 
-Bottom    corresponds to the Bottom Row check box.
+Bottom&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Bottom Row check box.
 
-Right    corresponds to the Right Column check box.
+Right&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Right Column check box.
 
 **Remarks**
 
@@ -3681,14 +3781,16 @@ the names is not included in the resulting named range.
 
 **Related Functions**
 
-APPLY.NAMES   Replaces references and values with their corresponding
-names
+APPLY.NAMES&nbsp;&nbsp;&nbsp;Replaces references and values with their
+corresponding names
 
-DEFINE.NAME   Defines a name on the active sheet or macro sheet
+DEFINE.NAME&nbsp;&nbsp;&nbsp;Defines a name on the active sheet or macro
+sheet
 
-DELETE.NAME   Deletes a name
+DELETE.NAME&nbsp;&nbsp;&nbsp;Deletes a name
 
-FORMULA.GOTO   Selects a named area or reference on any open workbook
+FORMULA.GOTO&nbsp;&nbsp;&nbsp;Selects a named area or reference on any
+open workbook
 
 Return to [top](#A)
 
@@ -3721,7 +3823,8 @@ Embedded charts
 **ref2**, x\_offset2,  
 y\_offset2, xy\_series, fill, gallery\_num, type\_num, plot\_visible)
 
-Obj\_type    is a number specifying the type of object to create.
+Obj\_type&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of
+object to create.
 
 |               |                                        |
 | ------------- | -------------------------------------- |
@@ -3747,48 +3850,49 @@ Obj\_type    is a number specifying the type of object to create.
 | 19            | Group box                              |
 | 20            | Drop down list box                     |
 
-Ref1    is a reference to the cell from which the upper-left corner of
-the object is drawn, or from which the upper-left corner of the object's
-bounding rectangle is defined.
+Ref1&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell from which the
+upper-left corner of the object is drawn, or from which the upper-left
+corner of the object's bounding rectangle is defined.
 
-X\_offset1    is the horizontal distance from the upper-left corner of
-ref1 to the upper-left corner of the object or to the upper-left corner
-of the object's bounding rectangle. X\_offset1 is measured in points. A
-point is 1/72nd of an inch. If x\_offset1 is omitted, it is assumed to
-be 0.
+X\_offset1&nbsp;&nbsp;&nbsp;&nbsp;is the horizontal distance from the
+upper-left corner of ref1 to the upper-left corner of the object or to
+the upper-left corner of the object's bounding rectangle. X\_offset1 is
+measured in points. A point is 1/72nd of an inch. If x\_offset1 is
+omitted, it is assumed to be 0.
 
-Y\_offset1    is the vertical distance from the upper-left corner of
-ref1 to the upper-left corner of the object or to the upper-left corner
-of the object's bounding rectangle. Y\_offset1 is measured in points. If
-y\_offset1 is omitted, it is assumed to be 0.
+Y\_offset1&nbsp;&nbsp;&nbsp;&nbsp;is the vertical distance from the
+upper-left corner of ref1 to the upper-left corner of the object or to
+the upper-left corner of the object's bounding rectangle. Y\_offset1 is
+measured in points. If y\_offset1 is omitted, it is assumed to be 0.
 
-Ref2    is a reference to the cell from which the lower-right corner of
-the object is drawn, or from which the lower-right corner of the
-object's bounding rectangle is defined.
+Ref2&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell from which the
+lower-right corner of the object is drawn, or from which the lower-right
+corner of the object's bounding rectangle is defined.
 
-X\_offset2    is the horizontal distance from the upper-left corner of
-ref2 to the lower-right corner of the object or to the lower-right
-corner of the object's bounding rectangle. X\_offset2 is measured in
-points. If x\_offset2 is omitted, it is assumed to be 0.
+X\_offset2&nbsp;&nbsp;&nbsp;&nbsp;is the horizontal distance from the
+upper-left corner of ref2 to the lower-right corner of the object or to
+the lower-right corner of the object's bounding rectangle. X\_offset2 is
+measured in points. If x\_offset2 is omitted, it is assumed to be 0.
 
-Y\_offset2    is the vertical distance from the upper-left corner of
-ref2 to the lower-right corner of the object or to the lower-right
-corner of the object's bounding rectangle. Y\_offset2 is measured in
-points. If y\_offset2 is omitted, it is assumed to be 0.
+Y\_offset2&nbsp;&nbsp;&nbsp;&nbsp;is the vertical distance from the
+upper-left corner of ref2 to the lower-right corner of the object or to
+the lower-right corner of the object's bounding rectangle. Y\_offset2 is
+measured in points. If y\_offset2 is omitted, it is assumed to be 0.
 
-Text    specifies the text that appears in a text box or button. If text
-is omitted for a button, the button is named "Button n", where n is a
-number. If obj\_type is not 6 or 7, text is ignored.
+Text&nbsp;&nbsp;&nbsp;&nbsp;specifies the text that appears in a text
+box or button. If text is omitted for a button, the button is named
+"Button n", where n is a number. If obj\_type is not 6 or 7, text is
+ignored.
 
-Fill    is a logical value specifying whether the object is filled or
-transparent. If fill is TRUE, the object is filled; if FALSE, the object
-is transparent; if omitted, the object is filled with an applicable
-pattern for the object being created.
+Fill&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether the
+object is filled or transparent. If fill is TRUE, the object is filled;
+if FALSE, the object is transparent; if omitted, the object is filled
+with an applicable pattern for the object being created.
 
-Array    is an n by 2 array of values, or a reference to a range of
-cells containing values, that indicate the position of each vertex in a
-polygon, relative to the upper-left corner of the polygon's bounding
-rectangle.
+Array&nbsp;&nbsp;&nbsp;&nbsp;is an n by 2 array of values, or a
+reference to a range of cells containing values, that indicate the
+position of each vertex in a polygon, relative to the upper-left corner
+of the polygon's bounding rectangle.
 
   - > A vertex is a point that is defined by a pair of coordinates in
     > one row of array.
@@ -3800,11 +3904,11 @@ rectangle.
     > automatically records EXTEND.POLYGON functions as needed. For more
     > information, see EXTEND.POLYGON.
 
->  
+> &nbsp;
 
-Xy\_series    is a number from 0 to 3 that specifies how data is
-arranged in a chart and corresponds to options in the Paste Special
-dialog box.
+Xy\_series&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 3 that specifies
+how data is arranged in a chart and corresponds to options in the Paste
+Special dialog box.
 
 |                |                                                                                    |
 | -------------- | ---------------------------------------------------------------------------------- |
@@ -3814,7 +3918,7 @@ dialog box.
 | 2              | First row/column contains the category (x) axis labels                             |
 | 3              | First row/column contains the x-values; the created chart is an xy (scatter) chart |
 
- 
+&nbsp;
 
   - > Xy\_series is ignored unless obj\_type is 5 (chart).
 
@@ -3822,10 +3926,10 @@ dialog box.
     > plot\_by, categories, and ser\_titles arguments to the
     > CHART.WIZARD function. For more information, see CHART.WIZARD.
 
->  
+> &nbsp;
 
-Gallery\_num    is a number from 1 to 15 specifying the type of embedded
-chart you want to create.
+Gallery\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 15 specifying
+the type of embedded chart you want to create.
 
 |                  |              |
 | ---------------- | ------------ |
@@ -3846,19 +3950,19 @@ chart you want to create.
 | 14               | 3-D surface  |
 | 15               | Doughnut     |
 
-Type\_num    is a number identifying a formatting option for a chart.
-The formatting options are shown in the dialog box of the AutoFormat
-command that corresponds to the type of chart you're creating. The first
-formatting option in any gallery is 1.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number identifying a formatting
+option for a chart. The formatting options are shown in the dialog box
+of the AutoFormat command that corresponds to the type of chart you're
+creating. The first formatting option in any gallery is 1.
 
-Plot\_visible    is a logical value that corresponds to the Plot Visible
-Cells Only checkbox in the Chart tab of the Options dialog box. If FALSE
-or omitted, all values are plotted.
+Plot\_visible&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds
+to the Plot Visible Cells Only checkbox in the Chart tab of the Options
+dialog box. If FALSE or omitted, all values are plotted.
 
-Editable    is a logical value that determines whether the drop down
-list box is editable or not. If TRUE, the drop down list box is
-editable. If FALSE, the drop down list box is not editable. If obj\_type
-is not 20, this argument is ignored.
+Editable&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines
+whether the drop down list box is editable or not. If TRUE, the drop
+down list box is editable. If FALSE, the drop down list box is not
+editable. If obj\_type is not 20, this argument is ignored.
 
 **Remarks**
 
@@ -3881,30 +3985,30 @@ is not 20, this argument is ignored.
   - > You must use the COPY function before the CREATE.OBJECT function
     > to create a chart or a picture.
 
->  
+> &nbsp;
 
-**Tip**   To assign a macro to an object, use the ASSIGN.TO.OBJECT
-function immediately after creating the object.
+**Tip**&nbsp;&nbsp;&nbsp;To assign a macro to an object, use the
+ASSIGN.TO.OBJECT function immediately after creating the object.
 
 **Related Functions**
 
-ASSIGN.TO.OBJECT   Assigns a macro to an object
+ASSIGN.TO.OBJECT&nbsp;&nbsp;&nbsp;Assigns a macro to an object
 
-EXTEND.POLYGON   Adds vertices to a polygon
+EXTEND.POLYGON&nbsp;&nbsp;&nbsp;Adds vertices to a polygon
 
-FORMAT.MOVE   Moves the selected object
+FORMAT.MOVE&nbsp;&nbsp;&nbsp;Moves the selected object
 
-FORMAT.SHAPE   Inserts, moves, or deletes vertices of the selected
-polygon
+FORMAT.SHAPE&nbsp;&nbsp;&nbsp;Inserts, moves, or deletes vertices of the
+selected polygon
 
-FORMAT.SIZE   Sizes an object
+FORMAT.SIZE&nbsp;&nbsp;&nbsp;Sizes an object
 
-GET.OBJECT   Returns information about an object
+GET.OBJECT&nbsp;&nbsp;&nbsp;Returns information about an object
 
-OBJECT.PROPERTIES   Determines an object's relationship to underlying
-cells
+OBJECT.PROPERTIES&nbsp;&nbsp;&nbsp;Determines an object's relationship
+to underlying cells
 
-TEXT.BOX   Replaces text in a text box
+TEXT.BOX&nbsp;&nbsp;&nbsp;Replaces text in a text box
 
 Return to [top](#A)
 
@@ -3914,9 +4018,9 @@ Equivalent to clicking the Create Publisher command on the Publishing
 submenu of the Edit menu. Publishes the selected range or chart to an
 edition file for use by other Macintosh applications.
 
-**Important**   This function is only available if you are using
-Microsoft Excel for the Macintosh with system software version 7.0 or
-later.
+**Important**&nbsp;&nbsp;&nbsp;This function is only available if you
+are using Microsoft Excel for the Macintosh with system software version
+7.0 or later.
 
 **Syntax**
 
@@ -3924,22 +4028,22 @@ later.
 
 **CREATE.PUBLISHER**?(file\_text, appearance, size, formats)
 
-File\_text    is a text string to be used as the name of the new file
-that will contain the selected data. If file\_text is omitted, Microsoft
-Excel uses the format "\<WorkbookName\> Edition \#n", where WorkbookName
-is the name of the workbook from which the publisher is being created,
-Edition indicates that the file is an edition file, and n is a unique
-integer.
+File\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text string to be used as the
+name of the new file that will contain the selected data. If file\_text
+is omitted, Microsoft Excel uses the format "\<WorkbookName\> Edition
+\#n", where WorkbookName is the name of the workbook from which the
+publisher is being created, Edition indicates that the file is an
+edition file, and n is a unique integer.
 
 For example, if you omit file\_text and are publishing a selection from
 a workbook named Seasonal, and it is your third publisher from that
 workbook in the current work session, the default name of the publisher
 would be "Seasonal Edition \#3".
 
-Appearance    specifies whether the selection is to be published as
-shown on screen or as shown when printed. The default value for
-appearance is 1 if the selection is a sheet and 2 if the selection is a
-chart.
+Appearance&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the selection is to
+be published as shown on screen or as shown when printed. The default
+value for appearance is 1 if the selection is a sheet and 2 if the
+selection is a chart.
 
 |                |                            |
 | -------------- | -------------------------- |
@@ -3947,8 +4051,8 @@ chart.
 | 1              | As shown on screen         |
 | 2              | As shown when printed      |
 
-Size    specifies the size at which to publish a chart. Size is only
-available if a chart is to be published.
+Size&nbsp;&nbsp;&nbsp;&nbsp;specifies the size at which to publish a
+chart. Size is only available if a chart is to be published.
 
 |              |                        |
 | ------------ | ---------------------- |
@@ -3956,8 +4060,8 @@ available if a chart is to be published.
 | 1 or omitted | As shown on screen     |
 | 2            | As shown when printed  |
 
-Formats    is number specifying what file format or formats
-CREATE.PUBLISHER should use when it creates the Edition file.
+Formats&nbsp;&nbsp;&nbsp;&nbsp;is number specifying what file format or
+formats CREATE.PUBLISHER should use when it creates the Edition file.
 
 |             |                 |
 | ----------- | --------------- |
@@ -3967,7 +4071,7 @@ CREATE.PUBLISHER should use when it creates the Edition file.
 | 4           | RTF             |
 | 8           | VALU            |
 
- 
+&nbsp;
 
   - > You can also use the sum of the allowable file formats for
     > formats. For example, a value of 6 specifies BIFF and RTF.
@@ -3976,17 +4080,18 @@ CREATE.PUBLISHER should use when it creates the Edition file.
     > assumed to be 15 (all formats); if the document is a chart,
     > formats is assumed to be 1 (PICT).
 
->  
+> &nbsp;
 
 **Related Functions**
 
-EDITION.OPTIONS   Sets publisher and subscriber options
+EDITION.OPTIONS&nbsp;&nbsp;&nbsp;Sets publisher and subscriber options
 
-GET.LINK.INFO   Returns information about a link
+GET.LINK.INFO&nbsp;&nbsp;&nbsp;Returns information about a link
 
-SUBSCRIBE.TO   Inserts contents of an edition into the active workbook
+SUBSCRIBE.TO&nbsp;&nbsp;&nbsp;Inserts contents of an edition into the
+active workbook
 
-UPDATE.LINK   Updates a link to another workbook
+UPDATE.LINK&nbsp;&nbsp;&nbsp;Updates a link to another workbook
 
 Return to [top](#A)
 
@@ -4004,9 +4109,10 @@ dialog-box syntax only.
 
 **CUSTOMIZE.TOOLBAR**?(category)
 
-Category    is a number that specifies which category of tools you want
-displayed in the dialog box. If omitted, the previous setting is used.
-This argument is for compatibility with Microsoft Excel 95.
+Category&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies which
+category of tools you want displayed in the dialog box. If omitted, the
+previous setting is used. This argument is for compatibility with
+Microsoft Excel 95.
 
 |              |                       |
 | ------------ | --------------------- |
@@ -4028,9 +4134,10 @@ This argument is for compatibility with Microsoft Excel 95.
 
 **Related Functions**
 
-ADD.TOOLBAR   Creates a new toolbar with the specified tools
+ADD.TOOLBAR&nbsp;&nbsp;&nbsp;Creates a new toolbar with the specified
+tools
 
-SHOW.TOOLBAR   Hides or displays a toolbar
+SHOW.TOOLBAR&nbsp;&nbsp;&nbsp;Hides or displays a toolbar
 
 Return to [top](#A)
 
@@ -4044,19 +4151,20 @@ recorded using the macro recorder.
 
 **CUSTOM.REPEAT**(macro\_text, repeat\_text, record\_text)
 
-Macro\_text    is the name of, or a reference to, the macro you want to
-run when the Repeat command is chosen. If macro\_text is omitted, no
-repeat macro is run, but the custom command can still be recorded.
+Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or a reference to,
+the macro you want to run when the Repeat command is chosen. If
+macro\_text is omitted, no repeat macro is run, but the custom command
+can still be recorded.
 
-Repeat\_text    is the text you want to use as the repeat command on the
-Edit menu (for example, "Repeat Reports"). You can omit repeat\_text and
-macro\_text if you only want to record the formula specified by
-record\_text when using the macro recorder.
+Repeat\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text you want to use as the
+repeat command on the Edit menu (for example, "Repeat Reports"). You can
+omit repeat\_text and macro\_text if you only want to record the formula
+specified by record\_text when using the macro recorder.
 
-Record\_text    is the formula you want to record. For example, if the
-user clicks a command named Run Reports in Macro 1, the record\_text
-argument would be "=Macro1\!RunReports()", where RunReports is the name
-of the macro called by the Run Reports command.
+Record\_text&nbsp;&nbsp;&nbsp;&nbsp;is the formula you want to record.
+For example, if the user clicks a command named Run Reports in Macro 1,
+the record\_text argument would be "=Macro1\!RunReports()", where
+RunReports is the name of the macro called by the Run Reports command.
 
   - > References in record\_text must be in R1C1 format.
 
@@ -4065,13 +4173,14 @@ of the macro called by the Run Reports command.
 
   - > If you are not recording a macro, record\_text is ignored.
 
->  
+> &nbsp;
 
-**Tip**   Place CUSTOM.REPEAT at the end of the macro you will want to
-repeat. If you place it before the end, then the macro formulas that
-follow CUSTOM.REPEAT may interfere with the desired effects of
-CUSTOM.REPEAT. The Repeat tool and the Repeat command continue to change
-as you click subsequent commands that can be repeated.
+**Tip**&nbsp;&nbsp;&nbsp;Place CUSTOM.REPEAT at the end of the macro you
+will want to repeat. If you place it before the end, then the macro
+formulas that follow CUSTOM.REPEAT may interfere with the desired
+effects of CUSTOM.REPEAT. The Repeat tool and the Repeat command
+continue to change as you click subsequent commands that can be
+repeated.
 
 **Example**
 
@@ -4083,7 +4192,8 @@ CUSTOM.REPEAT("MenuMacros\!RepeatReport", "Repeat Report")
 
 **Related Function**
 
-CUSTOM.UNDO   Specifies a macro to run to undo a custom command
+CUSTOM.UNDO&nbsp;&nbsp;&nbsp;Specifies a macro to run to undo a custom
+command
 
 Return to [top](#A)
 
@@ -4096,11 +4206,12 @@ for custom commands.
 
 **CUSTOM.UNDO**(**macro\_text**, undo\_text)
 
-Macro\_text    is the name of, or an R1C1-style reference to, the macro
-you want to run when the Undo command is chosen. Macro\_text can be the
-name or cell reference of a macro.
+Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or an R1C1-style
+reference to, the macro you want to run when the Undo command is chosen.
+Macro\_text can be the name or cell reference of a macro.
 
-Undo\_text    is the text you want to use as the Undo command.
+Undo\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text you want to use as the
+Undo command.
 
 **Example**
 
@@ -4110,13 +4221,14 @@ current cell by 100.
 
 \=CUSTOM.UNDO("UndoMult", "\&Undo Times100")
 
-**Tip**   Use CUSTOM.UNDO directly after the macro functions you want to
-be able to repeat, because other macro functions following CUSTOM.UNDO
-might reset the Undo command.
+**Tip**&nbsp;&nbsp;&nbsp;Use CUSTOM.UNDO directly after the macro
+functions you want to be able to repeat, because other macro functions
+following CUSTOM.UNDO might reset the Undo command.
 
 **Related Function**
 
-CUSTOM.REPEAT   Specifies a macro to run to repeat a custom command
+CUSTOM.REPEAT&nbsp;&nbsp;&nbsp;Specifies a macro to run to repeat a
+custom command
 
 Return to [top](#A)
 
@@ -4129,12 +4241,12 @@ data or objects.
 
 **CUT**(from\_reference, to\_reference)
 
-From\_reference    is a reference to the cell or range of cells you want
-to cut. If from\_reference is omitted, it is assumed to be the current
-selection.
+From\_reference&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell or
+range of cells you want to cut. If from\_reference is omitted, it is
+assumed to be the current selection.
 
-To\_reference    is a reference to the cell or range of cells where you
-want to paste what you have cut.
+To\_reference&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell or range
+of cells where you want to paste what you have cut.
 
   - > To\_reference should be a single cell or an enlarged multiple of
     > from\_reference. For example, if from\_reference is a 2 by 4
@@ -4143,7 +4255,7 @@ want to paste what you have cut.
   - > To\_reference can be omitted so that you can paste from\_reference
     > later using the PASTE or PASTE.SPECIAL functions.
 
->  
+> &nbsp;
 
 **Remarks**
 
@@ -4159,9 +4271,9 @@ returned.
 
 **Related Functions**
 
-COPY   Copies and pastes data or objects
+COPY&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
 
-PASTE   Pastes cut or copied data
+PASTE&nbsp;&nbsp;&nbsp;Pastes cut or copied data
 
 Return to [top](#A)
 
@@ -4194,17 +4306,18 @@ which match criteria in the criteria range.
 
 **DATA.FIND**(**logical**)
 
-Logical    is a logical value that specifies whether to enter or exit
-the Data Find mode. If logical is TRUE, Microsoft Excel carries out the
-Find command; if FALSE, Microsoft Excel carries out the Exit Find
-command. If logical is omitted, the function toggles between Find and
-Exit Find.
+Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies whether
+to enter or exit the Data Find mode. If logical is TRUE, Microsoft Excel
+carries out the Find command; if FALSE, Microsoft Excel carries out the
+Exit Find command. If logical is omitted, the function toggles between
+Find and Exit Find.
 
 **Related Functions**
 
-DATA.FIND.NEXT   Finds next matching record in a database
+DATA.FIND.NEXT&nbsp;&nbsp;&nbsp;Finds next matching record in a database
 
-DATA.FIND.PREV   Finds previous matching record in a database
+DATA.FIND.PREV&nbsp;&nbsp;&nbsp;Finds previous matching record in a
+database
 
 Return to [top](#A)
 
@@ -4224,7 +4337,7 @@ FALSE.
 
 **Related Function**
 
-DATA.FIND   Enters or exits Data Find mode
+DATA.FIND&nbsp;&nbsp;&nbsp;Enters or exits Data Find mode
 
 Return to [top](#A)
 
@@ -4249,7 +4362,7 @@ the macro.
 
   - > The data form can handle up to 32 fields.
 
->  
+> &nbsp;
 
 Return to [top](#A)
 
@@ -4261,8 +4374,8 @@ Specifies label contents and position.
 
 **DATA.LABEL**(show\_option, auto\_text, show\_key)
 
-Show\_option    is a number that specifies what type of labels to
-display.
+Show\_option&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies what type
+of labels to display.
 
 |                  |                        |
 | ---------------- | ---------------------- |
@@ -4273,15 +4386,15 @@ display.
 | 4                | Show label             |
 | 5                | Show label and percent |
 
-Auto\_text    is a logical value that corresponds the Automatic Checkbox
-in the Data Labels dialog box. If TRUE, resets a chart's data labels
-back to their actual values. If FALSE, they are not reset. The Automatic
-Text checkbox appears only if the label has been selected and its value
-changed.
+Auto\_text&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds
+the Automatic Checkbox in the Data Labels dialog box. If TRUE, resets a
+chart's data labels back to their actual values. If FALSE, they are not
+reset. The Automatic Text checkbox appears only if the label has been
+selected and its value changed.
 
-Show\_key    is a logical value that specified whether to show the
-legend key next to the label. If TRUE, displays the legend key. If FALSE
-or omitted, does not display the legend key.
+Show\_key&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specified
+whether to show the legend key next to the label. If TRUE, displays the
+legend key. If FALSE or omitted, does not display the legend key.
 
 Return to [top](#A)
 
@@ -4300,9 +4413,9 @@ trend)
 **DATA.SERIES**?(rowcol, type\_num, date\_num, step\_value, stop\_value,
 trend)
 
-Rowcol    is a number that specifies where the series should be entered.
-If rowcol is omitted, the default value is based on the size and shape
-of the current selection.
+Rowcol&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies where the
+series should be entered. If rowcol is omitted, the default value is
+based on the size and shape of the current selection.
 
 |            |                     |
 | ---------- | ------------------- |
@@ -4310,7 +4423,8 @@ of the current selection.
 | 1          | Rows                |
 | 2          | Columns             |
 
-Type\_num    is a number from 1 to 4 that specifies the type of series.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 that specifies
+the type of series.
 
 |               |                    |
 | ------------- | ------------------ |
@@ -4320,9 +4434,9 @@ Type\_num    is a number from 1 to 4 that specifies the type of series.
 | 3             | Date               |
 | 4             | AutoFill           |
 
-Date\_num    is a number from 1 to 4 that specifies the date unit of the
-series, as shown in the following table. To use the date\_num argument,
-the type\_num argument must be 3.
+Date\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 that specifies
+the date unit of the series, as shown in the following table. To use the
+date\_num argument, the type\_num argument must be 3.
 
 |               |               |
 | ------------- | ------------- |
@@ -4332,16 +4446,17 @@ the type\_num argument must be 3.
 | 3             | Month         |
 | 4             | Year          |
 
-Step\_value    is a number that specifies the step value for the series.
-If step\_value is omitted, it is assumed to be 1.
+Step\_value&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies the step
+value for the series. If step\_value is omitted, it is assumed to be 1.
 
-Stop\_value    is a number that specifies the stop value for the series.
-If stop\_value is omitted, DATA.SERIES continues filling the series
-until the end of the selected range.
+Stop\_value&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies the stop
+value for the series. If stop\_value is omitted, DATA.SERIES continues
+filling the series until the end of the selected range.
 
-Trend    is a logical value corresponding to the Trend check box. If
-trend is TRUE, Microsoft Excel generates a linear or exponential trend;
-if FALSE or omitted, Microsoft Excel generates a standard data series.
+Trend&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Trend check box. If trend is TRUE, Microsoft Excel generates a linear or
+exponential trend; if FALSE or omitted, Microsoft Excel generates a
+standard data series.
 
 **Remarks**
 
@@ -4353,11 +4468,12 @@ if FALSE or omitted, Microsoft Excel generates a standard data series.
     > operation just as if you had filled the selection by dragging the
     > fill selection handle or had used the FILL.AUTO macro function.
 
->  
+> &nbsp;
 
 **Related Function**
 
-FILL.AUTO   Copies cells or automatically fills a selection
+FILL.AUTO&nbsp;&nbsp;&nbsp;Copies cells or automatically fills a
+selection
 
 Return to [top](#A)
 
@@ -4376,11 +4492,11 @@ hidden, category, local)
 **DEFINE.NAME**?(name\_text, refers\_to, macro\_type, shortcut\_text,
 hidden, category, local)
 
-Name\_text    is the text you want to use as the name. Names cannot
-include spaces, and cannot look like cell references.
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text you want to use as the
+name. Names cannot include spaces, and cannot look like cell references.
 
-Refers\_to    describes what name\_text should refer to, and can be any
-of the following values.
+Refers\_to&nbsp;&nbsp;&nbsp;&nbsp;describes what name\_text should refer
+to, and can be any of the following values.
 
 <table>
 <tbody>
@@ -4411,7 +4527,8 @@ of the following values.
 The next two arguments, macro\_type and shortcut\_text, apply only if
 the sheet in the active window is a macro sheet.
 
-Macro\_type    is a number from 1 to 3 that indicates the type of macro.
+Macro\_type&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 that
+indicates the type of macro.
 
 |                 |                                                      |
 | --------------- | ---------------------------------------------------- |
@@ -4420,17 +4537,18 @@ Macro\_type    is a number from 1 to 3 that indicates the type of macro.
 | 2               | Command macro.                                       |
 | 3 or omitted    | None (that is, name\_text does not refer to a macro) |
 
-Shortcut\_text    is a text value that specifies the macro shortcut key.
-Shortcut\_text must be a single letter, such as "z" or "Z".
+Shortcut\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text value that specifies the
+macro shortcut key. Shortcut\_text must be a single letter, such as "z"
+or "Z".
 
-Hidden    is a logical value specifying whether to define the name as a
-hidden name. If hidden is TRUE, Microsoft Excel defines the name as a
-hidden name; if FALSE or omitted, Microsoft Excel defines the name
-normally.
+Hidden&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether to
+define the name as a hidden name. If hidden is TRUE, Microsoft Excel
+defines the name as a hidden name; if FALSE or omitted, Microsoft Excel
+defines the name normally.
 
-Category    is a number or text identifying the category of a custom
-function and corresponds to categories in the Function Category list
-box.
+Category&nbsp;&nbsp;&nbsp;&nbsp;is a number or text identifying the
+category of a custom function and corresponds to categories in the
+Function Category list box.
 
   - > Categories are numbered starting with 1, the first category in the
     > list.
@@ -4439,9 +4557,9 @@ box.
     > Microsoft Excel creates a new category and assigns your custom
     > function to it.
 
-Local    is a logical value which, if TRUE, defines the name on just the
-current sheet or macro sheet. If FALSE or omitted, defines the name for
-all sheets in the workbook.
+Local&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE, defines
+the name on just the current sheet or macro sheet. If FALSE or omitted,
+defines the name for all sheets in the workbook.
 
 **Remarks**
 
@@ -4461,19 +4579,19 @@ all sheets in the workbook.
     > the Refers To box. Also, if a name is not specified, text in the
     > active cell is proposed as the name.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-DELETE.NAME   Deletes a name
+DELETE.NAME&nbsp;&nbsp;&nbsp;Deletes a name
 
-GET.DEF   Returns a name matching a definition
+GET.DEF&nbsp;&nbsp;&nbsp;Returns a name matching a definition
 
-GET.NAME   Returns the definition of a name
+GET.NAME&nbsp;&nbsp;&nbsp;Returns the definition of a name
 
-NAMES   Returns the names defined in a workbook
+NAMES&nbsp;&nbsp;&nbsp;Returns the names defined in a workbook
 
-SET.NAME   Defines a name as a value
+SET.NAME&nbsp;&nbsp;&nbsp;Defines a name as a value
 
 Return to [top](#A)
 
@@ -4509,8 +4627,8 @@ pattern, protection)
 **DEFINE.STYLE**?(style\_text, number, font, alignment, border, pattern,
 protection)
 
-Style\_text    is the name, as text, that you want to assign to the
-style.
+Style\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name, as text, that you want
+to assign to the style.
 
 The following arguments are logical values corresponding to check boxes
 in the Style dialog box. If an argument is TRUE, Microsoft Excel selects
@@ -4520,28 +4638,29 @@ formatting descriptions for that attribute. If style\_text is omitted
 and all selected cells have identical formatting, the default is TRUE;
 if cells have different formatting, the default is FALSE.
 
-Number    corresponds to the Number check box.
+Number&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Number check box.
 
-Font    corresponds to the Font check box.
+Font&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Font check box.
 
-Alignment    corresponds to the Alignment check box.
+Alignment&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Alignment check box.
 
-Border    corresponds to the Border check box.
+Border&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Border check box.
 
-Pattern    corresponds to the Pattern check box.
+Pattern&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Pattern check box.
 
-Protection    corresponds to the Protection check box.
+Protection&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Protection check
+box.
 
 **Related Functions**
 
 DEFINE.STYLE Syntaxes 2-7
 
-APPLY.STYLE   Applies a style to the selection
+APPLY.STYLE&nbsp;&nbsp;&nbsp;Applies a style to the selection
 
-DELETE.STYLE   Deletes a cell style
+DELETE.STYLE&nbsp;&nbsp;&nbsp;Deletes a cell style
 
-MERGE.STYLES   Imports styles from another workbook into the active
-workbook
+MERGE.STYLES&nbsp;&nbsp;&nbsp;Imports styles from another workbook into
+the active workbook
 
 Return to [top](#A)
 
@@ -4596,12 +4715,12 @@ Cell protection, using the arguments from the CELL.PROTECTION function
 
 **DEFINE.STYLE**(**style\_text, attribute\_num**, locked, hidden)
 
-Style\_text    is the name, as text, that you want to assign to the
-style.
+Style\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name, as text, that you want
+to assign to the style.
 
-Attribute\_num    is a number from 2 to 7 that specifies which attribute
-of the style, such as its font, alignment, or number format, you want to
-designate with this function.
+Attribute\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 2 to 7 that
+specifies which attribute of the style, such as its font, alignment, or
+number format, you want to designate with this function.
 
 |                    |                 |
 | ------------------ | --------------- |
@@ -4626,30 +4745,32 @@ designate with this function.
   - > If you define a style using one of these forms, then any
     > attributes you don't explicitly define are not changed.
 
->  
+> &nbsp;
 
 **Related Functions**
 
 DEFINE.STYLE Syntax 1
 
-ALIGNMENT   Aligns or wraps text in cells
+ALIGNMENT&nbsp;&nbsp;&nbsp;Aligns or wraps text in cells
 
-APPLY.STYLE   Applies a style to the selection
+APPLY.STYLE&nbsp;&nbsp;&nbsp;Applies a style to the selection
 
-BORDER   Adds a border to the selected cell or object
+BORDER&nbsp;&nbsp;&nbsp;Adds a border to the selected cell or object
 
-CELL.PROTECTION   Allows you to control cell protection and display
+CELL.PROTECTION&nbsp;&nbsp;&nbsp;Allows you to control cell protection
+and display
 
-DELETE.STYLE   Deletes a cell style
+DELETE.STYLE&nbsp;&nbsp;&nbsp;Deletes a cell style
 
-FONT.PROPERTIES   Applies a font to the selection
+FONT.PROPERTIES&nbsp;&nbsp;&nbsp;Applies a font to the selection
 
-FORMAT.NUMBER   Formats numbers, dates, and times in the selected cells
+FORMAT.NUMBER&nbsp;&nbsp;&nbsp;Formats numbers, dates, and times in the
+selected cells
 
-MERGE.STYLES   Imports styles from another workbook into the active
-workbook
+MERGE.STYLES&nbsp;&nbsp;&nbsp;Imports styles from another workbook into
+the active workbook
 
-PATTERNS   Changes the appearance of the selected object
+PATTERNS&nbsp;&nbsp;&nbsp;Changes the appearance of the selected object
 
 Return to [top](#A)
 
@@ -4666,16 +4787,17 @@ version 5.0 or later, arrows are named lines.
 If the selection is not an arrow or a line formatted as an arrow, or if
 the active window is not a chart, DELETE.ARROW interrupts the macro.
 
-**Tip**   Use the SELECT function (chart syntax), with the number of the
-arrow (or line) you want to delete in order to select the arrow before
-using the DELETE.ARROW function. For example, SELECT ("Line 1"). You can
-also use the CLEAR function to delete the arrow.
+**Tip**&nbsp;&nbsp;&nbsp;Use the SELECT function (chart syntax), with
+the number of the arrow (or line) you want to delete in order to select
+the arrow before using the DELETE.ARROW function. For example, SELECT
+("Line 1"). You can also use the CLEAR function to delete the arrow.
 
 **Related Functions**
 
-CLEAR   Clears specified information from the selected cells or chart
+CLEAR&nbsp;&nbsp;&nbsp;Clears specified information from the selected
+cells or chart
 
-DELETE.OVERLAY   Deletes the overlay on a chart
+DELETE.OVERLAY&nbsp;&nbsp;&nbsp;Deletes the overlay on a chart
 
 Return to [top](#A)
 
@@ -4687,20 +4809,22 @@ Deletes a custom menu bar.
 
 **DELETE.BAR**(**bar\_num**)
 
-Bar\_num    is the ID number of the custom menu bar you want to delete.
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the ID number of the custom menu bar
+you want to delete.
 
-**Tip**   Rather than trying to discover the ID number of the menu bar
-you want to delete, use a reference to the ADD.BAR function that created
-the bar. For example, the following macro formula deletes the menu bar
-created by the ADD.BAR function in the cell named ReportsBar:
+**Tip**&nbsp;&nbsp;&nbsp;Rather than trying to discover the ID number of
+the menu bar you want to delete, use a reference to the ADD.BAR function
+that created the bar. For example, the following macro formula deletes
+the menu bar created by the ADD.BAR function in the cell named
+ReportsBar:
 
 DELETE.BAR(ReportsBar)
 
 **Related Functions**
 
-ADD.BAR   Adds a menu bar
+ADD.BAR&nbsp;&nbsp;&nbsp;Adds a menu bar
 
-SHOW.BAR   Displays a menu bar
+SHOW.BAR&nbsp;&nbsp;&nbsp;Displays a menu bar
 
 Return to [top](#A)
 
@@ -4713,12 +4837,12 @@ Types tab in the Chart Type dialog box.
 
 **DELETE.CHART.AUTOFORMAT**(**name\_text**)
 
-Name\_text    is the template name you want to delete from the list of
-custom templates.
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the template name you want to
+delete from the list of custom templates.
 
 **Related Function**
 
-ADD.CHART.AUTOFORMAT   Adds a custom template
+ADD.CHART.AUTOFORMAT&nbsp;&nbsp;&nbsp;Adds a custom template
 
 Return to [top](#A)
 
@@ -4732,21 +4856,22 @@ custom commands that you have added.
 
 **DELETE.COMMAND**(**bar\_num, menu, command**, subcommand)
 
-Bar\_num    is the menu bar from which you want to delete the command.
-Bar\_num can be the ID number of a built-in or custom menu bar. See
-ADD.COMMAND for a list of ID numbers for built-in menu bars and shortcut
-menus.
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the menu bar from which you want to
+delete the command. Bar\_num can be the ID number of a built-in or
+custom menu bar. See ADD.COMMAND for a list of ID numbers for built-in
+menu bars and shortcut menus.
 
-Menu    is the menu from which you want to delete the command. Menu can
-be the name of a menu as text or the number of a menu. Menus are
-numbered starting with 1 from the left of the screen.
+Menu&nbsp;&nbsp;&nbsp;&nbsp;is the menu from which you want to delete
+the command. Menu can be the name of a menu as text or the number of a
+menu. Menus are numbered starting with 1 from the left of the screen.
 
-Command    is the command you want to delete, or the name of a submenu.
-Command can be the name of the command as text or the number of the
-command; the first command on a menu is in position 1.
+Command&nbsp;&nbsp;&nbsp;&nbsp;is the command you want to delete, or the
+name of a submenu. Command can be the name of the command as text or the
+number of the command; the first command on a menu is in position 1.
 
-Subcommand    is the command you want to delete from a submenu. If you
-use subcommand, you must use command as the name of the submenu.
+Subcommand&nbsp;&nbsp;&nbsp;&nbsp;is the command you want to delete from
+a submenu. If you use subcommand, you must use command as the name of
+the submenu.
 
 **Remarks**
 
@@ -4760,7 +4885,7 @@ use subcommand, you must use command as the name of the submenu.
     > unique ID number for that command. You can use this ID number with
     > ADD.COMMAND to restore the built-in command to the original menu.
 
->  
+> &nbsp;
 
 **Example**
 
@@ -4772,13 +4897,15 @@ DELETE.COMMAND(Financials, "Reports", "Compile Reports...")
 
 **Related Functions**
 
-ADD.COMMAND   Adds a command to a menu
+ADD.COMMAND&nbsp;&nbsp;&nbsp;Adds a command to a menu
 
-CHECK.COMMAND   Adds or deletes a check mark to or from a command
+CHECK.COMMAND&nbsp;&nbsp;&nbsp;Adds or deletes a check mark to or from a
+command
 
-ENABLE.COMMAND   Enables or disables a menu or custom command
+ENABLE.COMMAND&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+command
 
-RENAME.COMMAND   Changes the name of a command or menu
+RENAME.COMMAND&nbsp;&nbsp;&nbsp;Changes the name of a command or menu
 
 Return to [top](#A)
 
@@ -4793,8 +4920,8 @@ Deletes a specified built-in or custom number format.
 
 **DELETE.FORMAT**(**format\_text**)
 
-Format\_text    is the format given as a text string, for example,
-"000-00-0000".
+Format\_text&nbsp;&nbsp;&nbsp;&nbsp;is the format given as a text
+string, for example, "000-00-0000".
 
 **Remarks**
 
@@ -4803,9 +4930,9 @@ number format are formatted with the General format.
 
 **Related Functions**
 
-FORMAT.NUMBER   Applies a number format to the selection
+FORMAT.NUMBER&nbsp;&nbsp;&nbsp;Applies a number format to the selection
 
-GET.CELL   Returns information about the specified cell
+GET.CELL&nbsp;&nbsp;&nbsp;Returns information about the specified cell
 
 Return to [top](#A)
 
@@ -4819,20 +4946,21 @@ Auto\_Close macro), or any time you want to remove a menu.
 
 **DELETE.MENU**(**bar\_num, menu**, submenu)
 
-Bar\_num    is the menu bar from which you want to delete the menu.
-Bar\_num can be the number of a Microsoft Excel built-in menu bar or the
-number returned by a previously run ADD.BAR function. For a list of ID
-numbers for built-in menu bars, see ADD.COMMAND.
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the menu bar from which you want to
+delete the menu. Bar\_num can be the number of a Microsoft Excel
+built-in menu bar or the number returned by a previously run ADD.BAR
+function. For a list of ID numbers for built-in menu bars, see
+ADD.COMMAND.
 
-Menu    is the menu you want to delete. Menu can be either the name of a
-menu as text or the number of a menu. Menus are numbered starting with 1
-from the left of the screen. If the specified menu does not exist,
-DELETE.MENU returns the \#VALUE\! error value and interrupts the macro.
-After a menu is deleted, the menu number for each menu to the right of
-that menu is decreased by 1.
+Menu&nbsp;&nbsp;&nbsp;&nbsp;is the menu you want to delete. Menu can be
+either the name of a menu as text or the number of a menu. Menus are
+numbered starting with 1 from the left of the screen. If the specified
+menu does not exist, DELETE.MENU returns the \#VALUE\! error value and
+interrupts the macro. After a menu is deleted, the menu number for each
+menu to the right of that menu is decreased by 1.
 
-Submenu    is the name of the submenu you want to delete or the number
-of the menu in the list of commands.
+Submenu&nbsp;&nbsp;&nbsp;&nbsp;is the name of the submenu you want to
+delete or the number of the menu in the list of commands.
 
 **Remarks**
 
@@ -4848,15 +4976,16 @@ DELETE.MENU(Financials, "Reports")
 
 **Related Functions**
 
-ADD.MENU   Adds a menu to a menu bar
+ADD.MENU&nbsp;&nbsp;&nbsp;Adds a menu to a menu bar
 
-ADD.BAR   Adds a menu bar
+ADD.BAR&nbsp;&nbsp;&nbsp;Adds a menu bar
 
-DELETE.BAR   Deletes a menu bar
+DELETE.BAR&nbsp;&nbsp;&nbsp;Deletes a menu bar
 
-DELETE.COMMAND   Deletes a command from a menu
+DELETE.COMMAND&nbsp;&nbsp;&nbsp;Deletes a command from a menu
 
-ENABLE.COMMAND   Enables or disables a menu or custom command
+ENABLE.COMMAND&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+command
 
 Return to [top](#A)
 
@@ -4870,19 +4999,20 @@ the Insert menu. Deletes the specified name.
 
 **DELETE.NAME**(**name\_text**)
 
-Name\_text    is a text value specifying the name that you want to
-delete.
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text value specifying the name
+that you want to delete.
 
-**Important   **Formulas that use names in their arguments may return
-incorrect or error values when a name used in the formula is deleted.
+**Important&nbsp;&nbsp;&nbsp;**Formulas that use names in their
+arguments may return incorrect or error values when a name used in the
+formula is deleted.
 
 **Related Functions**
 
-DEFINE.NAME   Defines a name in the active workbook
+DEFINE.NAME&nbsp;&nbsp;&nbsp;Defines a name in the active workbook
 
-GET.NAME   Returns the definition of a name
+GET.NAME&nbsp;&nbsp;&nbsp;Returns the definition of a name
 
-SET.NAME   Defines a name as a value
+SET.NAME&nbsp;&nbsp;&nbsp;Defines a name as a value
 
 Return to [top](#A)
 
@@ -4909,9 +5039,9 @@ revert to the Normal style.
 
 **DELETE.STYLE**(style\_text)
 
-Style\_text    is the name of a style to be deleted. If style\_text does
-not exist, DELETE.STYLE returns the \#VALUE\! error value and interrupts
-the macro.
+Style\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a style to be deleted.
+If style\_text does not exist, DELETE.STYLE returns the \#VALUE\! error
+value and interrupts the macro.
 
 **Remarks**
 
@@ -4920,12 +5050,12 @@ are not permitted as part of the style\_text argument.
 
 **Related Functions**
 
-APPLY.STYLE   Applies a style to the selection
+APPLY.STYLE&nbsp;&nbsp;&nbsp;Applies a style to the selection
 
-DEFINE.STYLE   Creates or changes a cell style
+DEFINE.STYLE&nbsp;&nbsp;&nbsp;Creates or changes a cell style
 
-MERGE.STYLES   Merges styles from another workbook into the active
-workbook
+MERGE.STYLES&nbsp;&nbsp;&nbsp;Merges styles from another workbook into
+the active workbook
 
 Return to [top](#A)
 
@@ -4938,21 +5068,22 @@ toolbar. Deletes a button from a toolbar.
 
 **DELETE.TOOL**(**bar\_id, position**)
 
-Bar\_id    specifies the name or number of a toolbar from which you want
-to delete a button. For detailed information about bar\_id, see
-ADD.TOOL.
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;specifies the name or number of a toolbar
+from which you want to delete a button. For detailed information about
+bar\_id, see ADD.TOOL.
 
-Position    specifies the position of the button within the toolbar.
-Position starts with 1 at the left side (if horizontal) or at the top
-(if vertical).
+Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the position of the button
+within the toolbar. Position starts with 1 at the left side (if
+horizontal) or at the top (if vertical).
 
 **Related Functions**
 
-ADD.TOOL   Adds one or more buttons to a toolbar
+ADD.TOOL&nbsp;&nbsp;&nbsp;Adds one or more buttons to a toolbar
 
-ADD.TOOLBAR   Creates a new toolbar with the specified buttons
+ADD.TOOLBAR&nbsp;&nbsp;&nbsp;Creates a new toolbar with the specified
+buttons
 
-DELETE.TOOLBAR   Deletes custom toolbars
+DELETE.TOOLBAR&nbsp;&nbsp;&nbsp;Deletes custom toolbars
 
 Return to [top](#A)
 
@@ -4966,8 +5097,9 @@ submenu). Deletes a custom toolbar.
 
 **DELETE.TOOLBAR**(**bar\_name**)
 
-Bar\_name    specifies the name of the toolbar that you want to delete.
-For detailed information about bar\_name, see ADD.TOOL.
+Bar\_name&nbsp;&nbsp;&nbsp;&nbsp;specifies the name of the toolbar that
+you want to delete. For detailed information about bar\_name, see
+ADD.TOOL.
 
 **Remarks**
 
@@ -4978,15 +5110,17 @@ For detailed information about bar\_name, see ADD.TOOL.
     > returns the \#VALUE\! error value, interrupts the macro, and takes
     > no other action.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-ADD.TOOL   Adds or more buttons to a toolbar
+ADD.TOOL&nbsp;&nbsp;&nbsp;Adds or more buttons to a toolbar
 
-ADD.TOOLBAR   Creates a new toolbar with the specified buttons
+ADD.TOOLBAR&nbsp;&nbsp;&nbsp;Creates a new toolbar with the specified
+buttons
 
-RESET.TOOLBAR   Resets a built-in toolbar to its initial default setting
+RESET.TOOLBAR&nbsp;&nbsp;&nbsp;Resets a built-in toolbar to its initial
+default setting
 
 Return to [top](#A)
 
@@ -5002,7 +5136,8 @@ an outline by grouping rows or columns of information.
 
 **DEMOTE**?(row\_col)
 
-Row\_col    specifies whether to group rows or columns.
+Row\_col&nbsp;&nbsp;&nbsp;&nbsp;specifies whether to group rows or
+columns.
 
 |              |             |
 | ------------ | ----------- |
@@ -5019,15 +5154,17 @@ Row\_col    specifies whether to group rows or columns.
   - > If the selection is unambiguous (an entire row or column), then
     > DEMOTE? will not display the dialog box.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-PROMOTE   Promotes the selection in an outline
+PROMOTE&nbsp;&nbsp;&nbsp;Promotes the selection in an outline
 
-SHOW.DETAIL   Expands or collapses a portion of an outline
+SHOW.DETAIL&nbsp;&nbsp;&nbsp;Expands or collapses a portion of an
+outline
 
-SHOW.LEVELS   Displays a specific number of levels of an outline
+SHOW.LEVELS&nbsp;&nbsp;&nbsp;Displays a specific number of levels of an
+outline
 
 Return to [top](#A)
 
@@ -5039,12 +5176,12 @@ Returns the value of the cells in a reference.
 
 **DEREF**(**reference**)
 
-Reference    is the cell or cells from which you want to obtain a value.
-If reference is the reference of a single cell, DEREF returns the value
-of that cell. If reference is the reference of a range of cells, DEREF
-returns the array of values in those cells. If reference refers to the
-active sheet, it must be an absolute reference. Relative references are
-converted to absolute references.
+Reference&nbsp;&nbsp;&nbsp;&nbsp;is the cell or cells from which you
+want to obtain a value. If reference is the reference of a single cell,
+DEREF returns the value of that cell. If reference is the reference of a
+range of cells, DEREF returns the array of values in those cells. If
+reference refers to the active sheet, it must be an absolute reference.
+Relative references are converted to absolute references.
 
 **Remarks**
 
@@ -5064,7 +5201,7 @@ See the sixth example for SET.NAME.
 
 **Related Function**
 
-SET.NAME   Defines a names as a value
+SET.NAME&nbsp;&nbsp;&nbsp;Defines a names as a value
 
 Return to [top](#A)
 
@@ -5083,24 +5220,26 @@ ds\_small, confid)
 **DESCR**?(inprng, outrng, grouped, labels, summary, ds\_large,
 ds\_small, confid)
 
-Inprng    is the input range.
+Inprng&nbsp;&nbsp;&nbsp;&nbsp;is the input range.
 
-Outrng    is the first cell (the upper-left cell) in the output table or
-the name, as text, of a new sheet to contain the output table. If FALSE,
-blank, or omitted, places the output table in a new workbook.
+Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+the output table or the name, as text, of a new sheet to contain the
+output table. If FALSE, blank, or omitted, places the output table in a
+new workbook.
 
-Grouped    is a text character that indicates whether the data in the
-input range is organized by row or column.
+Grouped&nbsp;&nbsp;&nbsp;&nbsp;is a text character that indicates
+whether the data in the input range is organized by row or column.
 
   - > If grouped is "C" or omitted, then the data is organized by
     > column.
 
   - > If grouped is "R" then the data is organized by row.
 
->  
+> &nbsp;
 
-Labels    is a logical value that describes where the labels are located
-in the input range, as shown in the following table:
+Labels&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that describes where
+the labels are located in the input range, as shown in the following
+table:
 
 |                  |             |                                                   |
 | ---------------- | ----------- | ------------------------------------------------- |
@@ -5109,20 +5248,21 @@ in the input range, as shown in the following table:
 | TRUE             | "R"         | First column of the input range.                  |
 | FALSE or omitted | (ignored)   | No labels. All cells in the input range are data. |
 
-Summary    is a logical value. If TRUE, DESCR reports the summary
-statistics. If FALSE or omitted, no summary statistics are reported.
+Summary&nbsp;&nbsp;&nbsp;&nbsp;is a logical value. If TRUE, DESCR
+reports the summary statistics. If FALSE or omitted, no summary
+statistics are reported.
 
-Ds\_large    is an integer k. If ds\_large is present, DESCR reports the
-k-th largest data point. If ds\_large is omitted, the value is not
-reported.
+Ds\_large&nbsp;&nbsp;&nbsp;&nbsp;is an integer k. If ds\_large is
+present, DESCR reports the k-th largest data point. If ds\_large is
+omitted, the value is not reported.
 
-Ds\_small    is an integer k. If ds\_small is present, DESCR reports the
-k-th smallest data point. If ds\_small is omitted, the value is not
-reported.
+Ds\_small&nbsp;&nbsp;&nbsp;&nbsp;is an integer k. If ds\_small is
+present, DESCR reports the k-th smallest data point. If ds\_small is
+omitted, the value is not reported.
 
-Confid    is the confidence level of the mean. If confid is given, DESCR
-reports the confidence interval for the input range. If confid is
-omitted, the confidence interval is 95%.
+Confid&nbsp;&nbsp;&nbsp;&nbsp;is the confidence level of the mean. If
+confid is given, DESCR reports the confidence interval for the input
+range. If confid is omitted, the confidence interval is 95%.
 
 Return to [top](#A)
 
@@ -5134,8 +5274,8 @@ Displays the dialog box described in a dialog box definition table.
 
 **DIALOG.BOX**(**dialog\_ref**)
 
-Dialog\_ref    is a reference to a dialog box definition table on sheet,
-or an array containing the definition table.
+Dialog\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a dialog box
+definition table on sheet, or an array containing the definition table.
 
   - > If an OK button in the dialog box is chosen, DIALOG.BOX enters
     > values in fields as specified in the dialog\_ref area and returns
@@ -5145,7 +5285,7 @@ or an array containing the definition table.
   - > If the Cancel button in the dialog box is chosen, DIALOG.BOX
     > returns FALSE.
 
->  
+> &nbsp;
 
 The dialog box definition table must be at least seven columns wide and
 two rows high. The definitions of each column in a dialog box definition
@@ -5232,13 +5372,13 @@ dialog box.
     > array argument. If you cancel the dialog box, or if a dialog box
     > error occurs, DIALOG.BOX returns FALSE instead of an array.
 
->  
+> &nbsp;
 
 **Related Functions**
 
-ALERT   Displays a dialog box and a message
+ALERT&nbsp;&nbsp;&nbsp;Displays a dialog box and a message
 
-INPUT   Displays a dialog box for user input
+INPUT&nbsp;&nbsp;&nbsp;Displays a dialog box for user input
 
 Return to [top](#A)
 
@@ -5254,8 +5394,8 @@ return a list of files with the FILES function.
 
 **DIRECTORY**(**path\_text**)
 
-Path\_text    is the drive and directory or folder you want to change
-to.
+Path\_text&nbsp;&nbsp;&nbsp;&nbsp;is the drive and directory or folder
+you want to change to.
 
   - > If path\_text is not specified, DIRECTORY returns the name of the
     > current directory or folder as text.
@@ -5263,7 +5403,7 @@ to.
   - > If path\_text does not specify a drive, the current drive is
     > assumed.
 
->  
+> &nbsp;
 
 **Examples**
 
@@ -5287,7 +5427,8 @@ DIRECTORY("HARD DISK:APPS:EXCEL:FINANCIALS")
 
 **Related Function**
 
-FILES   Returns the filenames in the specified directory or folder
+FILES&nbsp;&nbsp;&nbsp;Returns the filenames in the specified directory
+or folder
 
 Return to [top](#A)
 
@@ -5301,27 +5442,28 @@ from the user or from other applications.
 
 **DISABLE.INPUT**(**logical**)
 
-Logical    is a logical value specifying whether input is currently
-disabled. If logical is TRUE, input is disabled; if FALSE, input is
-reenabled.
+Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
+input is currently disabled. If logical is TRUE, input is disabled; if
+FALSE, input is reenabled.
 
 **Remarks**
 
 Disabling input can be useful if you are using dynamic data exchange
 (DDE) to communicate with Microsoft Excel from another application.
 
-**Important**   Be sure to end any macro that uses DISABLE.INPUT(TRUE)
-with a DISABLE.INPUT(FALSE) function. If you do not include
-DISABLE.INPUT(FALSE) to allow non-dialog-box input, you will not be able
-to take any actions on your computer after the macro has finished.
+**Important**&nbsp;&nbsp;&nbsp;Be sure to end any macro that uses
+DISABLE.INPUT(TRUE) with a DISABLE.INPUT(FALSE) function. If you do not
+include DISABLE.INPUT(FALSE) to allow non-dialog-box input, you will not
+be able to take any actions on your computer after the macro has
+finished.
 
 **Related Functions**
 
-CANCEL.KEY   Disables macro interruption
+CANCEL.KEY&nbsp;&nbsp;&nbsp;Disables macro interruption
 
-ENTER.DATA   Turns Data Entry mode on and off
+ENTER.DATA&nbsp;&nbsp;&nbsp;Turns Data Entry mode on and off
 
-WORKSPACE   Changes workspace settings
+WORKSPACE&nbsp;&nbsp;&nbsp;Changes workspace settings
 
 Return to [top](#A)
 
@@ -5332,9 +5474,9 @@ headings, and other screen attributes. There are two syntax forms of
 this function. Use syntax 1 to control screen display. Use syntax 2 to
 control the display of the Info Window.
 
-Syntax 1   Controls screen display
+Syntax 1&nbsp;&nbsp;&nbsp;Controls screen display
 
-Syntax 2   Controls display of Info Window
+Syntax 2&nbsp;&nbsp;&nbsp;Controls display of Info Window
 
 Return to [top](#A)
 
@@ -5361,32 +5503,33 @@ outline, page\_breaks, object\_num)
 **DISPLAY**?(formulas, gridlines, headings, zeros, color\_num, reserved,
 outline, page\_breaks, object\_num)
 
-Formulas    corresponds to the Formulas check box. The default is FALSE
-on worksheets and TRUE on macro sheets.
+Formulas&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Formulas check box.
+The default is FALSE on worksheets and TRUE on macro sheets.
 
-Gridlines    corresponds to the Gridlines check box. The default is
-TRUE.
+Gridlines&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Gridlines check box.
+The default is TRUE.
 
-Headings    corresponds to the Row & Column Headings check box. The
-default is TRUE.
+Headings&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Row & Column Headings
+check box. The default is TRUE.
 
-Zeros    corresponds to the Zero Values check box. The default is TRUE.
+Zeros&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Zero Values check box.
+The default is TRUE.
 
-Color\_num    is a number from 0 to 56 corresponding to the gridline and
-heading colors in the Display Options dialog box; 0 corresponds to
-automatic color and is the default value.
+Color\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 56 corresponding
+to the gridline and heading colors in the Display Options dialog box; 0
+corresponds to automatic color and is the default value.
 
-Reserved    is reserved for certain international versions of Microsoft
-Excel.
+Reserved&nbsp;&nbsp;&nbsp;&nbsp;is reserved for certain international
+versions of Microsoft Excel.
 
-Outline    corresponds to the Outline Symbols check box. The default is
-TRUE.
+Outline&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Outline Symbols check
+box. The default is TRUE.
 
-Page\_breaks    corresponds to the Automatic Page Breaks check box. The
-default is FALSE.
+Page\_breaks&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Automatic Page
+Breaks check box. The default is FALSE.
 
-Object\_num    is a number from 1 to 3 corresponding to the display
-options in the Object box.
+Object\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 corresponding
+to the display options in the Object box.
 
 |                 |                    |
 | --------------- | ------------------ |
@@ -5397,13 +5540,13 @@ options in the Object box.
 
 **Related Functions**
 
-OPTIONS.VIEW   Controls display
+OPTIONS.VIEW&nbsp;&nbsp;&nbsp;Controls display
 
-WORKSPACE   Changes workspace settings
+WORKSPACE&nbsp;&nbsp;&nbsp;Changes workspace settings
 
-ZOOM   Enlarges or reduces a sheet in the active window
+ZOOM&nbsp;&nbsp;&nbsp;Enlarges or reduces a sheet in the active window
 
-Syntax 2   Controls display of Info Window
+Syntax 2&nbsp;&nbsp;&nbsp;Controls display of Info Window
 
 Return to [top](#A)
 
@@ -5430,7 +5573,7 @@ For these arguments:
 
   - > If the argument is omitted, the status of the item is unchanged.
 
->  
+> &nbsp;
 
 **Syntax**
 
@@ -5439,41 +5582,41 @@ For controlling Info Window display
 **DISPLAY**(cell, formula, value, format, protection, names, precedents,
 dependents, note)
 
-Cell    is a logical value that corresponds to the Cell command and
-controls the display of cell information in the Info Window. If TRUE,
-cell information will be displayed; if FALSE, cell information will not
-be displayed.
-
-Formula    is a logical value that corresponds to the Formula command
-and controls the display of formula information in the Info Window. If
-TRUE, formula information will be displayed; if FALSE, formula
+Cell&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to the
+Cell command and controls the display of cell information in the Info
+Window. If TRUE, cell information will be displayed; if FALSE, cell
 information will not be displayed.
 
-Value    is a logical value that corresponds to the Value command and
-controls the display of value information in the Info Window. If TRUE,
-value information will be displayed; if FALSE, value information will
-not be displayed.
+Formula&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to
+the Formula command and controls the display of formula information in
+the Info Window. If TRUE, formula information will be displayed; if
+FALSE, formula information will not be displayed.
 
-Format    is a logical value that corresponds to the Format command and
-controls the display of format information in the Info Window. If TRUE,
-format information will be displayed; if FALSE, format information will
-not be displayed.
+Value&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to the
+Value command and controls the display of value information in the Info
+Window. If TRUE, value information will be displayed; if FALSE, value
+information will not be displayed.
 
-Protection    is a logical value that corresponds to the Protection
-command and controls the display of protection information in the Info
-Window. If TRUE, protection information will be displayed; if FALSE,
-protection information will not be displayed.
+Format&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to the
+Format command and controls the display of format information in the
+Info Window. If TRUE, format information will be displayed; if FALSE,
+format information will not be displayed.
 
-Names    is a logical value that corresponds to the Names command and
-controls the display of name information in the Info Window. If TRUE,
-name information will be displayed; if FALSE, name information will not
-be displayed.
+Protection&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to
+the Protection command and controls the display of protection
+information in the Info Window. If TRUE, protection information will be
+displayed; if FALSE, protection information will not be displayed.
 
-Precedents    is a number from 1 to 3 that specifies which precedents to
-list, according to the following table.
+Names&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to the
+Names command and controls the display of name information in the Info
+Window. If TRUE, name information will be displayed; if FALSE, name
+information will not be displayed.
 
-Dependents    is a number from 1 to 3 that specifies which dependents to
-list, according to the following table.
+Precedents&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 that specifies
+which precedents to list, according to the following table.
+
+Dependents&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 that specifies
+which dependents to list, according to the following table.
 
 |                              |             |
 | ---------------------------- | ----------- |
@@ -5482,18 +5625,18 @@ list, according to the following table.
 | 1                            | Direct only |
 | 2                            | All levels  |
 
-Note    is a logical value that corresponds to the Note command and
-controls the display of note information in the Info Window. If TRUE,
-note information will be displayed; if FALSE, note information will not
-be displayed.
+Note&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to the
+Note command and controls the display of note information in the Info
+Window. If TRUE, note information will be displayed; if FALSE, note
+information will not be displayed.
 
 **Related Functions**
 
-SHOW.INFO   Controls the display of the Info Window
+SHOW.INFO&nbsp;&nbsp;&nbsp;Controls the display of the Info Window
 
-ZOOM   Enlarges or reduces a sheet in the active window
+ZOOM&nbsp;&nbsp;&nbsp;Enlarges or reduces a sheet in the active window
 
-Syntax 1   Controls screen display
+Syntax 1&nbsp;&nbsp;&nbsp;Controls screen display
 
 Return to [top](#A)
 
@@ -5507,8 +5650,9 @@ use in other functions that manipulate open workbooks.
 
 **DOCUMENTS**(type\_num, match\_text)
 
-Type\_num    is a number specifying whether to include add-in workbooks
-in the array of workbooks, according to the following table.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying whether to
+include add-in workbooks in the array of workbooks, according to the
+following table.
 
 |               |                                                     |
 | ------------- | --------------------------------------------------- |
@@ -5517,9 +5661,9 @@ in the array of workbooks, according to the following table.
 | 2             | Names of add-in workbooks only                      |
 | 3             | Names of all open workbooks                         |
 
-Match\_text    specifies the workbooks whose names you want returned and
-can include wildcard characters. If match\_text is omitted, DOCUMENTS
-returns the names of all open workbooks.
+Match\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies the workbooks whose names
+you want returned and can include wildcard characters. If match\_text is
+omitted, DOCUMENTS returns the names of all open workbooks.
 
 **Remarks**
 
@@ -5535,7 +5679,7 @@ returns the names of all open workbooks.
   - > Since the DOCUMENTS function only returns actual workbook names,
     > it ignores any changes made by the WINDOW.TITLE function.
 
->  
+> &nbsp;
 
 **Examples**
 
@@ -5556,13 +5700,14 @@ DOCUMENTS(1) equals the four-cell array {"ACTUALS", "BOOK", "BUDGET",
 
 **Related Functions**
 
-FILES   Returns the filenames in the specified directory or folder
+FILES&nbsp;&nbsp;&nbsp;Returns the filenames in the specified directory
+or folder
 
-GET.DOCUMENT   Returns information about a workbook
+GET.DOCUMENT&nbsp;&nbsp;&nbsp;Returns information about a workbook
 
-GET.WINDOW   Returns information about a window
+GET.WINDOW&nbsp;&nbsp;&nbsp;Returns information about a window
 
-WINDOWS   Returns the names of all open windows
+WINDOWS&nbsp;&nbsp;&nbsp;Returns the names of all open windows
 
 Return to [top](#A)
 
@@ -5577,8 +5722,8 @@ the \#VALUE\! error value and interrupts the macro.
 
 **Related Functions**
 
-COPY   Copies and pastes data or objects
+COPY&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
 
-PASTE   Pastes cut or copied data
+PASTE&nbsp;&nbsp;&nbsp;Pastes cut or copied data
 
 Return to [top](#A)
