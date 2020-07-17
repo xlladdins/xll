@@ -9,16 +9,16 @@ AddInX xai_macro(MacroX(X_("?xll_macro"), X_("XLL.MACRO")));
 int WINAPI xll_macro(void)
 {
 #pragma XLLEXPORT
-	//OPERX xMsg(X_("XLL.MACRO called with active cell: "));
-	//OPERX xActive = Excel<XLOPERX>(xlfActiveCell);
-	//OPERX xReftext = Excel<XLOPERX>(xlfReftext, xActive, OPERX(true)); // A1 style
-	//xMsg &= xReftext;
+	OPERX xMsg(X_("XLL.MACRO called with active cell: "));
+	OPERX xActive = Excel<XLOPERX>(xlfActiveCell);
+	OPERX xReftext = Excel<XLOPERX>(xlfReftext, xActive, OPERX(true)); // A1 style
+	xMsg &= xReftext;
 	//Excel<XLOPERX>(xlcAlert, xMsg);
 
 	// same as above
-	ExcelX(xlcAlert, 
+	Excel<XLOPERX>(xlcAlert, 
 		OPERX(X_("XLL.MACRO called with active cell: ")) 
-			& ExcelX(xlfReftext, ExcelX(xlfActiveCell), OPERX(true)));
+			& Excel<XLOPERX>(xlfReftext, Excel<XLOPERX>(xlfActiveCell), OPERX(true)));
 	
 	return TRUE;
 }
