@@ -20,6 +20,6 @@ BEGIN {
 }
 !/==/ {
 	prev = $1
-	gsub(/,/, //, prev)
+	gsub(/,/, "", prev)
 	print >> file".md"
  }
