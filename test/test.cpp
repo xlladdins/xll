@@ -4,7 +4,7 @@
 
 using namespace xll;
 
-// Call using Alt-F8
+// Call using Alt-F8 then typing 'XLL.MACRO'
 AddInX xai_macro(MacroX(X_("?xll_macro"), X_("XLL.MACRO")));
 int WINAPI xll_macro(void)
 {
@@ -52,7 +52,6 @@ double WINAPI xll_jn(LONG n, double x)
 
 	return _jn(n, x);
 }
-
 
 Auto<Open> xai_open([]() { 
 	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Open> called")));
