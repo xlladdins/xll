@@ -12,13 +12,19 @@ BEGIN {
 		#print "Previous ["file"]("file".md)  "
 		print "close "file".md"
 		close(file".md")
-		print "["file"]("file".md)  " >> "README.md"
+		if (okey != substr(file, 1, 1)) {
+			print
+		}
+		print "["link"]("file".md)" >> "README.md"
 	}
 	file = prev
+	link = name
+	okey = substr(file, 1, 1);
 	print file > file".md"
 	print $0 >> file".md"
 }
 !/==/ {
+	name = $0
 	prev = $1
 	gsub(/,/, "", prev)
 	print >> file".md"
