@@ -550,8 +550,7 @@ functions to carry out next---that is, where to branch.
 
 -   If logical\_test produces an error, the macro halts.
 
-Tips
-====
+**Tips**
 
 -   Use IF with ELSE, ELSE.IF, and END.IF when you want to perform
     > multiple actions based on a condition. This method is preferable

@@ -266,13 +266,6 @@
 ## I
 
 [IF](IF.md)
-
-## T
-
-[Tips](Tips.md)
-
-## I
-
 [INITIATE](INITIATE.md)
 [INPUT](INPUT.md)
 [INSERT](INSERT.md)
