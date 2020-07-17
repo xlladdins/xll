@@ -1,7 +1,8 @@
 DOCX = $(wildcard *.docx)
-MD = $(DOCX:*.docx=.md)
+MD = $(DOCX:.docx=.md)
 
 %.md: %.docx
-	pandoc -gfm --extract-media=. $< $>
+	pandoc -gfm --ascii --extract-media=. $^ $@
 
-all: $(MD)
+all:
+	echo $(MD)
