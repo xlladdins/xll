@@ -76,7 +76,7 @@ namespace xll {
 	struct Window {
 		static const int On = xlcOnWindow;
 	};
-
+	
 	// static On<Key> ok("shortcut", "MACRO");
 	template<class Key>
 	class On {
@@ -85,10 +85,10 @@ namespace xll {
 		On(xcstr text, xcstr macro)
 		{
 			Auto<Open> xao([text, macro]() {
-				return Excel(Key::On, OPER12(text), OPER12(macro)) == true;
+				return ExcelX(Key::On, OPERX(text), OPERX(macro)) == true;
 			});
 			Auto<Close> xac([text]() {
-				return Excel(Key::On, OPER12(text)) == true;
+				return ExcelX(Key::On, OPERX(text)) == true;
 			});
 		}
 		On(xcstr text, xcstr macro, bool activate)
@@ -96,21 +96,21 @@ namespace xll {
 			ensure(Key::On == xlcOnSheet);
 
 			Auto<Open> xao([text, macro, activate]() {
-				return Excel(Key::On, OPER12(text), OPER12(macro), OPER12(activate)) == true;
+				return ExcelX(Key::On, OPERX(text), OPERX(macro), OPERX(activate)) == true;
 			});
 			Auto<Close> xac([text]() {
-				return Excel(Key::On, OPER12(text)) == true;
+				return ExcelX(Key::On, OPERX(text)) == true;
 			});
 		}
-		On(const OPER12& time, xcstr macro, const OPER12& tolerance, bool insert)
+		On(const OPERX& time, xcstr macro, const OPERX& tolerance, bool insert)
 		{
 			ensure(Key::On == xlcOnTime);
 
 			Auto<Open> xao([time, macro, tolerance, insert]() {
-				return Excel(Key::On, OPER12(time), OPER12(macro), OPER12(tolerance), OPER12(insert)) == true;
+				return ExcelX(Key::On, OPERX(time), OPERX(macro), OPERX(tolerance), OPERX(insert)) == true;
 			});
 			Auto<Close> xac([]() {
-				return Excel(Key::On) == true;
+				return ExcelX(Key::On) == true;
 			});
 		}
 	};

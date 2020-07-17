@@ -9,10 +9,10 @@ AddInX xai_macro(MacroX(X_("?xll_macro"), X_("XLL.MACRO")));
 int WINAPI xll_macro(void)
 {
 #pragma XLLEXPORT
-	OPERX xMsg(X_("XLL.MACRO called with active cell: "));
-	OPERX xActive = Excel<XLOPERX>(xlfActiveCell);
-	OPERX xReftext = Excel<XLOPERX>(xlfReftext, xActive, OPERX(true)); // A1 style
-	xMsg &= xReftext;
+	//OPERX xMsg(X_("XLL.MACRO called with active cell: "));
+	//OPERX xActive = Excel<XLOPERX>(xlfActiveCell);
+	//OPERX xReftext = Excel<XLOPERX>(xlfReftext, xActive, OPERX(true)); // A1 style
+	//xMsg &= xReftext;
 	//Excel<XLOPERX>(xlcAlert, xMsg);
 
 	// same as above
@@ -57,4 +57,15 @@ Auto<Open> xai_open([]() {
 	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Open> called")));
 	return TRUE;  
 });
+
+AddInX xai_onkey(MacroX(X_("?xll_onkey"), X_("XLL.ONKEY")));
+int WINAPI xll_onkey(void)
+{
+#pragma XLLEXPORT
+	ExcelX(xlcAlert, OPERX(X_("You pressed Ctrl-Alt-a")));
+
+	return TRUE;
+}
+
+On<Key> xon_key(ON_CTRL ON_ALT X_("a"), X_("XLL.ONKEY"));
 
