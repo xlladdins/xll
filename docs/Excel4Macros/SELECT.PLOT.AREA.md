@@ -1,5 +1,4 @@
 SELECT.PLOT.AREA
-================
 
 Equivalent to clicking the Select Plot Area command on the Chart menu in
 Microsoft Excel version 4.0. Selects the plot area of the active chart.
@@ -12,12 +11,10 @@ Microsoft Excel version 4.0. Selects the plot area of the active chart.
 
 SELECT.PLOT.AREA is included only for compatibility with previous
 versions of Microsoft Excel for the Macintosh. SELECT.PLOT.AREA is the
-same as the SELECT(\"Plot\") function.
+same as the SELECT("Plot") function.
 
 **Related Function**
 
 SELECT   Selects a cell, graphic object, or chart
 
-Return to [top](#Q)
 
-SELECT.SPECIAL

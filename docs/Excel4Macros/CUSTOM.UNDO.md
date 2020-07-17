@@ -1,5 +1,4 @@
 CUSTOM.UNDO
-===========
 
 Creates a customized Undo tool and Undo or Redo command on the Edit menu
 for custom commands.
@@ -20,7 +19,7 @@ The following macro function runs the UndoMult macro when the user
 clicks the Undo Times100 command, a custom command that multiples the
 current cell by 100.
 
-=CUSTOM.UNDO(\"UndoMult\", \"&Undo Times100\")
+\=CUSTOM.UNDO("UndoMult", "\&Undo Times100")
 
 **Tip**   Use CUSTOM.UNDO directly after the macro functions you want to
 be able to repeat, because other macro functions following CUSTOM.UNDO
@@ -30,6 +29,4 @@ might reset the Undo command.
 
 CUSTOM.REPEAT   Specifies a macro to run to repeat a custom command
 
-Return to [top](#A)
 
-CUT

@@ -1,5 +1,4 @@
 ON.RECALC
-=========
 
 Runs a macro when a specific sheet is recalculated. Use ON.RECALC to
 perform an operation on a sheet each time the sheet is recalculated,
@@ -36,12 +35,12 @@ In Microsoft Excel for Windows, the following macro formula specifies
 that the macro Printer on the macro sheet AUTOREPT.XLS be run when the
 worksheet named REPORT.XLS is recalculated:
 
-ON.RECALC(\"REPORT.XLS\", \"AUTOREPT.XLS!Printer\")
+ON.RECALC("REPORT.XLS", "AUTOREPT.XLS\!Printer")
 
 In Microsoft Excel for the Macintosh, the following macro formula turns
 off ON.RECALC for the workbook named SALES:
 
-ON.RECALC(\"SALES\")
+ON.RECALC("SALES")
 
 **Related Functions**
 
@@ -53,6 +52,4 @@ CALCULATION   Controls calculation settings
 
 ON.ENTRY   Runs a macro when data is entered
 
-Return to [top](#H)
 
-ON.SHEET

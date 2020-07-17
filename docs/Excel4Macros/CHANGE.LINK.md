@@ -1,5 +1,4 @@
 CHANGE.LINK
-===========
 
 Equivalent to clicking the Change Source button in the Links dialog box,
 which appears when you click the Links command on the Edit menu. Changes
@@ -19,11 +18,11 @@ New\_text    is the path of the link you want to change to.
 Type\_of\_link    is the number 1 or 2 specifying what type of link you
 want to change.
 
-  -------------------- ------------------------
-  **Type\_of\_link**   **Link document type**
-  1 or omitted         Microsoft Excel link
-  2                    DDE/OLE link
-  -------------------- ------------------------
+|                    |                        |
+| ------------------ | ---------------------- |
+| **Type\_of\_link** | **Link document type** |
+| 1 or omitted       | Microsoft Excel link   |
+| 2                  | DDE/OLE link           |
 
 **Remarks**
 
@@ -42,6 +41,4 @@ SET.UPDATE.STATUS   Controls the update status of a link
 
 UPDATE.LINK   Updates a link to another workbook
 
-Return to [top](#A)
 
-CHART.ADD.DATA

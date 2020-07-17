@@ -1,5 +1,4 @@
 HSCROLL
-=======
 
 Horizontally scrolls through the active sheet by percentage or by column
 number.
@@ -18,10 +17,10 @@ percentage.
 
 Col\_logical    is a logical value specifying how the function scrolls.
 
--   If col\_logical is TRUE, HSCROLL scrolls through the sheet to column
-    > position.
+  - > If col\_logical is TRUE, HSCROLL scrolls through the sheet to
+    > column position.
 
--   If col\_logical is FALSE or omitted, then HSCROLL scrolls through
+  - > If col\_logical is FALSE or omitted, then HSCROLL scrolls through
     > the sheet to the horizontal position represented by the fraction
     > position.
 
@@ -29,11 +28,11 @@ Col\_logical    is a logical value specifying how the function scrolls.
 
 **Remarks**
 
--   To scroll to a specific column n, either use HSCROLL(n, TRUE) or use
-    > HSCROLL(n/256). To scroll to column 38, for example, use
+  - > To scroll to a specific column n, either use HSCROLL(n, TRUE) or
+    > use HSCROLL(n/256). To scroll to column 38, for example, use
     > HSCROLL(38, TRUE) or HSCROLL(38/256).
 
--   If you are recording a macro and move the scroll box several times
+  - > If you are recording a macro and move the scroll box several times
     > in a row, the recorder only records the final location of the
     > scroll box, omitting any intermediate steps. Remember that
     > scrolling does not change the active cell or the selection.
@@ -54,6 +53,4 @@ time
 
 VSCROLL   Vertically scrolls through a sheet by percentage or row number
 
-Return to [top](#H)
 
-IF

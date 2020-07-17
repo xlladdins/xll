@@ -1,5 +1,4 @@
 ACTIVE.CELL.FONT
-================
 
 Equivalent to formatting individual characters in a cell.
 
@@ -16,6 +15,4 @@ FONT.PROPERTIES.
 
 FONT.PROPERTIES   Applies a font and other attributes to the selection
 
-Return to [top](#A)
 
-ADD.ARROW

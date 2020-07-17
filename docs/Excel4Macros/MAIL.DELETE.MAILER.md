@@ -1,5 +1,4 @@
 MAIL.DELETE.MAILER
-==================
 
 Equivalent to clicking the Delete Mailer command on the Mail submenu of
 the File menu. Deletes an existing mailer from the active workbook.
@@ -13,12 +12,10 @@ Microsoft Excel and Apple PowerTalk only.
 
 **Remarks**
 
-If there is no mailer, returns the \#VALUE! error value.
+If there is no mailer, returns the \#VALUE\! error value.
 
 **Related Function**
 
 MAIL.ADD.MAILER   Adds a new PowerTalk mailer to the active workbook
 
-Return to [top](#H)
 
-MAIL.EDIT.MAILER

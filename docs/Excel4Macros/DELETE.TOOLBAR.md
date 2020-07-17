@@ -1,5 +1,4 @@
 DELETE.TOOLBAR
-==============
 
 Equivalent to clicking the Delete button in the Toolbars dialog box,
 which appears when you click the Customize command (View menu, Toolbars
@@ -14,12 +13,12 @@ For detailed information about bar\_name, see ADD.TOOL.
 
 **Remarks**
 
--   You cannot delete built-in toolbars.
+  - > You cannot delete built-in toolbars.
 
--   If DELETE.TOOLBAR successfully deletes the toolbar, it returns TRUE.
-    > If you try to delete a built-in toolbar, DELETE.TOOLBAR returns
-    > the \#VALUE! error value, interrupts the macro, and takes no other
-    > action.
+  - > If DELETE.TOOLBAR successfully deletes the toolbar, it returns
+    > TRUE. If you try to delete a built-in toolbar, DELETE.TOOLBAR
+    > returns the \#VALUE\! error value, interrupts the macro, and takes
+    > no other action.
 
 >  
 
@@ -31,6 +30,4 @@ ADD.TOOLBAR   Creates a new toolbar with the specified buttons
 
 RESET.TOOLBAR   Resets a built-in toolbar to its initial default setting
 
-Return to [top](#A)
 
-DEMOTE

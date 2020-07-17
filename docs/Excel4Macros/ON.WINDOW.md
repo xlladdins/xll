@@ -1,5 +1,4 @@
 ON.WINDOW
-=========
 
 Runs a specified macro when you switch to a particular window.
 
@@ -18,15 +17,15 @@ switching to window\_text no longer runs the previously specified macro.
 
 **Remarks**
 
--   A macro specified to be run by ON.WINDOW is not run when other
+  - > A macro specified to be run by ON.WINDOW is not run when other
     > macros switch to the window or when a command to switch to a
     > window is received through a DDE channel. Instead, ON.WINDOW
-    > responds to a user\'s actions, such as clicking a window with the
+    > responds to a user's actions, such as clicking a window with the
     > mouse, clicking the Copy command on the Edit menu, and so on.
 
--   If a sheet or macro sheet has an Auto\_Activate or Auto\_Deactivate
-    > macro defined for it, those macros will be run after the macro
-    > specified by ON.WINDOW.
+  - > If a sheet or macro sheet has an Auto\_Activate or
+    > Auto\_Deactivate macro defined for it, those macros will be run
+    > after the macro specified by ON.WINDOW.
 
 >  
 
@@ -35,22 +34,22 @@ switching to window\_text no longer runs the previously specified macro.
 In Microsoft Excel for Windows, the following macro formula runs the
 macro beginning at cell R1C2 when you switch to the window MAIN.XLS:
 
-ON.WINDOW(\"MAIN.XLS\", \"R1C2\")
+ON.WINDOW("MAIN.XLS", "R1C2")
 
 The following macro formula stops the macro from running when you switch
 to MAIN.XLS:
 
-ON.WINDOW(\"MAIN.XLS\")
+ON.WINDOW("MAIN.XLS")
 
 In Microsoft Excel for the Macintosh, the following macro formula runs
 the macro named ShowAlert when you switch to the window MAIN WINDOW:
 
-ON.WINDOW(\"MAIN WINDOW\", \"ShowAlert\")
+ON.WINDOW("MAIN WINDOW", "ShowAlert")
 
 The following macro formula stops the macro from running when you switch
 to MAIN WINDOW:
 
-ON.WINDOW(\"MAIN WINDOW\")
+ON.WINDOW("MAIN WINDOW")
 
 **Related Functions**
 
@@ -63,6 +62,4 @@ from another sheet
 
 WINDOWS   Returns the names of all open windows
 
-Return to [top](#H)
 
-OPEN

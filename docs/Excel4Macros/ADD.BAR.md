@@ -1,5 +1,4 @@
 ADD.BAR
-=======
 
 Creates a new menu bar and returns the bar ID number. Use the bar ID
 number to identify the menu in functions that display and add menus and
@@ -12,7 +11,7 @@ menu bar with its original menus and commands.
 
 Bar\_num    is the number of a built-in menu bar that you want to
 restore. Use ADD.BAR(bar\_num) to restore an unaltered version of a
-built-in menu bar after you have made changes to the menu bar\'s menus
+built-in menu bar after you have made changes to the menu bar's menus
 and commands. See ADD.COMMAND for a list of ID numbers for built-in menu
 bars.
 
@@ -22,14 +21,15 @@ individual commands and menus.
 
 **Remarks**
 
--   ADD.BAR just creates a new menu bar; it does not display it. Use
+  - > ADD.BAR just creates a new menu bar; it does not display it. Use
     > SHOW.BAR to display a menu bar. The argument to the SHOW.BAR
     > function should be the number returned by ADD.BAR or a reference
     > to the cell containing ADD.BAR.
 
--   You can define up to 15 custom menu bars at one time. If you carry
+  - > You can define up to 15 custom menu bars at one time. If you carry
     > out an ADD.BAR function when more than 15 custom menu bars are
-    > already defined, Microsoft Excel returns the \#VALUE! error value.
+    > already defined, Microsoft Excel returns the \#VALUE\! error
+    > value.
 
 **Example**
 
@@ -48,6 +48,4 @@ DELETE.BAR   Deletes a menu bar
 
 SHOW.BAR   Displays a menu bar
 
-Return to [top](#A)
 
-ADD.CHART.AUTOFORMAT

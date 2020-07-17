@@ -1,5 +1,4 @@
 SQL.ERROR
-=========
 
 Returns detailed error information when it is called after a previous
 XLODBC.XLA function call has failed. If this function is not available,
@@ -20,30 +19,30 @@ Each row will have exactly three fields. The information in these three
 fields is obtained through the SQLERROR API function call. These fields
 are:
 
--   A textual message describing the error.
+  - > A textual message describing the error.
 
--   The ODBC error class and subclass as a character string.
+  - > The ODBC error class and subclass as a character string.
 
--   The data source native error code as a numeric value.
+  - > The data source native error code as a numeric value.
 
 >  
 
 If one or more of these fields is not available for the type of error
 that was encountered, the field will be left blank. For more information
-on the meaning of these three fields, refer to Chapter 24, \"ODBC
-Function Reference\", in the Microsoft Open Database Connectivity
-Programmer\'s Reference for the SQLError API function. See also Appendix
-A, \"ODBC Error Codes\" in the same manual.
+on the meaning of these three fields, refer to Chapter 24, "ODBC
+Function Reference", in the Microsoft Open Database Connectivity
+Programmer's Reference for the SQLError API function. See also Appendix
+A, "ODBC Error Codes" in the same manual.
 
 **Remarks**
 
--   SQL.ERROR cannot provide information on Excel errors.
+  - > SQL.ERROR cannot provide information on Excel errors.
 
--   If no error information is available when SQL.ERROR is called, then
-    > it well return the error value \#N/A but does not post any error
-    > information to SQL.ERROR.
+  - > If no error information is available when SQL.ERROR is called,
+    > then it well return the error value \#N/A but does not post any
+    > error information to SQL.ERROR.
 
--   SQL.ERROR stores and returns error information by processing
+  - > SQL.ERROR stores and returns error information by processing
     > SQL.ERROR (in the ODBC API reference) in a loop until
     > SQL\_NO\_DATA\_FOUND is encountered. In the SQL.ERROR function,
     > the error information is automatically defined and stored in
@@ -73,6 +72,4 @@ SQL.RETRIEVE   Retrieves query results
 
 SQL.CLOSE   Closes a data source connection
 
-Return to [top](#Q)
 
-SQL.EXEC.QUERY

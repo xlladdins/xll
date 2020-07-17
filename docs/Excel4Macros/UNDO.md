@@ -1,5 +1,4 @@
 UNDO
-====
 
 Equivalent to clicking the Undo command on the Edit menu. Reverses
 certain actions and commands. UNDO is available in the same situations
@@ -9,6 +8,4 @@ as the Undo command.
 
 **UNDO**( )
 
-Return to [top](#T)
 
-UNGROUP

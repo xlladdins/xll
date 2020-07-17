@@ -1,5 +1,4 @@
 WORKBOOK.NAME
-=============
 
 Equivalent to clicking the Rename command on the Sheet submenu of the
 Format menu. Renames a sheet in a workbook.
@@ -16,13 +15,11 @@ Newname\_text    is the new name of the sheet.
 
 **Remarks**
 
--   If you try to rename a sheet using a sheet name that already exists
-    > in the workbook, Microsoft Excel displays an error message and
-    > interrupts the macro.
+  - > If you try to rename a sheet using a sheet name that already
+    > exists in the workbook, Microsoft Excel displays an error message
+    > and interrupts the macro.
 
--   If the structure of the workbook is protected, you cannot rename any
-    > of the sheets in the workbook.
+  - > If the structure of the workbook is protected, you cannot rename
+    > any of the sheets in the workbook.
 
-Return to [top](#T)
 
-WORKBOOK.NEW

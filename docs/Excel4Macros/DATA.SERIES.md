@@ -1,5 +1,4 @@
 DATA.SERIES
-===========
 
 Equivalent to clicking the Series command on the Fill submenu of the
 Edit menu. Use DATA.SERIES to enter an interpolated or incrementally
@@ -18,33 +17,33 @@ Rowcol    is a number that specifies where the series should be entered.
 If rowcol is omitted, the default value is based on the size and shape
 of the current selection.
 
-  ------------ ---------------------
-  **Rowcol**   **Enter series in**
-  1            Rows
-  2            Columns
-  ------------ ---------------------
+|            |                     |
+| ---------- | ------------------- |
+| **Rowcol** | **Enter series in** |
+| 1          | Rows                |
+| 2          | Columns             |
 
 Type\_num    is a number from 1 to 4 that specifies the type of series.
 
-  --------------- --------------------
-  **Type\_num**   **Type of series**
-  1 or omitted    Linear
-  2               Growth
-  3               Date
-  4               AutoFill
-  --------------- --------------------
+|               |                    |
+| ------------- | ------------------ |
+| **Type\_num** | **Type of series** |
+| 1 or omitted  | Linear             |
+| 2             | Growth             |
+| 3             | Date               |
+| 4             | AutoFill           |
 
 Date\_num    is a number from 1 to 4 that specifies the date unit of the
 series, as shown in the following table. To use the date\_num argument,
 the type\_num argument must be 3.
 
-  --------------- ---------------
-  **Date\_num**   **Date unit**
-  1 or omitted    Day
-  2               Weekday
-  3               Month
-  4               Year
-  --------------- ---------------
+|               |               |
+| ------------- | ------------- |
+| **Date\_num** | **Date unit** |
+| 1 or omitted  | Day           |
+| 2             | Weekday       |
+| 3             | Month         |
+| 4             | Year          |
 
 Step\_value    is a number that specifies the step value for the series.
 If step\_value is omitted, it is assumed to be 1.
@@ -59,11 +58,11 @@ if FALSE or omitted, Microsoft Excel generates a standard data series.
 
 **Remarks**
 
--   If you specify a positive value for stop\_value that is lower than
+  - > If you specify a positive value for stop\_value that is lower than
     > the value in the active cell of the selection, DATA.SERIES takes
     > no action.
 
--   If type\_num is 4 (AutoFill), Microsoft Excel performs an AutoFill
+  - > If type\_num is 4 (AutoFill), Microsoft Excel performs an AutoFill
     > operation just as if you had filled the selection by dragging the
     > fill selection handle or had used the FILL.AUTO macro function.
 
@@ -73,6 +72,4 @@ if FALSE or omitted, Microsoft Excel generates a standard data series.
 
 FILL.AUTO   Copies cells or automatically fills a selection
 
-Return to [top](#A)
 
-DEFINE.NAME

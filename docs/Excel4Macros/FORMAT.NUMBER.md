@@ -1,5 +1,4 @@
 FORMAT.NUMBER
-=============
 
 Equivalent to choosing the Number tab in the Format Cells dialog box,
 which appears when you choose Cells from the Format menu. Formats
@@ -13,7 +12,7 @@ create and apply custom formats.
 
 **FORMAT.NUMBER**?(format\_text)
 
-Format\_text    is a format string, such as \"\#, \#\#0.00\", specifying
+Format\_text    is a format string, such as "\#, \#\#0.00", specifying
 which format to apply to the selection.
 
 **Related Functions**
@@ -24,6 +23,4 @@ FONT.PROPERTIES   Applies a font to the selection
 
 FORMAT.TEXT   Formats a sheet text box or a chart text item
 
-Return to [top](#E)
 
-FORMAT.OVERLAY

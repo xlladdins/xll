@@ -1,5 +1,4 @@
 LABEL.PROPERTIES
-================
 
 Sets the accelerator property of the label and group box controls on a
 worksheet or dialog sheet.
@@ -11,7 +10,7 @@ worksheet or dialog sheet.
 **LABEL.PROPERTIES**?(accel\_text, accel\_text2, 3d\_shading)
 
 Accel\_text    is a text string containing the character to use as the
-label\'s accelerator key on a dialog sheet. The character is matched
+label's accelerator key on a dialog sheet. The character is matched
 against the text of the control, and the first matching character is
 underlined. When the user presses ALT+accel\_text in Microsoft Excel for
 Windows or COMMAND+accel\_text in Microsoft Excel for the Macintosh, the
@@ -36,6 +35,4 @@ controls
 
 PUSHBUTTON.PROPERTIES   Sets the properties of the push button control
 
-Return to [top](#H)
 
-LAST.ERROR

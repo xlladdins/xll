@@ -1,5 +1,4 @@
 APP.ACTIVATE
-============
 
 Switches to an application. Use APP.ACTIVATE to switch to another
 application that is already running or that you have started by using
@@ -15,17 +14,20 @@ software version 7.0 or later for this function.
 Title\_text    is the name of an application as displayed in its title
 bar.
 
--   If title\_text is omitted, APP.ACTIVATE switches to Microsoft Excel.
+  - > If title\_text is omitted, APP.ACTIVATE switches to Microsoft
+    > Excel.
 
--   If title\_text is not a currently running application, APP.ACTIVATE
-    > returns the \#VALUE! error value and interrupts the macro.
+  - > If title\_text is not a currently running application,
+    > APP.ACTIVATE returns the \#VALUE\! error value and interrupts the
+    > macro.
 
--   Title\_text is not necessarily the name of the application file. Use
-    > the text that appears in the title bar of the application, which
-    > might include the name of the open workbook and path information.
+  - > Title\_text is not necessarily the name of the application file.
+    > Use the text that appears in the title bar of the application,
+    > which might include the name of the open workbook and path
+    > information.
 
--   In Microsoft Excel for the Macintosh, title\_text can also refer to
-    > the Process Serial Number (PSN) that is returned by an EXEC
+  - > In Microsoft Excel for the Macintosh, title\_text can also refer
+    > to the Process Serial Number (PSN) that is returned by an EXEC
     > function.
 
 >  
@@ -33,10 +35,10 @@ bar.
 Wait\_logical    is a logical value determining when to switch to the
 application specified by title\_text.
 
--   If wait\_logical is TRUE, Microsoft Excel waits to be switched to
+  - > If wait\_logical is TRUE, Microsoft Excel waits to be switched to
     > before switching to the application specified by title\_text.
 
--   If wait\_logical is FALSE or omitted, Microsoft Excel immediately
+  - > If wait\_logical is FALSE or omitted, Microsoft Excel immediately
     > switches to the application specified by title\_text.
 
 >  
@@ -54,12 +56,12 @@ Microsoft Excel first.
 The following macro formula switches to Microsoft Word, which is
 currently displaying the workbook MONTHRPT.DOC in full screen mode:
 
-APP.ACTIVATE(\"MICROSOFT WORD - MONTHRPT.DOC\")
+APP.ACTIVATE("MICROSOFT WORD - MONTHRPT.DOC")
 
 In Microsoft Excel for the Macintosh, the following macro formula
 switches to Microsoft Word:
 
-APP.ACTIVATE(\"MICROSOFT WORD\")
+APP.ACTIVATE("MICROSOFT WORD")
 
 **Tip**   Use an IF statement with APP.ACTIVATE to run an EXEC function
 if the application you want to switch to is not yet running.
@@ -81,6 +83,4 @@ APP.SIZE   Changes the size of the Microsoft Excel application window
 
 EXEC   Starts another application
 
-Return to [top](#A)
 
-APP.ACTIVATE.MICROSOFT

@@ -1,8 +1,7 @@
 LINK.COMBO
-==========
 
 Links an edit box and a list box control into a linked combination box
-group. The resulting linked controls track each other\'s selection and
+group. The resulting linked controls track each other's selection and
 contents. Linked edit and list box combinations are similar to an
 editable drop-down list box, except that the list box is permanently
 visible and dropped down.
@@ -18,8 +17,8 @@ FALSE, the controls will be unlinked.
 **Remarks**
 
 To use this function, first select the list box and edit box to be
-linked or unlinked. You can do this with SELECT(\"list box 1,Edit box
-2\").
+linked or unlinked. You can do this with SELECT("list box 1,Edit box
+2").
 
 **Examples**
 
@@ -32,6 +31,4 @@ worksheet or dialog sheet control
 
 SELECT.LIST.ITEM   Selects an item in a list box or in a group box
 
-Return to [top](#H)
 
-LINK.FORMAT

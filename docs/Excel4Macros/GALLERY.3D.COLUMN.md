@@ -1,5 +1,4 @@
 GALLERY.3D.COLUMN
-=================
 
 Changes the format of the active chart to a 3-D column chart.
 
@@ -12,6 +11,4 @@ Changes the format of the active chart to a 3-D column chart.
 Type\_num    is the number of the 3-D Column format that you want to
 apply to the chart.
 
-Return to [top](#E)
 
-GALLERY.3D.LINE

@@ -1,5 +1,4 @@
 ATTACH.TOOLBARS
-===============
 
 Displays the Attach Toolbars dialog box, which you use to attach or
 associate toolbars with documents. The Attach Toolbars dialog box is
@@ -10,6 +9,4 @@ submenu), click the Toolbars tab, and then click the Attach button.
 
 **ATTACH.TOOLBARS**?( )
 
-Return to [top](#A)
 
-AUTO.OUTLINE

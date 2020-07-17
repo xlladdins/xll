@@ -1,5 +1,4 @@
 MAIL.REPLY.ALL
-==============
 
 Equivalent to clicking the Reply All command on the Mail submenu of the
 File menu. Replies to the sender and all recipients of the current
@@ -14,8 +13,8 @@ Microsoft Excel and Apple PowerTalk only.
 
 **Remarks**
 
-Returns the \#VALUE! error value or \#N/A if the current workbook has no
-mailer.
+Returns the \#VALUE\! error value or \#N/A if the current workbook has
+no mailer.
 
 **Related Functions**
 
@@ -27,6 +26,4 @@ workbook
 
 MAIL.ADD.MAILER   Adds a new PowerTalk mailer to the active workbook
 
-Return to [top](#H)
 
-MAIL.SEND.MAILER

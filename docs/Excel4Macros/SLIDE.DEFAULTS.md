@@ -1,5 +1,4 @@
 SLIDE.DEFAULTS
-==============
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -25,11 +24,9 @@ omitted, its default value is not changed.
 
 **Remarks**
 
--   SLIDE.DEFAULTS returns TRUE if it successfully changes the default
+  - > SLIDE.DEFAULTS returns TRUE if it successfully changes the default
     > values, or FALSE if you click the Cancel button when using the
     > dialog-box form. If the active sheet is not a slide show or is
     > protected, SLIDE.DEFAULTS returns the \#N/A error value.
 
-Return to [top](#Q)
 
-SLIDE.DELETE.ROW

@@ -1,5 +1,4 @@
 FILE.CLOSE
-==========
 
 Equivalent to clicking the Close command on the File menu. Closes the
 active workbook.
@@ -11,24 +10,24 @@ active workbook.
 Save\_logical    is a logical value specifying whether to save the file
 before closing it.
 
-  ------------------- --------------------------------------------------------------------------------------------------------
-  **Save\_logical**   **Result**
-  TRUE                Saves the workbook
-  FALSE               Does not save the workbook
-  Omitted             If you\'ve made changes to the workbook, displays a dialog box asking if you want to save the workbook
-  ------------------- --------------------------------------------------------------------------------------------------------
+|                   |                                                                                                       |
+| ----------------- | ----------------------------------------------------------------------------------------------------- |
+| **Save\_logical** | **Result**                                                                                            |
+| TRUE              | Saves the workbook                                                                                    |
+| FALSE             | Does not save the workbook                                                                            |
+| Omitted           | If you've made changes to the workbook, displays a dialog box asking if you want to save the workbook |
 
 Route\_logical    is a logical value that specifies whether to route the
 file after closing it. This argument is ignored if there is not a
 routing slip present.
 
-  -------------------- -------------------------
-  **Route\_logical**   **Result**
-  TRUE                 Routes the file
-  FALSE                Does not route the file
-  -------------------- -------------------------
+|                    |                         |
+| ------------------ | ----------------------- |
+| **Route\_logical** | **Result**              |
+| TRUE               | Routes the file         |
+| FALSE              | Does not route the file |
 
-Omitted   If you\'ve specified recipients for routing, displays a dialog
+Omitted   If you've specified recipients for routing, displays a dialog
 box asking if you want to save the file
 
 **Remarks**
@@ -49,6 +48,4 @@ CLOSE.ALL   Closes all unprotected windows
 
 FCLOSE   Closes a text file
 
-Return to [top](#E)
 
-FILE.DELETE

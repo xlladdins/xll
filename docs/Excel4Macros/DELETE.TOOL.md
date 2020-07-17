@@ -1,5 +1,4 @@
 DELETE.TOOL
-===========
 
 Equivalent to selecting a button and dragging it to an area other than a
 toolbar. Deletes a button from a toolbar.
@@ -24,6 +23,4 @@ ADD.TOOLBAR   Creates a new toolbar with the specified buttons
 
 DELETE.TOOLBAR   Deletes custom toolbars
 
-Return to [top](#A)
 
-DELETE.TOOLBAR

@@ -1,5 +1,4 @@
 LINK.FORMAT
-===========
 
 Links the number format of the selected data label to the worksheet cell
 or range containing the data label text.
@@ -8,6 +7,4 @@ or range containing the data label text.
 
 **LINK.FORMAT**( )
 
-Return to [top](#H)
 
-LINKS

@@ -1,5 +1,4 @@
 PASTE
-=====
 
 Equivalent to clicking the Paste command on the Edit menu. Pastes a
 selection or object that you copied or cut using the COPY or CUT
@@ -30,6 +29,4 @@ PASTE.LINK   Pastes copied data and establishes a link to its source
 
 PASTE.SPECIAL   Pastes specific components of copied data
 
-Return to [top](#H)
 
-PASTE.LINK

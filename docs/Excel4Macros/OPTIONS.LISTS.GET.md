@@ -1,5 +1,4 @@
 OPTIONS.LISTS.GET
-=================
 
 Returns contents of custom AutoFill lists as an array of text strings.
 
@@ -18,7 +17,7 @@ list.
 **Example**
 
 OPTIONS.LIST.GET(3) returns the twelve months of the year in the form
-{\"Jan\", \"Feb\", \"Mar\"}
+{"Jan", "Feb", "Mar"}
 
 **Remarks**
 
@@ -32,6 +31,4 @@ OPTIONS.LISTS.DELETE   Deletes a custom list
 
 OPTIONS.VIEW   Sets various view settings
 
-Return to [top](#H)
 
-OPTIONS.TRANSITION

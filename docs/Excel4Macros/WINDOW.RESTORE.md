@@ -1,5 +1,4 @@
 WINDOW.RESTORE
-==============
 
 Changes the active window from maximized or minimized size to its
 previous size. In Microsoft Excel for Windows, using WINDOW.RESTORE is
@@ -14,22 +13,22 @@ title bar or clicking the zoom box.
 
 Window\_text    specifies which window to switch to and restore.
 
--   Window\_text is text enclosed in quotation marks or a reference to a
-    > cell containing text.
+  - > Window\_text is text enclosed in quotation marks or a reference to
+    > a cell containing text.
 
--   If window\_text is omitted, Microsoft Excel restores the active
+  - > If window\_text is omitted, Microsoft Excel restores the active
     > window.
 
 >  
 
 **Remarks**
 
--   If the window is minimized, WINDOW.RESTORE restores the icon to its
-    > previous size. This operation is equivalent to double-clicking the
-    > icon.
+  - > If the window is minimized, WINDOW.RESTORE restores the icon to
+    > its previous size. This operation is equivalent to double-clicking
+    > the icon.
 
--   WINDOW.RESTORE replaces FULL(FALSE) in earlier versions of Microsoft
-    > Excel.
+  - > WINDOW.RESTORE replaces FULL(FALSE) in earlier versions of
+    > Microsoft Excel.
 
 >  
 
@@ -43,6 +42,4 @@ WINDOW.MOVE   Moves a window
 
 WINDOW.SIZE   Changes the size of a window
 
-Return to [top](#T)
 
-WINDOWS

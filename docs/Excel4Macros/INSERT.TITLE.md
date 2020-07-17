@@ -1,5 +1,4 @@
 INSERT.TITLE
-============
 
 Attaches text to various parts of a chart.
 
@@ -42,6 +41,4 @@ To change the text in a selected title, use the FORMULA function.
 
 FORMULA   Enters formulas in a chart
 
-Return to [top](#H)
 
-JUSTIFY

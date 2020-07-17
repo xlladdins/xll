@@ -1,5 +1,4 @@
-FILL.DOWN
-=========================================
+FILL.DOWN, FILL.LEFT, FILL.RIGHT, FILL.UP
 
 Equivalent to clicking the Down, Left, Right, and Up commands,
 respectively, on the Fill submenu of the Edit menu.
@@ -41,6 +40,4 @@ FILL.AUTO   Copies cells or automatically fills a selection
 
 FORMULA.FILL   Enters a formula in the specified range
 
-Return to [top](#E)
 
-FILL.GROUP

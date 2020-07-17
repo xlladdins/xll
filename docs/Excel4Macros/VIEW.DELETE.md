@@ -1,5 +1,4 @@
 VIEW.DELETE
-===========
 
 Equivalent to selecting a view and clicking the Delete button in the
 Custom Views dialog box, which appears when you click the Custom Views
@@ -29,6 +28,4 @@ VIEW.DEFINE   Creates or replaces a view
 
 VIEW.SHOW   Shows a view
 
-Return to [top](#T)
 
-VIEW.GET

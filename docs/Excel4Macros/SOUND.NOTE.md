@@ -1,5 +1,4 @@
 SOUND.NOTE
-==========
 
 This function should not be used in Microsoft Excel 97 or later because
 sound notes are available only in Microsoft Excel 95 or earlier
@@ -36,44 +35,44 @@ File\_text    is the name of a file containing sounds.
 Resource    is the number or name of a sound resource in file\_text that
 you want to import into your note.
 
--   This argument applies only to Microsoft Excel for the Macintosh.
+  - > This argument applies only to Microsoft Excel for the Macintosh.
 
--   If resource is omitted, Microsoft Excel uses the first resource in
+  - > If resource is omitted, Microsoft Excel uses the first resource in
     > the file.
 
--   If the file does not contain a sound resource with the specified
+  - > If the file does not contain a sound resource with the specified
     > name or number, Microsoft Excel halts the macro and displays an
     > error message.
 
 **Remarks**
 
--   To find out if a cell has sound attached to it, use GET.CELL(47).
+  - > To find out if a cell has sound attached to it, use GET.CELL(47).
 
--   Sounds notes are not available in Microsoft Excel 97 or later.
+  - > Sounds notes are not available in Microsoft Excel 97 or later.
 
 **Examples**
 
 The following macro formula erases the sound, if present, from cell A1
 on the active sheet:
 
-SOUND.NOTE(!\$A\$1, TRUE)
+SOUND.NOTE(\!$A$1, TRUE)
 
 The following macro formula displays the Record dialog box so that you
 can record sound into a note for cell A1 on the active sheet:
 
-SOUND.NOTE(!\$A\$1)
+SOUND.NOTE(\!$A$1)
 
 In Microsoft Excel for Windows, the following macro formula imports the
 sound from a file named CHIMES.WAV into a note for the cell named
 Doorbell on the active sheet:
 
-SOUND.NOTE(!Doorbell, \"C:\\SOUNDS\\CHIMES.WAV\")
+SOUND.NOTE(\!Doorbell, "C:\\SOUNDS\\CHIMES.WAV")
 
 In Microsoft Excel for the Macintosh, the following macro formula
 imports a sound called Chimes from a file named SOFT SOUNDS into a note
 for the cell named Doorbell on the active sheet:
 
-SOUND.NOTE(!Doorbell, \"HARD DISK:SOUNDS:SOFT SOUNDS\", \"Chimes\")
+SOUND.NOTE(\!Doorbell, "HARD DISK:SOUNDS:SOFT SOUNDS", "Chimes")
 
 **Related Functions**
 
@@ -81,6 +80,4 @@ NOTE   Creates or changes a cell note
 
 SOUND.PLAY   Plays the sound from a cell note or a file
 
-Return to [top](#Q)
 
-SOUND.PLAY

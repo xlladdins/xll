@@ -1,5 +1,4 @@
 RENAME.OBJECT
-=============
 
 Renames the selected object or group. This is useful for giving objects
 names more relevant to their usage. This is also useful if it is
@@ -20,6 +19,4 @@ menu
 
 SELECT Syntax 2   Selects objects on worksheets
 
-Return to [top](#Q)
 
-REPLACE.FONT

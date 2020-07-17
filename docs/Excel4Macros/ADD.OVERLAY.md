@@ -1,5 +1,4 @@
 ADD.OVERLAY
-===========
 
 Equivalent to clicking the Add Overlay command on the Chart menu in
 Microsoft Excel version 4.0. Adds an overlay to a 2-D chart. If the
@@ -17,6 +16,4 @@ ADD.ARROW   Adds an arrow to a chart
 
 LEGEND   Adds a legend to a chart
 
-Return to [top](#A)
 
-ADD.TOOL

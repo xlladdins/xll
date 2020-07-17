@@ -1,5 +1,4 @@
 EVALUATE
-========
 
 Evaluates a formula or expression that is in the form of text and
 returns the result. To run a macro or subroutine, use the RUN function.
@@ -25,12 +24,10 @@ LabResult2, or LabResult3, where the 1, 2, or 3 is specified by the name
 TrialNum whose value may change as the macro runs. You can use the
 following formula to calculate the value:
 
-EVALUATE(\"LabResult\"&TrialNum)
+EVALUATE("LabResult"\&TrialNum)
 
 **Related Function**
 
 RUN   Runs a macro
 
-Return to [top](#E)
 
-EXEC

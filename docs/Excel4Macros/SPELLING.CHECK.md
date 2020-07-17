@@ -1,5 +1,4 @@
 SPELLING.CHECK
-==============
 
 Checks the spelling of a word. Returns TRUE if the word is spelled
 correctly; FALSE otherwise.
@@ -29,6 +28,4 @@ dialog box, use SPELLING.
 
 SPELLING   Checks the spelling of words in the current selection
 
-Return to [top](#Q)
 
-SPLIT

@@ -1,5 +1,4 @@
 SERIES.Y
-========
 
 Equivalent to the Name and Values tab in the Format Data Series dialog
 box. Specifies the name and values for a data series. This function is
@@ -21,6 +20,4 @@ range containing the values for the data series.
 
 SERIES.X   Specifies the category labels (x values) for a data series
 
-Return to [top](#Q)
 
-SET.CONTROL.VALUE

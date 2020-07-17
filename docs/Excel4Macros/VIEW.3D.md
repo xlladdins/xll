@@ -1,5 +1,4 @@
 VIEW.3D
-=======
 
 Equivalent to clicking the 3-D View command on the Format menu in
 Microsoft Excel version 4.0, available when a chart sheet is the active
@@ -17,13 +16,13 @@ Elevation    is a number from -90 to 90 specifying the viewing elevation
 of the chart and is measured in degrees. Elevation corresponds to the
 Elevation box in the 3-D View dialog box in Microsoft Excel version 4.0.
 
--   If elevation is 0, you view the chart straight on. If elevation is
-    > 90, you view the chart from above (a \"bird\'s eye view\"). If
+  - > If elevation is 0, you view the chart straight on. If elevation is
+    > 90, you view the chart from above (a "bird's eye view"). If
     > elevation is -90, you view the chart from below.
 
--   If elevation is omitted, the current value is used..
+  - > If elevation is omitted, the current value is used..
 
--   Elevation is limited to 0 to 44 for 3-D bar charts and 0 to 80 for
+  - > Elevation is limited to 0 to 44 for 3-D bar charts and 0 to 80 for
     > 3-D pie charts.
 
 >  
@@ -32,11 +31,11 @@ Perspective    is a number from 0 to 100% specifying the perspective of
 the chart. Perspective corresponds to the Perspective box in the 3-D
 View dialog box in Microsoft Excel version 4.0.
 
--   A higher perspective value simulates a closer view.
+  - > A higher perspective value simulates a closer view.
 
--   If perspective is omitted, the current value is used..
+  - > If perspective is omitted, the current value is used..
 
--   Perspective is ignored on 3-D bar and pie charts.
+  - > Perspective is ignored on 3-D bar and pie charts.
 
 >  
 
@@ -46,9 +45,9 @@ corresponds to the Rotation box in the 3-D View dialog box in Microsoft
 Excel version 4.0. As you rotate the chart, the back and side walls are
 moved so that they do not block the chart.
 
--   If rotation is omitted, the current value is used..
+  - > If rotation is omitted, the current value is used..
 
--   Rotation is limited to 0 to 44 for 3-D bar charts.
+  - > Rotation is limited to 0 to 44 for 3-D bar charts.
 
 >  
 
@@ -57,14 +56,14 @@ plane of the screen or can rotate with the chart. Axes corresponds to
 the Right Angle Axes check box in the 3-D View dialog box in Microsoft
 Excel version 4.0.
 
--   If axes is TRUE, Microsoft Excel locks the axes.
+  - > If axes is TRUE, Microsoft Excel locks the axes.
 
--   If axes is FALSE, Microsoft Excel allows the axes to rotate.
+  - > If axes is FALSE, Microsoft Excel allows the axes to rotate.
 
--   If axes is omitted and the chart view is 3-D layout, axes is assumed
-    > to be FALSE.
+  - > If axes is omitted and the chart view is 3-D layout, axes is
+    > assumed to be FALSE.
 
--   Axes is TRUE for 3-D bar charts and ignored for 3-D pie charts.
+  - > Axes is TRUE for 3-D bar charts and ignored for 3-D pie charts.
 
 >  
 
@@ -84,6 +83,4 @@ setting is not changed.
 
 FORMAT.MAIN   Formats a main chart
 
-Return to [top](#T)
 
-VIEW.DEFINE

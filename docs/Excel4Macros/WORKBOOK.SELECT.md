@@ -1,5 +1,4 @@
 WORKBOOK.SELECT
-===============
 
 Equivalent to selecting a sheet or group of sheets in the active
 workbook. If you select a group of sheets, subsequent commands effect
@@ -27,6 +26,4 @@ GET.WORKBOOK   Returns information about a workbook
 
 SELECT   Selects a cell, worksheet object, or chart item
 
-Return to [top](#T)
 
-WORKBOOK.TAB.SPLIT

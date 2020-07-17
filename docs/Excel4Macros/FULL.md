@@ -1,5 +1,4 @@
 FULL
-====
 
 Equivalent to pressing CTRL+F10 (full size) and CTRL+F5 (previous size)
 or double-clicking the title bar in Microsoft Excel for Windows version
@@ -15,6 +14,4 @@ later, use the WINDOW.RESTORE function.
 
 **FULL**(logical)
 
-Return to [top](#E)
 
-FULL.SCREEN

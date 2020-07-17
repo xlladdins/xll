@@ -1,5 +1,4 @@
 TRACER.ERROR
-============
 
 Equivalent to clicking the Trace Error button on the Auditing toolbar on
 a worksheet. Allow tracer arrows to be graphically displayed showing
@@ -14,11 +13,11 @@ error occurred. Returns FALSE if an error is not found.
 
 **Remark**
 
--   Returns the \#VALUE! error value if not available; for example, the
-    > selection is something other than worksheet, or cell(s) that
+  - > Returns the \#VALUE\! error value if not available; for example,
+    > the selection is something other than worksheet, or cell(s) that
     > cannot be traced.
 
--   If you need to know if there is an error in a cell, use ISERROR().
+  - > If you need to know if there is an error in a cell, use ISERROR().
 
 **Related Functions**
 
@@ -26,6 +25,4 @@ TRACER.DISPLAY   Allows tracer arrow to be displayed
 
 TRACER.CLEAR   Clears all tracer arrows on the worksheet
 
-Return to [top](#T)
 
-TRACER.NAVIGATE

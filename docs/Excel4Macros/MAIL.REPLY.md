@@ -1,5 +1,4 @@
 MAIL.REPLY
-==========
 
 Equivalent to clicking the Reply command on the Mail submenu of the File
 menu. Replies to the sender of the current letter.
@@ -13,10 +12,10 @@ Microsoft Excel and Apple PowerTalk only.
 
 **Remarks**
 
--   Returns the \#VALUE! error value or \#N/A if the current workbook
+  - > Returns the \#VALUE\! error value or \#N/A if the current workbook
     > has no mailer.
 
--   The letter must currently be open.
+  - > The letter must currently be open.
 
 **Related Functions**
 
@@ -28,6 +27,4 @@ workbook
 
 MAIL.ADD.MAILER   Adds a new PowerTalk mailer to the active workbook
 
-Return to [top](#H)
 
-MAIL.REPLY.ALL

@@ -1,5 +1,4 @@
 FONT
-====
 
 Equivalent to clicking the Font command on the Options menu in Microsoft
 Excel for the Macintosh version 1.5 or earlier. This function is
@@ -19,6 +18,4 @@ DEFINE.STYLE   Creates or changes a cell style
 
 FONT.PROPERTIES   Sets various font properties
 
-Return to [top](#E)
 
-FONT.PROPERTIES

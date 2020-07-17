@@ -1,5 +1,4 @@
 SHOW.DIALOG
-===========
 
 Runs a dialog on a dialog sheet.
 
@@ -23,6 +22,4 @@ pressing COMMAND+. (period).
 
 HIDE.DIALOG   Closes the dialog box that has the current focus
 
-Return to [top](#Q)
 
-SHOW.INFO

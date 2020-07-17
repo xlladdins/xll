@@ -1,5 +1,4 @@
 RESET.TOOLBAR
-=============
 
 Resets built-in toolbars to the default Microsoft Excel set.
 
@@ -13,7 +12,7 @@ reset. For detailed information about bar\_id, see ADD.TOOL.
 **Remarks**
 
 If RESET.TOOLBAR successfully resets the toolbar, it returns TRUE. If
-you try to reset a custom toolbar, RESET.TOOLBAR returns \#VALUE! and
+you try to reset a custom toolbar, RESET.TOOLBAR returns \#VALUE\! and
 takes no other action.
 
 **Related Functions**
@@ -22,6 +21,4 @@ ADD.TOOL   Adds one or more tools to a toolbar
 
 DELETE.TOOLBAR   Deletes custom toolbars
 
-Return to [top](#Q)
 
-RESTART

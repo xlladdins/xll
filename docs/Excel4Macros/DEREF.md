@@ -1,5 +1,4 @@
 DEREF
-=====
 
 Returns the value of the cells in a reference.
 
@@ -34,6 +33,4 @@ See the sixth example for SET.NAME.
 
 SET.NAME   Defines a names as a value
 
-Return to [top](#A)
 
-DESCR

@@ -1,5 +1,4 @@
 WINDOWS
-=======
 
 Returns the names of the specified open Microsoft Excel windows,
 including hidden windows. Use WINDOWS to get a list of active windows
@@ -16,12 +15,12 @@ name is the window directly under the active window, and so on.
 Type\_num    is a number that specifies which types of workbooks are
 returned by WINDOWS, according to the following table.
 
-  --------------- --------------------------------------------------------
-  **Type\_num**   **Returns window names from these types of documents**
-  1 or omitted    All windows except those belonging to add-in workbooks
-  2               Add-in workbooks only
-  3               All types of workbooks
-  --------------- --------------------------------------------------------
+|               |                                                        |
+| ------------- | ------------------------------------------------------ |
+| **Type\_num** | **Returns window names from these types of documents** |
+| 1 or omitted  | All windows except those belonging to add-in workbooks |
+| 2             | Add-in workbooks only                                  |
+| 3             | All types of workbooks                                 |
 
 Match\_text    specifies the windows whose names you want returned and
 can include wildcard characters. If match\_text is omitted, WINDOWS
@@ -29,15 +28,15 @@ returns the names of all open windows.
 
 **Tips**
 
--   You can change the output of a horizontal array to vertical with the
-    > TRANSPOSE function.
+  - > You can change the output of a horizontal array to vertical with
+    > the TRANSPOSE function.
 
--   You can use WINDOWS with the INDEX function to select individual
+  - > You can use WINDOWS with the INDEX function to select individual
     > window names from the array for use in other functions that take
     > window names as arguments.
 
--   You can use the COLUMNS functions to count the number of entries in
-    > the array, which is the number of windows.
+  - > You can use the COLUMNS functions to count the number of entries
+    > in the array, which is the number of windows.
 
 >  
 
@@ -46,7 +45,7 @@ returns the names of all open windows.
 If the active window, named BOOK1, is on top of a window named MACROS:2,
 which is on top of a window named MACROS:1, then:
 
-WINDOWS() equals {\"BOOK1\", \"MACROS:2\", \"MACROS:1\"}
+WINDOWS() equals {"BOOK1", "MACROS:2", "MACROS:1"}
 
 **Related Functions**
 
@@ -60,6 +59,4 @@ NEW.WINDOW   Creates a new window for an existing sheet or macro sheet
 
 ON.WINDOW   Runs a macro when you switch to a window
 
-Return to [top](#T)
 
-WINDOW.SIZE

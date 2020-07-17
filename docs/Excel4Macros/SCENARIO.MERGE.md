@@ -1,5 +1,4 @@
 SCENARIO.MERGE
-==============
 
 Equivalent to choosing the Scenarios command from the Tools menu and
 then selecting Merge. This function merges scenarios from other sheets
@@ -20,6 +19,4 @@ merge scenarios onto the active sheet.
 SCENARIO.GET   Returns the specified information about the scenarios
 defined on your worksheet
 
-Return to [top](#Q)
 
-SCENARIO.SHOW

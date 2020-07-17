@@ -1,5 +1,4 @@
 RANDOM
-======
 
 Fills a range with independent random or patterned numbers drawn from
 one of several distributions.
@@ -92,23 +91,74 @@ Points is ignored when distribution is 6 (Patterned).
 
 Distribution    indicates the type of number distribution.
 
-+--------------------+-------------------------+
-| > **Distribution** | > **Distribution type** |
-+--------------------+-------------------------+
-| > 1                | > Uniform               |
-+--------------------+-------------------------+
-| > 2                | > Normal                |
-+--------------------+-------------------------+
-| > 3                | > Bernoulli             |
-+--------------------+-------------------------+
-| > 4                | > Binomial              |
-+--------------------+-------------------------+
-| > 5                | > Poisson               |
-+--------------------+-------------------------+
-| > 6                | > Patterned             |
-+--------------------+-------------------------+
-| > 7                | > Discrete              |
-+--------------------+-------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Distribution</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Distribution type</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Uniform</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Normal</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Bernoulli</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Binomial</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Poisson</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Patterned</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Discrete</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Seed    is an optional value with which to begin random number
 generation. Seed is ignored when distribution is 6 (Patterned) or 7
@@ -136,6 +186,4 @@ Repeat\_seq    is the number of times to repeat each sequence of values.
 
 Inprng    is a two-column range of values and their probabilities.
 
-Return to [top](#Q)
 
-RANKPERC

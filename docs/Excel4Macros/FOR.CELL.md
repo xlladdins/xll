@@ -1,5 +1,4 @@
 FOR.CELL
-========
 
 Starts a FOR.CELL-NEXT loop. This function is similar to FOR, except
 that the instructions between FOR.CELL and NEXT are repeated over a
@@ -20,11 +19,11 @@ omitted, it is assumed to be the current selection.
 Skip\_blanks    is a logical value specifying whether Microsoft Excel
 skips blank cells as it operates on the cells in area\_ref.
 
-  ------------------ ------------------------------------
-  **Skip\_blanks**   **Result**
-  TRUE               Skips blank cells in area\_ref
-  FALSE or omitted   Operates on all cells in area\_ref
-  ------------------ ------------------------------------
+|                  |                                    |
+| ---------------- | ---------------------------------- |
+| **Skip\_blanks** | **Result**                         |
+| TRUE             | Skips blank cells in area\_ref     |
+| FALSE or omitted | Operates on all cells in area\_ref |
 
 **Remarks**
 
@@ -37,7 +36,7 @@ The following macro starts a FOR.CELL-NEXT loop and uses the name
 CurrentCell to refer to the cell in the range that is currently being
 operated on:
 
-FOR.CELL(\"CurrentCell\", SELECTION(), TRUE)
+FOR.CELL("CurrentCell", SELECTION(), TRUE)
 
 **Related Functions**
 
@@ -49,6 +48,4 @@ NEXT   Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
 WHILE   Starts a WHILE-NEXT loop
 
-Return to [top](#E)
 
-FORMAT.AUTO

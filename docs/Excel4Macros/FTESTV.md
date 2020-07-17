@@ -1,5 +1,4 @@
 FTESTV
-======
 
 Performs a two-sample F-test.
 
@@ -22,13 +21,11 @@ blank, or omitted, places the output table in a new workbook.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of inprng1 and
+  - > If labels is TRUE, then the first row or column of inprng1 and
     > inprng2 contain labels.
 
--   If labels is FALSE or omitted, all cells in inprng1 and inprng2 are
-    > considered data. Microsoft Excel generates appropriate data labels
-    > for the output table.
+  - > If labels is FALSE or omitted, all cells in inprng1 and inprng2
+    > are considered data. Microsoft Excel generates appropriate data
+    > labels for the output table.
 
-Return to [top](#E)
 
-FULL

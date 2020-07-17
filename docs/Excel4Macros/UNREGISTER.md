@@ -1,5 +1,4 @@
 UNREGISTER
-==========
 
 Unregisters a previously registered dynamic link library (DLL) or code
 resource. You can use UNREGISTER to free memory that was allocated to a
@@ -61,13 +60,13 @@ UNREGISTER(A5)
 You could also use REGISTER.ID to return the register ID, instead of
 specifying a cell reference:
 
-UNREGISTER(REGISTER.ID(\"User\", \"GetTickCount\")
+UNREGISTER(REGISTER.ID("User", "GetTickCount")
 
 Assuming that you have registered several different functions from the
 USER.EXE DLL of Microsoft Windows, the following macro formula
 unregisters all functions in that DLL:
 
-UNREGISTER(\"User\")
+UNREGISTER("User")
 
 **Tip   **If you register a function or code resource, and use the
 optional function\_text argument to specify a custom name that will
@@ -79,6 +78,4 @@ SET.NAME function without its second argument.
 
 REGISTER   Registers a code resource
 
-Return to [top](#T)
 
-UPDATE.LINK

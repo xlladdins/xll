@@ -1,5 +1,4 @@
 NEW.WINDOW
-==========
 
 Equivalent to clicking the New Window command on the Window menu.
 Creates a new window for the active workbook.
@@ -20,6 +19,4 @@ WINDOW.MOVE   Moves a window
 
 WINDOW.SIZE   Changes the size of a window
 
-Return to [top](#H)
 
-NEXT

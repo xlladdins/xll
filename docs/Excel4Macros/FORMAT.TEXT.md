@@ -1,5 +1,4 @@
 FORMAT.TEXT
-===========
 
 Formats the selected worksheet text box or button or any text item on a
 chart.
@@ -21,35 +20,35 @@ the current setting is used.
 X\_align    is a number from 1 to 4 specifying the horizontal alignment
 of the text.
 
-  -------------- --------------------------
-  **X\_align**   **Horizontal alignment**
-  1              Left
-  2              Center
-  3              Right
-  4              Justify
-  -------------- --------------------------
+|              |                          |
+| ------------ | ------------------------ |
+| **X\_align** | **Horizontal alignment** |
+| 1            | Left                     |
+| 2            | Center                   |
+| 3            | Right                    |
+| 4            | Justify                  |
 
 Y\_align    is a number from 1 to 4 specifying the vertical alignment of
 the text.
 
-  -------------- ------------------------
-  **Y\_align**   **Vertical alignment**
-  1              Top
-  2              Center
-  3              Bottom
-  4              Justify
-  -------------- ------------------------
+|              |                        |
+| ------------ | ---------------------- |
+| **Y\_align** | **Vertical alignment** |
+| 1            | Top                    |
+| 2            | Center                 |
+| 3            | Bottom                 |
+| 4            | Justify                |
 
 Orient\_num    is a number from 0 to 3 specifying the orientation of the
 text.
 
-  ----------------- ----------------------
-  **Orient\_num**   **Text orientation**
-  0                 Horizontal
-  1                 Vertical
-  2                 Upward
-  3                 Downward
-  ----------------- ----------------------
+|                 |                      |
+| --------------- | -------------------- |
+| **Orient\_num** | **Text orientation** |
+| 0               | Horizontal           |
+| 1               | Vertical             |
+| 2               | Upward               |
+| 3               | Downward             |
 
 Auto\_text    corresponds to the Automatic Text check box. If the
 selected text was created with the Data Labels command from the Insert
@@ -75,13 +74,13 @@ item.
 Add\_indent   This argument is for only Far East versions of Microsoft
 Excel.
 
-  ------------------------------ ---------------------------------------------
-  **Text item**                  **Arguments that apply**
-  Worksheet text box or button   X\_align, y\_align, orient\_num, auto\_size
-  Attached data label            All arguments
-  Unattached text label          X\_align, y\_align, orient\_num, auto\_size
-  Tickmark label                 Orient\_num
-  ------------------------------ ---------------------------------------------
+|                              |                                             |
+| ---------------------------- | ------------------------------------------- |
+| **Text item**                | **Arguments that apply**                    |
+| Worksheet text box or button | X\_align, y\_align, orient\_num, auto\_size |
+| Attached data label          | All arguments                               |
+| Unattached text label        | X\_align, y\_align, orient\_num, auto\_size |
+| Tickmark label               | Orient\_num                                 |
 
 **Related Functions**
 
@@ -91,6 +90,4 @@ FONT.PROPERTIES   Applies a font to the selection
 
 FORMULA   Enters values into a cell or range or onto a chart
 
-Return to [top](#E)
 
-FORMULA

@@ -1,5 +1,4 @@
 MACRO.OPTIONS
-=============
 
 Equivalent to clicking the Options button in the Macro dialog box, which
 appears when you click the Macros command (Tools menu, Macro submenu).
@@ -47,6 +46,4 @@ macro and any related menu items or toolbar buttons.
 
 Help\_file    is the pathname of the help file for the macro.
 
-Return to [top](#H)
 
-MAIL.ADD.MAILER

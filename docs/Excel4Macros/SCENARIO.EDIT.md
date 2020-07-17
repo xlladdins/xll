@@ -1,5 +1,4 @@
 SCENARIO.EDIT
-=============
 
 Equivalent to clicking the Scenarios command from the Tools menu and
 then clicking the Edit button.
@@ -19,10 +18,10 @@ New\_scenname    is the new name you want to give to the scenario.
 Value\_array    is a horizontal array of values that you want to use for
 the scenario.
 
--   If value\_array is omitted but changing\_ref is specified, Scenario
-    > Manager uses the values in changing\_ref as value\_array.
+  - > If value\_array is omitted but changing\_ref is specified,
+    > Scenario Manager uses the values in changing\_ref as value\_array.
 
--   Value\_array must match the dimensions of changing\_ref for the
+  - > Value\_array must match the dimensions of changing\_ref for the
     > scenario being edit.
 
 Changing\_ref    is a reference to cells you want to define as changing
@@ -56,6 +55,4 @@ SCENARIO.DELETE   Equivalent to clicking the Scenario Manager command on
 the Tools menu and then selecting a scenario and clicking the Delete
 button
 
-Return to [top](#Q)
 
-SCENARIO.GET

@@ -1,5 +1,4 @@
 PASTE.PICTURE.LINK
-==================
 
 Equivalent to holding down the SHIFT key and clicking the Paste Picture
 Link command on the Edit menu in Microsoft Excel version 4.0 or to using
@@ -24,6 +23,4 @@ PASTE   Pastes cut or copied data
 
 PASTE.PICTURE   Pastes a picture of the currently copied area
 
-Return to [top](#H)
 
-PASTE.SPECIAL

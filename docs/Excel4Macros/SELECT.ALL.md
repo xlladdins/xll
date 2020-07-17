@@ -1,5 +1,4 @@
 SELECT.ALL
-==========
 
 Equivalent to selecting all the sheets in a workbook.
 
@@ -7,6 +6,4 @@ Equivalent to selecting all the sheets in a workbook.
 
 **SELECT.ALL**( )
 
-Return to [top](#Q)
 
-SELECT.CHART

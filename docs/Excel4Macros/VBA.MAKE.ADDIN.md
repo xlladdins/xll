@@ -1,5 +1,4 @@
 VBA.MAKE.ADDIN
-==============
 
 Converts a workbook containing Visual Basic procedures into an add-in.
 
@@ -13,9 +12,7 @@ to an add-in.
 **Remarks**
 
 For information about creating add-ins with Visual Basic, see Chapter
-13, \"Creating Automatic Procedures and Add-in Applications\" in the
-Visual Basic User\'s Guide.
+13, "Creating Automatic Procedures and Add-in Applications" in the
+Visual Basic User's Guide.
 
-Return to [top](#T)
 
-VIEW.3D

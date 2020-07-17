@@ -1,5 +1,4 @@
 FILTER.ADVANCED
-===============
 
 Equivalent to choosing the Advanced Filter command from the Filter
 submenu on the Data menu. Lets you set options for filtering a list.
@@ -20,7 +19,7 @@ List\_ref    specifies the location of the list to be filtered. If
 operation is 1, then list\_ref must be on the active sheet.
 
 Criteria\_ref    is a reference to a range containing criteria for
-filtering the list. If omitted, uses \"All\" as the criteria.
+filtering the list. If omitted, uses "All" as the criteria.
 
 Copy\_ref    is a reference on the active sheet where you want the
 filtered list copied. Ignored if operation is 1.
@@ -33,6 +32,4 @@ records that match the criteria, use FALSE or omit this argument.
 
 FILTER   Filters lists of data one column at a time
 
-Return to [top](#E)
 
-FILTER.SHOW.ALL

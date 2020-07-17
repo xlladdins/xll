@@ -1,10 +1,9 @@
 APP.MOVE
-========
 
 Equivalent to clicking the Move command on the Control menu for the
 application window. Moves the Microsoft Excel window. In Microsoft Excel
 for Windows, if the application window is already maximized APP.MOVE
-returns the \#VALUE! error value and interrupts the macro.
+returns the \#VALUE\! error value and interrupts the macro.
 
 **Syntax**
 
@@ -26,12 +25,12 @@ Microsoft Excel window.
 
 **Remarks**
 
--   APP.MOVE?, the dialog-box form of the function, doesn\'t display a
+  - > APP.MOVE?, the dialog-box form of the function, doesn't display a
     > dialog box. Instead, it is equivalent to pressing ALT + SPACEBAR,
     > M or to dragging the title bar with the mouse. With APP.MOVE?, you
     > can move the window with the keyboard or mouse.
 
--   If you specify x\_num and/or y\_num in the dialog-box form of the
+  - > If you specify x\_num and/or y\_num in the dialog-box form of the
     > function, the window is moved according to the specified
     > coordinates, and you are left in move mode.
 
@@ -47,6 +46,4 @@ APP.RESTORE   Restores the Microsoft Excel application window
 
 APP.SIZE   Changes the size of the Microsoft Excel application window
 
-Return to [top](#A)
 
-APP.RESTORE

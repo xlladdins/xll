@@ -1,5 +1,4 @@
 EDITBOX.PROPERTIES
-==================
 
 Sets the properties of an edit box on a dialog sheet.
 
@@ -15,14 +14,14 @@ Validation\_num    is the validation applied to the edit box when the
 dialog is dismissed. If the edit box contains a value other than the
 type specified (or validation), an error is returned.
 
-  --------------------- --------------------------------
-  **Validation\_num**   **Type**
-  1                     Text
-  2                     Integer
-  3                     Number (allows floating point)
-  4                     Reference
-  5                     Formula
-  --------------------- --------------------------------
+|                     |                                |
+| ------------------- | ------------------------------ |
+| **Validation\_num** | **Type**                       |
+| 1                   | Text                           |
+| 2                   | Integer                        |
+| 3                   | Number (allows floating point) |
+| 4                   | Reference                      |
+| 5                   | Formula                        |
 
 Multiline\_logical    is a logical value specifying whether word
 wrapping is allowed in the edit box control. If TRUE, word wrapping is
@@ -43,6 +42,4 @@ box controls
 
 PUSHBUTTON.PROPERTIES   Sets the properties of the push button control
 
-Return to [top](#E)
 
-EDIT.COLOR

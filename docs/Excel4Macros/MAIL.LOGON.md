@@ -1,5 +1,4 @@
 MAIL.LOGON
-==========
 
 Starts a mail session.
 
@@ -27,7 +26,7 @@ mail.
 
 **Remarks**
 
-Returns FALSE if you cancel the dialog box or \#VALUE! if you can\'t log
+Returns FALSE if you cancel the dialog box or \#VALUE\! if you can't log
 on.
 
 If you omit both name\_text and password\_text, Microsoft Excel tries to
@@ -37,6 +36,4 @@ log on using an existing mail session.
 
 MAIL.LOGOFF   Ends the current mail session
 
-Return to [top](#H)
 
-MAIL.NEXT.LETTER

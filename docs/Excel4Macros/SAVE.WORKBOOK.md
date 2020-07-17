@@ -1,5 +1,4 @@
 SAVE.WORKBOOK
-=============
 
 Equivalent to clicking the Save Workbook command on the File menu in
 Microsoft Excel version 4.0. Provided for compatibility with Microsoft
@@ -27,6 +26,4 @@ SAVE   Saves the active workbook
 SAVE.AS   Saves a workbook and allows you to specify the name, file
 type, password, backup file, and location of the workbook
 
-Return to [top](#Q)
 
-SAVE.WORKSPACE

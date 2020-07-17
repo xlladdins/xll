@@ -1,9 +1,8 @@
 PARSE
-=====
 
 Distributes the contents of the current selection to fill several
 adjacent columns; the selection can be no more than one column wide. Use
-PARSE to reorganize data, especially data that you\'ve read from files
+PARSE to reorganize data, especially data that you've read from files
 created by another application, such as a database.
 
 **Syntax**
@@ -29,6 +28,4 @@ When you use the PARSE function, Microsoft Excel splits the first column
 into as many columns as you specify with parse\_text and replaces any
 information in those columns.
 
-Return to [top](#H)
 
-PASTE

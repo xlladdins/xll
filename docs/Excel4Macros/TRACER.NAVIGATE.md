@@ -1,5 +1,4 @@
 TRACER.NAVIGATE
-===============
 
 Equivalent to double-clicking on a displayed tracer arrow. Moves the
 selection from one end of a tracer arrow to the other. If it is an error
@@ -25,20 +24,18 @@ dialog box will be followed. The default is 1.
 
 **Remarks**
 
--   Returns TRUE if successful. Returns FALSE if arrow\_num exceeds the
-    > number of tracer arrows or if there are no tracer arrows.
+  - > Returns TRUE if successful. Returns FALSE if arrow\_num exceeds
+    > the number of tracer arrows or if there are no tracer arrows.
 
--   Returns FALSE if ref\_num exceeds the number of links.
+  - > Returns FALSE if ref\_num exceeds the number of links.
 
--   Returns the \#VALUE! error value if not available; for example, if
-    > the selection is something other than a worksheet, or the active
-    > cell does not contain an arrow.
+  - > Returns the \#VALUE\! error value if not available; for example,
+    > if the selection is something other than a worksheet, or the
+    > active cell does not contain an arrow.
 
 **Related Function**
 
 TRACER.DISPLAY   Allows tracer arrow to be displayed showing which cells
 formulas in other cells depend on
 
-Return to [top](#T)
 
-TTESTM

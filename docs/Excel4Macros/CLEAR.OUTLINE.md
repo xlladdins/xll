@@ -1,5 +1,4 @@
 CLEAR.OUTLINE
-=============
 
 Equivalent to clicking the Clear Outline command on the Group And
 Outline submenu of the Data menu. Clears the outline within the
@@ -17,6 +16,4 @@ AUTO.OUTLINE   Creates an outline
 OUTLINE   Creates an outline and defines settings for automatically
 creating outlines
 
-Return to [top](#A)
 
-CLEAR.ROUTING.SLIP

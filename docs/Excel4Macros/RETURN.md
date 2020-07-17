@@ -1,5 +1,4 @@
 RETURN
-======
 
 Ends the currently running macro. If the currently running macro is a
 subroutine macro that was called by another macro, control is returned
@@ -15,11 +14,11 @@ or by clicking an object, control is returned to the user.
 
 Value    specifies what to return.
 
--   If the macro is a custom function or a subroutine, value specifies
+  - > If the macro is a custom function or a subroutine, value specifies
     > what value to return. However, not all subroutines return values;
     > the last line in macros that do not return values is =RETURN().
 
--   If the macro is a command macro run by the user, value should be
+  - > If the macro is a command macro run by the user, value should be
     > omitted.
 
 >  
@@ -43,6 +42,4 @@ HALT   Stops all macros from running
 
 RESULT   Specifies the data type a custom function returns
 
-Return to [top](#Q)
 
-ROUTE.DOCUMENT

@@ -1,5 +1,4 @@
 REPORT.DEFINE
-=============
 
 Equivalent to clicking the Report Manager command on the View menu and
 then clicking the Add option in the Report Manager dialog box. Creates
@@ -25,11 +24,11 @@ numbers to 1 for each new section.
 
 **Remarks**
 
--   REPORT.DEFINE returns the \#VALUE error value if report\_name is
+  - > REPORT.DEFINE returns the \#VALUE error value if report\_name is
     > invalid or if the workbook is protected.
 
--   If there are no reports defined, this function will bring up the Add
-    > Report dialog box.
+  - > If there are no reports defined, this function will bring up the
+    > Add Report dialog box.
 
 **Related Functions**
 
@@ -40,6 +39,4 @@ REPORT.PRINT   Prints a report
 REPORT.GET   Returns information about reports defined for the active
 workbook
 
-Return to [top](#Q)
 
-REPORT.DELETE

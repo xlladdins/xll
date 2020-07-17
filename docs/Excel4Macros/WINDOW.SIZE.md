@@ -1,5 +1,4 @@
 WINDOW.SIZE
-===========
 
 Equivalent to clicking the Size command on the Control menu or to
 adjusting the sizing borders (in Microsoft Excel for Windows) or the
@@ -23,23 +22,23 @@ Height    specifies the height of the window and is measured in points.
 
 Window\_text    specifies which window to size.
 
--   Window\_text is text enclosed in quotation marks or a reference to a
-    > cell containing text.
+  - > Window\_text is text enclosed in quotation marks or a reference to
+    > a cell containing text.
 
--   If window\_text is omitted, it is assumed to be the name of the
+  - > If window\_text is omitted, it is assumed to be the name of the
     > active window.
 
 >  
 
 **Remarks**
 
--   In Microsoft Excel for Windows, an error occurs if you try to resize
-    > a window that has already been minimized to an icon or enlarged to
-    > its maximum size. You must first restore the window to its
-    > original size using the WINDOW.RESTORE function. For more
+  - > In Microsoft Excel for Windows, an error occurs if you try to
+    > resize a window that has already been minimized to an icon or
+    > enlarged to its maximum size. You must first restore the window to
+    > its original size using the WINDOW.RESTORE function. For more
     > information, see WINDOW.RESTORE.
 
--   WINDOW.SIZE replaces SIZE in earlier versions of Microsoft Excel.
+  - > WINDOW.SIZE replaces SIZE in earlier versions of Microsoft Excel.
 
 >  
 
@@ -55,6 +54,4 @@ WINDOW.MOVE   Moves a window
 
 WINDOW.RESTORE   Restores a window to its previous size
 
-Return to [top](#T)
 
-WINDOW.TITLE

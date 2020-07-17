@@ -1,5 +1,4 @@
 STYLE
-=====
 
 Checks the fonts for a bold and/or italic font and applies it to the
 current selection in Microsoft Excel for the Macintosh version 1.5 or
@@ -18,6 +17,4 @@ change a font to bold or italic, use the FONT.PROPERTIES function.
 
 FONT.PROPERTIES   Applies a font to the selection
 
-Return to [top](#Q)
 
-SUBSCRIBE.TO

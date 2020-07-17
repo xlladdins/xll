@@ -1,5 +1,4 @@
 MOVEAVG
-=======
 
 Projects values in a forecast period, based on the average value of the
 variable over a specific number of preceding periods.
@@ -24,32 +23,30 @@ omitted, interval is 3.
 
 Stderrs    is a logical value.
 
--   If stderrs is TRUE, standard error values are included in the output
-    > table.
+  - > If stderrs is TRUE, standard error values are included in the
+    > output table.
 
--   If stderrs is FALSE or omitted, standard errors are not included in
-    > the output table.
+  - > If stderrs is FALSE or omitted, standard errors are not included
+    > in the output table.
 
 >  
 
 Chart    is a logical value.
 
--   If chart is TRUE, then MOVEAVG generates a chart for the actual and
-    > forecast values.
+  - > If chart is TRUE, then MOVEAVG generates a chart for the actual
+    > and forecast values.
 
--   If chart is FALSE or omitted, the chart is not generated.
+  - > If chart is FALSE or omitted, the chart is not generated.
 
 >  
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of inprng contains
+  - > If labels is TRUE, then the first row or column of inprng contains
     > labels.
 
--   If labels is FALSE or omitted, all cells in inprng are considered
+  - > If labels is FALSE or omitted, all cells in inprng are considered
     > data. Microsoft Excel generates appropriate data labels for the
     > output table.
 
-Return to [top](#H)
 
-MOVE.TOOL

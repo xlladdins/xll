@@ -1,8 +1,7 @@
 DELETE.COMMAND
-==============
 
 Deletes a command from a custom or built-in menu. Use DELETE.COMMAND to
-remove commands you don\'t want the user to have access to or to remove
+remove commands you don't want the user to have access to or to remove
 custom commands that you have added.
 
 **Syntax**
@@ -27,14 +26,14 @@ use subcommand, you must use command as the name of the submenu.
 
 **Remarks**
 
--   If the specified command does not exist, DELETE.COMMAND returns the
-    > \#VALUE! error value and interrupts the macro.
+  - > If the specified command does not exist, DELETE.COMMAND returns
+    > the \#VALUE\! error value and interrupts the macro.
 
--   After a command is deleted, the command number for all commands
+  - > After a command is deleted, the command number for all commands
     > below that command is decreased by one.
 
--   When you delete a built-in command, DELETE.COMMAND returns a unique
-    > ID number for that command. You can use this ID number with
+  - > When you delete a built-in command, DELETE.COMMAND returns a
+    > unique ID number for that command. You can use this ID number with
     > ADD.COMMAND to restore the built-in command to the original menu.
 
 >  
@@ -45,7 +44,7 @@ The following macro formula removes the Compile Reports command from the
 Reports menu on a custom menu bar created by the ADD.BAR function in a
 cell named Financials.
 
-DELETE.COMMAND(Financials, \"Reports\", \"Compile Reports\...\")
+DELETE.COMMAND(Financials, "Reports", "Compile Reports...")
 
 **Related Functions**
 
@@ -57,6 +56,4 @@ ENABLE.COMMAND   Enables or disables a menu or custom command
 
 RENAME.COMMAND   Changes the name of a command or menu
 
-Return to [top](#A)
 
-DELETE.FORMAT

@@ -1,5 +1,4 @@
 EDIT.SERIES
-===========
 
 Equivalent to clicking the Edit Series command on the Chart menu in
 Microsoft Excel version 4.0. Creates or changes chart series by adding a
@@ -21,14 +20,14 @@ series\_num is 0 or omitted, Microsoft Excel creates a new data series.
 Name\_ref    is the name of the data series. It can be an external
 reference to a single cell, a name defined as a single cell, or a name
 defined as a sequence of characters. Name\_ref can also be text (for
-example, \"Projected Sales\").
+example, "Projected Sales").
 
 X\_ref    is an external reference to the name of the sheet and the
 cells that contain one of the following sets of data:
 
--   Category labels for all charts except xy (scatter) charts
+  - > Category labels for all charts except xy (scatter) charts
 
--   X-coordinate data for xy (scatter) charts
+  - > X-coordinate data for xy (scatter) charts
 
 Y\_ref    is an external reference to the name of the sheet and the
 cells that contain values (or y-coordinate data in xy (scatter) charts)
@@ -42,25 +41,25 @@ charts but does not apply to 2-D charts.
 Plot\_order    is a number specifying whether the data series is plotted
 first, second, and so on, in the chart type.
 
--   If you assign a plot\_order to a series, Microsoft Excel plots that
-    > series in the order you specify, and the series that previously
-    > had that plot order (and any series following it) has its plot
-    > order increased by one.
+  - > If you assign a plot\_order to a series, Microsoft Excel plots
+    > that series in the order you specify, and the series that
+    > previously had that plot order (and any series following it) has
+    > its plot order increased by one.
 
--   If you add a series to a chart with an overlay, the number of series
-    > in the main chart does not change, so if the series is added to
-    > the main chart, then the series that was plotted last in the main
-    > chart will be plotted first in the overlay chart. To change which
-    > series is plotted first in the overlay chart, use the (chart type)
-    > Group command from the Format menu, and then select the Series
-    > Order tab in the Format (chart type) Group dialog box. You can
-    > also use the FORMAT.OVERLAY function.
+  - > If you add a series to a chart with an overlay, the number of
+    > series in the main chart does not change, so if the series is
+    > added to the main chart, then the series that was plotted last in
+    > the main chart will be plotted first in the overlay chart. To
+    > change which series is plotted first in the overlay chart, use the
+    > (chart type) Group command from the Format menu, and then select
+    > the Series Order tab in the Format (chart type) Group dialog box.
+    > You can also use the FORMAT.OVERLAY function.
 
--   If you omit plot\_order when you add a new series, then Microsoft
+  - > If you omit plot\_order when you add a new series, then Microsoft
     > Excel plots that series last and assigns it the correct
     > plot\_order value.
 
--   The maximum value for plot\_order is 255.
+  - > The maximum value for plot\_order is 255.
 
 **Remarks**
 
@@ -75,14 +74,12 @@ arguments, make sure to enclose the reference to the selection in
 parentheses so that Microsoft Excel does not treat the components of the
 references as separate arguments.
 
-**Tip**   To delete a data series, use the SELECT(\"Sn\") macro
-function, where n is the series number, followed by the FORMULA(\"\")
-macro function. You can also use the CLEAR function instead of FORMULA.
+**Tip**   To delete a data series, use the SELECT("Sn") macro function,
+where n is the series number, followed by the FORMULA("") macro
+function. You can also use the CLEAR function instead of FORMULA.
 
 **Related Function**
 
 FORMAT.CHART
 
-Return to [top](#E)
 
-EDIT.TOOL

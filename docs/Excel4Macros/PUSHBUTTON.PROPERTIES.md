@@ -1,5 +1,4 @@
 PUSHBUTTON.PROPERTIES
-=====================
 
 Sets the properties of the push button control on a worksheet or dialog
 sheet.
@@ -26,8 +25,8 @@ cancelled.
 
 Dismiss\_logical    is a logical value that determines whether the
 button dismisses the dialog when pressed, as when the user presses the
-box\'s OK button. If TRUE, the button dismisses the dialog box. If
-FALSE, the button does not dismiss the dialog box.
+box's OK button. If TRUE, the button dismisses the dialog box. If FALSE,
+the button does not dismiss the dialog box.
 
 Help\_logical    is a logical value that determines whether the button
 is activated when the user presses the F1 key. If TRUE, the button is
@@ -35,7 +34,7 @@ activated when the user presses the F1 key. If FALSE, the button is not
 activated when the user presses the F1 key.
 
 Accel\_text    is a text string containing the character to use as the
-dialog button\'s accelerator key. The character is matched against the
+dialog button's accelerator key. The character is matched against the
 text of the control, and the first matching character is underlined.
 When the user presses ALT+accel\_text in Microsoft Excel for Windows or
 COMMAND+accel\_text in Microsoft Excel for the Macintosh, the control is
@@ -57,18 +56,15 @@ controls
 EDITBOX.PROPERTIES   Sets the properties of an edit box on a worksheet
 or dialog sheet
 
-Return to [top](#H)
-[]{#Q .anchor}This document contains reference information on the
-following Excel macro functions:
+<span id="Q" class="anchor"></span>This document contains reference
+information on the following Excel macro functions:
 
-Q
-=
+# Q
 
 [QUERY.GET.DATA](#query.get.data), [QUERY.REFRESH](#query.refresh),
 [QUIT](#quit)
 
-R
-=
+# R
 
 [RANDOM](#random), [RANKPERC](#rankperc), [REFTEXT](#reftext),
 [REGISTER](#register), [REGRESS](#regress), [RELREF](#relref),
@@ -83,8 +79,7 @@ R
 [RETURN](#return), [ROUTE.DOCUMENT](#route.document),
 [ROUTING.SLIP](#routing.slip), [ROW.HEIGHT](#row.height), [RUN](#run)
 
-S
-=
+# S
 
 [SAMPLE](#sample), [SAVE](#save), [SAVE.AS](#save.as),
 [SAVE.COPY.AS](#save.copy.as), [SAVE.DIALOG](#save.dialog),
@@ -146,4 +141,3 @@ S
 [SUBTOTAL.CREATE](#subtotal.create),
 [SUBTOTAL.REMOVE](#subtotal.remove), [SUMMARY.INFO](#summary.info)
 
-QUERY.GET.DATA

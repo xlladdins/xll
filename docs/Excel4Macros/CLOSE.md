@@ -1,5 +1,4 @@
 CLOSE
-=====
 
 Closes the active window. In Microsoft Excel for Windows, CLOSE is
 equivalent to clicking the Close command on the Document Control menu.
@@ -13,23 +12,23 @@ the close box.
 Save\_logical    is a logical value that specifies whether to save the
 file before closing the window.
 
-  ------------------- ------------------------------------------------------------------------------------------------
-  **Save\_logical**   **Result**
-  TRUE                Saves the file
-  FALSE               Does not save the file
-  Omitted             If you\'ve made changes to the file, displays a dialog box asking if you want to save the file
-  ------------------- ------------------------------------------------------------------------------------------------
+|                   |                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------- |
+| **Save\_logical** | **Result**                                                                                    |
+| TRUE              | Saves the file                                                                                |
+| FALSE             | Does not save the file                                                                        |
+| Omitted           | If you've made changes to the file, displays a dialog box asking if you want to save the file |
 
 Route\_logical    is a logical value that specifies whether to route the
 file after closing it. This argument is ignored if there is not a
 routing slip present.
 
-  -------------------- --------------------------------------------------------------------------------------------------------
-  **Route\_logical**   **Result**
-  TRUE                 Routes the file
-  FALSE                Does not route the file
-  Omitted              If you\'ve specified recipients for routing, displays a dialog box asking if you want to save the file
-  -------------------- --------------------------------------------------------------------------------------------------------
+|                    |                                                                                                       |
+| ------------------ | ----------------------------------------------------------------------------------------------------- |
+| **Route\_logical** | **Result**                                                                                            |
+| TRUE               | Routes the file                                                                                       |
+| FALSE              | Does not route the file                                                                               |
+| Omitted            | If you've specified recipients for routing, displays a dialog box asking if you want to save the file |
 
 **Remarks**
 
@@ -48,6 +47,4 @@ FILE.CLOSE   Closes the active workbook
 
 SAVE   Saves the active workbook
 
-Return to [top](#A)
 
-CLOSE.ALL

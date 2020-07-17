@@ -1,5 +1,4 @@
 EXPON
-=====
 
 Predicts a value based on the forecast for the prior period, adjusted
 for the error in that prior forecast.
@@ -30,6 +29,4 @@ actual and forecast values. If FALSE, the chart is not generated.
 
 MOVEAVG   Returns values along a moving average trend
 
-Return to [top](#E)
 
-EXTEND.POLYGON

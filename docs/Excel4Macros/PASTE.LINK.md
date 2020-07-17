@@ -1,5 +1,4 @@
 PASTE.LINK
-==========
 
 Equivalent to clicking the Paste Special command on the Edit menu, and
 then clicking the Paste Link button in the Paste Special dialog box.
@@ -27,6 +26,4 @@ PASTE   Pastes cut or copied data
 
 PASTE.SPECIAL   Pastes specific components of copied data
 
-Return to [top](#H)
 
-PASTE.PICTURE

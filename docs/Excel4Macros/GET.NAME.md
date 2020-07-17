@@ -1,5 +1,4 @@
 GET.NAME
-========
 
 Returns the definition of a name as it appears in the Refers To box of
 the Define Name dialog box, which appears when you choose the Define
@@ -14,8 +13,8 @@ corresponding to a definition, use GET.DEF.
 
 Name\_text    can be a name defined on the macro sheet; an external
 reference to a name defined on the active workbook, for example,
-\"!Sales\"; or an external reference to a name defined on a particular
-open workbook, for example, \"\[Book1\]SHEET1!Sales\". Name\_text can
+"\!Sales"; or an external reference to a name defined on a particular
+open workbook, for example, "\[Book1\]SHEET1\!Sales". Name\_text can
 also be a hidden name.
 
 Info\_type     specifies the type of information to return about the
@@ -34,17 +33,17 @@ Protect Sheet command on the Protection submenu from the Tools menu.
 
 If the name Sales on a macro sheet is defined as the number 523, then:
 
-GET.NAME(\"Sales\") equals \"=523\"
+GET.NAME("Sales") equals "=523"
 
 If the name Profit on the active sheet is defined as the formula
 =Sales-Costs, then:
 
-GET.NAME(\"!Profit\") equals \"=Sales-Costs\"
+GET.NAME("\!Profit") equals "=Sales-Costs"
 
 If the name Database on the active sheet is defined as the range
 A1:F500, then:
 
-GET.NAME(\"!Database\") equals \"=R1C1:R500C6\"
+GET.NAME("\!Database") equals "=R1C1:R500C6"
 
 **Related Functions**
 
@@ -58,6 +57,4 @@ NAMES   Returns the names defined in a workbook
 
 SET.NAME   Defines a name as a value
 
-Return to [top](#E)
 
-GET.NOTE

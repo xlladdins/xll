@@ -1,5 +1,4 @@
 PRINTER.SETUP
-=============
 
 Use PRINTER.SETUP to change the printer you are using.
 
@@ -21,6 +20,4 @@ PAGE.SETUP   Sets page printing specifications
 
 PRINT   Prints the active workbook
 
-Return to [top](#H)
 
-PRINT.PREVIEW

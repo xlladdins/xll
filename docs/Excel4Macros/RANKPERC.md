@@ -1,5 +1,4 @@
 RANKPERC
-========
 
 Returns a table that contains the ordinal and percent rank of each value
 in a data set.
@@ -22,29 +21,63 @@ blank, or omitted, places the output table in a new workbook.
 Grouped    is a text character that indicates whether the data in the
 input range is organized by row or column.
 
--   If grouped is \"C\" or omitted, then the data is organized by
+  - > If grouped is "C" or omitted, then the data is organized by
     > column.
 
--   If grouped is \"R\", then the data is organized by row.
+  - > If grouped is "R", then the data is organized by row.
 
 >  
 
 Labels    is a logical value that describes where the labels are located
 in the input range, as shown in the following table:
 
-+--------------------+---------------+-------------------------------+
-| > **Labels**       | > **Grouped** | > **Labels are in**           |
-+--------------------+---------------+-------------------------------+
-| > TRUE             | > \"C\"       | > First row of the input      |
-|                    |               | > range.                      |
-+--------------------+---------------+-------------------------------+
-| > TRUE             | > \"R\"       | > First column of the input   |
-|                    |               | > range.                      |
-+--------------------+---------------+-------------------------------+
-| > FALSE or omitted | > (ignored)   | > No labels. All cells in the |
-|                    |               | > input range are data.       |
-+--------------------+---------------+-------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Labels</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Grouped</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Labels are in</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>TRUE</p>
+</blockquote></td>
+<td><blockquote>
+<p>"C"</p>
+</blockquote></td>
+<td><blockquote>
+<p>First row of the input range.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>TRUE</p>
+</blockquote></td>
+<td><blockquote>
+<p>"R"</p>
+</blockquote></td>
+<td><blockquote>
+<p>First column of the input range.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>FALSE or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>(ignored)</p>
+</blockquote></td>
+<td><blockquote>
+<p>No labels. All cells in the input range are data.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
-Return to [top](#Q)
 
-REFTEXT

@@ -1,5 +1,4 @@
-DATA.FIND.NEXT
-==============================
+DATA.FIND.NEXT, DATA.FIND.PREV
 
 Equivalent to pressing the DOWN ARROW or UP ARROW key after the Find
 command has been chosen from the Data menu in Microsoft Excel version
@@ -17,6 +16,4 @@ FALSE.
 
 DATA.FIND   Enters or exits Data Find mode
 
-Return to [top](#A)
 
-DATA.FORM

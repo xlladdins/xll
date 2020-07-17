@@ -1,8 +1,7 @@
 DUPLICATE
-=========
 
 Duplicates the selected object. If an object is not selected, returns
-the \#VALUE! error value and interrupts the macro.
+the \#VALUE\! error value and interrupts the macro.
 
 **Syntax**
 
@@ -14,12 +13,10 @@ COPY   Copies and pastes data or objects
 
 PASTE   Pastes cut or copied data
 
-Return to [top](#A)
-[]{#E .anchor}This document contains reference information on the
-following Excel macro functions:
+<span id="E" class="anchor"></span>This document contains reference
+information on the following Excel macro functions:
 
-E
-=
+# E
 
 [ECHO](#echo), [EDITBOX.PROPERTIES](#editbox.properties),
 [EDIT.COLOR](#edit.color), [EDIT.DELETE](#edit.delete),
@@ -34,8 +31,7 @@ ERRORBAR.Y](#errorbar.x-errorbar.y), [EVALUATE](#evaluate),
 [EXEC](#exec), [EXECUTE](#execute), [EXPON](#expon),
 [EXTEND.POLYGON](#extend.polygon), [EXTRACT](#extract)
 
-F
-=
+# F
 
 [FCLOSE](#fclose), [FILE.CLOSE](#file.close),
 [FILE.DELETE](#file.delete), [FILES](#files), [FILL.AUTO](#fill.auto),
@@ -68,8 +64,7 @@ FORMULA.FIND.PREV](#formula.find.next-formula.find.prev),
 [FUNCTION.WIZARD](#function.wizard), [FWRITE](#fwrite),
 [FWRITELN](#fwriteln)
 
-G
-=
+# G
 
 [GALLERY.3D.AREA](#gallery.3d.area), [GALLERY.3D.BAR](#gallery.3d.bar),
 [GALLERY.3D.COLUMN](#gallery.3d.column),
@@ -92,4 +87,5 @@ Syntax 1](#get.bar-syntax-1), [GET.BAR Syntax 2](#get.bar-syntax-2),
 [GOAL.SEEK](#goal.seek), [GOTO](#goto), [GRIDLINES](#gridlines),
 [GROUP](#group)
 
-ECHO
+# 
+

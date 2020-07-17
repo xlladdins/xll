@@ -1,7 +1,6 @@
 TTESTM
-======
 
-Performs a two-sample Student\'s t-Test for means, assuming equal
+Performs a two-sample Student's t-Test for means, assuming equal
 variances.
 
 If this function is not available, you must install the Analysis ToolPak
@@ -23,11 +22,11 @@ blank, or omitted, places the output table in a new workbook.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then labels are in the first row or column of the
-    > input ranges.
+  - > If labels is TRUE, then labels are in the first row or column of
+    > the input ranges.
 
--   If labels is FALSE or omitted, all cells in inprng1 and inprng2 are
-    > considered data. The output table will include default row or
+  - > If labels is FALSE or omitted, all cells in inprng1 and inprng2
+    > are considered data. The output table will include default row or
     > column headings.
 
 >  
@@ -40,11 +39,9 @@ difference is 0.
 
 **Related Functions**
 
-PTTESTM   Performs a paired two-sample Student\'s t-Test for means
+PTTESTM   Performs a paired two-sample Student's t-Test for means
 
-PTTESTV   Performs a two-sample Student\'s t-Test, assuming unequal
+PTTESTV   Performs a two-sample Student's t-Test, assuming unequal
 variances
 
-Return to [top](#T)
 
-UNDO

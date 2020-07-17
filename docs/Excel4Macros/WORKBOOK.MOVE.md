@@ -1,9 +1,8 @@
 WORKBOOK.MOVE
-=============
 
 Equivalent to clicking the Move or Copy Sheet command on the Edit menu.
-Moves one or more sheets between workbooks or changes a sheet\'s
-position within a workbook.
+Moves one or more sheets between workbooks or changes a sheet's position
+within a workbook.
 
 **Syntax**
 
@@ -23,12 +22,12 @@ workbook.
 Position\_num    is a number that specifies the target position for the
 sheet within dest\_book. The first position is 1.
 
--   If position\_num is specified, Microsoft Excel inserts the sheet at
-    > the specified position in the workbook.
+  - > If position\_num is specified, Microsoft Excel inserts the sheet
+    > at the specified position in the workbook.
 
--   If position\_num is omitted, Microsoft Excel moves the sheet to the
-    > last position in the workbook. If you move the last sheet out of a
-    > workbook, the workbook closes.
+  - > If position\_num is omitted, Microsoft Excel moves the sheet to
+    > the last position in the workbook. If you move the last sheet out
+    > of a workbook, the workbook closes.
 
 >  
 
@@ -37,6 +36,4 @@ sheet within dest\_book. The first position is 1.
 WORKBOOK.COPY   Copies one or more documents from their current workbook
 into another workbook
 
-Return to [top](#T)
 
-WORKBOOK.NAME

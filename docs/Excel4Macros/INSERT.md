@@ -1,5 +1,4 @@
 INSERT
-======
 
 Inserts a blank cell or range of cells or pastes cells from the
 Clipboard into a sheet. Shifts the selected cells to accommodate the new
@@ -17,13 +16,13 @@ cells. If an entire row or column is selected, shift\_num is ignored. If
 shift\_num is omitted, Microsoft Excel shifts cells in the logical
 direction based on the selection.
 
-  ---------------- ---------------------
-  **Shift\_num**   **Direction**
-  1                Shift cells right
-  2                Shift cells down
-  3                Shift entire row
-  4                Shift entire column
-  ---------------- ---------------------
+|                |                     |
+| -------------- | ------------------- |
+| **Shift\_num** | **Direction**       |
+| 1              | Shift cells right   |
+| 2              | Shift cells down    |
+| 3              | Shift entire row    |
+| 4              | Shift entire column |
 
 **Remarks**
 
@@ -45,6 +44,4 @@ EDIT.DELETE   Removes cells from a sheet
 
 PASTE   Pastes cut or copied data
 
-Return to [top](#H)
 
-INSERT.OBJECT

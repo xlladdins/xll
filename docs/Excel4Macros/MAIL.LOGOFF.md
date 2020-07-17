@@ -1,5 +1,4 @@
 MAIL.LOGOFF
-===========
 
 Ends the current mail session.
 
@@ -14,9 +13,7 @@ function is available for only Microsoft Excel for Windows.
 
 **Remarks**
 
-Returns TRUE if the session was ended, or \#VALUE! if there was no
+Returns TRUE if the session was ended, or \#VALUE\! if there was no
 session.
 
-Return to [top](#H)
 
-MAIL.LOGON

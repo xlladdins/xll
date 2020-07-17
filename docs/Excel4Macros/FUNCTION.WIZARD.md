@@ -1,5 +1,4 @@
 FUNCTION.WIZARD
-===============
 
 Displays the Paste Function dialog box, which you can use to enter
 functions into cells.
@@ -17,6 +16,4 @@ use the FORMULA function.
 
 FORMULA   Enters values into a cell or range or onto a chart
 
-Return to [top](#E)
 
-FWRITE

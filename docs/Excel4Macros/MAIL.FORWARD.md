@@ -1,5 +1,4 @@
 MAIL.FORWARD
-============
 
 Equivalent to clicking the Forward command on the Mail submenu of the
 File menu. Creates a new mailer to replace the previous version and
@@ -14,10 +13,10 @@ Microsoft Excel and Apple PowerTalk only.
 
 **Remarks**
 
--   Returns the \#VALUE! error value or \#N/A if the current workbook
+  - > Returns the \#VALUE\! error value or \#N/A if the current workbook
     > has no mailer.
 
--   This function is available only when the current workbook is open
+  - > This function is available only when the current workbook is open
     > and has been received by PowerTalk with a piece of mail to
     > forward.
 
@@ -31,6 +30,4 @@ workbook
 
 MAIL.ADD.MAILER   Adds a new PowerTalk mailer to the active workbook
 
-Return to [top](#H)
 
-MAIL.LOGOFF

@@ -1,5 +1,4 @@
 SAVE.WORKSPACE
-==============
 
 Equivalent to clicking the Save Workspace command on the File menu.
 Saves the currently opened workbook or workbooks as a workspace.
@@ -16,6 +15,4 @@ Name\_text    is the name of the workspace to save.
 
 SAVE.AS   Specifies a new filename.
 
-Return to [top](#Q)
 
-SCALE

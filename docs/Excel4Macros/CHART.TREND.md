@@ -1,5 +1,4 @@
 CHART.TREND
-===========
 
 A trendline can be added to only to the these chart types: bar, column,
 stacked column, scatter, line, and area.
@@ -11,15 +10,15 @@ equation, r\_squared, name)
 
 Type    is the type of trend or regression.
 
-  ------------ ----------------
-  **Number**   **Type used**
-  1            Linear
-  2            Logarithmic
-  3            Polynomial
-  4            Power
-  5            Exponential
-  6            Moving Average
-  ------------ ----------------
+|            |                |
+| ---------- | -------------- |
+| **Number** | **Type used**  |
+| 1          | Linear         |
+| 2          | Logarithmic    |
+| 3          | Polynomial     |
+| 4          | Power          |
+| 5          | Exponential    |
+| 6          | Moving Average |
 
 Ord\_per    depends on type. If type is 3, then ord\_per is the order of
 the polynomial. If type is 6, ord\_per is the number of periods for the
@@ -54,36 +53,36 @@ be used instead.
 
 **Remarks**
 
--   A trendline can not be added to a 3-D chart, a stacked chart, or an
-    > 100% chart.
+  - > A trendline can not be added to a 3-D chart, a stacked chart, or
+    > an 100% chart.
 
--   The linear model calculates the least squares fit for a line
+  - > The linear model calculates the least squares fit for a line
     > represented by the equation y = mx + b, where m is the slope and b
     > is the intercept.
 
--   The logarithmic model calculates the least squares fit through
+  - > The logarithmic model calculates the least squares fit through
     > points using the equation y = c\*ln(x) + b, where c and b are
     > constants.
 
--   The exponential model calculates the least squares fit through
+  - > The exponential model calculates the least squares fit through
     > points using the following equation:
 
 > ![](media/image9.png)
->
+> 
 > where c and b are constants.
 
--   The polynomial model calculates the least squares fit through points
-    > using the following equation:
+  - > The polynomial model calculates the least squares fit through
+    > points using the following equation:
 
 > ![](media/image10.png)
->
+> 
 > where b, c1, c2, c3, etc. are constants.
 
--   The power model calculates the least squares fit through points
+  - > The power model calculates the least squares fit through points
     > using the following equation:
 
 > ![](media/image11.png)
->
+> 
 > where b and c are constants.
 
 **Related Function**
@@ -91,6 +90,4 @@ be used instead.
 CHART.WIZARD   Equivalent to clicking the ChartWizard button on the
 Standard toolbar
 
-Return to [top](#A)
 
-CHART.WIZARD

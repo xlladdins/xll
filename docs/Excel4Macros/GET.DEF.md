@@ -1,5 +1,4 @@
 GET.DEF
-=======
 
 Returns the name, as text, that is defined for a particular area, value,
 or formula in a workbook. Use GET.DEF to get the name corresponding to a
@@ -12,14 +11,14 @@ definition. To get the definition of a name, use GET.NAME.
 Def\_text    can be anything you can define a name to refer to,
 including a reference, a value, an object, or a formula.
 
--   References must be given in R1C1 style, such as \"R3C5\".
+  - > References must be given in R1C1 style, such as "R3C5".
 
--   If def\_text is a value or formula, it is not necessary to include
+  - > If def\_text is a value or formula, it is not necessary to include
     > the equal sign that is displayed in the Refers To box in the
     > Define Name dialog box, which appears when you choose the Name
     > command from the Define submenu on the Insert Menu.
 
--   If there is more than one name for def\_text, GET.DEF returns the
+  - > If there is more than one name for def\_text, GET.DEF returns the
     > first name. If no name matches def\_text, GET.DEF returns the
     > \#NAME? error value.
 
@@ -30,34 +29,34 @@ sheet.
 Type\_num    is a number from 1 to 3 specifying which types of names are
 returned.
 
-  --------------- -------------------
-  **Type\_num**   **Returns**
-  1 or omitted    Normal names only
-  2               Hidden names only
-  3               All names
-  --------------- -------------------
+|               |                   |
+| ------------- | ----------------- |
+| **Type\_num** | **Returns**       |
+| 1 or omitted  | Normal names only |
+| 2             | Hidden names only |
+| 3             | All names         |
 
 **Examples**
 
 If the specified range in Sheet4 is named Sales, the following macro
-formula returns \"Sales\":
+formula returns "Sales":
 
-GET.DEF(\"R2C2:R9C6\", \"Sheet4\")
+GET.DEF("R2C2:R9C6", "Sheet4")
 
 If the value 100 in Sheet4 is defined as Constant, the following macro
-formula returns \"Constant\":
+formula returns "Constant":
 
-GET.DEF(\"100\", \"Sheet4\")
+GET.DEF("100", "Sheet4")
 
 If the specified formula in Sheet4 is named SumTotal, the following
-macro formula returns \"SumTotal\":
+macro formula returns "SumTotal":
 
-GET.DEF(\"SUM(R1C1:R10C1)\", \"Sheet4\")
+GET.DEF("SUM(R1C1:R10C1)", "Sheet4")
 
 If 3 is defined as the hidden name Counter on the active macro sheet,
-the following macro formula returns \"Counter\":
+the following macro formula returns "Counter":
 
-GET.DEF(\"3\", , 2)
+GET.DEF("3", , 2)
 
 **Related Functions**
 
@@ -69,6 +68,4 @@ GET.NOTE   Returns characters from a note
 
 NAMES   Returns the names defined on a workbook
 
-Return to [top](#E)
 
-GET.DOCUMENT

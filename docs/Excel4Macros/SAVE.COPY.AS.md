@@ -1,5 +1,4 @@
 SAVE.COPY.AS
-============
 
 Saves a copy of the current workbook using a different name but all the
 current workbook settings, such as passwords and file protection. Does
@@ -19,8 +18,6 @@ Suppose that you are creating a macro that makes changes to a file
 called BUDGET95.XLS. Use the following function to save a copy of this
 file called TEMP.XLS without affecting BUDGET95.XLS:
 
-SAVE.COPY.AS(\"temp.xls\")
+SAVE.COPY.AS("temp.xls")
 
-Return to [top](#Q)
 
-SAVE.DIALOG

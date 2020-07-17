@@ -1,5 +1,4 @@
 NEXT
-====
 
 Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop and continues
 carrying out the current macro with the formula that follows the NEXT
@@ -17,6 +16,4 @@ FOR.CELL   Starts a FOR.CELL-NEXT loop
 
 WHILE   Starts a WHILE-NEXT loop
 
-Return to [top](#H)
 
-NOTE

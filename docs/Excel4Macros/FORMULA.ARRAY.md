@@ -1,5 +1,4 @@
 FORMULA.ARRAY
-=============
 
 Enters a formula as an array formula in the range specified or in the
 current selection. Equivalent to entering an array formula while
@@ -23,20 +22,20 @@ If reference is omitted, formula\_text is entered in the active cell.
 If the selection is D25:E25, the following macro formula enters the
 array formula {=D22:E22+D23:E23} in the range D25:E25:
 
-FORMULA.ARRAY(\"=R\[-3\]C:R\[-3\]C\[1\]+R\[-2\]C:R\[-2\]C\[1\]\")
+FORMULA.ARRAY("=R\[-3\]C:R\[-3\]C\[1\]+R\[-2\]C:R\[-2\]C\[1\]")
 
 Regardless of the selection, the following macro formula enters the
 array formula {=D22:E22+D23:E23} in the range D25:E25:
 
-FORMULA.ARRAY(\"=R\[-3\]C:R\[-3\]C\[1\]+R\[-2\]C:R\[-2\]C\[1\]\",
-\"R25C4:R25C5\")
+FORMULA.ARRAY("=R\[-3\]C:R\[-3\]C\[1\]+R\[-2\]C:R\[-2\]C\[1\]",
+"R25C4:R25C5")
 
 To use FORMULA.ARRAY to put an array in a specific workbook, specify the
 name of the workbook as an external reference in the reference argument.
-Using \"\[SALES.XLS\]North!R25C3:R25C4\" as the reference argument in
-the preceding example would enter the array in cells C25:D25 on the
+Using "\[SALES.XLS\]North\!R25C3:R25C4" as the reference argument in the
+preceding example would enter the array in cells C25:D25 on the
 worksheet named North in the workbook SALES.XLS. Using
-\"SALES!R25C3:R25C4\" as the reference argument would enter the array in
+"SALES\!R25C3:R25C4" as the reference argument would enter the array in
 the same cells in the worksheet named SALES.
 
 **Related Functions**
@@ -45,6 +44,4 @@ FORMULA   Enters values into a cell or range or onto a chart
 
 FORMULA.FILL   Enters a formula in the specified range
 
-Return to [top](#E)
 
-FORMULA.CONVERT

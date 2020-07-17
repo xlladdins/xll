@@ -1,5 +1,4 @@
 ELSE
-====
 
 Used with IF, ELSE.IF, and END.IF to control which functions are carried
 out in a macro. ELSE signals the beginning of a group of formulas in a
@@ -16,7 +15,7 @@ makes your macros more structured.
 **Remarks**
 
 ELSE must be entered in a cell by itself. In other words, the cell can
-contain only \"=ELSE()\".
+contain only "=ELSE()".
 
 For more information about ELSE, ELSE.IF, END.IF, and IF, and for
 examples of these functions, see form 2 of the IF function.
@@ -30,6 +29,4 @@ END.IF   Ends a group of macro functions started with an IF statement
 
 IF   Specifies an action to take if a logical test is TRUE
 
-Return to [top](#E)
 
-ELSE.IF

@@ -1,5 +1,4 @@
 PIVOT.ITEM
-==========
 
 Moves an item within a PivotTable report.
 
@@ -30,20 +29,20 @@ default to the last position in the field.
 
 **Remarks**
 
--   If an item is set to be visible, but its display is suppressed
+  - > If an item is set to be visible, but its display is suppressed
     > because there is no data, this item still occupies a valid
     > position.
 
--   If name is not a valid PivotTable name then the \#VALUE! error value
-    > is returned.
+  - > If name is not a valid PivotTable name then the \#VALUE\! error
+    > value is returned.
 
--   If pivot\_field\_name is not a text string, or if pivot\_field\_name
-    > is not a text string within a valid field name, then \#VALUE! is
-    > returned.
+  - > If pivot\_field\_name is not a text string, or if
+    > pivot\_field\_name is not a text string within a valid field name,
+    > then \#VALUE\! is returned.
 
--   If pivot\_item\_name is an item which is not currently showing in
+  - > If pivot\_item\_name is an item which is not currently showing in
     > the PivotTable report because it does not exist in the field
-    > pivot\_field\_name, the \#VALUE! error value is returned.
+    > pivot\_field\_name, the \#VALUE\! error value is returned.
 
 **Related Functions**
 
@@ -71,6 +70,4 @@ active cell
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.ITEM.PROPERTIES

@@ -1,5 +1,4 @@
 GET.NOTE
-========
 
 Returns characters from a comment.
 
@@ -23,24 +22,24 @@ the length of the comment attached to cell\_ref.
 The following macro formula returns the first 200 characters in the
 comment attached to cell A3 on the active sheet:
 
-GET.NOTE(!\$A\$3, 1, 200)
+GET.NOTE(\!$A$3, 1, 200)
 
 In Microsoft Excel for Windows, the following macro formula returns the
 10th through the 39th characters of the comment attached to cell C2 on
 SALES.XLS:
 
-GET.NOTE(\"\[SALES.XLS\]Sheet1!R2C3\", 10, 30)
+GET.NOTE("\[SALES.XLS\]Sheet1\!R2C3", 10, 30)
 
 In Microsoft Excel for the Macintosh, the following macro formula
 returns the 10th through the 39th characters of the comment attached to
 cell C2 on SALES:
 
-GET.NOTE(\"\[SALES\]Sheet1!R2C3\", 10, 30)
+GET.NOTE("\[SALES\]Sheet1\!R2C3", 10, 30)
 
 Use GET.NOTE with the NOTE function to move the contents of a comment to
 a cell or text box or to another comment attached to a cell:
 
-NOTE(GET.NOTE(!\$B\$10),ACTIVE.CELL())
+NOTE(GET.NOTE(\!$B$10),ACTIVE.CELL())
 
 **Related Functions**
 
@@ -48,6 +47,4 @@ GET.CELL   Returns information about the specified cell
 
 NOTE   Creates or changes a comment.
 
-Return to [top](#E)
 
-GET.OBJECT

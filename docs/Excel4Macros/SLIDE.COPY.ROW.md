@@ -1,5 +1,4 @@
 SLIDE.COPY.ROW
-==============
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -18,11 +17,12 @@ add-in.
 
 **Remarks**
 
--   SLIDE.COPY.ROW, SLIDE.CUT.ROW, SLIDE.DELETE.ROW, and SLIDE.PASTE.ROW
-    > return TRUE if successful, or FALSE if not successful. If the
-    > active sheet is not a slide show or is protected, these functions
-    > return the \#N/A error value. If the current selection is not
-    > valid, these functions return the \#VALUE! error value.
+  - > SLIDE.COPY.ROW, SLIDE.CUT.ROW, SLIDE.DELETE.ROW, and
+    > SLIDE.PASTE.ROW return TRUE if successful, or FALSE if not
+    > successful. If the active sheet is not a slide show or is
+    > protected, these functions return the \#N/A error value. If the
+    > current selection is not valid, these functions return the
+    > \#VALUE\! error value.
 
 >  
 
@@ -47,6 +47,4 @@ current selection
 
 SLIDE.SHOW   Starts a slide show in the active sheet
 
-Return to [top](#Q)
 
-SLIDE.CUT.ROW

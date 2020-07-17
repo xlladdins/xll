@@ -1,5 +1,4 @@
 HALT
-====
 
 Stops all macros from running. Use HALT instead of RETURN to prevent a
 macro from returning to the macro that called it.
@@ -12,15 +11,15 @@ Cancel\_close    is a logical value that specifies whether a macro
 sheet, when encountering the HALT function in an Auto\_Close macro, is
 closed.
 
--   If cancel\_close is TRUE, Microsoft Excel halts the macro and
+  - > If cancel\_close is TRUE, Microsoft Excel halts the macro and
     > prevents the workbook from being closed.
 
--   If cancel\_close is FALSE or omitted, Microsoft Excel halts the
+  - > If cancel\_close is FALSE or omitted, Microsoft Excel halts the
     > macro and allows the workbook to be closed.
 
--   If cancel\_close is specified in a macro that is not an Auto\_Close
-    > macro, it is ignored and the HALT function simply stops the
-    > current macro.
+  - > If cancel\_close is specified in a macro that is not an
+    > Auto\_Close macro, it is ignored and the HALT function simply
+    > stops the current macro.
 
 >  
 
@@ -47,6 +46,4 @@ BREAK   Interrupts a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
 RETURN   Ends the currently running macro
 
-Return to [top](#H)
 
-HELP

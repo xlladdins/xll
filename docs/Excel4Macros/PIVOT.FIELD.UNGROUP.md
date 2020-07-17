@@ -1,5 +1,4 @@
 PIVOT.FIELD.UNGROUP
-===================
 
 Ungroups all selected groups within a PivotTable report.
 
@@ -39,6 +38,4 @@ active cell
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.ITEM

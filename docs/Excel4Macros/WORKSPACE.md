@@ -1,5 +1,4 @@
 WORKSPACE
-=========
 
 Changes the workspace settings for a workbook. This function is provide
 for compatibility with Microsoft Excel version 4.0 only. In Microsoft
@@ -51,12 +50,12 @@ as shown in the following table.
 **Note   **This argument is only available in Microsoft Excel for the
 Macintosh.
 
-  ---------------------- ----------------------------
-  **If underlines is**   **Command underlines are**
-  1                      On
-  2                      Off
-  3                      Automatic
-  ---------------------- ----------------------------
+|                      |                            |
+| -------------------- | -------------------------- |
+| **If underlines is** | **Command underlines are** |
+| 1                    | On                         |
+| 2                    | Off                        |
+| 3                    | Automatic                  |
 
 Tools    is a logical value. If TRUE, the Standard toolbar is displayed;
 if FALSE, all visible toolbars are hidden. If omitted, the current
@@ -71,11 +70,11 @@ Menu\_key\_action    is the number 1 or 2 specifying options for the
 alternate menu or Help key. In Microsoft Excel for the Macintosh,
 menu\_key\_action is ignored.
 
-  ----------------------- ------------------------------------------
-  **Menu\_key\_action**   **Alternate menu or Help key activates**
-  1 or omitted            Microsoft Excel menus
-  2                       Lotus 1-2-3 Help
-  ----------------------- ------------------------------------------
+|                       |                                          |
+| --------------------- | ---------------------------------------- |
+| **Menu\_key\_action** | **Alternate menu or Help key activates** |
+| 1 or omitted          | Microsoft Excel menus                    |
+| 2                     | Lotus 1-2-3 Help                         |
 
 Drag\_drop    corresponds to the Cell Drag And Drop check box.
 
@@ -85,6 +84,4 @@ Show\_info    corresponds to the Info Window check box.
 
 GET.WORKSPACE   Returns information about the workspace
 
-Return to [top](#T)
 
-ZOOM

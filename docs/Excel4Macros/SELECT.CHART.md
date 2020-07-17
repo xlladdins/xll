@@ -1,9 +1,8 @@
 SELECT.CHART
-============
 
 Equivalent to the Select Chart command on the Chart menu in Microsoft
 Excel version 4.0. This function is equivalent to using the third form
-of SELECT with \"Chart\" as the item\_text argument.
+of SELECT with "Chart" as the item\_text argument.
 
 **Syntax**
 
@@ -18,6 +17,4 @@ Microsoft Excel for the Macintosh version 1.5 or earlier.
 
 SELECT   Selects a chart object
 
-Return to [top](#Q)
 
-SELECT.END

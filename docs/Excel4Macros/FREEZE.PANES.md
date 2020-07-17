@@ -1,5 +1,4 @@
 FREEZE.PANES
-============
 
 Equivalent to clicking the Freeze Panes or Unfreeze Panes command on the
 Window menu. Splits the active window into panes, creates frozen panes,
@@ -13,19 +12,18 @@ column titles on the screen while scrolling to other parts of the sheet.
 Logical    is a logical value specifying which command FREEZE.PANES is
 equivalent to.
 
--   If logical is TRUE, the function is equivalent to the Freeze Panes
+  - > If logical is TRUE, the function is equivalent to the Freeze Panes
     > command. It freezes panes if they exist, or creates them, splits
     > them at the specified position, and freezes them if they do not
     > exist. If the panes are already frozen, FREEZE.PANES takes no
     > action.
 
--   If logical is FALSE, the function is equivalent to the Unfreeze
+  - > If logical is FALSE, the function is equivalent to the Unfreeze
     > Panes command. If no panes exist, FREEZE.PANES takes no action.
 
--   If logical is omitted, FREEZE.PANES creates and then freezes panes
-    > if no panes exist, freezes existing panes if they\'re not
-    > currently frozen, or unfreezes existing panes if they\'re
-    > currently frozen.
+  - > If logical is omitted, FREEZE.PANES creates and then freezes panes
+    > if no panes exist, freezes existing panes if they're not currently
+    > frozen, or unfreezes existing panes if they're currently frozen.
 
 >  
 
@@ -50,6 +48,4 @@ ACTIVATE   Switches to a window
 
 SPLIT   Splits a window
 
-Return to [top](#E)
 
-FSIZE

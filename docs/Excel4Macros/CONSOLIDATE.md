@@ -1,5 +1,4 @@
 CONSOLIDATE
-===========
 
 Equivalent to clicking the Consolidate command on the Data menu.
 Consolidates data from multiple ranges on multiple worksheets into a
@@ -18,7 +17,7 @@ consolidated on the destination worksheet. Source\_refs must be in text
 form and include the full path of the file and the cell reference or
 named ranges in the workbook to be consolidated. Source\_refs are
 usually external references and must be given as an array, for example:
-{\"SHEET1!IncomeOne\", \"SHEET2!IncomeTwo\"}.
+{"SHEET1\!IncomeOne", "SHEET2\!IncomeTwo"}.
 
 To add or delete source\_refs from an existing consolidation on a
 worksheet, reuse the CONSOLIDATE function, specifying the new
@@ -29,20 +28,20 @@ functions you can use to consolidate data. If function\_num is omitted,
 the SUM function, number 9, is used. The functions and their
 corresponding numbers are listed in the following table.
 
-  ------------------- --------------
-  **Function\_num**   **Function**
-  1                   AVERAGE
-  2                   COUNT
-  3                   COUNTA
-  4                   MAX
-  5                   MIN
-  6                   PRODUCT
-  7                   STDEV
-  8                   STDEVP
-  9                   SUM
-  10                  VAR
-  11                  VARP
-  ------------------- --------------
+|                   |              |
+| ----------------- | ------------ |
+| **Function\_num** | **Function** |
+| 1                 | AVERAGE      |
+| 2                 | COUNT        |
+| 3                 | COUNTA       |
+| 4                 | MAX          |
+| 5                 | MIN          |
+| 6                 | PRODUCT      |
+| 7                 | STDEV        |
+| 8                 | STDEVP       |
+| 9                 | SUM          |
+| 10                | VAR          |
+| 11                | VARP         |
 
 The following arguments correspond to text boxes and check boxes in the
 Consolidate dialog box. Arguments that correspond to check boxes are
@@ -62,14 +61,14 @@ box.
 
 **Remarks**
 
--   If you use the CONSOLIDATE function with no arguments and there is a
-    > consolidation on the active worksheet, Microsoft Excel
+  - > If you use the CONSOLIDATE function with no arguments and there is
+    > a consolidation on the active worksheet, Microsoft Excel
     > reconsolidates, using the sources, function, and position
     > attributes used to create the existing consolidation.
 
--   If you use the CONSOLIDATE function with no arguments and there is
+  - > If you use the CONSOLIDATE function with no arguments and there is
     > no consolidation on the active worksheet, the function returns the
-    > \#VALUE! error value.
+    > \#VALUE\! error value.
 
 >  
 
@@ -83,6 +82,4 @@ OPEN.LINKS   Opens specified supporting workbooks
 
 UPDATE.LINK   Updates a link to another workbook
 
-Return to [top](#A)
 
-CONSTRAIN.NUMERIC

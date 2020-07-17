@@ -1,5 +1,4 @@
 ASSIGN.TO.OBJECT
-================
 
 Assigns a macro to the currently select object.
 
@@ -16,12 +15,12 @@ turned off).
 
 **Remarks**
 
--   If an object is not selected, ASSIGN.TO.OBJECT returns the \#VALUE!
-    > error value and interrupts the macro.
+  - > If an object is not selected, ASSIGN.TO.OBJECT returns the
+    > \#VALUE\! error value and interrupts the macro.
 
--   To change the macro assigned to an object, select the object and use
-    > ASSIGN.TO.OBJECT again, using the reference to the new macro as
-    > macro\_ref. The previous macro is replaced with the new macro.
+  - > To change the macro assigned to an object, select the object and
+    > use ASSIGN.TO.OBJECT again, using the reference to the new macro
+    > as macro\_ref. The previous macro is replaced with the new macro.
 
 >  
 
@@ -31,6 +30,4 @@ CREATE.OBJECT   Creates an object
 
 RUN   Runs a macro
 
-Return to [top](#A)
 
-ASSIGN.TO.TOOL

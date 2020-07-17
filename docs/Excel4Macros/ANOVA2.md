@@ -1,5 +1,4 @@
 ANOVA2
-======
 
 Performs two-factor analysis of variance with replication.
 
@@ -30,6 +29,4 @@ ANOVA1   Performs single-factor analysis of variance
 
 ANOVA3   Performs two-factor analysis of variance without replication
 
-Return to [top](#A)
 
-ANOVA3

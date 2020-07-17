@@ -1,5 +1,4 @@
 PIVOT.FIELD.GROUP
-=================
 
 Creates groups within a PivotTable report.
 
@@ -25,27 +24,27 @@ which you want to group your dates. This argument is ignored if the
 field is not a date field. This argument takes precedence over By if
 they are both specified for a date field.
 
-  ----------- -------------
-  **Value**   **Periods**
-  1           Seconds
-  2           Minutes
-  4           Hours
-  8           Days
-  16          Months
-  32          Quarters
-  64          Years
-  ----------- -------------
+|           |             |
+| --------- | ----------- |
+| **Value** | **Periods** |
+| 1         | Seconds     |
+| 2         | Minutes     |
+| 4         | Hours       |
+| 8         | Days        |
+| 16        | Months      |
+| 32        | Quarters    |
+| 64        | Years       |
 
 **Remarks**
 
--   This function returns TRUE if the grouping is successful. The \#N/A
-    > error value is returned if the grouping failed.
+  - > This function returns TRUE if the grouping is successful. The
+    > \#N/A error value is returned if the grouping failed.
 
--   If no arguments are specified and multiple items within the header
+  - > If no arguments are specified and multiple items within the header
     > field are selected then this function groups those selected items.
 
--   If no arguments are specified and a single item within the header
-    > field is selected then the \#VALUE! error value is returned.
+  - > If no arguments are specified and a single item within the header
+    > field is selected then the \#VALUE\! error value is returned.
 
 >  
 
@@ -75,6 +74,4 @@ active cell
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.FIELD.PROPERTIES

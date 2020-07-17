@@ -1,5 +1,4 @@
 PASTE.PICTURE
-=============
 
 Equivalent to clicking the Paste Picture command on the Edit menu while
 holding down the SHIFT key in Microsoft Excel version 4.0. Pastes a
@@ -22,6 +21,4 @@ INSERT.PICTURE   Inserts a picture from a file
 PASTE.PICTURE.LINK   Pastes a linked picture of the currently copied
 area
 
-Return to [top](#H)
 
-PASTE.PICTURE.LINK

@@ -1,5 +1,4 @@
 HIDE.DIALOG
-===========
 
 Closes the dialog box that has the current focus.
 
@@ -33,6 +32,4 @@ or dialog sheet
 
 SHOW.DIALOG   Runs a dialog on a dialog sheet
 
-Return to [top](#H)
 
-HIDE.OBJECT

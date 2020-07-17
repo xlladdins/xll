@@ -1,5 +1,4 @@
 OPTIONS.LISTS.ADD
-=================
 
 This is the equivalent to clicking the Options command on the Tools menu
 and then clicking the Custom Lists tab in the Options diralog box. Used
@@ -33,11 +32,11 @@ then New List will be activated.
 
 **Remarks**
 
--   To replace an existing custom list, you must first delete it and
+  - > To replace an existing custom list, you must first delete it and
     > then add the new list to the end.
 
--   If the list already exists, then this function will do nothing. The
-    > list is not case sensitive, so \"Scorpio\" and \"scorpio\" are
+  - > If the list already exists, then this function will do nothing.
+    > The list is not case sensitive, so "Scorpio" and "scorpio" are
     > treated the same in custom lists.
 
 **Related Functions**
@@ -48,6 +47,4 @@ OPTIONS.LISTS.GET   Returns contents of custom AutoFill lists
 
 OPTIONS.LISTS.DELETE   Deletes a custom list
 
-Return to [top](#H)
 
-OPTIONS.LISTS.DELETE

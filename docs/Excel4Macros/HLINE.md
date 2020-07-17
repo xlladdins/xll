@@ -1,8 +1,7 @@
 HLINE
-=====
 
 Scrolls through the active window by a specific number of columns.
-Returns the \#VALUE! error value if the active sheet is a chart.
+Returns the \#VALUE\! error value if the active sheet is a chart.
 
 **Syntax**
 
@@ -11,11 +10,11 @@ Returns the \#VALUE! error value if the active sheet is a chart.
 Num\_columns    is the number of columns in the active worksheet or
 macro sheet you want to scroll through horizontally.
 
--   If num\_columns is positive, HLINE scrolls to the right.
+  - > If num\_columns is positive, HLINE scrolls to the right.
 
--   If num\_columns is negative, HLINE scrolls to the left.
+  - > If num\_columns is negative, HLINE scrolls to the left.
 
--   Num\_columns must be between -256 and 256, inclusive.
+  - > Num\_columns must be between -256 and 256, inclusive.
 
 >  
 
@@ -42,6 +41,4 @@ time
 VSCROLL   Vertically scrolls through a sheet by percentage or by row
 number
 
-Return to [top](#H)
 
-HPAGE

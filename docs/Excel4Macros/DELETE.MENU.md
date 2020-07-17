@@ -1,5 +1,4 @@
 DELETE.MENU
-===========
 
 Deletes a menu or submenu. Use DELETE.MENU to delete menus you have
 added to menu bars when the supporting macro sheet is closed (using an
@@ -17,7 +16,7 @@ numbers for built-in menu bars, see ADD.COMMAND.
 Menu    is the menu you want to delete. Menu can be either the name of a
 menu as text or the number of a menu. Menus are numbered starting with 1
 from the left of the screen. If the specified menu does not exist,
-DELETE.MENU returns the \#VALUE! error value and interrupts the macro.
+DELETE.MENU returns the \#VALUE\! error value and interrupts the macro.
 After a menu is deleted, the menu number for each menu to the right of
 that menu is decreased by 1.
 
@@ -34,7 +33,7 @@ prevent the user from accessing a shortcut menu.
 The following macro formula deletes the Reports menu from the custom
 menu bar created by the ADD.BAR function in a cell named Financials:
 
-DELETE.MENU(Financials, \"Reports\")
+DELETE.MENU(Financials, "Reports")
 
 **Related Functions**
 
@@ -48,6 +47,4 @@ DELETE.COMMAND   Deletes a command from a menu
 
 ENABLE.COMMAND   Enables or disables a menu or custom command
 
-Return to [top](#A)
 
-DELETE.NAME

@@ -1,5 +1,4 @@
 WORKBOOK.UNHIDE
-===============
 
 Equivalent to clicking the Unhide command on the sheet submenu of the
 Format menu. Unhides one or more sheets in the current workbook.
@@ -22,6 +21,4 @@ If the workbook is protected, you cannot unhide any sheets in the book.
 
 WORKBOOK.HIDE   Hides sheets in the active workbook
 
-Return to [top](#T)
 
-WORKGROUP

@@ -1,5 +1,4 @@
 PIVOT.FIELD
-===========
 
 Pivots a field within a PivotTable report.
 
@@ -21,14 +20,14 @@ which is being pivoted. If this argument is omitted, then the
 orientation remains unchanged. The integers refer to orientations as
 follows:
 
-  ----------- -----------------
-  **Value**   **Orientation**
-  0           Hidden
-  1           Row
-  2           Column
-  3           Page
-  4           Data
-  ----------- -----------------
+|           |                 |
+| --------- | --------------- |
+| **Value** | **Orientation** |
+| 0         | Hidden          |
+| 1         | Row             |
+| 2         | Column          |
+| 3         | Page            |
+| 4         | Data            |
 
 Position    is an integer representing where in the orientation the
 fields will be positioned. Position 1 is the leftmost header position in
@@ -38,17 +37,17 @@ is omitted, it will default to the last position in the field.
 
 **Remarks**
 
--   The function returns TRUE if successful.
+  - > The function returns TRUE if successful.
 
--   If name is not a valid PivotTable name then the \#VALUE! error value
-    > is returned.
+  - > If name is not a valid PivotTable name then the \#VALUE\! error
+    > value is returned.
 
--   If pivot\_field\_name is not a text constant or contains text which
-    > is not a valid field name for the PivotTable report then the
-    > \#VALUE! error value is returned.
+  - > If pivot\_field\_name is not a text constant or contains text
+    > which is not a valid field name for the PivotTable report then the
+    > \#VALUE\! error value is returned.
 
--   If destination is not an integer between 0 and 4, then the \#VALUE!
-    > error value is returned.
+  - > If destination is not an integer between 0 and 4, then the
+    > \#VALUE\! error value is returned.
 
 >  
 
@@ -78,6 +77,4 @@ active cell
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.FIELD.GROUP

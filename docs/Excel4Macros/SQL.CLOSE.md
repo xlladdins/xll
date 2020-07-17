@@ -1,5 +1,4 @@
 SQL.CLOSE
-=========
 
 Terminates a connection to an external data source. If this function is
 not available, you must install the Microsoft ODBC add-in (XLODBC.XLA).
@@ -11,27 +10,27 @@ not available, you must install the Microsoft ODBC add-in (XLODBC.XLA).
 Connection\_num    is the unique connection ID of the data source from
 which you wish to disconnect.
 
--   Connection\_num is returned by a previously executed SQL.OPEN
+  - > Connection\_num is returned by a previously executed SQL.OPEN
     > function.
 
--   If connection\_num is not valid, SQL.CLOSE returns the \#VALUE!
+  - > If connection\_num is not valid, SQL.CLOSE returns the \#VALUE\!
     > error value.
 
 >  
 
 **Remarks**
 
--   If the connection is successfully terminated SQL.CLOSE will return
+  - > If the connection is successfully terminated SQL.CLOSE will return
     > zero and the connection ID number is then no longer valid.
 
--   If SQL.CLOSE is unable to disconnect with the data source then it
+  - > If SQL.CLOSE is unable to disconnect with the data source then it
     > will return the error value the \#N/A error value. In such a case
     > SQL.CLOSE will place error information in memory for the SQL.ERROR
     > function, if such information is available.
 
--   SQL.CLOSE works with data sources in much the same manner as FCLOSE
-    > works with files. If the call is successful then SQL.CLOSE will
-    > terminate the specified data source connection.
+  - > SQL.CLOSE works with data sources in much the same manner as
+    > FCLOSE works with files. If the call is successful then SQL.CLOSE
+    > will terminate the specified data source connection.
 
 **Example**
 
@@ -53,6 +52,4 @@ SQL.GET.SCHEMA   Gets information about a connected data source.
 
 SQL.ERROR   Returns detailed error information
 
-Return to [top](#Q)
 
-SQL.ERROR

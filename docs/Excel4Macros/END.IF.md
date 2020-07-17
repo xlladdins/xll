@@ -1,5 +1,4 @@
 END.IF
-======
 
 Ends a block of functions associated with the preceding IF function. You
 must include one and only one END.IF function for each macro-sheets-only
@@ -16,13 +15,13 @@ structured.
 
 **Remarks**
 
--   If you accidentally omit an END.IF function, your macro will end
+  - > If you accidentally omit an END.IF function, your macro will end
     > with an error at the cell containing the first IF function that
     > does not have a corresponding END.IF function.
 
--   END.IF must be entered in a cell by itself.
+  - > END.IF must be entered in a cell by itself.
 
--   For more information about ELSE, ELSE.IF, END.IF, and IF, and for
+  - > For more information about ELSE, ELSE.IF, END.IF, and IF, and for
     > examples of these functions, see form 2 of the IF function.
 
 >  
@@ -36,6 +35,4 @@ function returns FALSE
 
 IF   Specifies an action to take if a logical test is TRUE
 
-Return to [top](#E)
 
-ENTER.DATA

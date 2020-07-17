@@ -1,5 +1,4 @@
 COPY.TOOL
-=========
 
 Copies a button face to the Clipboard.
 
@@ -24,6 +23,4 @@ GET.TOOL   Returns information about a button or buttons on a toolbar
 PASTE.TOOL   Pastes a button face from the Clipboard to a specified
 position on a toolbar
 
-Return to [top](#A)
 
-CREATE.NAMES

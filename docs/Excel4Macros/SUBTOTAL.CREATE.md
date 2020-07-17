@@ -1,5 +1,4 @@
 SUBTOTAL.CREATE
-===============
 
 Equivalent to clicking the Subtotals command on the Data menu. Generates
 a subtotal in a list or database.
@@ -18,31 +17,106 @@ In text box on the Subtotal dialog box.
 Function\_Num    is a number corresponding to the Use Function list box
 specifying which function you want to use in subtotaling your data.
 
-+----------------+---------------------+
-| > **Function** | > **Function\_Num** |
-+----------------+---------------------+
-| > SUM          | > 1                 |
-+----------------+---------------------+
-| > COUNTA       | > 2                 |
-+----------------+---------------------+
-| > AVERAGE      | > 3                 |
-+----------------+---------------------+
-| > MAX          | > 4                 |
-+----------------+---------------------+
-| > MIN          | > 5                 |
-+----------------+---------------------+
-| > PRODUCT      | > 6                 |
-+----------------+---------------------+
-| > COUNT        | > 7                 |
-+----------------+---------------------+
-| > STDEV        | > 8                 |
-+----------------+---------------------+
-| > STDEVP       | > 9                 |
-+----------------+---------------------+
-| > VAR          | > 10                |
-+----------------+---------------------+
-| > VARP         | > 11                |
-+----------------+---------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Function</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Function_Num</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>SUM</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>COUNTA</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>AVERAGE</p>
+</blockquote></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>MAX</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>MIN</p>
+</blockquote></td>
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>PRODUCT</p>
+</blockquote></td>
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>COUNT</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>STDEV</p>
+</blockquote></td>
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>STDEVP</p>
+</blockquote></td>
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>VAR</p>
+</blockquote></td>
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>VARP</p>
+</blockquote></td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Total    is an array of column offsets corresponding to the Add Subtotal
 To list box. Indicates which columns you want aggregated according to
@@ -68,6 +142,4 @@ the header.
 SUBTOTAL.REMOVE   Removes all previously existing subtotals and grand
 totals in a list
 
-Return to [top](#Q)
 
-SUBTOTAL.REMOVE

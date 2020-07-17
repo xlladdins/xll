@@ -1,5 +1,4 @@
 PIVOT.ADD.DATA
-==============
 
 Adds a field to a PivotTable report.
 
@@ -30,20 +29,20 @@ value from the following table. If function is omitted, SUM will be
 used. If the field is a numeric field or text field, COUNTA will be
 used.
 
-  ----------- --------------
-  **Value**   **Function**
-  2           SUM
-  4           COUNTA
-  8           COUNT
-  16          AVERAGE
-  32          MAX
-  64          MIN
-  128         PRODUCT
-  256         STDEV
-  512         STDEVP
-  1024        VAR
-  2048        VARP
-  ----------- --------------
+|           |              |
+| --------- | ------------ |
+| **Value** | **Function** |
+| 2         | SUM          |
+| 4         | COUNTA       |
+| 8         | COUNT        |
+| 16        | AVERAGE      |
+| 32        | MAX          |
+| 64        | MIN          |
+| 128       | PRODUCT      |
+| 256       | STDEV        |
+| 512       | STDEVP       |
+| 1024      | VAR          |
+| 2048      | VARP         |
 
 Calculation    is a number between 1 and 9 representing which custom
 calculation you would like to apply to this data field. This corresponds
@@ -51,18 +50,18 @@ to the Show Data As drop-down box on the PivotTable Field dialog box. If
 this argument is omitted, no special calculation will be applied to the
 data field.
 
-  ----------- --------------------
-  **Value**   **Calculation**
-  1           Normal
-  2           Difference From
-  3           \% Of Item
-  4           \% Difference From
-  5           Running Total In
-  6           \% of Row
-  7           \% of Column
-  8           \% of Total
-  9           Index
-  ----------- --------------------
+|           |                   |
+| --------- | ----------------- |
+| **Value** | **Calculation**   |
+| 1         | Normal            |
+| 2         | Difference From   |
+| 3         | % Of Item         |
+| 4         | % Difference From |
+| 5         | Running Total In  |
+| 6         | % of Row          |
+| 7         | % of Column       |
+| 8         | % of Total        |
+| 9         | Index             |
 
 Base\_Field    is the field on which you want to base the calculation.
 
@@ -76,11 +75,11 @@ command on the Data menu when the selection is in a data field.
 
 **Remarks**
 
--   If name is not a valid PivotTable name, then the \#VALUE! error
+  - > If name is not a valid PivotTable name, then the \#VALUE\! error
     > value is returned.
 
--   If field\_name is not a valid field for the current PivotTable
-    > report then the \#VALUE! error value is returned.
+  - > If field\_name is not a valid field for the current PivotTable
+    > report then the \#VALUE\! error value is returned.
 
 >  
 
@@ -110,6 +109,4 @@ active cell
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.ADD.FIELDS

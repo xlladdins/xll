@@ -1,5 +1,4 @@
 CHECK.COMMAND
-=============
 
 Adds or removes a check mark to or from a command name on a menu. A
 check mark beside a command indicates that the command has been chosen.
@@ -30,18 +29,18 @@ check.
 
 **Remarks**
 
--   The check mark doesn\'t affect execution of the command. Microsoft
+  - > The check mark doesn't affect execution of the command. Microsoft
     > Excel automatically adds and deletes check marks to some commands,
     > such as the name of the active workbook in the Window menu. If you
     > have assigned a check mark to a built-in command that Microsoft
-    > Excel automatically changes in response to the user\'s actions,
-    > the check mark will be added or removed as appropriate, and any
-    > check marks you have added or deleted with CHECK.COMMAND will be
+    > Excel automatically changes in response to the user's actions, the
+    > check mark will be added or removed as appropriate, and any check
+    > marks you have added or deleted with CHECK.COMMAND will be
     > ignored.
 
--   If you use CHECK.COMMAND with a command on a Microsoft Excel version
-    > 4.0 menu bar, the corresponding command on the Microsoft Excel
-    > version 5.0 or later menu bar will not be effected.
+  - > If you use CHECK.COMMAND with a command on a Microsoft Excel
+    > version 4.0 menu bar, the corresponding command on the Microsoft
+    > Excel version 5.0 or later menu bar will not be effected.
 
 >  
 
@@ -51,7 +50,7 @@ The following macro formula adds a check mark to the Sales command on
 the Weekly menu on a custom menu bar created by the ADD.BAR function in
 a cell named Reports:
 
-CHECK.COMMAND(Reports, \"Weekly\", \"Sales\", TRUE)
+CHECK.COMMAND(Reports, "Weekly", "Sales", TRUE)
 
 **Related Functions**
 
@@ -63,6 +62,4 @@ ENABLE.COMMAND   Enables or disables a menu or custom command
 
 RENAME.COMMAND   Changes the name of a command or menu
 
-Return to [top](#A)
 
-CLEAR

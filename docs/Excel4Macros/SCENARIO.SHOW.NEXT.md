@@ -1,5 +1,4 @@
 SCENARIO.SHOW.NEXT
-==================
 
 Equivalent to clicking the Scenarios command on the Tools menu,
 selecting the next scenario from the Scenarios list, and clicking the
@@ -15,6 +14,4 @@ the result.
 After displaying the last scenario, running SCENARIO.SHOW.NEXT again
 displays the first scenario.
 
-Return to [top](#Q)
 
-SCENARIO.SUMMARY

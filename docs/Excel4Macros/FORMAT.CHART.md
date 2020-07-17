@@ -1,5 +1,4 @@
 FORMAT.CHART
-============
 
 Equivalent to choosing the Options button in the Chart Type dialog box,
 which is available when you choose the Chart Type command from the
@@ -34,17 +33,17 @@ Options tab on the Format Bar Group Dialog box, which appears when you
 choose the Bar Group from the Format menu. Overlap is ignored if
 type\_num is not 2 or 3 (bar or column chart).
 
--   If overlap is positive, it specifies the percentage of overlap you
+  - > If overlap is positive, it specifies the percentage of overlap you
     > want for bars or columns. For example, 50 would cause one-half of
     > a bar or column to be covered by an adjacent bar or column. A
     > value of zero prevents bars or columns from overlapping.
 
--   If overlap is negative, then bars or columns are separated by the
+  - > If overlap is negative, then bars or columns are separated by the
     > specified percentage of the maximum available distance between any
     > two bars or columns.
 
--   If overlap is omitted, it is assumed to be 0 (bars or columns do not
-    > overlap), or it is unchanged if a value was previously set.
+  - > If overlap is omitted, it is assumed to be 0 (bars or columns do
+    > not overlap), or it is unchanged if a value was previously set.
 
 Angle    is a number from 0 to 360 specifying the angle of the first pie
 or doughnut slice (in degrees) if the chart is a pie or doughnut chart.
@@ -57,11 +56,11 @@ corresponds to the Gap Width edit box in the Options tab on the Format
 Bar Group Dialog box, which appears when you choose the Bar Group from
 the Format menu.
 
--   Gap\_width is ignored if type\_num is not 2, 3, 8, or 12 (bar or
+  - > Gap\_width is ignored if type\_num is not 2, 3, 8, or 12 (bar or
     > column chart).
 
--   If Gap\_width is omitted, it is assumed to be 50, or it is unchanged
-    > if a value was previously set.
+  - > If Gap\_width is omitted, it is assumed to be 50, or it is
+    > unchanged if a value was previously set.
 
 >  
 
@@ -72,11 +71,11 @@ Gap\_depth    is a number from 0 to 500 specifying the depth of the gap
 in front of and behind a bar, column, area, or line as a percentage of
 the depth of the bar, column, area, or line.
 
--   Gap\_depth is ignored if the chart is a pie chart or if it is not a
-    > 3-D chart.
+  - > Gap\_depth is ignored if the chart is a pie chart or if it is not
+    > a 3-D chart.
 
--   If gap\_depth is omitted and the chart is a 3-D chart, gap\_depth is
-    > assumed to be 50, or it is unchanged if a value was previously
+  - > If gap\_depth is omitted and the chart is a 3-D chart, gap\_depth
+    > is assumed to be 50, or it is unchanged if a value was previously
     > set. If gap\_depth is omitted and the view is side-by-side,
     > stacked, or stacked 100%, gap\_depth is assumed to be 0, or it is
     > unchanged if a value was previously set.
@@ -86,9 +85,9 @@ the depth of the bar, column, area, or line.
 Chart\_depth    is a number from 20 to 2000 specifying the visual depth
 of the chart as a percentage of the width of the chart.
 
--   Chart\_depth is ignored if the chart is not a 3-D chart.
+  - > Chart\_depth is ignored if the chart is not a 3-D chart.
 
--   If Chart\_depth is omitted, it is assumed to be 100, or it is
+  - > If Chart\_depth is omitted, it is assumed to be 100, or it is
     > unchanged if a value was previously set.
 
 >  
@@ -130,6 +129,4 @@ FORMAT.MAIN   Formats a chart according to the arguments you specify
 
 FORMAT.OVERLAY   Formats an overlay chart
 
-Return to [top](#E)
 
-FORMAT.CHARTTYPE

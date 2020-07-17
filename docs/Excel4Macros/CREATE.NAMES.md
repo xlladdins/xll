@@ -1,5 +1,4 @@
 CREATE.NAMES
-============
 
 Equivalent to clicking the Create command on the Name submenu of the
 Insert menu. Use CREATE.NAMES to quickly create names from text labels
@@ -39,6 +38,4 @@ DELETE.NAME   Deletes a name
 
 FORMULA.GOTO   Selects a named area or reference on any open workbook
 
-Return to [top](#A)
 
-CREATE.OBJECT

@@ -1,5 +1,4 @@
 GALLERY.CUSTOM
-==============
 
 Changes the format of the active chart to the custom format.
 
@@ -15,6 +14,4 @@ ADD.CHART.AUTOFORMAT   Formats a chart using a custom gallery
 
 DELETE.CHART.AUTOFORMAT   Deletes a custom gallery
 
-Return to [top](#E)
 
-GALLERY.DOUGHNUT

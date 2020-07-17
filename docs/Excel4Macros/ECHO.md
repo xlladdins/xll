@@ -1,5 +1,4 @@
 ECHO
-====
 
 Controls screen updating while a macro is running. If a large macro uses
 many commands that update the screen, use ECHO to make the macro run
@@ -12,21 +11,21 @@ faster.
 Logical    is a logical value specifying whether screen updating is on
 or off.
 
--   If logical is TRUE, Microsoft Excel selects screen updating.
+  - > If logical is TRUE, Microsoft Excel selects screen updating.
 
--   If logical is FALSE, Microsoft Excel clears screen updating.
+  - > If logical is FALSE, Microsoft Excel clears screen updating.
 
--   If logical is omitted, Microsoft Excel changes the current screen
+  - > If logical is omitted, Microsoft Excel changes the current screen
     > update condition.
 
 >  
 
 **Remarks**
 
--   Screen updating is always turned back on when a macro ends.
+  - > Screen updating is always turned back on when a macro ends.
 
--   You can use GET.WORKSPACE to determine whether screen updating is on
-    > or off.
+  - > You can use GET.WORKSPACE to determine whether screen updating is
+    > on or off.
 
 >  
 
@@ -34,6 +33,4 @@ or off.
 
 GET.WORKSPACE   Returns information about the workspace
 
-Return to [top](#E)
 
-EDITBOX.PROPERTIES

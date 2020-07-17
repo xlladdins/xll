@@ -1,5 +1,4 @@
 SET.CONTROL.VALUE
-=================
 
 Changes the value for the active control, such as a list box, drop-down
 box, check box, option button, scroll bar, and spinner button.
@@ -11,28 +10,69 @@ box, check box, option button, scroll bar, and spinner button.
 Value    is the value you want to change. The control interprets this
 value as follows:
 
-+------------------+--------------------------------------------------+
-| > **Control**    | > **Value is**                                   |
-+------------------+--------------------------------------------------+
-| > List box       | > The index of the selected item. If zero, then  |
-|                  | > no item is selected.                           |
-+------------------+--------------------------------------------------+
-| > Drop-down box  | > The index of the selected item. If zero, then  |
-|                  | > no item is selected.                           |
-+------------------+--------------------------------------------------+
-| > Check box      | > 0 = Off\                                       |
-|                  | > 1 = On\                                        |
-|                  | > 2 = Mixed                                      |
-+------------------+--------------------------------------------------+
-| > Option button  | > 0= Off\                                        |
-|                  | > 1 = On                                         |
-+------------------+--------------------------------------------------+
-| > Scroll bar     | > The numeric value of the control, between the  |
-|                  | > maximum and minimum values                     |
-+------------------+--------------------------------------------------+
-| > Spinner button | > The numeric value of the control, between the  |
-|                  | > maximum and minimum values                     |
-+------------------+--------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Control</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Value is</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>List box</p>
+</blockquote></td>
+<td><blockquote>
+<p>The index of the selected item. If zero, then no item is selected.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Drop-down box</p>
+</blockquote></td>
+<td><blockquote>
+<p>The index of the selected item. If zero, then no item is selected.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Check box</p>
+</blockquote></td>
+<td><blockquote>
+<p>0 = Off<br />
+1 = On<br />
+2 = Mixed</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Option button</p>
+</blockquote></td>
+<td><blockquote>
+<p>0= Off<br />
+1 = On</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Scroll bar</p>
+</blockquote></td>
+<td><blockquote>
+<p>The numeric value of the control, between the maximum and minimum values</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Spinner button</p>
+</blockquote></td>
+<td><blockquote>
+<p>The numeric value of the control, between the maximum and minimum values</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Related Functions**
 
@@ -49,6 +89,4 @@ box controls
 SCROLLBAR.PROPERTIES   Sets the properties of the scroll bar and spinner
 controls
 
-Return to [top](#Q)
 
-SET.CRITERIA

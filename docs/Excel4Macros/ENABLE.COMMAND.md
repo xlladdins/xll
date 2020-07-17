@@ -1,9 +1,8 @@
 ENABLE.COMMAND
-==============
 
 Enables or disables a custom command or menu. Disabled commands appear
-dimmed and can\'t be chosen. Use ENABLE.COMMAND to control which
-commands the user can click in a menu bar.
+dimmed and can't be chosen. Use ENABLE.COMMAND to control which commands
+the user can click in a menu bar.
 
 **Syntax**
 
@@ -34,11 +33,11 @@ submenu. Use subcommand 0 to enable an entire submenu.
 
 **Remarks**
 
--   You cannot disable built-in commands. If the specified command is a
-    > built-in command or does not exist, ENABLE.COMMAND returns the
-    > \#VALUE! error value and interrupts the macro.
+  - > You cannot disable built-in commands. If the specified command is
+    > a built-in command or does not exist, ENABLE.COMMAND returns the
+    > \#VALUE\! error value and interrupts the macro.
 
--   You can hide any shortcut menu from users by using ENABLE.COMMAND
+  - > You can hide any shortcut menu from users by using ENABLE.COMMAND
     > with command set to 0.
 
 >  
@@ -49,7 +48,7 @@ The following macro formula disables a custom command that had been
 added previously to the View menu on the worksheet and macro sheet menu
 bar:
 
-ENABLE.COMMAND(10, \"View\", \"Audit\...\", FALSE)
+ENABLE.COMMAND(10, "View", "Audit...", FALSE)
 
 **Related Functions**
 
@@ -63,6 +62,4 @@ DELETE.COMMAND   Deletes a command from a menu
 
 RENAME.COMMAND   Changes the name of a command or menu
 
-Return to [top](#E)
 
-ENABLE.OBJECT

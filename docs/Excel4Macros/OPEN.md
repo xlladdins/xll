@@ -1,5 +1,4 @@
 OPEN
-====
 
 Equivalent to clicking the Open command on the File menu. Opens an
 existing workbook.
@@ -24,23 +23,23 @@ Update\_links    specifies whether and how to update external and remote
 references. If update\_links is omitted, Microsoft Excel displays a
 message asking if you want to update links.
 
-  ------------------------- ------------------------------------------------
-  **If update\_links is**   **Then Microsoft Excel**
-  0                         Updates neither external nor remote references
-  1                         Updates external references only
-  2                         Updates remote references only
-  3                         Updates external and remote references
-  ------------------------- ------------------------------------------------
+|                         |                                                |
+| ----------------------- | ---------------------------------------------- |
+| **If update\_links is** | **Then Microsoft Excel**                       |
+| 0                       | Updates neither external nor remote references |
+| 1                       | Updates external references only               |
+| 2                       | Updates remote references only                 |
+| 3                       | Updates external and remote references         |
 
 **Note   **When you are opening a file in WKS, WK1, or WK3 format, the
 update\_links argument specifies whether Microsoft Excel generates
 charts from any graphs attached to the WKS, WK1, or WK3 file.
 
-  ------------------------- ----------------
-  **If update\_links is**   **Charts are**
-  0                         Not created
-  2                         Created
-  ------------------------- ----------------
+|                         |                |
+| ----------------------- | -------------- |
+| **If update\_links is** | **Charts are** |
+| 0                       | Not created    |
+| 2                       | Created        |
 
 Read\_only    corresponds to the Read Only check box in the Open dialog
 box. If read\_only is TRUE, the workbook can be modified but changes
@@ -51,15 +50,15 @@ Format    specifies what character to use as a delimiter when opening
 text files. If format is omitted, Microsoft Excel uses the current
 delimiter setting.
 
-  ------------------ -----------------------------
-  **If format is**   **Values are separated by**
-  1                  Tabs
-  2                  Commas
-  3                  Spaces
-  4                  Semicolons
-  5                  Nothing
-  6                  Custom characters
-  ------------------ -----------------------------
+|                  |                             |
+| ---------------- | --------------------------- |
+| **If format is** | **Values are separated by** |
+| 1                | Tabs                        |
+| 2                | Commas                      |
+| 3                | Spaces                      |
+| 4                | Semicolons                  |
+| 5                | Nothing                     |
+| 6                | Custom characters           |
 
 Prot\_pwd    is the password, as text, required to unprotect a protected
 file. If prot\_pwd is omitted and file\_text requires a password, the
@@ -81,25 +80,25 @@ when opening a read-only recommended workbook.
 File\_origin    is a number specifying whether a text file originated on
 the Macintosh or in Windows.
 
-  ------------------ ------------------------------------
-  **File\_origin**   **Original operating environment**
-  1                  Macintosh
-  2                  Windows (ANSI)
-  3                  MS-DOS (PC-8)
-  ------------------ ------------------------------------
+|                  |                                    |
+| ---------------- | ---------------------------------- |
+| **File\_origin** | **Original operating environment** |
+| 1                | Macintosh                          |
+| 2                | Windows (ANSI)                     |
+| 3                | MS-DOS (PC-8)                      |
 
 OmittedCurrent operating environment
 
 Custom\_delimit    is the character you want to use as a custom
 delimiter when opening text files.
 
--   Custom\_delimit is text or a reference or formula that returns text,
-    > such as CHAR(124).
+  - > Custom\_delimit is text or a reference or formula that returns
+    > text, such as CHAR(124).
 
--   Custom\_delimit is required if format is 6; it is ignored if format
-    > is not 6.
+  - > Custom\_delimit is required if format is 6; it is ignored if
+    > format is not 6.
 
--   Only the first character in custom\_delimit is used.
+  - > Only the first character in custom\_delimit is used.
 
 Add\_logical    is a logical value that specifies whether or not to add
 file\_text to the open workbook. If add\_logical is TRUE, the document
@@ -114,14 +113,14 @@ the Open dialog box. If FALSE or omitted, this argument is ignored.
 File\_access     is a number specifying how the file is to be accessed.
 If the file is being opened for the first time, this argument is
 ignored. If the file is already opened, this argument determines how to
-change the user\'s access permissions for the file.
+change the user's access permissions for the file.
 
-  ----------------- -----------------------------
-  **File Access**   **How Accessed**
-  1                 Revert to saved copy
-  2                 Change to read/write access
-  3                 Change to read only access
-  ----------------- -----------------------------
+|                 |                             |
+| --------------- | --------------------------- |
+| **File Access** | **How Accessed**            |
+| 1               | Revert to saved copy        |
+| 2               | Change to read/write access |
+| 3               | Change to read only access  |
 
 Notify\_logical    is a logical value that specifies whether the user
 should be notified when the shared workbook is available to be opened
@@ -146,6 +145,4 @@ FOPEN   Opens a file with the type of permission specified
 
 OPEN.LINKS   Opens specified supporting workbooks
 
-Return to [top](#H)
 
-OPEN.DIALOG

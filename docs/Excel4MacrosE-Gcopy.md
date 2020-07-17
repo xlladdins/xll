@@ -1,8 +1,7 @@
-[]{#E .anchor}This document contains reference information on the
-following Excel macro functions:
+<span id="E" class="anchor"></span>This document contains reference
+information on the following Excel macro functions:
 
-E
-=
+# E
 
 [ECHO](#echo), [EDITBOX.PROPERTIES](#editbox.properties),
 [EDIT.COLOR](#edit.color), [EDIT.DELETE](#edit.delete),
@@ -17,8 +16,7 @@ ERRORBAR.Y](#errorbar.x-errorbar.y), [EVALUATE](#evaluate),
 [EXEC](#exec), [EXECUTE](#execute), [EXPON](#expon),
 [EXTEND.POLYGON](#extend.polygon), [EXTRACT](#extract)
 
-F
-=
+# F
 
 [FCLOSE](#fclose), [FILE.CLOSE](#file.close),
 [FILE.DELETE](#file.delete), [FILES](#files), [FILL.AUTO](#fill.auto),
@@ -51,8 +49,7 @@ FORMULA.FIND.PREV](#formula.find.next-formula.find.prev),
 [FUNCTION.WIZARD](#function.wizard), [FWRITE](#fwrite),
 [FWRITELN](#fwriteln)
 
-G
-=
+# G
 
 [GALLERY.3D.AREA](#gallery.3d.area), [GALLERY.3D.BAR](#gallery.3d.bar),
 [GALLERY.3D.COLUMN](#gallery.3d.column),
@@ -75,8 +72,9 @@ Syntax 1](#get.bar-syntax-1), [GET.BAR Syntax 2](#get.bar-syntax-2),
 [GOAL.SEEK](#goal.seek), [GOTO](#goto), [GRIDLINES](#gridlines),
 [GROUP](#group)
 
-ECHO
-====
+# 
+
+# ECHO
 
 Controls screen updating while a macro is running. If a large macro uses
 many commands that update the screen, use ECHO to make the macro run
@@ -89,21 +87,21 @@ faster.
 Logical    is a logical value specifying whether screen updating is on
 or off.
 
--   If logical is TRUE, Microsoft Excel selects screen updating.
+  - > If logical is TRUE, Microsoft Excel selects screen updating.
 
--   If logical is FALSE, Microsoft Excel clears screen updating.
+  - > If logical is FALSE, Microsoft Excel clears screen updating.
 
--   If logical is omitted, Microsoft Excel changes the current screen
+  - > If logical is omitted, Microsoft Excel changes the current screen
     > update condition.
 
 >  
 
 **Remarks**
 
--   Screen updating is always turned back on when a macro ends.
+  - > Screen updating is always turned back on when a macro ends.
 
--   You can use GET.WORKSPACE to determine whether screen updating is on
-    > or off.
+  - > You can use GET.WORKSPACE to determine whether screen updating is
+    > on or off.
 
 >  
 
@@ -113,8 +111,7 @@ GET.WORKSPACE   Returns information about the workspace
 
 Return to [top](#E)
 
-EDITBOX.PROPERTIES
-==================
+# EDITBOX.PROPERTIES
 
 Sets the properties of an edit box on a dialog sheet.
 
@@ -130,14 +127,14 @@ Validation\_num    is the validation applied to the edit box when the
 dialog is dismissed. If the edit box contains a value other than the
 type specified (or validation), an error is returned.
 
-  --------------------- --------------------------------
-  **Validation\_num**   **Type**
-  1                     Text
-  2                     Integer
-  3                     Number (allows floating point)
-  4                     Reference
-  5                     Formula
-  --------------------- --------------------------------
+|                     |                                |
+| ------------------- | ------------------------------ |
+| **Validation\_num** | **Type**                       |
+| 1                   | Text                           |
+| 2                   | Integer                        |
+| 3                   | Number (allows floating point) |
+| 4                   | Reference                      |
+| 5                   | Formula                        |
 
 Multiline\_logical    is a logical value specifying whether word
 wrapping is allowed in the edit box control. If TRUE, word wrapping is
@@ -160,8 +157,7 @@ PUSHBUTTON.PROPERTIES   Sets the properties of the push button control
 
 Return to [top](#E)
 
-EDIT.COLOR
-==========
+# EDIT.COLOR
 
 Equivalent to clicking the Modify button on the Color tab, which appears
 when you click the Options command on the Tools menu. Defines the color
@@ -184,38 +180,38 @@ palette boxes for which you want to set the color.
 Red\_value, green\_value, and blue\_value    are numbers that specify
 how much red, green, and blue are in each color.
 
--   In Microsoft Excel for Windows, red\_value, green\_value, and
+  - > In Microsoft Excel for Windows, red\_value, green\_value, and
     > blue\_value are numbers from 0 to 255.
 
--   In Microsoft Excel for the Macintosh, red\_value, green\_value, and
-    > blue\_value are also numbers from 0 to 255. However, the color
+  - > In Microsoft Excel for the Macintosh, red\_value, green\_value,
+    > and blue\_value are also numbers from 0 to 255. However, the color
     > editing dialog box displays numbers from 0 to 65, 535. Microsoft
     > Excel automatically converts the numbers between the two ranges.
     > This allows you to display similar colors in all operating
     > environments without modifying your macros.
 
--   If red\_value, green\_value, and blue\_value are all set to 255, the
-    > resulting color is white. If they are all set to zero, the
+  - > If red\_value, green\_value, and blue\_value are all set to 255,
+    > the resulting color is white. If they are all set to zero, the
     > resulting color is black.
 
--   If red\_value, green\_value, or blue\_value is omitted, Microsoft
+  - > If red\_value, green\_value, or blue\_value is omitted, Microsoft
     > Excel assumes it to be the appropriate value for that color\_num.
 
 >  
 
 **Remarks**
 
--   Your system hardware determines the number of unique colors that you
-    > can choose from and the number of colors that can be displayed on
-    > the screen at the same time.
+  - > Your system hardware determines the number of unique colors that
+    > you can choose from and the number of colors that can be displayed
+    > on the screen at the same time.
 
--   EDIT.COLOR does not use hue, saturation, or brightness values. If
+  - > EDIT.COLOR does not use hue, saturation, or brightness values. If
     > you are using the macro recorder and set the color of a color
     > palette box using hue, saturation, and luminance, Microsoft Excel
     > records the corresponding red, green, and blue values instead.
 
--   The dialog-box form of this function, EDIT.COLOR?(color\_num),
-    > displays your system\'s color editing dialog box. The default
+  - > The dialog-box form of this function, EDIT.COLOR?(color\_num),
+    > displays your system's color editing dialog box. The default
     > red\_value, green\_value, and blue\_value are determined by the
     > current settings for the color\_num you specify. Color\_num is a
     > required argument for the dialog-box form of this function.
@@ -228,8 +224,7 @@ COLOR.PALETTE   Copies a color palette from one workbook to another
 
 Return to [top](#E)
 
-EDIT.DELETE
-===========
+# EDIT.DELETE
 
 Equivalent to clicking the Delete command on the Edit menu. Removes the
 selected cells from the worksheet and shifts other cells to close up the
@@ -245,20 +240,20 @@ Shift\_num    is a number from 1 to 4 specifying whether to shift cells
 left or up after deleting the current selection or else to delete the
 entire row or column.
 
-  ---------------- -----------------------
-  **Shift\_num**   **Result**
-  1                Shifts cells left
-  2                Shifts cells up
-  3                Deletes entire row
-  4                Deletes entire column
-  ---------------- -----------------------
+|                |                       |
+| -------------- | --------------------- |
+| **Shift\_num** | **Result**            |
+| 1              | Shifts cells left     |
+| 2              | Shifts cells up       |
+| 3              | Deletes entire row    |
+| 4              | Deletes entire column |
 
  
 
--   If shift\_num is omitted and if one cell or a horizontal range is
+  - > If shift\_num is omitted and if one cell or a horizontal range is
     > selected, EDIT.DELETE shifts cells up.
 
--   If shift\_num is omitted and a vertical range is selected,
+  - > If shift\_num is omitted and a vertical range is selected,
     > EDIT.DELETE shifts cells left.
 
 >  
@@ -269,8 +264,7 @@ CLEAR   Clears specified information from the selected cells or chart
 
 Return to [top](#E)
 
-EDITION.OPTIONS
-===============
+# EDITION.OPTIONS
 
 Sets options in, or performs actions on, the specified publisher or
 subscriber. In Microsoft Excel for Windows, EDITION.OPTIONS also allows
@@ -284,11 +278,11 @@ the Macintosh.
 
 Edition\_type    is the number 1 or 2 specifying the type of edition.
 
-  ------------------- ---------------------
-  **Edition\_type**   **Type of edition**
-  1                   Publisher
-  2                   Subscriber
-  ------------------- ---------------------
+|                   |                     |
+| ----------------- | ------------------- |
+| **Edition\_type** | **Type of edition** |
+| 1                 | Publisher           |
+| 2                 | Subscriber          |
 
 Edition\_name    is the name of the edition you want to change the
 edition options for or to perform actions on. If edition\_name is
@@ -297,16 +291,16 @@ omitted, reference is required.
 Reference    specifies the range (given in text form as a name or an
 R1C1-style reference) occupied by the publisher or subscriber.
 
--   Reference is required if you have more than one publisher or
+  - > Reference is required if you have more than one publisher or
     > subscriber of edition\_name on the active workbook. Use reference
     > to specify the location of the publisher or subscriber for which
     > you want to set options.
 
--   If edition\_type is 1 and the publisher is an embedded chart, or if
-    > edition\_type is 2 and the subscriber is a picture, reference is
-    > the object identifier as displayed in the reference area.
+  - > If edition\_type is 1 and the publisher is an embedded chart, or
+    > if edition\_type is 2 and the subscriber is a picture, reference
+    > is the object identifier as displayed in the reference area.
 
--   If reference is omitted, edition\_name is required.
+  - > If reference is omitted, edition\_name is required.
 
 >  
 
@@ -317,26 +311,26 @@ Excel for the Macintosh with system software version 7.0 or later.
 
 If a publisher is specified, then option applies as follows.
 
-  ------------ ------------------------------------------------------------------------
-  **Option**   **Action**
-  1            Cancels the publisher
-  2            Sends the edition now
-  3            Selects the range or object published to the specified edition
-  4            Automatically updates the edition when the file is saved
-  5            Updates the edition on request only
-  6            Changes the edition file as specified by appearance, size, and formats
-  ------------ ------------------------------------------------------------------------
+|            |                                                                        |
+| ---------- | ---------------------------------------------------------------------- |
+| **Option** | **Action**                                                             |
+| 1          | Cancels the publisher                                                  |
+| 2          | Sends the edition now                                                  |
+| 3          | Selects the range or object published to the specified edition         |
+| 4          | Automatically updates the edition when the file is saved               |
+| 5          | Updates the edition on request only                                    |
+| 6          | Changes the edition file as specified by appearance, size, and formats |
 
 If a subscriber is specified, then option applies as follows.
 
-  ------------ --------------------------------------------------
-  **Option**   **Action**
-  1            Cancels the subscriber
-  2            Gets the latest edition
-  3            Opens the publisher workbook
-  4            Automatically updates when new data is available
-  5            Update on request only
-  ------------ --------------------------------------------------
+|            |                                                  |
+| ---------- | ------------------------------------------------ |
+| **Option** | **Action**                                       |
+| 1          | Cancels the subscriber                           |
+| 2          | Gets the latest edition                          |
+| 3          | Opens the publisher workbook                     |
+| 4          | Automatically updates when new data is available |
+| 5          | Update on request only                           |
 
 The following three arguments are available only when option is 6.
 
@@ -345,30 +339,30 @@ screen or as shown when printed. The default value for appearance is 1
 if the selection is a sheet or macro sheet and 2 if the selection is a
 chart.
 
-  ---------------- ----------------------------
-  **Appearance**   **Selection is published**
-  1                As shown on screen
-  2                As shown when printed
-  ---------------- ----------------------------
+|                |                            |
+| -------------- | -------------------------- |
+| **Appearance** | **Selection is published** |
+| 1              | As shown on screen         |
+| 2              | As shown when printed      |
 
 Size    specifies the size of a published chart. Size is only available
 if a chart is to be published.
 
-  -------------- -----------------------------
-  **Size**       **Chart size is published**
-  1 or omitted   As shown on screen
-  2              As shown when printed
-  -------------- -----------------------------
+|              |                             |
+| ------------ | --------------------------- |
+| **Size**     | **Chart size is published** |
+| 1 or omitted | As shown on screen          |
+| 2            | As shown when printed       |
 
 Formats    is a number specifying the format of the file.
 
-  -------------- -----------------
-  **Formats**    **File format**
-  1 or omitted   PICT
-  2              BIFF
-  4              RTF
-  8              VALU
-  -------------- -----------------
+|              |                 |
+| ------------ | --------------- |
+| **Formats**  | **File format** |
+| 1 or omitted | PICT            |
+| 2            | BIFF            |
+| 4            | RTF             |
+| 8            | VALU            |
 
 You can also use the sum of the allowable file formats. For example, a
 value of 6 specifies BIFF and RTF.
@@ -378,7 +372,7 @@ value of 6 specifies BIFF and RTF.
 The following macro formula opens the workbook (and application) that
 published the edition named Monthly Totals:
 
-EDITION.OPTIONS(2, \"Monthly Totals\", , 3)
+EDITION.OPTIONS(2, "Monthly Totals", , 3)
 
 **Related Functions**
 
@@ -390,8 +384,7 @@ SUBSCRIBE.TO   Inserts contents of an edition into the active workbook
 
 Return to [top](#E)
 
-EDIT.OBJECT
-===========
+# EDIT.OBJECT
 
 Equivalent to clicking the Edit command on the (selected object) Object
 submenu of the Edit menu. Starts the application associated with the
@@ -405,21 +398,22 @@ actions.
 Verb\_num    is a number specifying which verb to use while working with
 the object, that is, what you want to do with the object.
 
--   The available verbs are determined by the object\'s source
-    > application. 1 often specifies \"edit, \" and 2 often specifies
-    > \"play\" (for sound, animation, and so on). For more information,
-    > consult the documentation for the object\'s application to see how
+  - > The available verbs are determined by the object's source
+    > application. 1 often specifies "edit, " and 2 often specifies
+    > "play" (for sound, animation, and so on). For more information,
+    > consult the documentation for the object's application to see how
     > it supports object linking and embedding (OLE).
 
--   If the object does not support multiple verbs, verb\_num is ignored.
+  - > If the object does not support multiple verbs, verb\_num is
+    > ignored.
 
--   If verb\_num is omitted, it is assumed to be 1.
+  - > If verb\_num is omitted, it is assumed to be 1.
 
 >  
 
 **Remarks**
 
-Your macro pauses while you\'re editing the object and resumes when you
+Your macro pauses while you're editing the object and resumes when you
 return to Microsoft Excel.
 
 **Related Function**
@@ -428,8 +422,7 @@ INSERT.OBJECT   Creates an object of a specified type
 
 Return to [top](#E)
 
-EDIT.REPEAT
-===========
+# EDIT.REPEAT
 
 Equivalent to clicking the Repeat command on the Edit menu. Repeats
 certain actions and commands. EDIT.REPEAT is available in the same
@@ -441,8 +434,7 @@ situations as the Repeat command.
 
 Return to [top](#E)
 
-EDIT.SERIES
-===========
+# EDIT.SERIES
 
 Equivalent to clicking the Edit Series command on the Chart menu in
 Microsoft Excel version 4.0. Creates or changes chart series by adding a
@@ -464,14 +456,14 @@ series\_num is 0 or omitted, Microsoft Excel creates a new data series.
 Name\_ref    is the name of the data series. It can be an external
 reference to a single cell, a name defined as a single cell, or a name
 defined as a sequence of characters. Name\_ref can also be text (for
-example, \"Projected Sales\").
+example, "Projected Sales").
 
 X\_ref    is an external reference to the name of the sheet and the
 cells that contain one of the following sets of data:
 
--   Category labels for all charts except xy (scatter) charts
+  - > Category labels for all charts except xy (scatter) charts
 
--   X-coordinate data for xy (scatter) charts
+  - > X-coordinate data for xy (scatter) charts
 
 Y\_ref    is an external reference to the name of the sheet and the
 cells that contain values (or y-coordinate data in xy (scatter) charts)
@@ -485,25 +477,25 @@ charts but does not apply to 2-D charts.
 Plot\_order    is a number specifying whether the data series is plotted
 first, second, and so on, in the chart type.
 
--   If you assign a plot\_order to a series, Microsoft Excel plots that
-    > series in the order you specify, and the series that previously
-    > had that plot order (and any series following it) has its plot
-    > order increased by one.
+  - > If you assign a plot\_order to a series, Microsoft Excel plots
+    > that series in the order you specify, and the series that
+    > previously had that plot order (and any series following it) has
+    > its plot order increased by one.
 
--   If you add a series to a chart with an overlay, the number of series
-    > in the main chart does not change, so if the series is added to
-    > the main chart, then the series that was plotted last in the main
-    > chart will be plotted first in the overlay chart. To change which
-    > series is plotted first in the overlay chart, use the (chart type)
-    > Group command from the Format menu, and then select the Series
-    > Order tab in the Format (chart type) Group dialog box. You can
-    > also use the FORMAT.OVERLAY function.
+  - > If you add a series to a chart with an overlay, the number of
+    > series in the main chart does not change, so if the series is
+    > added to the main chart, then the series that was plotted last in
+    > the main chart will be plotted first in the overlay chart. To
+    > change which series is plotted first in the overlay chart, use the
+    > (chart type) Group command from the Format menu, and then select
+    > the Series Order tab in the Format (chart type) Group dialog box.
+    > You can also use the FORMAT.OVERLAY function.
 
--   If you omit plot\_order when you add a new series, then Microsoft
+  - > If you omit plot\_order when you add a new series, then Microsoft
     > Excel plots that series last and assigns it the correct
     > plot\_order value.
 
--   The maximum value for plot\_order is 255.
+  - > The maximum value for plot\_order is 255.
 
 **Remarks**
 
@@ -518,9 +510,9 @@ arguments, make sure to enclose the reference to the selection in
 parentheses so that Microsoft Excel does not treat the components of the
 references as separate arguments.
 
-**Tip**   To delete a data series, use the SELECT(\"Sn\") macro
-function, where n is the series number, followed by the FORMULA(\"\")
-macro function. You can also use the CLEAR function instead of FORMULA.
+**Tip**   To delete a data series, use the SELECT("Sn") macro function,
+where n is the series number, followed by the FORMULA("") macro
+function. You can also use the CLEAR function instead of FORMULA.
 
 **Related Function**
 
@@ -528,8 +520,7 @@ FORMAT.CHART
 
 Return to [top](#E)
 
-EDIT.TOOL
-=========
+# EDIT.TOOL
 
 Displays the Button Editor dialog box, which you use to change the
 appearance of a button on a toolbar.
@@ -554,8 +545,7 @@ GET.TOOLBAR   Returns information about a toolbar
 
 Return to [top](#E)
 
-ELSE
-====
+# ELSE
 
 Used with IF, ELSE.IF, and END.IF to control which functions are carried
 out in a macro. ELSE signals the beginning of a group of formulas in a
@@ -572,7 +562,7 @@ makes your macros more structured.
 **Remarks**
 
 ELSE must be entered in a cell by itself. In other words, the cell can
-contain only \"=ELSE()\".
+contain only "=ELSE()".
 
 For more information about ELSE, ELSE.IF, END.IF, and IF, and for
 examples of these functions, see form 2 of the IF function.
@@ -588,8 +578,7 @@ IF   Specifies an action to take if a logical test is TRUE
 
 Return to [top](#E)
 
-ELSE.IF
-=======
+# ELSE.IF
 
 Used with IF, ELSE, and END.IF to control which functions are carried
 out in a macro. ELSE.IF signals the beginning of a group of formulas in
@@ -604,28 +593,28 @@ your macros more structured.
 **ELSE.IF**(**logical\_test**)
 
 Logical\_test    is a logical value that ELSE.IF uses to determine what
-functions to carry out next---that is, where to branch.
+functions to carry out next—that is, where to branch.
 
--   If logical\_test is TRUE, Microsoft Excel carries out the functions
-    > between the ELSE.IF function and the next ELSE.IF, ELSE, or END.IF
-    > function.
+  - > If logical\_test is TRUE, Microsoft Excel carries out the
+    > functions between the ELSE.IF function and the next ELSE.IF, ELSE,
+    > or END.IF function.
 
--   If logical\_test is FALSE, Microsoft Excel immediately branches to
+  - > If logical\_test is FALSE, Microsoft Excel immediately branches to
     > the next ELSE.IF, ELSE, or END.IF function.
 
 >  
 
 **Remarks**
 
--   ELSE.IF must be entered in a cell by itself.
+  - > ELSE.IF must be entered in a cell by itself.
 
--   Logical\_test will always be evaluated, even if the ELSE.IF section
-    > is not reached (due to a previous IF or ELSE.IF logical\_test
-    > evaluating to TRUE). For this reason, you should not use formulas
-    > that carry out actions for logical\_test. If you need to base the
-    > ELSE.IF condition on the return value of a formula that carries
-    > out an action, use the form \"ELSE, IF(logical\_test), and
-    > END.IF\" in place of \"ELSE.IF(logical\_test).\"
+  - > Logical\_test will always be evaluated, even if the ELSE.IF
+    > section is not reached (due to a previous IF or ELSE.IF
+    > logical\_test evaluating to TRUE). For this reason, you should not
+    > use formulas that carry out actions for logical\_test. If you need
+    > to base the ELSE.IF condition on the return value of a formula
+    > that carries out an action, use the form "ELSE, IF(logical\_test),
+    > and END.IF" in place of "ELSE.IF(logical\_test)."
 
 >  
 
@@ -642,8 +631,7 @@ IF   Specifies an action to take if a logical test is TRUE
 
 Return to [top](#E)
 
-EMBED
-=====
+# EMBED
 
 Displayed in the formula bar when an embedded object is selected. EMBED
 cannot be entered on a sheet or used in a macro.
@@ -655,11 +643,11 @@ cannot be entered on a sheet or used in a macro.
 Object\_class    is the name of the application and document type that
 created the embedded object. For example, the object\_class arguments
 used when Microsoft Excel sheets are embedded in other applications are
-\"Excel.sheet.5\" and \"Excel.Chart.5\".
+"Excel.sheet.5" and "Excel.Chart.5".
 
 Item    is the area selected to copy, and determines the view on the
-embedded document. When item is empty text (\"\"), EMBED creates a view
-on the entire document.
+embedded document. When item is empty text (""), EMBED creates a view on
+the entire document.
 
 **Remarks**
 
@@ -669,12 +657,11 @@ Double-clicking the object no longer starts the creating application.
 
 Return to [top](#E)
 
-ENABLE.COMMAND
-==============
+# ENABLE.COMMAND
 
 Enables or disables a custom command or menu. Disabled commands appear
-dimmed and can\'t be chosen. Use ENABLE.COMMAND to control which
-commands the user can click in a menu bar.
+dimmed and can't be chosen. Use ENABLE.COMMAND to control which commands
+the user can click in a menu bar.
 
 **Syntax**
 
@@ -705,11 +692,11 @@ submenu. Use subcommand 0 to enable an entire submenu.
 
 **Remarks**
 
--   You cannot disable built-in commands. If the specified command is a
-    > built-in command or does not exist, ENABLE.COMMAND returns the
-    > \#VALUE! error value and interrupts the macro.
+  - > You cannot disable built-in commands. If the specified command is
+    > a built-in command or does not exist, ENABLE.COMMAND returns the
+    > \#VALUE\! error value and interrupts the macro.
 
--   You can hide any shortcut menu from users by using ENABLE.COMMAND
+  - > You can hide any shortcut menu from users by using ENABLE.COMMAND
     > with command set to 0.
 
 >  
@@ -720,7 +707,7 @@ The following macro formula disables a custom command that had been
 added previously to the View menu on the worksheet and macro sheet menu
 bar:
 
-ENABLE.COMMAND(10, \"View\", \"Audit\...\", FALSE)
+ENABLE.COMMAND(10, "View", "Audit...", FALSE)
 
 **Related Functions**
 
@@ -736,8 +723,7 @@ RENAME.COMMAND   Changes the name of a command or menu
 
 Return to [top](#E)
 
-ENABLE.OBJECT
-=============
+# ENABLE.OBJECT
 
 Enables or disables a drawing object or the selected drawing object. A
 disabled object will not run any macro events assigned to it, and the
@@ -756,7 +742,7 @@ is disabled.
 
 **Examples**
 
-ENABLE.OBJECT(\"Button 2\",FALSE) disables the button with object name
+ENABLE.OBJECT("Button 2",FALSE) disables the button with object name
 Button 2 on the dialog box.
 
 **Related Function**
@@ -765,16 +751,14 @@ SET.CONTROL.VALUE   Changes the value of the active control
 
 Return to [top](#E)
 
-ENABLE.TIPWIZARD
-================
+# ENABLE.TIPWIZARD
 
 This function should not be used. The TipWizard has been removed from
 Microsoft Excel.
 
 Return to [top](#E)
 
-ENABLE.TOOL
-===========
+# ENABLE.TOOL
 
 Enables or disables a button on a toolbar. An enabled button can be
 accessed by the user. Disabled buttons may still be visible but cannot
@@ -804,7 +788,7 @@ Microsoft Excel sounds a tone if you click a disabled button.
 
 The following macro formula enables the fourth button in Toolbar1:
 
-ENABLE.TOOL(\"Toolbar1\", 4, TRUE)
+ENABLE.TOOL("Toolbar1", 4, TRUE)
 
 **Related Function**
 
@@ -812,8 +796,7 @@ GET.TOOL   Returns information about a button or buttons on a toolbar
 
 Return to [top](#E)
 
-END.IF
-======
+# END.IF
 
 Ends a block of functions associated with the preceding IF function. You
 must include one and only one END.IF function for each macro-sheets-only
@@ -830,13 +813,13 @@ structured.
 
 **Remarks**
 
--   If you accidentally omit an END.IF function, your macro will end
+  - > If you accidentally omit an END.IF function, your macro will end
     > with an error at the cell containing the first IF function that
     > does not have a corresponding END.IF function.
 
--   END.IF must be entered in a cell by itself.
+  - > END.IF must be entered in a cell by itself.
 
--   For more information about ELSE, ELSE.IF, END.IF, and IF, and for
+  - > For more information about ELSE, ELSE.IF, END.IF, and IF, and for
     > examples of these functions, see form 2 of the IF function.
 
 >  
@@ -852,8 +835,7 @@ IF   Specifies an action to take if a logical test is TRUE
 
 Return to [top](#E)
 
-ENTER.DATA
-==========
+# ENTER.DATA
 
 Turns on Data Entry mode and allows you to select and to enter data into
 the unlocked cells in the current selection only (the data entry area).
@@ -867,60 +849,60 @@ form.
 
 Logical    is a logical value that turns Data Entry mode on or off.
 
--   If logical is TRUE, Data Entry mode is turned on; if FALSE, Data
+  - > If logical is TRUE, Data Entry mode is turned on; if FALSE, Data
     > Entry mode is turned off and data entry, cell movement, and cell
     > selection return to normal. If logical is omitted, ENTER.DATA
     > toggles Data Entry mode.
 
--   Logical can also be the number 2. This setting turns on Data Entry
+  - > Logical can also be the number 2. This setting turns on Data Entry
     > mode and prevents the ESC key from turning it off.
 
--   Logical can also be a reference. Using a reference for this argument
-    > turns on Data Entry mode for the supplied reference.
+  - > Logical can also be a reference. Using a reference for this
+    > argument turns on Data Entry mode for the supplied reference.
 
 >  
 
 **Remarks**
 
--   In Data Entry mode, you can move the active cell and select cell
+  - > In Data Entry mode, you can move the active cell and select cell
     > ranges only in the data entry area. The arrow keys and the TAB and
     > SHIFT+TAB keys move from one unlocked cell to the next. The HOME
     > and END keys move to the first and last cell in the data entry
     > area, respectively. You cannot select entire rows or columns, and
     > clicking a cell outside the data entry area does not select it.
 
--   The only commands available in Data Entry mode are commands normally
-    > available to protected workbooks.
+  - > The only commands available in Data Entry mode are commands
+    > normally available to protected workbooks.
 
--   To turn off Data Entry mode, press ESC (unless logical is 2),
+  - > To turn off Data Entry mode, press ESC (unless logical is 2),
     > activate another sheet in the active workbook window, or use
     > another ENTER.DATA function. If you use another ENTER.DATA
     > function, you will usually design your macros in one of two ways:
-
-    -   The macro turns on Data Entry mode, pauses while you enter data,
-        > resumes, and then turns off Data Entry mode.
-
-    -   The macro turns on Data Entry mode and ends. After entering
+    
+      - > The macro turns on Data Entry mode, pauses while you enter
+        > data, resumes, and then turns off Data Entry mode.
+    
+      - > The macro turns on Data Entry mode and ends. After entering
         > data, another macro turns off Data Entry mode; this latter
-        > macro could be assigned to a \"Finished\" button, for example.
+        > macro could be assigned to a "Finished" button, for example.
 
-> With either method, you can use Microsoft Excel\'s ON functions to
+> With either method, you can use Microsoft Excel's ON functions to
 > resume or run other macros based on an event, such as pressing the
 > CONTROL+D keys.
->
+> 
 >  
 
 **Tips**
 
--   Normally you use Data Entry mode to enter data, but you can also
+  - > Normally you use Data Entry mode to enter data, but you can also
     > prevent someone from entering data or moving the active cell by
     > locking all the cells in the current selection before turning on
     > Data Entry mode. This is useful if you want a user to view a range
     > of cells but not change it or move the active cell. Similarly, if
-    > you unlock certain cells, you can restrict the user\'s movement to
+    > you unlock certain cells, you can restrict the user's movement to
     > the Data Entry area only.
 
--   To prevent someone from activating another workbook, which would
+  - > To prevent someone from activating another workbook, which would
     > turn off Data Entry mode, use the ON.WINDOW function or an
     > Auto\_Deactivate macro.
 
@@ -932,8 +914,7 @@ FORMULA   Enters values into a cell or range or onto a chart
 
 Return to [top](#E)
 
-ERROR
-=====
+# ERROR
 
 Specifies what action to take if an error is encountered while a macro
 is running. Use ERROR to control whether Microsoft Excel error messages
@@ -946,13 +927,13 @@ are displayed, or to run your own macro when an error is encountered.
 Enable\_logical    is a logical value or number that selects or clears
 error-checking.
 
--   If enable\_logical is FALSE or 0, all error-checking is cleared. If
-    > error-checking is cleared and an error is encountered while a
+  - > If enable\_logical is FALSE or 0, all error-checking is cleared.
+    > If error-checking is cleared and an error is encountered while a
     > macro is running, Microsoft Excel ignores it and continues.
     > Error-checking is selected again by an ERROR(TRUE) statement, or
     > when the macro stops running.
 
--   If enable\_logical is TRUE or 1, you can either select normal
+  - > If enable\_logical is TRUE or 1, you can either select normal
     > error-checking (by omitting the other argument) or specify a macro
     > to run when an error is encountered by using the macro\_ref
     > argument. When normal error-checking is active, the Macro Error
@@ -961,12 +942,12 @@ error-checking.
     > running the macro normally, or go to the macro cell where the
     > error occurred.
 
--   If enable\_logical is 2 and macro\_ref is omitted, error-checking is
-    > normal except that if the user clicks the Cancel button in an
+  - > If enable\_logical is 2 and macro\_ref is omitted, error-checking
+    > is normal except that if the user clicks the Cancel button in an
     > alert message, ERROR returns FALSE and the macro is not
     > interrupted.
 
--   If enable\_logical is 2 and macro\_ref is given, the macro goes to
+  - > If enable\_logical is 2 and macro\_ref is given, the macro goes to
     > that macro\_ref when an error is encountered. If the user clicks
     > the Cancel button in an alert message, FALSE is returned and the
     > macro is not interrupted.
@@ -999,7 +980,7 @@ Recover when an error is encountered.
 The following macro runs the macro ForceMenus if an error occurs in the
 current macro:
 
-=ERROR(TRUE, ForceMenus)
+\=ERROR(TRUE, ForceMenus)
 
 **Related Functions**
 
@@ -1012,8 +993,7 @@ ON.KEY   Runs a macro when a specified key is pressed
 
 Return to [top](#E)
 
-ERRORBAR.X, ERRORBAR.Y
-======================
+# ERRORBAR.X, ERRORBAR.Y
 
 Adds error bars to the selected series in a chart. ERRORBAR.X adds bars
 showing the error factor for the X (category) axis and works for XY
@@ -1028,36 +1008,36 @@ the Y (value) axis for all charts.
 
 Include    specifies the type of error value to include:
 
-  -------------- -------------------------
-  **Include**    **Type of error value**
-  1 or omitted   Plus and minus
-  2              Plus
-  3              Minus
-  4              None
-  -------------- -------------------------
+|              |                         |
+| ------------ | ----------------------- |
+| **Include**  | **Type of error value** |
+| 1 or omitted | Plus and minus          |
+| 2            | Plus                    |
+| 3            | Minus                   |
+| 4            | None                    |
 
 Type    specifies the type of error bars to display:
 
-  -------------- ------------------------------------------------------------
-  **Type**       **Type of error displayed**
-  1 or omitted   Fixed amount
-  2              Percent
-  3              Multiplying factor standard deviation (default value is 1)
-  4              Standard error
-  5              Custom
-  -------------- ------------------------------------------------------------
+|              |                                                            |
+| ------------ | ---------------------------------------------------------- |
+| **Type**     | **Type of error displayed**                                |
+| 1 or omitted | Fixed amount                                               |
+| 2            | Percent                                                    |
+| 3            | Multiplying factor standard deviation (default value is 1) |
+| 4            | Standard error                                             |
+| 5            | Custom                                                     |
 
 Amount    is the range of error values to display. This argument depends
 on the value of type:
 
-  ---------------- ----------------------------------------------
-  **If type is**   **then amount**
-  1 or omitted     Can be any number greater than 0
-  2                Can be any number greater than 0
-  3                Can be any number greater than or 0
-  4                Not required
-  5                Is the positive amount for custom error bars
-  ---------------- ----------------------------------------------
+|                |                                              |
+| -------------- | -------------------------------------------- |
+| **If type is** | **then amount**                              |
+| 1 or omitted   | Can be any number greater than 0             |
+| 2              | Can be any number greater than 0             |
+| 3              | Can be any number greater than or 0          |
+| 4              | Not required                                 |
+| 5              | Is the positive amount for custom error bars |
 
 Minus    is the negative amount for custom error bars. Applicable only
 if type is 5.
@@ -1082,21 +1062,20 @@ equation:
 Both the standard deviation and standard error functions use the
 following variables:
 
-  -------------- -------------------------------------------
-  **Variable**   **Equals**
-  s              Series number
-  i              Point number in series s
-  m              Number of series for point y in chart
-  n              Number of points in each series
-  Yi             Data value of series s and the ith point
-  Ny             Total number of data values in all series
-  M              Arithmetic mean
-  -------------- -------------------------------------------
+|              |                                           |
+| ------------ | ----------------------------------------- |
+| **Variable** | **Equals**                                |
+| s            | Series number                             |
+| i            | Point number in series s                  |
+| m            | Number of series for point y in chart     |
+| n            | Number of points in each series           |
+| Yi           | Data value of series s and the ith point  |
+| Ny           | Total number of data values in all series |
+| M            | Arithmetic mean                           |
 
 Return to [top](#E)
 
-EVALUATE
-========
+# EVALUATE
 
 Evaluates a formula or expression that is in the form of text and
 returns the result. To run a macro or subroutine, use the RUN function.
@@ -1122,7 +1101,7 @@ LabResult2, or LabResult3, where the 1, 2, or 3 is specified by the name
 TrialNum whose value may change as the macro runs. You can use the
 following formula to calculate the value:
 
-EVALUATE(\"LabResult\"&TrialNum)
+EVALUATE("LabResult"\&TrialNum)
 
 **Related Function**
 
@@ -1130,11 +1109,10 @@ RUN   Runs a macro
 
 Return to [top](#E)
 
-EXEC
-====
+# EXEC
 
 Starts a separate program. Use EXEC to start other programs with which
-you want to communicate. Use EXEC with Microsoft Excel\'s other DDE
+you want to communicate. Use EXEC with Microsoft Excel's other DDE
 functions (INITIATE, EXECUTE, and SEND.KEYS) to create a channel to
 another program and to send keystrokes and commands to the program.
 (SEND.KEYS is available only in Microsoft Excel for Windows.)
@@ -1162,10 +1140,10 @@ Program\_text    is the name, as a text string, of any executable file
 or, in Microsoft Excel for Windows, any data file that is associated
 with an executable file.
 
--   Use paths when the file or program to be started is not in the
+  - > Use paths when the file or program to be started is not in the
     > current directory or folder.
 
--   In Microsoft Excel for Windows, program\_text can include any
+  - > In Microsoft Excel for Windows, program\_text can include any
     > arguments and switches that are accepted by the program to be
     > started. Also, if program\_text is the name of a file associated
     > with a specific installed program, EXEC starts the program and
@@ -1182,12 +1160,12 @@ containing the program should appear. Window\_num is only available for
 use with Microsoft Excel for Windows. The window\_num argument is
 allowed on the Macintosh, but it is ignored.
 
-  ----------------- --------------------
-  **Window\_num**   **Window appears**
-  1                 Normal size
-  2 or omitted      Minimized size
-  3                 Maximized size
-  ----------------- --------------------
+|                 |                    |
+| --------------- | ------------------ |
+| **Window\_num** | **Window appears** |
+| 1               | Normal size        |
+| 2 or omitted    | Minimized size     |
+| 3               | Maximized size     |
 
 Background    is a logical value that determines whether the program
 specified by program\_text is opened as the active program or in the
@@ -1215,7 +1193,7 @@ a unique number that identifies a program. Use the task ID number in
 other macro functions, such as APP.ACTIVATE, to refer to the program. In
 Microsoft Excel for the Macintosh with system software version 6.0, if
 EXEC is successful, it returns TRUE. If EXEC is unsuccessful, it returns
-the \#VALUE! error value.
+the \#VALUE\! error value.
 
 **Examples**
 
@@ -1223,17 +1201,17 @@ In Microsoft Excel for Windows, the following macro formula starts the
 program SEARCH.EXE. Use paths when the file or program to be started is
 not in the current directory:
 
-EXEC(\"C:\\WINDOWS\\SEARCH.EXE\")
+EXEC("C:\\WINDOWS\\SEARCH.EXE")
 
 The following macro formula starts Microsoft Word for Windows and loads
 the document SALES.DOC:
 
-EXEC(\"C:\\WINWORD\\WINWORD.EXE C:\\MYFILES\\SALES.DOC\")
+EXEC("C:\\WINWORD\\WINWORD.EXE C:\\MYFILES\\SALES.DOC")
 
 In Microsoft Excel for the Macintosh, the following macro formula starts
 Microsoft Word:
 
-EXEC(\"HARD DISK:APPS:WORD\")
+EXEC("HARD DISK:APPS:WORD")
 
 **Related Functions**
 
@@ -1255,8 +1233,7 @@ data exchange (DDE) link
 
 Return to [top](#E)
 
-EXECUTE
-=======
+# EXECUTE
 
 Carries out commands in another program with which you have a dynamic
 data exchange (DDE) link. Use with EXEC, INITIATE, and SEND.KEYS to run
@@ -1283,13 +1260,13 @@ key\_text in the ON.KEY function.
 If EXECUTE is not successful, it returns one of the following error
 values:
 
-  -------------------- ------------------------------------------------------------------------------------------------------------------
-  **Value returned**   **Situation**
-  \#VALUE!             Channel\_num is not a valid channel number.
-  \#N/A                The program you are accessing is busy.
-  \#DIV/0!             The program you are accessing does not respond after a certain length of time or you have pressed ESC to cancel.
-  \#REF!               The keys specified in execute\_text are refused by the application which you want to access.
-  -------------------- ------------------------------------------------------------------------------------------------------------------
+|                    |                                                                                                                  |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| **Value returned** | **Situation**                                                                                                    |
+| \#VALUE\!          | Channel\_num is not a valid channel number.                                                                      |
+| \#N/A              | The program you are accessing is busy.                                                                           |
+| \#DIV/0\!          | The program you are accessing does not respond after a certain length of time or you have pressed ESC to cancel. |
+| \#REF\!            | The keys specified in execute\_text are refused by the application which you want to access.                     |
 
 **Remarks**
 
@@ -1303,7 +1280,7 @@ box.
 The following macro formula sends the number 25 and a carriage return to
 the application identified by channel\_num 14:
 
-EXECUTE(14, \"25\~\")
+EXECUTE(14, "25\~")
 
 **Related Functions**
 
@@ -1321,8 +1298,7 @@ TERMINATE   Closes a channel to another application
 
 Return to [top](#E)
 
-EXPON
-=====
+# EXPON
 
 Predicts a value based on the forecast for the prior period, adjusted
 for the error in that prior forecast.
@@ -1355,8 +1331,7 @@ MOVEAVG   Returns values along a moving average trend
 
 Return to [top](#E)
 
-EXTEND.POLYGON
-==============
+# EXTEND.POLYGON
 
 Adds vertices to a polygon. This function must immediately follow a
 CREATE.OBJECT function or another EXTEND.POLYGON function. Use multiple
@@ -1371,19 +1346,19 @@ your macro sheet.
 Array    is an array of values, or a reference to a range of cells
 containing values, that indicate the position of vertices in the
 polygon. The position is measured in points and is relative to the
-upper-left corner of the polygon\'s bounding rectangle.
+upper-left corner of the polygon's bounding rectangle.
 
--   A vertex is a point. Each vertex is defined by a pair of coordinates
-    > in one row of array.
+  - > A vertex is a point. Each vertex is defined by a pair of
+    > coordinates in one row of array.
 
--   The polygon is defined by the array argument to the CREATE.OBJECT
+  - > The polygon is defined by the array argument to the CREATE.OBJECT
     > function and to all the immediately following EXTEND.POLYGON
     > functions.
 
--   If the polygon contains many vertices, one array may not be
+  - > If the polygon contains many vertices, one array may not be
     > sufficient to define it. If the number of elements in the formula
     > exceeds 1024, you must include additional EXTEND.POLYGON
-    > functions. If you\'re recording a macro, Microsoft Excel
+    > functions. If you're recording a macro, Microsoft Excel
     > automatically records additional EXTEND.POLYGON functions as
     > needed.
 
@@ -1396,8 +1371,7 @@ polygon
 
 Return to [top](#E)
 
-EXTRACT
-=======
+# EXTRACT
 
 Equivalent to choosing the Extract command from the Data menu in
 Microsoft Excel version 4.0. Finds database records that match the
@@ -1413,11 +1387,11 @@ extract range.
 Unique    is a logical value corresponding to the Unique Records Only
 check box in the Extract dialog box.
 
--   If unique is TRUE, Microsoft Excel selects the check box and
+  - > If unique is TRUE, Microsoft Excel selects the check box and
     > excludes duplicate records from the extract list.
 
--   If unique is FALSE or omitted, Microsoft Excel clears the check box
-    > and extracts all records matching the criteria.
+  - > If unique is FALSE or omitted, Microsoft Excel clears the check
+    > box and extracts all records matching the criteria.
 
 >  
 
@@ -1436,8 +1410,7 @@ active sheet
 
 Return to [top](#E)
 
-FCLOSE
-======
+# FCLOSE
 
 Closes the specified file.
 
@@ -1448,7 +1421,7 @@ Closes the specified file.
 File\_num    is the number of the file you want to close. File\_num is
 returned by the FOPEN function that originally opened the file. If
 file\_num is not a valid file number, FCLOSE halts the macro and returns
-the \#VALUE! error value.
+the \#VALUE\! error value.
 
 **Examples**
 
@@ -1466,8 +1439,7 @@ FOPEN   Opens a file with the type of permission specified
 
 Return to [top](#E)
 
-FILE.CLOSE
-==========
+# FILE.CLOSE
 
 Equivalent to clicking the Close command on the File menu. Closes the
 active workbook.
@@ -1479,24 +1451,24 @@ active workbook.
 Save\_logical    is a logical value specifying whether to save the file
 before closing it.
 
-  ------------------- --------------------------------------------------------------------------------------------------------
-  **Save\_logical**   **Result**
-  TRUE                Saves the workbook
-  FALSE               Does not save the workbook
-  Omitted             If you\'ve made changes to the workbook, displays a dialog box asking if you want to save the workbook
-  ------------------- --------------------------------------------------------------------------------------------------------
+|                   |                                                                                                       |
+| ----------------- | ----------------------------------------------------------------------------------------------------- |
+| **Save\_logical** | **Result**                                                                                            |
+| TRUE              | Saves the workbook                                                                                    |
+| FALSE             | Does not save the workbook                                                                            |
+| Omitted           | If you've made changes to the workbook, displays a dialog box asking if you want to save the workbook |
 
 Route\_logical    is a logical value that specifies whether to route the
 file after closing it. This argument is ignored if there is not a
 routing slip present.
 
-  -------------------- -------------------------
-  **Route\_logical**   **Result**
-  TRUE                 Routes the file
-  FALSE                Does not route the file
-  -------------------- -------------------------
+|                    |                         |
+| ------------------ | ----------------------- |
+| **Route\_logical** | **Result**              |
+| TRUE               | Routes the file         |
+| FALSE              | Does not route the file |
 
-Omitted   If you\'ve specified recipients for routing, displays a dialog
+Omitted   If you've specified recipients for routing, displays a dialog
 box asking if you want to save the file
 
 **Remarks**
@@ -1519,8 +1491,7 @@ FCLOSE   Closes a text file
 
 Return to [top](#E)
 
-FILE.DELETE
-===========
+# FILE.DELETE
 
 Deletes a file from the disk. Although you will normally delete files
 manually, you can, for example, use FILE.DELETE in a macro to delete
@@ -1536,16 +1507,16 @@ File\_text    is the name of the file to delete.
 
 **Remarks**
 
--   If Microsoft Excel can\'t find file\_text, it displays a message
+  - > If Microsoft Excel can't find file\_text, it displays a message
     > saying that it cannot delete the file. To avoid this, include the
     > entire path in file\_text. See the following second and fifth
     > examples. You can also use FILES to generate an array of filenames
     > and then check if the file you want to delete is in the array.
 
--   If a file is open when you delete it, the file is removed from the
+  - > If a file is open when you delete it, the file is removed from the
     > disk but remains open in Microsoft Excel.
 
--   In the dialog-box form, FILE.DELETE?, you can use an asterisk (\*)
+  - > In the dialog-box form, FILE.DELETE?, you can use an asterisk (\*)
     > to represent any series of characters and a question mark (?) to
     > represent any single character. See the following third and sixth
     > examples.
@@ -1557,32 +1528,32 @@ File\_text    is the name of the file to delete.
 In Microsoft Excel for Windows, the following macro formula deletes a
 file called CHART1.XLS from the current directory:
 
-FILE.DELETE(\"CHART1.XLS\")
+FILE.DELETE("CHART1.XLS")
 
 The following macro formula deletes a file called 92INFO.XLS kept in the
 EXCEL\\SALES subdirectory:
 
-FILE.DELETE(\"C:\\EXCEL\\SALES\\92INFO.XLS\")
+FILE.DELETE("C:\\EXCEL\\SALES\\92INFO.XLS")
 
 The following macro formula displays the Delete dialog box listing all
-documents whose extensions begin with the letters \"XL\":
+documents whose extensions begin with the letters "XL":
 
-FILE.DELETE?(\"\*.XL?\")
+FILE.DELETE?("\*.XL?")
 
 In Microsoft Excel for the Macintosh, the following macro formula
 deletes a file called CHART1 from the current folder:
 
-FILE.DELETE(\"CHART1\")
+FILE.DELETE("CHART1")
 
 The following macro formula deletes a file called 1992 INFO kept in a
 series of nested folders:
 
-FILE.DELETE(\"HARD DISK:EXCEL 5:SALES WORKSHEETS:1992 INFO\")
+FILE.DELETE("HARD DISK:EXCEL 5:SALES WORKSHEETS:1992 INFO")
 
 The following macro formula displays the Delete dialog box listing all
-documents beginning with the word \"Clients\":
+documents beginning with the word "Clients":
 
-FILE.DELETE?(\"Clients\*\")
+FILE.DELETE?("Clients\*")
 
 **Related Functions**
 
@@ -1592,8 +1563,7 @@ FILES   Returns the filenames in the specified directory or folder
 
 Return to [top](#E)
 
-FILES
-=====
+# FILES
 
 Returns a horizontal text array of the names of all files in the
 specified directory or folder. Use FILES to build a list of filenames
@@ -1606,11 +1576,11 @@ upon which you want your macro to operate.
 Directory\_text    specifies which directories or folders to return
 filenames from.
 
--   Directory\_text accepts an asterisk (\*) to represent a series of
+  - > Directory\_text accepts an asterisk (\*) to represent a series of
     > characters and a question mark (?) to represent a single character
     > in filenames.
 
--   If directory\_text is not specified, FILES returns filenames from
+  - > If directory\_text is not specified, FILES returns filenames from
     > the current directory.
 
 >  
@@ -1631,7 +1601,7 @@ In Microsoft Excel for Windows, the following macro formula returns the
 names of all files starting with the letter F in the current directory
 or folder:
 
-FILES(\"F\*.\*\")
+FILES("F\*.\*")
 
 When entered as an array formula in several cells, the following macro
 formula returns the filenames in the current directory to those cells.
@@ -1641,20 +1611,20 @@ cells, the \#N/A error value appears in the extra cells.
 FILES()
 
 In Microsoft Excel for Windows, the following macro formula returns all
-files starting with \"SALE\" and ending with the .XLS extension in the
+files starting with "SALE" and ending with the .XLS extension in the
 \\EXCEL\\CHARTS subdirectory:
 
-FILES(\"C:\\EXCEL\\CHARTS\\SALE\*.XLS\")
+FILES("C:\\EXCEL\\CHARTS\\SALE\*.XLS")
 
 In Microsoft Excel for the Macintosh, the following macro formula
-returns all files starting with \"SALE\" in the nested CHART folder:
+returns all files starting with "SALE" in the nested CHART folder:
 
-FILES(\"DISK:EXCEL:CHART:SALE\*\")
+FILES("DISK:EXCEL:CHART:SALE\*")
 
 The following macro stores the names of the files in the current
 directory in the named array FileArray
 
-SET.NAME(\"FileArray\",FILES())
+SET.NAME("FileArray",FILES())
 
 **Related Functions**
 
@@ -1668,8 +1638,7 @@ SET.NAME   Defines a name as a value
 
 Return to [top](#E)
 
-FILL.AUTO
-=========
+# FILL.AUTO
 
 Equivalent to copying cells or automatically filling a selection by
 dragging the fill selection handle with the mouse (the AutoFill
@@ -1687,20 +1656,20 @@ selection).
 Copy\_only    is a number specifying whether to copy cells or perform an
 AutoFill operation.
 
-  -------------- ----------------------
-  **Value**      **Result**
-  0 or omitted   Normal AutoFill
-  1 or TRUE      Copy cells
-  2              Copy formats
-  3              Fill values
-  4              Increment
-  5              Increment by day
-  6              Increment by weekday
-  7              Increment by month
-  8              Increment by year
-  9              Linear trend
-  10             Growth trend
-  -------------- ----------------------
+|              |                      |
+| ------------ | -------------------- |
+| **Value**    | **Result**           |
+| 0 or omitted | Normal AutoFill      |
+| 1 or TRUE    | Copy cells           |
+| 2            | Copy formats         |
+| 3            | Fill values          |
+| 4            | Increment            |
+| 5            | Increment by day     |
+| 6            | Increment by weekday |
+| 7            | Increment by month   |
+| 8            | Increment by year    |
+| 9            | Linear trend         |
+| 10           | Growth trend         |
 
 **Related Functions**
 
@@ -1710,8 +1679,7 @@ DATA.SERIES   Fills a range of cells with a series of numbers or dates
 
 Return to [top](#E)
 
-FILL.DOWN, FILL.LEFT, FILL.RIGHT, FILL.UP
-=========================================
+# FILL.DOWN, FILL.LEFT, FILL.RIGHT, FILL.UP
 
 Equivalent to clicking the Down, Left, Right, and Up commands,
 respectively, on the Fill submenu of the Edit menu.
@@ -1755,11 +1723,10 @@ FORMULA.FILL   Enters a formula in the specified range
 
 Return to [top](#E)
 
-FILL.GROUP
-==========
+# FILL.GROUP
 
 Equivalent to choosing the Across Worksheets command from the Fill
-submenu on the Edit menu. Copies the contents of the active worksheet\'s
+submenu on the Edit menu. Copies the contents of the active worksheet's
 selection to the same area on all other worksheets in the group. Use
 FILL.GROUP to fill a range of cells on all worksheets in a group at
 once.
@@ -1773,12 +1740,12 @@ once.
 Type\_num    is a number from 1 to 3 that corresponds to the choices in
 the Fill Across Worksheets dialog box.
 
-  --------------- --------------------------------
-  **Type\_num**   **Type of information filled**
-  1               All
-  2               Contents
-  3               Formats
-  --------------- --------------------------------
+|               |                                |
+| ------------- | ------------------------------ |
+| **Type\_num** | **Type of information filled** |
+| 1             | All                            |
+| 2             | Contents                       |
+| 3             | Formats                        |
 
 **Related Functions**
 
@@ -1788,8 +1755,7 @@ WORKBOOK.SELECT   Selects one or more sheets in a workbook
 
 Return to [top](#E)
 
-FILTER
-======
+# FILTER
 
 Filters lists of data one column at a time. Only one list can be
 filtered on any one sheet at a time.
@@ -1804,20 +1770,20 @@ Field\_num    is the number of the field that you want to filter. Fields
 are numbered from left to right starting with 1.
 
 Criteria1    is a text string specifying criteria for filtering a list,
-such as \"\>2\". If you want to include all items in the list, omit this
+such as "\>2". If you want to include all items in the list, omit this
 argument.
 
 Operation    is a number that specifies how you want criteria2 used with
 criteria1:
 
-  ------------ --------------------
-  **Number**   **Operation Used**
-  1            AND
-  2            OR
-  ------------ --------------------
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
 
 Criteria2    is a text string specifying criteria for filtering a list,
-such as \"\>2\". If you include this argument, operation is required.
+such as "\>2". If you include this argument, operation is required.
 
 **Remarks**
 
@@ -1829,8 +1795,7 @@ FILTER.ADVANCED   Lets you set options for filtering a list
 
 Return to [top](#E)
 
-FILTER.ADVANCED
-===============
+# FILTER.ADVANCED
 
 Equivalent to choosing the Advanced Filter command from the Filter
 submenu on the Data menu. Lets you set options for filtering a list.
@@ -1851,7 +1816,7 @@ List\_ref    specifies the location of the list to be filtered. If
 operation is 1, then list\_ref must be on the active sheet.
 
 Criteria\_ref    is a reference to a range containing criteria for
-filtering the list. If omitted, uses \"All\" as the criteria.
+filtering the list. If omitted, uses "All" as the criteria.
 
 Copy\_ref    is a reference on the active sheet where you want the
 filtered list copied. Ignored if operation is 1.
@@ -1866,8 +1831,7 @@ FILTER   Filters lists of data one column at a time
 
 Return to [top](#E)
 
-FILTER.SHOW.ALL
-===============
+# FILTER.SHOW.ALL
 
 Equivalent to choosing the Show All command from the Filter submenu on
 the Data menu. Displays all items in a filtered list.
@@ -1878,8 +1842,7 @@ the Data menu. Displays all items in a filtered list.
 
 Return to [top](#E)
 
-FIND.FILE
-=========
+# FIND.FILE
 
 Equivalent to choosing the Find File command from the File menu in
 Microsoft Excel version 5.0. Lets you search for files based on criteria
@@ -1895,8 +1858,7 @@ This function has a dialog-box form only.
 
 Return to [top](#E)
 
-FONT
-====
+# FONT
 
 Equivalent to clicking the Font command on the Options menu in Microsoft
 Excel for the Macintosh version 1.5 or earlier. This function is
@@ -1918,8 +1880,7 @@ FONT.PROPERTIES   Sets various font properties
 
 Return to [top](#E)
 
-FONT.PROPERTIES
-===============
+# FONT.PROPERTIES
 
 Equivalent to choosing the Cells command from the Format menu. Applies a
 font and other attributes to the selection. Applies to cells, charts,
@@ -1970,14 +1931,14 @@ their absence prevent it from working on the Macintosh.
 
 Underline    corresponds to the Underline Drop-down box.
 
-  --------------- -------------------
-  **Underline**   **Type applied**
-  0               None
-  1               Single
-  2               Double
-  3               Single Accounting
-  4               Double Accounting
-  --------------- -------------------
+|               |                   |
+| ------------- | ----------------- |
+| **Underline** | **Type applied**  |
+| 0             | None              |
+| 1             | Single            |
+| 2             | Double            |
+| 3             | Single Accounting |
+| 4             | Double Accounting |
 
 Color    is a number from 0 to 56 corresponding to the colors listed in
 the Color box; 0 corresponds to automatic color.
@@ -1988,12 +1949,12 @@ font for your system
 Background    is a number from 1 to 3 specifying which type of
 background to apply to text in a chart.
 
-  ---------------- --------------------------------
-  **Background**   **Type of background applied**
-  1                Automatic
-  2                Transparent
-  3                Opaque
-  ---------------- --------------------------------
+|                |                                |
+| -------------- | ------------------------------ |
+| **Background** | **Type of background applied** |
+| 1              | Automatic                      |
+| 2              | Transparent                    |
+| 3              | Opaque                         |
 
 Start\_char    specifies the first character to be formatted. If
 start\_char is omitted, it is assumed to be 1 (the first character in
@@ -2008,8 +1969,8 @@ box starting at start\_char.
 Some extended TrueType styles do not have corresponding arguments to
 FONT.PROPERTIES. To access an extended TrueType font style, append the
 style name to the font name in the font argument. For example, the font
-Taipei can be formatted in an upside-down style by specifying \"Taipei
-Upside-down\" as the font argument. For more information about TrueType,
+Taipei can be formatted in an upside-down style by specifying "Taipei
+Upside-down" as the font argument. For more information about TrueType,
 see your Microsoft Windows documentation.
 
 **Related Functions**
@@ -2022,14 +1983,13 @@ FORMAT.TEXT   Formats a worksheet text box or a chart text item
 
 Return to [top](#E)
 
-FOPEN
-=====
+# FOPEN
 
 Opens a file with the type of permission specified. Unlike OPEN, FOPEN
 does not load the file into memory and display it; instead, FOPEN
 establishes a channel with the file so that you can exchange information
 with it. If the file is opened successfully, FOPEN returns a file ID
-number. If it can\'t open the file, FOPEN returns the \#N/A error value.
+number. If it can't open the file, FOPEN returns the \#N/A error value.
 Use the file ID number with other file functions (such as FREAD, FWRITE,
 and FSIZE) when you want to get information from or send information to
 the file.
@@ -2043,23 +2003,23 @@ File\_text    is the name of the file you want to open.
 Access\_num    is a number from 1 to 3 specifying what type of
 permission to allow to the file:
 
-  ----------------- ------------------------------------------------------------------------
-  **Access\_num**   **Type of permission**
-  1 or omitted      Can read and write to the file (read/write permission)
-  2                 Can read the file, but can\'t write to the file (read-only permission)
-  3                 Creates a new file with read/write permission
-  ----------------- ------------------------------------------------------------------------
+|                 |                                                                       |
+| --------------- | --------------------------------------------------------------------- |
+| **Access\_num** | **Type of permission**                                                |
+| 1 or omitted    | Can read and write to the file (read/write permission)                |
+| 2               | Can read the file, but can't write to the file (read-only permission) |
+| 3               | Creates a new file with read/write permission                         |
 
  
 
--   If the file doesn\'t exist and access\_num is 3, FOPEN creates a new
-    > file.
+  - > If the file doesn't exist and access\_num is 3, FOPEN creates a
+    > new file.
 
--   If the file does exist and access\_num is 3, FOPEN replaces the
+  - > If the file does exist and access\_num is 3, FOPEN replaces the
     > contents of the file with any information you supply using the
     > FWRITE or FWRITELN functions.
 
--   If the file doesn\'t exist and access\_num is 1 or 2, FOPEN returns
+  - > If the file doesn't exist and access\_num is 1 or 2, FOPEN returns
     > the \#N/A error value.
 
 >  
@@ -2087,8 +2047,7 @@ OPEN   Opens a workbook
 
 Return to [top](#E)
 
-FOR
-===
+# FOR
 
 Starts a FOR-NEXT loop. The instructions between FOR and NEXT are
 repeated until the loop counter reaches a specified value. Use FOR when
@@ -2110,35 +2069,42 @@ If step\_num is omitted, it is assumed to be 1.
 
 **Remarks**
 
--   Microsoft Excel follows these steps as it executes a FOR-NEXT loop:
+  - > Microsoft Excel follows these steps as it executes a FOR-NEXT
+    > loop:
 
-+----------+----------------------------------------------------------+
-| **Step** | **Action**                                               |
-+----------+----------------------------------------------------------+
-| 1        | Sets counter\_text to the value start\_num.              |
-+----------+----------------------------------------------------------+
-| 2        | If counter\_text is greater than end\_num (or less than  |
-|          | end\_num if step\_num is negative), the loop ends, and   |
-|          | the macro continues with the function after the NEXT     |
-|          | function.                                                |
-|          |                                                          |
-|          | If counter\_text is less than or equal to end\_num (or   |
-|          | greater than or equal to end\_num if step\_num is        |
-|          | negative), the macro continues in the loop.              |
-+----------+----------------------------------------------------------+
-| 3        | Carries out functions up to the following NEXT function. |
-|          | The NEXT function must be below the FOR function and in  |
-|          | the same column.                                         |
-+----------+----------------------------------------------------------+
-| 4        | Adds step\_num to the loop counter.                      |
-+----------+----------------------------------------------------------+
-| 5        | Returns to the FOR function and proceeds as described in |
-|          | step 2.                                                  |
-+----------+----------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Step</strong></td>
+<td><strong>Action</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Sets counter_text to the value start_num.</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><p>If counter_text is greater than end_num (or less than end_num if step_num is negative), the loop ends, and the macro continues with the function after the NEXT function.</p>
+<p>If counter_text is less than or equal to end_num (or greater than or equal to end_num if step_num is negative), the macro continues in the loop.</p></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Carries out functions up to the following NEXT function. The NEXT function must be below the FOR function and in the same column.</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Adds step_num to the loop counter.</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Returns to the FOR function and proceeds as described in step 2.</td>
+</tr>
+</tbody>
+</table>
 
  
 
--   You can interrupt a FOR-NEXT loop by using the BREAK function.
+  - > You can interrupt a FOR-NEXT loop by using the BREAK function.
 
 >  
 
@@ -2147,7 +2113,7 @@ If step\_num is omitted, it is assumed to be 1.
 The following macro starts a FOR-NEXT loop that is executed once for
 every open window:
 
-FOR(\"Counter\", 1, COLUMNS(WINDOWS()))
+FOR("Counter", 1, COLUMNS(WINDOWS()))
 
 **Related Functions**
 
@@ -2161,8 +2127,7 @@ WHILE   Starts a WHILE-NEXT loop
 
 Return to [top](#E)
 
-FOR.CELL
-========
+# FOR.CELL
 
 Starts a FOR.CELL-NEXT loop. This function is similar to FOR, except
 that the instructions between FOR.CELL and NEXT are repeated over a
@@ -2183,11 +2148,11 @@ omitted, it is assumed to be the current selection.
 Skip\_blanks    is a logical value specifying whether Microsoft Excel
 skips blank cells as it operates on the cells in area\_ref.
 
-  ------------------ ------------------------------------
-  **Skip\_blanks**   **Result**
-  TRUE               Skips blank cells in area\_ref
-  FALSE or omitted   Operates on all cells in area\_ref
-  ------------------ ------------------------------------
+|                  |                                    |
+| ---------------- | ---------------------------------- |
+| **Skip\_blanks** | **Result**                         |
+| TRUE             | Skips blank cells in area\_ref     |
+| FALSE or omitted | Operates on all cells in area\_ref |
 
 **Remarks**
 
@@ -2200,7 +2165,7 @@ The following macro starts a FOR.CELL-NEXT loop and uses the name
 CurrentCell to refer to the cell in the range that is currently being
 operated on:
 
-FOR.CELL(\"CurrentCell\", SELECTION(), TRUE)
+FOR.CELL("CurrentCell", SELECTION(), TRUE)
 
 **Related Functions**
 
@@ -2214,8 +2179,7 @@ WHILE   Starts a WHILE-NEXT loop
 
 Return to [top](#E)
 
-FORMAT.AUTO
-===========
+# FORMAT.AUTO
 
 Equivalent to clicking the AutoFormat command on the Format menu when a
 worksheet is active or clicking the AutoFormat button. Formats the
@@ -2232,28 +2196,28 @@ width)
 Format\_num    is a number from 1 to 17 corresponding to the formats in
 the Table Format list box in the AutoFormat dialog box.
 
-  ----------------- -----------------------------------------------------
-  **Format\_num**   **Table Format**
-  0                 None
-  1 or omitted      Classic 1
-  2                 Classic 2
-  3                 Classic 3
-  4                 Accounting 1
-  5                 Accounting 2
-  6                 Accounting 3
-  7                 Colorful 1
-  8                 Colorful 2
-  9                 Colorful 3
-  10                List 1
-  11                List 2
-  12                List 3
-  13                3D Effects 1
-  14                3D Effects 2
-  15                Japan 1 (Far East versions of Microsoft Excel only)
-  16                Japan 2 (Far East versions of Microsoft Excel only)
-  17                Accounting 4
-  18                Simple
-  ----------------- -----------------------------------------------------
+|                 |                                                     |
+| --------------- | --------------------------------------------------- |
+| **Format\_num** | **Table Format**                                    |
+| 0               | None                                                |
+| 1 or omitted    | Classic 1                                           |
+| 2               | Classic 2                                           |
+| 3               | Classic 3                                           |
+| 4               | Accounting 1                                        |
+| 5               | Accounting 2                                        |
+| 6               | Accounting 3                                        |
+| 7               | Colorful 1                                          |
+| 8               | Colorful 2                                          |
+| 9               | Colorful 3                                          |
+| 10              | List 1                                              |
+| 11              | List 2                                              |
+| 12              | List 3                                              |
+| 13              | 3D Effects 1                                        |
+| 14              | 3D Effects 2                                        |
+| 15              | Japan 1 (Far East versions of Microsoft Excel only) |
+| 16              | Japan 2 (Far East versions of Microsoft Excel only) |
+| 17              | Accounting 4                                        |
+| 18              | Simple                                              |
 
 The following arguments are logical values corresponding to the Formats
 To Apply check boxes in the AutoFormat dialog box. If an argument is
@@ -2286,8 +2250,7 @@ PATTERNS   Changes the appearance of the selected object
 
 Return to [top](#E)
 
-FORMAT.CHART
-============
+# FORMAT.CHART
 
 Equivalent to choosing the Options button in the Chart Type dialog box,
 which is available when you choose the Chart Type command from the
@@ -2322,17 +2285,17 @@ Options tab on the Format Bar Group Dialog box, which appears when you
 choose the Bar Group from the Format menu. Overlap is ignored if
 type\_num is not 2 or 3 (bar or column chart).
 
--   If overlap is positive, it specifies the percentage of overlap you
+  - > If overlap is positive, it specifies the percentage of overlap you
     > want for bars or columns. For example, 50 would cause one-half of
     > a bar or column to be covered by an adjacent bar or column. A
     > value of zero prevents bars or columns from overlapping.
 
--   If overlap is negative, then bars or columns are separated by the
+  - > If overlap is negative, then bars or columns are separated by the
     > specified percentage of the maximum available distance between any
     > two bars or columns.
 
--   If overlap is omitted, it is assumed to be 0 (bars or columns do not
-    > overlap), or it is unchanged if a value was previously set.
+  - > If overlap is omitted, it is assumed to be 0 (bars or columns do
+    > not overlap), or it is unchanged if a value was previously set.
 
 Angle    is a number from 0 to 360 specifying the angle of the first pie
 or doughnut slice (in degrees) if the chart is a pie or doughnut chart.
@@ -2345,11 +2308,11 @@ corresponds to the Gap Width edit box in the Options tab on the Format
 Bar Group Dialog box, which appears when you choose the Bar Group from
 the Format menu.
 
--   Gap\_width is ignored if type\_num is not 2, 3, 8, or 12 (bar or
+  - > Gap\_width is ignored if type\_num is not 2, 3, 8, or 12 (bar or
     > column chart).
 
--   If Gap\_width is omitted, it is assumed to be 50, or it is unchanged
-    > if a value was previously set.
+  - > If Gap\_width is omitted, it is assumed to be 50, or it is
+    > unchanged if a value was previously set.
 
 >  
 
@@ -2360,11 +2323,11 @@ Gap\_depth    is a number from 0 to 500 specifying the depth of the gap
 in front of and behind a bar, column, area, or line as a percentage of
 the depth of the bar, column, area, or line.
 
--   Gap\_depth is ignored if the chart is a pie chart or if it is not a
-    > 3-D chart.
+  - > Gap\_depth is ignored if the chart is a pie chart or if it is not
+    > a 3-D chart.
 
--   If gap\_depth is omitted and the chart is a 3-D chart, gap\_depth is
-    > assumed to be 50, or it is unchanged if a value was previously
+  - > If gap\_depth is omitted and the chart is a 3-D chart, gap\_depth
+    > is assumed to be 50, or it is unchanged if a value was previously
     > set. If gap\_depth is omitted and the view is side-by-side,
     > stacked, or stacked 100%, gap\_depth is assumed to be 0, or it is
     > unchanged if a value was previously set.
@@ -2374,9 +2337,9 @@ the depth of the bar, column, area, or line.
 Chart\_depth    is a number from 20 to 2000 specifying the visual depth
 of the chart as a percentage of the width of the chart.
 
--   Chart\_depth is ignored if the chart is not a 3-D chart.
+  - > Chart\_depth is ignored if the chart is not a 3-D chart.
 
--   If Chart\_depth is omitted, it is assumed to be 100, or it is
+  - > If Chart\_depth is omitted, it is assumed to be 100, or it is
     > unchanged if a value was previously set.
 
 >  
@@ -2420,8 +2383,7 @@ FORMAT.OVERLAY   Formats an overlay chart
 
 Return to [top](#E)
 
-FORMAT.CHARTTYPE
-================
+# FORMAT.CHARTTYPE
 
 Changes the chart type for a selected data series, a group of data
 series, or an entire chart.
@@ -2436,12 +2398,12 @@ series, or an entire chart.
 Apply\_to    is a number from 1 to 3 specifying what part of a chart the
 new chart type effects.
 
-  ----------- ----------------------
-  **Value**   **Part of chart**
-  1           Selected data series
-  2           Group of data series
-  3           Entire chart
-  ----------- ----------------------
+|           |                      |
+| --------- | -------------------- |
+| **Value** | **Part of chart**    |
+| 1         | Selected data series |
+| 2         | Group of data series |
+| 3         | Entire chart         |
 
 Group\_num    corresponds to the number of the group you want to change
 as listed in the Group list box of the Chart Type dialog box, which
@@ -2457,17 +2419,17 @@ same dimension as the series, group, or chart to be changed.
 Type\_num    specifies the chart type to apply. Meaning of type\_num
 varies depending on the value of dimension:
 
-  --------------- ----------------------------------
-  **Type\_num**   **Chart type if dimension is 1**
-  1               Area or 3-D area
-  2               Bar or 3-D bar
-  3               Column or 3-D column
-  4               Line or 3-D line
-  5               Pie or 3-D pie
-  6               Doughnut or 3-D surface
-  7               Radar
-  8               XY (scatter)
-  --------------- ----------------------------------
+|               |                                  |
+| ------------- | -------------------------------- |
+| **Type\_num** | **Chart type if dimension is 1** |
+| 1             | Area or 3-D area                 |
+| 2             | Bar or 3-D bar                   |
+| 3             | Column or 3-D column             |
+| 4             | Line or 3-D line                 |
+| 5             | Pie or 3-D pie                   |
+| 6             | Doughnut or 3-D surface          |
+| 7             | Radar                            |
+| 8             | XY (scatter)                     |
 
 **Related Function**
 
@@ -2475,8 +2437,7 @@ FORMAT.CHART   Formats the selected chart
 
 Return to [top](#E)
 
-FORMAT.FONT
-===========
+# FORMAT.FONT
 
 Equivalent to choosing the Cells command from the Format menu, and then
 selecting Font tab from the Format Cells dialog box. This function is
@@ -2556,7 +2517,7 @@ prevent the macro from working on Microsoft Excel for Windows, nor does
 their absence prevent it from working on the Macintosh.
 
 Object\_id\_text    identifies the text box you want to format (for
-example, \"Text 1\", \"Text 2\", and so on). You can also use the object
+example, "Text 1", "Text 2", and so on). You can also use the object
 number alone without the text identifier. For compatibility with earlier
 versions of Microsoft Excel. This argument is ignored in Microsoft Excel
 version 5.0 or later.
@@ -2572,12 +2533,12 @@ at start\_num.
 Backgd    is a number from 1 to 3 specifying which type of background to
 apply to text in a chart.
 
-  ------------ --------------------------------
-  **Backgd**   **Type of background applied**
-  1            Automatic
-  2            Transparent
-  3            Opaque
-  ------------ --------------------------------
+|            |                                |
+| ---------- | ------------------------------ |
+| **Backgd** | **Type of background applied** |
+| 1          | Automatic                      |
+| 2          | Transparent                    |
+| 3          | Opaque                         |
 
 Apply    corresponds to the Apply To All check box. This argument
 applies to data labels only.
@@ -2587,9 +2548,9 @@ applies to data labels only.
 Some extended TrueType styles do not have corresponding arguments to
 FORMAT.FONT. To access an extended TrueType font style, append the style
 name to the font name in name\_text. For example, the font Taipei can be
-formatted in an upside-down style by specifying \"Taipei Upside-down\"
-as the name\_text argument. For more information about TrueType, see
-your Microsoft Windows documentation.
+formatted in an upside-down style by specifying "Taipei Upside-down" as
+the name\_text argument. For more information about TrueType, see your
+Microsoft Windows documentation.
 
 **Related Functions**
 
@@ -2603,8 +2564,7 @@ FORMAT.TEXT   Formats a worksheet text box or a chart text item
 
 Return to [top](#E)
 
-FORMAT.LEGEND
-=============
+# FORMAT.LEGEND
 
 Equivalent to clicking the Selected Legend command on the Format menu
 when a chart is active. Determines the position and orientation of the
@@ -2620,14 +2580,14 @@ legend is not already selected.
 Position\_num    is a number from 1 to 5 specifying the position of the
 legend.
 
-  ------------------- ------------------------
-  **Position\_num**   **Position of legend**
-  1                   Bottom
-  2                   Corner
-  3                   Top
-  4                   Right
-  5                   Left
-  ------------------- ------------------------
+|                   |                        |
+| ----------------- | ---------------------- |
+| **Position\_num** | **Position of legend** |
+| 1                 | Bottom                 |
+| 2                 | Corner                 |
+| 3                 | Top                    |
+| 4                 | Right                  |
+| 5                 | Left                   |
 
 **Related Functions**
 
@@ -2639,8 +2599,7 @@ LEGEND   Adds or deletes a chart legend
 
 Return to [top](#E)
 
-FORMAT.MAIN
-===========
+# FORMAT.MAIN
 
 Equivalent to clicking the Main Chart command on the Format menu in
 Microsoft Excel version 4.0. Formats a chart according to the arguments
@@ -2661,23 +2620,23 @@ doughnut\_size)
 
 Type\_num    is a number specifying the type of chart.
 
-  --------------- --------------
-  **Type\_num**   **Chart**
-  1               Area
-  2               Bar
-  3               Column
-  4               Line
-  5               Pie
-  6               XY (Scatter)
-  7               3-D Area
-  8               3-D Column
-  9               3-D Line
-  10              3-D Pie
-  11              Radar
-  12              3-D Bar
-  13              3-D Surface
-  14              Doughnut
-  --------------- --------------
+|               |              |
+| ------------- | ------------ |
+| **Type\_num** | **Chart**    |
+| 1             | Area         |
+| 2             | Bar          |
+| 3             | Column       |
+| 4             | Line         |
+| 5             | Pie          |
+| 6             | XY (Scatter) |
+| 7             | 3-D Area     |
+| 8             | 3-D Column   |
+| 9             | 3-D Line     |
+| 10            | 3-D Pie      |
+| 11            | Radar        |
+| 12            | 3-D Bar      |
+| 13            | 3-D Surface  |
+| 14            | Doughnut     |
 
 View    is a number specifying one of the views in the Data View box in
 the Main Chart dialog box. The view varies depending on the type of
@@ -2688,27 +2647,27 @@ columns to be positioned. It corresponds to the Overlap box in the Main
 Chart dialog box. Overlap is ignored if type\_num is not 2 or 3 (bar or
 column chart).
 
--   If overlap is positive, it specifies the percentage of overlap you
+  - > If overlap is positive, it specifies the percentage of overlap you
     > want for bars or columns. For example, 50 would cause one-half of
     > a bar or column to be covered by an adjacent bar or column. A
     > value of zero prevents bars or columns from overlapping.
 
--   If overlap is negative, then bars or columns are separated by the
+  - > If overlap is negative, then bars or columns are separated by the
     > specified percentage of the maximum available distance between any
     > two bars or columns.
 
--   If overlap is omitted, it is assumed to be 0 (bars or columns do not
-    > overlap), or it is unchanged if a value was previously set.
+  - > If overlap is omitted, it is assumed to be 0 (bars or columns do
+    > not overlap), or it is unchanged if a value was previously set.
 
 Gap\_width    is a number from 0 to 500 specifying the space between bar
 or column clusters as a percentage of the width of a bar or column. It
 corresponds to the Gap Width box in the Main Chart dialog box.
 
--   Gap\_width is ignored if type\_num is not 2, 3, 8, or 12 (bar or
+  - > Gap\_width is ignored if type\_num is not 2, 3, 8, or 12 (bar or
     > column chart).
 
--   If gap\_width is omitted, it is assumed to be 50, or it is unchanged
-    > if a value was previously set.
+  - > If gap\_width is omitted, it is assumed to be 50, or it is
+    > unchanged if a value was previously set.
 
 Several of the following arguments are logical values corresponding to
 check boxes in the Main Chart dialog box. If an argument is TRUE,
@@ -2736,11 +2695,11 @@ Gap\_depth    is a number from 0 to 500 specifying the depth of the gap
 in front of and behind a bar, column, area, or line as a percentage of
 the depth of the bar, column, area, or line.
 
--   Gap\_depth is ignored if the chart is a pie chart or if it is not a
-    > 3-D chart.
+  - > Gap\_depth is ignored if the chart is a pie chart or if it is not
+    > a 3-D chart.
 
--   If gap\_depth is omitted and the chart is a 3-D chart, gap\_depth is
-    > assumed to be 50, or it is unchanged if a value was previously
+  - > If gap\_depth is omitted and the chart is a 3-D chart, gap\_depth
+    > is assumed to be 50, or it is unchanged if a value was previously
     > set. If gap\_depth is omitted and the view is side-by-side,
     > stacked, or stacked 100%, gap\_depth is assumed to be 0, or it is
     > unchanged if a value was previously set.
@@ -2751,9 +2710,9 @@ Chart\_depth    is a number from 20 to 2000 specifying the visual depth
 of the chart as a percentage of the width of the chart. Chart\_depth
 corresponds to the Chart Depth box in the Main Chart dialog box.
 
--   Chart\_depth is ignored if the chart is not a 3-D chart.
+  - > Chart\_depth is ignored if the chart is not a 3-D chart.
 
--   If chart\_depth is omitted, it is assumed to be 100, or it is
+  - > If chart\_depth is omitted, it is assumed to be 100, or it is
     > unchanged if a value was previously set.
 
 >  
@@ -2784,8 +2743,7 @@ FORMAT.OVERLAY   Formats an overlay chart
 
 Return to [top](#E)
 
-FORMAT.MOVE
-===========
+# FORMAT.MOVE
 
 Equivalent to moving an object with the mouse. Moves the selected object
 to the specified position and, if successful, returns TRUE. If the
@@ -2803,8 +2761,7 @@ Syntax 3   Moves pie-chart and doughnut-chart items
 
 Return to [top](#E)
 
-FORMAT.MOVE Syntax 1
-====================
+# FORMAT.MOVE Syntax 1
 
 Equivalent to moving an object with the mouse. Moves the selected object
 to the specified position and, if successful, returns TRUE. If the
@@ -2832,9 +2789,10 @@ object to the upper-left corner of the cell specified by reference.
 Reference    specifies which cell or range of cells to place the object
 in relation to.
 
--   If reference is a range of cells, only the upper-left cell is used.
+  - > If reference is a range of cells, only the upper-left cell is
+    > used.
 
--   If reference is omitted, it is assumed to be cell A1.
+  - > If reference is omitted, it is assumed to be cell A1.
 
 >  
 
@@ -2850,7 +2808,7 @@ The following macro formula moves an object on the active worksheet so
 that it is 10 points horizontally offset and 15 points vertically offset
 from cell D4:
 
-FORMAT.MOVE(10, 15, !\$D\$4)
+FORMAT.MOVE(10, 15, \!$D$4)
 
 **Related Functions**
 
@@ -2866,8 +2824,7 @@ Syntax 3   Moves pie-chart and doughnut-chart items
 
 Return to [top](#E)
 
-FORMAT.MOVE Syntax 2
-====================
+# FORMAT.MOVE Syntax 2
 
 Equivalent to moving an object with the mouse. Moves the base of the
 selected object to the specified position and, if successful, returns
@@ -2893,12 +2850,12 @@ lower-left corner of the window.
 
 **Remarks**
 
--   The base of a text label on a chart is the lower-left corner of the
-    > text rectangle.
+  - > The base of a text label on a chart is the lower-left corner of
+    > the text rectangle.
 
--   The base of an arrow is the end without the arrowhead.
+  - > The base of an arrow is the end without the arrowhead.
 
--   The base of a pie slice is the point.
+  - > The base of a pie slice is the point.
 
 >  
 
@@ -2922,8 +2879,7 @@ Syntax 3   Moves pie-chart and doughnut-chart items
 
 Return to [top](#E)
 
-FORMAT.MOVE Syntax 3
-====================
+# FORMAT.MOVE Syntax 3
 
 Equivalent to exploding by moving a pie-chart or doughnut-chart slice
 with the mouse. Sets the percentage of pie-chart or doughnut-chart slice
@@ -2953,8 +2909,7 @@ WINDOW.MOVE   Moves a window
 
 Return to [top](#E)
 
-FORMAT.NUMBER
-=============
+# FORMAT.NUMBER
 
 Equivalent to choosing the Number tab in the Format Cells dialog box,
 which appears when you choose Cells from the Format menu. Formats
@@ -2968,7 +2923,7 @@ create and apply custom formats.
 
 **FORMAT.NUMBER**?(format\_text)
 
-Format\_text    is a format string, such as \"\#, \#\#0.00\", specifying
+Format\_text    is a format string, such as "\#, \#\#0.00", specifying
 which format to apply to the selection.
 
 **Related Functions**
@@ -2981,8 +2936,7 @@ FORMAT.TEXT   Formats a sheet text box or a chart text item
 
 Return to [top](#E)
 
-FORMAT.OVERLAY
-==============
+# FORMAT.OVERLAY
 
 Equivalent to clicking the Overlay command on the Format menu in
 Microsoft Excel version 4.0. Formats the overlay chart according to the
@@ -2998,17 +2952,17 @@ hilo, angle, series\_dist, series\_num, up\_down, series\_line, labels)
 
 Type\_num    is a number specifying the type of chart.
 
-  --------------- --------------
-  **Type\_num**   **Chart**
-  1               Area
-  2               Bar
-  3               Column
-  4               Line
-  5               Pie
-  6               XY (Scatter)
-  11              Radar
-  14              Doughnut
-  --------------- --------------
+|               |              |
+| ------------- | ------------ |
+| **Type\_num** | **Chart**    |
+| 1             | Area         |
+| 2             | Bar          |
+| 3             | Column       |
+| 4             | Line         |
+| 5             | Pie          |
+| 6             | XY (Scatter) |
+| 11            | Radar        |
+| 14            | Doughnut     |
 
 View    is a number specifying one of the views in the Data View box in
 the Overlay dialog box. The view varies depending on the type of chart.
@@ -3018,27 +2972,27 @@ columns to be positioned. It corresponds to the Overlap box in the
 Overlay dialog box. Overlap is ignored if type\_num is not 2 or 3 (bar
 or column chart).
 
--   If overlap is positive, it specifies the percentage of overlap you
+  - > If overlap is positive, it specifies the percentage of overlap you
     > want for bars or columns. For example, 50 would cause one-half of
     > a bar or column to be covered by an adjacent bar or column.
 
--   If overlap is negative, then bars or columns are separated by the
+  - > If overlap is negative, then bars or columns are separated by the
     > specified percentage of the maximum available distance between any
     > two bars or columns.
 
--   If overlap is omitted, it is assumed to be 0 (bars or columns do not
-    > overlap), or it is unchanged if a value was previously set.
+  - > If overlap is omitted, it is assumed to be 0 (bars or columns do
+    > not overlap), or it is unchanged if a value was previously set.
 
 >  
 
 Gap\_width    is a number from 0 to 500 specifying the space between bar
 or column clusters as a percentage of the width of a bar or column.
 
--   Gap\_width is ignored if type\_num is not 2 or 3 (bar or column
+  - > Gap\_width is ignored if type\_num is not 2 or 3 (bar or column
     > chart).
 
--   If gap\_width is omitted, it is assumed to be 50, or it is unchanged
-    > if a value was previously set.
+  - > If gap\_width is omitted, it is assumed to be 50, or it is
+    > unchanged if a value was previously set.
 
 >  
 
@@ -3064,10 +3018,10 @@ is assumed to be 0, or it is unchanged if a value was previously set.
 Series\_dist    is the number 1 or 2 and specifies automatic or manual
 series distribution.
 
--   If series\_dist is 1 or omitted, Microsoft Excel uses automatic
+  - > If series\_dist is 1 or omitted, Microsoft Excel uses automatic
     > series distribution.
 
--   If series\_dist is 2, Microsoft Excel uses manual series
+  - > If series\_dist is 2, Microsoft Excel uses manual series
     > distribution, and you must specify which series is first in the
     > distribution by using the series\_num argument.
 
@@ -3095,8 +3049,7 @@ FORMAT.CHART   Formats a chart
 
 Return to [top](#E)
 
-FORMAT.SHAPE
-============
+# FORMAT.SHAPE
 
 Equivalent to clicking the reshape button on the Drawing toolbar and
 then inserting, moving, or deleting vertices of the selected polygon. A
@@ -3115,13 +3068,13 @@ insert, move, or delete.
 Insert    is a logical value specifying whether to insert a vertex, or
 move or delete a vertex.
 
--   If insert is TRUE, Microsoft Excel inserts a vertex between the
+  - > If insert is TRUE, Microsoft Excel inserts a vertex between the
     > vertices vertex\_num and vertex\_num-1. The number of the new
     > vertex then becomes vertex\_num. The number of the vertex
     > previously identified by vertex\_num becomes vertex\_num+1, and so
     > on.
 
--   If insert is FALSE, Microsoft Excel deletes the vertex (if the
+  - > If insert is FALSE, Microsoft Excel deletes the vertex (if the
     > remaining arguments are omitted) or moves the vertex to the
     > position specified by the remaining arguments.
 
@@ -3131,10 +3084,11 @@ Reference    is the reference from which the vertex you are inserting or
 moving is measured; that is, the cell or range of cells to use as the
 basis for the x and y offsets.
 
--   If reference is a range of cells, only the upper-left cell is used.
+  - > If reference is a range of cells, only the upper-left cell is
+    > used.
 
--   If reference is omitted, the vertex is measured from the upper-left
-    > corner of the polygon\'s bounding rectangle.
+  - > If reference is omitted, the vertex is measured from the
+    > upper-left corner of the polygon's bounding rectangle.
 
 >  
 
@@ -3164,11 +3118,11 @@ The following macro formula moves the thirteenth vertex 6 points to the
 right and 4 points below the upper-left corner of cell B5 on the active
 worksheet:
 
-FORMAT.SHAPE(13, FALSE, !\$B\$5, 6, 4)
+FORMAT.SHAPE(13, FALSE, \!$B$5, 6, 4)
 
 The following macro formula inserts a new vertex between vertices 2 and
 3. The new vertex is 60 points to the right and 75 points below the
-upper-left corner of the polygon\'s bounding rectangle:
+upper-left corner of the polygon's bounding rectangle:
 
 FORMAT.SHAPE(3, TRUE, , 60, 75)
 
@@ -3180,8 +3134,7 @@ EXTEND.POLYGON   Adds vertices to a polygon
 
 Return to [top](#E)
 
-FORMAT.SIZE
-===========
+# FORMAT.SIZE
 
 Equivalent to sizing an object with the mouse. Sizes the selected object
 and returns TRUE. If the selected chart object cannot be sized,
@@ -3197,8 +3150,7 @@ Syntax 2   Sizes worksheet objects relative to a cell or range
 
 Return to [top](#E)
 
-FORMAT.SIZE Syntax 1
-====================
+# FORMAT.SIZE Syntax 1
 
 Equivalent to sizing an object with the mouse. Sizes the selected object
 and returns TRUE. If the selected chart object cannot be sized,
@@ -3225,10 +3177,10 @@ specify height and not width, the height changes but the width does not.
 
 **Remarks**
 
--   The base of a text label on a chart is the lower-left corner of the
-    > text rectangle.
+  - > The base of a text label on a chart is the lower-left corner of
+    > the text rectangle.
 
--   The base of an arrow is the end without the arrowhead.
+  - > The base of an arrow is the end without the arrowhead.
 
 >  
 
@@ -3242,8 +3194,7 @@ Syntax 2   Sizes worksheet objects relative to a cell or range
 
 Return to [top](#E)
 
-FORMAT.SIZE Syntax 2
-====================
+# FORMAT.SIZE Syntax 2
 
 Equivalent to sizing an object with the mouse. Sizes the selected
 worksheet object and returns TRUE. If the selected object cannot be
@@ -3284,8 +3235,7 @@ Syntax 1   Sizes worksheet objects and chart items
 
 Return to [top](#E)
 
-FORMAT.TEXT
-===========
+# FORMAT.TEXT
 
 Formats the selected worksheet text box or button or any text item on a
 chart.
@@ -3307,35 +3257,35 @@ the current setting is used.
 X\_align    is a number from 1 to 4 specifying the horizontal alignment
 of the text.
 
-  -------------- --------------------------
-  **X\_align**   **Horizontal alignment**
-  1              Left
-  2              Center
-  3              Right
-  4              Justify
-  -------------- --------------------------
+|              |                          |
+| ------------ | ------------------------ |
+| **X\_align** | **Horizontal alignment** |
+| 1            | Left                     |
+| 2            | Center                   |
+| 3            | Right                    |
+| 4            | Justify                  |
 
 Y\_align    is a number from 1 to 4 specifying the vertical alignment of
 the text.
 
-  -------------- ------------------------
-  **Y\_align**   **Vertical alignment**
-  1              Top
-  2              Center
-  3              Bottom
-  4              Justify
-  -------------- ------------------------
+|              |                        |
+| ------------ | ---------------------- |
+| **Y\_align** | **Vertical alignment** |
+| 1            | Top                    |
+| 2            | Center                 |
+| 3            | Bottom                 |
+| 4            | Justify                |
 
 Orient\_num    is a number from 0 to 3 specifying the orientation of the
 text.
 
-  ----------------- ----------------------
-  **Orient\_num**   **Text orientation**
-  0                 Horizontal
-  1                 Vertical
-  2                 Upward
-  3                 Downward
-  ----------------- ----------------------
+|                 |                      |
+| --------------- | -------------------- |
+| **Orient\_num** | **Text orientation** |
+| 0               | Horizontal           |
+| 1               | Vertical             |
+| 2               | Upward               |
+| 3               | Downward             |
 
 Auto\_text    corresponds to the Automatic Text check box. If the
 selected text was created with the Data Labels command from the Insert
@@ -3361,13 +3311,13 @@ item.
 Add\_indent   This argument is for only Far East versions of Microsoft
 Excel.
 
-  ------------------------------ ---------------------------------------------
-  **Text item**                  **Arguments that apply**
-  Worksheet text box or button   X\_align, y\_align, orient\_num, auto\_size
-  Attached data label            All arguments
-  Unattached text label          X\_align, y\_align, orient\_num, auto\_size
-  Tickmark label                 Orient\_num
-  ------------------------------ ---------------------------------------------
+|                              |                                             |
+| ---------------------------- | ------------------------------------------- |
+| **Text item**                | **Arguments that apply**                    |
+| Worksheet text box or button | X\_align, y\_align, orient\_num, auto\_size |
+| Attached data label          | All arguments                               |
+| Unattached text label        | X\_align, y\_align, orient\_num, auto\_size |
+| Tickmark label               | Orient\_num                                 |
 
 **Related Functions**
 
@@ -3379,16 +3329,15 @@ FORMULA   Enters values into a cell or range or onto a chart
 
 Return to [top](#E)
 
-FORMULA
-=======
+# FORMULA
 
 Enters a formula in the active cell or in a reference. There are two
 syntax forms of this function. Use syntax 1 to enter numbers, text,
 references, and formulas in a worksheet. Although syntax 1 can also be
 used to enter values on a macro sheet, you will not generally use
 FORMULA for this purpose. Use syntax 2 to enter a formula in a chart.
-For information about setting values on a macro sheet, see \"Remarks\"
-in the following topics.
+For information about setting values on a macro sheet, see "Remarks" in
+the following topics.
 
 Syntax 1   Enters numbers, text, references, and formulas in a worksheet
 
@@ -3396,8 +3345,7 @@ Syntax 2   Enters formulas in a chart
 
 Return to [top](#E)
 
-FORMULA Syntax 1
-================
+# FORMULA Syntax 1
 
 Enters a formula in the active cell or in a reference. If the active
 sheet is a worksheet, using FORMULA is equivalent to entering
@@ -3409,7 +3357,7 @@ numbers, text, references, and formulas in a worksheet. Although syntax
 1 can also be used to enter values on a macro sheet, you will not
 generally use FORMULA for this purpose. Use syntax 2 to enter a formula
 in a chart. For information about setting values on a macro sheet, see
-\"Remarks\" later in this topic.
+"Remarks" later in this topic.
 
 **Syntax**
 
@@ -3418,20 +3366,20 @@ in a chart. For information about setting values on a macro sheet, see
 Formula\_text    can be text, a number, a reference, or a formula in the
 form of text, or a reference to a cell containing any of the above.
 
--   If formula\_text contains references, they must be R1C1-style
-    > references, such as \"=RC\[1\]\*(1+R1C1)\". If you are recording a
+  - > If formula\_text contains references, they must be R1C1-style
+    > references, such as "=RC\[1\]\*(1+R1C1)". If you are recording a
     > macro when you enter a formula, Microsoft Excel converts A1-style
     > references to R1C1-style references. For example, if you enter the
-    > formula =B2\*(1+\$A\$1) in cell C2 while recording, Microsoft
-    > Excel records that action as =FORMULA(\"=RC\[-1\]\*(1+R1C1)\").
+    > formula =B2\*(1+$A$1) in cell C2 while recording, Microsoft Excel
+    > records that action as =FORMULA("=RC\[-1\]\*(1+R1C1)").
 
--   If formula\_text is a formula, the formula is entered. Text
+  - > If formula\_text is a formula, the formula is entered. Text
     > arguments must be surrounded by double sets of quotation marks.
-    > For example, to enter the formula =IF(\$A\$1=\"Hello World\",
-    > 1, 0) in the active cell with the FORMULA function, you would use
-    > the formula FORMULA(\"=IF(R1C1=\"\"Hello World\"\", 1, 0)\")
+    > For example, to enter the formula =IF($A$1="Hello World", 1, 0) in
+    > the active cell with the FORMULA function, you would use the
+    > formula FORMULA("=IF(R1C1=""Hello World"", 1, 0)")
 
--   If formula\_text is a number, text, or logical value, the value is
+  - > If formula\_text is a number, text, or logical value, the value is
     > entered as a constant.
 
 Reference    specifies where formula\_text is to be entered. It can be a
@@ -3444,14 +3392,15 @@ active cell.
 Consider the following guidelines as you choose a function to set values
 on a worksheet or macro sheet:
 
--   Use FORMULA to enter formulas and change values in a worksheet cell.
+  - > Use FORMULA to enter formulas and change values in a worksheet
+    > cell.
 
--   SET.VALUE changes values on the macro sheet. Use SET.VALUE to assign
-    > initial values to a reference and to store values during the
-    > calculation of the macro.
+  - > SET.VALUE changes values on the macro sheet. Use SET.VALUE to
+    > assign initial values to a reference and to store values during
+    > the calculation of the macro.
 
--   SET.NAME creates names on the macro sheet. Use SET.NAME to create a
-    > name and immediately assign a value to the name.
+  - > SET.NAME creates names on the macro sheet. Use SET.NAME to create
+    > a name and immediately assign a value to the name.
 
 >  
 
@@ -3465,13 +3414,13 @@ FORMULA(523)
 If the active sheet is a worksheet, the following macro formula enters
 the result of the INPUT function in cell A5:
 
-FORMULA(INPUT(\"Enter a formula:\", 0), !\$A\$5)
+FORMULA(INPUT("Enter a formula:", 0), \!$A$5)
 
-If you\'re using R1C1-style references and the active sheet is a
+If you're using R1C1-style references and the active sheet is a
 worksheet, the following macro formula enters the formula
 =RC\[-1\]\*(1+R1C1) in the active cell:
 
-FORMULA(\"=RC\[-1\]\*(1+R1C1)\")
+FORMULA("=RC\[-1\]\*(1+R1C1)")
 
 If the active sheet is a worksheet, the following macro formulas enter
 the number 1000 in the cell two rows down and three columns right from
@@ -3480,12 +3429,12 @@ method may provide faster performance in larger macro sheets.
 
 FORMULA(1000, OFFSET(ACTIVE.CELL(), 2, 3))
 
-FORMULA(1000, \"R\[2\]C\[3\]\")
+FORMULA(1000, "R\[2\]C\[3\]")
 
-The following macro formula enters the phrase \"Year to Date\" in cell
-B4 on the sheet named SALES 1993:
+The following macro formula enters the phrase "Year to Date" in cell B4
+on the sheet named SALES 1993:
 
-FORMULA(\"Year to Date\", \'SALES 1993\'!B4)
+FORMULA("Year to Date", 'SALES 1993'\!B4)
 
 **Related Functions**
 
@@ -3499,8 +3448,7 @@ FORMULA Syntax 2   Enters formulas in a chart
 
 Return to [top](#E)
 
-FORMULA Syntax 2
-================
+# FORMULA Syntax 2
 
 Enters a text label or SERIES formula in a chart. To enter formulas on a
 worksheet or macro sheet, use syntax 1 of this function.
@@ -3512,13 +3460,13 @@ worksheet or macro sheet, use syntax 1 of this function.
 Formula\_text    is the text label or SERIES formula you want to enter
 into the chart.
 
-  ----------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------
-  **If**                                                                                                                        **Then**
-  Formula\_text can be treated as a text label and the current selection is a text label                                        The selected text label is replaced with formula\_text.
-  Formula\_text can be treated as a text label and there is no current selection or the current selection is not a text label   Formula\_text creates a new unattached text label.
-  Formula\_text can be treated as a SERIES formula and the current selection is a SERIES formula                                The selected SERIES formula is replaced with formula\_text.
-  Formula\_text can be treated as a SERIES formula and the current selection is not a SERIES formula                            Formula\_text creates a new SERIES formula.
-  ----------------------------------------------------------------------------------------------------------------------------- -------------------------------------------------------------
+|                                                                                                                             |                                                             |
+| --------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **If**                                                                                                                      | **Then**                                                    |
+| Formula\_text can be treated as a text label and the current selection is a text label                                      | The selected text label is replaced with formula\_text.     |
+| Formula\_text can be treated as a text label and there is no current selection or the current selection is not a text label | Formula\_text creates a new unattached text label.          |
+| Formula\_text can be treated as a SERIES formula and the current selection is a SERIES formula                              | The selected SERIES formula is replaced with formula\_text. |
+| Formula\_text can be treated as a SERIES formula and the current selection is not a SERIES formula                          | Formula\_text creates a new SERIES formula.                 |
 
 **Remarks**
 
@@ -3530,7 +3478,7 @@ chart series. For more information, see EDIT.SERIES.
 The following macro formula enters a SERIES formula on the chart. If the
 current selection is a SERIES formula, it is replaced:
 
-FORMULA(\"=SERIES(\"\"Title\"\", , {1, 2, 3}, 1)\")
+FORMULA("=SERIES(""Title"", , {1, 2, 3}, 1)")
 
 **Related Functions**
 
@@ -3541,8 +3489,7 @@ worksheet
 
 Return to [top](#E)
 
-FORMULA.ARRAY
-=============
+# FORMULA.ARRAY
 
 Enters a formula as an array formula in the range specified or in the
 current selection. Equivalent to entering an array formula while
@@ -3566,20 +3513,20 @@ If reference is omitted, formula\_text is entered in the active cell.
 If the selection is D25:E25, the following macro formula enters the
 array formula {=D22:E22+D23:E23} in the range D25:E25:
 
-FORMULA.ARRAY(\"=R\[-3\]C:R\[-3\]C\[1\]+R\[-2\]C:R\[-2\]C\[1\]\")
+FORMULA.ARRAY("=R\[-3\]C:R\[-3\]C\[1\]+R\[-2\]C:R\[-2\]C\[1\]")
 
 Regardless of the selection, the following macro formula enters the
 array formula {=D22:E22+D23:E23} in the range D25:E25:
 
-FORMULA.ARRAY(\"=R\[-3\]C:R\[-3\]C\[1\]+R\[-2\]C:R\[-2\]C\[1\]\",
-\"R25C4:R25C5\")
+FORMULA.ARRAY("=R\[-3\]C:R\[-3\]C\[1\]+R\[-2\]C:R\[-2\]C\[1\]",
+"R25C4:R25C5")
 
 To use FORMULA.ARRAY to put an array in a specific workbook, specify the
 name of the workbook as an external reference in the reference argument.
-Using \"\[SALES.XLS\]North!R25C3:R25C4\" as the reference argument in
-the preceding example would enter the array in cells C25:D25 on the
+Using "\[SALES.XLS\]North\!R25C3:R25C4" as the reference argument in the
+preceding example would enter the array in cells C25:D25 on the
 worksheet named North in the workbook SALES.XLS. Using
-\"SALES!R25C3:R25C4\" as the reference argument would enter the array in
+"SALES\!R25C3:R25C4" as the reference argument would enter the array in
 the same cells in the worksheet named SALES.
 
 **Related Functions**
@@ -3590,8 +3537,7 @@ FORMULA.FILL   Enters a formula in the specified range
 
 Return to [top](#E)
 
-FORMULA.CONVERT
-===============
+# FORMULA.CONVERT
 
 Changes the style and type of references in a formula between A1 and
 R1C1 and between relative and absolute. Use FORMULA.CONVERT to convert
@@ -3619,13 +3565,13 @@ To\_ref\_type    is a number from 1 to 4 specifying the reference type
 of the returned formula. If to\_ref\_type is omitted, the reference type
 is not changed.
 
-  ------------------- -------------------------------
-  **To\_ref\_type**   **Reference type returned**
-  1                   Absolute
-  2                   Absolute row, relative column
-  3                   Relative row, absolute column
-  4                   Relative
-  ------------------- -------------------------------
+|                   |                               |
+| ----------------- | ----------------------------- |
+| **To\_ref\_type** | **Reference type returned**   |
+| 1                 | Absolute                      |
+| 2                 | Absolute row, relative column |
+| 3                 | Relative row, absolute column |
+| 4                 | Relative                      |
 
 Rel\_to\_ref    is an absolute reference that specifies what cell the
 relative references are or should be relative to.
@@ -3637,13 +3583,13 @@ in an INPUT function or custom dialog box into absolute references. The
 following macro formula converts the given formula to an absolute,
 R1C1-style reference:
 
-FORMULA.CONVERT(\"=A1:A10\", TRUE, FALSE, 1) equals \"=R1C1:R10C1\"
+FORMULA.CONVERT("=A1:A10", TRUE, FALSE, 1) equals "=R1C1:R10C1"
 
 The following macro formula converts the references in the given formula
 to relative, A1-style references:
 
-FORMULA.CONVERT(\"=SUM(R10C2:R15C2)\", FALSE, TRUE, 4) equals
-\"=SUM(B10:B15)\"
+FORMULA.CONVERT("=SUM(R10C2:R15C2)", FALSE, TRUE, 4) equals
+"=SUM(B10:B15)"
 
 **Tip**   To put the converted formula into a cell or range of cells,
 use the FORMULA.CONVERT function as the formula\_text argument to the
@@ -3660,8 +3606,7 @@ RELREF   Returns a relative reference
 
 Return to [top](#E)
 
-FORMULA.FILL
-============
+# FORMULA.FILL
 
 Enters a formula in the range specified or in the current selection.
 Equivalent to entering a formula in a range of cells while pressing
@@ -3690,8 +3635,7 @@ FORMULA.ARRAY   Enters an array
 
 Return to [top](#E)
 
-FORMULA.FIND
-============
+# FORMULA.FIND
 
 Equivalent to clicking the Find command on the Edit menu. Selects the
 next or previous cell containing the specified text and returns TRUE. If
@@ -3711,40 +3655,40 @@ box in the Find dialog box.
 
 In\_num    is a number from 1 to 3 specifying where to search.
 
-  ------------- --------------
-  **In\_num**   **Searches**
-  1             Formulas
-  2             Values
-  3             Notes
-  ------------- --------------
+|             |              |
+| ----------- | ------------ |
+| **In\_num** | **Searches** |
+| 1           | Formulas     |
+| 2           | Values       |
+| 3           | Notes        |
 
 At\_num    is the number 1 or 2 and specifies whether to find cells
 containing only text or also cells containing text within a longer
 string of characters.
 
-  ------------- --------------------------------------------------
-  **At\_num**   **Searches for text as**
-  1             A whole string (the only value in the cell)
-  2             Either a whole string or part of a longer string
-  ------------- --------------------------------------------------
+|             |                                                  |
+| ----------- | ------------------------------------------------ |
+| **At\_num** | **Searches for text as**                         |
+| 1           | A whole string (the only value in the cell)      |
+| 2           | Either a whole string or part of a longer string |
 
 By\_num    is the number 1 or 2 and specifies whether to search by rows
 or by columns.
 
-  ------------- -----------------
-  **By\_num**   **Searches by**
-  1             Rows
-  2             Columns
-  ------------- -----------------
+|             |                 |
+| ----------- | --------------- |
+| **By\_num** | **Searches by** |
+| 1           | Rows            |
+| 2           | Columns         |
 
 Dir\_num    is the number 1 or 2 and specifies whether to search for the
 next or previous occurrence of text.
 
-  -------------- ---------------------------------
-  **Dir\_num**   **Searches for**
-  1 or omitted   The next occurrence of text
-  2              The previous occurrence of text
-  -------------- ---------------------------------
+|              |                                 |
+| ------------ | ------------------------------- |
+| **Dir\_num** | **Searches for**                |
+| 1 or omitted | The next occurrence of text     |
+| 2            | The previous occurrence of text |
 
 Match\_case    is a logical value corresponding to the Match Case check
 box in the Find dialog box. If match\_case is TRUE, Microsoft Excel
@@ -3753,18 +3697,17 @@ or omitted, matching is not case-sensitive.
 
 **Remarks**
 
--   In Microsoft Excel for Windows, the dialog-box form of FORMULA.FIND
-    > is equivalent to pressing SHIFT+F5.
+  - > In Microsoft Excel for Windows, the dialog-box form of
+    > FORMULA.FIND is equivalent to pressing SHIFT+F5.
 
--   If more than one cell is selected when you use FORMULA.FIND,
+  - > If more than one cell is selected when you use FORMULA.FIND,
     > Microsoft Excel searches only that selection.
 
 >  
 
 Return to [top](#E)
 
-FORMULA.FIND.NEXT, FORMULA.FIND.PREV
-====================================
+# FORMULA.FIND.NEXT, FORMULA.FIND.PREV
 
 Finds the next and previous cells on the worksheet, as specified in the
 Find dialog box, and returns TRUE. (To see the Find dialog box, click
@@ -3786,8 +3729,7 @@ FORMULA.FIND   Finds text in a workbook
 
 Return to [top](#E)
 
-FORMULA.GOTO
-============
+# FORMULA.GOTO
 
 Equivalent to clicking the Go To command on the Edit menu or to pressing
 F5. Scrolls through the worksheet and selects a named area or reference.
@@ -3802,11 +3744,11 @@ select a range on the active workbook.
 
 Reference    specifies where to scroll and what to select.
 
--   Reference should be either an external reference to a workbook, an
+  - > Reference should be either an external reference to a workbook, an
     > R1C1-style reference in the form of text (see the second example
     > following), or a name.
 
--   If the Go To command has already been carried out, reference is
+  - > If the Go To command has already been carried out, reference is
     > optional. If reference is omitted, it is assumed to be the
     > reference of the cells you selected before the previous Go To
     > command or FORMULA.GOTO macro function was carried out. This
@@ -3820,19 +3762,19 @@ corner of the active window. If corner is TRUE, Microsoft Excel places
 reference in the upper-left corner of the window; if FALSE or omitted,
 Microsoft Excel scrolls through normally.
 
-**Tip**   Microsoft Excel keeps a list of the cells you\'ve selected
-with previous FORMULA.GOTO functions or Go To commands. When you use
+**Tip**   Microsoft Excel keeps a list of the cells you've selected with
+previous FORMULA.GOTO functions or Go To commands. When you use
 FORMULA.GOTO with GET.WORKSPACE(41), which returns a horizontal array of
 previous Go To selections, you can backtrack through multiple previous
 selections. See the last example below.
 
 **Remarks**
 
--   If you are recording a macro when you click the Go To command, the
+  - > If you are recording a macro when you click the Go To command, the
     > reference you enter in the Reference box of the Go To dialog box
     > is recorded as text in the R1C1 reference style.
 
--   If you are recording a macro when you double-click a cell that has
+  - > If you are recording a macro when you double-click a cell that has
     > precedents on another worksheet, Microsoft Excel records a
     > FORMULA.GOTO function.
 
@@ -3841,17 +3783,17 @@ selections. See the last example below.
 Each of the following macro formulas goes to cell A1 on the active
 worksheet:
 
-FORMULA.GOTO(!\$A\$1)
+FORMULA.GOTO(\!$A$1)
 
-FORMULA.GOTO(\"R1C1\")
+FORMULA.GOTO("R1C1")
 
 Each of the following macro formulas goes to the cells named Sales on
 the active worksheet and scrolls through the worksheet so that the
 upper-left corner of Sales is in the upper-left corner of the window:
 
-FORMULA.GOTO(!Sales, TRUE)
+FORMULA.GOTO(\!Sales, TRUE)
 
-FORMULA.GOTO(\"Sales\", TRUE)
+FORMULA.GOTO("Sales", TRUE)
 
 The following macro formula goes to the cells that were selected by the
 third most recent FORMULA.GOTO function or Go To command:
@@ -3872,8 +3814,7 @@ or row number
 
 Return to [top](#E)
 
-FORMULA.REPLACE
-===============
+# FORMULA.REPLACE
 
 Equivalent to clicking the Replace command on the Edit menu. Finds and
 replaces characters in cells on your worksheet.
@@ -3897,28 +3838,28 @@ Replace\_text    is the text you want to replace find\_text with.
 Look\_at    is a number specifying whether you want find\_text to match
 the entire contents of a cell or any string of matching characters.
 
-  -------------- -----------------------------------
-  **Look\_at**   **Looks for find\_text**
-  1 or omitted   As the entire contents of a cell
-  2              As part of the contents of a cell
-  -------------- -----------------------------------
+|              |                                   |
+| ------------ | --------------------------------- |
+| **Look\_at** | **Looks for find\_text**          |
+| 1 or omitted | As the entire contents of a cell  |
+| 2            | As part of the contents of a cell |
 
 Look\_by    is a number specifying whether to search horizontally
 (through rows) or vertically (through columns).
 
-  -------------- --------------------------
-  **Look\_by**   **Looks for find\_text**
-  1 or omitted   By rows
-  2              By columns
-  -------------- --------------------------
+|              |                          |
+| ------------ | ------------------------ |
+| **Look\_by** | **Looks for find\_text** |
+| 1 or omitted | By rows                  |
+| 2            | By columns               |
 
 Active\_cell    is a logical value specifying the cells in which
 find\_text is to be replaced.
 
--   If active\_cell is TRUE, find\_text is replaced in the active cell
+  - > If active\_cell is TRUE, find\_text is replaced in the active cell
     > only.
 
--   If active\_cell is FALSE, find\_text is replaced in the entire
+  - > If active\_cell is FALSE, find\_text is replaced in the entire
     > selection, or, if the selection is a single cell, in the entire
     > sheet.
 
@@ -3931,17 +3872,17 @@ If match\_case is omitted, the status of the check box is unchanged.
 
 **Remarks**
 
--   In FORMULA.REPLACE?, the dialog-box form of the function, omitted
+  - > In FORMULA.REPLACE?, the dialog-box form of the function, omitted
     > arguments are assumed to be the same arguments used in the
     > previous replace operation. If there was no previous replace
-    > operation, omitted text arguments are assumed to be \"\" (empty
+    > operation, omitted text arguments are assumed to be "" (empty
     > text).
 
--   The result of FORMULA.REPLACE must be a valid cell entry. For
-    > example, you cannot replace \"=\" with \"= =\" at the beginning of
-    > a formula.
+  - > The result of FORMULA.REPLACE must be a valid cell entry. For
+    > example, you cannot replace "=" with "= =" at the beginning of a
+    > formula.
 
--   If more than a single cell is selected before you use
+  - > If more than a single cell is selected before you use
     > FORMULA.REPLACE, only the selected cells are searched.
 
 >  
@@ -3952,8 +3893,7 @@ FORMULA.FIND   Finds text in a workbook
 
 Return to [top](#E)
 
-FOURIER
-=======
+# FOURIER
 
 Performs a Fourier transform.
 
@@ -3967,7 +3907,7 @@ add-in.
 **FOURIER**?(inprng, outrng, inverse, labels)
 
 Inprng    is the input range. The number of cells in the input range
-must be equal to a power of two (2, 4, 8, 16, \...).
+must be equal to a power of two (2, 4, 8, 16, ...).
 
 Outrng    is the first cell in the output range or the name, as text, of
 a new sheet to contain the output table. If FALSE, blank, or omitted,
@@ -3979,10 +3919,10 @@ performed.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of inprng contains
+  - > If labels is TRUE, then the first row or column of inprng contains
     > labels.
 
--   If labels is FALSE or omitted, all cells in inprng are considered
+  - > If labels is FALSE or omitted, all cells in inprng are considered
     > data. Microsoft Excel generates appropriate data labels for the
     > output table.
 
@@ -3994,8 +3934,7 @@ SAMPLE   Samples data
 
 Return to [top](#E)
 
-FPOS
-====
+# FPOS
 
 Sets the position of a file. The position of a file is where a character
 is read from or written to by an FREAD, FREADLN, FWRITE, or FWRITELN
@@ -4011,33 +3950,33 @@ file.
 
 File\_num    is the unique ID number of the file for which you want to
 set the position. File\_num is returned by a previously executed FOPEN
-function. If file\_num is not valid, FPOS returns the \#VALUE! error
+function. If file\_num is not valid, FPOS returns the \#VALUE\! error
 value.
 
 Position\_num    is the location in the file that a character will be
 read from or written to.
 
--   The first position in a file is 1, the location of the first byte.
+  - > The first position in a file is 1, the location of the first byte.
 
--   The last position in the file is the same as the value returned by
-    > FSIZE. For example, the last position in a file with 280 bytes
-    > is 280.
+  - > The last position in the file is the same as the value returned by
+    > FSIZE. For example, the last position in a file with 280 bytes is
+    > 280.
 
--   If position\_num is omitted, FPOS returns the current position of
-    > the file---that is, the number corresponding to where the next
+  - > If position\_num is omitted, FPOS returns the current position of
+    > the file—that is, the number corresponding to where the next
     > character will be read from or written to.
 
 >  
 
 Whenever you read a character from or write a character to a file, the
-file\'s position is automatically incremented.
+file's position is automatically incremented.
 
 **Examples**
 
 The following statement starts a loop that executes until the position
 in the open file identified as FileNumber reaches the end of the file:
 
-=WHILE(FPOS(FileNumber)\<=FSIZE(FileNumber))
+\=WHILE(FPOS(FileNumber)\<=FSIZE(FileNumber))
 
 **Related Functions**
 
@@ -4055,16 +3994,15 @@ FWRITELN   Writes a line to a text file
 
 Return to [top](#E)
 
-FREAD
-=====
+# FREAD
 
 Reads characters from a file, starting at the current position in the
-file. (For more information about a file\'s position, see FPOS.) If
-FREAD is successful, it returns the text to the cell containing FREAD
-and set\'s the file\'s position to the start of the following line. If
-the end of the file is reached or if FREAD can\'t read the file, it
-returns the \#N/A error value. Use FREAD instead of FREADLN when you
-need to read a specific number of characters from a text file.
+file. (For more information about a file's position, see FPOS.) If FREAD
+is successful, it returns the text to the cell containing FREAD and
+set's the file's position to the start of the following line. If the end
+of the file is reached or if FREAD can't read the file, it returns the
+\#N/A error value. Use FREAD instead of FREADLN when you need to read a
+specific number of characters from a text file.
 
 **Syntax**
 
@@ -4072,7 +4010,7 @@ need to read a specific number of characters from a text file.
 
 File\_num    is the unique ID number of the file you want to read data
 from. File\_num is returned by a previously executed FOPEN function. If
-file\_num is not valid, FREAD returns the \#VALUE! error value.
+file\_num is not valid, FREAD returns the \#VALUE\! error value.
 
 Num\_chars    specifies how many bytes to read from the file. FREAD can
 read up to 255 bytes at a time.
@@ -4096,18 +4034,17 @@ FWRITE   Writes characters to a text file
 
 Return to [top](#E)
 
-FREADLN
-=======
+# FREADLN
 
 Reads characters from a file, starting at the current position in the
 file and continuing to the end of the line, placing the characters in
-the cell containing FREADLN. (For more information about a file\'s
+the cell containing FREADLN. (For more information about a file's
 position, see FPOS.) If FREADLN is successful, it returns the text it
 read, up to but not including the carriage-return and linefeed
 characters at the end of the line (in Microsoft Excel for Windows) or
 the carriage-return character at the end of the line (in Microsoft Excel
 for the Macintosh). If the current file position is the end of the file
-or if FREADLN can\'t read the file, it returns the \#N/A error value.
+or if FREADLN can't read the file, it returns the \#N/A error value.
 
 **Syntax**
 
@@ -4115,7 +4052,7 @@ or if FREADLN can\'t read the file, it returns the \#N/A error value.
 
 File\_num    is the unique ID number of the file you want to read data
 from. File\_num is returned by a previously executed FOPEN function. If
-file\_num is not valid, FREADLN returns the \#VALUE! error value.
+file\_num is not valid, FREADLN returns the \#VALUE\! error value.
 
 **Example**
 
@@ -4138,8 +4075,7 @@ FWRITELN   Writes a line to a text file
 
 Return to [top](#E)
 
-FREEZE.PANES
-============
+# FREEZE.PANES
 
 Equivalent to clicking the Freeze Panes or Unfreeze Panes command on the
 Window menu. Splits the active window into panes, creates frozen panes,
@@ -4153,19 +4089,18 @@ column titles on the screen while scrolling to other parts of the sheet.
 Logical    is a logical value specifying which command FREEZE.PANES is
 equivalent to.
 
--   If logical is TRUE, the function is equivalent to the Freeze Panes
+  - > If logical is TRUE, the function is equivalent to the Freeze Panes
     > command. It freezes panes if they exist, or creates them, splits
     > them at the specified position, and freezes them if they do not
     > exist. If the panes are already frozen, FREEZE.PANES takes no
     > action.
 
--   If logical is FALSE, the function is equivalent to the Unfreeze
+  - > If logical is FALSE, the function is equivalent to the Unfreeze
     > Panes command. If no panes exist, FREEZE.PANES takes no action.
 
--   If logical is omitted, FREEZE.PANES creates and then freezes panes
-    > if no panes exist, freezes existing panes if they\'re not
-    > currently frozen, or unfreezes existing panes if they\'re
-    > currently frozen.
+  - > If logical is omitted, FREEZE.PANES creates and then freezes panes
+    > if no panes exist, freezes existing panes if they're not currently
+    > frozen, or unfreezes existing panes if they're currently frozen.
 
 >  
 
@@ -4192,8 +4127,7 @@ SPLIT   Splits a window
 
 Return to [top](#E)
 
-FSIZE
-=====
+# FSIZE
 
 Returns the number of bytes in a file. Use FSIZE to determine the size
 of the file, which is the same as the position of the last byte in the
@@ -4205,7 +4139,7 @@ file.
 
 File\_num    is the unique ID number of the file whose size you want to
 know. File\_num is returned by a previously executed FOPEN function. If
-file\_num is not valid, FSIZE returns the \#VALUE! error value.
+file\_num is not valid, FSIZE returns the \#VALUE\! error value.
 
 **Example**
 
@@ -4222,8 +4156,7 @@ FPOS   Sets the position in a text file
 
 Return to [top](#E)
 
-FTESTV
-======
+# FTESTV
 
 Performs a two-sample F-test.
 
@@ -4246,17 +4179,16 @@ blank, or omitted, places the output table in a new workbook.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of inprng1 and
+  - > If labels is TRUE, then the first row or column of inprng1 and
     > inprng2 contain labels.
 
--   If labels is FALSE or omitted, all cells in inprng1 and inprng2 are
-    > considered data. Microsoft Excel generates appropriate data labels
-    > for the output table.
+  - > If labels is FALSE or omitted, all cells in inprng1 and inprng2
+    > are considered data. Microsoft Excel generates appropriate data
+    > labels for the output table.
 
 Return to [top](#E)
 
-FULL
-====
+# FULL
 
 Equivalent to pressing CTRL+F10 (full size) and CTRL+F5 (previous size)
 or double-clicking the title bar in Microsoft Excel for Windows version
@@ -4274,8 +4206,7 @@ later, use the WINDOW.RESTORE function.
 
 Return to [top](#E)
 
-FULL.SCREEN
-===========
+# FULL.SCREEN
 
 Equivalent to clicking the Full Screen command on the View menu.
 
@@ -4288,8 +4219,7 @@ mode if FALSE.
 
 Return to [top](#E)
 
-FUNCTION.WIZARD
-===============
+# FUNCTION.WIZARD
 
 Displays the Paste Function dialog box, which you can use to enter
 functions into cells.
@@ -4309,12 +4239,11 @@ FORMULA   Enters values into a cell or range or onto a chart
 
 Return to [top](#E)
 
-FWRITE
-======
+# FWRITE
 
 Writes text to a file, starting at the current position in that file.
-(For more information about a file\'s position, see FPOS.) If FWRITE
-can\'t write to the file, it returns the \#N/A error value.
+(For more information about a file's position, see FPOS.) If FWRITE
+can't write to the file, it returns the \#N/A error value.
 
 **Syntax**
 
@@ -4322,7 +4251,7 @@ can\'t write to the file, it returns the \#N/A error value.
 
 File\_num    is the unique ID number of the file you want to write data
 to. File\_num is returned by a previously executed FOPEN function. If
-file\_num is not valid, FWRITE returns the \#VALUE! error value.
+file\_num is not valid, FWRITE returns the \#VALUE\! error value.
 
 Text    is the text you want to write to the file.
 
@@ -4331,7 +4260,7 @@ Text    is the text you want to write to the file.
 The following function writes the current month to the open file
 identified as FileNumber:
 
-FWRITE(FileNumber, TEXT(MONTH(NOW()),\"mmmm\"))
+FWRITE(FileNumber, TEXT(MONTH(NOW()),"mmmm"))
 
 **Related Functions**
 
@@ -4345,14 +4274,13 @@ FWRITELN   Writes a line to a text file
 
 Return to [top](#E)
 
-FWRITELN
-========
+# FWRITELN
 
 Writes text, followed by a carriage return and linefeed, to a file,
 starting at the current position in that file. (For more information
-about a file\'s position, see FPOS.) If FWRITELN can\'t write to the
-file, it returns the \#N/A error value. Use FWRITELN instead of FWRITE
-when you want to append a carriage return and linefeed to each group of
+about a file's position, see FPOS.) If FWRITELN can't write to the file,
+it returns the \#N/A error value. Use FWRITELN instead of FWRITE when
+you want to append a carriage return and linefeed to each group of
 characters that you write to a text file.
 
 **Syntax**
@@ -4361,7 +4289,7 @@ characters that you write to a text file.
 
 File\_num    is the unique ID number of the file you want to write data
 to. File\_num is returned by a previously executed FOPEN function. If
-file\_num is not valid, FWRITELN returns the \#VALUE! error value.
+file\_num is not valid, FWRITELN returns the \#VALUE\! error value.
 
 Text    is the text you want to write to the file.
 
@@ -4376,7 +4304,7 @@ FWRITELN writes text followed by a carriage return only.
 The following function writes the current month to the open file
 identified as FileNumber and starts a new line in the file:
 
-FWRITELN(FileNumber, TEXT(MONTH(NOW()),\"mmmm\"))
+FWRITELN(FileNumber, TEXT(MONTH(NOW()),"mmmm"))
 
 **Related Functions**
 
@@ -4390,8 +4318,7 @@ FWRITE   Writes characters to a text file
 
 Return to [top](#E)
 
-GALLERY.3D.AREA
-===============
+# GALLERY.3D.AREA
 
 Changes the format of the active chart to a 3-D area chart.
 
@@ -4406,8 +4333,7 @@ to the chart.
 
 Return to [top](#E)
 
-GALLERY.3D.BAR
-==============
+# GALLERY.3D.BAR
 
 Changes the active chart to a 3-D bar chart.
 
@@ -4422,8 +4348,7 @@ to the chart.
 
 Return to [top](#E)
 
-GALLERY.3D.COLUMN
-=================
+# GALLERY.3D.COLUMN
 
 Changes the format of the active chart to a 3-D column chart.
 
@@ -4438,8 +4363,7 @@ apply to the chart.
 
 Return to [top](#E)
 
-GALLERY.3D.LINE
-===============
+# GALLERY.3D.LINE
 
 Changes the format of the active chart to a 3-D line chart.
 
@@ -4454,8 +4378,7 @@ to the chart.
 
 Return to [top](#E)
 
-GALLERY.3D.PIE
-==============
+# GALLERY.3D.PIE
 
 Changes the format of the active chart to a 3-D pie chart.
 
@@ -4470,8 +4393,7 @@ to the chart.
 
 Return to [top](#E)
 
-GALLERY.3D.SURFACE
-==================
+# GALLERY.3D.SURFACE
 
 Changes the active chart to a 3-D surface chart.
 
@@ -4486,8 +4408,7 @@ apply to the chart.
 
 Return to [top](#E)
 
-GALLERY.AREA
-============
+# GALLERY.AREA
 
 Changes the format of the active chart to an area chart.
 
@@ -4503,19 +4424,18 @@ a chart is active dialog box that you want to apply to the area chart.
 Delete\_overlay    is a logical value specifying whether to delete an
 overlay chart.
 
--   If delete\_overlay is TRUE, Microsoft Excel deletes all overlays, if
-    > present, and applies the new format to the main chart.
+  - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,
+    > if present, and applies the new format to the main chart.
 
--   If delete\_overlay is FALSE or omitted, Microsoft Excel applies the
-    > new format to either the main chart or the overlay, depending on
-    > the location of the selected series.
+  - > If delete\_overlay is FALSE or omitted, Microsoft Excel applies
+    > the new format to either the main chart or the overlay, depending
+    > on the location of the selected series.
 
 >  
 
 Return to [top](#E)
 
-GALLERY.BAR
-===========
+# GALLERY.BAR
 
 Changes the format of the active chart to a bar chart.
 
@@ -4531,19 +4451,18 @@ bar chart.
 Delete\_overlay    is a logical value specifying whether to delete an
 overlay chart.
 
--   If delete\_overlay is TRUE, Microsoft Excel deletes all overlays, if
-    > present, and applies the new format to the main chart.
+  - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,
+    > if present, and applies the new format to the main chart.
 
--   If delete\_overlay is FALSE or omitted, Microsoft Excel applies the
-    > new format to either the main chart or the overlay, depending on
-    > the location of the selected series.
+  - > If delete\_overlay is FALSE or omitted, Microsoft Excel applies
+    > the new format to either the main chart or the overlay, depending
+    > on the location of the selected series.
 
 >  
 
 Return to [top](#E)
 
-GALLERY.COLUMN
-==============
+# GALLERY.COLUMN
 
 Changes the format of the active chart to a column chart.
 
@@ -4559,19 +4478,18 @@ chart.
 Delete\_overlay    is a logical value specifying whether to delete an
 overlay chart.
 
--   If delete\_overlay is TRUE, Microsoft Excel deletes all overlays, if
-    > present, and applies the new format to the main chart.
+  - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,
+    > if present, and applies the new format to the main chart.
 
--   If delete\_overlay is FALSE or omitted, Microsoft Excel applies the
-    > new format to either the main chart or the overlay, depending on
-    > the location of the selected series.
+  - > If delete\_overlay is FALSE or omitted, Microsoft Excel applies
+    > the new format to either the main chart or the overlay, depending
+    > on the location of the selected series.
 
 >  
 
 Return to [top](#E)
 
-GALLERY.CUSTOM
-==============
+# GALLERY.CUSTOM
 
 Changes the format of the active chart to the custom format.
 
@@ -4589,8 +4507,7 @@ DELETE.CHART.AUTOFORMAT   Deletes a custom gallery
 
 Return to [top](#E)
 
-GALLERY.DOUGHNUT
-================
+# GALLERY.DOUGHNUT
 
 Changes the format of the active chart to a doughnut chart.
 
@@ -4604,19 +4521,18 @@ doughnut chart.
 Delete\_overlay    is a logical value specifying whether to delete an
 overlay chart.
 
--   If delete\_overlay is TRUE, Microsoft Excel deletes all overlays, if
-    > present, and applies the new format to the main chart.
+  - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,
+    > if present, and applies the new format to the main chart.
 
--   If delete\_overlay is FALSE or omitted, Microsoft Excel applies the
-    > new format to either the main chart or the overlay, depending on
-    > the location of the selected series.
+  - > If delete\_overlay is FALSE or omitted, Microsoft Excel applies
+    > the new format to either the main chart or the overlay, depending
+    > on the location of the selected series.
 
 >  
 
 Return to [top](#E)
 
-GALLERY.LINE
-============
+# GALLERY.LINE
 
 Changes the format of the active chart to a line chart.
 
@@ -4632,19 +4548,18 @@ chart.
 Delete\_overlay    is a logical value specifying whether to delete an
 overlay chart.
 
--   If delete\_overlay is TRUE, Microsoft Excel deletes all overlays, if
-    > present, and applies the new format to the main chart.
+  - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,
+    > if present, and applies the new format to the main chart.
 
--   If delete\_overlay is FALSE or omitted, Microsoft Excel applies the
-    > new format to either the main chart or the overlay, depending on
-    > the location of the selected series.
+  - > If delete\_overlay is FALSE or omitted, Microsoft Excel applies
+    > the new format to either the main chart or the overlay, depending
+    > on the location of the selected series.
 
 >  
 
 Return to [top](#E)
 
-GALLERY.PIE
-===========
+# GALLERY.PIE
 
 Changes the format of the active chart to a pie chart.
 
@@ -4660,19 +4575,18 @@ chart.
 Delete\_overlay    is a logical value specifying whether to delete an
 overlay chart.
 
--   If delete\_overlay is TRUE, Microsoft Excel deletes all overlays, if
-    > present, and applies the new format to the main chart.
+  - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,
+    > if present, and applies the new format to the main chart.
 
--   If delete\_overlay is FALSE or omitted, Microsoft Excel applies the
-    > new format to either the main chart or the overlay, depending on
-    > the location of the selected series.
+  - > If delete\_overlay is FALSE or omitted, Microsoft Excel applies
+    > the new format to either the main chart or the overlay, depending
+    > on the location of the selected series.
 
 >  
 
 Return to [top](#E)
 
-GALLERY.RADAR
-=============
+# GALLERY.RADAR
 
 Changes the format of the active chart to a radar chart.
 
@@ -4688,19 +4602,18 @@ chart.
 Delete\_overlay    is a logical value specifying whether to delete an
 overlay chart.
 
--   If delete\_overlay is TRUE, Microsoft Excel deletes all overlays, if
-    > present, and applies the new format to the main chart.
+  - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,
+    > if present, and applies the new format to the main chart.
 
--   If delete\_overlay is FALSE or omitted, Microsoft Excel applies the
-    > new format to either the main chart or the overlay, depending on
-    > the location of the selected series.
+  - > If delete\_overlay is FALSE or omitted, Microsoft Excel applies
+    > the new format to either the main chart or the overlay, depending
+    > on the location of the selected series.
 
 >  
 
 Return to [top](#E)
 
-GALLERY.SCATTER
-===============
+# GALLERY.SCATTER
 
 Changes the format of the active chart to an xy (scatter) chart.
 
@@ -4716,19 +4629,18 @@ Type\_num    is the number of the format you want to apply to the xy
 Delete\_overlay    is a logical value specifying whether to delete an
 overlay chart.
 
--   If delete\_overlay is TRUE, Microsoft Excel deletes all overlays, if
-    > present, and applies the new format to the main chart.
+  - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,
+    > if present, and applies the new format to the main chart.
 
--   If delete\_overlay is FALSE or omitted, Microsoft Excel applies the
-    > new format to either the main chart or the overlay, depending on
-    > the location of the selected series.
+  - > If delete\_overlay is FALSE or omitted, Microsoft Excel applies
+    > the new format to either the main chart or the overlay, depending
+    > on the location of the selected series.
 
 >  
 
 Return to [top](#E)
 
-GET.BAR
-=======
+# GET.BAR
 
 Returns the number of the active menu bar. There are two syntax forms of
 GET.BAR. Use syntax 1 to return information that you can use with other
@@ -4743,13 +4655,12 @@ a menu or of a specified menu on a menu bar
 
 Return to [top](#E)
 
-GET.BAR Syntax 1
-================
+# GET.BAR Syntax 1
 
 Returns the number of the active menu bar. There are two syntax forms of
 GET.BAR. Use syntax 1 to return information that you can use with other
 functions that manipulate menu bars. For a list of the ID numbers for
-Microsoft Excel\'s built-in menu bars, see ADD.COMMAND.
+Microsoft Excel's built-in menu bars, see ADD.COMMAND.
 
 **Syntax**
 
@@ -4761,7 +4672,7 @@ The following macro formula assigns the name OldBar to the number of the
 active menu bar. This is useful if you will need to restore the current
 menu bar after displaying another custom menu bar.
 
-SET.NAME(\"OldBar\", GET.BAR())
+SET.NAME("OldBar", GET.BAR())
 
 **Related Functions**
 
@@ -4774,8 +4685,7 @@ command on a menu or of a specified menu on a menu bar
 
 Return to [top](#E)
 
-GET.BAR Syntax 2
-================
+# GET.BAR Syntax 2
 
 Returns the name or position number of a specified command on a menu or
 of a specified menu on a menu bar. There are two syntax forms of
@@ -4789,7 +4699,7 @@ functions that add, delete, or alter menu commands.
 Bar\_num    is the number of a menu bar containing the menu or command
 about which you want information. Bar\_num can be the number of a
 built-in menu bar or the number returned by a previously run ADD.BAR
-function. For a list of the ID numbers for Microsoft Excel\'s built-in
+function. For a list of the ID numbers for Microsoft Excel's built-in
 menu bars, see ADD.COMMAND.
 
 Menu    is the menu on which the command resides or the menu whose name
@@ -4802,8 +4712,8 @@ returned. Command can be the name of the command from the menu as text,
 in which case the number is returned, or the number of the command from
 the menu, in which case the name is returned. Commands are numbered
 starting with 1 from the top of the menu. If command is 0, the name or
-position number of the menu is returned. If an ellipsis (\...) follows a
-command name, such as the Open\... command on the File menu, then you
+position number of the menu is returned. If an ellipsis (...) follows a
+command name, such as the Open... command on the File menu, then you
 must include the ellipsis when referring to that command. See the
 following examples.
 
@@ -4814,12 +4724,12 @@ of a submenu, then using subcommand returns \#N/A.
 
 **Remarks**
 
--   If an ampersand is used to indicate the access key in the name of a
-    > custom command, the ampersand is included in the name returned by
-    > GET.BAR. All built-in commands have an ampersand before the letter
-    > used as the access key.
+  - > If an ampersand is used to indicate the access key in the name of
+    > a custom command, the ampersand is included in the name returned
+    > by GET.BAR. All built-in commands have an ampersand before the
+    > letter used as the access key.
 
--   If the command name or position specified does not exist, GET.BAR
+  - > If the command name or position specified does not exist, GET.BAR
     > returns the \#N/A error value.
 
 >  
@@ -4828,14 +4738,14 @@ of a submenu, then using subcommand returns \#N/A.
 
 In the default worksheet and macro sheet menu bar:
 
-GET.BAR(10, \"File\", \"Print\...\") equals 14
+GET.BAR(10, "File", "Print...") equals 14
 
-GET.BAR(10, \"File\", 14) equals \"&Print\...\^tCTRL+P\" (where \^t is a
-tab character)
+GET.BAR(10, "File", 14) equals "\&Print...^tCTRL+P" (where ^t is a tab
+character)
 
-GET.BAR(10, 1, \"Open\") equals \#N/A
+GET.BAR(10, 1, "Open") equals \#N/A
 
-GET.BAR(10, 1, \"Open\...\") equals 2
+GET.BAR(10, 1, "Open...") equals 2
 
 **Related Functions**
 
@@ -4851,8 +4761,7 @@ GETBAR Syntax 1   Returns the number of the active menu bar
 
 Return to [top](#E)
 
-GET.CELL
-========
+# GET.CELL
 
 Returns information about the formatting, location, or contents of a
 cell. Use GET.CELL in a macro whose behavior is determined by the status
@@ -4866,320 +4775,327 @@ Type\_num    is a number that specifies what type of cell information
 you want. The following list shows the possible values of type\_num and
 the corresponding results.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 1             | Absolute reference of the upper-left cell in        |
-|               | reference, as text in the current workspace         |
-|               | reference style.                                    |
-+---------------+-----------------------------------------------------+
-| 2             | Row number of the top cell in reference.            |
-+---------------+-----------------------------------------------------+
-| 3             | Column number of the leftmost cell in reference.    |
-+---------------+-----------------------------------------------------+
-| 4             | Same as TYPE(reference).                            |
-+---------------+-----------------------------------------------------+
-| 5             | Contents of reference.                              |
-+---------------+-----------------------------------------------------+
-| 6             | Formula in reference, as text, in either A1 or R1C1 |
-|               | style depending on the workspace setting.           |
-+---------------+-----------------------------------------------------+
-| 7             | Number format of the cell, as text (for example,    |
-|               | \"m/d/yy\" or \"General\").                         |
-+---------------+-----------------------------------------------------+
-| 8             | Number indicating the cell\'s horizontal alignment: |
-|               |                                                     |
-|               | 1 = General                                         |
-|               |                                                     |
-|               | 2 = Left                                            |
-|               |                                                     |
-|               | 3 = Center                                          |
-|               |                                                     |
-|               | 4 = Right                                           |
-|               |                                                     |
-|               | 5 = Fill                                            |
-|               |                                                     |
-|               | 6 = Justify                                         |
-|               |                                                     |
-|               | 7 = Center across cells                             |
-+---------------+-----------------------------------------------------+
-| 9             | Number indicating the left-border style assigned to |
-|               | the cell:                                           |
-|               |                                                     |
-|               | 0 = No border                                       |
-|               |                                                     |
-|               | 1 = Thin line                                       |
-|               |                                                     |
-|               | 2 = Medium line                                     |
-|               |                                                     |
-|               | 3 = Dashed line                                     |
-|               |                                                     |
-|               | 4 = Dotted line                                     |
-|               |                                                     |
-|               | 5 = Thick line                                      |
-|               |                                                     |
-|               | 6 = Double line                                     |
-|               |                                                     |
-|               | 7 = Hairline                                        |
-+---------------+-----------------------------------------------------+
-| 10            | Number indicating the right-border style assigned   |
-|               | to the cell. See type\_num 9 for descriptions of    |
-|               | the numbers returned.                               |
-+---------------+-----------------------------------------------------+
-| 11            | Number indicating the top-border style assigned to  |
-|               | the cell. See type\_num 9 for descriptions of the   |
-|               | numbers returned.                                   |
-+---------------+-----------------------------------------------------+
-| 12            | Number indicating the bottom-border style assigned  |
-|               | to the cell. See type\_num 9 for descriptions of    |
-|               | the numbers returned.                               |
-+---------------+-----------------------------------------------------+
-| 13            | Number from 0 to 18, indicating the pattern of the  |
-|               | selected cell as displayed in the Patterns tab of   |
-|               | the Format Cells dialog box, which appears when you |
-|               | click the Cells command on the Format menu. If no   |
-|               | pattern is selected, returns 0.                     |
-+---------------+-----------------------------------------------------+
-| 14            | If the cell is locked, returns TRUE; otherwise,     |
-|               | returns FALSE.                                      |
-+---------------+-----------------------------------------------------+
-| 15            | If the cell\'s formula is hidden, returns TRUE;     |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 16            | A two-item horizontal array containing the width of |
-|               | the active cell and a logical value indicating      |
-|               | whether the cell\'s width is set to change as the   |
-|               | standard width changes (TRUE) or is a custom width  |
-|               | (FALSE).                                            |
-+---------------+-----------------------------------------------------+
-| 17            | Row height of cell, in points.                      |
-+---------------+-----------------------------------------------------+
-| 18            | Name of font, as text.                              |
-+---------------+-----------------------------------------------------+
-| 19            | Size of font, in points.                            |
-+---------------+-----------------------------------------------------+
-| 20            | If all the characters in the cell, or only the      |
-|               | first character, are bold, returns TRUE; otherwise, |
-|               | returns FALSE.                                      |
-+---------------+-----------------------------------------------------+
-| 21            | If all the characters in the cell, or only the      |
-|               | first character, are italic, returns TRUE;          |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 22            | If all the characters in the cell, or only the      |
-|               | first character, are underlined, returns TRUE;      |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 23            | If all the characters in the cell, or only the      |
-|               | first character, are struck through, returns TRUE;  |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 24            | Font color of the first character in the cell, as a |
-|               | number in the range 1 to 56. If font color is       |
-|               | automatic, returns 0.                               |
-+---------------+-----------------------------------------------------+
-| 25            | If all the characters in the cell, or only the      |
-|               | first character, are outlined, returns TRUE;        |
-|               | otherwise, returns FALSE. Outline font format is    |
-|               | not supported by Microsoft Excel for Windows.       |
-+---------------+-----------------------------------------------------+
-| 26            | If all the characters in the cell, or only the      |
-|               | first character, are shadowed, returns TRUE;        |
-|               | otherwise, returns FALSE. Shadow font format is not |
-|               | supported by Microsoft Excel for Windows.           |
-+---------------+-----------------------------------------------------+
-| 27            | Number indicating whether a manual page break       |
-|               | occurs at the cell:                                 |
-|               |                                                     |
-|               | 0 = No break                                        |
-|               |                                                     |
-|               | 1 = Row                                             |
-|               |                                                     |
-|               | 2 = Column                                          |
-|               |                                                     |
-|               | 3 = Both row and column                             |
-+---------------+-----------------------------------------------------+
-| 28            | Row level (outline)                                 |
-+---------------+-----------------------------------------------------+
-| 29            | Column level (outline).                             |
-+---------------+-----------------------------------------------------+
-| 30            | If the row containing the active cell is a summary  |
-|               | row, returns TRUE; otherwise, returns FALSE.        |
-+---------------+-----------------------------------------------------+
-| 31            | If the column containing the active cell is a       |
-|               | summary column, returns TRUE; otherwise, returns    |
-|               | FALSE.                                              |
-+---------------+-----------------------------------------------------+
-| 32            | Name of the workbook and sheet containing the cell  |
-|               | If the window contains only a single sheet that has |
-|               | the same name as the workbook without its           |
-|               | extension, returns only the name of the book, in    |
-|               | the form BOOK1.XLS. Otherwise, returns the name of  |
-|               | the sheet in the form \"\[Book1\]Sheet1\".          |
-+---------------+-----------------------------------------------------+
-| 33            | If the cell is formatted to wrap, returns TRUE;     |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 34            | Left-border color as a number in the range 1 to 56. |
-|               | If color is automatic, returns 0.                   |
-+---------------+-----------------------------------------------------+
-| 35            | Right-border color as a number in the range 1 to    |
-|               | 56. If color is automatic, returns 0.               |
-+---------------+-----------------------------------------------------+
-| 36            | Top-border color as a number in the range 1 to 56.  |
-|               | If color is automatic, returns 0.                   |
-+---------------+-----------------------------------------------------+
-| 37            | Bottom-border color as a number in the range 1 to   |
-|               | 56. If color is automatic, returns 0.               |
-+---------------+-----------------------------------------------------+
-| 38            | Shade foreground color as a number in the range 1   |
-|               | to 56. If color is automatic, returns 0.            |
-+---------------+-----------------------------------------------------+
-| 39            | Shade background color as a number in the range 1   |
-|               | to 56. If color is automatic, returns 0.            |
-+---------------+-----------------------------------------------------+
-| 40            | Style of the cell, as text.                         |
-+---------------+-----------------------------------------------------+
-| 41            | Returns the formula in the active cell without      |
-|               | translating it (useful for international macro      |
-|               | sheets).                                            |
-+---------------+-----------------------------------------------------+
-| 42            | The horizontal distance, measured in points, from   |
-|               | the left edge of the active window to the left edge |
-|               | of the cell. May be a negative number if the window |
-|               | is scrolled beyond the cell.                        |
-+---------------+-----------------------------------------------------+
-| 43            | The vertical distance, measured in points, from the |
-|               | top edge of the active window to the top edge of    |
-|               | the cell. May be a negative number if the window is |
-|               | scrolled beyond the cell.                           |
-+---------------+-----------------------------------------------------+
-| 44            | The horizontal distance, measured in points, from   |
-|               | the left edge of the active window to the right     |
-|               | edge of the cell. May be a negative number if the   |
-|               | window is scrolled beyond the cell.                 |
-+---------------+-----------------------------------------------------+
-| 45            | The vertical distance, measured in points, from the |
-|               | top edge of the active window to the bottom edge of |
-|               | the cell. May be a negative number if the window is |
-|               | scrolled beyond the cell.                           |
-+---------------+-----------------------------------------------------+
-| 46            | If the cell contains a text note, returns TRUE;     |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 47            | If the cell contains a sound note, returns TRUE;    |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 48            | If the cells contains a formula, returns TRUE; if a |
-|               | constant, returns FALSE.                            |
-+---------------+-----------------------------------------------------+
-| 49            | If the cell is part of an array, returns TRUE;      |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 50            | Number indicating the cell\'s vertical alignment:   |
-|               |                                                     |
-|               | 1 = Top                                             |
-|               |                                                     |
-|               | 2 = Center                                          |
-|               |                                                     |
-|               | 3 = Bottom                                          |
-|               |                                                     |
-|               | 4 = Justified                                       |
-+---------------+-----------------------------------------------------+
-| 51            | Number indicating the cell\'s vertical orientation: |
-|               |                                                     |
-|               | 0 = Horizontal                                      |
-|               |                                                     |
-|               | 1 = Vertical                                        |
-|               |                                                     |
-|               | 2 = Upward                                          |
-|               |                                                     |
-|               | 3 = Downward                                        |
-+---------------+-----------------------------------------------------+
-| 52            | The cell prefix (or text alignment) character, or   |
-|               | empty text (\"\") if the cell does not contain one. |
-+---------------+-----------------------------------------------------+
-| 53            | Contents of the cell as it is currently displayed,  |
-|               | as text, including any additional numbers or        |
-|               | symbols resulting from the cell\'s formatting.      |
-+---------------+-----------------------------------------------------+
-| 54            | Returns the name of the PivotTable report           |
-|               | containing the active cell.                         |
-+---------------+-----------------------------------------------------+
-| 55            | Returns the position of a cell within the           |
-|               | PivotTable report.                                  |
-|               |                                                     |
-|               | 0 = Row header                                      |
-|               |                                                     |
-|               | 1 = Column header                                   |
-|               |                                                     |
-|               | 2 = Page header                                     |
-|               |                                                     |
-|               | 3 = Data header                                     |
-|               |                                                     |
-|               | 4 = Row item                                        |
-|               |                                                     |
-|               | 5 = Column item                                     |
-|               |                                                     |
-|               | 6 = Page item                                       |
-|               |                                                     |
-|               | 7 = Data item                                       |
-|               |                                                     |
-|               | 8 = Table body                                      |
-+---------------+-----------------------------------------------------+
-| 56            | Returns the name of the field containing the active |
-|               | cell reference if inside a PivotTable report.       |
-+---------------+-----------------------------------------------------+
-| 57            | Returns TRUE if all the characters in the cell, or  |
-|               | only the first character, are formatted with a      |
-|               | superscript font; otherwise, returns FALSE.         |
-+---------------+-----------------------------------------------------+
-| 58            | Returns the font style as text of all the           |
-|               | characters in the cell, or only the first character |
-|               | as displayed in the Font tab of the Format Cells    |
-|               | dialog box: for example, \"Bold Italic\".           |
-+---------------+-----------------------------------------------------+
-| 7             | Returns the number for the underline style:         |
-|               |                                                     |
-|               | 1 = None                                            |
-|               |                                                     |
-|               | 2 = Single                                          |
-|               |                                                     |
-|               | 3 = Double                                          |
-|               |                                                     |
-|               | 4 = Single accounting                               |
-|               |                                                     |
-|               | 5 = Double accounting                               |
-+---------------+-----------------------------------------------------+
-| 60            | Returns TRUE if all the characters in the cell, or  |
-|               | only the first character, are formatted with a      |
-|               | subscript font; otherwise, it returns FALSE.        |
-+---------------+-----------------------------------------------------+
-| 61            | Returns the name of the PivotTable item for the     |
-|               | active cell, as text.                               |
-+---------------+-----------------------------------------------------+
-| 62            | Returns the name of the workbook and the current    |
-|               | sheet in the form \"\[Book1\]Sheet1\".              |
-+---------------+-----------------------------------------------------+
-| 63            | Returns the fill (background) color of the cell.    |
-+---------------+-----------------------------------------------------+
-| 64            | Returns the pattern (foreground) color of the cell. |
-+---------------+-----------------------------------------------------+
-| 65            | Returns TRUE if the Add Indent alignment option is  |
-|               | on (Far East versions of Microsoft Excel only);     |
-|               | otherwise, it returns FALSE.                        |
-+---------------+-----------------------------------------------------+
-| 66            | Returns the book name of the workbook containing    |
-|               | the cell in the form BOOK1.XLS.                     |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Absolute reference of the upper-left cell in reference, as text in the current workspace reference style.</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Row number of the top cell in reference.</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Column number of the leftmost cell in reference.</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Same as TYPE(reference).</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Contents of reference.</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Formula in reference, as text, in either A1 or R1C1 style depending on the workspace setting.</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>Number format of the cell, as text (for example, "m/d/yy" or "General").</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td><p>Number indicating the cell's horizontal alignment:</p>
+<p>1 = General</p>
+<p>2 = Left</p>
+<p>3 = Center</p>
+<p>4 = Right</p>
+<p>5 = Fill</p>
+<p>6 = Justify</p>
+<p>7 = Center across cells</p></td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td><p>Number indicating the left-border style assigned to the cell:</p>
+<p>0 = No border</p>
+<p>1 = Thin line</p>
+<p>2 = Medium line</p>
+<p>3 = Dashed line</p>
+<p>4 = Dotted line</p>
+<p>5 = Thick line</p>
+<p>6 = Double line</p>
+<p>7 = Hairline</p></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Number indicating the right-border style assigned to the cell. See type_num 9 for descriptions of the numbers returned.</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>Number indicating the top-border style assigned to the cell. See type_num 9 for descriptions of the numbers returned.</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Number indicating the bottom-border style assigned to the cell. See type_num 9 for descriptions of the numbers returned.</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>Number from 0 to 18, indicating the pattern of the selected cell as displayed in the Patterns tab of the Format Cells dialog box, which appears when you click the Cells command on the Format menu. If no pattern is selected, returns 0.</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>If the cell is locked, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>If the cell's formula is hidden, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>A two-item horizontal array containing the width of the active cell and a logical value indicating whether the cell's width is set to change as the standard width changes (TRUE) or is a custom width (FALSE).</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>Row height of cell, in points.</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>Name of font, as text.</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>Size of font, in points.</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>If all the characters in the cell, or only the first character, are bold, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>If all the characters in the cell, or only the first character, are italic, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>If all the characters in the cell, or only the first character, are underlined, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>If all the characters in the cell, or only the first character, are struck through, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>Font color of the first character in the cell, as a number in the range 1 to 56. If font color is automatic, returns 0.</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>If all the characters in the cell, or only the first character, are outlined, returns TRUE; otherwise, returns FALSE. Outline font format is not supported by Microsoft Excel for Windows.</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>If all the characters in the cell, or only the first character, are shadowed, returns TRUE; otherwise, returns FALSE. Shadow font format is not supported by Microsoft Excel for Windows.</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td><p>Number indicating whether a manual page break occurs at the cell:</p>
+<p>0 = No break</p>
+<p>1 = Row</p>
+<p>2 = Column</p>
+<p>3 = Both row and column</p></td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>Row level (outline)</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>Column level (outline).</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>If the row containing the active cell is a summary row, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>If the column containing the active cell is a summary column, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>32</td>
+<td>Name of the workbook and sheet containing the cell If the window contains only a single sheet that has the same name as the workbook without its extension, returns only the name of the book, in the form BOOK1.XLS. Otherwise, returns the name of the sheet in the form "[Book1]Sheet1".</td>
+</tr>
+<tr class="even">
+<td>33</td>
+<td>If the cell is formatted to wrap, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>34</td>
+<td>Left-border color as a number in the range 1 to 56. If color is automatic, returns 0.</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>Right-border color as a number in the range 1 to 56. If color is automatic, returns 0.</td>
+</tr>
+<tr class="odd">
+<td>36</td>
+<td>Top-border color as a number in the range 1 to 56. If color is automatic, returns 0.</td>
+</tr>
+<tr class="even">
+<td>37</td>
+<td>Bottom-border color as a number in the range 1 to 56. If color is automatic, returns 0.</td>
+</tr>
+<tr class="odd">
+<td>38</td>
+<td>Shade foreground color as a number in the range 1 to 56. If color is automatic, returns 0.</td>
+</tr>
+<tr class="even">
+<td>39</td>
+<td>Shade background color as a number in the range 1 to 56. If color is automatic, returns 0.</td>
+</tr>
+<tr class="odd">
+<td>40</td>
+<td>Style of the cell, as text.</td>
+</tr>
+<tr class="even">
+<td>41</td>
+<td>Returns the formula in the active cell without translating it (useful for international macro sheets).</td>
+</tr>
+<tr class="odd">
+<td>42</td>
+<td>The horizontal distance, measured in points, from the left edge of the active window to the left edge of the cell. May be a negative number if the window is scrolled beyond the cell.</td>
+</tr>
+<tr class="even">
+<td>43</td>
+<td>The vertical distance, measured in points, from the top edge of the active window to the top edge of the cell. May be a negative number if the window is scrolled beyond the cell.</td>
+</tr>
+<tr class="odd">
+<td>44</td>
+<td>The horizontal distance, measured in points, from the left edge of the active window to the right edge of the cell. May be a negative number if the window is scrolled beyond the cell.</td>
+</tr>
+<tr class="even">
+<td>45</td>
+<td>The vertical distance, measured in points, from the top edge of the active window to the bottom edge of the cell. May be a negative number if the window is scrolled beyond the cell.</td>
+</tr>
+<tr class="odd">
+<td>46</td>
+<td>If the cell contains a text note, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>47</td>
+<td>If the cell contains a sound note, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>48</td>
+<td>If the cells contains a formula, returns TRUE; if a constant, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>49</td>
+<td>If the cell is part of an array, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>50</td>
+<td><p>Number indicating the cell's vertical alignment:</p>
+<p>1 = Top</p>
+<p>2 = Center</p>
+<p>3 = Bottom</p>
+<p>4 = Justified</p></td>
+</tr>
+<tr class="even">
+<td>51</td>
+<td><p>Number indicating the cell's vertical orientation:</p>
+<p>0 = Horizontal</p>
+<p>1 = Vertical</p>
+<p>2 = Upward</p>
+<p>3 = Downward</p></td>
+</tr>
+<tr class="odd">
+<td>52</td>
+<td>The cell prefix (or text alignment) character, or empty text ("") if the cell does not contain one.</td>
+</tr>
+<tr class="even">
+<td>53</td>
+<td>Contents of the cell as it is currently displayed, as text, including any additional numbers or symbols resulting from the cell's formatting.</td>
+</tr>
+<tr class="odd">
+<td>54</td>
+<td>Returns the name of the PivotTable report containing the active cell.</td>
+</tr>
+<tr class="even">
+<td>55</td>
+<td><p>Returns the position of a cell within the PivotTable report.</p>
+<p>0 = Row header</p>
+<p>1 = Column header</p>
+<p>2 = Page header</p>
+<p>3 = Data header</p>
+<p>4 = Row item</p>
+<p>5 = Column item</p>
+<p>6 = Page item</p>
+<p>7 = Data item</p>
+<p>8 = Table body</p></td>
+</tr>
+<tr class="odd">
+<td>56</td>
+<td>Returns the name of the field containing the active cell reference if inside a PivotTable report.</td>
+</tr>
+<tr class="even">
+<td>57</td>
+<td>Returns TRUE if all the characters in the cell, or only the first character, are formatted with a superscript font; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>58</td>
+<td>Returns the font style as text of all the characters in the cell, or only the first character as displayed in the Font tab of the Format Cells dialog box: for example, "Bold Italic".</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td><p>Returns the number for the underline style:</p>
+<p>1 = None</p>
+<p>2 = Single</p>
+<p>3 = Double</p>
+<p>4 = Single accounting</p>
+<p>5 = Double accounting</p></td>
+</tr>
+<tr class="odd">
+<td>60</td>
+<td>Returns TRUE if all the characters in the cell, or only the first character, are formatted with a subscript font; otherwise, it returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>61</td>
+<td>Returns the name of the PivotTable item for the active cell, as text.</td>
+</tr>
+<tr class="odd">
+<td>62</td>
+<td>Returns the name of the workbook and the current sheet in the form "[Book1]Sheet1".</td>
+</tr>
+<tr class="even">
+<td>63</td>
+<td>Returns the fill (background) color of the cell.</td>
+</tr>
+<tr class="odd">
+<td>64</td>
+<td>Returns the pattern (foreground) color of the cell.</td>
+</tr>
+<tr class="even">
+<td>65</td>
+<td>Returns TRUE if the Add Indent alignment option is on (Far East versions of Microsoft Excel only); otherwise, it returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>66</td>
+<td>Returns the book name of the workbook containing the cell in the form BOOK1.XLS.</td>
+</tr>
+</tbody>
+</table>
 
 Reference    is a cell or a range of cells from which you want
 information.
 
--   If reference is a range of cells, the cell in the upper-left corner
-    > of the first range in reference is used.
+  - > If reference is a range of cells, the cell in the upper-left
+    > corner of the first range in reference is used.
 
--   If reference is omitted, the active cell is assumed.
+  - > If reference is omitted, the active cell is assumed.
 
 >  
 
@@ -5191,13 +5107,13 @@ GET.CELL(44) - GET.CELL(42) to determine the width.
 The following macro formula returns TRUE if cell B4 on sheet Sheet1 is
 bold:
 
-GET.CELL(20, Sheet1!\$B\$4)
+GET.CELL(20, Sheet1\!$B$4)
 
 You can use the information returned by GET.CELL to initiate an action.
 The following macro formula runs a custom function named BoldCell if the
 GET.CELL formula returns FALSE:
 
-IF(GET.CELL(20, Sheet1!\$B\$4), , BoldCell())
+IF(GET.CELL(20, Sheet1\!$B$4), , BoldCell())
 
 **Related Functions**
 
@@ -5216,8 +5132,7 @@ RELREF   Returns a relative reference
 
 Return to [top](#E)
 
-GET.CHART.ITEM
-==============
+# GET.CHART.ITEM
 
 Returns the vertical or horizontal position of a point on a chart item.
 Use these position numbers with FORMAT.MOVE and FORMAT.SIZE to change
@@ -5231,98 +5146,98 @@ point is 1/72nd of an inch.
 X\_y\_index    is a number specifying which of the coordinates you want
 returned.
 
-  ----------------- -------------------------
-  **X\_y\_index**   **Coordinate returned**
-  1                 Horizontal coordinate
-  2                 Vertical coordinate
-  ----------------- -------------------------
+|                 |                         |
+| --------------- | ----------------------- |
+| **X\_y\_index** | **Coordinate returned** |
+| 1               | Horizontal coordinate   |
+| 2               | Vertical coordinate     |
 
 Point\_index    is a number specifying the point on the chart item.
 These indexes are described below. If point\_index is omitted, it is
 assumed to be 1.
 
--   If the specified item is a point, point\_index must be 1.
+  - > If the specified item is a point, point\_index must be 1.
 
--   If the specified item is any line other than a data line, use the
+  - > If the specified item is any line other than a data line, use the
     > following values for point\_index.
 
-  ------------------ -------------------------
-  **Point\_index**   **Chart item position**
-  1                  Lower or left
-  2                  Upper or right
-  ------------------ -------------------------
+|                  |                         |
+| ---------------- | ----------------------- |
+| **Point\_index** | **Chart item position** |
+| 1                | Lower or left           |
+| 2                | Upper or right          |
 
  
 
--   If the selected item is a legend, plot area, chart area, or an area
-    > in an area chart, use the following values for point\_index.
+  - > If the selected item is a legend, plot area, chart area, or an
+    > area in an area chart, use the following values for point\_index.
 
-  ------------------ -------------------------
-  **Point\_index**   **Chart item position**
-  1                  Upper left
-  2                  Upper middle
-  3                  Upper right
-  4                  Right middle
-  5                  Lower right
-  6                  Lower middle
-  7                  Lower left
-  8                  Left middle
-  ------------------ -------------------------
+|                  |                         |
+| ---------------- | ----------------------- |
+| **Point\_index** | **Chart item position** |
+| 1                | Upper left              |
+| 2                | Upper middle            |
+| 3                | Upper right             |
+| 4                | Right middle            |
+| 5                | Lower right             |
+| 6                | Lower middle            |
+| 7                | Lower left              |
+| 8                | Left middle             |
 
  
 
--   If the selected item is an arrow in Microsoft Excel 4.0, use the
+  - > If the selected item is an arrow in Microsoft Excel 4.0, use the
     > following values for point\_index. In Microsoft Excel version 5.0
     > or later, arrows are named lines, and the arrowhead position
     > returned is equivalent to the end of a line where the arrowhead
     > begins.
 
-  ------------------ -------------------------
-  **Point\_index**   **Chart item position**
-  1                  Arrow shaft
-  2                  Arrowhead
-  ------------------ -------------------------
+|                  |                         |
+| ---------------- | ----------------------- |
+| **Point\_index** | **Chart item position** |
+| 1                | Arrow shaft             |
+| 2                | Arrowhead               |
 
  
 
--   If the selected item is a pie slice, use the following values for
+  - > If the selected item is a pie slice, use the following values for
     > point\_index.
 
-  ------------------ ----------------------------------------------
-  **Point\_index**   **Chart item position**
-  1                  Outermost counterclockwise point
-  2                  Outer center point
-  3                  Outermost clockwise point
-  4                  Midpoint of the most clockwise radius
-  5                  Center point
-  6                  Midpoint of the most counterclockwise radius
-  ------------------ ----------------------------------------------
+|                  |                                              |
+| ---------------- | -------------------------------------------- |
+| **Point\_index** | **Chart item position**                      |
+| 1                | Outermost counterclockwise point             |
+| 2                | Outer center point                           |
+| 3                | Outermost clockwise point                    |
+| 4                | Midpoint of the most clockwise radius        |
+| 5                | Center point                                 |
+| 6                | Midpoint of the most counterclockwise radius |
 
 Item\_text    is a selection code that specifies which item of a chart
 to select. See the chart form of SELECT for the item\_text codes to use
 for each item of a chart.
 
--   If item\_text is omitted, it is assumed to be the currently selected
-    > item.
+  - > If item\_text is omitted, it is assumed to be the currently
+    > selected item.
 
--   If item\_text is omitted and no item is selected, GET.CHART.ITEM
-    > returns the \#VALUE! error value.
+  - > If item\_text is omitted and no item is selected, GET.CHART.ITEM
+    > returns the \#VALUE\! error value.
 
 >  
 
 **Remarks**
 
 If the specified item does not exist, or if a chart is not active when
-the function is carried out, the \#VALUE! error value is returned.
+the function is carried out, the \#VALUE\! error value is returned.
 
 **Examples**
 
 The following macro formulas return the horizontal and vertical
 locations, respectively, of the top of the main-chart value axis:
 
-GET.CHART.ITEM(1, 2, \"Axis 1\")
+GET.CHART.ITEM(1, 2, "Axis 1")
 
-GET.CHART.ITEM(2, 2, \"Axis 1\")
+GET.CHART.ITEM(2, 2, "Axis 1")
 
 You could then use FORMAT.MOVE to move a floating text item to the
 position returned by these two formulas.
@@ -5335,8 +5250,7 @@ GET.FORMULA   Returns the contents of a cell
 
 Return to [top](#E)
 
-GET.DEF
-=======
+# GET.DEF
 
 Returns the name, as text, that is defined for a particular area, value,
 or formula in a workbook. Use GET.DEF to get the name corresponding to a
@@ -5349,14 +5263,14 @@ definition. To get the definition of a name, use GET.NAME.
 Def\_text    can be anything you can define a name to refer to,
 including a reference, a value, an object, or a formula.
 
--   References must be given in R1C1 style, such as \"R3C5\".
+  - > References must be given in R1C1 style, such as "R3C5".
 
--   If def\_text is a value or formula, it is not necessary to include
+  - > If def\_text is a value or formula, it is not necessary to include
     > the equal sign that is displayed in the Refers To box in the
     > Define Name dialog box, which appears when you choose the Name
     > command from the Define submenu on the Insert Menu.
 
--   If there is more than one name for def\_text, GET.DEF returns the
+  - > If there is more than one name for def\_text, GET.DEF returns the
     > first name. If no name matches def\_text, GET.DEF returns the
     > \#NAME? error value.
 
@@ -5367,34 +5281,34 @@ sheet.
 Type\_num    is a number from 1 to 3 specifying which types of names are
 returned.
 
-  --------------- -------------------
-  **Type\_num**   **Returns**
-  1 or omitted    Normal names only
-  2               Hidden names only
-  3               All names
-  --------------- -------------------
+|               |                   |
+| ------------- | ----------------- |
+| **Type\_num** | **Returns**       |
+| 1 or omitted  | Normal names only |
+| 2             | Hidden names only |
+| 3             | All names         |
 
 **Examples**
 
 If the specified range in Sheet4 is named Sales, the following macro
-formula returns \"Sales\":
+formula returns "Sales":
 
-GET.DEF(\"R2C2:R9C6\", \"Sheet4\")
+GET.DEF("R2C2:R9C6", "Sheet4")
 
 If the value 100 in Sheet4 is defined as Constant, the following macro
-formula returns \"Constant\":
+formula returns "Constant":
 
-GET.DEF(\"100\", \"Sheet4\")
+GET.DEF("100", "Sheet4")
 
 If the specified formula in Sheet4 is named SumTotal, the following
-macro formula returns \"SumTotal\":
+macro formula returns "SumTotal":
 
-GET.DEF(\"SUM(R1C1:R10C1)\", \"Sheet4\")
+GET.DEF("SUM(R1C1:R10C1)", "Sheet4")
 
 If 3 is defined as the hidden name Counter on the active macro sheet,
-the following macro formula returns \"Counter\":
+the following macro formula returns "Counter":
 
-GET.DEF(\"3\", , 2)
+GET.DEF("3", , 2)
 
 **Related Functions**
 
@@ -5408,8 +5322,7 @@ NAMES   Returns the names defined on a workbook
 
 Return to [top](#E)
 
-GET.DOCUMENT
-============
+# GET.DOCUMENT
 
 Returns information about a sheet in a workbook.
 
@@ -5421,158 +5334,157 @@ Type\_num    is a number that specifies what type of information you
 want. The following lists show the possible values of type\_num and the
 corresponding results.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 1             | Returns the name of the workbook and worksheet as   |
-|               | text. If there is only one sheet in the workbook    |
-|               | and the sheet name is the same as the workbook name |
-|               | less any extension, returns the name of the book.   |
-|               | The book name does not include the drive, directory |
-|               | or folder, or window number. Otherwise, returns the |
-|               | book and sheet name in the form                     |
-|               | \"\[BOOK1.XLS\]Sheet1\". It is usually best to use  |
-|               | GET.DOCUMENT(76) and GET.DOCUMENT(88) to return the |
-|               | name of the active worksheet and the active         |
-|               | workbook.                                           |
-+---------------+-----------------------------------------------------+
-| 2             | Path of the directory or folder containing          |
-|               | name\_text, as text. If the workbook name\_text     |
-|               | hasn\'t been saved yet, returns the \#N/A error     |
-|               | value.                                              |
-+---------------+-----------------------------------------------------+
-| 3             | Number indicating the type of sheet. If name\_text  |
-|               | is a sheet, then the return value is one of the     |
-|               | following numbers. If name\_text is a book, then    |
-|               | the return value is always 5. If name\_text is      |
-|               | omitted, then the sheet type is returned. If the    |
-|               | book has one sheet that is named the same as the    |
-|               | book, then the sheet type is returned.              |
-|               |                                                     |
-|               | 1 = Worksheet                                       |
-|               |                                                     |
-|               | 2 = Chart                                           |
-|               |                                                     |
-|               | 3 = Macro sheet                                     |
-|               |                                                     |
-|               | 4 = Info window if active                           |
-|               |                                                     |
-|               | 5 = Reserved                                        |
-|               |                                                     |
-|               | 6 = Module                                          |
-|               |                                                     |
-|               | 7 = Dialog                                          |
-+---------------+-----------------------------------------------------+
-| 4             | If changes have been made to the sheet since it was |
-|               | last saved, returns TRUE; otherwise, returns FALSE. |
-+---------------+-----------------------------------------------------+
-| 5             | If the sheet is read-only, returns TRUE; otherwise, |
-|               | returns FALSE.                                      |
-+---------------+-----------------------------------------------------+
-| 6             | If the sheet is password protected, returns TRUE;   |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 7             | If cells in a sheet, the contents of a sheet, or    |
-|               | the series in a chart are protected, returns TRUE;  |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 8             | If the workbook windows are protected, returns      |
-|               | TRUE; otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Returns the name of the workbook and worksheet as text. If there is only one sheet in the workbook and the sheet name is the same as the workbook name less any extension, returns the name of the book. The book name does not include the drive, directory or folder, or window number. Otherwise, returns the book and sheet name in the form "[BOOK1.XLS]Sheet1". It is usually best to use GET.DOCUMENT(76) and GET.DOCUMENT(88) to return the name of the active worksheet and the active workbook.</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Path of the directory or folder containing name_text, as text. If the workbook name_text hasn't been saved yet, returns the #N/A error value.</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><p>Number indicating the type of sheet. If name_text is a sheet, then the return value is one of the following numbers. If name_text is a book, then the return value is always 5. If name_text is omitted, then the sheet type is returned. If the book has one sheet that is named the same as the book, then the sheet type is returned.</p>
+<p>1 = Worksheet</p>
+<p>2 = Chart</p>
+<p>3 = Macro sheet</p>
+<p>4 = Info window if active</p>
+<p>5 = Reserved</p>
+<p>6 = Module</p>
+<p>7 = Dialog</p></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>If changes have been made to the sheet since it was last saved, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>If the sheet is read-only, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>If the sheet is password protected, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>If cells in a sheet, the contents of a sheet, or the series in a chart are protected, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>If the workbook windows are protected, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+</tbody>
+</table>
 
 The next four values of type\_num apply only to charts.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 9             | Number indicating the type of the main chart:       |
-|               |                                                     |
-|               | 1 = Area                                            |
-|               |                                                     |
-|               | 2 = Bar                                             |
-|               |                                                     |
-|               | 3 = Column                                          |
-|               |                                                     |
-|               | 4 = Line                                            |
-|               |                                                     |
-|               | 5 = Pie                                             |
-|               |                                                     |
-|               | 6 = XY (scatter)                                    |
-|               |                                                     |
-|               | 7 = 3-D area                                        |
-|               |                                                     |
-|               | 8 = 3-D column                                      |
-|               |                                                     |
-|               | 9 = 3-D line                                        |
-|               |                                                     |
-|               | 10 = 3-D pie                                        |
-|               |                                                     |
-|               | 11 = Radar                                          |
-|               |                                                     |
-|               | 12 = 3-D bar                                        |
-|               |                                                     |
-|               | 13 = 3-D surface                                    |
-|               |                                                     |
-|               | 14 = Doughnut                                       |
-+---------------+-----------------------------------------------------+
-| 10            | Number indicating the type of the overlay chart.    |
-|               | Same as 1, 2, 3, 4, 5, 6, 11, and 14 for main chart |
-|               | above. If there is no overlay chart, returns the    |
-|               | \#N/A error value.                                  |
-+---------------+-----------------------------------------------------+
-| 11            | Number of series in the main chart.                 |
-+---------------+-----------------------------------------------------+
-| 12            | Number of series in the overlay chart.              |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td><p>Number indicating the type of the main chart:</p>
+<p>1 = Area</p>
+<p>2 = Bar</p>
+<p>3 = Column</p>
+<p>4 = Line</p>
+<p>5 = Pie</p>
+<p>6 = XY (scatter)</p>
+<p>7 = 3-D area</p>
+<p>8 = 3-D column</p>
+<p>9 = 3-D line</p>
+<p>10 = 3-D pie</p>
+<p>11 = Radar</p>
+<p>12 = 3-D bar</p>
+<p>13 = 3-D surface</p>
+<p>14 = Doughnut</p></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Number indicating the type of the overlay chart. Same as 1, 2, 3, 4, 5, 6, 11, and 14 for main chart above. If there is no overlay chart, returns the #N/A error value.</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>Number of series in the main chart.</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Number of series in the overlay chart.</td>
+</tr>
+</tbody>
+</table>
 
 The next values of type\_num apply to worksheets and macro sheets and to
 charts when appropriate.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 9             | Number of the first used row. If the sheet is       |
-|               | empty, returns 0.                                   |
-+---------------+-----------------------------------------------------+
-| 10            | Number of the last used row. If the sheet is empty, |
-|               | returns 0.                                          |
-+---------------+-----------------------------------------------------+
-| 11            | Number of the first used column. If the sheet is    |
-|               | empty, returns 0.                                   |
-+---------------+-----------------------------------------------------+
-| 12            | Number of the last used column. If the sheet is     |
-|               | empty, returns 0.                                   |
-+---------------+-----------------------------------------------------+
-| 13            | Number of windows.                                  |
-+---------------+-----------------------------------------------------+
-| 14            | Number indicating calculation mode:                 |
-|               |                                                     |
-|               | 1 = Automatic                                       |
-|               |                                                     |
-|               | 2 = Automatic except tables                         |
-|               |                                                     |
-|               | 3 = Manual                                          |
-+---------------+-----------------------------------------------------+
-| 15            | If the Iteration check box is selected in the       |
-|               | Calculation tab of the Options dialog box, returns  |
-|               | TRUE; otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 16            | Maximum number of iterations.                       |
-+---------------+-----------------------------------------------------+
-| 17            | Maximum change between iterations.                  |
-+---------------+-----------------------------------------------------+
-| 18            | If the Update Remote References check box is        |
-|               | selected in the Calculation tab of the Options      |
-|               | dialog box, returns TRUE; otherwise, returns FALSE. |
-+---------------+-----------------------------------------------------+
-| 19            | If the Precision As Displayed check box is selected |
-|               | in the Calculation tab of the Options dialog box,   |
-|               | returns TRUE; otherwise, returns FALSE.             |
-+---------------+-----------------------------------------------------+
-| 20            | If the 1904 Date System check box is selected in    |
-|               | the Calculation tab of the Options dialog box,      |
-|               | returns TRUE; otherwise, returns FALSE.             |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>Number of the first used row. If the sheet is empty, returns 0.</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Number of the last used row. If the sheet is empty, returns 0.</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>Number of the first used column. If the sheet is empty, returns 0.</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Number of the last used column. If the sheet is empty, returns 0.</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>Number of windows.</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td><p>Number indicating calculation mode:</p>
+<p>1 = Automatic</p>
+<p>2 = Automatic except tables</p>
+<p>3 = Manual</p></td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>If the Iteration check box is selected in the Calculation tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Maximum number of iterations.</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>Maximum change between iterations.</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>If the Update Remote References check box is selected in the Calculation tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>If the Precision As Displayed check box is selected in the Calculation tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>If the 1904 Date System check box is selected in the Calculation tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+</tbody>
+</table>
 
 Type\_num values of 21 through 29 correspond to the four default fonts
 in previous versions of Microsoft Excel. These values are provided only
@@ -5581,312 +5493,304 @@ for macro compatibility.
 The next values of type\_num apply to worksheets and macro sheets, and
 to charts if indicated.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 30            | Horizontal array of consolidation references for    |
-|               | the current sheet, in the form of text. If the list |
-|               | is empty, returns the \#N/A error value.            |
-+---------------+-----------------------------------------------------+
-| 31            | Number from 1 to 11, indicating the function used   |
-|               | in the current consolidation. The function that     |
-|               | corresponds to each number is listed under the      |
-|               | CONSOLIDATE function. The default function is SUM.  |
-+---------------+-----------------------------------------------------+
-| 32            | Three-item horizontal array indicating the status   |
-|               | of the check boxes in the Data Consolidate dialog   |
-|               | box. An item is TRUE if the check box is selected   |
-|               | or FALSE if the check box is cleared. The first     |
-|               | item indicates the Top Row check box, the second    |
-|               | the Left Column check box, and the third the Create |
-|               | Links To Source Data check box.                     |
-+---------------+-----------------------------------------------------+
-| 33            | If the Recalculate Before Save check box is         |
-|               | selected in the Calculation tab of the Options      |
-|               | dialog box, returns TRUE; otherwise, returns FALSE. |
-+---------------+-----------------------------------------------------+
-| 34            | If the workbook is read-only recommended, returns   |
-|               | TRUE; otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 35            | If the workbook is write-reserved, returns TRUE;    |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 36            | If the workbook has a write-reservation password    |
-|               | and it is opened with read/write permission,        |
-|               | returns the name of the user who originally saved   |
-|               | the file with the write-reservation password. If    |
-|               | the file is opened as read-only, or if a password   |
-|               | has not been added to the workbook, returns the     |
-|               | name of the current user.                           |
-+---------------+-----------------------------------------------------+
-| 37            | Number corresponding to the file type of the        |
-|               | workbook as displayed in the Save As dialog box.    |
-|               | See the SAVE.AS function for a list of all the file |
-|               | types that Microsoft Excel recognizes.              |
-+---------------+-----------------------------------------------------+
-| 38            | If the Summary Rows Below Detail check box is       |
-|               | selected in the Outline dialog box, returns TRUE;   |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 39            | If the Summary Columns To Right Of Detail check box |
-|               | is selected in the Outline dialog box, returns      |
-|               | TRUE; otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 40            | If the Always Create Backup check box is selected   |
-|               | in the Save Options dialog box, returns TRUE;       |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 41            | Number from 1 to 3 indicating whether objects are   |
-|               | displayed:                                          |
-|               |                                                     |
-|               | 1 = All objects are displayed                       |
-|               |                                                     |
-|               | 2 = Placeholders for pictures and charts            |
-|               |                                                     |
-|               | 3 = All objects are hidden                          |
-+---------------+-----------------------------------------------------+
-| 42            | Horizontal array of all objects in the sheet. If    |
-|               | there are no objects, returns the \#N/A error       |
-|               | value.                                              |
-+---------------+-----------------------------------------------------+
-| 43            | If the Save External Link Values check box is       |
-|               | selected in the Calculation tab of the Options      |
-|               | dialog box, returns TRUE; otherwise, returns FALSE. |
-+---------------+-----------------------------------------------------+
-| 44            | If objects in a workbook are protected, returns     |
-|               | TRUE; otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 45            | A number from 0 to 3 indicating how windows are     |
-|               | synchronized:                                       |
-|               |                                                     |
-|               | 0 = Not synchronized                                |
-|               |                                                     |
-|               | 1 = Synchronized horizontally                       |
-|               |                                                     |
-|               | 2 = Synchronized vertically                         |
-|               |                                                     |
-|               | 3 = Synchronized horizontally and vertically        |
-+---------------+-----------------------------------------------------+
-| 46            | A seven-item horizontal array of print settings     |
-|               | that can be set by the LINE.PRINT macro function:   |
-|               |                                                     |
-|               | Setup text                                          |
-|               |                                                     |
-|               | Left margin                                         |
-|               |                                                     |
-|               | Right margin                                        |
-|               |                                                     |
-|               | Top margin                                          |
-|               |                                                     |
-|               | Bottom margin                                       |
-|               |                                                     |
-|               | Page length                                         |
-|               |                                                     |
-|               | A logical value indicating whether output will be   |
-|               | formatted (TRUE) or unformatted (FALSE) when        |
-|               | printed                                             |
-+---------------+-----------------------------------------------------+
-| 47            | If the Transition Formula Evaluation check box is   |
-|               | selected in the Transition tab of the Options       |
-|               | dialog box, returns TRUE; otherwise, returns FALSE. |
-+---------------+-----------------------------------------------------+
-| 48            | The standard column width setting.                  |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>30</td>
+<td>Horizontal array of consolidation references for the current sheet, in the form of text. If the list is empty, returns the #N/A error value.</td>
+</tr>
+<tr class="odd">
+<td>31</td>
+<td>Number from 1 to 11, indicating the function used in the current consolidation. The function that corresponds to each number is listed under the CONSOLIDATE function. The default function is SUM.</td>
+</tr>
+<tr class="even">
+<td>32</td>
+<td>Three-item horizontal array indicating the status of the check boxes in the Data Consolidate dialog box. An item is TRUE if the check box is selected or FALSE if the check box is cleared. The first item indicates the Top Row check box, the second the Left Column check box, and the third the Create Links To Source Data check box.</td>
+</tr>
+<tr class="odd">
+<td>33</td>
+<td>If the Recalculate Before Save check box is selected in the Calculation tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>34</td>
+<td>If the workbook is read-only recommended, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>35</td>
+<td>If the workbook is write-reserved, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>36</td>
+<td>If the workbook has a write-reservation password and it is opened with read/write permission, returns the name of the user who originally saved the file with the write-reservation password. If the file is opened as read-only, or if a password has not been added to the workbook, returns the name of the current user.</td>
+</tr>
+<tr class="odd">
+<td>37</td>
+<td>Number corresponding to the file type of the workbook as displayed in the Save As dialog box. See the SAVE.AS function for a list of all the file types that Microsoft Excel recognizes.</td>
+</tr>
+<tr class="even">
+<td>38</td>
+<td>If the Summary Rows Below Detail check box is selected in the Outline dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>39</td>
+<td>If the Summary Columns To Right Of Detail check box is selected in the Outline dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>40</td>
+<td>If the Always Create Backup check box is selected in the Save Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>41</td>
+<td><p>Number from 1 to 3 indicating whether objects are displayed:</p>
+<p>1 = All objects are displayed</p>
+<p>2 = Placeholders for pictures and charts</p>
+<p>3 = All objects are hidden</p></td>
+</tr>
+<tr class="even">
+<td>42</td>
+<td>Horizontal array of all objects in the sheet. If there are no objects, returns the #N/A error value.</td>
+</tr>
+<tr class="odd">
+<td>43</td>
+<td>If the Save External Link Values check box is selected in the Calculation tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>44</td>
+<td>If objects in a workbook are protected, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>45</td>
+<td><p>A number from 0 to 3 indicating how windows are synchronized:</p>
+<p>0 = Not synchronized</p>
+<p>1 = Synchronized horizontally</p>
+<p>2 = Synchronized vertically</p>
+<p>3 = Synchronized horizontally and vertically</p></td>
+</tr>
+<tr class="even">
+<td>46</td>
+<td><p>A seven-item horizontal array of print settings that can be set by the LINE.PRINT macro function:</p>
+<p>Setup text</p>
+<p>Left margin</p>
+<p>Right margin</p>
+<p>Top margin</p>
+<p>Bottom margin</p>
+<p>Page length</p>
+<p>A logical value indicating whether output will be formatted (TRUE) or unformatted (FALSE) when printed</p></td>
+</tr>
+<tr class="odd">
+<td>47</td>
+<td>If the Transition Formula Evaluation check box is selected in the Transition tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>48</td>
+<td>The standard column width setting.</td>
+</tr>
+</tbody>
+</table>
 
 The next values of type\_num correspond to printing and page settings.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 49            | The starting page number, or the \#N/A error value  |
-|               | if none is specified or if \"Auto\" is entered in   |
-|               | the First page Number text box on the Page tab of   |
-|               | the Page Setup dialog box.                          |
-+---------------+-----------------------------------------------------+
-| 50            | The total number of pages that would be printed     |
-|               | based on current settings, excluding notes, or 1 if |
-|               | the document is a chart.                            |
-+---------------+-----------------------------------------------------+
-| 51            | The total number of pages that would be printed if  |
-|               | you print only notes, or the \#N/A error value if   |
-|               | the document is a chart.                            |
-+---------------+-----------------------------------------------------+
-| 52            | Four-item horizontal array indicating the margin    |
-|               | settings (left, right, top, bottom) in the          |
-|               | currently specified units.                          |
-+---------------+-----------------------------------------------------+
-| 53            | A number indicating the orientation:                |
-|               |                                                     |
-|               | 1 = Portrait                                        |
-|               |                                                     |
-|               | 2 = Landscape                                       |
-+---------------+-----------------------------------------------------+
-| 54            | The header as a text string, including formatting   |
-|               | codes.                                              |
-+---------------+-----------------------------------------------------+
-| 55            | The footer as a text string, including formatting   |
-|               | codes.                                              |
-+---------------+-----------------------------------------------------+
-| 56            | Horizontal array of two logical values              |
-|               | corresponding to horizontal and vertical centering. |
-+---------------+-----------------------------------------------------+
-| 57            | If row or column headings are to be printed,        |
-|               | returns TRUE; otherwise, returns FALSE.             |
-+---------------+-----------------------------------------------------+
-| 58            | If gridlines are to be printed, returns TRUE;       |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 59            | If the sheet is printed in black and white only,    |
-|               | returns TRUE; otherwise, returns FALSE.             |
-+---------------+-----------------------------------------------------+
-| 60            | A number from 1 to 3 indicating how the chart will  |
-|               | be sized when it\'s printed:                        |
-|               |                                                     |
-|               | 1 = Size on screen                                  |
-|               |                                                     |
-|               | 2 = Scale to fit page                               |
-|               |                                                     |
-|               | 3 = Use full page                                   |
-+---------------+-----------------------------------------------------+
-| 61            | A number indicating the pagination order:           |
-|               |                                                     |
-|               | 1 = Down, then over                                 |
-|               |                                                     |
-|               | 2 = Over, then down                                 |
-|               |                                                     |
-|               | Returns the \#N/A error value if the document is a  |
-|               | chart.                                              |
-+---------------+-----------------------------------------------------+
-| 62            | Percentage of reduction or enlargement, or 100% if  |
-|               | none is specified. Returns the \#N/A error value if |
-|               | not supported by the current printer or if the      |
-|               | document is a chart.                                |
-+---------------+-----------------------------------------------------+
-| 63            | A two-item horizontal array indicating the number   |
-|               | of pages to which the printout should be scaled to  |
-|               | fit, with the first item equal to the width (or     |
-|               | \#N/A if no width scaling is specified) and the     |
-|               | second item equal to the height (or \#N/A if no     |
-|               | height scaling is specified). \#N/A is also         |
-|               | returned if the document is a chart.                |
-+---------------+-----------------------------------------------------+
-| 64            | An array of row numbers corresponding to rows that  |
-|               | are immediately below a manual or automatic page    |
-|               | break.                                              |
-+---------------+-----------------------------------------------------+
-| 65            | An array of column numbers corresponding to columns |
-|               | that are immediately to the right of a manual or    |
-|               | automatic page break.                               |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>49</td>
+<td>The starting page number, or the #N/A error value if none is specified or if "Auto" is entered in the First page Number text box on the Page tab of the Page Setup dialog box.</td>
+</tr>
+<tr class="odd">
+<td>50</td>
+<td>The total number of pages that would be printed based on current settings, excluding notes, or 1 if the document is a chart.</td>
+</tr>
+<tr class="even">
+<td>51</td>
+<td>The total number of pages that would be printed if you print only notes, or the #N/A error value if the document is a chart.</td>
+</tr>
+<tr class="odd">
+<td>52</td>
+<td>Four-item horizontal array indicating the margin settings (left, right, top, bottom) in the currently specified units.</td>
+</tr>
+<tr class="even">
+<td>53</td>
+<td><p>A number indicating the orientation:</p>
+<p>1 = Portrait</p>
+<p>2 = Landscape</p></td>
+</tr>
+<tr class="odd">
+<td>54</td>
+<td>The header as a text string, including formatting codes.</td>
+</tr>
+<tr class="even">
+<td>55</td>
+<td>The footer as a text string, including formatting codes.</td>
+</tr>
+<tr class="odd">
+<td>56</td>
+<td>Horizontal array of two logical values corresponding to horizontal and vertical centering.</td>
+</tr>
+<tr class="even">
+<td>57</td>
+<td>If row or column headings are to be printed, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>58</td>
+<td>If gridlines are to be printed, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>59</td>
+<td>If the sheet is printed in black and white only, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>60</td>
+<td><p>A number from 1 to 3 indicating how the chart will be sized when it's printed:</p>
+<p>1 = Size on screen</p>
+<p>2 = Scale to fit page</p>
+<p>3 = Use full page</p></td>
+</tr>
+<tr class="even">
+<td>61</td>
+<td><p>A number indicating the pagination order:</p>
+<p>1 = Down, then over</p>
+<p>2 = Over, then down</p>
+<p>Returns the #N/A error value if the document is a chart.</p></td>
+</tr>
+<tr class="odd">
+<td>62</td>
+<td>Percentage of reduction or enlargement, or 100% if none is specified. Returns the #N/A error value if not supported by the current printer or if the document is a chart.</td>
+</tr>
+<tr class="even">
+<td>63</td>
+<td>A two-item horizontal array indicating the number of pages to which the printout should be scaled to fit, with the first item equal to the width (or #N/A if no width scaling is specified) and the second item equal to the height (or #N/A if no height scaling is specified). #N/A is also returned if the document is a chart.</td>
+</tr>
+<tr class="odd">
+<td>64</td>
+<td>An array of row numbers corresponding to rows that are immediately below a manual or automatic page break.</td>
+</tr>
+<tr class="even">
+<td>65</td>
+<td>An array of column numbers corresponding to columns that are immediately to the right of a manual or automatic page break.</td>
+</tr>
+</tbody>
+</table>
 
 **Note   **GET.DOCUMENT(62) and GET.DOCUMENT(63) are mutually exclusive.
 If one returns a value, then the other returns the \#N/A error value.
 
 The next values of type\_num correspond to various workbook settings.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 66            | In Microsoft Excel for Windows, if the Transition   |
-|               | Formula Entry check box is selected in the          |
-|               | Transition tab of the Options dialog box, returns   |
-|               | TRUE; otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 67            | Microsoft Excel version 5.0 or later always returns |
-|               | TRUE here.                                          |
-+---------------+-----------------------------------------------------+
-| 68            | Microsoft Excel version 5.0 or later always returns |
-|               | the book name.                                      |
-+---------------+-----------------------------------------------------+
-| 69            | Returns TRUE if Page Breaks is chosen in the View   |
-|               | tab of the Options dialog box; otherwise, returns   |
-|               | FALSE.                                              |
-+---------------+-----------------------------------------------------+
-| 70            | Returns the names of all PivotTable reports in the  |
-|               | current sheet as a horizontal array.                |
-+---------------+-----------------------------------------------------+
-| 71            | Returns an horizontal array of all the styles in a  |
-|               | workbook.                                           |
-+---------------+-----------------------------------------------------+
-| 72            | Returns an horizontal array of all chart types      |
-|               | displayed on the current sheet.                     |
-+---------------+-----------------------------------------------------+
-| 73            | Returns an array of the number of series in each    |
-|               | chart of the current sheet.                         |
-+---------------+-----------------------------------------------------+
-| 74            | Returns the object ID of the control that currently |
-|               | has the focus on a running user-defined dialog      |
-|               | (based on the dialog sheet).                        |
-+---------------+-----------------------------------------------------+
-| 75            | Returns the object ID of the object that is the     |
-|               | current default button on a running user-defined    |
-|               | dialog (based on the dialog sheet).                 |
-+---------------+-----------------------------------------------------+
-| 76            | Returns the name of the active sheet or macro sheet |
-|               | in the form \[Book1\]Sheet1.                        |
-+---------------+-----------------------------------------------------+
-| 77            | In Microsoft Excel for Windows, returns the paper   |
-|               | size, as integer:                                   |
-|               |                                                     |
-|               | 1 = Letter 8.5 x 11 in                              |
-|               |                                                     |
-|               | 2 = Letter Small 8.5 x 11 in                        |
-|               |                                                     |
-|               | 5 = Legal 8.5 x 14 in                               |
-|               |                                                     |
-|               | 9 = A4 210 x 297 mm                                 |
-|               |                                                     |
-|               | 10 = A4 Small 210 x 297 mm                          |
-|               |                                                     |
-|               | 13 = B5 182 x 257 mm                                |
-|               |                                                     |
-|               | 18 = Note 8.5 x 11 in                               |
-+---------------+-----------------------------------------------------+
-| 78            | Returns the print resolution, as a horizontal array |
-|               | of two numbers.                                     |
-+---------------+-----------------------------------------------------+
-| 79            | Returns TRUE if the Draft Quality check box has     |
-|               | been selected from the sheet tab in the Page Setup  |
-|               | dialog box; otherwise, returns FALSE.               |
-+---------------+-----------------------------------------------------+
-| 80            | Returns TRUE if the Comments checkbox has been      |
-|               | selected on the Sheet tab in the Page Setup dialog  |
-|               | box; otherwise, returns FALSE.                      |
-+---------------+-----------------------------------------------------+
-| 81            | Returns the Print Area from the Sheet tab of the    |
-|               | Page Setup dialog box as a cell reference.          |
-+---------------+-----------------------------------------------------+
-| 82            | Returns the Print Titles from the Sheet tab of the  |
-|               | Page Setup dialog box as an array of cell           |
-|               | references.                                         |
-+---------------+-----------------------------------------------------+
-| 83            | Returns TRUE if the worksheet is protected for      |
-|               | scenarios; otherwise, returns FALSE.                |
-+---------------+-----------------------------------------------------+
-| 84            | Returns the value of the first circular reference   |
-|               | on the sheet, or \#N/A if there are no circular     |
-|               | references.                                         |
-+---------------+-----------------------------------------------------+
-| 85            | Returns the advanced filter mode state of the       |
-|               | sheet. This is the mode without drop-down arrows on |
-|               | top. Returns TRUE if the list has been filtered by  |
-|               | clicking Filter, then Advanced Filter on the Data   |
-|               | menu. Otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 86            | Returns the automatic filter mode state of the      |
-|               | sheet. This is the mode with drop-down arrows on    |
-|               | top. Returns TRUE if you have chosen Filter, then   |
-|               | AutoFilter from the Data menu and the filter        |
-|               | drop-down arrows are displayed. Otherwise, returns  |
-|               | FALSE.                                              |
-+---------------+-----------------------------------------------------+
-| 87            | Returns the position number of the sheet. The first |
-|               | sheet is position 1. Hidden sheet are included in   |
-|               | the count.                                          |
-+---------------+-----------------------------------------------------+
-| 88            | Returns the name of the active workbook in the form |
-|               | \"Book1\".                                          |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>66</td>
+<td>In Microsoft Excel for Windows, if the Transition Formula Entry check box is selected in the Transition tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>67</td>
+<td>Microsoft Excel version 5.0 or later always returns TRUE here.</td>
+</tr>
+<tr class="even">
+<td>68</td>
+<td>Microsoft Excel version 5.0 or later always returns the book name.</td>
+</tr>
+<tr class="odd">
+<td>69</td>
+<td>Returns TRUE if Page Breaks is chosen in the View tab of the Options dialog box; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>70</td>
+<td>Returns the names of all PivotTable reports in the current sheet as a horizontal array.</td>
+</tr>
+<tr class="odd">
+<td>71</td>
+<td>Returns an horizontal array of all the styles in a workbook.</td>
+</tr>
+<tr class="even">
+<td>72</td>
+<td>Returns an horizontal array of all chart types displayed on the current sheet.</td>
+</tr>
+<tr class="odd">
+<td>73</td>
+<td>Returns an array of the number of series in each chart of the current sheet.</td>
+</tr>
+<tr class="even">
+<td>74</td>
+<td>Returns the object ID of the control that currently has the focus on a running user-defined dialog (based on the dialog sheet).</td>
+</tr>
+<tr class="odd">
+<td>75</td>
+<td>Returns the object ID of the object that is the current default button on a running user-defined dialog (based on the dialog sheet).</td>
+</tr>
+<tr class="even">
+<td>76</td>
+<td>Returns the name of the active sheet or macro sheet in the form [Book1]Sheet1.</td>
+</tr>
+<tr class="odd">
+<td>77</td>
+<td><p>In Microsoft Excel for Windows, returns the paper size, as integer:</p>
+<p>1 = Letter 8.5 x 11 in</p>
+<p>2 = Letter Small 8.5 x 11 in</p>
+<p>5 = Legal 8.5 x 14 in</p>
+<p>9 = A4 210 x 297 mm</p>
+<p>10 = A4 Small 210 x 297 mm</p>
+<p>13 = B5 182 x 257 mm</p>
+<p>18 = Note 8.5 x 11 in</p></td>
+</tr>
+<tr class="even">
+<td>78</td>
+<td>Returns the print resolution, as a horizontal array of two numbers.</td>
+</tr>
+<tr class="odd">
+<td>79</td>
+<td>Returns TRUE if the Draft Quality check box has been selected from the sheet tab in the Page Setup dialog box; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>80</td>
+<td>Returns TRUE if the Comments checkbox has been selected on the Sheet tab in the Page Setup dialog box; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>81</td>
+<td>Returns the Print Area from the Sheet tab of the Page Setup dialog box as a cell reference.</td>
+</tr>
+<tr class="even">
+<td>82</td>
+<td>Returns the Print Titles from the Sheet tab of the Page Setup dialog box as an array of cell references.</td>
+</tr>
+<tr class="odd">
+<td>83</td>
+<td>Returns TRUE if the worksheet is protected for scenarios; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>84</td>
+<td>Returns the value of the first circular reference on the sheet, or #N/A if there are no circular references.</td>
+</tr>
+<tr class="odd">
+<td>85</td>
+<td>Returns the advanced filter mode state of the sheet. This is the mode without drop-down arrows on top. Returns TRUE if the list has been filtered by clicking Filter, then Advanced Filter on the Data menu. Otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>86</td>
+<td>Returns the automatic filter mode state of the sheet. This is the mode with drop-down arrows on top. Returns TRUE if you have chosen Filter, then AutoFilter from the Data menu and the filter drop-down arrows are displayed. Otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>87</td>
+<td>Returns the position number of the sheet. The first sheet is position 1. Hidden sheet are included in the count.</td>
+</tr>
+<tr class="even">
+<td>88</td>
+<td>Returns the name of the active workbook in the form "Book1".</td>
+</tr>
+</tbody>
+</table>
 
 Name\_text    is the name of an open workbook. If name\_text is omitted,
 it is assumed to be the active workbook.
@@ -5901,18 +5805,18 @@ GET.DOCUMENT(7)
 In Microsoft Excel for Windows, the following macro formula returns the
 number of windows in SALES.XLS:
 
-GET.DOCUMENT(13, \"SALES.XLS\")
+GET.DOCUMENT(13, "SALES.XLS")
 
 In Microsoft Excel for the Macintosh, the following macro formula
 returns 3 if the overlay chart on SALES CHART is a column chart:
 
-GET.DOCUMENT(10, \"SALES CHART\")
+GET.DOCUMENT(10, "SALES CHART")
 
 To find out if SHEET1 is password-protected and if its contents and
 windows are protected, enter the following formula in a three-cell
 horizontal array:
 
-GET.DOCUMENT({6, 7, 8}, \"SHEET1\")
+GET.DOCUMENT({6, 7, 8}, "SHEET1")
 
 **Related Functions**
 
@@ -5924,13 +5828,12 @@ GET.WORKSPACE   Returns information about the workspace
 
 Return to [top](#E)
 
-GET.FORMULA
-===========
+# GET.FORMULA
 
 Returns the contents of a cell as they would appear in the formula bar.
-The contents are given as text, for example, \"=2\*PI()/360\". If the
+The contents are given as text, for example, "=2\*PI()/360". If the
 formula contains references, they are returned as R1C1-style references,
-such as \"=RC\[1\]\*(1+R1C1)\". Use GET.FORMULA to get a formula from a
+such as "=RC\[1\]\*(1+R1C1)". Use GET.FORMULA to get a formula from a
 cell in order to edit its arguments. Use GET.CELL(6) to get a formula in
 either A1 or R1C1 format, depending on the workspace setting.
 
@@ -5940,16 +5843,16 @@ either A1 or R1C1 format, depending on the workspace setting.
 
 Reference    is a cell or range of cells on a sheet or macro sheet.
 
--   If a range of cells is selected, GET.FORMULA returns the contents of
-    > the upper-left cell in reference.
+  - > If a range of cells is selected, GET.FORMULA returns the contents
+    > of the upper-left cell in reference.
 
--   Reference can be an external reference.
+  - > Reference can be an external reference.
 
--   Reference can be the object identifier of a picture created by the
+  - > Reference can be the object identifier of a picture created by the
     > camera tool.
 
--   Reference can also be a reference to a chart series in the form
-    > \"Sn\" where n is the number of the series. When a chart series is
+  - > Reference can also be a reference to a chart series in the form
+    > "Sn" where n is the number of the series. When a chart series is
     > specified, GET.FORMULA returns the series formula using R1C1-style
     > references.
 
@@ -5960,12 +5863,11 @@ ACTIVE.CELL function as the reference argument.
 
 If cell A3 on the active sheet contains the number 523, then:
 
-GET.FORMULA(!\$A\$3) equals \"523\"
+GET.FORMULA(\!$A$3) equals "523"
 
-If cell C2 on the active sheet contains the formula =B2\*(1+\$A\$1),
-then:
+If cell C2 on the active sheet contains the formula =B2\*(1+$A$1), then:
 
-GET.FORMULA(!\$C\$2) equals \"=RC\[-1\]\*(1+R1C1)\"
+GET.FORMULA(\!$C$2) equals "=RC\[-1\]\*(1+R1C1)"
 
 The following macro formula returns the contents of the active cell on
 the active sheet:
@@ -5984,8 +5886,7 @@ GET.NOTE   Returns characters from a comment
 
 Return to [top](#E)
 
-GET.LINK.INFO
-=============
+# GET.LINK.INFO
 
 Returns information about the specified link. Use GET.LINK.INFO to get
 information about the update settings of a link.
@@ -6003,24 +5904,24 @@ Type\_num    is a number that specifies what type of information about
 the currently selected link to return. Type\_num 2 applies only to
 publishers and subscribers in Microsoft Excel for the Macintosh.
 
-  --------------- ----------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Returns**
-  1               If the link is set to automatic update, returns 1; otherwise 2.
-  2               Date of the latest edition as a serial number. Returns \#N/A if link\_text is not a publisher or a subscriber.
-  --------------- ----------------------------------------------------------------------------------------------------------------
+|               |                                                                                                                |
+| ------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Type\_num** | **Returns**                                                                                                    |
+| 1             | If the link is set to automatic update, returns 1; otherwise 2.                                                |
+| 2             | Date of the latest edition as a serial number. Returns \#N/A if link\_text is not a publisher or a subscriber. |
 
 Type\_of\_link    is a number from 1 to 6 that specifies what type of
 link you want to get information about.
 
-  -------------------- ------------------------------
-  **Type\_of\_link**   **Link document type**
-  1                    Not applicable
-  2                    DDE link (Microsoft Windows)
-  3                    Not applicable
-  4                    Not applicable
-  5                    Publisher (Macintosh)
-  6                    Subscriber (Macintosh)
-  -------------------- ------------------------------
+|                    |                              |
+| ------------------ | ---------------------------- |
+| **Type\_of\_link** | **Link document type**       |
+| 1                  | Not applicable               |
+| 2                  | DDE link (Microsoft Windows) |
+| 3                  | Not applicable               |
+| 4                  | Not applicable               |
+| 5                  | Publisher (Macintosh)        |
+| 6                  | Subscriber (Macintosh)       |
 
 Reference    specifies the cell range in R1C1 format of the publisher or
 subscriber that you want information about. Reference is required if you
@@ -6032,12 +5933,12 @@ number of the object as displayed in the Name box.
 
 **Remarks**
 
--   If Microsoft Excel cannot find link\_text, or if type\_of\_link does
-    > not match the link specified by link\_text, GET.LINK.INFO returns
-    > the \#VALUE! error value.
+  - > If Microsoft Excel cannot find link\_text, or if type\_of\_link
+    > does not match the link specified by link\_text, GET.LINK.INFO
+    > returns the \#VALUE\! error value.
 
--   If you have more than one subscriber to the edition link\_text or if
-    > the same area is published more than once, you must specify
+  - > If you have more than one subscriber to the edition link\_text or
+    > if the same area is published more than once, you must specify
     > reference.
 
 >  
@@ -6048,15 +5949,14 @@ In Microsoft Excel for Windows, the following macro formula returns
 information about a DDE link to a Microsoft Word for Windows document.
 The document is named NEWPROD.DOC.
 
-GET.LINK.INFO(\"WinWord\|\'C:\\WINWORD\\NEWPROD.DOC\'!DDE\_LINK1\", 1,
-2)
+GET.LINK.INFO("WinWord|'C:\\WINWORD\\NEWPROD.DOC'\!DDE\_LINK1", 1, 2)
 
 In Microsoft Excel for the Macintosh, the following macro formula
 returns information about a link to a publisher defined in cells A1:C3
 on a workbook named New Products.
 
-GET.LINK.INFO(\"A1:C3 New Products Edition \#1\", 2, 5, \"\'New
-Products\'!R1C1:R3C3\")
+GET.LINK.INFO("A1:C3 New Products Edition \#1", 2, 5, "'New
+Products'\!R1C1:R3C3")
 
 **Related Functions**
 
@@ -6068,8 +5968,7 @@ UPDATE.LINK   Updates a link to another workbook
 
 Return to [top](#E)
 
-GET.NAME
-========
+# GET.NAME
 
 Returns the definition of a name as it appears in the Refers To box of
 the Define Name dialog box, which appears when you choose the Define
@@ -6084,8 +5983,8 @@ corresponding to a definition, use GET.DEF.
 
 Name\_text    can be a name defined on the macro sheet; an external
 reference to a name defined on the active workbook, for example,
-\"!Sales\"; or an external reference to a name defined on a particular
-open workbook, for example, \"\[Book1\]SHEET1!Sales\". Name\_text can
+"\!Sales"; or an external reference to a name defined on a particular
+open workbook, for example, "\[Book1\]SHEET1\!Sales". Name\_text can
 also be a hidden name.
 
 Info\_type     specifies the type of information to return about the
@@ -6104,17 +6003,17 @@ Protect Sheet command on the Protection submenu from the Tools menu.
 
 If the name Sales on a macro sheet is defined as the number 523, then:
 
-GET.NAME(\"Sales\") equals \"=523\"
+GET.NAME("Sales") equals "=523"
 
 If the name Profit on the active sheet is defined as the formula
 =Sales-Costs, then:
 
-GET.NAME(\"!Profit\") equals \"=Sales-Costs\"
+GET.NAME("\!Profit") equals "=Sales-Costs"
 
 If the name Database on the active sheet is defined as the range
 A1:F500, then:
 
-GET.NAME(\"!Database\") equals \"=R1C1:R500C6\"
+GET.NAME("\!Database") equals "=R1C1:R500C6"
 
 **Related Functions**
 
@@ -6130,8 +6029,7 @@ SET.NAME   Defines a name as a value
 
 Return to [top](#E)
 
-GET.NOTE
-========
+# GET.NOTE
 
 Returns characters from a comment.
 
@@ -6155,24 +6053,24 @@ the length of the comment attached to cell\_ref.
 The following macro formula returns the first 200 characters in the
 comment attached to cell A3 on the active sheet:
 
-GET.NOTE(!\$A\$3, 1, 200)
+GET.NOTE(\!$A$3, 1, 200)
 
 In Microsoft Excel for Windows, the following macro formula returns the
 10th through the 39th characters of the comment attached to cell C2 on
 SALES.XLS:
 
-GET.NOTE(\"\[SALES.XLS\]Sheet1!R2C3\", 10, 30)
+GET.NOTE("\[SALES.XLS\]Sheet1\!R2C3", 10, 30)
 
 In Microsoft Excel for the Macintosh, the following macro formula
 returns the 10th through the 39th characters of the comment attached to
 cell C2 on SALES:
 
-GET.NOTE(\"\[SALES\]Sheet1!R2C3\", 10, 30)
+GET.NOTE("\[SALES\]Sheet1\!R2C3", 10, 30)
 
 Use GET.NOTE with the NOTE function to move the contents of a comment to
 a cell or text box or to another comment attached to a cell:
 
-NOTE(GET.NOTE(!\$B\$10),ACTIVE.CELL())
+NOTE(GET.NOTE(\!$B$10),ACTIVE.CELL())
 
 **Related Functions**
 
@@ -6182,8 +6080,7 @@ NOTE   Creates or changes a comment.
 
 Return to [top](#E)
 
-GET.OBJECT
-==========
+# GET.OBJECT
 
 Returns information about the specified object. Use GET.OBJECT to return
 information you can use in other macro formulas that manipulate objects.
@@ -6194,240 +6091,387 @@ information you can use in other macro formulas that manipulate objects.
 item\_index)
 
 Type\_num    is a number specifying the type of information you want
-returned about an object. GET.OBJECT returns the \#VALUE! error value
-(and the macro is halted) if an object isn\'t specified or if more than
+returned about an object. GET.OBJECT returns the \#VALUE\! error value
+(and the macro is halted) if an object isn't specified or if more than
 one object is selected.
 
-  --------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Returns**
-
-  2               If the object is locked, returns TRUE; otherwise FALSE.
-
-  3               Z-order position (layering) of the object; that is, the relative position of the overlapping objects, starting with 1 for the object that is most under the others.
-
-  4               Reference of the cell under the upper-left corner of the object as text in R1C1 reference style; for a line or arc, returns the start point.
-
-  5               X offset from the upper-left corner of the cell under the upper-left corner of the object, measured in points.
-
-  6               Y offset from the upper-left corner of the cell under the upper-left corner of the object, measured in points.
-
-  7               Reference of the cell under the lower-right corner of the object as text in R1C1 reference style; for a line or arc, returns the end point.
-
-  8               X offset from the upper-left corner of the cell under the lower-right corner of the object, measured in points.
-
-  9               Y offset from the upper-left corner of the cell under the lower-right corner of the object, measured in points.
-
-  10              Name, including the filename, of the macro assigned to the object. If no macro is assigned, returns FALSE.
-
-  11              Number indicating how the object moves and sizes:\
-                  1 = Object moves and sizes with cells\
-                  2 = Object moves with cells\
-                  3 = Object is fixed
-  --------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>If the object is locked, returns TRUE; otherwise FALSE.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Z-order position (layering) of the object; that is, the relative position of the overlapping objects, starting with 1 for the object that is most under the others.</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Reference of the cell under the upper-left corner of the object as text in R1C1 reference style; for a line or arc, returns the start point.</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>X offset from the upper-left corner of the cell under the upper-left corner of the object, measured in points.</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Y offset from the upper-left corner of the cell under the upper-left corner of the object, measured in points.</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Reference of the cell under the lower-right corner of the object as text in R1C1 reference style; for a line or arc, returns the end point.</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>X offset from the upper-left corner of the cell under the lower-right corner of the object, measured in points.</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Y offset from the upper-left corner of the cell under the lower-right corner of the object, measured in points.</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Name, including the filename, of the macro assigned to the object. If no macro is assigned, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Number indicating how the object moves and sizes:<br />
+1 = Object moves and sizes with cells<br />
+2 = Object moves with cells<br />
+3 = Object is fixed</td>
+</tr>
+</tbody>
+</table>
 
 Values 12 to 21 for type\_num apply only to text boxes and buttons. If
-another type of object is selected, GET.OBJECT returns the \#VALUE!
+another type of object is selected, GET.OBJECT returns the \#VALUE\!
 error value.
 
-  --------------- -------------
-  **Type\_num**   **Returns**
-  --------------- -------------
+|               |             |
+| ------------- | ----------- |
+| **Type\_num** | **Returns** |
 
-  ---- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  12   Text starting at start\_num for count\_num characters.
-  13   Font name of all text starting at start\_num for count\_num characters. If the text contains more than one font name, returns the \#N/A error value.
-  14   Font size of all text starting at start\_num for count\_num characters. If the text contains more than one font size, returns the \#N/A error value.
-  15   If all text starting at start\_num for count\_num characters is bold, returns TRUE. If text contains only partial bold formatting, returns the \#N/A error value.
-  16   If all text starting at start\_num for count\_num characters is italic, returns TRUE. If text contains only partial italic formatting, returns the \#N/A error value.
-  17   If all text starting at start\_num for count\_num characters is underlined, returns TRUE. If text contains only partial underline formatting, returns the \#N/A error value.
-  18   If all text starting at start\_num for count\_num characters is struck through, returns TRUE. If text contains only partial struck-through formatting, returns the \#N/A error value.
-  19   In Microsoft Excel for the Macintosh, if all text starting at start\_num for count\_num characters is outlined, returns TRUE. If text contains only partial outline formatting, returns the \#N/A error value. Always returns FALSE in Microsoft Excel for Windows.
-  20   In Microsoft Excel for the Macintosh, if all text starting at start\_num for count\_num characters is shadowed, returns TRUE. If text contains only partial shadow formatting, returns the \#N/A error value. Always returns FALSE in Microsoft Excel for Windows.
-  21   Number from 0 to 56 indicating the color of all text starting at start\_num for count\_num characters; if color is automatic, returns 0. If more than one color is used, returns the \#N/A error value.
-  ---- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|    |                                                                                                                                                                                                                                                                     |
+| -- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 12 | Text starting at start\_num for count\_num characters.                                                                                                                                                                                                              |
+| 13 | Font name of all text starting at start\_num for count\_num characters. If the text contains more than one font name, returns the \#N/A error value.                                                                                                                |
+| 14 | Font size of all text starting at start\_num for count\_num characters. If the text contains more than one font size, returns the \#N/A error value.                                                                                                                |
+| 15 | If all text starting at start\_num for count\_num characters is bold, returns TRUE. If text contains only partial bold formatting, returns the \#N/A error value.                                                                                                   |
+| 16 | If all text starting at start\_num for count\_num characters is italic, returns TRUE. If text contains only partial italic formatting, returns the \#N/A error value.                                                                                               |
+| 17 | If all text starting at start\_num for count\_num characters is underlined, returns TRUE. If text contains only partial underline formatting, returns the \#N/A error value.                                                                                        |
+| 18 | If all text starting at start\_num for count\_num characters is struck through, returns TRUE. If text contains only partial struck-through formatting, returns the \#N/A error value.                                                                               |
+| 19 | In Microsoft Excel for the Macintosh, if all text starting at start\_num for count\_num characters is outlined, returns TRUE. If text contains only partial outline formatting, returns the \#N/A error value. Always returns FALSE in Microsoft Excel for Windows. |
+| 20 | In Microsoft Excel for the Macintosh, if all text starting at start\_num for count\_num characters is shadowed, returns TRUE. If text contains only partial shadow formatting, returns the \#N/A error value. Always returns FALSE in Microsoft Excel for Windows.  |
+| 21 | Number from 0 to 56 indicating the color of all text starting at start\_num for count\_num characters; if color is automatic, returns 0. If more than one color is used, returns the \#N/A error value.                                                             |
 
 Values 22 to 25 for type\_num also apply only to text boxes and buttons.
 If another type of object is selected, GET.OBJECT returns the \#N/A
 error value.
 
-  --------------- ----------------------------------------------------------------------------------
-  **Type\_num**   **Returns**
-
-  23              Number indicating the vertical alignment of text:\
-                  1 = Top\
-                  2 = Center\
-                  3 = Bottom\
-                  4 = Justified
-
-  24              Number indicating the orientation of text:\
-                  0 = Horizontal\
-                  1 = Vertical\
-                  2 = Upward\
-                  3 = Downward
-
-  25              If button or text box is set to automatic sizing, returns TRUE; otherwise FALSE.
-  --------------- ----------------------------------------------------------------------------------
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>Number indicating the vertical alignment of text:<br />
+1 = Top<br />
+2 = Center<br />
+3 = Bottom<br />
+4 = Justified</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>Number indicating the orientation of text:<br />
+0 = Horizontal<br />
+1 = Vertical<br />
+2 = Upward<br />
+3 = Downward</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>If button or text box is set to automatic sizing, returns TRUE; otherwise FALSE.</td>
+</tr>
+</tbody>
+</table>
 
 The following values for type\_num apply to all objects, except where
 indicated.
 
-  --------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Returns**
-
-  27              Number indicating the type of the border or line:\
-                  0 = Custom\
-                  1 = Automatic\
-                  2 = None
-
-  28              Number indicating the style of the border or line as shown in the Patterns tab in the Format Objects dialog box:\
-                  0 = None\
-                  1 = Solid line\
-                  2 = Dashed line\
-                  3 = Dotted line\
-                  4 = Dashed dotted line\
-                  5 = Dashed double-dotted line\
-                  6 = 50% gray line\
-                  7 = 75% gray line\
-                  8 = 25% gray line
-
-  29              Number from 0 to 56 indicating the color of the border or line; if the border is automatic, returns 0.
-
-  30              Number indicating the weight of the border or line:\
-                  1 = Hairline\
-                  2 = Thin\
-                  3 = Medium\
-                  4 = Thick
-
-  31              Number indicating the type of fill:\
-                  0 = Custom\
-                  1 = Automatic\
-                  2 = None
-
-  32              Number from 1 to 18 indicating the fill pattern as shown in the Format Object dialog box.
-
-  33              Number from 0 to 56 indicating the foreground color of the fill pattern; if the fill is automatic, returns 0. If the object is a line, returns the \#N/A error value.
-
-  34              Number from 0 to 56 indicating the background color of the fill pattern; if the fill is automatic, returns 0. If the object is a line, returns the \#N/A error value.
-
-  35              Number indicating the width of the arrowhead:\
-                  1 = Narrow\
-                  2 = Medium\
-                  3 = Wide\
-                  If the object is not a line, returns the \#N/A error value.
-
-  36              Number indicating the length of the arrowhead:\
-                  1 = Short\
-                  2 = Medium\
-                  3 = Long\
-                  If the object is not a line, returns the \#N/A error value.
-
-  37              Number indicating the style of the arrowhead:\
-                  1 = No head\
-                  2 = Open head\
-                  3 = Closed head\
-                  4 = Open double-ended head\
-                  5 = Closed double-ended head\
-                  If the object is not a line, returns the \#N/A error value.
-
-  38              If the border has round corners, returns TRUE; if the corners are square, returns FALSE. If the object is a line, returns the \#N/A error value.
-
-  39              If the border has a shadow, returns TRUE; if the border has no shadow, returns FALSE. If the object is a line, returns the \#N/A error value.
-
-  40              If the Lock Text check box in the Protection Tab of the Format Object dialog box is selected, returns TRUE; otherwise FALSE.
-
-  41              If objects are set to be printed, returns TRUE; otherwise FALSE.
-
-  42              The horizontal distance, measured in points, from the left edge of the active window to the left edge of the object. May be a negative number if the window is scrolled beyond the object.
-
-  43              The vertical distance, measured in points, from the top edge of the active window to the top edge of the object. May be a negative number if the window is scrolled beyond the object.
-
-  44              The horizontal distance, measured in points, from the left edge of the active window to the right edge of the object. May be a negative number if the window is scrolled beyond the object.
-
-  45              The vertical distance, measured in points, from the top edge of the active window to the bottom edge of the object. May be a negative number if the window is scrolled beyond the object.
-
-  46              The number of vertices in a polygon, or the \#N/A error value if the object is not a polygon.
-
-  47              A count\_num by 2 array of vertex coordinates starting at start\_num in a polygon\'s array of vertices.
-
-  48              If the object is a text box, returns the cell reference that the text box is linked to. If the object is a control on a worksheet, returns the cell reference that the control\'s value is linked to. This information is returned as a string.
-
-  49              Returns the ID number of the object. For example, \"Rectangle 5\" returns 5. Note that the name of the object may not have this index in it if the object has been renamed by the user.
-
-  50              Returns the object\'s classname. For example, \"Rectangle\".
-
-  51              Returns the object name. By default, object names are the classname followed by the ID. For example, \"Rectangle 1\" is an object name, of which \"Rectangle\" is the classname, and 1 is the ID number. The object can also be renamed, in which case the name picked by the user is returned.
-
-  52              Returns the distance from cell A1 to the Left of the object bounding rectangle in points
-
-  53              Returns the distance from Cell A1 to the top of the object bounding rectangle in points
-
-  54              Returns the width of object bounding rectangle in points
-
-  55              Returns the height of object bounding rectangle in points
-
-  56              If the object is enabled, returns TRUE; otherwise, it returns FALSE.
-
-  57              Returns the shortcut key assignment for the control object, as text.
-
-  58              Returns TRUE is the button control on a dialog sheet is the default button of the dialog; otherwise, returns FALSE
-
-  59              Returns TRUE if the button control on the dialog sheet is clicked when the user presses the ESCAPE Key; otherwise, returns FALSE.
-
-  60              Returns TRUE if the button control on a dialog sheet will close the dialog box when pressed; otherwise, returns FALSE
-
-  61              Returns TRUE if the button control on a dialog sheet will be clicked when the user presses F1.
-
-  62              Returns the value of the control. For a check box or radio button, Returns 1 if it is selected, zero if it is not selected, or 2 if mixed. For a List box or dropdown box, returns the index number of the selected item, or zero if no item is selected. For a scroll bar, returns the numeric value of the scroll bar.
-
-  63              Returns the minimum value that a scroll bar or spinner button can have
-
-  64              Returns the maximum value that a scroll bar or spinner button can have
-
-  65              Returns the step increment value added or subtracted from the value of a scroll bar or spinner. This value is used when the arrow buttons are pressed on the control.
-
-  66              Returns the large, or \"page\" step increment value added or subtracted from the value of a scroll bar when it is clicked in the region between the thumb and the arrow buttons.
-
-  67              Returns the input type allowed in an edit box control:\
-                  1 = Text\
-                  2 = Integer\
-                  3 = Number (what type)\
-                  4 = Cell reference\
-                  5 = Formula
-
-  68              Returns TRUE if the edit box control allows multi-line editing with wrapped text; otherwise, it returns FALSE.
-
-  69              Returns TRUE if the edit box has a vertical scroll bar; otherwise, it returns FALSE.
-
-  70              Returns the object ID of the object that is linked to a list box or edit box. For a dropdown combo box that has an editable entry field, returns the object ID of itself. A dropdown box that can\'t be edited, returns FALSE.
-
-  71              Returns the number of entries in a List box, dropdown List box, or dropdown combo box.
-
-  72              Returns the text of the selected entry in a List box, dropdown List box, or dropdown combo box.
-
-  73              Returns the range used to fill the entries in a List box, dropdown List box, or dropdown combo box, as text. If an empty string is returned, then the control isn\'t filled from a range.
-
-  74              Returns the number of list lines displayed when a dropdown control is dropped.
-
-  75              Returns TRUE the object is displayed as 3-D; otherwise, it returns FALSE.
-
-  76              Returns the Far East phonetic accelerator key as text. Used for Far East versions of Microsoft Excel.
-
-  77              Returns the select status of the list box:\
-                  0 = single\
-                  1 = simple multi-select\
-                  2 = extended multi-select
-
-  78              Returns an array of TRUE and FALSE values indicating which items are selected in a list box. If TRUE, the item is selected; If FALSE, the item is not selected.
-
-  79              Returns TRUE if the add indent attribute is on for alignment. Returns FALSE if the add indent attribute is off for alignment. Used for only Far East versions of Microsoft Excel.
-  --------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>Number indicating the type of the border or line:<br />
+0 = Custom<br />
+1 = Automatic<br />
+2 = None</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>Number indicating the style of the border or line as shown in the Patterns tab in the Format Objects dialog box:<br />
+0 = None<br />
+1 = Solid line<br />
+2 = Dashed line<br />
+3 = Dotted line<br />
+4 = Dashed dotted line<br />
+5 = Dashed double-dotted line<br />
+6 = 50% gray line<br />
+7 = 75% gray line<br />
+8 = 25% gray line</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>Number from 0 to 56 indicating the color of the border or line; if the border is automatic, returns 0.</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>Number indicating the weight of the border or line:<br />
+1 = Hairline<br />
+2 = Thin<br />
+3 = Medium<br />
+4 = Thick</td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>Number indicating the type of fill:<br />
+0 = Custom<br />
+1 = Automatic<br />
+2 = None</td>
+</tr>
+<tr class="odd">
+<td>32</td>
+<td>Number from 1 to 18 indicating the fill pattern as shown in the Format Object dialog box.</td>
+</tr>
+<tr class="even">
+<td>33</td>
+<td>Number from 0 to 56 indicating the foreground color of the fill pattern; if the fill is automatic, returns 0. If the object is a line, returns the #N/A error value.</td>
+</tr>
+<tr class="odd">
+<td>34</td>
+<td>Number from 0 to 56 indicating the background color of the fill pattern; if the fill is automatic, returns 0. If the object is a line, returns the #N/A error value.</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>Number indicating the width of the arrowhead:<br />
+1 = Narrow<br />
+2 = Medium<br />
+3 = Wide<br />
+If the object is not a line, returns the #N/A error value.</td>
+</tr>
+<tr class="odd">
+<td>36</td>
+<td>Number indicating the length of the arrowhead:<br />
+1 = Short<br />
+2 = Medium<br />
+3 = Long<br />
+If the object is not a line, returns the #N/A error value.</td>
+</tr>
+<tr class="even">
+<td>37</td>
+<td>Number indicating the style of the arrowhead:<br />
+1 = No head<br />
+2 = Open head<br />
+3 = Closed head<br />
+4 = Open double-ended head<br />
+5 = Closed double-ended head<br />
+If the object is not a line, returns the #N/A error value.</td>
+</tr>
+<tr class="odd">
+<td>38</td>
+<td>If the border has round corners, returns TRUE; if the corners are square, returns FALSE. If the object is a line, returns the #N/A error value.</td>
+</tr>
+<tr class="even">
+<td>39</td>
+<td>If the border has a shadow, returns TRUE; if the border has no shadow, returns FALSE. If the object is a line, returns the #N/A error value.</td>
+</tr>
+<tr class="odd">
+<td>40</td>
+<td>If the Lock Text check box in the Protection Tab of the Format Object dialog box is selected, returns TRUE; otherwise FALSE.</td>
+</tr>
+<tr class="even">
+<td>41</td>
+<td>If objects are set to be printed, returns TRUE; otherwise FALSE.</td>
+</tr>
+<tr class="odd">
+<td>42</td>
+<td>The horizontal distance, measured in points, from the left edge of the active window to the left edge of the object. May be a negative number if the window is scrolled beyond the object.</td>
+</tr>
+<tr class="even">
+<td>43</td>
+<td>The vertical distance, measured in points, from the top edge of the active window to the top edge of the object. May be a negative number if the window is scrolled beyond the object.</td>
+</tr>
+<tr class="odd">
+<td>44</td>
+<td>The horizontal distance, measured in points, from the left edge of the active window to the right edge of the object. May be a negative number if the window is scrolled beyond the object.</td>
+</tr>
+<tr class="even">
+<td>45</td>
+<td>The vertical distance, measured in points, from the top edge of the active window to the bottom edge of the object. May be a negative number if the window is scrolled beyond the object.</td>
+</tr>
+<tr class="odd">
+<td>46</td>
+<td>The number of vertices in a polygon, or the #N/A error value if the object is not a polygon.</td>
+</tr>
+<tr class="even">
+<td>47</td>
+<td>A count_num by 2 array of vertex coordinates starting at start_num in a polygon's array of vertices.</td>
+</tr>
+<tr class="odd">
+<td>48</td>
+<td>If the object is a text box, returns the cell reference that the text box is linked to. If the object is a control on a worksheet, returns the cell reference that the control's value is linked to. This information is returned as a string.</td>
+</tr>
+<tr class="even">
+<td>49</td>
+<td>Returns the ID number of the object. For example, "Rectangle 5" returns 5. Note that the name of the object may not have this index in it if the object has been renamed by the user.</td>
+</tr>
+<tr class="odd">
+<td>50</td>
+<td>Returns the object's classname. For example, "Rectangle".</td>
+</tr>
+<tr class="even">
+<td>51</td>
+<td>Returns the object name. By default, object names are the classname followed by the ID. For example, "Rectangle 1" is an object name, of which "Rectangle" is the classname, and 1 is the ID number. The object can also be renamed, in which case the name picked by the user is returned.</td>
+</tr>
+<tr class="odd">
+<td>52</td>
+<td>Returns the distance from cell A1 to the Left of the object bounding rectangle in points</td>
+</tr>
+<tr class="even">
+<td>53</td>
+<td>Returns the distance from Cell A1 to the top of the object bounding rectangle in points</td>
+</tr>
+<tr class="odd">
+<td>54</td>
+<td>Returns the width of object bounding rectangle in points</td>
+</tr>
+<tr class="even">
+<td>55</td>
+<td>Returns the height of object bounding rectangle in points</td>
+</tr>
+<tr class="odd">
+<td>56</td>
+<td>If the object is enabled, returns TRUE; otherwise, it returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>57</td>
+<td>Returns the shortcut key assignment for the control object, as text.</td>
+</tr>
+<tr class="odd">
+<td>58</td>
+<td>Returns TRUE is the button control on a dialog sheet is the default button of the dialog; otherwise, returns FALSE</td>
+</tr>
+<tr class="even">
+<td>59</td>
+<td>Returns TRUE if the button control on the dialog sheet is clicked when the user presses the ESCAPE Key; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>60</td>
+<td>Returns TRUE if the button control on a dialog sheet will close the dialog box when pressed; otherwise, returns FALSE</td>
+</tr>
+<tr class="even">
+<td>61</td>
+<td>Returns TRUE if the button control on a dialog sheet will be clicked when the user presses F1.</td>
+</tr>
+<tr class="odd">
+<td>62</td>
+<td>Returns the value of the control. For a check box or radio button, Returns 1 if it is selected, zero if it is not selected, or 2 if mixed. For a List box or dropdown box, returns the index number of the selected item, or zero if no item is selected. For a scroll bar, returns the numeric value of the scroll bar.</td>
+</tr>
+<tr class="even">
+<td>63</td>
+<td>Returns the minimum value that a scroll bar or spinner button can have</td>
+</tr>
+<tr class="odd">
+<td>64</td>
+<td>Returns the maximum value that a scroll bar or spinner button can have</td>
+</tr>
+<tr class="even">
+<td>65</td>
+<td>Returns the step increment value added or subtracted from the value of a scroll bar or spinner. This value is used when the arrow buttons are pressed on the control.</td>
+</tr>
+<tr class="odd">
+<td>66</td>
+<td>Returns the large, or "page" step increment value added or subtracted from the value of a scroll bar when it is clicked in the region between the thumb and the arrow buttons.</td>
+</tr>
+<tr class="even">
+<td>67</td>
+<td>Returns the input type allowed in an edit box control:<br />
+1 = Text<br />
+2 = Integer<br />
+3 = Number (what type)<br />
+4 = Cell reference<br />
+5 = Formula</td>
+</tr>
+<tr class="odd">
+<td>68</td>
+<td>Returns TRUE if the edit box control allows multi-line editing with wrapped text; otherwise, it returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>69</td>
+<td>Returns TRUE if the edit box has a vertical scroll bar; otherwise, it returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>70</td>
+<td>Returns the object ID of the object that is linked to a list box or edit box. For a dropdown combo box that has an editable entry field, returns the object ID of itself. A dropdown box that can't be edited, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>71</td>
+<td>Returns the number of entries in a List box, dropdown List box, or dropdown combo box.</td>
+</tr>
+<tr class="odd">
+<td>72</td>
+<td>Returns the text of the selected entry in a List box, dropdown List box, or dropdown combo box.</td>
+</tr>
+<tr class="even">
+<td>73</td>
+<td>Returns the range used to fill the entries in a List box, dropdown List box, or dropdown combo box, as text. If an empty string is returned, then the control isn't filled from a range.</td>
+</tr>
+<tr class="odd">
+<td>74</td>
+<td>Returns the number of list lines displayed when a dropdown control is dropped.</td>
+</tr>
+<tr class="even">
+<td>75</td>
+<td>Returns TRUE the object is displayed as 3-D; otherwise, it returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>76</td>
+<td>Returns the Far East phonetic accelerator key as text. Used for Far East versions of Microsoft Excel.</td>
+</tr>
+<tr class="even">
+<td>77</td>
+<td>Returns the select status of the list box:<br />
+0 = single<br />
+1 = simple multi-select<br />
+2 = extended multi-select</td>
+</tr>
+<tr class="odd">
+<td>78</td>
+<td>Returns an array of TRUE and FALSE values indicating which items are selected in a list box. If TRUE, the item is selected; If FALSE, the item is not selected.</td>
+</tr>
+<tr class="even">
+<td>79</td>
+<td>Returns TRUE if the add indent attribute is on for alignment. Returns FALSE if the add indent attribute is off for alignment. Used for only Far East versions of Microsoft Excel.</td>
+</tr>
+</tbody>
+</table>
 
 Object\_id\_text    is the name and number, or number alone, of the
 object you want information about. Object\_id\_text is the text
 displayed in the reference area when the object is selected. If
 object\_id\_text is omitted, it is assumed to be the selected object. If
 object\_id\_text is omitted and no object is selected, GET.OBJECT
-returns the \#REF! error value and interrupts the macro.
+returns the \#REF\! error value and interrupts the macro.
 
 Start\_num    is the number of the first character in the text box or
 button or the first vertex in a polygon you want information about.
@@ -6453,17 +6497,17 @@ an object and GET.OBJECT(44) - GET.OBJECT(42) to determine the width.
 The following macro formula returns the reference of the cell under the
 upper-left corner of the object Oval 3 (assume the cell is E2):
 
-GET.OBJECT(4, \"Oval 3\") returns \"R2C5\"
+GET.OBJECT(4, "Oval 3") returns "R2C5"
 
 The following macro formula changes the protection status of the object
 Rectangle 2 if it is locked:
 
-IF(GET.OBJECT(2, \"Rectangle 2\"), OBJECT.PROTECTION(FALSE))
+IF(GET.OBJECT(2, "Rectangle 2"), OBJECT.PROTECTION(FALSE))
 
 The following macro formula returns characters 25 through 185 from the
 object Text 5:
 
-GET.OBJECT(12, \"Text 5\", 25, 160)
+GET.OBJECT(12, "Text 5", 25, 160)
 
 **Related Functions**
 
@@ -6473,12 +6517,11 @@ FONT.PROPERTIES   Applies a font to the selection
 
 OBJECT.PROTECTION   Controls how an object is protected
 
-PLACEMENT   Determines an object\'s relationship to underlying cells
+PLACEMENT   Determines an object's relationship to underlying cells
 
 Return to [top](#E)
 
-GET.PIVOT.FIELD
-===============
+# GET.PIVOT.FIELD
 
 Returns information about a field in a PivotTable report.
 
@@ -6489,149 +6532,99 @@ Returns information about a field in a PivotTable report.
 Type\_num    is a value from 1 to 17 that returns the following types of
 information:
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Value**                                           |
-+---------------+-----------------------------------------------------+
-| 1             | Returns an array of all the items which make up     |
-|               | pivot\_field\_name. The array is made up of text    |
-|               | constants, dates or numbers depending on the field. |
-+---------------+-----------------------------------------------------+
-| 2             | Returns an array of all items which are set to show |
-|               | with the pivot\_field\_name. The array is made up   |
-|               | of text constants, dates or numbers depending on    |
-|               | the field. The array is returned in the order that  |
-|               | the items are displayed in the PivotTable report.   |
-|               | If pivot\_field\_name is a page field, then the     |
-|               | array contains only one element, the value          |
-|               | corresponding to the active page (this could be all |
-|               | if the All item is showing).                        |
-+---------------+-----------------------------------------------------+
-| 3             | Returns an array of all items which are hidden in   |
-|               | the pivot\_field\_name. The array is made up of     |
-|               | text constants, dates or numbers depending on the   |
-|               | field. If pivot\_field\_name is a data field or the |
-|               | data header name, this function returns the \#N/A!  |
-|               | error value.                                        |
-+---------------+-----------------------------------------------------+
-| 4             | Returns an integer describing where the field is    |
-|               | displayed in the active PivotTable report (either   |
-|               | row or column):                                     |
-|               |                                                     |
-|               | 0 = Hidden                                          |
-|               |                                                     |
-|               | 1 = Row                                             |
-|               |                                                     |
-|               | 2 = Col                                             |
-|               |                                                     |
-|               | 3 = Page                                            |
-|               |                                                     |
-|               | 4 = Data                                            |
-+---------------+-----------------------------------------------------+
-| 5             | Returns an array of all items in pivot\_field\_name |
-|               | that are group parents. The array is made up of     |
-|               | text constants, dates or numbers depending on the   |
-|               | field. The array is returned in the order which     |
-|               | these items appear in the PivotTable report.        |
-|               | Returns \#N/A if there are no group parents and if  |
-|               | the pivot\_field\_name is a data field or the data  |
-|               | field header.                                       |
-+---------------+-----------------------------------------------------+
-| 6             | Returns a number between 0 and 4095 which describes |
-|               | the subtotals attached to the field. The number is  |
-|               | the sum of the values associated with each subtotal |
-|               | function. See PIVOT.FIELD.PROPERTIES for a list of  |
-|               | all the values associated with subtotal             |
-|               | calculations. If the field is showing as a data     |
-|               | field or data field header, \#N/A! is returned.     |
-+---------------+-----------------------------------------------------+
-| 7             | Returns an integer describing the type of data      |
-|               | contained in the field:                             |
-|               |                                                     |
-|               | 0 = Text                                            |
-|               |                                                     |
-|               | 1 = Number                                          |
-|               |                                                     |
-|               | 2 = Date                                            |
-+---------------+-----------------------------------------------------+
-| 8             | Returns an array five columns wide and one row high |
-|               | describing the summary function\'s custom           |
-|               | calculation shown with the specified field (Data    |
-|               | field) in the PivotTable report. The array will     |
-|               | look as follows: {function, calculation, base       |
-|               | field, base item, number format}. If                |
-|               | pivot\_field\_name is not showing in the active     |
-|               | PivotTable report as a data field, \#N/A! is        |
-|               | returned.                                           |
-+---------------+-----------------------------------------------------+
-| 9             | Returns a reference to all of pivot\_field\_name\'s |
-|               | items currently showing in the active PivotTable    |
-|               | report. If pivot\_field\_name is hidden, \#N/A! is  |
-|               | returned. If pivot\_field\_name is a page field,    |
-|               | the reference to the currently showing page item is |
-|               | returned. If pivot\_field\_name is a data field, a  |
-|               | reference to all the data for this field in the     |
-|               | PivotTable report is returned. The references are   |
-|               | returned as text.                                   |
-+---------------+-----------------------------------------------------+
-| 10            | Returns a reference to the header cell for          |
-|               | pivot\_field\_name. If pivot\_field\_name is a data |
-|               | field, a reference to all the headers in the data   |
-|               | row or column is returned. If pivot\_field\_name is |
-|               | hidden, \#N/A! is returned. The reference is        |
-|               | returned as text.                                   |
-+---------------+-----------------------------------------------------+
-| 11            | Returns the number of grouped fields in the grouped |
-|               | field set which includes pivot\_field\_name. If     |
-|               | pivot\_field\_name is neither a parent field nor a  |
-|               | child field, 1 is returned. If pivot\_field\_name   |
-|               | is a data field or data header name, the function   |
-|               | returns the \#N/A! error value.                     |
-+---------------+-----------------------------------------------------+
-| 12            | Returns the level of pivot\_field\_name in the      |
-|               | grouped field set which includes                    |
-|               | pivot\_field\_name. Returns 1 for the highest level |
-|               | parent field, 2 for its child field, and so on. If  |
-|               | pivot\_field\_name is neither a parent field nor a  |
-|               | child field, 1 is returned. If pivot\_field\_name   |
-|               | is a data field or data header name, the function   |
-|               | returns the \#N/A! error value.                     |
-+---------------+-----------------------------------------------------+
-| 13            | Returns the name of the parent field for            |
-|               | pivot\_field\_name as a text constant. If           |
-|               | pivot\_field\_name is not a child field, \#N/A! is  |
-|               | returned.                                           |
-+---------------+-----------------------------------------------------+
-| 14            | Returns the name of the child field for             |
-|               | pivot\_field\_name as a text constant. If           |
-|               | pivot\_field\_name is not a parent field, \#N/A! is |
-|               | returned.                                           |
-+---------------+-----------------------------------------------------+
-| 15            | Returns a text constant representing the original   |
-|               | name of the field in the data source.               |
-+---------------+-----------------------------------------------------+
-| 16            | Returns the position of the field among all the     |
-|               | other fields in its orientation. For instance, a 1  |
-|               | would be returned if the field was the first row    |
-|               | field.                                              |
-+---------------+-----------------------------------------------------+
-| 17            | Returns an array of all items in pivot\_field\_name |
-|               | that are group children. The array is made up of    |
-|               | text constants, dates or numbers depending on the   |
-|               | field. The array is returned in the order which     |
-|               | these items appear in the PivotTable report.        |
-|               | Returns \#N/A if there are no group children, and   |
-|               | if the pivot\_field\_name is a data field or the    |
-|               | data field header.                                  |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Value</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Returns an array of all the items which make up pivot_field_name. The array is made up of text constants, dates or numbers depending on the field.</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Returns an array of all items which are set to show with the pivot_field_name. The array is made up of text constants, dates or numbers depending on the field. The array is returned in the order that the items are displayed in the PivotTable report. If pivot_field_name is a page field, then the array contains only one element, the value corresponding to the active page (this could be all if the All item is showing).</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Returns an array of all items which are hidden in the pivot_field_name. The array is made up of text constants, dates or numbers depending on the field. If pivot_field_name is a data field or the data header name, this function returns the #N/A! error value.</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td><p>Returns an integer describing where the field is displayed in the active PivotTable report (either row or column):</p>
+<p>0 = Hidden</p>
+<p>1 = Row</p>
+<p>2 = Col</p>
+<p>3 = Page</p>
+<p>4 = Data</p></td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Returns an array of all items in pivot_field_name that are group parents. The array is made up of text constants, dates or numbers depending on the field. The array is returned in the order which these items appear in the PivotTable report. Returns #N/A if there are no group parents and if the pivot_field_name is a data field or the data field header.</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Returns a number between 0 and 4095 which describes the subtotals attached to the field. The number is the sum of the values associated with each subtotal function. See PIVOT.FIELD.PROPERTIES for a list of all the values associated with subtotal calculations. If the field is showing as a data field or data field header, #N/A! is returned.</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td><p>Returns an integer describing the type of data contained in the field:</p>
+<p>0 = Text</p>
+<p>1 = Number</p>
+<p>2 = Date</p></td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>Returns an array five columns wide and one row high describing the summary function's custom calculation shown with the specified field (Data field) in the PivotTable report. The array will look as follows: {function, calculation, base field, base item, number format}. If pivot_field_name is not showing in the active PivotTable report as a data field, #N/A! is returned.</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>Returns a reference to all of pivot_field_name's items currently showing in the active PivotTable report. If pivot_field_name is hidden, #N/A! is returned. If pivot_field_name is a page field, the reference to the currently showing page item is returned. If pivot_field_name is a data field, a reference to all the data for this field in the PivotTable report is returned. The references are returned as text.</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Returns a reference to the header cell for pivot_field_name. If pivot_field_name is a data field, a reference to all the headers in the data row or column is returned. If pivot_field_name is hidden, #N/A! is returned. The reference is returned as text.</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>Returns the number of grouped fields in the grouped field set which includes pivot_field_name. If pivot_field_name is neither a parent field nor a child field, 1 is returned. If pivot_field_name is a data field or data header name, the function returns the #N/A! error value.</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Returns the level of pivot_field_name in the grouped field set which includes pivot_field_name. Returns 1 for the highest level parent field, 2 for its child field, and so on. If pivot_field_name is neither a parent field nor a child field, 1 is returned. If pivot_field_name is a data field or data header name, the function returns the #N/A! error value.</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>Returns the name of the parent field for pivot_field_name as a text constant. If pivot_field_name is not a child field, #N/A! is returned.</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>Returns the name of the child field for pivot_field_name as a text constant. If pivot_field_name is not a parent field, #N/A! is returned.</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>Returns a text constant representing the original name of the field in the data source.</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Returns the position of the field among all the other fields in its orientation. For instance, a 1 would be returned if the field was the first row field.</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>Returns an array of all items in pivot_field_name that are group children. The array is made up of text constants, dates or numbers depending on the field. The array is returned in the order which these items appear in the PivotTable report. Returns #N/A if there are no group children, and if the pivot_field_name is a data field or the data field header.</td>
+</tr>
+</tbody>
+</table>
 
 Pivot\_field\_name    is the name of the field that you want information
 about. If there is no field named pivot\_field\_name in the PivotTable
-report, returns \#VALUE!.
+report, returns \#VALUE\!.
 
 Pivot\_table\_name    is the name of a PivotTable report containing the
 field that you want information about. If omitted, the PivotTable report
 containing the active cell is used. If the active cell is not in a
-PivotTable report, the \#VALUE! error value is returned.
+PivotTable report, the \#VALUE\! error value is returned.
 
 **Related Functions**
 
@@ -6642,8 +6635,7 @@ GET.PIVOT.TABLE   Returns information about a PivotTable report.
 
 Return to [top](#E)
 
-GET.PIVOT.ITEM
-==============
+# GET.PIVOT.ITEM
 
 Returns information about an item in a PivotTable report.
 
@@ -6655,31 +6647,31 @@ pivot\_table\_name)
 Type\_num    is a value from 1 to 9 the represents the type of
 information you want about an item in a PivotTable report.
 
-  --------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Information**
-  1               Returns the position of the item in its field. Returns \#N/A if pivot\_field\_name is a data field. Returns \#N/A! if the item is hidden.
-  2               Returns the reference to all the cells in the PivotTable header currently containing pivot\_item\_name. This reference is returned as text. If pivot\_item\_name is currently not showing in the PivotTable report, \#N/A! is returned.
-  3               Returns the reference to all the data in the PivotTable report which is qualified by pivot\_item\_name. This reference is returned as text. If pivot\_item\_name is currently not showing in the PivotTable report, \#N/A! is returned.
-  4               Returns an array of text constants representing the children of pivot\_item\_name if pivot\_item\_name is a parent. Otherwise the function returns \#N/A!.
-  5               Returns a text constant representing the parent of pivot\_item\_name, if pivot\_item\_name exists as part of a group. Otherwise the function returns \#N/A!.
-  6               Returns TRUE if pivot\_item\_name is a member of a group which is currently expanded to show detail. Returns FALSE if pivot\_item\_name is a member of a group currently collapsed to hide detail. If pivot\_item\_name is not a member of a group, the function returns \#N/A!.
-  7               Returns TRUE if pivot\_item\_name is expanded to show detail. Returns FALSE if pivot\_item\_name is collapsed to hide detail.
-  8               Returns TRUE if the item pivot\_item\_name is currently visible, FALSE if it is hidden.
-  9               Returns the name of the item as it appeared in the original at a source. This will differ from the current item name only if the user changes the name of the item after creating the PivotTable report.
-  --------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|               |                                                                                                                                                                                                                                                                                   |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type\_num** | **Information**                                                                                                                                                                                                                                                                   |
+| 1             | Returns the position of the item in its field. Returns \#N/A if pivot\_field\_name is a data field. Returns \#N/A\! if the item is hidden.                                                                                                                                        |
+| 2             | Returns the reference to all the cells in the PivotTable header currently containing pivot\_item\_name. This reference is returned as text. If pivot\_item\_name is currently not showing in the PivotTable report, \#N/A\! is returned.                                          |
+| 3             | Returns the reference to all the data in the PivotTable report which is qualified by pivot\_item\_name. This reference is returned as text. If pivot\_item\_name is currently not showing in the PivotTable report, \#N/A\! is returned.                                          |
+| 4             | Returns an array of text constants representing the children of pivot\_item\_name if pivot\_item\_name is a parent. Otherwise the function returns \#N/A\!.                                                                                                                       |
+| 5             | Returns a text constant representing the parent of pivot\_item\_name, if pivot\_item\_name exists as part of a group. Otherwise the function returns \#N/A\!.                                                                                                                     |
+| 6             | Returns TRUE if pivot\_item\_name is a member of a group which is currently expanded to show detail. Returns FALSE if pivot\_item\_name is a member of a group currently collapsed to hide detail. If pivot\_item\_name is not a member of a group, the function returns \#N/A\!. |
+| 7             | Returns TRUE if pivot\_item\_name is expanded to show detail. Returns FALSE if pivot\_item\_name is collapsed to hide detail.                                                                                                                                                     |
+| 8             | Returns TRUE if the item pivot\_item\_name is currently visible, FALSE if it is hidden.                                                                                                                                                                                           |
+| 9             | Returns the name of the item as it appeared in the original at a source. This will differ from the current item name only if the user changes the name of the item after creating the PivotTable report.                                                                          |
 
 Pivot\_item\_name    is the name of the item that you want information
 about. If there is no item named pivot\_item\_name in the PivotTable
-report, returns \#VALUE!.
+report, returns \#VALUE\!.
 
 Pivot\_field\_name    is the name of the field that you want information
 about. If there is no field named pivot\_field\_name in the PivotTable
-report, returns \#VALUE!.
+report, returns \#VALUE\!.
 
 Pivot\_table\_name    is the name of a PivotTable report containing the
 field that you want information about. If omitted, uses the PivotTable
 report containing the active cell. If the active cell is not in a
-PivotTable report, the \#VALUE! error value is returned.
+PivotTable report, the \#VALUE\! error value is returned.
 
 **Related Functions**
 
@@ -6690,8 +6682,7 @@ GET.PIVOT.TABLE   Returns information about a PivotTable report.
 
 Return to [top](#E)
 
-GET.PIVOT.TABLE
-===============
+# GET.PIVOT.TABLE
 
 Returns information about a PivotTable report.
 
@@ -6702,117 +6693,106 @@ Returns information about a PivotTable report.
 Type\_num is a value from 1 to 22 that represents a type of information
 you want about a PivotTable report.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Information**                                     |
-+---------------+-----------------------------------------------------+
-| 1             | Returns the name of the person who last updated the |
-|               | PivotTable report, as a text constant.              |
-+---------------+-----------------------------------------------------+
-| 2             | Returns the date the PivotTable report was last     |
-|               | updated, as a serial number.                        |
-+---------------+-----------------------------------------------------+
-| 3             | Returns a horizontal array of text constants        |
-|               | representing all the fields in the PivotTable       |
-|               | report.                                             |
-+---------------+-----------------------------------------------------+
-| 4             | Returns an integer representing the number of       |
-|               | fields in the PivotTable report.                    |
-+---------------+-----------------------------------------------------+
-| 5             | Returns a horizontal array of text constants        |
-|               | representing all the visible fields in the          |
-|               | PivotTable report (rows, columns, pages or data)    |
-+---------------+-----------------------------------------------------+
-| 6             | Returns a horizontal array of text constants        |
-|               | representing all the hidden fields in the           |
-|               | PivotTable report. Return \#N/A if no hidden        |
-|               | fields.                                             |
-+---------------+-----------------------------------------------------+
-| 7             | Returns a horizontal array of text constants        |
-|               | representing the names of all the fields currently  |
-|               | showing in the PivotTable report as row fields.     |
-|               | Returns \#N/A if there are no row fields.           |
-+---------------+-----------------------------------------------------+
-| 8             | Returns a horizontal array of text constants        |
-|               | representing all the fields currently showing in    |
-|               | the PivotTable report as column fields. Returns     |
-|               | \#N/A if no column fields exist.                    |
-+---------------+-----------------------------------------------------+
-| 9             | Returns a horizontal array of text constants        |
-|               | representing all the fields currently showing in    |
-|               | the PivotTable report as page fields. Return \#N/A  |
-|               | if no page fields exist.                            |
-+---------------+-----------------------------------------------------+
-| 10            | Returns a horizontal array of text constants        |
-|               | representing all the fields currently showing in    |
-|               | the PivotTable report as data fields. Returns \#N/A |
-|               | if there are no data fields.                        |
-+---------------+-----------------------------------------------------+
-| 11            | Returns the smallest rectangular reference which    |
-|               | bounds the PivotTable report and all headers (not   |
-|               | including the page header). This reference is       |
-|               | returned as text.                                   |
-+---------------+-----------------------------------------------------+
-| 12            | Returns the smallest rectangular reference which    |
-|               | bounds the PivotTable report and all headers        |
-|               | (including the page headers). This reference is     |
-|               | returned as text.                                   |
-+---------------+-----------------------------------------------------+
-| 13            | Returns the reference to the row header area as     |
-|               | text. The row header area includes each row field   |
-|               | header along with all the items in each row field.  |
-|               | Returns \#N/A if there are no row headers.          |
-+---------------+-----------------------------------------------------+
-| 14            | Returns the reference to the column header area as  |
-|               | text. The column header area includes each column   |
-|               | field header along with all the items in each       |
-|               | column field. Returns \#N/A if there are no column  |
-|               | headers.                                            |
-+---------------+-----------------------------------------------------+
-| 15            | Returns the reference to the data header area as    |
-|               | text. The data header area includes the data field  |
-|               | header along with all the headers in the data       |
-|               | row/col. Returns \#N/A if there is no data field.   |
-+---------------+-----------------------------------------------------+
-| 16            | Returns a reference to all the page headers as      |
-|               | text.                                               |
-+---------------+-----------------------------------------------------+
-| 17            | Returns the reference to the PivotTable report data |
-|               | area as text.                                       |
-+---------------+-----------------------------------------------------+
-| 18            | Returns TRUE if the PivotTable report is set to     |
-|               | show row grand totals.                              |
-+---------------+-----------------------------------------------------+
-| 19            | Returns TRUE if the PivotTable report is set to     |
-|               | show column grand totals.                           |
-+---------------+-----------------------------------------------------+
-| 20            | Returns TRUE if the user is saving data with the    |
-|               | PivotTable report.                                  |
-+---------------+-----------------------------------------------------+
-| 21            | Returns TRUE if the PivotTable report is set up to  |
-|               | Autoformat on pivoting.                             |
-+---------------+-----------------------------------------------------+
-| 22            | Returns the data source of the PivotTable report.   |
-|               | The kind of information returned depends on the     |
-|               | data source:                                        |
-|               |                                                     |
-|               | If the data source is a Microsoft Excel list or     |
-|               | database, the cell reference is returned as text.   |
-|               |                                                     |
-|               | If the data source is an external data source, then |
-|               | an array is returned. Each row consists of a SQL    |
-|               | connection string with the remaining elements as    |
-|               | the query string broken down into 200 character     |
-|               | segments.                                           |
-|               |                                                     |
-|               | If the data source is Multiple Consolidation        |
-|               | ranges, then a two dimensional array is returned,   |
-|               | each row of which consists of a reference and       |
-|               | associated page field items.                        |
-|               |                                                     |
-|               | If the data source is another PivotTable report,    |
-|               | then one of the above three kinds of information is |
-|               | returned.                                           |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Information</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Returns the name of the person who last updated the PivotTable report, as a text constant.</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Returns the date the PivotTable report was last updated, as a serial number.</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Returns a horizontal array of text constants representing all the fields in the PivotTable report.</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Returns an integer representing the number of fields in the PivotTable report.</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Returns a horizontal array of text constants representing all the visible fields in the PivotTable report (rows, columns, pages or data)</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>Returns a horizontal array of text constants representing all the hidden fields in the PivotTable report. Return #N/A if no hidden fields.</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>Returns a horizontal array of text constants representing the names of all the fields currently showing in the PivotTable report as row fields. Returns #N/A if there are no row fields.</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>Returns a horizontal array of text constants representing all the fields currently showing in the PivotTable report as column fields. Returns #N/A if no column fields exist.</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>Returns a horizontal array of text constants representing all the fields currently showing in the PivotTable report as page fields. Return #N/A if no page fields exist.</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Returns a horizontal array of text constants representing all the fields currently showing in the PivotTable report as data fields. Returns #N/A if there are no data fields.</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>Returns the smallest rectangular reference which bounds the PivotTable report and all headers (not including the page header). This reference is returned as text.</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Returns the smallest rectangular reference which bounds the PivotTable report and all headers (including the page headers). This reference is returned as text.</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>Returns the reference to the row header area as text. The row header area includes each row field header along with all the items in each row field. Returns #N/A if there are no row headers.</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>Returns the reference to the column header area as text. The column header area includes each column field header along with all the items in each column field. Returns #N/A if there are no column headers.</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>Returns the reference to the data header area as text. The data header area includes the data field header along with all the headers in the data row/col. Returns #N/A if there is no data field.</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Returns a reference to all the page headers as text.</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>Returns the reference to the PivotTable report data area as text.</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>Returns TRUE if the PivotTable report is set to show row grand totals.</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>Returns TRUE if the PivotTable report is set to show column grand totals.</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>Returns TRUE if the user is saving data with the PivotTable report.</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>Returns TRUE if the PivotTable report is set up to Autoformat on pivoting.</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td><p>Returns the data source of the PivotTable report. The kind of information returned depends on the data source:</p>
+<p>If the data source is a Microsoft Excel list or database, the cell reference is returned as text.</p>
+<p>If the data source is an external data source, then an array is returned. Each row consists of a SQL connection string with the remaining elements as the query string broken down into 200 character segments.</p>
+<p>If the data source is Multiple Consolidation ranges, then a two dimensional array is returned, each row of which consists of a reference and associated page field items.</p>
+<p>If the data source is another PivotTable report, then one of the above three kinds of information is returned.</p></td>
+</tr>
+</tbody>
+</table>
 
 Pivot\_table\_name    is the name of a PivotTable report containing the
 field that you want information about. If omitted, uses the PivotTable
@@ -6820,7 +6800,7 @@ report containing the active cell.
 
 **Remarks**
 
-Returns \#VALUE! error value when pivot\_table\_name is not a valid
+Returns \#VALUE\! error value when pivot\_table\_name is not a valid
 PivotTable name on the active sheet and the active cell is not within a
 PivotTable report.
 
@@ -6833,8 +6813,7 @@ GET.PIVOT.ITEM   Returns information about a PivotTable report.
 
 Return to [top](#E)
 
-GET.TOOL
-========
+# GET.TOOL
 
 Returns information about a button or buttons on a toolbar. Use GET.TOOL
 to get information about a button to use with functions that add,
@@ -6847,20 +6826,20 @@ delete, or alter buttons.
 Type\_num    specifies what type of information you want GET.TOOL to
 return.
 
-  --------------- --------------------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Returns**
-  1               The button\'s ID number. Gaps are represented by zeros.
-  2               The reference of the macro assigned to the button. If no macro is assigned, GET.TOOL returns the \#N/A error value.
-  3               If the button is down, returns TRUE. If the button is up, returns FALSE.
-  4               If the button is enabled, returns TRUE. If the button is disabled, returns FALSE.
-  5               A logical value indicating the type of the face on the button:
-                  TRUE = bitmap
-                  FALSE = a default button face
-  6               The help\_text reference associated with the custom button. If the button is built-in, returns \#N/A.
-  7               The balloon\_text reference associated with the custom button. If the button is built-in, returns the \#N/A error value.
-  8               The Help context string associated with the custom button.
-  9               The Tip\_text associated with the custom button.
-  --------------- --------------------------------------------------------------------------------------------------------------------------
+|               |                                                                                                                          |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| **Type\_num** | **Returns**                                                                                                              |
+| 1             | The button's ID number. Gaps are represented by zeros.                                                                   |
+| 2             | The reference of the macro assigned to the button. If no macro is assigned, GET.TOOL returns the \#N/A error value.      |
+| 3             | If the button is down, returns TRUE. If the button is up, returns FALSE.                                                 |
+| 4             | If the button is enabled, returns TRUE. If the button is disabled, returns FALSE.                                        |
+| 5             | A logical value indicating the type of the face on the button:                                                           |
+|               | TRUE = bitmap                                                                                                            |
+|               | FALSE = a default button face                                                                                            |
+| 6             | The help\_text reference associated with the custom button. If the button is built-in, returns \#N/A.                    |
+| 7             | The balloon\_text reference associated with the custom button. If the button is built-in, returns the \#N/A error value. |
+| 8             | The Help context string associated with the custom button.                                                               |
+| 9             | The Tip\_text associated with the custom button.                                                                         |
 
 Bar\_id    specifies the number or name of the toolbar for which you
 want information. For detailed information about bar\_id, see ADD.TOOL.
@@ -6874,7 +6853,7 @@ Position starts with 1 at the left side (if horizontal) or at the top
 The following macro formula requests the help text associated with the
 third button in Toolbar2:
 
-GET.TOOL(6, \"Toolbar2\", 3)
+GET.TOOL(6, "Toolbar2", 3)
 
 **Related Functions**
 
@@ -6888,8 +6867,7 @@ GET.TOOLBAR   Retrieves information about a toolbar
 
 Return to [top](#E)
 
-GET.TOOLBAR
-===========
+# GET.TOOLBAR
 
 Returns information about one toolbar or all toolbars. Use GET.TOOLBAR
 to get information about a toolbar to use with functions that add,
@@ -6905,24 +6883,24 @@ visible or hidden toolbars. Otherwise, bar\_id is required, and
 GET.TOOLBAR returns the requested information about the specified
 toolbar.
 
-  --------------- ---------------------------------------------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Returns**
-  1               A horizontal array of all tool IDs on the toolbar, ordered by position. Gaps are represented by zeros.
-  2               Number indicating the horizontal position (x-coordinate) of the toolbar in the docked or floating region. For more information, see SHOW.TOOLBAR.
-  3               Number indicating the vertical position (y-coordinate) of the toolbar in the docked or floating region.
-  4               Number indicating the width of the toolbar in points.
-  5               Number indicating the height of the toolbar in points.
-  6               Number indicating the toolbar location:
-                  1 = Top dock in the workspace
-                  2 = Left dock in the workspace
-                  3 = Right dock in the workspace
-                  4 = Bottom dock in the workspace
-                  5 = Floating
-  7               If the toolbar is visible, returns TRUE. If the toolbar is hidden, returns FALSE.
-  8               An array of toolbar IDs (names or numbers in the bar\_id array) for all toolbars, visible and hidden.
-  9               An array of toolbar IDs (names or numbers in the bar\_id array) for all visible toolbars.
-  10              If the toolbar is visible in full-screen mode, returns TRUE; otherwise, returns FALSE.
-  --------------- ---------------------------------------------------------------------------------------------------------------------------------------------------
+|               |                                                                                                                                                   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type\_num** | **Returns**                                                                                                                                       |
+| 1             | A horizontal array of all tool IDs on the toolbar, ordered by position. Gaps are represented by zeros.                                            |
+| 2             | Number indicating the horizontal position (x-coordinate) of the toolbar in the docked or floating region. For more information, see SHOW.TOOLBAR. |
+| 3             | Number indicating the vertical position (y-coordinate) of the toolbar in the docked or floating region.                                           |
+| 4             | Number indicating the width of the toolbar in points.                                                                                             |
+| 5             | Number indicating the height of the toolbar in points.                                                                                            |
+| 6             | Number indicating the toolbar location:                                                                                                           |
+|               | 1 = Top dock in the workspace                                                                                                                     |
+|               | 2 = Left dock in the workspace                                                                                                                    |
+|               | 3 = Right dock in the workspace                                                                                                                   |
+|               | 4 = Bottom dock in the workspace                                                                                                                  |
+|               | 5 = Floating                                                                                                                                      |
+| 7             | If the toolbar is visible, returns TRUE. If the toolbar is hidden, returns FALSE.                                                                 |
+| 8             | An array of toolbar IDs (names or numbers in the bar\_id array) for all toolbars, visible and hidden.                                             |
+| 9             | An array of toolbar IDs (names or numbers in the bar\_id array) for all visible toolbars.                                                         |
+| 10            | If the toolbar is visible in full-screen mode, returns TRUE; otherwise, returns FALSE.                                                            |
 
 Bar\_id    specifies the number or name of a toolbar for which you want
 information. If type\_num is 8 or 9, Microsoft Excel ignores bar\_id.
@@ -6938,13 +6916,13 @@ Excel returns the position where the toolbar would appear if shown.
 The following macro formula returns information about the width of
 Toolbar1:
 
-GET.TOOLBAR(4, \"Toolbar1\")
+GET.TOOLBAR(4, "Toolbar1")
 
 When the following macro formula is entered as an array with
 CTRL+SHIFT+ENTER, the IDs of all visible toolbars are returned, and the
 array is named All\_Bar\_Ids:
 
-SET.NAME(\"All\_Bar\_Ids\", GET.TOOLBAR(9))
+SET.NAME("All\_Bar\_Ids", GET.TOOLBAR(9))
 
 **Related Functions**
 
@@ -6960,8 +6938,7 @@ SHOW.TOOLBAR   Hides or displays a toolbar
 
 Return to [top](#E)
 
-GET.WINDOW
-==========
+# GET.WINDOW
 
 Returns information about a window. Use GET.WINDOW in a macro that
 requires the status of a window, such as its name, size, position, and
@@ -6975,123 +6952,137 @@ Type\_num    is a number that specifies what type of window information
 you want. The following list shows the possible values of type\_num and
 the corresponding results:
 
-  --------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Returns**
-  1               Name of the workbook and sheet in the window as text. For compatibility with Microsoft Excel version 4.0, if the window contains only a single sheet that has the same name as the workbook without its extension, returns only the name of the book. Otherwise, returns the name of the sheet in the form \"\[Book1\]Sheet1\".
-  2               Number of the window.
-  3               X position, measured in points from the left edge of the workspace (in Microsoft Excel for Windows) or screen (in Microsoft Excel for the Macintosh) to the left edge of the window.
-  4               Y position, measured in points from the bottom edge of the formula bar to the top edge of the window.
-  5               Width, measured in points.
-  6               Height, measured in points.
-  7               If window is hidden, returns TRUE; otherwise, returns FALSE.
-  --------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|               |                                                                                                                                                                                                                                                                                                                               |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type\_num** | **Returns**                                                                                                                                                                                                                                                                                                                   |
+| 1             | Name of the workbook and sheet in the window as text. For compatibility with Microsoft Excel version 4.0, if the window contains only a single sheet that has the same name as the workbook without its extension, returns only the name of the book. Otherwise, returns the name of the sheet in the form "\[Book1\]Sheet1". |
+| 2             | Number of the window.                                                                                                                                                                                                                                                                                                         |
+| 3             | X position, measured in points from the left edge of the workspace (in Microsoft Excel for Windows) or screen (in Microsoft Excel for the Macintosh) to the left edge of the window.                                                                                                                                          |
+| 4             | Y position, measured in points from the bottom edge of the formula bar to the top edge of the window.                                                                                                                                                                                                                         |
+| 5             | Width, measured in points.                                                                                                                                                                                                                                                                                                    |
+| 6             | Height, measured in points.                                                                                                                                                                                                                                                                                                   |
+| 7             | If window is hidden, returns TRUE; otherwise, returns FALSE.                                                                                                                                                                                                                                                                  |
 
 The rest of the values for type\_num apply only to worksheets and macro
 sheets, except where indicated:
 
-  --------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Returns**
-  8               If formulas are displayed, returns TRUE; otherwise, returns FALSE.
-  9               If gridlines are displayed, returns TRUE; otherwise, returns FALSE.
-  10              If row and column headings are displayed, returns TRUE; otherwise, returns FALSE.
-  11              If zeros are displayed, returns TRUE; otherwise, returns FALSE.
-  12              Gridline and heading color as a number in the range 1 to 56, corresponding to the colors in the View tab of the Options dialog box; if color is automatic, returns 0.
-  --------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|               |                                                                                                                                                                       |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type\_num** | **Returns**                                                                                                                                                           |
+| 8             | If formulas are displayed, returns TRUE; otherwise, returns FALSE.                                                                                                    |
+| 9             | If gridlines are displayed, returns TRUE; otherwise, returns FALSE.                                                                                                   |
+| 10            | If row and column headings are displayed, returns TRUE; otherwise, returns FALSE.                                                                                     |
+| 11            | If zeros are displayed, returns TRUE; otherwise, returns FALSE.                                                                                                       |
+| 12            | Gridline and heading color as a number in the range 1 to 56, corresponding to the colors in the View tab of the Options dialog box; if color is automatic, returns 0. |
 
 Values 13 to 16 for type\_num return arrays that specify which rows or
 columns are at the top and left edges of the panes in the window and the
 widths and heights of those panes.
 
--   The first number in the array corresponds to the first pane, the
+  - > The first number in the array corresponds to the first pane, the
     > second number to the second pane, and so on.
 
--   If the edge of the pane occurs at the boundary between rows or
+  - > If the edge of the pane occurs at the boundary between rows or
     > columns, the number returned is an integer.
 
--   If the edge of the pane occurs within a row or column, the number
+  - > If the edge of the pane occurs within a row or column, the number
     > returned has a fractional part that represents the fraction of the
     > row or column visible within the pane.
 
--   The numbers can be used as arguments to the SPLIT function to split
-    > a window at specific locations.
+  - > The numbers can be used as arguments to the SPLIT function to
+    > split a window at specific locations.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 13            | Leftmost column number of each pane, in a           |
-|               | horizontal numeric array                            |
-+---------------+-----------------------------------------------------+
-| 14            | Top row number of each pane, in a horizontal        |
-|               | numeric array.                                      |
-+---------------+-----------------------------------------------------+
-| 15            | Number of columns in each pane, in a horizontal     |
-|               | numeric array.                                      |
-+---------------+-----------------------------------------------------+
-| 16            | Number of rows in each pane, in a horizontal        |
-|               | numeric array.                                      |
-+---------------+-----------------------------------------------------+
-| 17            | Number indicating the active pane:                  |
-|               |                                                     |
-|               | 1 = Upper, left, or upper-left                      |
-|               |                                                     |
-|               | 2 = Right or upper-right                            |
-|               |                                                     |
-|               | 3 = Lower or lower-left                             |
-|               |                                                     |
-|               | 4 = Lower-right                                     |
-+---------------+-----------------------------------------------------+
-| 18            | If window has a vertical split, returns TRUE;       |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 19            | If window has a horizontal split, returns TRUE;     |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 20            | If window is maximized, returns TRUE; otherwise,    |
-|               | returns FALSE.                                      |
-+---------------+-----------------------------------------------------+
-| 21            | Reserved                                            |
-+---------------+-----------------------------------------------------+
-| 22            | If the Outline Symbols check box is selected in the |
-|               | View tab of the Options dialog box, returns TRUE;   |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 23            | Number indicating the size of the window (including |
-|               | charts):                                            |
-|               |                                                     |
-|               | 1 = Restored                                        |
-|               |                                                     |
-|               | 2 = Minimized (displayed as an icon)                |
-|               |                                                     |
-|               | 3 = Maximized                                       |
-+---------------+-----------------------------------------------------+
-| 24            | If panes are frozen on the active window, returns   |
-|               | TRUE; otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 25            | The numeric magnification of the active window (as  |
-|               | a percentage of normal size) as set in the Zoom     |
-|               | dialog box, or 100 if none is specified.            |
-+---------------+-----------------------------------------------------+
-| 26            | Returns TRUE if horizontal scrollbars are displayed |
-|               | in the active window; otherwise, returns FALSE.     |
-+---------------+-----------------------------------------------------+
-| 27            | Returns TRUE if vertical scrollbars are displayed   |
-|               | in the active window; otherwise, returns FALSE.     |
-+---------------+-----------------------------------------------------+
-| 28            | Returns the tab ratio of workbook tabs to           |
-|               | horizontal scrollbar, from 0 to 1. The default is   |
-|               | .6.                                                 |
-+---------------+-----------------------------------------------------+
-| 29            | Returns TRUE if workbook tabs are displayed in the  |
-|               | active window; otherwise, returns FALSE.            |
-+---------------+-----------------------------------------------------+
-| 30            | Returns the title of the active sheet in the window |
-|               | in the form \"\[Book1\]Sheet1\".                    |
-+---------------+-----------------------------------------------------+
-| 31            | Returns the name of a workbook only, without        |
-|               | read/write indicated. For example, if Book1.xls is  |
-|               | read only, then \"Book.xls\" will be returned       |
-|               | without \"\[Read Only\]\" appended.                 |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>Leftmost column number of each pane, in a horizontal numeric array</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>Top row number of each pane, in a horizontal numeric array.</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>Number of columns in each pane, in a horizontal numeric array.</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Number of rows in each pane, in a horizontal numeric array.</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td><p>Number indicating the active pane:</p>
+<p>1 = Upper, left, or upper-left</p>
+<p>2 = Right or upper-right</p>
+<p>3 = Lower or lower-left</p>
+<p>4 = Lower-right</p></td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>If window has a vertical split, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>If window has a horizontal split, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>If window is maximized, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>Reserved</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>If the Outline Symbols check box is selected in the View tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td><p>Number indicating the size of the window (including charts):</p>
+<p>1 = Restored</p>
+<p>2 = Minimized (displayed as an icon)</p>
+<p>3 = Maximized</p></td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>If panes are frozen on the active window, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>The numeric magnification of the active window (as a percentage of normal size) as set in the Zoom dialog box, or 100 if none is specified.</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>Returns TRUE if horizontal scrollbars are displayed in the active window; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>Returns TRUE if vertical scrollbars are displayed in the active window; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>Returns the tab ratio of workbook tabs to horizontal scrollbar, from 0 to 1. The default is .6.</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>Returns TRUE if workbook tabs are displayed in the active window; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>Returns the title of the active sheet in the window in the form "[Book1]Sheet1".</td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>Returns the name of a workbook only, without read/write indicated. For example, if Book1.xls is read only, then "Book.xls" will be returned without "[Read Only]" appended.</td>
+</tr>
+</tbody>
+</table>
 
 Window\_text    is the name that appears in the title bar of the window
 that you want information about. If window\_text is omitted, it is
@@ -7101,7 +7092,7 @@ assumed to be the active window.
 
 If the active window contains the workbook Book1, then:
 
-GET.WINDOW(1) equals \"Book1\"
+GET.WINDOW(1) equals "Book1"
 
 If the title of the active window is Macro1:3, then:
 
@@ -7110,12 +7101,12 @@ GET.WINDOW(2) equals 3
 In Microsoft Excel for Windows, the following macro formula returns the
 gridline and heading color of REPORT.XLS:
 
-GET.WINDOW(12, \"REPORT.XLS\")
+GET.WINDOW(12, "REPORT.XLS")
 
 In Microsoft Excel for the Macintosh, the following macro formula
 returns the gridline and heading color of REPORT MASTER:
 
-GET.WINDOW(12, \"REPORT MASTER\")
+GET.WINDOW(12, "REPORT MASTER")
 
 **Related Functions**
 
@@ -7125,8 +7116,7 @@ GET.WORKSPACE   Returns information about the workspace
 
 Return to [top](#E)
 
-GET.WORKBOOK
-============
+# GET.WORKBOOK
 
 Returns information about a workbook.
 
@@ -7137,141 +7127,169 @@ Returns information about a workbook.
 Type\_num    is a number that specifies what type of workbook
 information you want.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 1             | The names of all sheets in the workbook, as a       |
-|               | horizontal array of text values. Names are returned |
-|               | as \[book\]sheet.                                   |
-+---------------+-----------------------------------------------------+
-| 2             | This will always return the \#N/A error value.      |
-+---------------+-----------------------------------------------------+
-| 3             | The names of the currently selected sheets in the   |
-|               | workbook, as a horizontal array of text values.     |
-+---------------+-----------------------------------------------------+
-| 4             | The number of sheets in the workbook.               |
-+---------------+-----------------------------------------------------+
-| 5             | TRUE if the workbook has a routing slip; otherwise, |
-|               | FALSE.                                              |
-+---------------+-----------------------------------------------------+
-| 6             | The names of all of the workbook routing recipients |
-|               | who have not received the workbook, as a horizontal |
-|               | array of text values.                               |
-+---------------+-----------------------------------------------------+
-| 7             | The subject line for the current routing slip, as   |
-|               | text.                                               |
-+---------------+-----------------------------------------------------+
-| 8             | The message text for the routing slip, as text.     |
-+---------------+-----------------------------------------------------+
-| 9             | If the workbook is to be routed to recipients one   |
-|               | after another, returns 1. If it is to be routed all |
-|               | at once, returns 2.                                 |
-+---------------+-----------------------------------------------------+
-| 10            | TRUE, if the Return When Done check box in the      |
-|               | Routing Slip dialog box is selected; otherwise,     |
-|               | FALSE.                                              |
-+---------------+-----------------------------------------------------+
-| 11            | TRUE, if the current recipient has already          |
-|               | forwarded the current workbook; otherwise, FALSE.   |
-+---------------+-----------------------------------------------------+
-| 12            | TRUE, if the Track Status checkbox in the Routing   |
-|               | Slip dialog box is selected; otherwise, FALSE.      |
-+---------------+-----------------------------------------------------+
-| 13            | Status of the workbook routing slip:                |
-|               |                                                     |
-|               | 0 = Unrouted                                        |
-|               |                                                     |
-|               | 1 = Routing in progress, or the workbook has been   |
-|               | routed to a user                                    |
-|               |                                                     |
-|               | 2 = Routing is finished                             |
-+---------------+-----------------------------------------------------+
-| 14            | TRUE, if the workbook structure is protected;       |
-|               | otherwise, FALSE.                                   |
-+---------------+-----------------------------------------------------+
-| 15            | TRUE, if the workbook windows are protected;        |
-|               | otherwise, FALSE.                                   |
-+---------------+-----------------------------------------------------+
-| 16            | Name of the workbook as text. The workbook name     |
-|               | does not include the drive, directory or folder, or |
-|               | window number.                                      |
-+---------------+-----------------------------------------------------+
-| 17            | TRUE if the workbook is read only; otherwise,       |
-|               | FALSE. This is the equivalent of GET.DOCUMENT(34).  |
-+---------------+-----------------------------------------------------+
-| 18            | TRUE if sheet is write-reserved; otherwise, FALSE.  |
-|               | This is the equivalent of GET.DOCUMENT(35).         |
-+---------------+-----------------------------------------------------+
-| 19            | Name of the user with current write permission for  |
-|               | the workbook. This is the equivalent of             |
-|               | GET.DOCUMENT(36).                                   |
-+---------------+-----------------------------------------------------+
-| 20            | Number corresponding to the file type of the        |
-|               | document as displayed in the Save As dialog box.    |
-|               | This is the equivalent of GET.DOCUMENT(37).         |
-+---------------+-----------------------------------------------------+
-| 21            | TRUE if the Always Create Backup check box is       |
-|               | selected in the Save Options dialog box; otherwise, |
-|               | FALSE. This is the equivalent of GET.DOCUMENT(40).  |
-+---------------+-----------------------------------------------------+
-| 22            | TRUE if the Save External Link Values check box is  |
-|               | selected in the Calculation tab of the Options      |
-|               | dialog box. This is the equivalent of               |
-|               | GET.DOCUMENT(43).                                   |
-+---------------+-----------------------------------------------------+
-| 23            | TRUE if the workbook has a PowerTalk mailer;        |
-|               | otherwise, FALSE. Returns \#N/A if no OCE mailer is |
-|               | installed.                                          |
-+---------------+-----------------------------------------------------+
-| 24            | TRUE if changes have been made to the workbook      |
-|               | since the last time it was saved; FALSE if book is  |
-|               | unchanged (or when closed, will not prompt to be    |
-|               | saved).                                             |
-+---------------+-----------------------------------------------------+
-| 25            | The recipients on the To line of a PowerTalk        |
-|               | mailer, as a horizontal array of text.              |
-+---------------+-----------------------------------------------------+
-| 26            | The recipients on the Cc line of a PowerTalk        |
-|               | mailer, as a horizontal array of text.              |
-+---------------+-----------------------------------------------------+
-| 27            | The recipients on the Bcc line of a PowerTalk       |
-|               | mailer, as a horizontal array of text.              |
-+---------------+-----------------------------------------------------+
-| 28            | The subject of the PowerTalk mailer, as text.       |
-+---------------+-----------------------------------------------------+
-| 29            | The enclosures of the PowerTalk mailer, as a        |
-|               | horizontal array of text.                           |
-+---------------+-----------------------------------------------------+
-| 30            | TRUE, if the PowerTalk mailer has been received     |
-|               | from another user (as opposed to just being added   |
-|               | but not sent). FALSE, if the mailer has not been    |
-|               | received from another user.                         |
-+---------------+-----------------------------------------------------+
-| 31            | The date and time the PowerTalk mailer was sent, as |
-|               | a serial number. Returns the \#N/A error value if   |
-|               | the mailer has not yet been sent.                   |
-+---------------+-----------------------------------------------------+
-| 32            | The sender name of the PowerTalk mailer, as text.   |
-|               | Returns the \#N/A error value if the mailer has not |
-|               | yet been sent.                                      |
-+---------------+-----------------------------------------------------+
-| 33            | The title of the workbook as displayed on the       |
-|               | Summary tab of the Properties dialog box, as text.  |
-+---------------+-----------------------------------------------------+
-| 34            | The subject of the workbook as displayed on the     |
-|               | Summary tab of the Properties dialog box, as text.  |
-+---------------+-----------------------------------------------------+
-| 35            | The author of the workbook as displayed on the      |
-|               | Summary tab of the Properties dialog box, as text.  |
-+---------------+-----------------------------------------------------+
-| 36            | The keywords for the workbook as displayed on the   |
-|               | Summary tab of the Properties dialog box, as text.  |
-+---------------+-----------------------------------------------------+
-| 37            | The comments for the workbook as displayed on the   |
-|               | Summary tab of the Properties dialog box, as text.  |
-+---------------+-----------------------------------------------------+
-| 38            | The name of the active sheet.                       |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>The names of all sheets in the workbook, as a horizontal array of text values. Names are returned as [book]sheet.</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>This will always return the #N/A error value.</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>The names of the currently selected sheets in the workbook, as a horizontal array of text values.</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>The number of sheets in the workbook.</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>TRUE if the workbook has a routing slip; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>The names of all of the workbook routing recipients who have not received the workbook, as a horizontal array of text values.</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>The subject line for the current routing slip, as text.</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>The message text for the routing slip, as text.</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>If the workbook is to be routed to recipients one after another, returns 1. If it is to be routed all at once, returns 2.</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>TRUE, if the Return When Done check box in the Routing Slip dialog box is selected; otherwise, FALSE.</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>TRUE, if the current recipient has already forwarded the current workbook; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>TRUE, if the Track Status checkbox in the Routing Slip dialog box is selected; otherwise, FALSE.</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td><p>Status of the workbook routing slip:</p>
+<p>0 = Unrouted</p>
+<p>1 = Routing in progress, or the workbook has been routed to a user</p>
+<p>2 = Routing is finished</p></td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>TRUE, if the workbook structure is protected; otherwise, FALSE.</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>TRUE, if the workbook windows are protected; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Name of the workbook as text. The workbook name does not include the drive, directory or folder, or window number.</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>TRUE if the workbook is read only; otherwise, FALSE. This is the equivalent of GET.DOCUMENT(34).</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>TRUE if sheet is write-reserved; otherwise, FALSE. This is the equivalent of GET.DOCUMENT(35).</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>Name of the user with current write permission for the workbook. This is the equivalent of GET.DOCUMENT(36).</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>Number corresponding to the file type of the document as displayed in the Save As dialog box. This is the equivalent of GET.DOCUMENT(37).</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>TRUE if the Always Create Backup check box is selected in the Save Options dialog box; otherwise, FALSE. This is the equivalent of GET.DOCUMENT(40).</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>TRUE if the Save External Link Values check box is selected in the Calculation tab of the Options dialog box. This is the equivalent of GET.DOCUMENT(43).</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>TRUE if the workbook has a PowerTalk mailer; otherwise, FALSE. Returns #N/A if no OCE mailer is installed.</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>TRUE if changes have been made to the workbook since the last time it was saved; FALSE if book is unchanged (or when closed, will not prompt to be saved).</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>The recipients on the To line of a PowerTalk mailer, as a horizontal array of text.</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>The recipients on the Cc line of a PowerTalk mailer, as a horizontal array of text.</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>The recipients on the Bcc line of a PowerTalk mailer, as a horizontal array of text.</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>The subject of the PowerTalk mailer, as text.</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>The enclosures of the PowerTalk mailer, as a horizontal array of text.</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>TRUE, if the PowerTalk mailer has been received from another user (as opposed to just being added but not sent). FALSE, if the mailer has not been received from another user.</td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>The date and time the PowerTalk mailer was sent, as a serial number. Returns the #N/A error value if the mailer has not yet been sent.</td>
+</tr>
+<tr class="odd">
+<td>32</td>
+<td>The sender name of the PowerTalk mailer, as text. Returns the #N/A error value if the mailer has not yet been sent.</td>
+</tr>
+<tr class="even">
+<td>33</td>
+<td>The title of the workbook as displayed on the Summary tab of the Properties dialog box, as text.</td>
+</tr>
+<tr class="odd">
+<td>34</td>
+<td>The subject of the workbook as displayed on the Summary tab of the Properties dialog box, as text.</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>The author of the workbook as displayed on the Summary tab of the Properties dialog box, as text.</td>
+</tr>
+<tr class="odd">
+<td>36</td>
+<td>The keywords for the workbook as displayed on the Summary tab of the Properties dialog box, as text.</td>
+</tr>
+<tr class="even">
+<td>37</td>
+<td>The comments for the workbook as displayed on the Summary tab of the Properties dialog box, as text.</td>
+</tr>
+<tr class="odd">
+<td>38</td>
+<td>The name of the active sheet.</td>
+</tr>
+</tbody>
+</table>
 
 Name\_text    is the name of an open workbook. If name\_text is omitted,
 it is assumed to be the active workbook.
@@ -7281,7 +7299,7 @@ it is assumed to be the active workbook.
 The following macro formula returns the name of the active sheet in the
 workbook named SALES.XLS:
 
-GET.WORKBOOK(38, \"SALES.XLS\")
+GET.WORKBOOK(38, "SALES.XLS")
 
 **Related Functions**
 
@@ -7291,8 +7309,7 @@ WORKBOOK.SELECT   Selects the specified documents in a workbook
 
 Return to [top](#E)
 
-GET.WORKSPACE
-=============
+# GET.WORKSPACE
 
 Returns information about the workspace. Use GET.WORKSPACE in a macro
 that depends on the status of the workspace, such as the environment,
@@ -7306,407 +7323,408 @@ Type\_num    is a number specifying the type of workspace information
 you want. The following list shows the type\_num values and their
 corresponding results.
 
-+---------------+-----------------------------------------------------+
-| **Type\_num** | **Returns**                                         |
-+---------------+-----------------------------------------------------+
-| 1             | Name of the environment in which Microsoft Excel is |
-|               | running, as text, followed by the environment\'s    |
-|               | version number.                                     |
-+---------------+-----------------------------------------------------+
-| 2             | The version number of Microsoft Excel, as text (for |
-|               | example, \"5.0\").                                  |
-+---------------+-----------------------------------------------------+
-| 3             | If fixed decimals are set, returns the number of    |
-|               | decimals; otherwise, returns 0.                     |
-+---------------+-----------------------------------------------------+
-| 4             | If in R1C1 mode, returns TRUE; if in A1 mode,       |
-|               | returns FALSE.                                      |
-+---------------+-----------------------------------------------------+
-| 5             | If scroll bars are displayed, returns TRUE;         |
-|               | otherwise, returns FALSE. See also GET.WINDOW(26)   |
-|               | and GET.WINDOW(27).                                 |
-+---------------+-----------------------------------------------------+
-| 6             | If the status bar is displayed, returns TRUE;       |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 7             | If the formula bar is displayed, returns TRUE;      |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 8             | If remote DDE requests are enabled, returns TRUE;   |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 9             | Returns the alternate menu key as text; if no       |
-|               | alternate menu key is set, returns the \#N/A error  |
-|               | value.                                              |
-+---------------+-----------------------------------------------------+
-| 10            | Number indicating special modes:\                   |
-|               | 1 = Data Find\                                      |
-|               | 2 = Copy\                                           |
-|               | 3 = Cut\                                            |
-|               | 4 = Data Entry\                                     |
-|               | 5 = Unused\                                         |
-|               | 6 = Copy and Data Entry\                            |
-|               | 7 = Cut and Data Entry\                             |
-|               | If no special mode is set, returns 0.               |
-+---------------+-----------------------------------------------------+
-| 11            | X position of the Microsoft Excel workspace window, |
-|               | measured in points from the left edge of the screen |
-|               | to the left edge of the window. In Microsoft Excel  |
-|               | for the Macintosh, always returns 0.                |
-+---------------+-----------------------------------------------------+
-| 12            | Y position of the Microsoft Excel workspace window, |
-|               | measured in points from the top edge of the screen  |
-|               | to the top edge of the window. In Microsoft Excel   |
-|               | for the Macintosh, always returns 0.                |
-+---------------+-----------------------------------------------------+
-| 13            | Usable workspace width, in points.                  |
-+---------------+-----------------------------------------------------+
-| 14            | Usable workspace height, in points.                 |
-+---------------+-----------------------------------------------------+
-| 15            | Number indicating maximized or minimized status of  |
-|               | Microsoft Excel:\                                   |
-|               | 1 = Neither\                                        |
-|               | 2 = Minimized\                                      |
-|               | 3 = Maximized\                                      |
-|               | Microsoft Excel for the Macintosh always returns 3. |
-+---------------+-----------------------------------------------------+
-| 16            | Amount of memory free (in kilobytes).               |
-+---------------+-----------------------------------------------------+
-| 17            | Total memory available to Microsoft Excel (in       |
-|               | kilobytes).                                         |
-+---------------+-----------------------------------------------------+
-| 18            | If a math coprocessor is present, returns TRUE;     |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 19            | If a mouse is present, returns TRUE; otherwise,     |
-|               | returns FALSE. In Microsoft Excel for the           |
-|               | Macintosh, always returns TRUE.                     |
-+---------------+-----------------------------------------------------+
-| 20            | If a group is present in the workspace, returns a   |
-|               | horizontal array of sheets in the group; otherwise  |
-|               | returns the \#N/A error value.                      |
-+---------------+-----------------------------------------------------+
-| 21            | If the Standard toolbar is displayed, returns TRUE; |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 22            | DDE-application-specific error code.                |
-+---------------+-----------------------------------------------------+
-| 23            | Full path of the default startup directory or       |
-|               | folder.                                             |
-+---------------+-----------------------------------------------------+
-| 24            | Full path of the alternate startup directory or     |
-|               | folder; returns the \#N/A error value if no         |
-|               | alternate path has been specified.                  |
-+---------------+-----------------------------------------------------+
-| 25            | If Microsoft Excel is set for relative recording,   |
-|               | returns TRUE; if set for absolute recording,        |
-|               | returns FALSE.                                      |
-+---------------+-----------------------------------------------------+
-| 26            | Name of user.                                       |
-+---------------+-----------------------------------------------------+
-| 27            | Name of organization.                               |
-+---------------+-----------------------------------------------------+
-| 28            | If Microsoft Excel menus are switched to by the     |
-|               | transition menu or help key, returns 1; if Lotus    |
-|               | 1-2-3 Help is switched to, returns 2.               |
-+---------------+-----------------------------------------------------+
-| 29            | If transition navigation keys are enabled, returns  |
-|               | TRUE.                                               |
-+---------------+-----------------------------------------------------+
-| 30            | A nine-item horizontal array of global (default)    |
-|               | print settings that can be set by the LINE.PRINT    |
-|               | function:                                           |
-|               |                                                     |
-|               | Setup text                                          |
-|               |                                                     |
-|               | Left margin                                         |
-|               |                                                     |
-|               | Right margin                                        |
-|               |                                                     |
-|               | Top margin                                          |
-|               |                                                     |
-|               | Bottom margin                                       |
-|               |                                                     |
-|               | Page length                                         |
-|               |                                                     |
-|               | Logical value indicating whether to wait after      |
-|               | printing each page (TRUE) or use continuous form    |
-|               | feeding (FALSE)                                     |
-|               |                                                     |
-|               | Logical value indicating whether the printer has    |
-|               | automatic line feeding (TRUE) or requires line feed |
-|               | characters (FALSE)                                  |
-|               |                                                     |
-|               | The number of the printer port                      |
-+---------------+-----------------------------------------------------+
-| 31            | If a currently running macro is in single step      |
-|               | mode, returns TRUE; otherwise, returns FALSE.       |
-+---------------+-----------------------------------------------------+
-| 32            | The current location of Microsoft Excel as a        |
-|               | complete path.                                      |
-+---------------+-----------------------------------------------------+
-| 33            | A horizontal array of the names in the New list, in |
-|               | the order they appear.                              |
-+---------------+-----------------------------------------------------+
-| 34            | A horizontal array of template files (with complete |
-|               | paths) in the New list, in the order they appear    |
-|               | (returns the names of custom template files and the |
-|               | \#N/A error value for built-in document types).     |
-+---------------+-----------------------------------------------------+
-| 35            | If a macro is paused, returns TRUE; FALSE           |
-|               | otherwise.                                          |
-+---------------+-----------------------------------------------------+
-| 36            | If the Allow Cell Drag And Drop check box is        |
-|               | selected in the Edit tab of the Options dialog box  |
-|               | that appears when you click the Options command on  |
-|               | the Tools menu, returns TRUE; otherwise, returns    |
-|               | FALSE.                                              |
-+---------------+-----------------------------------------------------+
-| 37            | A 45-item horizontal array of the items related to  |
-|               | country versions and settings. Use the following    |
-|               | macro formula to return a specific item, where      |
-|               | number is a number in the list below:               |
-|               |                                                     |
-|               | INDEX(GET.WORKSPACE(37), number)                    |
-+---------------+-----------------------------------------------------+
-|               | These values apply to country codes:\               |
-|               | 1 = Number corresponding to the country version of  |
-|               | Microsoft Excel.\                                   |
-|               | 2 = Number corresponding to the current country     |
-|               | setting in the Microsoft Windows Control Panel or   |
-|               | the country number as determined by your Apple      |
-|               | system software                                     |
-+---------------+-----------------------------------------------------+
-|               | These values apply to number separators:\           |
-|               | 3 = Decimal separator\                              |
-|               | 4 = Zero (or 1000) separator\                       |
-|               | 5 = List separator                                  |
-+---------------+-----------------------------------------------------+
-|               | These values apply to R1C1-style references:\       |
-|               | 6 = Row character\                                  |
-|               | 7 = Column character\                               |
-|               | 8 = Lowercase row character\                        |
-|               | 9 = Lowercase column character\                     |
-|               | 10 = Character used instead of the left bracket     |
-|               | (\[)\                                               |
-|               | 11 = Character used instead of the right bracket    |
-|               | (\])                                                |
-+---------------+-----------------------------------------------------+
-|               | These values apply to array characters:\            |
-|               | 12 = Character used instead of the left bracket     |
-|               | ({)\                                                |
-|               | 13 = Character used instead of the right bracket    |
-|               | (})\                                                |
-|               | 14 = Column separator\                              |
-|               | 15 = Row separator\                                 |
-|               | 16 = Alternate array item separator to use if the   |
-|               | current array separator is the same as the decimal  |
-|               | separator                                           |
-+---------------+-----------------------------------------------------+
-|               | These values apply to format code symbols:\         |
-|               | 17 = Date separator\                                |
-|               | 18 = Time separator\                                |
-|               | 19 = Year symbol\                                   |
-|               | 20 = Month symbol\                                  |
-|               | 21 = Day symbol\                                    |
-|               | 22 = Hour symbol\                                   |
-|               | 23 = Minute symbol\                                 |
-|               | 24 = Second symbol\                                 |
-|               | 25 = Currency symbol\                               |
-|               | 26 = \"General\" symbol                             |
-+---------------+-----------------------------------------------------+
-|               | These values apply to format codes:\                |
-|               | 27 = Number of decimal digits to use in currency    |
-|               | formats\                                            |
-|               | 28 = Number indicating the current format for       |
-|               | negative currencies:\                               |
-|               |    0 = (\$currency) or (currency\$)\                |
-|               |    1 = -\$currency or -currency\$\                  |
-|               |    2 = \$-currency or currency-\$\                  |
-|               |    3 = \$currency- or currency\$-\                  |
-|               | where currency is any number and the \$ represents  |
-|               | the current currency symbol.\                       |
-|               | 29 = Number of decimal digits to use in noncurrency |
-|               | number formats\                                     |
-|               | 30 = Number of characters to use in month names\    |
-|               | 31 = Number of characters to use in weekday names\  |
-|               | 32 = Number indicating the date order:\             |
-|               |    0 = Month-Day-Year\                              |
-|               |    1 = Day-Month-Year\                              |
-|               |    2 = Year-Month-Day                               |
-+---------------+-----------------------------------------------------+
-|               | These values apply to logical format values:\       |
-|               | 33 = TRUE if using 24-hour time; FALSE if using     |
-|               | 12-hour time.\                                      |
-|               | 34 = TRUE if not displaying functions in English;   |
-|               | otherwise, returns FALSE.\                          |
-|               | 35 = TRUE if using the metric system; FALSE if      |
-|               | using the English measurement system.\              |
-|               | 36 = TRUE if a space is added before the currency   |
-|               | symbol; otherwise, returns FALSE.\                  |
-|               | 37 = TRUE if currency symbol precedes currency      |
-|               | values; FALSE if it follows currency values.\       |
-|               | 38 = TRUE if using minus sign for negative numbers; |
-|               | FALSE if using parentheses.\                        |
-|               | 39 = TRUE if trailing zeros are displayed for zero  |
-|               | currency values; otherwise, returns FALSE.\         |
-|               | 40 = TRUE if leading zeros are displayed for zero   |
-|               | currency values; otherwise, returns FALSE.\         |
-|               | 41 = TRUE if leading zero is displayed in months    |
-|               | (when months are displayed as numbers); otherwise,  |
-|               | returns FALSE.\                                     |
-|               | 42 = TRUE if leading zero is shown in days (when    |
-|               | days are displayed as numbers); otherwise, returns  |
-|               | FALSE.\                                             |
-|               | 43 = TRUE if using four-digit years; FALSE if using |
-|               | two-digit years.\                                   |
-|               | 44 = TRUE if date order is month-day-year when      |
-|               | displaying dates in long form; FALSE if date order  |
-|               | is day-month-year.\                                 |
-|               | 45 = TRUE if leading zero is shown in the time;     |
-|               | otherwise, returns FALSE.                           |
-+---------------+-----------------------------------------------------+
-| 38            | The number 0, 1, or 2 indicating the type of        |
-|               | error-checking as set by the ERROR function. For    |
-|               | more information, see ERROR.                        |
-+---------------+-----------------------------------------------------+
-| 39            | A reference in R1C1-text form to the currently      |
-|               | defined error-handling macro (set by the ERROR      |
-|               | function), or the \#N/A error value if none is      |
-|               | specified.                                          |
-+---------------+-----------------------------------------------------+
-| 40            | If screen updating is turned on (set by the ECHO    |
-|               | function), returns TRUE; otherwise, returns FALSE.  |
-+---------------+-----------------------------------------------------+
-| 41            | A horizontal array of cell ranges, as R1C1-style    |
-|               | text, that were previously selected with the Go To  |
-|               | command from the Edit menu or the FORMULA.GOTO      |
-|               | macro function. If the book has multiple sheets, or |
-|               | if the single sheet in the workbook is named        |
-|               | differently than the workbook itself, returns names |
-|               | as \[Book\]Sheet.                                   |
-+---------------+-----------------------------------------------------+
-| 42            | If your computer is capable of playing sounds,      |
-|               | returns TRUE; otherwise, returns FALSE.             |
-+---------------+-----------------------------------------------------+
-| 43            | If your computer is capable of recording sounds,    |
-|               | returns TRUE; otherwise, returns FALSE.             |
-+---------------+-----------------------------------------------------+
-| 44            | A three-column array of all currently registered    |
-|               | procedures in dynamic link libraries (DLLs). The    |
-|               | first column contains the names of the DLLs that    |
-|               | contain the procedures (in Microsoft Excel for      |
-|               | Windows) or the names of the files that contain the |
-|               | code resources (in Microsoft Excel for the          |
-|               | Macintosh). The second column contains the names of |
-|               | the procedures in the DLLs (in Microsoft Excel for  |
-|               | Windows) or code resources (in Microsoft Excel for  |
-|               | the Macintosh). The third column contains text      |
-|               | strings specifying the data types of the return     |
-|               | values, and the number and data types of the        |
-|               | arguments. For more information about DLLs and code |
-|               | resources and data types, see Using the CALL and    |
-|               | REGISTER functions in Microsoft Excel Help.         |
-+---------------+-----------------------------------------------------+
-| 45            | If Microsoft Windows for Pen Computing is running,  |
-|               | returns TRUE; otherwise, returns FALSE.             |
-+---------------+-----------------------------------------------------+
-| 46            | If the Move Selection After Enter check box is      |
-|               | selected in the Edit tab of the Options dialog box, |
-|               | returns TRUE; otherwise, returns FALSE.             |
-+---------------+-----------------------------------------------------+
-| 47            | Reserved.                                           |
-+---------------+-----------------------------------------------------+
-| 48            | Path to the library subdirectory for Microsoft      |
-|               | Excel, as text.                                     |
-+---------------+-----------------------------------------------------+
-| 49            | MAPI session currently in use, returned as a string |
-|               | of hex digits encoding the mail session value.      |
-+---------------+-----------------------------------------------------+
-| 50            | If the Full Screen mode is on, returns TRUE;        |
-|               | otherwise, FALSE.                                   |
-+---------------+-----------------------------------------------------+
-| 51            | If the formula bar is displayed in Full Screen      |
-|               | mode, returns TRUE; otherwise, FALSE.               |
-+---------------+-----------------------------------------------------+
-| 52            | If the status bar is displayed in Full Screen mode, |
-|               | returns TRUE; otherwise, FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 53            | The name of the topmost custom dialog sheet         |
-|               | currently running in a modal window, or \#N/A if no |
-|               | dialog sheet is currently running.                  |
-+---------------+-----------------------------------------------------+
-| 54            | If the Edit Directly In Cell check box is selected  |
-|               | on the Edit tab in the Options dialog box, returns  |
-|               | TRUE; otherwise, returns FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 55            | TRUE if the Alert Before Overwriting Cells check    |
-|               | box in the Edit tab on Options dialog box is        |
-|               | selected; otherwise, FALSE.                         |
-+---------------+-----------------------------------------------------+
-| 56            | Standard font name in the General tab in the        |
-|               | Options dialog box, as text.                        |
-+---------------+-----------------------------------------------------+
-| 57            | Standard font size in the General tab in the        |
-|               | Options dialog box, as a number                     |
-+---------------+-----------------------------------------------------+
-| 58            | If the Recently Used File list check box in the     |
-|               | General tab on the Options dialog box is selected,  |
-|               | returns TRUE; otherwise, FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 59            | If the Display Old Menus check box in the General   |
-|               | tab on the Options dialog box is selected, returns  |
-|               | TRUE; otherwise, FALSE.                             |
-+---------------+-----------------------------------------------------+
-| 60            | If the Tip Wizard is enabled, returns TRUE;         |
-|               | otherwise, FALSE.                                   |
-+---------------+-----------------------------------------------------+
-| 61            | Number of custom list entries listed in the Custom  |
-|               | Lists tab of the Options dialog box.                |
-+---------------+-----------------------------------------------------+
-| 62            | Returns information about available file            |
-|               | converters.                                         |
-+---------------+-----------------------------------------------------+
-| 63            | Returns the type of mail system in use by Excel:\   |
-|               | 0 = No mail transport detected\                     |
-|               | 1 = MAPI based transport\                           |
-|               | 2 = PowerTalk based transport (Macintosh only)      |
-+---------------+-----------------------------------------------------+
-| 64            | If the Ask To Update Automatic Links check box in   |
-|               | the Edit tab of the Options dialog box is selected, |
-|               | returns TRUE; otherwise, FALSE.                     |
-+---------------+-----------------------------------------------------+
-| 65            | If the Cut, Copy, And Sort Objects With Cells check |
-|               | box in the Edit tab on the Options dialog box is    |
-|               | selected, returns TRUE; otherwise, FALSE.           |
-+---------------+-----------------------------------------------------+
-| 66            | Default number of sheets in a new workbook, as a    |
-|               | number, from the General tab on Options dialog box. |
-+---------------+-----------------------------------------------------+
-| 67            | Default file directory location, as text, from the  |
-|               | General tab in the Options dialog box.              |
-+---------------+-----------------------------------------------------+
-| 68            | If the Show ScreenTips On Toolbars check box in the |
-|               | Options tab in the Customize dialog box is          |
-|               | selected, returns TRUE; otherwise, FALSE.           |
-+---------------+-----------------------------------------------------+
-| 69            | If the Large Icons check box in the Options tab in  |
-|               | the Customize dialog box is selected, returns TRUE; |
-|               | otherwise, FALSE.                                   |
-+---------------+-----------------------------------------------------+
-| 70            | If the Prompt For Workbook Properties check box in  |
-|               | the General tab on the Options dialog box is        |
-|               | selected, returns TRUE; otherwise, FALSE.           |
-+---------------+-----------------------------------------------------+
-| 71            | TRUE if Microsoft Excel is open for in-place object |
-|               | editing (OLE). If FALSE, it is opened normally.     |
-+---------------+-----------------------------------------------------+
-| 72            | TRUE if the Color Toolbars check box is selected in |
-|               | the Toolbars dialog box. FALSE if the Color         |
-|               | Toolbars check box is not selected. This argument   |
-|               | is for compatibility with Microsoft Excel version   |
-|               | 5.0.                                                |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Type_num</strong></td>
+<td><strong>Returns</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Name of the environment in which Microsoft Excel is running, as text, followed by the environment's version number.</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>The version number of Microsoft Excel, as text (for example, "5.0").</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>If fixed decimals are set, returns the number of decimals; otherwise, returns 0.</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>If in R1C1 mode, returns TRUE; if in A1 mode, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>If scroll bars are displayed, returns TRUE; otherwise, returns FALSE. See also GET.WINDOW(26) and GET.WINDOW(27).</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>If the status bar is displayed, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>If the formula bar is displayed, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>If remote DDE requests are enabled, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>Returns the alternate menu key as text; if no alternate menu key is set, returns the #N/A error value.</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>Number indicating special modes:<br />
+1 = Data Find<br />
+2 = Copy<br />
+3 = Cut<br />
+4 = Data Entry<br />
+5 = Unused<br />
+6 = Copy and Data Entry<br />
+7 = Cut and Data Entry<br />
+If no special mode is set, returns 0.</td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>X position of the Microsoft Excel workspace window, measured in points from the left edge of the screen to the left edge of the window. In Microsoft Excel for the Macintosh, always returns 0.</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>Y position of the Microsoft Excel workspace window, measured in points from the top edge of the screen to the top edge of the window. In Microsoft Excel for the Macintosh, always returns 0.</td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>Usable workspace width, in points.</td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>Usable workspace height, in points.</td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>Number indicating maximized or minimized status of Microsoft Excel:<br />
+1 = Neither<br />
+2 = Minimized<br />
+3 = Maximized<br />
+Microsoft Excel for the Macintosh always returns 3.</td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>Amount of memory free (in kilobytes).</td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>Total memory available to Microsoft Excel (in kilobytes).</td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>If a math coprocessor is present, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>If a mouse is present, returns TRUE; otherwise, returns FALSE. In Microsoft Excel for the Macintosh, always returns TRUE.</td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>If a group is present in the workspace, returns a horizontal array of sheets in the group; otherwise returns the #N/A error value.</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>If the Standard toolbar is displayed, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>DDE-application-specific error code.</td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>Full path of the default startup directory or folder.</td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>Full path of the alternate startup directory or folder; returns the #N/A error value if no alternate path has been specified.</td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>If Microsoft Excel is set for relative recording, returns TRUE; if set for absolute recording, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>Name of user.</td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>Name of organization.</td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>If Microsoft Excel menus are switched to by the transition menu or help key, returns 1; if Lotus 1-2-3 Help is switched to, returns 2.</td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>If transition navigation keys are enabled, returns TRUE.</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td><p>A nine-item horizontal array of global (default) print settings that can be set by the LINE.PRINT function:</p>
+<p>Setup text</p>
+<p>Left margin</p>
+<p>Right margin</p>
+<p>Top margin</p>
+<p>Bottom margin</p>
+<p>Page length</p>
+<p>Logical value indicating whether to wait after printing each page (TRUE) or use continuous form feeding (FALSE)</p>
+<p>Logical value indicating whether the printer has automatic line feeding (TRUE) or requires line feed characters (FALSE)</p>
+<p>The number of the printer port</p></td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>If a currently running macro is in single step mode, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>32</td>
+<td>The current location of Microsoft Excel as a complete path.</td>
+</tr>
+<tr class="even">
+<td>33</td>
+<td>A horizontal array of the names in the New list, in the order they appear.</td>
+</tr>
+<tr class="odd">
+<td>34</td>
+<td>A horizontal array of template files (with complete paths) in the New list, in the order they appear (returns the names of custom template files and the #N/A error value for built-in document types).</td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>If a macro is paused, returns TRUE; FALSE otherwise.</td>
+</tr>
+<tr class="odd">
+<td>36</td>
+<td>If the Allow Cell Drag And Drop check box is selected in the Edit tab of the Options dialog box that appears when you click the Options command on the Tools menu, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>37</td>
+<td><p>A 45-item horizontal array of the items related to country versions and settings. Use the following macro formula to return a specific item, where number is a number in the list below:</p>
+<p>INDEX(GET.WORKSPACE(37), number)</p></td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td>These values apply to country codes:<br />
+1 = Number corresponding to the country version of Microsoft Excel.<br />
+2 = Number corresponding to the current country setting in the Microsoft Windows Control Panel or the country number as determined by your Apple system software</td>
+</tr>
+<tr class="even">
+<td> </td>
+<td>These values apply to number separators:<br />
+3 = Decimal separator<br />
+4 = Zero (or 1000) separator<br />
+5 = List separator</td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td>These values apply to R1C1-style references:<br />
+6 = Row character<br />
+7 = Column character<br />
+8 = Lowercase row character<br />
+9 = Lowercase column character<br />
+10 = Character used instead of the left bracket ([)<br />
+11 = Character used instead of the right bracket (])</td>
+</tr>
+<tr class="even">
+<td> </td>
+<td>These values apply to array characters:<br />
+12 = Character used instead of the left bracket ({)<br />
+13 = Character used instead of the right bracket (})<br />
+14 = Column separator<br />
+15 = Row separator<br />
+16 = Alternate array item separator to use if the current array separator is the same as the decimal separator</td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td>These values apply to format code symbols:<br />
+17 = Date separator<br />
+18 = Time separator<br />
+19 = Year symbol<br />
+20 = Month symbol<br />
+21 = Day symbol<br />
+22 = Hour symbol<br />
+23 = Minute symbol<br />
+24 = Second symbol<br />
+25 = Currency symbol<br />
+26 = "General" symbol</td>
+</tr>
+<tr class="even">
+<td> </td>
+<td>These values apply to format codes:<br />
+27 = Number of decimal digits to use in currency formats<br />
+28 = Number indicating the current format for negative currencies:<br />
+   0 = ($currency) or (currency$)<br />
+   1 = -$currency or -currency$<br />
+   2 = $-currency or currency-$<br />
+   3 = $currency- or currency$-<br />
+where currency is any number and the $ represents the current currency symbol.<br />
+29 = Number of decimal digits to use in noncurrency number formats<br />
+30 = Number of characters to use in month names<br />
+31 = Number of characters to use in weekday names<br />
+32 = Number indicating the date order:<br />
+   0 = Month-Day-Year<br />
+   1 = Day-Month-Year<br />
+   2 = Year-Month-Day</td>
+</tr>
+<tr class="odd">
+<td> </td>
+<td>These values apply to logical format values:<br />
+33 = TRUE if using 24-hour time; FALSE if using 12-hour time.<br />
+34 = TRUE if not displaying functions in English; otherwise, returns FALSE.<br />
+35 = TRUE if using the metric system; FALSE if using the English measurement system.<br />
+36 = TRUE if a space is added before the currency symbol; otherwise, returns FALSE.<br />
+37 = TRUE if currency symbol precedes currency values; FALSE if it follows currency values.<br />
+38 = TRUE if using minus sign for negative numbers; FALSE if using parentheses.<br />
+39 = TRUE if trailing zeros are displayed for zero currency values; otherwise, returns FALSE.<br />
+40 = TRUE if leading zeros are displayed for zero currency values; otherwise, returns FALSE.<br />
+41 = TRUE if leading zero is displayed in months (when months are displayed as numbers); otherwise, returns FALSE.<br />
+42 = TRUE if leading zero is shown in days (when days are displayed as numbers); otherwise, returns FALSE.<br />
+43 = TRUE if using four-digit years; FALSE if using two-digit years.<br />
+44 = TRUE if date order is month-day-year when displaying dates in long form; FALSE if date order is day-month-year.<br />
+45 = TRUE if leading zero is shown in the time; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>38</td>
+<td>The number 0, 1, or 2 indicating the type of error-checking as set by the ERROR function. For more information, see ERROR.</td>
+</tr>
+<tr class="odd">
+<td>39</td>
+<td>A reference in R1C1-text form to the currently defined error-handling macro (set by the ERROR function), or the #N/A error value if none is specified.</td>
+</tr>
+<tr class="even">
+<td>40</td>
+<td>If screen updating is turned on (set by the ECHO function), returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>41</td>
+<td>A horizontal array of cell ranges, as R1C1-style text, that were previously selected with the Go To command from the Edit menu or the FORMULA.GOTO macro function. If the book has multiple sheets, or if the single sheet in the workbook is named differently than the workbook itself, returns names as [Book]Sheet.</td>
+</tr>
+<tr class="even">
+<td>42</td>
+<td>If your computer is capable of playing sounds, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>43</td>
+<td>If your computer is capable of recording sounds, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>44</td>
+<td>A three-column array of all currently registered procedures in dynamic link libraries (DLLs). The first column contains the names of the DLLs that contain the procedures (in Microsoft Excel for Windows) or the names of the files that contain the code resources (in Microsoft Excel for the Macintosh). The second column contains the names of the procedures in the DLLs (in Microsoft Excel for Windows) or code resources (in Microsoft Excel for the Macintosh). The third column contains text strings specifying the data types of the return values, and the number and data types of the arguments. For more information about DLLs and code resources and data types, see Using the CALL and REGISTER functions in Microsoft Excel Help.</td>
+</tr>
+<tr class="odd">
+<td>45</td>
+<td>If Microsoft Windows for Pen Computing is running, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="even">
+<td>46</td>
+<td>If the Move Selection After Enter check box is selected in the Edit tab of the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>47</td>
+<td>Reserved.</td>
+</tr>
+<tr class="even">
+<td>48</td>
+<td>Path to the library subdirectory for Microsoft Excel, as text.</td>
+</tr>
+<tr class="odd">
+<td>49</td>
+<td>MAPI session currently in use, returned as a string of hex digits encoding the mail session value.</td>
+</tr>
+<tr class="even">
+<td>50</td>
+<td>If the Full Screen mode is on, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>51</td>
+<td>If the formula bar is displayed in Full Screen mode, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="even">
+<td>52</td>
+<td>If the status bar is displayed in Full Screen mode, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>53</td>
+<td>The name of the topmost custom dialog sheet currently running in a modal window, or #N/A if no dialog sheet is currently running.</td>
+</tr>
+<tr class="even">
+<td>54</td>
+<td>If the Edit Directly In Cell check box is selected on the Edit tab in the Options dialog box, returns TRUE; otherwise, returns FALSE.</td>
+</tr>
+<tr class="odd">
+<td>55</td>
+<td>TRUE if the Alert Before Overwriting Cells check box in the Edit tab on Options dialog box is selected; otherwise, FALSE.</td>
+</tr>
+<tr class="even">
+<td>56</td>
+<td>Standard font name in the General tab in the Options dialog box, as text.</td>
+</tr>
+<tr class="odd">
+<td>57</td>
+<td>Standard font size in the General tab in the Options dialog box, as a number</td>
+</tr>
+<tr class="even">
+<td>58</td>
+<td>If the Recently Used File list check box in the General tab on the Options dialog box is selected, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>59</td>
+<td>If the Display Old Menus check box in the General tab on the Options dialog box is selected, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="even">
+<td>60</td>
+<td>If the Tip Wizard is enabled, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>61</td>
+<td>Number of custom list entries listed in the Custom Lists tab of the Options dialog box.</td>
+</tr>
+<tr class="even">
+<td>62</td>
+<td>Returns information about available file converters.</td>
+</tr>
+<tr class="odd">
+<td>63</td>
+<td>Returns the type of mail system in use by Excel:<br />
+0 = No mail transport detected<br />
+1 = MAPI based transport<br />
+2 = PowerTalk based transport (Macintosh only)</td>
+</tr>
+<tr class="even">
+<td>64</td>
+<td>If the Ask To Update Automatic Links check box in the Edit tab of the Options dialog box is selected, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>65</td>
+<td>If the Cut, Copy, And Sort Objects With Cells check box in the Edit tab on the Options dialog box is selected, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="even">
+<td>66</td>
+<td>Default number of sheets in a new workbook, as a number, from the General tab on Options dialog box.</td>
+</tr>
+<tr class="odd">
+<td>67</td>
+<td>Default file directory location, as text, from the General tab in the Options dialog box.</td>
+</tr>
+<tr class="even">
+<td>68</td>
+<td>If the Show ScreenTips On Toolbars check box in the Options tab in the Customize dialog box is selected, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>69</td>
+<td>If the Large Icons check box in the Options tab in the Customize dialog box is selected, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="even">
+<td>70</td>
+<td>If the Prompt For Workbook Properties check box in the General tab on the Options dialog box is selected, returns TRUE; otherwise, FALSE.</td>
+</tr>
+<tr class="odd">
+<td>71</td>
+<td>TRUE if Microsoft Excel is open for in-place object editing (OLE). If FALSE, it is opened normally.</td>
+</tr>
+<tr class="even">
+<td>72</td>
+<td>TRUE if the Color Toolbars check box is selected in the Toolbars dialog box. FALSE if the Color Toolbars check box is not selected. This argument is for compatibility with Microsoft Excel version 5.0.</td>
+</tr>
+</tbody>
+</table>
 
 **Related Functions**
 
@@ -7716,8 +7734,7 @@ GET.WINDOW   Returns information about a window
 
 Return to [top](#E)
 
-GOAL.SEEK
-=========
+# GOAL.SEEK
 
 Equivalent to clicking the Goal Seek command on the Tools menu.
 Calculates the values necessary to achieve a specific goal. If the goal
@@ -7762,8 +7779,7 @@ SOLVER.SOLVE, and so on.
 
 Return to [top](#E)
 
-GOTO
-====
+# GOTO
 
 Directs a macro to continue running at the upper-left cell of reference.
 Use GOTO to direct macro execution to another cell or a named range.
@@ -7776,7 +7792,7 @@ Reference    is a cell reference or a name that is defined as a
 reference. Reference can be an external reference to another macro
 sheet. If that macro sheet is not open, GOTO displays a message.
 
-**Tip   **It\'s often preferable to use IF, ELSE, ELSE.IF, and END.IF
+**Tip   **It's often preferable to use IF, ELSE, ELSE.IF, and END.IF
 instead of GOTO when you want to perform multiple actions based on a
 condition because the IF method makes your macros more structured.
 
@@ -7785,7 +7801,7 @@ condition because the IF method makes your macros more structured.
 If A1 contains the \#N/A error value, then when the following formula is
 calculated, the macro branches to C3:
 
-IF(ISERROR(\$A\$1), GOTO(\$C\$3))
+IF(ISERROR($A$1), GOTO($C$3))
 
 You can also use macro names with GOTO statements. The following macro
 formula branches macro execution to a macro named Compile:
@@ -7801,8 +7817,7 @@ FORMULA.GOTO   Selects a named area or reference on any open workbook
 
 Return to [top](#E)
 
-GRIDLINES
-=========
+# GRIDLINES
 
 Allows you to turn chart gridlines on and off.
 
@@ -7845,16 +7860,15 @@ only).
 
 Return to [top](#E)
 
-GROUP
-=====
+# GROUP
 
 Creates a single object from several selected objects and returns the
-object identifier of the group (for example, \"Group 5\"). Use GROUP to
+object identifier of the group (for example, "Group 5"). Use GROUP to
 combine a number of objects so that you can move or resize them
 together.
 
 If no object is selected, only one object is selected, or a group is
-already selected, GROUP returns the \#VALUE! error value and interrupts
+already selected, GROUP returns the \#VALUE\! error value and interrupts
 the macro.
 
 **Syntax**

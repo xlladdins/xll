@@ -1,5 +1,4 @@
 DIRECTORY
-=========
 
 Sets the current drive and directory or folder to the specified path and
 returns the name of the new directory or folder as text. Use DIRECTORY
@@ -14,10 +13,10 @@ return a list of files with the FILES function.
 Path\_text    is the drive and directory or folder you want to change
 to.
 
--   If path\_text is not specified, DIRECTORY returns the name of the
+  - > If path\_text is not specified, DIRECTORY returns the name of the
     > current directory or folder as text.
 
--   If path\_text does not specify a drive, the current drive is
+  - > If path\_text does not specify a drive, the current drive is
     > assumed.
 
 >  
@@ -26,26 +25,24 @@ to.
 
 In Microsoft Excel for Windows, the following macro formula sets the
 directory to \\EXCEL\\MODELS on the current drive and returns the value
-\"drive:\\EXCEL\\MODELS\":
+"drive:\\EXCEL\\MODELS":
 
-DIRECTORY(\"\\EXCEL\\MODELS\")
+DIRECTORY("\\EXCEL\\MODELS")
 
 The following macro formula sets the current drive to E and sets the
 directory to \\EXCEL\\MODELS on E. It returns the value
-\"E:\\EXCEL\\MODELS\":
+"E:\\EXCEL\\MODELS":
 
-DIRECTORY(\"E:\\EXCEL\\MODELS\")
+DIRECTORY("E:\\EXCEL\\MODELS")
 
 In Microsoft Excel for the Macintosh, the following macro formula sets
 the folder to HARD DISK: APPS:EXCEL:FINANCIALS and returns the value
-\"HARD DISK:APPS:EXCEL:FINANCIALS\":
+"HARD DISK:APPS:EXCEL:FINANCIALS":
 
-DIRECTORY(\"HARD DISK:APPS:EXCEL:FINANCIALS\")
+DIRECTORY("HARD DISK:APPS:EXCEL:FINANCIALS")
 
 **Related Function**
 
 FILES   Returns the filenames in the specified directory or folder
 
-Return to [top](#A)
 
-DISABLE.INPUT

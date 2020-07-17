@@ -1,5 +1,4 @@
 SET.PREFERRED
-=============
 
 Changes the default format that Microsoft Excel uses when you create a
 new chart or when you format a chart PREFERRED macro function. When you
@@ -12,9 +11,9 @@ the preferred format.
 
 Format    is the name of the format that you want as the default format
 for charts. If omitted, the format of the currently active chart is
-used. If format is \"Built\_in\", then Microsoft Excel will use the
+used. If format is "Built\_in", then Microsoft Excel will use the
 standard, built-in chart as the default. If the chart was created in
-Microsoft Excel version 4.0 and if format is \"PREFERRED\", then the
+Microsoft Excel version 4.0 and if format is "PREFERRED", then the
 preferred chart format used in Microsoft Excel version 4.0 will be used.
 Format is case sensitive.
 
@@ -23,6 +22,4 @@ Format is case sensitive.
 PREFERRED   Changes the format of the active chart to the preferred
 format
 
-Return to [top](#Q)
 
-SET.PRINT.AREA

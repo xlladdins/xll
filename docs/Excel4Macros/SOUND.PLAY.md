@@ -1,5 +1,4 @@
 SOUND.PLAY
-==========
 
 This function should not be used in Microsoft Excel 97 or later because
 sound notes are available only in Microsoft Excel 95 or earlier
@@ -26,14 +25,14 @@ specified, file\_text is ignored.
 Resource    is a number or name given as text specifying a sound
 resource in file\_text that you want to play.
 
--   This argument applies only to Microsoft Excel for the Macintosh.
+  - > This argument applies only to Microsoft Excel for the Macintosh.
 
--   If cell\_ref is specified, resource is ignored.
+  - > If cell\_ref is specified, resource is ignored.
 
--   If resource is omitted, Microsoft Excel uses the first sound
+  - > If resource is omitted, Microsoft Excel uses the first sound
     > resource in the file.
 
--   If the file does not contain a sound resource with the specified
+  - > If the file does not contain a sound resource with the specified
     > name or number, Microsoft Excel halts the macro and displays an
     > error message.
 
@@ -44,6 +43,4 @@ resource in file\_text that you want to play.
 SOUND.NOTE   Records or imports sound into or erases sound from cell
 notes
 
-Return to [top](#Q)
 
-SPELLING

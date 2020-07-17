@@ -1,5 +1,4 @@
 SCENARIO.CELLS
-==============
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 editing the Changing Cells box. Defines the changing cells for a model
@@ -29,6 +28,4 @@ changing\_ref in an extra set of parentheses.
 SCENARIO.EDIT   Equivalent to clicking the Scenarios command on the
 Tools menu and then clicking the Edit button
 
-Return to [top](#Q)
 
-SCENARIO.DELETE

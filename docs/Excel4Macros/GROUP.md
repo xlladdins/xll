@@ -1,13 +1,12 @@
 GROUP
-=====
 
 Creates a single object from several selected objects and returns the
-object identifier of the group (for example, \"Group 5\"). Use GROUP to
+object identifier of the group (for example, "Group 5"). Use GROUP to
 combine a number of objects so that you can move or resize them
 together.
 
 If no object is selected, only one object is selected, or a group is
-already selected, GROUP returns the \#VALUE! error value and interrupts
+already selected, GROUP returns the \#VALUE\! error value and interrupts
 the macro.
 
 **Syntax**
@@ -18,40 +17,34 @@ the macro.
 
 UNGROUP   Separates a grouped object
 
-Return to [top](#E)
-[]{#H .anchor}This document contains reference information on the
-following Excel macro functions:
+<span id="H" class="anchor"></span>This document contains reference
+information on the following Excel macro functions:
 
-H
-=
+# H
 
 [HALT](#halt), [HELP](#help), [HIDE](#hide),
 [HIDE.DIALOG](#hide.dialog), [HIDE.OBJECT](#hide.object),
 [HISTOGRAM](#histogram), [HLINE](#hline), [HPAGE](#hpage),
 [HSCROLL](#hscroll)
 
-I
-=
+# I
 
 [IF](#if), [INITIATE](#initiate), [INPUT](#input), [INSERT](#insert),
 [INSERT.OBJECT](#insert.object), [INSERT.PICTURE](#insert.picture),
 [INSERT.TITLE](#insert.title)
 
-J
-=
+# J
 
 [JUSTIFY](#justify)
 
-L
-=
+# L
 
 [LABEL.PROPERTIES](#label.properties), [LAST.ERROR](#last.error),
 [LEGEND](#legend), [LINE.PRINT](#line.print), [LINK.COMBO](#link.combo),
 [LINK.FORMAT](#link.format), [LINKS](#links),
 [LISTBOX.PROPERTIES](#listbox.properties), [LIST.NAMES](#list.names)
 
-M
-=
+# M
 
 [MACRO.OPTIONS](#macro.options), [MAIL.ADD.MAILER](#mail.add.mailer),
 [MAIL.DELETE.MAILER](#mail.delete.mailer),
@@ -65,14 +58,12 @@ M
 [MERGE.STYLES](#merge.styles), [MESSAGE](#message), [MOVE](#move),
 [MOVEAVG](#moveavg), [MOVE.TOOL](#move.tool)
 
-N
-=
+# N
 
 [NAMES](#names), [NEW](#new), [NEW.WINDOW](#new.window), [NEXT](#next),
 [NOTE](#note)
 
-O
-=
+# O
 
 [OBJECT.PROPERTIES](#object.properties),
 [OBJECT.PROTECTION](#object.protection), [ON.DATA](#on.data),
@@ -90,8 +81,7 @@ O
 [OPTIONS.TRANSITION](#options.transition),
 [OPTIONS.VIEW](#options.view), [OUTLINE](#outline), [OVERLAY](#overlay)
 
-P
-=
+# P
 
 [PAGE.SETUP](#page.setup), [PARSE](#parse), [PASTE](#paste),
 [PASTE.LINK](#paste.link), [PASTE.PICTURE](#paste.picture),
@@ -117,4 +107,3 @@ P
 [PTTESTM](#pttestm), [PTTESTV](#pttestv),
 [PUSHBUTTON.PROPERTIES](#pushbutton.properties)
 
-HALT

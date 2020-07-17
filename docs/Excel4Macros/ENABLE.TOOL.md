@@ -1,5 +1,4 @@
 ENABLE.TOOL
-===========
 
 Enables or disables a button on a toolbar. An enabled button can be
 accessed by the user. Disabled buttons may still be visible but cannot
@@ -29,12 +28,10 @@ Microsoft Excel sounds a tone if you click a disabled button.
 
 The following macro formula enables the fourth button in Toolbar1:
 
-ENABLE.TOOL(\"Toolbar1\", 4, TRUE)
+ENABLE.TOOL("Toolbar1", 4, TRUE)
 
 **Related Function**
 
 GET.TOOL   Returns information about a button or buttons on a toolbar
 
-Return to [top](#E)
 
-END.IF

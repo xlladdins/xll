@@ -1,5 +1,4 @@
 FOURIER
-=======
 
 Performs a Fourier transform.
 
@@ -13,7 +12,7 @@ add-in.
 **FOURIER**?(inprng, outrng, inverse, labels)
 
 Inprng    is the input range. The number of cells in the input range
-must be equal to a power of two (2, 4, 8, 16, \...).
+must be equal to a power of two (2, 4, 8, 16, ...).
 
 Outrng    is the first cell in the output range or the name, as text, of
 a new sheet to contain the output table. If FALSE, blank, or omitted,
@@ -25,10 +24,10 @@ performed.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of inprng contains
+  - > If labels is TRUE, then the first row or column of inprng contains
     > labels.
 
--   If labels is FALSE or omitted, all cells in inprng are considered
+  - > If labels is FALSE or omitted, all cells in inprng are considered
     > data. Microsoft Excel generates appropriate data labels for the
     > output table.
 
@@ -38,6 +37,4 @@ Labels    is a logical value.
 
 SAMPLE   Samples data
 
-Return to [top](#E)
 
-FPOS

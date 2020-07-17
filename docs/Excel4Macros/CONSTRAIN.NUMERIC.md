@@ -1,5 +1,4 @@
 CONSTRAIN.NUMERIC
-=================
 
 Equivalent to pressing the Constrain Numeric button. The Constrain
 Numeric button can be found in the Insert category on the Commands tab
@@ -27,11 +26,9 @@ numeric\_only is omitted, the numeric constraint is toggled.
 When the numeric constraint is on, Microsoft Excel recognizes only the
 following symbols:
 
-0 1 2 3 4 5 6 7 8 9 \$ \# @ % ( ) - + = { } : \< \> , ? \| .
+0 1 2 3 4 5 6 7 8 9 $ \# @ % ( ) - + = { } : \< \> , ? | .
 
-**Tip**   Use GET.WORKSPACE(45) to make sure you\'re running Microsoft
+**Tip**   Use GET.WORKSPACE(45) to make sure you're running Microsoft
 Windows for Pen Computing.
 
-Return to [top](#A)
 
-COPY

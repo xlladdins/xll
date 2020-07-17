@@ -1,5 +1,4 @@
 OPEN.TEXT
-=========
 
 Equivalent to using the Text Import Wizard to open a text file in
 Microsoft Excel.
@@ -8,20 +7,20 @@ Microsoft Excel.
 
 **OPEN.TEXT**(file\_name, file\_origin, start\_row, file\_type,
 text\_qualifier, consecutive\_delim, tab, semicolon, comma, space,
-other, other\_char, {field\_info1; field\_info2;\...})
+other, other\_char, {field\_info1; field\_info2;...})
 
 File\_name    is the full pathname of the text file you want to open.
 
 File\_origin    specifies the operating environment the text file was
 created in.
 
-  ------------------ -------------------------------
-  **File\_origin**   **Operating system**
-  1                  Macintosh
-  2                  Windows (ANSI)
-  3                  MS DOS (PC-8)
-  Omitted            Current operating environment
-  ------------------ -------------------------------
+|                  |                               |
+| ---------------- | ----------------------------- |
+| **File\_origin** | **Operating system**          |
+| 1                | Macintosh                     |
+| 2                | Windows (ANSI)                |
+| 3                | MS DOS (PC-8)                 |
+| Omitted          | Current operating environment |
 
 Start\_row    is a number greater than or equal to one, specifying the
 row in the text file where you want to start importing into Microsoft
@@ -30,25 +29,25 @@ file.
 
 File\_type    specifies the type of delimited text file to import:
 
-  ---------------- ------------------
-  **File\_type**   **Type of file**
-  1 or omitted     Delimited
-  2                Fixed width
-  ---------------- ------------------
+|                |                  |
+| -------------- | ---------------- |
+| **File\_type** | **Type of file** |
+| 1 or omitted   | Delimited        |
+| 2              | Fixed width      |
 
 Text\_qualifier    indicates the character-enclosing text fields in the
 text file:
 
-  --------------------------- ----------------------------
-  **Text\_qualifier value**   **Qualifier**
-  1 or \"                     \" (double quotation mark)
-  2 or \'                     \' (single quotation mark)
-  3 or {None}                 No text qualifier
-  --------------------------- ----------------------------
+|                           |                           |
+| ------------------------- | ------------------------- |
+| **Text\_qualifier value** | **Qualifier**             |
+| 1 or "                    | " (double quotation mark) |
+| 2 or '                    | ' (single quotation mark) |
+| 3 or {None}               | No text qualifier         |
 
 Consecutive\_delim    is a logical value corresponding to the Treat
 Consecutive Delimiters as One check box which, if TRUE, allows
-consecutive delimiters (such as \",,,\") to be treated as a single
+consecutive delimiters (such as ",,,") to be treated as a single
 delimiter. If FALSE, all consecutive delimiters are considered separate
 column breaks.
 
@@ -64,13 +63,11 @@ Other\_char    specifies the custom delimiter to use or FALSE if no
 custom delimiter is used.
 
 Field\_info    is an array which consists of the following elements:
-\"column number, data\_format\", if file\_type is 1; or \"start\_pos,
-data\_format\" if file\_type is 2.
+"column number, data\_format", if file\_type is 1; or "start\_pos,
+data\_format" if file\_type is 2.
 
 **Related Function**
 
 TEXT.TO.COLUMNS   Parses text, as in a text file, into columns of data
 
-Return to [top](#H)
 
-OPTIONS.CALCULATION

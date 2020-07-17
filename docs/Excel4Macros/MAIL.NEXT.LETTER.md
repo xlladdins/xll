@@ -1,5 +1,4 @@
 MAIL.NEXT.LETTER
-================
 
 Equivalent to clicking the Next Letter command on the Mail submenu of
 the File menu. Opens the oldest unread Microsoft Excel workbook from the
@@ -14,8 +13,8 @@ Microsoft Excel and Apple PowerTalk only.
 
 **Remarks**
 
-Returns \#VALUE! on error, and \#N/A if there are no more letters in the
-In Tray to open.
+Returns \#VALUE\! on error, and \#N/A if there are no more letters in
+the In Tray to open.
 
 **Related Functions**
 
@@ -26,6 +25,4 @@ MAIL.DELETE.MAILER   Adds a new PowerTalk mailer to the active workbook
 
 MAIL.ADD.MAILER   Adds a new PowerTalk mailer to the active workbook
 
-Return to [top](#H)
 
-MAIL.REPLY

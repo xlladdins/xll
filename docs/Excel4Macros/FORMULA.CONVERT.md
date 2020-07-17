@@ -1,5 +1,4 @@
 FORMULA.CONVERT
-===============
 
 Changes the style and type of references in a formula between A1 and
 R1C1 and between relative and absolute. Use FORMULA.CONVERT to convert
@@ -27,13 +26,13 @@ To\_ref\_type    is a number from 1 to 4 specifying the reference type
 of the returned formula. If to\_ref\_type is omitted, the reference type
 is not changed.
 
-  ------------------- -------------------------------
-  **To\_ref\_type**   **Reference type returned**
-  1                   Absolute
-  2                   Absolute row, relative column
-  3                   Relative row, absolute column
-  4                   Relative
-  ------------------- -------------------------------
+|                   |                               |
+| ----------------- | ----------------------------- |
+| **To\_ref\_type** | **Reference type returned**   |
+| 1                 | Absolute                      |
+| 2                 | Absolute row, relative column |
+| 3                 | Relative row, absolute column |
+| 4                 | Relative                      |
 
 Rel\_to\_ref    is an absolute reference that specifies what cell the
 relative references are or should be relative to.
@@ -45,13 +44,13 @@ in an INPUT function or custom dialog box into absolute references. The
 following macro formula converts the given formula to an absolute,
 R1C1-style reference:
 
-FORMULA.CONVERT(\"=A1:A10\", TRUE, FALSE, 1) equals \"=R1C1:R10C1\"
+FORMULA.CONVERT("=A1:A10", TRUE, FALSE, 1) equals "=R1C1:R10C1"
 
 The following macro formula converts the references in the given formula
 to relative, A1-style references:
 
-FORMULA.CONVERT(\"=SUM(R10C2:R15C2)\", FALSE, TRUE, 4) equals
-\"=SUM(B10:B15)\"
+FORMULA.CONVERT("=SUM(R10C2:R15C2)", FALSE, TRUE, 4) equals
+"=SUM(B10:B15)"
 
 **Tip**   To put the converted formula into a cell or range of cells,
 use the FORMULA.CONVERT function as the formula\_text argument to the
@@ -66,6 +65,4 @@ FORMULA   Enters values into a cell or range or onto a chart
 
 RELREF   Returns a relative reference
 
-Return to [top](#E)
 
-FORMULA.FILL

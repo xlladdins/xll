@@ -1,5 +1,4 @@
 GOAL.SEEK
-=========
 
 Equivalent to clicking the Goal Seek command on the Tools menu.
 Calculates the values necessary to achieve a specific goal. If the goal
@@ -42,6 +41,4 @@ math equations for optimal values.
 Related functions include the SOLVER functions, such as SOLVER.OPTIONS,
 SOLVER.SOLVE, and so on.
 
-Return to [top](#E)
 
-GOTO

@@ -1,5 +1,4 @@
 TRACER.CLEAR
-============
 
 Equivalent to clicking the Remove All Arrows button on the Auditing
 toolbar on a worksheet. Clears all tracer arrows on the worksheet.
@@ -10,7 +9,7 @@ toolbar on a worksheet. Clears all tracer arrows on the worksheet.
 
 **Remark**
 
-Returns the \#VALUE! error value if not available; for example, the
+Returns the \#VALUE\! error value if not available; for example, the
 selection is something other than worksheet.
 
 **Related Function**
@@ -18,6 +17,4 @@ selection is something other than worksheet.
 TRACER.DISPLAY   Allows tracer arrow to be displayed showing
 relationship among cells
 
-Return to [top](#T)
 
-TRACER.DISPLAY

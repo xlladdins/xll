@@ -1,5 +1,4 @@
 DESCR
-=====
 
 Generates descriptive statistics for data in the input range.
 
@@ -23,22 +22,22 @@ blank, or omitted, places the output table in a new workbook.
 Grouped    is a text character that indicates whether the data in the
 input range is organized by row or column.
 
--   If grouped is \"C\" or omitted, then the data is organized by
+  - > If grouped is "C" or omitted, then the data is organized by
     > column.
 
--   If grouped is \"R\" then the data is organized by row.
+  - > If grouped is "R" then the data is organized by row.
 
 >  
 
 Labels    is a logical value that describes where the labels are located
 in the input range, as shown in the following table:
 
-  ------------------ ------------- ---------------------------------------------------
-  **Labels**         **Grouped**   **Labels are in**
-  TRUE               \"C\"         First row of the input range.
-  TRUE               \"R\"         First column of the input range.
-  FALSE or omitted   (ignored)     No labels. All cells in the input range are data.
-  ------------------ ------------- ---------------------------------------------------
+|                  |             |                                                   |
+| ---------------- | ----------- | ------------------------------------------------- |
+| **Labels**       | **Grouped** | **Labels are in**                                 |
+| TRUE             | "C"         | First row of the input range.                     |
+| TRUE             | "R"         | First column of the input range.                  |
+| FALSE or omitted | (ignored)   | No labels. All cells in the input range are data. |
 
 Summary    is a logical value. If TRUE, DESCR reports the summary
 statistics. If FALSE or omitted, no summary statistics are reported.
@@ -55,6 +54,4 @@ Confid    is the confidence level of the mean. If confid is given, DESCR
 reports the confidence interval for the input range. If confid is
 omitted, the confidence interval is 95%.
 
-Return to [top](#A)
 
-DIALOG.BOX

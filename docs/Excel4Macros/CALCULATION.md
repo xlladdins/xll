@@ -1,5 +1,4 @@
 CALCULATION
-===========
 
 Controls when and how formulas in open workbooks are calculated. This
 function is included for compatibility with Microsoft Excel version 4.0.
@@ -9,7 +8,7 @@ OPTIONS.CALCULATION.
 **Syntax**
 
 **CALCULATION**(**type\_num**, iter, max\_num, max\_change, update,
-precision, date\_1904, calc\_save, save\_values, alt\_exp, alt\_form)\
+precision, date\_1904, calc\_save, save\_values, alt\_exp, alt\_form)  
 **CALCULATION**?(type\_num, iter, max\_num, max\_change, update,
 precision, date\_1904, calc\_save, save\_values, alt\_exp, alt\_form)
 
@@ -20,12 +19,12 @@ Microsoft Excel clears the check box.
 
 Type\_num    is a number from 1 to 3 indicating the type of calculation.
 
-  --------------- -------------------------
-  **Type\_num**   **Type of calculation**
-  1               Automatic
-  2               Automatic except tables
-  3               Manual
-  --------------- -------------------------
+|               |                         |
+| ------------- | ----------------------- |
+| **Type\_num** | **Type of calculation** |
+| 1             | Automatic               |
+| 2             | Automatic except tables |
+| 3             | Manual                  |
 
 Iter    corresponds to the Iteration check box. The default is FALSE.
 
@@ -54,13 +53,13 @@ The default is TRUE.
 Alt\_exp    corresponds to the Transition Formula Evaluation check box
 in the Transition tab of the Options dialog box.
 
--   If alt\_exp is TRUE, Microsoft Excel uses a set of rules compatible
-    > with that of Lotus 1-2-3 when calculating formulas. Text is
-    > treated as 0; TRUE and FALSE are treated as 1 and 0; and certain
-    > characters in database criteria ranges are interpreted the same
-    > way Lotus 1-2-3 interprets them.
+  - > If alt\_exp is TRUE, Microsoft Excel uses a set of rules
+    > compatible with that of Lotus 1-2-3 when calculating formulas.
+    > Text is treated as 0; TRUE and FALSE are treated as 1 and 0; and
+    > certain characters in database criteria ranges are interpreted the
+    > same way Lotus 1-2-3 interprets them.
 
--   If alt\_exp is FALSE or omitted, Microsoft Excel calculates
+  - > If alt\_exp is FALSE or omitted, Microsoft Excel calculates
     > normally.
 
 >  
@@ -68,12 +67,12 @@ in the Transition tab of the Options dialog box.
 Alt\_form    corresponds to the Transition Formula Entry check box in
 the Transition tab of the Options dialog box.
 
--   This argument is available only in Microsoft Excel for Windows.
+  - > This argument is available only in Microsoft Excel for Windows.
 
--   If alt\_form is TRUE, Microsoft Excel accepts formulas entered in
+  - > If alt\_form is TRUE, Microsoft Excel accepts formulas entered in
     > Lotus 1-2-3 style.
 
--   If alt\_form is FALSE or omitted, Microsoft Excel only accepts
+  - > If alt\_form is FALSE or omitted, Microsoft Excel only accepts
     > formulas entered in Microsoft Excel style.
 
 >  
@@ -102,6 +101,4 @@ OPTIONS.CALCULATION   Controls calculation
 
 OPTIONS.TRANSITION   Controls transition options
 
-Return to [top](#A)
 
-CALLER

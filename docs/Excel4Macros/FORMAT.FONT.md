@@ -1,5 +1,4 @@
 FORMAT.FONT
-===========
 
 Equivalent to choosing the Cells command from the Format menu, and then
 selecting Font tab from the Format Cells dialog box. This function is
@@ -79,7 +78,7 @@ prevent the macro from working on Microsoft Excel for Windows, nor does
 their absence prevent it from working on the Macintosh.
 
 Object\_id\_text    identifies the text box you want to format (for
-example, \"Text 1\", \"Text 2\", and so on). You can also use the object
+example, "Text 1", "Text 2", and so on). You can also use the object
 number alone without the text identifier. For compatibility with earlier
 versions of Microsoft Excel. This argument is ignored in Microsoft Excel
 version 5.0 or later.
@@ -95,12 +94,12 @@ at start\_num.
 Backgd    is a number from 1 to 3 specifying which type of background to
 apply to text in a chart.
 
-  ------------ --------------------------------
-  **Backgd**   **Type of background applied**
-  1            Automatic
-  2            Transparent
-  3            Opaque
-  ------------ --------------------------------
+|            |                                |
+| ---------- | ------------------------------ |
+| **Backgd** | **Type of background applied** |
+| 1          | Automatic                      |
+| 2          | Transparent                    |
+| 3          | Opaque                         |
 
 Apply    corresponds to the Apply To All check box. This argument
 applies to data labels only.
@@ -110,9 +109,9 @@ applies to data labels only.
 Some extended TrueType styles do not have corresponding arguments to
 FORMAT.FONT. To access an extended TrueType font style, append the style
 name to the font name in name\_text. For example, the font Taipei can be
-formatted in an upside-down style by specifying \"Taipei Upside-down\"
-as the name\_text argument. For more information about TrueType, see
-your Microsoft Windows documentation.
+formatted in an upside-down style by specifying "Taipei Upside-down" as
+the name\_text argument. For more information about TrueType, see your
+Microsoft Windows documentation.
 
 **Related Functions**
 
@@ -124,6 +123,4 @@ FORMAT.NUMBER   Applies a number format to the selection
 
 FORMAT.TEXT   Formats a worksheet text box or a chart text item
 
-Return to [top](#E)
 
-FORMAT.LEGEND

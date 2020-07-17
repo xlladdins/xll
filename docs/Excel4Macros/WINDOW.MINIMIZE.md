@@ -1,5 +1,4 @@
 WINDOW.MINIMIZE
-===============
 
 Shrinks a window to an icon. In Microsoft Excel for Windows, using
 WINDOW.MINIMIZE is equivalent to clicking the minimize button on a
@@ -12,10 +11,10 @@ feature is not supported.
 
 Window\_text    specifies which window to minimize.
 
--   Window\_text is text enclosed in quotation marks or a reference to a
-    > cell containing text.
+  - > Window\_text is text enclosed in quotation marks or a reference to
+    > a cell containing text.
 
--   If window\_text is omitted, Microsoft Excel minimizes the active
+  - > If window\_text is omitted, Microsoft Excel minimizes the active
     > window.
 
 >  
@@ -34,6 +33,4 @@ WINDOW.RESTORE   Restores a window to its previous size
 
 WINDOW.SIZE   Changes the size of a window
 
-Return to [top](#T)
 
-WINDOW.MOVE

@@ -1,5 +1,4 @@
 LISTBOX.PROPERTIES
-==================
 
 Sets the properties of a list box and drop-down controls on a worksheet
 or dialog sheet.
@@ -47,6 +46,4 @@ controls
 
 PUSHBUTTON.PROPERTIES   Sets the properties of the push button control
 
-Return to [top](#H)
 
-LIST.NAMES

@@ -1,5 +1,4 @@
 PAUSE
-=====
 
 Pauses a macro. Use the PAUSE function, instead of clicking the Pause
 button in the Single Step dialog box, as a debugging tool when you do
@@ -19,31 +18,31 @@ toolbar.
 
 **Remarks**
 
--   All commands and tools that are available when no macro is running
+  - > All commands and tools that are available when no macro is running
     > are still available when a macro is paused.
 
--   You can run other macros while a macro is paused, but you can pause
-    > only one macro at a time. If a macro is paused when you run a
-    > second macro containing a PAUSE function, Macro Resume resumes
+  - > You can run other macros while a macro is paused, but you can
+    > pause only one macro at a time. If a macro is paused when you run
+    > a second macro containing a PAUSE function, Macro Resume resumes
     > only the second macro; you cannot resume or return to the first
     > macro automatically.
 
--   PAUSE is ignored in custom worksheet functions, unless you manually
-    > run them by clicking the Run button in the Macro dialog box, which
-    > appears when you click the Macro command on the Tools menu. PAUSE
-    > is also ignored if it\'s placed in a formula for which the resume
-    > behavior would be unclear, such as:
+  - > PAUSE is ignored in custom worksheet functions, unless you
+    > manually run them by clicking the Run button in the Macro dialog
+    > box, which appears when you click the Macro command on the Tools
+    > menu. PAUSE is also ignored if it's placed in a formula for which
+    > the resume behavior would be unclear, such as:
 
--   IF(Cost\<10, AND(PAUSE(),SUM(!\$A\$1:\$A\$4)))
+  - > IF(Cost\<10, AND(PAUSE(),SUM(\!$A$1:$A$4)))
 
--   If one macro runs a second macro that pauses, Microsoft Excel locks
-    > the calling cell in the first macro. If you try to edit this cell,
-    > Microsoft Excel displays an error message.
+  - > If one macro runs a second macro that pauses, Microsoft Excel
+    > locks the calling cell in the first macro. If you try to edit this
+    > cell, Microsoft Excel displays an error message.
 
--   To resume a paused macro, click the Resume Macro button on the
+  - > To resume a paused macro, click the Resume Macro button on the
     > toolbar or run a macro containing a RESUME function.
 
--   If one macro runs a second macro that pauses and you need to halt
+  - > If one macro runs a second macro that pauses and you need to halt
     > only the paused macro, use RESUME(2) instead of HALT. HALT halts
     > all macros and prevents resuming or returning to any macro. For
     > more information, see RESUME.
@@ -67,6 +66,4 @@ RESUME   Resumes a paused macro
 
 STEP   Turns on macro single-stepping
 
-Return to [top](#H)
 
-PIVOT.ADD.DATA

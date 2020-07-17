@@ -1,5 +1,4 @@
 PIVOT.TABLE.WIZARD
-==================
 
 Creates an empty PivotTable report.
 
@@ -14,13 +13,13 @@ col\_grand, save\_data, apply\_auto\_format, autopage)
 Type    is a number specifying the type of source data used to create
 the PivotTable report.
 
-  ----------- ----------------------------------
-  **Value**   **Type of source data**
-  1           Microsoft Excel list or database
-  2           External data source
-  3           Multiple consolidation ranges
-  4           Another PivotTable report
-  ----------- ----------------------------------
+|           |                                  |
+| --------- | -------------------------------- |
+| **Value** | **Type of source data**          |
+| 1         | Microsoft Excel list or database |
+| 2         | External data source             |
+| 3         | Multiple consolidation ranges    |
+| 4         | Another PivotTable report        |
 
 Source    can be one of four things. If type is 1, then source is a cell
 reference or name to the range to be used as the PivotTable source. If
@@ -61,13 +60,13 @@ automatically. If FALSE, the page field must be created manually.
 
 **Remarks**
 
--   The function will return TRUE if successful; otherwise, returns the
-    > \#VALUE! error value.
+  - > The function will return TRUE if successful; otherwise, returns
+    > the \#VALUE\! error value.
 
--   If destination is not a valid Microsoft Excel reference, then
-    > \#VALUE! error value is returned.
+  - > If destination is not a valid Microsoft Excel reference, then
+    > \#VALUE\! error value is returned.
 
--   If name is not a valid PivotTable name, then the \#VALUE! error
+  - > If name is not a valid PivotTable name, then the \#VALUE\! error
     > value is returned.
 
 **Related Functions**
@@ -96,6 +95,4 @@ PIVOT.REFRESH   Refreshes a PivotTable report
 PIVOT.SHOW.PAGES   Creates new sheets in the workbook containing the
 active cell
 
-Return to [top](#H)
 
-PLACEMENT

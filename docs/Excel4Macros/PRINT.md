@@ -1,5 +1,4 @@
 PRINT
-=====
 
 Equivalent to clicking the Print command on the File menu. Prints the
 active workbook.
@@ -19,11 +18,11 @@ color, feed, quality, y\_resolution, selection)
 
 Range\_num    is a number specifying which pages to print.
 
-  ---------------- ----------------------------------------------------------------------------------------
-  **Range\_num**   **Prints the following pages**
-  1                All the pages
-  2                Prints a specified range. If range\_num is 2, then from and to are required arguments.
-  ---------------- ----------------------------------------------------------------------------------------
+|                |                                                                                        |
+| -------------- | -------------------------------------------------------------------------------------- |
+| **Range\_num** | **Prints the following pages**                                                         |
+| 1              | All the pages                                                                          |
+| 2              | Prints a specified range. If range\_num is 2, then from and to are required arguments. |
 
 From    specifies the first page to print. This argument is ignored
 unless range\_num equals 2.
@@ -48,12 +47,12 @@ ignored. This argument will override the setting in the Page Setup
 dialog box. If omitted, the note argument in the Page.Setup function is
 used to determine whether to print notes or not.
 
-  ----------------- ----------------------
-  **Print\_what**   **Prints**
-  1                 Sheet only
-  2                 Notes only
-  3                 Sheet and then notes
-  ----------------- ----------------------
+|                 |                      |
+| --------------- | -------------------- |
+| **Print\_what** | **Prints**           |
+| 1               | Sheet only           |
+| 2               | Notes only           |
+| 3               | Sheet and then notes |
 
 Color    corresponds to the Print Using Color check box. Color is
 available only in Microsoft Excel for the Macintosh. If omitted, the
@@ -62,11 +61,11 @@ setting is not changed.
 Feed    is a number specifying the type of paper feed. Feed is available
 only in Microsoft Excel for the Macintosh.
 
-  -------------- -----------------------------------
-  **Feed**       **Type of paper feed**
-  1 or omitted   Continuous (paper cassette)
-  2              Cut sheet or manual (manual feed)
-  -------------- -----------------------------------
+|              |                                   |
+| ------------ | --------------------------------- |
+| **Feed**     | **Type of paper feed**            |
+| 1 or omitted | Continuous (paper cassette)       |
+| 2            | Cut sheet or manual (manual feed) |
 
 Quality    Specifies the DPI output quality you want. If omitted, the
 corresponding settings in the Page Setup dialog box will be used. If
@@ -82,12 +81,12 @@ the Page Setup dialog box.
 
 Selection    specifies what portion of the sheet to print.
 
-  --------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Selection**   **Portion printed**
-  1               Prints the current selection from all selected sheets. For example, if A1:F40 is selected on the active sheet, A1:F40 will be printed from each of the selected sheets.
-  2               Prints the print area or entire sheet from all selected sheets.
-  3               Prints print area or entire sheet from all sheets in the workbook.
-  --------------- -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|               |                                                                                                                                                                         |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Selection** | **Portion printed**                                                                                                                                                     |
+| 1             | Prints the current selection from all selected sheets. For example, if A1:F40 is selected on the active sheet, A1:F40 will be printed from each of the selected sheets. |
+| 2             | Prints the print area or entire sheet from all selected sheets.                                                                                                         |
+| 3             | Prints print area or entire sheet from all sheets in the workbook.                                                                                                      |
 
 **Related Functions**
 
@@ -104,6 +103,4 @@ SET.PRINT.TITLES   Defines text to print as titles
 DEFINE.NAME   Equivalent to clicking the Define command on the Name
 submenu of the Insert menu
 
-Return to [top](#H)
 
-PRINTER.SETUP

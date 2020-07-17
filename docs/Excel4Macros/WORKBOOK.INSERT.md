@@ -1,5 +1,4 @@
 WORKBOOK.INSERT
-===============
 
 Equivalent to clicking the Worksheet, Chart, or Macro commands on the
 Insert menu. Inserts one or more new sheets into the current workbook.
@@ -12,17 +11,17 @@ Insert menu. Inserts one or more new sheets into the current workbook.
 
 **Type\_num**    specifies the type of sheet to insert.
 
-  --------------- -----------------------------------------------
-  **Type\_num**   **Type of sheet**
-  1               Worksheet
-  2               Chart
-  3               Microsoft Excel 4.0 Macro Sheet
-  4               Microsoft Excel 4.0 International Macro Sheet
-  5               (Reserved)
-  6               Microsoft Excel Visual Basic Module
-  7               Dialog
-  Quoted text     Template
-  --------------- -----------------------------------------------
+|               |                                               |
+| ------------- | --------------------------------------------- |
+| **Type\_num** | **Type of sheet**                             |
+| 1             | Worksheet                                     |
+| 2             | Chart                                         |
+| 3             | Microsoft Excel 4.0 Macro Sheet               |
+| 4             | Microsoft Excel 4.0 International Macro Sheet |
+| 5             | (Reserved)                                    |
+| 6             | Microsoft Excel Visual Basic Module           |
+| 7             | Dialog                                        |
+| Quoted text   | Template                                      |
 
 If omitted, the type of the active sheet is used.
 
@@ -33,12 +32,10 @@ left of the selected group of sheets.
 
 **Remarks**
 
--   The new sheets are always inserted to the left of the current
+  - > The new sheets are always inserted to the left of the current
     > selection.
 
--   If the workbook structure is protected, you cannot insert new
+  - > If the workbook structure is protected, you cannot insert new
     > sheets.
 
-Return to [top](#T)
 
-WORKBOOK.MOVE

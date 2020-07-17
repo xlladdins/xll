@@ -1,5 +1,4 @@
 REMOVE.PAGE.BREAK
-=================
 
 Equivalent to clicking the Remove Page Break command on the Insert menu.
 Removes manual page breaks that you set with the SET.PAGE.BREAK function
@@ -17,6 +16,4 @@ breaks.
 
 SET.PAGE.BREAK   Sets manual page breaks
 
-Return to [top](#Q)
 
-RENAME.COMMAND

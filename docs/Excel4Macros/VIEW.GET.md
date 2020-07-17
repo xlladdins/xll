@@ -1,5 +1,4 @@
 VIEW.GET
-========
 
 Equivalent to displaying a list of views in the Custom Views dialog box,
 which appears when you click the Custom Views command on the View menu.
@@ -17,12 +16,12 @@ versions, you must install the View Manager add-in.
 Type\_num    is a number from 1 to 3 that specifies the type of
 information to return, as shown in the following table.
 
-  --------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Type\_num**   **Result**
-  1               Returns an array of views from all the sheets in the active workbook or the \#N/A error value if none are defined.
-  2               Returns TRUE if print settings are included in the specified view. Returns FALSE if print settings are not included. Returns the \#VALUE! error value if the name is invalid or the workbook is protected.
-  3               Returns TRUE if row and column settings are included in the specified view. Returns FALSE if row and column settings are not included. Returns the \#VALUE! error value if the name is invalid or the workbook is protected.
-  --------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|               |                                                                                                                                                                                                                               |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type\_num** | **Result**                                                                                                                                                                                                                    |
+| 1             | Returns an array of views from all the sheets in the active workbook or the \#N/A error value if none are defined.                                                                                                            |
+| 2             | Returns TRUE if print settings are included in the specified view. Returns FALSE if print settings are not included. Returns the \#VALUE\! error value if the name is invalid or the workbook is protected.                   |
+| 3             | Returns TRUE if row and column settings are included in the specified view. Returns FALSE if row and column settings are not included. Returns the \#VALUE\! error value if the name is invalid or the workbook is protected. |
 
 View\_name    is text enclosed in quotation marks and specifies the name
 of a view in the active workbook. View\_name is required if type\_num is
@@ -43,6 +42,4 @@ VIEW.DELETE   Removes a view from the active workbook
 
 VIEW.SHOW   Shows a view
 
-Return to [top](#T)
 
-VIEW.SHOW

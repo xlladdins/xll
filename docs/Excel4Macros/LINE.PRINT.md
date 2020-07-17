@@ -1,5 +1,4 @@
 LINE.PRINT
-==========
 
 Prints the active worksheet using methods compatible with those of Lotus
 1-2-3. LINE.PRINT does not use the Microsoft Windows printer drivers.
@@ -33,16 +32,16 @@ Command    is a number corresponding to the command you want LINE.PRINT
 to carry out. For syntax 2, command must be 5. For syntax 3, command
 must be 6.
 
-  ------------- -------------------------------------------
-  **Command**   **Command that is carried out**
-  1             Go
-  2             Line
-  3             Page
-  4             Align
-  5             Worksheet settings
-  6             Global settings (saved in EXCEL5.INI)
-  7             Clear (change to current global settings)
-  ------------- -------------------------------------------
+|             |                                           |
+| ----------- | ----------------------------------------- |
+| **Command** | **Command that is carried out**           |
+| 1           | Go                                        |
+| 2           | Line                                      |
+| 3           | Page                                      |
+| 4           | Align                                     |
+| 5           | Worksheet settings                        |
+| 6           | Global settings (saved in EXCEL5.INI)     |
+| 7           | Clear (change to current global settings) |
 
 File    is the name of a file to which you want to print. If omitted,
 Microsoft Excel prints to the printer port determined by the current
@@ -69,7 +68,7 @@ Botmarg    is the size of the bottom margin measured in lines from the
 bottom of the page. If omitted, it is assumed to be 2.
 
 Pglen    is the number of lines on one page. If omitted, it is assumed
-to be 66 (11 inches with 6 lines per inch). If you\'re using an HP
+to be 66 (11 inches with 6 lines per inch). If you're using an HP
 LaserJet or compatible printer, set pglen to 60 (the printer reserves
 six lines).
 
@@ -89,17 +88,17 @@ character after printing each line.
 Port    is a number from 1 to 8 specifying which port to use when
 printing.
 
-  -------------- -----------------------------
-  **Port**       **Port used when printing**
-  1 or omitted   LPT1
-  2              COM1
-  3              LPT2
-  4              COM2
-  5              LPT1
-  6              LPT2
-  7              LPT3
-  8              LPT4
-  -------------- -----------------------------
+|              |                             |
+| ------------ | --------------------------- |
+| **Port**     | **Port used when printing** |
+| 1 or omitted | LPT1                        |
+| 2            | COM1                        |
+| 3            | LPT2                        |
+| 4            | COM2                        |
+| 5            | LPT1                        |
+| 6            | LPT2                        |
+| 7            | LPT3                        |
+| 8            | LPT4                        |
 
 Update    is a logical value specifying whether to update and save
 global settings. If TRUE, the settings are saved in the EXCEL5.INI file;
@@ -121,6 +120,4 @@ LINE.PRINT(1)
 
 PRINT   Prints the active sheet
 
-Return to [top](#H)
 
-LINK.COMBO

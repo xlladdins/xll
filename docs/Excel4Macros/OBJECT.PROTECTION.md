@@ -1,5 +1,4 @@
 OBJECT.PROTECTION
-=================
 
 Changes the protection status of the selected object.
 
@@ -20,15 +19,15 @@ omitted, text cannot be changed; if FALSE, text can be changed.
 
 **Remarks**
 
--   You cannot lock or unlock an individual object with
+  - > You cannot lock or unlock an individual object with
     > OBJECT.PROTECTION when protection is selected for objects in the
     > Protect Sheet dialog box.
 
--   If an object is not selected, the function returns the \#VALUE!
+  - > If an object is not selected, the function returns the \#VALUE\!
     > error value and halts the macro.
 
--   In order for an object to be protected, you must use the
-    > PROTECT.DOCUMENT(, , , TRUE) function after changing the object\'s
+  - > In order for an object to be protected, you must use the
+    > PROTECT.DOCUMENT(, , , TRUE) function after changing the object's
     > status with OBJECT.PROTECTION.
 
 >  
@@ -39,6 +38,4 @@ PROTECT.DOCUMENT   Controls protection for the active worksheet
 
 WORKBOOK.PROTECT   Controls protection for the active workbook
 
-Return to [top](#H)
 
-ON.DATA

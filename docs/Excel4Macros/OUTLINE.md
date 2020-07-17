@@ -1,5 +1,4 @@
 OUTLINE
-=======
 
 Creates an outline and defines settings for automatically creating
 outlines.
@@ -27,12 +26,12 @@ box.
 Create\_apply    is the number 1 or 2 and corresponds to the Create
 button and the Apply Styles button.
 
-  ------------------- -------------------------------------------------------------------------
-  **Create\_apply**   **Result**
-  1                   Creates an outline with the current settings
-  2                   Applies outlining styles to the selection based on outline levels
-  Omitted             Corresponds to choosing the OK button to set the other outline settings
-  ------------------- -------------------------------------------------------------------------
+|                   |                                                                         |
+| ----------------- | ----------------------------------------------------------------------- |
+| **Create\_apply** | **Result**                                                              |
+| 1                 | Creates an outline with the current settings                            |
+| 2                 | Applies outlining styles to the selection based on outline levels       |
+| Omitted           | Corresponds to choosing the OK button to set the other outline settings |
 
 **Related Functions**
 
@@ -40,6 +39,4 @@ DEMOTE   Demotes the selection in an outline
 
 PROMOTE   Promotes the selection in an outline
 
-Return to [top](#H)
 
-OVERLAY

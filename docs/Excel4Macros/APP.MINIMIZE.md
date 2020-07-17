@@ -1,5 +1,4 @@
 APP.MINIMIZE
-============
 
 Equivalent to clicking the Minimize command on the Control menu for the
 application window. Minimizes the Microsoft Excel window.
@@ -24,6 +23,4 @@ APP.RESTORE   Restores the Microsoft Excel application window
 
 APP.SIZE   Changes the size of the Microsoft Excel application window
 
-Return to [top](#A)
 
-APP.MOVE

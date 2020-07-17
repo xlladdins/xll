@@ -1,5 +1,4 @@
 PIVOT.SHOW.PAGES
-================
 
 Creates new sheets in the workbook containing the active cell. The
 function will iterate through each item in page\_field and create a new
@@ -19,11 +18,11 @@ specified by the name argument.
 
 **Remarks**
 
--   If the function is successful, it returns TRUE; otherwise, it
-    > returns the \#VALUE! error value.
+  - > If the function is successful, it returns TRUE; otherwise, it
+    > returns the \#VALUE\! error value.
 
--   If name is not a valid PivotTable name then the \#VALUE! error value
-    > is returned.
+  - > If name is not a valid PivotTable name then the \#VALUE\! error
+    > value is returned.
 
 **Related Functions**
 
@@ -50,6 +49,4 @@ PIVOT.REFRESH   Refreshes a PivotTable report
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.TABLE.WIZARD

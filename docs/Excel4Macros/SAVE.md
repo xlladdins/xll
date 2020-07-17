@@ -1,5 +1,4 @@
 SAVE
-====
 
 Equivalent to choosing the Save command from the File menu. Saves the
 active workbook.
@@ -21,6 +20,4 @@ type, password, backup file, and location of the workbook
 
 SAVE.WORKBOOK   Saves a workbook
 
-Return to [top](#Q)
 
-SAVE.AS

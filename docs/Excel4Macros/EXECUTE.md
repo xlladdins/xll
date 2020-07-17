@@ -1,5 +1,4 @@
 EXECUTE
-=======
 
 Carries out commands in another program with which you have a dynamic
 data exchange (DDE) link. Use with EXEC, INITIATE, and SEND.KEYS to run
@@ -26,13 +25,13 @@ key\_text in the ON.KEY function.
 If EXECUTE is not successful, it returns one of the following error
 values:
 
-  -------------------- ------------------------------------------------------------------------------------------------------------------
-  **Value returned**   **Situation**
-  \#VALUE!             Channel\_num is not a valid channel number.
-  \#N/A                The program you are accessing is busy.
-  \#DIV/0!             The program you are accessing does not respond after a certain length of time or you have pressed ESC to cancel.
-  \#REF!               The keys specified in execute\_text are refused by the application which you want to access.
-  -------------------- ------------------------------------------------------------------------------------------------------------------
+|                    |                                                                                                                  |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| **Value returned** | **Situation**                                                                                                    |
+| \#VALUE\!          | Channel\_num is not a valid channel number.                                                                      |
+| \#N/A              | The program you are accessing is busy.                                                                           |
+| \#DIV/0\!          | The program you are accessing does not respond after a certain length of time or you have pressed ESC to cancel. |
+| \#REF\!            | The keys specified in execute\_text are refused by the application which you want to access.                     |
 
 **Remarks**
 
@@ -46,7 +45,7 @@ box.
 The following macro formula sends the number 25 and a carriage return to
 the application identified by channel\_num 14:
 
-EXECUTE(14, \"25\~\")
+EXECUTE(14, "25\~")
 
 **Related Functions**
 
@@ -62,6 +61,4 @@ SEND.KEYS   Sends a key sequence to an application
 
 TERMINATE   Closes a channel to another application
 
-Return to [top](#E)
 
-EXPON

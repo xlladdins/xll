@@ -1,5 +1,4 @@
 ADD.TOOLBAR
-===========
 
 Creates a new toolbar with the specified buttons.
 
@@ -26,7 +25,7 @@ SHOW.TOOLBAR to display the toolbar.
 The following macro formula creates Toolbar9 with one button in it. The
 cell range B7:I7 contains tool\_ref.
 
-ADD.TOOLBAR(\"Toolbar9\", B7:I7)
+ADD.TOOLBAR("Toolbar9", B7:I7)
 
 **Related Functions**
 
@@ -40,6 +39,4 @@ RESET.TOOLBAR   Resets a built-in toolbar to its default initial setting
 
 SHOW.TOOLBAR   Hides or displays a toolbar
 
-Return to [top](#A)
 
-ALERT

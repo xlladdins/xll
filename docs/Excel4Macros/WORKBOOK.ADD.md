@@ -1,5 +1,4 @@
 WORKBOOK.ADD
-============
 
 Macro SheetsOnly
 
@@ -26,11 +25,9 @@ within the workbook.
 **Related Functions**
 
 WORKBOOK.MOVE   Moves one or more sheets between workbooks or changes a
-sheet\'s position within a workbook
+sheet's position within a workbook
 
 WORKBOOK.COPY   Copies one or more documents from their current workbook
 to another workbook
 
-Return to [top](#T)
 
-WORKBOOK.COPY

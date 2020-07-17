@@ -1,5 +1,4 @@
 RESTART
-=======
 
 Removes a number of RETURN statements from the stack. When one macro
 calls another, the RETURN statement at the end of the second macro
@@ -14,12 +13,12 @@ Level\_num    is a number specifying the number of previous RETURN
 statements you want to be ignored. If level\_num is omitted, the next
 RETURN statement will halt macro execution.
 
-For example, if the currently running macro has two \"ancestors\" (the
+For example, if the currently running macro has two "ancestors" (the
 current macro was called by one macro that, in turn, was called by
 another macro), using RESTART(1) in the third macro returns control to
 the first calling macro when the RETURN statement is encountered. The
 RESTART(1) formula removes one level of RETURN statements from Microsoft
-Excel\'s memory so that the second macro is skipped.
+Excel's memory so that the second macro is skipped.
 
 **Remarks**
 
@@ -34,6 +33,4 @@ HALT   Stops all macros from running
 
 RETURN   Ends the currently running macro
 
-Return to [top](#Q)
 
-RESULT

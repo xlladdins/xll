@@ -1,7 +1,6 @@
 PTTESTV
-=======
 
-Performs a two-sample Student\'s t-Test, assuming unequal variances.
+Performs a two-sample Student's t-Test, assuming unequal variances.
 
 If this function is not available, you must install the Analysis ToolPak
 add-in.
@@ -22,11 +21,11 @@ blank, or omitted, places the output table in a new workbook.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then labels are in the first row or column of the
-    > input ranges.
+  - > If labels is TRUE, then labels are in the first row or column of
+    > the input ranges.
 
--   If labels is FALSE or omitted, all cells in inprng1 and inprng2 are
-    > considered data. The output table will include default row or
+  - > If labels is FALSE or omitted, all cells in inprng1 and inprng2
+    > are considered data. The output table will include default row or
     > column headings.
 
 >  
@@ -36,11 +35,9 @@ Alpha    is the confidence level for the test. If omitted, alpha is
 
 **Related Functions**
 
-PTTESTM   Performs a paired two-sample Student\'s t-Test for means
+PTTESTM   Performs a paired two-sample Student's t-Test for means
 
-TTESTM   Performs a two-sample Student\'s t-Test for means, assuming
+TTESTM   Performs a two-sample Student's t-Test for means, assuming
 equal variances
 
-Return to [top](#H)
 
-PUSHBUTTON.PROPERTIES

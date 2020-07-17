@@ -1,5 +1,4 @@
 REPORT.PRINT
-============
 
 Equivalent to clicking the Print button in the Report Manager dialog
 box. Prints a report.
@@ -25,8 +24,8 @@ prints the report immediately using existing print settings.
 
 **Remarks**
 
-REPORT.PRINT returns the \#VALUE! error value if report\_name is invalid
-or if the workbook is protected.
+REPORT.PRINT returns the \#VALUE\! error value if report\_name is
+invalid or if the workbook is protected.
 
 **Related Functions**
 
@@ -34,6 +33,4 @@ REPORT.DEFINE   Creates a report
 
 REPORT.DELETE   Removes a report from the active workbook
 
-Return to [top](#Q)
 
-REQUEST

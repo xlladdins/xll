@@ -1,5 +1,4 @@
 SQL.BIND
-========
 
 Specifies where results from a SQL query are placed when they are
 retrieved with SQL.RETRIEVE. If this function is not available, you must
@@ -12,11 +11,11 @@ install the Microsoft ODBC add-in (XLODBC.XLA).
 Connection\_num    is the unique connection ID of the data source for
 which you want to define storage.
 
--   Connection\_num was returned by a previously executed SQL.OPEN
+  - > Connection\_num was returned by a previously executed SQL.OPEN
     > function.
 
--   If connection\_num is not valid, then SQL.BIND returns the \#VALUE!
-    > error value.
+  - > If connection\_num is not valid, then SQL.BIND returns the
+    > \#VALUE\! error value.
 
 >  
 
@@ -37,30 +36,30 @@ arguments.
 
 **Remarks**
 
--   If SQL.BIND is completed successfully then it will return a vertical
-    > array listing the bound columns on the current connection. If
-    > SQL.BIND is unable to bind the result column then it will return
-    > the error value \#N/A. In such a case SQL.BIND will place error
-    > information in memory for the SQL.ERROR function, if such
-    > information is available.
+  - > If SQL.BIND is completed successfully then it will return a
+    > vertical array listing the bound columns on the current
+    > connection. If SQL.BIND is unable to bind the result column then
+    > it will return the error value \#N/A. In such a case SQL.BIND will
+    > place error information in memory for the SQL.ERROR function, if
+    > such information is available.
 
--   SQL.BIND tells the ODBC interface where to place results when they
+  - > SQL.BIND tells the ODBC interface where to place results when they
     > are retrieved using SQL.RETRIEVE. Binding is not necessary but can
     > be useful if you want the results from different columns to be
     > placed in disjoint worksheet locations.
 
--   If bindings are used, SQL.BIND must be called once for each column
+  - > If bindings are used, SQL.BIND must be called once for each column
     > in the result set. If a result column is not bound then it will
     > not be returned. A binding remains valid for as long as
     > connection\_num is open.
 
--   Call SQL.BIND after calling SQL.OPEN and SQL.EXEC.QUERY, but before
-    > calling SQL.RETRIEVE or SQL.RETRIEVE.TO.FILE. Calls to SQL.BIND
-    > will not affect results that have already been retrieved.
+  - > Call SQL.BIND after calling SQL.OPEN and SQL.EXEC.QUERY, but
+    > before calling SQL.RETRIEVE or SQL.RETRIEVE.TO.FILE. Calls to
+    > SQL.BIND will not affect results that have already been retrieved.
 
 **Example**
 
-SQL.BIND(conn1,1,\"\[Book1\]Sheet1!C1\") stores data obtained from the
+SQL.BIND(conn1,1,"\[Book1\]Sheet1\!C1") stores data obtained from the
 data source conn1 on Sheet1 from left to right in cell C1, starting with
 column1.
 
@@ -80,6 +79,4 @@ SQL.CLOSE   Closes a connection to a data source.
 
 SQL.ERROR   Returns detailed error information
 
-Return to [top](#Q)
 
-SQL.CLOSE

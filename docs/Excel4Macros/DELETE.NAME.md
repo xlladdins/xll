@@ -1,5 +1,4 @@
 DELETE.NAME
-===========
 
 Equivalent to clicking the Delete button in the Define Name dialog box,
 which appears when you click the Define command on the Name submenu of
@@ -23,6 +22,4 @@ GET.NAME   Returns the definition of a name
 
 SET.NAME   Defines a name as a value
 
-Return to [top](#A)
 
-DELETE.OVERLAY

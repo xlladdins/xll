@@ -1,5 +1,4 @@
 DATA.FIND
-=========
 
 Equivalent to clicking the Find and Exit Find commands on the Data menu
 in Microsoft Excel version 4.0. Selects records in the database range
@@ -21,6 +20,4 @@ DATA.FIND.NEXT   Finds next matching record in a database
 
 DATA.FIND.PREV   Finds previous matching record in a database
 
-Return to [top](#A)
 
-DATA.FIND.NEXT, DATA.FIND.PREV

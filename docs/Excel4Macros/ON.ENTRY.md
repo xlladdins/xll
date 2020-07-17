@@ -1,5 +1,4 @@
 ON.ENTRY
-========
 
 Runs a macro when you enter data into any cell on the specified sheet.
 
@@ -19,10 +18,10 @@ assigned by previous ON.ENTRY functions are turned off.
 
 **Remarks**
 
--   The macro is run only when you enter data in a cell, not when you
+  - > The macro is run only when you enter data in a cell, not when you
     > use edit commands or macro functions.
 
--   To determine what cell had data entered into it, use a CALLER
+  - > To determine what cell had data entered into it, use a CALLER
     > function in the macro specified by macro\_text.
 
 >  
@@ -33,6 +32,4 @@ ENTER.DATA   Turns Data Entry mode on or off
 
 ON.RECALC   Runs a macro when a workbook is recalculated
 
-Return to [top](#H)
 
-ON.KEY

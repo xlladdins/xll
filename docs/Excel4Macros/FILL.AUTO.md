@@ -1,5 +1,4 @@
 FILL.AUTO
-=========
 
 Equivalent to copying cells or automatically filling a selection by
 dragging the fill selection handle with the mouse (the AutoFill
@@ -17,20 +16,20 @@ selection).
 Copy\_only    is a number specifying whether to copy cells or perform an
 AutoFill operation.
 
-  -------------- ----------------------
-  **Value**      **Result**
-  0 or omitted   Normal AutoFill
-  1 or TRUE      Copy cells
-  2              Copy formats
-  3              Fill values
-  4              Increment
-  5              Increment by day
-  6              Increment by weekday
-  7              Increment by month
-  8              Increment by year
-  9              Linear trend
-  10             Growth trend
-  -------------- ----------------------
+|              |                      |
+| ------------ | -------------------- |
+| **Value**    | **Result**           |
+| 0 or omitted | Normal AutoFill      |
+| 1 or TRUE    | Copy cells           |
+| 2            | Copy formats         |
+| 3            | Fill values          |
+| 4            | Increment            |
+| 5            | Increment by day     |
+| 6            | Increment by weekday |
+| 7            | Increment by month   |
+| 8            | Increment by year    |
+| 9            | Linear trend         |
+| 10           | Growth trend         |
 
 **Related Functions**
 
@@ -38,6 +37,4 @@ COPY   Copies and pastes data or objects
 
 DATA.SERIES   Fills a range of cells with a series of numbers or dates
 
-Return to [top](#E)
 
-FILL.DOWN, FILL.LEFT, FILL.RIGHT, FILL.UP

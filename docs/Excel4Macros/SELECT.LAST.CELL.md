@@ -1,5 +1,4 @@
 SELECT.LAST.CELL
-================
 
 Equivalent to choosing the Special button from the Go To dialog box and
 selecting the Last Cell option. The Go To dialog box appears when you
@@ -15,6 +14,4 @@ or format, or that is referred to in a formula or name.
 
 SELECT.END   Selects the last cell in a range
 
-Return to [top](#Q)
 
-SELECT.LIST.ITEM

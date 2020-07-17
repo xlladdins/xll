@@ -1,5 +1,4 @@
 REMOVE.LIST.ITEM
-================
 
 Removes an item in a list box or drop-down box.
 
@@ -31,6 +30,4 @@ REMOVE.LIST.ITEM(3) removes only the third item
 LISTBOX.PROPERTIES   Sets the properties of a list box and drop-down
 controls on worksheet and dialog sheets
 
-Return to [top](#Q)
 
-REMOVE.PAGE.BREAK

@@ -1,5 +1,4 @@
 SOLVER.OPTIONS
-==============
 
 Equivalent to clicking the Solver command on the Tools menu and then
 clicking the Options button in the Solver Parameters dialog box.
@@ -60,6 +59,4 @@ several orders of magnitude, Solver scales the constraints to similar
 orders of magnitude during computation. If scaling is FALSE, Solver
 calculates normally.
 
-Return to [top](#Q)
 
-SOLVER.RESET

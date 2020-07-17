@@ -1,5 +1,4 @@
 FORMAT.OVERLAY
-==============
 
 Equivalent to clicking the Overlay command on the Format menu in
 Microsoft Excel version 4.0. Formats the overlay chart according to the
@@ -15,17 +14,17 @@ hilo, angle, series\_dist, series\_num, up\_down, series\_line, labels)
 
 Type\_num    is a number specifying the type of chart.
 
-  --------------- --------------
-  **Type\_num**   **Chart**
-  1               Area
-  2               Bar
-  3               Column
-  4               Line
-  5               Pie
-  6               XY (Scatter)
-  11              Radar
-  14              Doughnut
-  --------------- --------------
+|               |              |
+| ------------- | ------------ |
+| **Type\_num** | **Chart**    |
+| 1             | Area         |
+| 2             | Bar          |
+| 3             | Column       |
+| 4             | Line         |
+| 5             | Pie          |
+| 6             | XY (Scatter) |
+| 11            | Radar        |
+| 14            | Doughnut     |
 
 View    is a number specifying one of the views in the Data View box in
 the Overlay dialog box. The view varies depending on the type of chart.
@@ -35,27 +34,27 @@ columns to be positioned. It corresponds to the Overlap box in the
 Overlay dialog box. Overlap is ignored if type\_num is not 2 or 3 (bar
 or column chart).
 
--   If overlap is positive, it specifies the percentage of overlap you
+  - > If overlap is positive, it specifies the percentage of overlap you
     > want for bars or columns. For example, 50 would cause one-half of
     > a bar or column to be covered by an adjacent bar or column.
 
--   If overlap is negative, then bars or columns are separated by the
+  - > If overlap is negative, then bars or columns are separated by the
     > specified percentage of the maximum available distance between any
     > two bars or columns.
 
--   If overlap is omitted, it is assumed to be 0 (bars or columns do not
-    > overlap), or it is unchanged if a value was previously set.
+  - > If overlap is omitted, it is assumed to be 0 (bars or columns do
+    > not overlap), or it is unchanged if a value was previously set.
 
 >  
 
 Gap\_width    is a number from 0 to 500 specifying the space between bar
 or column clusters as a percentage of the width of a bar or column.
 
--   Gap\_width is ignored if type\_num is not 2 or 3 (bar or column
+  - > Gap\_width is ignored if type\_num is not 2 or 3 (bar or column
     > chart).
 
--   If gap\_width is omitted, it is assumed to be 50, or it is unchanged
-    > if a value was previously set.
+  - > If gap\_width is omitted, it is assumed to be 50, or it is
+    > unchanged if a value was previously set.
 
 >  
 
@@ -81,10 +80,10 @@ is assumed to be 0, or it is unchanged if a value was previously set.
 Series\_dist    is the number 1 or 2 and specifies automatic or manual
 series distribution.
 
--   If series\_dist is 1 or omitted, Microsoft Excel uses automatic
+  - > If series\_dist is 1 or omitted, Microsoft Excel uses automatic
     > series distribution.
 
--   If series\_dist is 2, Microsoft Excel uses manual series
+  - > If series\_dist is 2, Microsoft Excel uses manual series
     > distribution, and you must specify which series is first in the
     > distribution by using the series\_num argument.
 
@@ -110,6 +109,4 @@ DELETE.OVERLAY   Deletes the overlay on a chart
 
 FORMAT.CHART   Formats a chart
 
-Return to [top](#E)
 
-FORMAT.SHAPE

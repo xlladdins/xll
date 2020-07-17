@@ -1,5 +1,4 @@
 GRIDLINES
-=========
 
 Allows you to turn chart gridlines on and off.
 
@@ -40,6 +39,4 @@ Z\_minor    corresponds to the Value (Z) Axis: Minor Gridlines check box
 2D\_effect    corresponds to the 2-D Walls and Gridlines check box (3-D
 only).
 
-Return to [top](#E)
 
-GROUP

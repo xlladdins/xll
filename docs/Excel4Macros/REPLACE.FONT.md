@@ -1,5 +1,4 @@
 REPLACE.FONT
-============
 
 Replaces one of the four built-in fonts in Microsoft Excel for Windows
 version 2.1 or earlier with a new font and style. This function is
@@ -16,6 +15,4 @@ underline, strike, color, outline, shadow)
 
 FONT.PROPERTIES   Sets various font attributes
 
-Return to [top](#Q)
 
-REPORT.DEFINE

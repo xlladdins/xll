@@ -1,5 +1,4 @@
 FOR
-===
 
 Starts a FOR-NEXT loop. The instructions between FOR and NEXT are
 repeated until the loop counter reaches a specified value. Use FOR when
@@ -21,35 +20,42 @@ If step\_num is omitted, it is assumed to be 1.
 
 **Remarks**
 
--   Microsoft Excel follows these steps as it executes a FOR-NEXT loop:
+  - > Microsoft Excel follows these steps as it executes a FOR-NEXT
+    > loop:
 
-+----------+----------------------------------------------------------+
-| **Step** | **Action**                                               |
-+----------+----------------------------------------------------------+
-| 1        | Sets counter\_text to the value start\_num.              |
-+----------+----------------------------------------------------------+
-| 2        | If counter\_text is greater than end\_num (or less than  |
-|          | end\_num if step\_num is negative), the loop ends, and   |
-|          | the macro continues with the function after the NEXT     |
-|          | function.                                                |
-|          |                                                          |
-|          | If counter\_text is less than or equal to end\_num (or   |
-|          | greater than or equal to end\_num if step\_num is        |
-|          | negative), the macro continues in the loop.              |
-+----------+----------------------------------------------------------+
-| 3        | Carries out functions up to the following NEXT function. |
-|          | The NEXT function must be below the FOR function and in  |
-|          | the same column.                                         |
-+----------+----------------------------------------------------------+
-| 4        | Adds step\_num to the loop counter.                      |
-+----------+----------------------------------------------------------+
-| 5        | Returns to the FOR function and proceeds as described in |
-|          | step 2.                                                  |
-+----------+----------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><strong>Step</strong></td>
+<td><strong>Action</strong></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Sets counter_text to the value start_num.</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><p>If counter_text is greater than end_num (or less than end_num if step_num is negative), the loop ends, and the macro continues with the function after the NEXT function.</p>
+<p>If counter_text is less than or equal to end_num (or greater than or equal to end_num if step_num is negative), the macro continues in the loop.</p></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Carries out functions up to the following NEXT function. The NEXT function must be below the FOR function and in the same column.</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>Adds step_num to the loop counter.</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>Returns to the FOR function and proceeds as described in step 2.</td>
+</tr>
+</tbody>
+</table>
 
  
 
--   You can interrupt a FOR-NEXT loop by using the BREAK function.
+  - > You can interrupt a FOR-NEXT loop by using the BREAK function.
 
 >  
 
@@ -58,7 +64,7 @@ If step\_num is omitted, it is assumed to be 1.
 The following macro starts a FOR-NEXT loop that is executed once for
 every open window:
 
-FOR(\"Counter\", 1, COLUMNS(WINDOWS()))
+FOR("Counter", 1, COLUMNS(WINDOWS()))
 
 **Related Functions**
 
@@ -70,6 +76,4 @@ NEXT   Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
 WHILE   Starts a WHILE-NEXT loop
 
-Return to [top](#E)
 
-FOR.CELL

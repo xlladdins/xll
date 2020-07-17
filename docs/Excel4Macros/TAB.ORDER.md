@@ -1,5 +1,4 @@
 TAB.ORDER
-=========
 
 This function determines the order in which dialog controls will be
 selected when the user presses the TAB key.
@@ -10,12 +9,12 @@ selected when the user presses the TAB key.
 
 **Remarks**
 
--   This function brings up the Tab Order dialog box and allows the user
-    > to select the order in which buttons will be selected when the TAB
-    > key is pressed.
+  - > This function brings up the Tab Order dialog box and allows the
+    > user to select the order in which buttons will be selected when
+    > the TAB key is pressed.
 
--   The BRING.TO.FRONT and SEND.TO.BACK macro functions can also be used
-    > to programmatically set up the tab order.
+  - > The BRING.TO.FRONT and SEND.TO.BACK macro functions can also be
+    > used to programmatically set up the tab order.
 
 **Related Functions**
 
@@ -25,6 +24,4 @@ objects
 SEND.TO.BACK   Puts the selected object or objects behind all other
 objects
 
-Return to [top](#T)
 
-TERMINATE

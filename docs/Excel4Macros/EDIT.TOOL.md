@@ -1,5 +1,4 @@
 EDIT.TOOL
-=========
 
 Displays the Button Editor dialog box, which you use to change the
 appearance of a button on a toolbar.
@@ -22,6 +21,4 @@ ADD.TOOL   Adds a button to a toolbar
 
 GET.TOOLBAR   Returns information about a toolbar
 
-Return to [top](#E)
 
-ELSE

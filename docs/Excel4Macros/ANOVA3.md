@@ -1,5 +1,4 @@
 ANOVA3
-======
 
 Performs two-factor analysis of variance without replication.
 
@@ -20,10 +19,10 @@ blank, or omitted, places the output table in a new workbook.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row and column of the input range
-    > contain labels.
+  - > If labels is TRUE, then the first row and column of the input
+    > range contain labels.
 
--   If labels is FALSE or omitted, all cells in inprng are considered
+  - > If labels is FALSE or omitted, all cells in inprng are considered
     > data. Microsoft Excel will then generate the appropriate data
     > labels for the output table.
 
@@ -38,6 +37,4 @@ ANOVA1   Performs single-factor analysis of variance
 
 ANOVA2   Performs two-factor analysis of variance with replication
 
-Return to [top](#A)
 
-APP.ACTIVATE

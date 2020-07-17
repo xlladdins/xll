@@ -1,5 +1,4 @@
 CELL.PROTECTION
-===============
 
 Equivalent to choosing the Protection tab in the Format Cells dialog
 box, which appears when you choose the Cells command from the Format
@@ -35,6 +34,4 @@ PROTECT.DOCUMENT   Controls protection for the active sheet
 SAVE.AS   Saves a workbook and allows you to specify the name, file
 type, password, backup file, and location of the workbook
 
-Return to [top](#A)
 
-CHANGE.LINK

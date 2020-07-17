@@ -1,5 +1,4 @@
 SLIDE.EDIT
-==========
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -23,11 +22,11 @@ For a description of the arguments, see SLIDE.PASTE.
 
 **Remarks**
 
--   SLIDE.EDIT returns TRUE if it successfully edits the slide, or FALSE
-    > if you click the Cancel button when using the dialog-box form. If
-    > the active sheet is not a slide show or is protected, SLIDE.EDIT
-    > returns the \#N/A error value. If the current selection is not a
-    > valid slide, SLIDE.EDIT returns the \#VALUE error value.
+  - > SLIDE.EDIT returns TRUE if it successfully edits the slide, or
+    > FALSE if you click the Cancel button when using the dialog-box
+    > form. If the active sheet is not a slide show or is protected,
+    > SLIDE.EDIT returns the \#N/A error value. If the current selection
+    > is not a valid slide, SLIDE.EDIT returns the \#VALUE error value.
 
 >  
 
@@ -35,6 +34,4 @@ For a description of the arguments, see SLIDE.PASTE.
 
 SLIDE.PASTE   Pastes the contents of the Clipboard onto a slide
 
-Return to [top](#Q)
 
-SLIDE.GET

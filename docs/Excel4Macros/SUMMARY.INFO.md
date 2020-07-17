@@ -1,5 +1,4 @@
 SUMMARY.INFO
-============
 
 Equivalent to clicking the Properties command on the File menu.
 Generates the summary information for the active workbook.
@@ -38,12 +37,10 @@ or creation date
 
 GET.WORKBOOK   Returns information about a workbook sheet
 
-Return to [top](#Q)
-[]{#T .anchor}This document contains reference information on the
-following Excel macro functions:
+<span id="T" class="anchor"></span>This document contains reference
+information on the following Excel macro functions:
 
-T
-=
+# T
 
 [TABLE](#table), [TAB.ORDER](#tab.order), [TERMINATE](#terminate),
 [TEXT.BOX](#text.box), [TEXTREF](#textref),
@@ -51,15 +48,13 @@ T
 [TRACER.DISPLAY](#tracer.display), [TRACER.ERROR](#tracer.error),
 [TRACER.NAVIGATE](#tracer.navigate), [TTESTM](#ttestm)
 
-U
-=
+# U
 
 [UNDO](#undo), [UNGROUP](#ungroup), [UNHIDE](#unhide), [UNLOCKED.NEXT,
 UNLOCKED.PREV](#unlocked.next-unlocked.prev), [UNREGISTER](#unregister),
 [UPDATE.LINK](#update.link)
 
-V
-=
+# V
 
 [VBA.INSERT.FILE](#vba.insert.file), [VBA.MAKE.ADDIN](#vba.make.addin),
 [VIEW.3D](#view.3d), [VIEW.DEFINE](#view.define),
@@ -67,8 +62,7 @@ V
 [VIEW.SHOW](#view.show), [VLINE](#vline), [VOLATILE](#volatile),
 [VPAGE](#vpage), [VSCROLL](#vscroll)
 
-W
-=
+# W
 
 [WAIT](#wait), [WHILE](#while), [WINDOW.MAXIMIZE](#window.maximize),
 [WINDOW.MINIMIZE](#window.minimize), [WINDOW.MOVE](#window.move),
@@ -87,9 +81,7 @@ W
 [WORKBOOK.UNHIDE](#workbook.unhide), [WORKGROUP](#workgroup),
 [WORKSPACE](#workspace)
 
-Z
-=
+# Z
 
 [ZOOM](#zoom), [ZTESTM](#ztestm)
 
-TABLE

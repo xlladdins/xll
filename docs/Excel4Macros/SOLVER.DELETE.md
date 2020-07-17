@@ -1,5 +1,4 @@
 SOLVER.DELETE
-=============
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Delete button in the Solver Parameters dialog box. Deletes an
@@ -24,6 +23,4 @@ value 0.
 
 SOLVER.ADD   Adds a constraint to the current problem
 
-Return to [top](#Q)
 
-SOLVER.FINISH

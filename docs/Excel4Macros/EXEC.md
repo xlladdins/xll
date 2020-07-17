@@ -1,8 +1,7 @@
 EXEC
-====
 
 Starts a separate program. Use EXEC to start other programs with which
-you want to communicate. Use EXEC with Microsoft Excel\'s other DDE
+you want to communicate. Use EXEC with Microsoft Excel's other DDE
 functions (INITIATE, EXECUTE, and SEND.KEYS) to create a channel to
 another program and to send keystrokes and commands to the program.
 (SEND.KEYS is available only in Microsoft Excel for Windows.)
@@ -30,10 +29,10 @@ Program\_text    is the name, as a text string, of any executable file
 or, in Microsoft Excel for Windows, any data file that is associated
 with an executable file.
 
--   Use paths when the file or program to be started is not in the
+  - > Use paths when the file or program to be started is not in the
     > current directory or folder.
 
--   In Microsoft Excel for Windows, program\_text can include any
+  - > In Microsoft Excel for Windows, program\_text can include any
     > arguments and switches that are accepted by the program to be
     > started. Also, if program\_text is the name of a file associated
     > with a specific installed program, EXEC starts the program and
@@ -50,12 +49,12 @@ containing the program should appear. Window\_num is only available for
 use with Microsoft Excel for Windows. The window\_num argument is
 allowed on the Macintosh, but it is ignored.
 
-  ----------------- --------------------
-  **Window\_num**   **Window appears**
-  1                 Normal size
-  2 or omitted      Minimized size
-  3                 Maximized size
-  ----------------- --------------------
+|                 |                    |
+| --------------- | ------------------ |
+| **Window\_num** | **Window appears** |
+| 1               | Normal size        |
+| 2 or omitted    | Minimized size     |
+| 3               | Maximized size     |
 
 Background    is a logical value that determines whether the program
 specified by program\_text is opened as the active program or in the
@@ -83,7 +82,7 @@ a unique number that identifies a program. Use the task ID number in
 other macro functions, such as APP.ACTIVATE, to refer to the program. In
 Microsoft Excel for the Macintosh with system software version 6.0, if
 EXEC is successful, it returns TRUE. If EXEC is unsuccessful, it returns
-the \#VALUE! error value.
+the \#VALUE\! error value.
 
 **Examples**
 
@@ -91,17 +90,17 @@ In Microsoft Excel for Windows, the following macro formula starts the
 program SEARCH.EXE. Use paths when the file or program to be started is
 not in the current directory:
 
-EXEC(\"C:\\WINDOWS\\SEARCH.EXE\")
+EXEC("C:\\WINDOWS\\SEARCH.EXE")
 
 The following macro formula starts Microsoft Word for Windows and loads
 the document SALES.DOC:
 
-EXEC(\"C:\\WINWORD\\WINWORD.EXE C:\\MYFILES\\SALES.DOC\")
+EXEC("C:\\WINWORD\\WINWORD.EXE C:\\MYFILES\\SALES.DOC")
 
 In Microsoft Excel for the Macintosh, the following macro formula starts
 Microsoft Word:
 
-EXEC(\"HARD DISK:APPS:WORD\")
+EXEC("HARD DISK:APPS:WORD")
 
 **Related Functions**
 
@@ -121,6 +120,4 @@ application with which you have a dynamic data exchange (DDE) link
 POKE   Sends data to another application with which you have a dynamic
 data exchange (DDE) link
 
-Return to [top](#E)
 
-EXECUTE

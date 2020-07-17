@@ -1,5 +1,4 @@
 MAIL.EDIT.MAILER
-================
 
 Equivalent to clicking the Mailer button when mailer is attached to the
 current workbook. Allows you to edit a PowerTalk mailer attached to the
@@ -35,11 +34,11 @@ names.
 
 Which\_address    indicates which type of address to use, as a text
 string, specifying the address type for all recipients. For example,
-\"Fax\".
+"Fax".
 
 **Remarks**
 
-If there is no mailer, returns the \#VALUE! error value.
+If there is no mailer, returns the \#VALUE\! error value.
 
 **Related Functions**
 
@@ -47,6 +46,4 @@ MAIL.DELETE.MAILER   Adds a new PowerTalk mailer to the active workbook
 
 MAIL.ADD.MAILER   Adds a new PowerTalk mailer to the active workbook
 
-Return to [top](#H)
 
-MAIL.FORWARD

@@ -1,5 +1,4 @@
 OPTIONS.CALCULATION
-===================
 
 Equivalent to clicking the Options command on the Tools menu, and
 clicking the Calculation tab in the Options dialog box. Sets various
@@ -20,12 +19,12 @@ check box; if FALSE, Microsoft Excel clears the check box.
 
 Type\_num    is a number from 1 to 3 indicating the type of calculation.
 
-  --------------- -------------------------
-  **Type\_num**   **Type of calculation**
-  1               Automatic
-  2               Automatic except tables
-  3               Manual
-  --------------- -------------------------
+|               |                         |
+| ------------- | ----------------------- |
+| **Type\_num** | **Type of calculation** |
+| 1             | Automatic               |
+| 2             | Automatic except tables |
+| 3             | Manual                  |
 
 Iter    corresponds to the Iteration check box. The default is FALSE.
 
@@ -55,6 +54,4 @@ The default is TRUE.
 Macintosh use different date systems as their default. For more
 information, see NOW.
 
-Return to [top](#H)
 
-OPTIONS.CHART

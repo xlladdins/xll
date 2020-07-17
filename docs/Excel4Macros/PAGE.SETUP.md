@@ -1,5 +1,4 @@
 PAGE.SETUP
-==========
 
 Equivalent to clicking the Page Setup command on the File menu. Use
 PAGE.SETUP to control the printed appearance of your sheets.
@@ -49,7 +48,7 @@ scale, quality, head\_margin, foot\_margin, pg\_num)
 scale, quality, head\_margin, foot\_margin, pg\_num)
 
 Head    specifies the text and formatting codes for the header for the
-current sheet . For information about formatting codes, see \"Remarks\"
+current sheet . For information about formatting codes, see "Remarks"
 later in this topic.
 
 Foot    specifies the text and formatting codes for the workbook footer.
@@ -80,83 +79,83 @@ panel of the Page Setup dialog box.
 
 Orient    determines the direction in which your workbook is printed.
 
-  ------------ ------------------
-  **Orient**   **Print format**
-  1            Portrait
-  2            Landscape
-  ------------ ------------------
+|            |                  |
+| ---------- | ---------------- |
+| **Orient** | **Print format** |
+| 1          | Portrait         |
+| 2          | Landscape        |
 
 Paper\_size    is a number from 1 to 26 that specifies the size of the
 paper.
 
-  ----------------- ----------------
-  **Paper\_size**   **Paper type**
-  1                 Letter
-  2                 Letter (small)
-  3                 Tabloid
-  4                 Ledger
-  5                 Legal
-  6                 Statement
-  7                 Executive
-  8                 A3
-  9                 A4
-  10                A4 (small)
-  11                A5
-  12                B4
-  13                B5
-  14                Folio
-  15                Quarto
-  16                10x14
-  17                11x17
-  18                Note
-  19                ENV9
-  20                ENV10
-  21                ENV11
-  22                ENV12
-  23                ENV14
-  24                C Sheet
-  25                D Sheet
-  26                E Sheet
-  ----------------- ----------------
+|                 |                |
+| --------------- | -------------- |
+| **Paper\_size** | **Paper type** |
+| 1               | Letter         |
+| 2               | Letter (small) |
+| 3               | Tabloid        |
+| 4               | Ledger         |
+| 5               | Legal          |
+| 6               | Statement      |
+| 7               | Executive      |
+| 8               | A3             |
+| 9               | A4             |
+| 10              | A4 (small)     |
+| 11              | A5             |
+| 12              | B4             |
+| 13              | B5             |
+| 14              | Folio          |
+| 15              | Quarto         |
+| 16              | 10x14          |
+| 17              | 11x17          |
+| 18              | Note           |
+| 19              | ENV9           |
+| 20              | ENV10          |
+| 21              | ENV11          |
+| 22              | ENV12          |
+| 23              | ENV14          |
+| 24              | C Sheet        |
+| 25              | D Sheet        |
+| 26              | E Sheet        |
 
 Scale    is a number representing the percentage to increase or decrease
 the size of the sheet. All scaling retains the aspect ratio of the
 original.
 
--   To specify a percentage of reduction or enlargement, set scale to
+  - > To specify a percentage of reduction or enlargement, set scale to
     > the percentage.
 
--   For worksheets and macros, you can specify the number of pages that
-    > the printout should be scaled to fit. Set scale to a two-item
+  - > For worksheets and macros, you can specify the number of pages
+    > that the printout should be scaled to fit. Set scale to a two-item
     > horizontal array, with the first item equal to the width and the
     > second item equal to the height. If no constraint is necessary in
     > one direction, you can set the corresponding value to \#N/A.
 
--   Scale can also be a logical value. To fit the print area on a single
-    > page, set scale to TRUE.
+  - > Scale can also be a logical value. To fit the print area on a
+    > single page, set scale to TRUE.
 
 >  
 
 Pg\_num    specifies the number of the first page. If zero, sets first
-page to zero. If \"Auto\" is used, then the page numbering is set to
+page to zero. If "Auto" is used, then the page numbering is set to
 automatic. If omitted, PAGE.SETUP retains the existing pg\_num.
 
 Pg\_order    specifies whether pagination is left-to-right and then
 down, or top-to-bottom and then right.
 
-  --------------- ---------------------------
-  **Pg\_order**   **Pagination**
-  1               Top-to-bottom, then right
-  2               Left-to-right, then down
-  --------------- ---------------------------
+|               |                           |
+| ------------- | ------------------------- |
+| **Pg\_order** | **Pagination**            |
+| 1             | Top-to-bottom, then right |
+| 2             | Left-to-right, then down  |
 
 Bw\_cells    is a logical value that specifies whether to print cells
 and all graphic objects, such as text boxes and buttons, in color.
 
--   If bw\_cells is TRUE, Microsoft Excel prints cell text and borders
+  - > If bw\_cells is TRUE, Microsoft Excel prints cell text and borders
     > in black and cell backgrounds in white.
 
--   If bw\_cells is FALSE , Microsoft Excel prints cell text, borders,
+  - > If bw\_cells is FALSE , Microsoft Excel prints cell text, borders,
     > and background patterns in color (or in gray scale).
 
 >  
@@ -168,12 +167,12 @@ Size    is a number corresponding to the options in the Chart Size box,
 and determines how you want the chart printed on the page within the
 margins. Size is available only in the chart form of the function.
 
-  ---------- -----------------------------
-  **Size**   **Size to print the chart**
-  1          Screen size
-  2          Fit to page
-  3          Full page
-  ---------- -----------------------------
+|          |                             |
+| -------- | --------------------------- |
+| **Size** | **Size to print the chart** |
+| 1        | Screen size                 |
+| 2        | Fit to page                 |
+| 3        | Full page                   |
 
 Quality    specifies the print quality in dots-per-inch. To specify both
 horizontal and vertical print quality, use an array of two values.
@@ -201,32 +200,32 @@ the head and foot text strings to align portions of the header or footer
 to the left, right, or center; to include the page number, date, time,
 or workbook name; and to print the header or footer in bold or italic.
 
-  --------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Formatting code**         **Result**
-  &L                          Left-aligns the characters that follow.
-  &C                          Centers the characters that follow.
-  &R                          Right-aligns the characters that follow.
-  &B                          Turns bold printing on or off (now obsolete).
-  &I                          Turns italic printing on or off.
-  &U                          Turns single underlining printing on or off.
-  &S                          Turns strikethrough printing on or off.
-  &O                          Turns outline printing on or off (Macintosh only).
-  &H                          Turns shadow printing on or off (Macintosh only).
-  &D                          Prints the current date.
-  &T                          Prints the current time.
-  &A                          Prints the name of the sheet
-  &F                          Prints the name of the workbook.
-  &P                          Prints the page number.
-  &P+number                   Prints the page number plus number.
-  &P-number                   Prints the page number minus number.
-  &&                          Prints a single ampersand.
-  & \"fontname, fontstyle\"   Prints the characters that follow in the specified font and style. Be sure to include a comma immediately following the fontname, and double quotation marks around fontname and fontstyle.
-  &nn                         Prints the characters that follow in the specified font size. Use a two-digit number to specify a size in points.
-  &N                          Prints the total number of pages in the workbook.
-  &E                          Prints a double underline
-  &X                          Prints the character as superscript
-  &Y                          Prints the character as subscript
-  --------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                         |                                                                                                                                                                                             |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Formatting code**     | **Result**                                                                                                                                                                                  |
+| \&L                     | Left-aligns the characters that follow.                                                                                                                                                     |
+| \&C                     | Centers the characters that follow.                                                                                                                                                         |
+| \&R                     | Right-aligns the characters that follow.                                                                                                                                                    |
+| \&B                     | Turns bold printing on or off (now obsolete).                                                                                                                                               |
+| \&I                     | Turns italic printing on or off.                                                                                                                                                            |
+| \&U                     | Turns single underlining printing on or off.                                                                                                                                                |
+| \&S                     | Turns strikethrough printing on or off.                                                                                                                                                     |
+| \&O                     | Turns outline printing on or off (Macintosh only).                                                                                                                                          |
+| \&H                     | Turns shadow printing on or off (Macintosh only).                                                                                                                                           |
+| \&D                     | Prints the current date.                                                                                                                                                                    |
+| \&T                     | Prints the current time.                                                                                                                                                                    |
+| \&A                     | Prints the name of the sheet                                                                                                                                                                |
+| \&F                     | Prints the name of the workbook.                                                                                                                                                            |
+| \&P                     | Prints the page number.                                                                                                                                                                     |
+| \&P+number              | Prints the page number plus number.                                                                                                                                                         |
+| \&P-number              | Prints the page number minus number.                                                                                                                                                        |
+| &&                      | Prints a single ampersand.                                                                                                                                                                  |
+| & "fontname, fontstyle" | Prints the characters that follow in the specified font and style. Be sure to include a comma immediately following the fontname, and double quotation marks around fontname and fontstyle. |
+| \&nn                    | Prints the characters that follow in the specified font size. Use a two-digit number to specify a size in points.                                                                           |
+| \&N                     | Prints the total number of pages in the workbook.                                                                                                                                           |
+| \&E                     | Prints a double underline                                                                                                                                                                   |
+| \&X                     | Prints the character as superscript                                                                                                                                                         |
+| \&Y                     | Prints the character as subscript                                                                                                                                                           |
 
 **Related Functions**
 
@@ -238,6 +237,4 @@ PRINT   Prints the active workbook
 
 WORKSPACE   Changes workspace settings
 
-Return to [top](#H)
 
-PARSE

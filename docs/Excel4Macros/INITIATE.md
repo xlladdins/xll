@@ -1,5 +1,4 @@
 INITIATE
-========
 
 Opens a dynamic data exchange (DDE) channel to an application and
 returns the number of the open channel. Once you have opened a channel
@@ -20,22 +19,22 @@ software version 7.0 or later for this function.
 App\_text    is the DDE name of the application with which you want to
 begin a DDE session, in text form. The form of app\_text depends on the
 application you are accessing. The DDE name of Microsoft Excel, for
-example, is \"Excel\".
+example, is "Excel".
 
 Topic\_text    describes something, such as a document or a record in a
 database, in the application that you are accessing; the form of
 topic\_text depends on the application you are accessing. Microsoft
 Excel accepts the names of the current documents as topic\_text, as well
-as the name \"System\".
+as the name "System".
 
 **Remarks**
 
--   You can specify an instance of an application by appending the
-    > application\'s task ID number to the app\_text argument. If you
+  - > You can specify an instance of an application by appending the
+    > application's task ID number to the app\_text argument. If you
     > start an application by using the EXEC function, EXEC returns the
     > task ID number for that instance of the application.
 
--   If more than one instance of an application is running and you do
+  - > If more than one instance of an application is running and you do
     > not specify which instance you would like to open a channel to,
     > INITIATE displays a dialog box from which you can choose the
     > instance you want. You can prevent this dialog box from appearing
@@ -48,7 +47,7 @@ as the name \"System\".
 The following macro formula opens a channel to the document named MEMO
 in the application named WORD:
 
-INITIATE(\"WORD\", \"MEMO\")
+INITIATE("WORD", "MEMO")
 
 **Related Functions**
 
@@ -62,6 +61,4 @@ EXECUTE   Carries out a command in another application
 
 EXEC   Starts a separate program
 
-Return to [top](#H)
 
-INPUT

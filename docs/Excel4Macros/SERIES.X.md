@@ -1,5 +1,4 @@
 SERIES.X
-========
 
 Equivalent to the X Values tab in the Format Data Series dialog box.
 Specifies the category labels (x values) for a data series. This
@@ -8,7 +7,7 @@ Microsoft Excel 97.
 
 **Syntax**
 
-**SERIES.X**(x\_ref)\
+**SERIES.X**(x\_ref)  
 X-ref    is an external reference in the form of text specifying the
 range containing the category labels (or x values for a scatter (xy)
 chart) you want to use.
@@ -17,6 +16,4 @@ chart) you want to use.
 
 SERIES.Y   Specifies the name and values for a data series
 
-Return to [top](#Q)
 
-SERIES.Y

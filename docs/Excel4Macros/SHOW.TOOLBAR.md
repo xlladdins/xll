@@ -1,5 +1,4 @@
 SHOW.TOOLBAR
-============
 
 Equivalent to selecting the check box corresponding to a toolbar on the
 Toolbars tab in the Customize dialog box, which appears when you select
@@ -22,43 +21,82 @@ is visible or, if FALSE, specifies that the toolbar is hidden.
 
 Dock    specifies the docking location of the toolbar.
 
-+------------+---------------------------+
-| > **Dock** | > **Position of toolbar** |
-+------------+---------------------------+
-| > 1        | > Top of workspace        |
-+------------+---------------------------+
-| > 2        | > Left edge of workspace  |
-+------------+---------------------------+
-| > 3        | > Right edge of workspace |
-+------------+---------------------------+
-| > 4        | > Bottom of workspace     |
-+------------+---------------------------+
-| > 5        | > Floating (not docked)   |
-+------------+---------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Dock</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Position of toolbar</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Top of workspace</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left edge of workspace</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Right edge of workspace</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Bottom of workspace</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Floating (not docked)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 X\_pos    specifies the horizontal position of the toolbar.
 
--   If the toolbar is docked (not floating), x\_pos is measured
+  - > If the toolbar is docked (not floating), x\_pos is measured
     > horizontally from the left edge of the toolbar to the left edge of
-    > the toolbar\'s docking area.
+    > the toolbar's docking area.
 
--   If the toolbar is floating, x\_pos is measured horizontally from the
-    > left edge of the toolbar to the right edge of the rightmost
+  - > If the toolbar is floating, x\_pos is measured horizontally from
+    > the left edge of the toolbar to the right edge of the rightmost
     > toolbar in the left docking area.
 
--   X\_pos is measured in points. A point is 1/72nd of an inch.
+  - > X\_pos is measured in points. A point is 1/72nd of an inch.
 
 Y\_pos    specifies the vertical position of the toolbar.
 
--   If the toolbar is docked, y\_pos is measured vertically from the top
-    > edge of the toolbar to the top edge of the toolbar\'s docking
+  - > If the toolbar is docked, y\_pos is measured vertically from the
+    > top edge of the toolbar to the top edge of the toolbar's docking
     > area.
 
--   If the toolbar is floating, y\_pos is measured vertically from the
+  - > If the toolbar is floating, y\_pos is measured vertically from the
     > top edge of the toolbar to the top edge of the Microsoft Excel
     > workspace.
 
--   Y\_pos is measured in points.
+  - > Y\_pos is measured in points.
 
 >  
 
@@ -71,28 +109,58 @@ protection status of its previous numbers. For example, a protect status
 of 3 (a toolbar cannot become docked if it is floating) assumes the
 protection status of 0, 1, and 2 as well.
 
-+---------------+-----------------------------------------------------+
-| > **Protect** | > **Description**                                   |
-+---------------+-----------------------------------------------------+
-| > 0           | > Default. Toolbars can be re-shaped, docked, and   |
-|               | > floating. Toolbar buttons can be removed from and |
-|               | > moved to the toolbar.                             |
-+---------------+-----------------------------------------------------+
-| > 1           | > Toolbars can be re-shaped, docked, and floating.  |
-|               | > Toolbar buttons can not be removed from nor moved |
-|               | > to the toolbar.                                   |
-+---------------+-----------------------------------------------------+
-| > 2           | > A floating toolbar cannot be re-shaped. It can be |
-|               | > docked.                                           |
-+---------------+-----------------------------------------------------+
-| > 3           | > A floating toolbar cannot be docked. If it is     |
-|               | > already docked, it cannot become floating.        |
-+---------------+-----------------------------------------------------+
-| > 4           | > The toolbar cannot be moved at all. If it is      |
-|               | > already floating, it cannot be re-shaped or       |
-|               | > moved. If it is docked, it cannot become          |
-|               | > un-docked.                                        |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Protect</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Description</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>0</p>
+</blockquote></td>
+<td><blockquote>
+<p>Default. Toolbars can be re-shaped, docked, and floating. Toolbar buttons can be removed from and moved to the toolbar.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Toolbars can be re-shaped, docked, and floating. Toolbar buttons can not be removed from nor moved to the toolbar.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>A floating toolbar cannot be re-shaped. It can be docked.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>A floating toolbar cannot be docked. If it is already docked, it cannot become floating.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>The toolbar cannot be moved at all. If it is already floating, it cannot be re-shaped or moved. If it is docked, it cannot become un-docked.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Tool\_tips    is a logical value that corresponds to the Show Screentips
 On Toolbars check box on the Options tab. If TRUE, ScreenTips will be
@@ -113,6 +181,4 @@ ADD.BAR   Adds a menu bar
 
 ADD.TOOLBAR   Creates a new toolbar with the specified tools
 
-Return to [top](#Q)
 
-SIZE

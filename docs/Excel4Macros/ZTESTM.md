@@ -1,5 +1,4 @@
 ZTESTM
-======
 
 Performs a two-sample z-test for means, assuming the two samples have
 known variances.
@@ -25,11 +24,11 @@ blank, or omitted, places the output table in a new workbook.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of the input ranges
-    > contains labels.
+  - > If labels is TRUE, then the first row or column of the input
+    > ranges contains labels.
 
--   If labels is FALSE or omitted, all cells in inprng1 and inprng2 are
-    > considered data. Microsoft Excel will then generate the
+  - > If labels is FALSE or omitted, all cells in inprng1 and inprng2
+    > are considered data. Microsoft Excel will then generate the
     > appropriate data labels for the output table.
 
 >  
@@ -44,4 +43,5 @@ Var1    is the variance of the first data set.
 
 Var2    is the variance of the second data set.
 
-Return to [top](#T)
+Downloaded from  [Excel Forum](https://www.excelforum.com/tips-and-tutorials/1170158-xl4-macro-functions.html)
+and converted from `.doc` to `.docx` then processed by `pandoc` using the `-gfm` flag

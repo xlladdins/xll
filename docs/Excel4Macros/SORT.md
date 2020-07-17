@@ -1,5 +1,4 @@
 SORT
-====
 
 Equivalent to clicking the Sort command on the Data menu. Sorts the rows
 or columns of the selection according to the contents of a key row or
@@ -33,15 +32,26 @@ rows or which row to sort by when sorting columns. For a PivotTable
 report, if type is 1, then key1 is a cell reference which indicates what
 value to sort by. There are two ways to specify sort keys:
 
-+----------------------------------+----------------------------------+
-| > **Type of key**                | > **Examples**                   |
-+----------------------------------+----------------------------------+
-| > An R1C1-style reference in the | > \"C2\" or \"C\[1\]\" or        |
-| > form of text. If the reference | > \"Price\"                      |
-| > is relative, it is assumed to  |                                  |
-| > be relative to the active cell |                                  |
-| > in the selection.              |                                  |
-+----------------------------------+----------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type of key</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Examples</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>An R1C1-style reference in the form of text. If the reference is relative, it is assumed to be relative to the active cell in the selection.</p>
+</blockquote></td>
+<td><blockquote>
+<p>"C2" or "C[1]" or "Price"</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Order1    specifies whether to sort the row or column containing key1 in
 ascending or descending order. Enter 1 to sort in ascending order or 2
@@ -55,15 +65,42 @@ order3 work similarly.
 Header    is a number indicating how Microsoft Excel is to handle
 headers on list.
 
-+----------------+-------------------------------------------------------+
-| > **Header**   | > **Defined**                                         |
-+----------------+-------------------------------------------------------+
-| > 0            | > Microsoft Excel will guess if there is a header     |
-+----------------+-------------------------------------------------------+
-| > 1            | > Forces Microsoft Excel to assume there is a header  |
-+----------------+-------------------------------------------------------+
-| > 2 or omitted | > Forces Microsoft Excel to assume there is no header |
-+----------------+-------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Header</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Defined</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>0</p>
+</blockquote></td>
+<td><blockquote>
+<p>Microsoft Excel will guess if there is a header</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Forces Microsoft Excel to assume there is a header</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2 or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>Forces Microsoft Excel to assume there is no header</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Type    is a number specifying whether to sort the field by labels or
 values. Use one to sort by values or two to sort by labels.
@@ -73,19 +110,58 @@ want. This corresponds to the First Key Sort Order drop-down box in the
 Sort Options dialog box. For a PivotTable report, custom is a number
 indicating what custom sort order to use when sorting labels.
 
-+--------------+--------------------------------------------------------------+
-| > **Number** | > **Type of sort**                                           |
-+--------------+--------------------------------------------------------------+
-| > 1          | > Normal                                                     |
-+--------------+--------------------------------------------------------------+
-| > 2          | > Weekdays in abbreviated form (\"Sun\", \"Mon\", and so on) |
-+--------------+--------------------------------------------------------------+
-| > 3          | > Weekdays                                                   |
-+--------------+--------------------------------------------------------------+
-| > 4          | > Months in abbreviated form (\"Jan\" \"Feb\", and so on)    |
-+--------------+--------------------------------------------------------------+
-| > 5          | > Months                                                     |
-+--------------+--------------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Number</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Type of sort</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Normal</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Weekdays in abbreviated form ("Sun", "Mon", and so on)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Weekdays</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Months in abbreviated form ("Jan" "Feb", and so on)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Months</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Case    is a logical value that determines whether the sort is case
 sensitive. If TRUE, the sort is case sensitive. If FALSE or omitted, the
@@ -102,6 +178,4 @@ In the dialog box form of this function, if the header argument is
 omitted, then Microsoft Excel will guess whether or not there are
 headers.
 
-Return to [top](#Q)
 
-SOUND.NOTE

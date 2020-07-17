@@ -1,5 +1,4 @@
 WHILE
-=====
 
 Carries out the statements between the WHILE function and the next NEXT
 function until logical\_test is FALSE. Use WHILE-NEXT loops to carry out
@@ -17,7 +16,7 @@ WHILE displays an error message and interrupts the macro.
 
 **Remarks**
 
-If you know exactly how many times you\'ll need to carry out the
+If you know exactly how many times you'll need to carry out the
 statements within a loop, in most cases you should use a FOR-NEXT loop.
 Also, avoid creating an infinite loop by making sure logical\_test does
 not always evaluate to TRUE.
@@ -27,12 +26,12 @@ not always evaluate to TRUE.
 The following statement starts a loop that executes while the value in
 the current cell is less than 5:
 
-=WHILE(TYPE(ACTIVE.CELL()\<5))
+\=WHILE(TYPE(ACTIVE.CELL()\<5))
 
 The following statement starts a loop that executes until the position
 in the open file identified as FileNumber reaches the end of the file:
 
-=WHILE(FPOS(FileNumber)\<=FSIZE(FileNumber))
+\=WHILE(FPOS(FileNumber)\<=FSIZE(FileNumber))
 
 **Related Functions**
 
@@ -44,6 +43,4 @@ IF   Specifies an action to take if a logical test is TRUE
 
 NEXT   Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
-Return to [top](#T)
 
-WINDOW.MAXIMIZE

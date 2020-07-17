@@ -1,14 +1,12 @@
-[]{#Q .anchor}This document contains reference information on the
-following Excel macro functions:
+<span id="Q" class="anchor"></span>This document contains reference
+information on the following Excel macro functions:
 
-Q
-=
+# Q
 
 [QUERY.GET.DATA](#query.get.data), [QUERY.REFRESH](#query.refresh),
 [QUIT](#quit)
 
-R
-=
+# R
 
 [RANDOM](#random), [RANKPERC](#rankperc), [REFTEXT](#reftext),
 [REGISTER](#register), [REGRESS](#regress), [RELREF](#relref),
@@ -23,8 +21,7 @@ R
 [RETURN](#return), [ROUTE.DOCUMENT](#route.document),
 [ROUTING.SLIP](#routing.slip), [ROW.HEIGHT](#row.height), [RUN](#run)
 
-S
-=
+# S
 
 [SAMPLE](#sample), [SAVE](#save), [SAVE.AS](#save.as),
 [SAVE.COPY.AS](#save.copy.as), [SAVE.DIALOG](#save.dialog),
@@ -86,8 +83,7 @@ S
 [SUBTOTAL.CREATE](#subtotal.create),
 [SUBTOTAL.REMOVE](#subtotal.remove), [SUMMARY.INFO](#summary.info)
 
-QUERY.GET.DATA
-==============
+# QUERY.GET.DATA
 
 Builds a new query using the supplied information. The application
 Microsoft Query nor any dialog boxes are displayed.
@@ -102,19 +98,19 @@ field\_names, row\_numbers, destination)
 
 Connection\_string    supplies information, such as the data source
 name, user ID, and passwords, necessary to making a SQL connection to an
-external data source. For example: \"DSN=Myserver; Server=server1;
-UID=dbayer; PWD=buyer1; Database=nwind\".
+external data source. For example: "DSN=Myserver; Server=server1;
+UID=dbayer; PWD=buyer1; Database=nwind".
 
  
 
--   You must define the data source name (DSN) used in
+  - > You must define the data source name (DSN) used in
     > connection\_string before you try to connect to it.
 
--   You can enter connection\_string as an array or a string. If
+  - > You can enter connection\_string as an array or a string. If
     > connection\_string exceeds 250 characters, you must enter it as an
     > array.
 
--   If QUERY.GET.DATA is unable to access the data source using
+  - > If QUERY.GET.DATA is unable to access the data source using
     > connection\_string, it returns the \#N/A error value.
 
 >  
@@ -141,14 +137,14 @@ destination is the currently selected cell or range.
 
 **Remarks**
 
--   If the information provided is not sufficient to create the query
-    > then the error value \#REF! is returned.
+  - > If the information provided is not sufficient to create the query
+    > then the error value \#REF\! is returned.
 
--   If Microsoft Query is unavailable or can not be found, \#N/A is
+  - > If Microsoft Query is unavailable or can not be found, \#N/A is
     > returned.
 
--   If connection string is longer than 255 characters, the string will
-    > be truncated at the last semi-colon.
+  - > If connection string is longer than 255 characters, the string
+    > will be truncated at the last semi-colon.
 
 **Related Function**
 
@@ -157,8 +153,7 @@ Query
 
 Return to [top](#Q)
 
-QUERY.REFRESH
-=============
+# QUERY.REFRESH
 
 Refreshes the data in a data range returned to a worksheet from
 Microsoft Query. This function is equivalent to the Refresh button on
@@ -169,7 +164,7 @@ the External Data toolbar.
 **QUERY.REFRESH**(reference)
 
 Reference    is the reference to a single cell inside a data range. If
-reference is not in a data range then the error value \#REF! is
+reference is not in a data range then the error value \#REF\! is
 returned.
 
 **Related Function**
@@ -178,8 +173,7 @@ QUERY.GET.DATA   Builds a new query using the supplied information
 
 Return to [top](#Q)
 
-QUIT
-====
+# QUIT
 
 Equivalent to clicking the Exit command on the File menu in Microsoft
 Excel for Windows. Equivalent to clicking the Quit command on the File
@@ -206,7 +200,7 @@ Auto\_Close macros before closing the workbook.
 The following function displays a confirmation alert and quits Microsoft
 Excel if the user clicks OK:
 
-IF(ALERT(\"Are you sure you want to quit Microsoft Excel?\",1), QUIT(),)
+IF(ALERT("Are you sure you want to quit Microsoft Excel?",1), QUIT(),)
 
 **Related Function**
 
@@ -214,8 +208,7 @@ FILE.CLOSE   Closes the active workbook
 
 Return to [top](#Q)
 
-RANDOM
-======
+# RANDOM
 
 Fills a range with independent random or patterned numbers drawn from
 one of several distributions.
@@ -308,23 +301,74 @@ Points is ignored when distribution is 6 (Patterned).
 
 Distribution    indicates the type of number distribution.
 
-+--------------------+-------------------------+
-| > **Distribution** | > **Distribution type** |
-+--------------------+-------------------------+
-| > 1                | > Uniform               |
-+--------------------+-------------------------+
-| > 2                | > Normal                |
-+--------------------+-------------------------+
-| > 3                | > Bernoulli             |
-+--------------------+-------------------------+
-| > 4                | > Binomial              |
-+--------------------+-------------------------+
-| > 5                | > Poisson               |
-+--------------------+-------------------------+
-| > 6                | > Patterned             |
-+--------------------+-------------------------+
-| > 7                | > Discrete              |
-+--------------------+-------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Distribution</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Distribution type</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Uniform</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Normal</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Bernoulli</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Binomial</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Poisson</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Patterned</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Discrete</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Seed    is an optional value with which to begin random number
 generation. Seed is ignored when distribution is 6 (Patterned) or 7
@@ -354,8 +398,7 @@ Inprng    is a two-column range of values and their probabilities.
 
 Return to [top](#Q)
 
-RANKPERC
-========
+# RANKPERC
 
 Returns a table that contains the ordinal and percent rank of each value
 in a data set.
@@ -378,33 +421,68 @@ blank, or omitted, places the output table in a new workbook.
 Grouped    is a text character that indicates whether the data in the
 input range is organized by row or column.
 
--   If grouped is \"C\" or omitted, then the data is organized by
+  - > If grouped is "C" or omitted, then the data is organized by
     > column.
 
--   If grouped is \"R\", then the data is organized by row.
+  - > If grouped is "R", then the data is organized by row.
 
 >  
 
 Labels    is a logical value that describes where the labels are located
 in the input range, as shown in the following table:
 
-+--------------------+---------------+-------------------------------+
-| > **Labels**       | > **Grouped** | > **Labels are in**           |
-+--------------------+---------------+-------------------------------+
-| > TRUE             | > \"C\"       | > First row of the input      |
-|                    |               | > range.                      |
-+--------------------+---------------+-------------------------------+
-| > TRUE             | > \"R\"       | > First column of the input   |
-|                    |               | > range.                      |
-+--------------------+---------------+-------------------------------+
-| > FALSE or omitted | > (ignored)   | > No labels. All cells in the |
-|                    |               | > input range are data.       |
-+--------------------+---------------+-------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Labels</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Grouped</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Labels are in</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>TRUE</p>
+</blockquote></td>
+<td><blockquote>
+<p>"C"</p>
+</blockquote></td>
+<td><blockquote>
+<p>First row of the input range.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>TRUE</p>
+</blockquote></td>
+<td><blockquote>
+<p>"R"</p>
+</blockquote></td>
+<td><blockquote>
+<p>First column of the input range.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>FALSE or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>(ignored)</p>
+</blockquote></td>
+<td><blockquote>
+<p>No labels. All cells in the input range are data.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Return to [top](#Q)
 
-REFTEXT
-=======
+# REFTEXT
 
 Converts a reference to an absolute reference in the form of text. Use
 REFTEXT when you need to manipulate references with text functions.
@@ -419,23 +497,24 @@ Reference    is the reference you want to convert.
 
 A1    is a logical value specifying A1-style or R1C1-style references.
 
--   If a1 is TRUE, REFTEXT returns an A1-style reference.
+  - > If a1 is TRUE, REFTEXT returns an A1-style reference.
 
--   If a1 is FALSE or omitted, REFTEXT returns an R1C1-style reference.
+  - > If a1 is FALSE or omitted, REFTEXT returns an R1C1-style
+    > reference.
 
 >  
 
 **Examples**
 
-REFTEXT(C3, TRUE) equals \"\$C\$3\"
+REFTEXT(C3, TRUE) equals "$C$3"
 
-REFTEXT(B2:F2) equals \"R2C2:R2C6\"
+REFTEXT(B2:F2) equals "R2C2:R2C6"
 
 If the active cell is B9 on the active sheet named SHEET1, then:
 
-REFTEXT(ACTIVE.CELL()) equals \"\[Book1\]SHEET1!R9C2\"
+REFTEXT(ACTIVE.CELL()) equals "\[Book1\]SHEET1\!R9C2"
 
-REFTEXT(ACTIVE.CELL(), TRUE) equals \"\[Book1\]SHEET1!\$B\$9\"
+REFTEXT(ACTIVE.CELL(), TRUE) equals "\[Book1\]SHEET1\!$B$9"
 
 **Related Functions**
 
@@ -450,8 +529,7 @@ TEXTREF   Converts text to a reference
 
 Return to [top](#Q)
 
-REGISTER
-========
+# REGISTER
 
 Registers the specified dynamic link library (DLL) or code resource and
 returns the register ID. You can also specify a custom function name and
@@ -471,7 +549,7 @@ For Microsoft Excel for Windows
 
 **REGISTER**(**module\_text**, procedure, type\_text, function\_text,
 argument\_text, macro\_type, category, shortcut\_text, help\_topic,
-function\_help, argument\_help1, argument\_help2,\...)
+function\_help, argument\_help1, argument\_help2,...)
 
 **Syntax 2**
 
@@ -479,7 +557,7 @@ For Microsoft Excel for the Macintosh
 
 **REGISTER**(**file\_text**, resource, type\_text, function\_text,
 argument\_text, macro\_type, category, shortcut\_text, help\_topic,
-function\_help, argument\_help1, argument\_help2,\...)
+function\_help, argument\_help1, argument\_help2,...)
 
 Module\_text or file\_text    is text specifying the name of the DLL
 that contains the function (in Microsoft Excel for Windows) or the name
@@ -519,37 +597,130 @@ category number or the category name for category. If you use the
 category name, be sure to enclose it in double quotation marks. If
 category is omitted, it is assumed to be 14 (User Defined).
 
-+-----------------------+-------------------------------------+
-| > **Category number** | > **Category name**                 |
-+-----------------------+-------------------------------------+
-| > 1                   | > Financial                         |
-+-----------------------+-------------------------------------+
-| > 2                   | > Date & Time                       |
-+-----------------------+-------------------------------------+
-| > 3                   | > Math & Trig                       |
-+-----------------------+-------------------------------------+
-| > 4                   | > Text                              |
-+-----------------------+-------------------------------------+
-| > 5                   | > Logical                           |
-+-----------------------+-------------------------------------+
-| > 6                   | > Lookup & Matrix                   |
-+-----------------------+-------------------------------------+
-| > 7                   | > Database                          |
-+-----------------------+-------------------------------------+
-| > 8                   | > Statistical                       |
-+-----------------------+-------------------------------------+
-| > 9                   | > Information                       |
-+-----------------------+-------------------------------------+
-| > 10                  | > Commands (macro sheets only)      |
-+-----------------------+-------------------------------------+
-| > 11                  | > Actions (macro sheets only)       |
-+-----------------------+-------------------------------------+
-| > 12                  | > Customizing (macro sheets only)   |
-+-----------------------+-------------------------------------+
-| > 13                  | > Macro Control (macro sheets only) |
-+-----------------------+-------------------------------------+
-| > 14                  | > User Defined                      |
-+-----------------------+-------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Category number</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Category name</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Financial</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Date &amp; Time</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Math &amp; Trig</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Logical</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Lookup &amp; Matrix</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Database</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Statistical</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+<td><blockquote>
+<p>Information</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>Commands (macro sheets only)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>Actions (macro sheets only)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td><blockquote>
+<p>Customizing (macro sheets only)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>13</p>
+</blockquote></td>
+<td><blockquote>
+<p>Macro Control (macro sheets only)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>14</p>
+</blockquote></td>
+<td><blockquote>
+<p>User Defined</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Shortcut\_text    is a character specifying the shortcut key for the
 registered command. The shortcut key is case-sensitive. This argument is
@@ -565,10 +736,10 @@ it is selected in the Paste Function dialog box. The maximum number of
 characters is 255.
 
 Argument\_help1, argument\_help2    are 1 to 21 text strings that
-describes you custom function\'s arguments when the function is selected
+describes you custom function's arguments when the function is selected
 in the Paste Function dialog box.
 
-Example    \
+Example      
 Syntax 1
 
 In Microsoft Excel for Windows, the following macro formula registers
@@ -576,7 +747,7 @@ the GetTickCount function from Microsoft Windows. This function returns
 the number of milliseconds that have elapsed since Microsoft Windows was
 started.
 
-REGISTER(\"User\", \"GetTickCount\", \"J\")
+REGISTER("User", "GetTickCount", "J")
 
 Assuming that the REGISTER function is in cell A5, after your macro
 registers GetTickCount, you can use the CALL function to return the
@@ -584,15 +755,15 @@ number of milliseconds that have elapsed:
 
 CALL(A5)
 
-Example    \
+Example      
 Syntax 1 with optional function\_text
 
 You can use the following macro formula to register the GetTickCount
 function from Microsoft Windows and assign the custom name GetTicks to
-it. To do this, include \"GetTicks\" as the optional function\_text
+it. To do this, include "GetTicks" as the optional function\_text
 argument to the REGISTER function.
 
-REGISTER(\"User\", \"GetTickCount\", \"J\", \"GetTicks\", , 1, 9)
+REGISTER("User", "GetTickCount", "J", "GetTicks", , 1, 9)
 
 After the function is registered, the custom name GetTicks will appear
 in the Information function category (category = 9) in the Paste
@@ -608,7 +779,7 @@ the name of the original macro sheet in the formula. For example,
 assuming the macro sheet on which GetTicks was registered is named
 MACRO1.XLS, the following formula calls the function from another sheet:
 
-MACRO1.XLS!GetTicks()
+MACRO1.XLS\!GetTicks()
 
 **Tip   **You can use functions in a DLL or code resource directly on a
 sheet without first registering them from a macro sheet. Use syntax 2a
@@ -620,8 +791,7 @@ UNREGISTER   Removes a registered code resource from memory
 
 Return to [top](#Q)
 
-REGRESS
-=======
+# REGRESS
 
 Performs multiple linear regression analysis.
 
@@ -647,11 +817,11 @@ non-zero number.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of the input ranges
-    > contain labels.
+  - > If labels is TRUE, then the first row or column of the input
+    > ranges contain labels.
 
--   If labels is FALSE or omitted, all cells in inpyrng and inpxrng are
-    > considered data. Microsoft Excel will then generate the
+  - > If labels is FALSE or omitted, all cells in inpyrng and inpxrng
+    > are considered data. Microsoft Excel will then generate the
     > appropriate data labels for the output table.
 
 >  
@@ -702,12 +872,11 @@ later versions.
 
 Return to [top](#Q)
 
-RELREF
-======
+# RELREF
 
 Returns the reference of a cell or cells relative to the upper-left cell
 of rel\_to\_ref. The reference is given as an R1C1-style relative
-reference in the form of text, such as \"R\[1\]C\[1\]\".
+reference in the form of text, such as "R\[1\]C\[1\]".
 
 **Syntax**
 
@@ -729,12 +898,11 @@ absolute references to relative references.
 
 **Examples**
 
-RELREF(\$A\$1, \$C\$3) equals \"R\[-2\]C\[-2\]\"
+RELREF($A$1, $C$3) equals "R\[-2\]C\[-2\]"
 
-RELREF(\$A\$1:\$E\$5, \$C\$3:\$G\$7) equals
-\"R\[-2\]C\[-2\]:R\[2\]C\[2\]\"
+RELREF($A$1:$E$5, $C$3:$G$7) equals "R\[-2\]C\[-2\]:R\[2\]C\[2\]"
 
-RELREF(\$A\$1:\$E\$5, \$C\$3) equals \"R\[-2\]C\[-2\]:R\[2\]C\[2\]\"
+RELREF($A$1:$E$5, $C$3) equals "R\[-2\]C\[-2\]:R\[2\]C\[2\]"
 
 **Related Functions**
 
@@ -749,8 +917,7 @@ FORMULA.CONVERT   Changes the reference style and type
 
 Return to [top](#Q)
 
-REMOVE.LIST.ITEM
-================
+# REMOVE.LIST.ITEM
 
 Removes an item in a list box or drop-down box.
 
@@ -784,8 +951,7 @@ controls on worksheet and dialog sheets
 
 Return to [top](#Q)
 
-REMOVE.PAGE.BREAK
-=================
+# REMOVE.PAGE.BREAK
 
 Equivalent to clicking the Remove Page Break command on the Insert menu.
 Removes manual page breaks that you set with the SET.PAGE.BREAK function
@@ -805,8 +971,7 @@ SET.PAGE.BREAK   Sets manual page breaks
 
 Return to [top](#Q)
 
-RENAME.COMMAND
-==============
+# RENAME.COMMAND
 
 Changes the name of a built-in or custom menu command or the name of a
 menu. Use RENAME.COMMAND to change the name of a command on a menu, for
@@ -834,7 +999,7 @@ you should use the name of the command rather than a number whenever
 possible.
 
 If the specified menu bar, menu, or command does not exist,
-RENAME.COMMAND returns the \#VALUE! error value and interrupts the
+RENAME.COMMAND returns the \#VALUE\! error value and interrupts the
 macro.
 
 Name\_text    is the new name for the command.
@@ -853,9 +1018,9 @@ Options dialog box, click Options on the Tools menu.
 **Example**
 
 To rename the Save All command as Global Save, and to make the letter
-\"G\" in Global Save an access key, use the following macro formula:
+"G" in Global Save an access key, use the following macro formula:
 
-RENAME.COMMAND(10, \"File\", \"Save All\", \"&Global Save\")
+RENAME.COMMAND(10, "File", "Save All", "\&Global Save")
 
 **Related Functions**
 
@@ -871,8 +1036,7 @@ ENABLE.COMMAND   Enables or disables a menu or custom command
 
 Return to [top](#Q)
 
-RENAME.OBJECT
-=============
+# RENAME.OBJECT
 
 Renames the selected object or group. This is useful for giving objects
 names more relevant to their usage. This is also useful if it is
@@ -895,8 +1059,7 @@ SELECT Syntax 2   Selects objects on worksheets
 
 Return to [top](#Q)
 
-REPLACE.FONT
-============
+# REPLACE.FONT
 
 Replaces one of the four built-in fonts in Microsoft Excel for Windows
 version 2.1 or earlier with a new font and style. This function is
@@ -915,8 +1078,7 @@ FONT.PROPERTIES   Sets various font attributes
 
 Return to [top](#Q)
 
-REPORT.DEFINE
-=============
+# REPORT.DEFINE
 
 Equivalent to clicking the Report Manager command on the View menu and
 then clicking the Add option in the Report Manager dialog box. Creates
@@ -942,11 +1104,11 @@ numbers to 1 for each new section.
 
 **Remarks**
 
--   REPORT.DEFINE returns the \#VALUE error value if report\_name is
+  - > REPORT.DEFINE returns the \#VALUE error value if report\_name is
     > invalid or if the workbook is protected.
 
--   If there are no reports defined, this function will bring up the Add
-    > Report dialog box.
+  - > If there are no reports defined, this function will bring up the
+    > Add Report dialog box.
 
 **Related Functions**
 
@@ -959,8 +1121,7 @@ workbook
 
 Return to [top](#Q)
 
-REPORT.DELETE
-=============
+# REPORT.DELETE
 
 Equivalent to clicking the Report Manager command on the View menu and
 then selecting a report in the Report Manager dialog box and clicking
@@ -992,8 +1153,7 @@ workbook
 
 Return to [top](#Q)
 
-REPORT.GET
-==========
+# REPORT.GET
 
 Returns information about reports defined for the active workbook. Use
 REPORT.GET to return information you can use in other macro commands
@@ -1009,26 +1169,42 @@ add-in.
 Type\_num    is a number from 1 to 3 specifying the type of information
 to return, as shown in the following table.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **Returns**                                     |
-+-----------------+---------------------------------------------------+
-| > 1             | > An array of reports from all sheets in the      |
-|                 | > active workbook or the \#N/A error value if     |
-|                 | > none are specified                              |
-+-----------------+---------------------------------------------------+
-| > 2             | > An array of views, scenarios, and sheet names   |
-|                 | > for the specified report in the active          |
-|                 | > workbook. REPORT.GET returns the \#N/A error    |
-|                 | > value if the scenario check box is not          |
-|                 | > selected. Returns the \#VALUE! error value if   |
-|                 | > name is invalid or the workbook is protected.   |
-+-----------------+---------------------------------------------------+
-| > 3             | > If continuous page numbers are used, returns    |
-|                 | > TRUE. If page numbers start at 1 for each       |
-|                 | > section, returns FALSE. Returns the \#VALUE!    |
-|                 | > error value if report\_name is invalid or the   |
-|                 | > workbook is protected.                          |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Returns</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>An array of reports from all sheets in the active workbook or the #N/A error value if none are specified</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>An array of views, scenarios, and sheet names for the specified report in the active workbook. REPORT.GET returns the #N/A error value if the scenario check box is not selected. Returns the #VALUE! error value if name is invalid or the workbook is protected.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>If continuous page numbers are used, returns TRUE. If page numbers start at 1 for each section, returns FALSE. Returns the #VALUE! error value if report_name is invalid or the workbook is protected.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Report\_name    specifies the name of a report in the active workbook.
 
@@ -1053,8 +1229,7 @@ REPORT.PRINT   Prints a report
 
 Return to [top](#Q)
 
-REPORT.PRINT
-============
+# REPORT.PRINT
 
 Equivalent to clicking the Print button in the Report Manager dialog
 box. Prints a report.
@@ -1080,8 +1255,8 @@ prints the report immediately using existing print settings.
 
 **Remarks**
 
-REPORT.PRINT returns the \#VALUE! error value if report\_name is invalid
-or if the workbook is protected.
+REPORT.PRINT returns the \#VALUE\! error value if report\_name is
+invalid or if the workbook is protected.
 
 **Related Functions**
 
@@ -1091,8 +1266,7 @@ REPORT.DELETE   Removes a report from the active workbook
 
 Return to [top](#Q)
 
-REQUEST
-=======
+# REQUEST
 
 Requests an array of a specific type of information from an application
 with which you have a dynamic data exchange (DDE) link. Use REQUEST with
@@ -1126,22 +1300,50 @@ REQUEST would return that data as the following array:
 
 If REQUEST is not successful, it returns the following error values.
 
-+----------------------+----------------------------------------------+
-| > **Value returned** | > **Situation**                              |
-+----------------------+----------------------------------------------+
-| > \#VALUE!           | > Channel\_num is not a valid channel        |
-|                      | > number.                                    |
-+----------------------+----------------------------------------------+
-| > \#N/A              | > The application you are accessing is busy  |
-|                      | > doing something else.                      |
-+----------------------+----------------------------------------------+
-| > \#DIV/0!           | > The application you are accessing does not |
-|                      | > respond after a certain length of time, or |
-|                      | > you have pressed ESC or COMMAND+PERIOD to  |
-|                      | > cancel.                                    |
-+----------------------+----------------------------------------------+
-| > \#REF!             | > The request is refused.                    |
-+----------------------+----------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Value returned</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Situation</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>#VALUE!</p>
+</blockquote></td>
+<td><blockquote>
+<p>Channel_num is not a valid channel number.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>#N/A</p>
+</blockquote></td>
+<td><blockquote>
+<p>The application you are accessing is busy doing something else.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>#DIV/0!</p>
+</blockquote></td>
+<td><blockquote>
+<p>The application you are accessing does not respond after a certain length of time, or you have pressed ESC or COMMAND+PERIOD to cancel.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>#REF!</p>
+</blockquote></td>
+<td><blockquote>
+<p>The request is refused.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Tip   **Use the ERROR.TYPE function to distinguish between the
 different error values.
@@ -1153,7 +1355,7 @@ WChan contains the number of the open channel. In Microsoft Excel for
 Windows, the following function returns the text specified by the
 bookmark named BMK1.
 
-=REQUEST(WChan, \"BMK1\")
+\=REQUEST(WChan, "BMK1")
 
 **Related Functions**
 
@@ -1170,8 +1372,7 @@ opened with the INITIATE function
 
 Return to [top](#Q)
 
-RESET.TOOL
-==========
+# RESET.TOOL
 
 Resets a button to its original button face.
 
@@ -1196,8 +1397,7 @@ RESET.TOOLBAR   Resets a button to its original button face
 
 Return to [top](#Q)
 
-RESET.TOOLBAR
-=============
+# RESET.TOOLBAR
 
 Resets built-in toolbars to the default Microsoft Excel set.
 
@@ -1211,7 +1411,7 @@ reset. For detailed information about bar\_id, see ADD.TOOL.
 **Remarks**
 
 If RESET.TOOLBAR successfully resets the toolbar, it returns TRUE. If
-you try to reset a custom toolbar, RESET.TOOLBAR returns \#VALUE! and
+you try to reset a custom toolbar, RESET.TOOLBAR returns \#VALUE\! and
 takes no other action.
 
 **Related Functions**
@@ -1222,8 +1422,7 @@ DELETE.TOOLBAR   Deletes custom toolbars
 
 Return to [top](#Q)
 
-RESTART
-=======
+# RESTART
 
 Removes a number of RETURN statements from the stack. When one macro
 calls another, the RETURN statement at the end of the second macro
@@ -1238,12 +1437,12 @@ Level\_num    is a number specifying the number of previous RETURN
 statements you want to be ignored. If level\_num is omitted, the next
 RETURN statement will halt macro execution.
 
-For example, if the currently running macro has two \"ancestors\" (the
+For example, if the currently running macro has two "ancestors" (the
 current macro was called by one macro that, in turn, was called by
 another macro), using RESTART(1) in the third macro returns control to
 the first calling macro when the RETURN statement is encountered. The
 RESTART(1) formula removes one level of RETURN statements from Microsoft
-Excel\'s memory so that the second macro is skipped.
+Excel's memory so that the second macro is skipped.
 
 **Remarks**
 
@@ -1260,8 +1459,7 @@ RETURN   Ends the currently running macro
 
 Return to [top](#Q)
 
-RESULT
-======
+# RESULT
 
 Specifies the type of data a macro or custom function returns. Use
 RESULT to make sure your macros, custom functions, or subroutines return
@@ -1273,38 +1471,83 @@ values of the correct data type.
 
 Type\_num    is a number specifying the data type.
 
-+-----------------+-----------------------------+
-| > **Type\_num** | > **Type of returned data** |
-+-----------------+-----------------------------+
-| > 1             | > Number                    |
-+-----------------+-----------------------------+
-| > 2             | > Text                      |
-+-----------------+-----------------------------+
-| > 4             | > Logical                   |
-+-----------------+-----------------------------+
-| > 8             | > Reference                 |
-+-----------------+-----------------------------+
-| > 16            | > Error                     |
-+-----------------+-----------------------------+
-| > 64            | > Array                     |
-+-----------------+-----------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Type of returned data</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Number</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Logical</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Reference</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>16</p>
+</blockquote></td>
+<td><blockquote>
+<p>Error</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>64</p>
+</blockquote></td>
+<td><blockquote>
+<p>Array</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
  
 
--   Type\_num can be the sum of the numbers in the preceding table to
+  - > Type\_num can be the sum of the numbers in the preceding table to
     > allow for more than one possible result type. For example, if
     > type\_num is 12, which equals 4 + 8, the result can be a logical
     > or a reference value.
 
--   If you omit type\_num, it is assumed to be 7. Since 7 equals 1 + 2 +
-    > 4, the value returned can be a number (1), text (2), or logical
+  - > If you omit type\_num, it is assumed to be 7. Since 7 equals 1 + 2
+    > + 4, the value returned can be a number (1), text (2), or logical
     > value (4).
 
 >  
 
 **Examples**
 
-The following function specifies that a custom function\'s return value
+The following function specifies that a custom function's return value
 can be a number or a logical value (4+1=5):
 
 RESULT(5)
@@ -1317,11 +1560,10 @@ RETURN   Ends the currently running macro
 
 Return to [top](#Q)
 
-RESUME
-======
+# RESUME
 
 Equivalent to choosing the Resume button on the toolbar. Resumes a
-paused macro. Returns TRUE if successful or the \#VALUE! error value if
+paused macro. Returns TRUE if successful or the \#VALUE\! error value if
 no macro is paused. A macro can be paused by using the PAUSE function or
 choosing Pause from the Single Step dialog box, which appears when you
 choose the Step Into button from the Macro dialog box.
@@ -1332,30 +1574,61 @@ choose the Step Into button from the Macro dialog box.
 
 Type\_num    is a number from 1 to 4 specifying how to resume.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **How Microsoft Excel resumes**                 |
-+-----------------+---------------------------------------------------+
-| > 1 or omitted  | > If paused by a PAUSE function, continues        |
-|                 | > running the macro. If paused from the Single    |
-|                 | > Step dialog box, returns to that dialog box.    |
-+-----------------+---------------------------------------------------+
-| > 2             | > Halts the paused macro                          |
-+-----------------+---------------------------------------------------+
-| > 3             | > Continues running the macro                     |
-+-----------------+---------------------------------------------------+
-| > 4             | > Opens the Single Step dialog box                |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>How Microsoft Excel resumes</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1 or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>If paused by a PAUSE function, continues running the macro. If paused from the Single Step dialog box, returns to that dialog box.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Halts the paused macro</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Continues running the macro</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Opens the Single Step dialog box</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
-**Tip**   You can use Microsoft Excel\'s ON functions to resume based on
+**Tip**   You can use Microsoft Excel's ON functions to resume based on
 an event. For an example, see ENTER.DATA.
 
 **Remarks**
 
--   If one macro runs a second macro that pauses, and you need to halt
+  - > If one macro runs a second macro that pauses, and you need to halt
     > only the paused macro, use RESUME(2) instead of HALT. HALT halts
     > all macros and prevents resuming or returning to any macro.
 
--   If the macro was paused from the Single Step dialog box, RESUME
+  - > If the macro was paused from the Single Step dialog box, RESUME
     > returns to the Single Step dialog box.
 
 >  
@@ -1370,8 +1643,7 @@ RETURN   Ends the currently running macro
 
 Return to [top](#Q)
 
-RETURN
-======
+# RETURN
 
 Ends the currently running macro. If the currently running macro is a
 subroutine macro that was called by another macro, control is returned
@@ -1387,11 +1659,11 @@ or by clicking an object, control is returned to the user.
 
 Value    specifies what to return.
 
--   If the macro is a custom function or a subroutine, value specifies
+  - > If the macro is a custom function or a subroutine, value specifies
     > what value to return. However, not all subroutines return values;
     > the last line in macros that do not return values is =RETURN().
 
--   If the macro is a command macro run by the user, value should be
+  - > If the macro is a command macro run by the user, value should be
     > omitted.
 
 >  
@@ -1417,8 +1689,7 @@ RESULT   Specifies the data type a custom function returns
 
 Return to [top](#Q)
 
-ROUTE.DOCUMENT
-==============
+# ROUTE.DOCUMENT
 
 Routes the workbook using the defined routing slip information.
 
@@ -1429,7 +1700,7 @@ Routes the workbook using the defined routing slip information.
 **Remarks**
 
 If there is no routing slip, returns \#N/A. If an error occurs or
-routing is not enabled for the system, returns \#VALUE!.
+routing is not enabled for the system, returns \#VALUE\!.
 
 **Related Functions**
 
@@ -1440,8 +1711,7 @@ workbook
 
 Return to [top](#Q)
 
-ROUTING.SLIP
-============
+# ROUTING.SLIP
 
 Equivalent to clicking the Add Routing Slip command on the File menu.
 Adds or Edits the routing slip attached to the current workbook.
@@ -1457,35 +1727,55 @@ return\_logical, status\_logical)
 Recipients    is the name of the person to whom you want to send the
 mail. The name should be given as text.
 
--   To specify more than one name, give the list of names as an array.
-    > For example, ROUTING.SLIP({\"John\", \"Paul\", \"George\",
-    > \"Ringo\"}) would send the active workbook to the four names in
-    > the array. You can also refer to a range on a sheet or macro sheet
-    > that contains a list of names to whom you want the mail to be
-    > sent.
+  - > To specify more than one name, give the list of names as an array.
+    > For example, ROUTING.SLIP({"John", "Paul", "George", "Ringo"})
+    > would send the active workbook to the four names in the array. You
+    > can also refer to a range on a sheet or macro sheet that contains
+    > a list of names to whom you want the mail to be sent.
 
--   Specifying recipients while a routing is in progress only modifies
+  - > Specifying recipients while a routing is in progress only modifies
     > the non-grayed recipients (that is, those recipients who have not
     > received the message yet). Recipients who have already received,
     > reviewed and forwarded the routed workbook cannot be modified.
 
 Subject    is a text string containing the subject text used for the
 mail messages used to route the workbook. If omitted, the default
-subject line is \"Routing: name\", where name is the file name or title
-as displayed in the Summary Info dialog box, if available.
+subject line is "Routing: name", where name is the file name or title as
+displayed in the Summary Info dialog box, if available.
 
 Message    is a text string containing the body text used for the mail
 messages used to route the workbook.
 
 Route\_num    is a number indicating the type of routing method.
 
-+------------------+-----------------------------+
-| > **Route\_num** | > **Method**                |
-+------------------+-----------------------------+
-| > 1 or omitted   | > One after another routing |
-+------------------+-----------------------------+
-| > 2              | > All at once routing       |
-+------------------+-----------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Route_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Method</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1 or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>One after another routing</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>All at once routing</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Return\_logical    is a logical value which, if TRUE or omitted,
 indicates that the routing should be returned to the originator when the
@@ -1499,11 +1789,11 @@ tracking is performed.
 
 **Remarks**
 
--   If this function is used on a workbook that is already being routed,
-    > the route\_num, status\_logical and return\_logical arguments are
-    > ignored (they cannot be changed).
+  - > If this function is used on a workbook that is already being
+    > routed, the route\_num, status\_logical and return\_logical
+    > arguments are ignored (they cannot be changed).
 
--   When arguments are omitted and a routing slip already exists, the
+  - > When arguments are omitted and a routing slip already exists, the
     > omitted arguments are replaced by the current values of the
     > routing slip.
 
@@ -1516,8 +1806,7 @@ SEND.MAIL   Sends the active workbook using email
 
 Return to [top](#Q)
 
-ROW.HEIGHT
-==========
+# ROW.HEIGHT
 
 Equivalent to choosing the Height command on the Row submenu of the
 Format menu. Changes the height of the rows in a reference.
@@ -1533,27 +1822,27 @@ standard\_height is TRUE, height\_num is ignored.
 
 Reference    specifies the rows for which you want to change the height.
 
--   If reference is omitted, the reference is assumed to be the current
-    > selection.
+  - > If reference is omitted, the reference is assumed to be the
+    > current selection.
 
--   If reference is specified, it must be either an external reference
-    > to the active worksheet, such as !\$2:\$4 or !Database, or an
+  - > If reference is specified, it must be either an external reference
+    > to the active worksheet, such as \!$2:$4 or \!Database, or an
     > R1C1-style reference in the form of text or a name, such as
-    > \"R1:R3\", \"R\[-4\]:R\[-2\]\", or Database.
+    > "R1:R3", "R\[-4\]:R\[-2\]", or Database.
 
--   If reference is a relative R1C1-style reference in the form of text,
-    > it is assumed to be relative to the active cell.
+  - > If reference is a relative R1C1-style reference in the form of
+    > text, it is assumed to be relative to the active cell.
 
 >  
 
 Standard\_height    is a logical value that sets the row height as
 determined by the font in each row.
 
--   If standard\_height is TRUE, Microsoft Excel sets the row height to
-    > a standard height that may vary from row to row depending on the
-    > fonts used in each row, ignoring height\_num.
+  - > If standard\_height is TRUE, Microsoft Excel sets the row height
+    > to a standard height that may vary from row to row depending on
+    > the fonts used in each row, ignoring height\_num.
 
--   If standard\_height is FALSE or omitted, Microsoft Excel sets the
+  - > If standard\_height is FALSE or omitted, Microsoft Excel sets the
     > row height according to height\_num.
 
 >  
@@ -1561,33 +1850,54 @@ determined by the font in each row.
 Type\_num    is a number from 1 to 3 corresponding to selecting the
 Hide, Unhide, or AutoFit commands from the Row submenu.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **Action taken**                                |
-+-----------------+---------------------------------------------------+
-| > 1             | > Hides the row selection by setting the row      |
-|                 | > height to 0                                     |
-+-----------------+---------------------------------------------------+
-| > 2             | > Unhides the row selection by setting the row    |
-|                 | > height to the value set before the selection    |
-|                 | > was hidden                                      |
-+-----------------+---------------------------------------------------+
-| > 3             | > Sets the row selection to an AutoFit height,    |
-|                 | > which varies from row to row depending on how   |
-|                 | > large the font is in any cell in each row or on |
-|                 | > how many lines of text are wrapped              |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Action taken</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Hides the row selection by setting the row height to 0</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Unhides the row selection by setting the row height to the value set before the selection was hidden</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sets the row selection to an AutoFit height, which varies from row to row depending on how large the font is in any cell in each row or on how many lines of text are wrapped</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Remarks**
 
--   If any of the argument settings conflict, such as when
+  - > If any of the argument settings conflict, such as when
     > standard\_height is TRUE and type\_num is 3, Microsoft Excel uses
     > the type\_num argument and ignores any arguments that conflict
     > with type\_num.
 
--   If you are recording a macro while using a mouse, and you change row
-    > heights by dragging the row border, Microsoft Excel records the
-    > reference of the rows using R1C1-style references in the form of
-    > text. If Uses Relative References is selected, Microsoft Excel
+  - > If you are recording a macro while using a mouse, and you change
+    > row heights by dragging the row border, Microsoft Excel records
+    > the reference of the rows using R1C1-style references in the form
+    > of text. If Uses Relative References is selected, Microsoft Excel
     > uses R1C1-style relative references. If Uses Relative References
     > is not selected, Microsoft Excel uses R1C1-style absolute
     > references.
@@ -1600,8 +1910,7 @@ COLUMN.WIDTH   Sets the widths of the specified columns
 
 Return to [top](#Q)
 
-RUN
-===
+# RUN
 
 Equivalent to choosing the Run button in the Macro dialog box, which
 appears when you choose the Macros command on the Macro submenu of the
@@ -1616,30 +1925,63 @@ Tools menu. Runs a macro.
 Reference    is a reference to the macro you want to run or a number
 from 1 to 4 specifying an Auto macro to run.
 
-+-----------------------+------------------------------------------------+
-| > **If reference is** | > **Specifies**                                |
-+-----------------------+------------------------------------------------+
-| > 1                   | > All Auto\_Open macros on the active workbook |
-+-----------------------+------------------------------------------------+
-| > 2                   | > All Auto\_Close macros                       |
-+-----------------------+------------------------------------------------+
-| > 3                   | > All Auto\_Activate macros                    |
-+-----------------------+------------------------------------------------+
-| > 4                   | > All Auto\_Deactivate macros                  |
-+-----------------------+------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>If reference is</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Specifies</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>All Auto_Open macros on the active workbook</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>All Auto_Close macros</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>All Auto_Activate macros</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>All Auto_Deactivate macros</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
  
 
--   If reference is a range of cells, RUN begins with the macro function
-    > in the upper-left cell of reference.
+  - > If reference is a range of cells, RUN begins with the macro
+    > function in the upper-left cell of reference.
 
--   If the macro sheet containing the macro is not in the active
+  - > If the macro sheet containing the macro is not in the active
     > workbook, reference can be an external reference to the name of
-    > the macro, such as RUN(\[BOOK1\]Macro!Months) or an external
+    > the macro, such as RUN(\[BOOK1\]Macro\!Months) or an external
     > R1C1-style reference to the location of the macro, such as
-    > RUN(\"\[Book1\]Macro!R2C3\"). The reference must be in text form.
+    > RUN("\[Book1\]Macro\!R2C3"). The reference must be in text form.
 
--   If reference is omitted, the macro function in the active cell is
+  - > If reference is omitted, the macro function in the active cell is
     > carried out, and macro execution continues down that column.
 
 >  
@@ -1651,15 +1993,15 @@ normally.
 
 **Remarks**
 
--   RUN is recorded when you choose the Run button the Macro dialog box
-    > while recording a macro. The reference you enter in the Run dialog
-    > box is recorded as text, with A1-style references converted to
-    > R1C1-style references.
+  - > RUN is recorded when you choose the Run button the Macro dialog
+    > box while recording a macro. The reference you enter in the Run
+    > dialog box is recorded as text, with A1-style references converted
+    > to R1C1-style references.
 
--   To run a macro from a macro sheet, you could alternatively enter the
-    > name of the macro as a formula, followed by a set of parentheses.
-    > For example, enter =\[Book1\]Macro!Months() instead of
-    > =RUN(\[Book1\]Macro!Months).
+  - > To run a macro from a macro sheet, you could alternatively enter
+    > the name of the macro as a formula, followed by a set of
+    > parentheses. For example, enter =\[Book1\]Macro\!Months() instead
+    > of =RUN(\[Book1\]Macro\!Months).
 
 >  
 
@@ -1669,8 +2011,7 @@ GOTO   Directs macro execution to another cell
 
 Return to [top](#Q)
 
-SAMPLE
-======
+# SAMPLE
 
 Samples data.
 
@@ -1691,31 +2032,29 @@ FALSE, blank, or omitted, places the output table in a new workbook.
 
 Method    is a text character that indicates the type of sampling.
 
--   If method is \"P\", then periodic sampling is used. The input range
+  - > If method is "P", then periodic sampling is used. The input range
     > is sampled every nth cell, where n = rate.
 
--   If method is \"R\", then random sampling is used. The output column
+  - > If method is "R", then random sampling is used. The output column
     > will contain rate samples.
 
 >  
 
-Rate    is the sampling rate, if method is \"P\" (periodic sampling).
-Rate is the number of samples to take if method is \"R\" (random
-sampling).
+Rate    is the sampling rate, if method is "P" (periodic sampling). Rate
+is the number of samples to take if method is "R" (random sampling).
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of inprng contains
+  - > If labels is TRUE, then the first row or column of inprng contains
     > labels.
 
--   If labels is FALSE or omitted, all cells in inprng are considered
+  - > If labels is FALSE or omitted, all cells in inprng are considered
     > data. Microsoft Excel generates appropriate data labels for the
     > output table.
 
 Return to [top](#Q)
 
-SAVE
-====
+# SAVE
 
 Equivalent to choosing the Save command from the File menu. Saves the
 active workbook.
@@ -1739,8 +2078,7 @@ SAVE.WORKBOOK   Saves a workbook
 
 Return to [top](#Q)
 
-SAVE.AS
-=======
+# SAVE.AS
 
 Equivalent to clicking the Save As command on the File menu. Use SAVE.AS
 to specify a new filename, file type, protection password, or
@@ -1763,111 +2101,379 @@ HARDDISK:FINANCIALS:ANALYZE (in Microsoft Excel for the Macintosh).
 Type\_num    is a number specifying the file format in which to save the
 workbook.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **File format**                                 |
-+-----------------+---------------------------------------------------+
-| > 1 or omitted  | > Normal                                          |
-+-----------------+---------------------------------------------------+
-| > 2             | > SYLK                                            |
-+-----------------+---------------------------------------------------+
-| > 3             | > Text                                            |
-+-----------------+---------------------------------------------------+
-| > 4             | > WKS                                             |
-+-----------------+---------------------------------------------------+
-| > 5             | > WK1                                             |
-+-----------------+---------------------------------------------------+
-| > 6             | > CSV                                             |
-+-----------------+---------------------------------------------------+
-| > 7             | > DBF2                                            |
-+-----------------+---------------------------------------------------+
-| > 8             | > DBF3                                            |
-+-----------------+---------------------------------------------------+
-| > 9             | > DIF                                             |
-+-----------------+---------------------------------------------------+
-| > 10            | > Reserved                                        |
-+-----------------+---------------------------------------------------+
-| > 11            | > DBF4                                            |
-+-----------------+---------------------------------------------------+
-| > 12            | > Reserved                                        |
-+-----------------+---------------------------------------------------+
-| > 13            | > Reserved                                        |
-+-----------------+---------------------------------------------------+
-| > 14            | > Reserved                                        |
-+-----------------+---------------------------------------------------+
-| > 15            | > WK3                                             |
-+-----------------+---------------------------------------------------+
-| > 16            | > Microsoft Excel 2.x                             |
-+-----------------+---------------------------------------------------+
-| > 17            | > Template                                        |
-+-----------------+---------------------------------------------------+
-| > 18            | > Add-in macro (For compatibility only. In        |
-|                 | > Microsoft Excel version 5.0, this saves as      |
-|                 | > normal.)                                        |
-+-----------------+---------------------------------------------------+
-| > 19            | > Text (Macintosh)                                |
-+-----------------+---------------------------------------------------+
-| > 20            | > Text (Windows)                                  |
-+-----------------+---------------------------------------------------+
-| > 21            | > Text (MS-DOS)                                   |
-+-----------------+---------------------------------------------------+
-| > 22            | > CSV (Macintosh)                                 |
-+-----------------+---------------------------------------------------+
-| > 23            | > CSV (Windows)                                   |
-+-----------------+---------------------------------------------------+
-| > 24            | > CSV (MS-DOS)                                    |
-+-----------------+---------------------------------------------------+
-| > 25            | > International macro                             |
-+-----------------+---------------------------------------------------+
-| > 26            | > International add-in macro                      |
-+-----------------+---------------------------------------------------+
-| > 27            | > Reserved                                        |
-+-----------------+---------------------------------------------------+
-| > 28            | > Reserved                                        |
-+-----------------+---------------------------------------------------+
-| > 29            | > Microsoft Excel 3.0                             |
-+-----------------+---------------------------------------------------+
-| > 30            | > WK1 / FMT                                       |
-+-----------------+---------------------------------------------------+
-| > 31            | > WK1 / Allways                                   |
-+-----------------+---------------------------------------------------+
-| > 32            | > WK3 / FM3                                       |
-+-----------------+---------------------------------------------------+
-| > 33            | > Microsoft Excel 4.0                             |
-+-----------------+---------------------------------------------------+
-| > 34            | > WQ1                                             |
-+-----------------+---------------------------------------------------+
-| > 35            | > Microsoft Excel 4.0 workbook                    |
-+-----------------+---------------------------------------------------+
-| > 36            | > Formatted text (space delimited)                |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>File format</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1 or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>Normal</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>SYLK</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>WKS</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>WK1</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>CSV</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>DBF2</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>DBF3</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+<td><blockquote>
+<p>DIF</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>Reserved</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>DBF4</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td><blockquote>
+<p>Reserved</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>13</p>
+</blockquote></td>
+<td><blockquote>
+<p>Reserved</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>14</p>
+</blockquote></td>
+<td><blockquote>
+<p>Reserved</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>15</p>
+</blockquote></td>
+<td><blockquote>
+<p>WK3</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>16</p>
+</blockquote></td>
+<td><blockquote>
+<p>Microsoft Excel 2.x</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>17</p>
+</blockquote></td>
+<td><blockquote>
+<p>Template</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>18</p>
+</blockquote></td>
+<td><blockquote>
+<p>Add-in macro (For compatibility only. In Microsoft Excel version 5.0, this saves as normal.)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>19</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text (Macintosh)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text (Windows)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>21</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text (MS-DOS)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>22</p>
+</blockquote></td>
+<td><blockquote>
+<p>CSV (Macintosh)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>23</p>
+</blockquote></td>
+<td><blockquote>
+<p>CSV (Windows)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>24</p>
+</blockquote></td>
+<td><blockquote>
+<p>CSV (MS-DOS)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>25</p>
+</blockquote></td>
+<td><blockquote>
+<p>International macro</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>26</p>
+</blockquote></td>
+<td><blockquote>
+<p>International add-in macro</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>27</p>
+</blockquote></td>
+<td><blockquote>
+<p>Reserved</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>28</p>
+</blockquote></td>
+<td><blockquote>
+<p>Reserved</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>29</p>
+</blockquote></td>
+<td><blockquote>
+<p>Microsoft Excel 3.0</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>30</p>
+</blockquote></td>
+<td><blockquote>
+<p>WK1 / FMT</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>31</p>
+</blockquote></td>
+<td><blockquote>
+<p>WK1 / Allways</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>32</p>
+</blockquote></td>
+<td><blockquote>
+<p>WK3 / FM3</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>33</p>
+</blockquote></td>
+<td><blockquote>
+<p>Microsoft Excel 4.0</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>34</p>
+</blockquote></td>
+<td><blockquote>
+<p>WQ1</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>35</p>
+</blockquote></td>
+<td><blockquote>
+<p>Microsoft Excel 4.0 workbook</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>36</p>
+</blockquote></td>
+<td><blockquote>
+<p>Formatted text (space delimited)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 The following table shows which values of type\_num apply to the six
 Microsoft Excel document types.
 
-+-----------------------+---------------------------------------+
-| > **Document Type**   | > **Type\_num**                       |
-+-----------------------+---------------------------------------+
-| > Worksheet           | > All except 10, 12-14, 18, 25-28, 36 |
-+-----------------------+---------------------------------------+
-| > Chart sheet         | > All except 10, 12-14, 18, 25-28     |
-+-----------------------+---------------------------------------+
-| > Visual Basic module | > 1, 3, 17                            |
-+-----------------------+---------------------------------------+
-| > Dialog              | > 1, 17                               |
-+-----------------------+---------------------------------------+
-| > Macro sheet         | > 1-3, 6, 9, 16-29, 33                |
-+-----------------------+---------------------------------------+
-| > Workbook            | > 1, 15, 35                           |
-+-----------------------+---------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Document Type</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Worksheet</p>
+</blockquote></td>
+<td><blockquote>
+<p>All except 10, 12-14, 18, 25-28, 36</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Chart sheet</p>
+</blockquote></td>
+<td><blockquote>
+<p>All except 10, 12-14, 18, 25-28</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Visual Basic module</p>
+</blockquote></td>
+<td><blockquote>
+<p>1, 3, 17</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Dialog</p>
+</blockquote></td>
+<td><blockquote>
+<p>1, 17</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Macro sheet</p>
+</blockquote></td>
+<td><blockquote>
+<p>1-3, 6, 9, 16-29, 33</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Workbook</p>
+</blockquote></td>
+<td><blockquote>
+<p>1, 15, 35</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Prot\_pwd    corresponds to the Protection Password box in the Save
 Options dialog box in Microsoft Excel 95 or earlier versions, or the
 Password To Open box in Microsoft Excel 97 or later.
 
--   Prot\_pwd is a password given as text or as a reference to a cell
+  - > Prot\_pwd is a password given as text or as a reference to a cell
     > containing text. Prot\_pwd should be no more than 15 characters.
 
--   If a file is saved with a password, the password must be supplied
+  - > If a file is saved with a password, the password must be supplied
     > for the file to be opened.
 
 >  
@@ -1888,12 +2494,12 @@ read-only.
 Read\_only\_rec    is a logical value corresponding to the Read-Only
 Recommended check box in the Save Options dialog box.
 
--   If read\_only\_rec is TRUE, Microsoft Excel saves the workbook as a
-    > read-only recommended workbook; if FALSE, Microsoft Excel saves
+  - > If read\_only\_rec is TRUE, Microsoft Excel saves the workbook as
+    > a read-only recommended workbook; if FALSE, Microsoft Excel saves
     > the workbook normally; if omitted, Microsoft Excel uses the
     > current settings.
 
--   When you open a workbook that was saved as read-only recommended,
+  - > When you open a workbook that was saved as read-only recommended,
     > Microsoft Excel displays a message recommending that you open the
     > workbook as read-only.
 
@@ -1911,8 +2517,7 @@ SAVE.WORKBOOK   Saves a workbook
 
 Return to [top](#Q)
 
-SAVE.COPY.AS
-============
+# SAVE.COPY.AS
 
 Saves a copy of the current workbook using a different name but all the
 current workbook settings, such as passwords and file protection. Does
@@ -1932,12 +2537,11 @@ Suppose that you are creating a macro that makes changes to a file
 called BUDGET95.XLS. Use the following function to save a copy of this
 file called TEMP.XLS without affecting BUDGET95.XLS:
 
-SAVE.COPY.AS(\"temp.xls\")
+SAVE.COPY.AS("temp.xls")
 
 Return to [top](#Q)
 
-SAVE.DIALOG
-===========
+# SAVE.DIALOG
 
 Displays the standard Microsoft Excel File Save As dialog box and gets a
 file name from the user. This function returns the path and file name of
@@ -1950,32 +2554,31 @@ with a particular format and other properties.
 filter\_index)
 
 Init\_filename   Specifies the suggested filename for saving. If
-omitted, the active workbook\'s name is used, as returned by the
+omitted, the active workbook's name is used, as returned by the
 GET.DOCUMENT(1) function.
 
 Title    Specifies the default window title on Microsoft Excel for
 Windows. For Microsoft Excel for the Macintosh, title specifies the
-prompt string. If omitted, \"File Save As\" will be used for Microsoft
-Excel for Windows, and \"Save As:\" For Microsoft Excel for the
-Macintosh.
+prompt string. If omitted, "File Save As" will be used for Microsoft
+Excel for Windows, and "Save As:" For Microsoft Excel for the Macintosh.
 
 Button\_text    is the text used for the save button in the dialog. If
-omitted, \"Save\" will be used as the default. This argument is ignored
-on the Microsoft Excel for Windows.
+omitted, "Save" will be used as the default. This argument is ignored on
+the Microsoft Excel for Windows.
 
 File\_filter    is the file filtering criteria to use, as text. For
 Microsoft Excel for Windows, file\_filter consists of two parts, a
 descriptive phrase denoting the file type followed by a comma and then
-the MS-DOS wildcard file filter specification, as in \"Text Files
-(\*.TXT), \*.TXT, Add-in Files (\*.XLA), \*.XLA\". Groups of filter
+the MS-DOS wildcard file filter specification, as in "Text Files
+(\*.TXT), \*.TXT, Add-in Files (\*.XLA), \*.XLA". Groups of filter
 specifications are also separated by commas. Each separate pair is
 listed in the file type drop-down list box. File\_filter can include an
 asterisk (\*) to represent any sequence of characters and a question
 mark (?) to represent any single character. For Microsoft Excel for the
 Macintosh, file\_filter consists of file type codes separated by commas,
-as in \"TEXT,XLA,XLS4\". Spaces are significant and should not be
-inserted before or after the comma separators unless they are part of
-the file type code.
+as in "TEXT,XLA,XLS4". Spaces are significant and should not be inserted
+before or after the comma separators unless they are part of the file
+type code.
 
 Filter\_index    specifies the index number of the default file
 filtering criteria from 1 to the number of filters specified in
@@ -1985,23 +2588,23 @@ Microsoft Excel for the Macintosh.
 
 **Remarks**
 
--   To use multiple MS-DOS wildcard expressions within file\_filter for
-    > a single file filter type, separate the wildcard expressions with
-    > semicolons, as in \"VB Files (\*.bas; \*.txt), \*.bas;\*.txt\".
+  - > To use multiple MS-DOS wildcard expressions within file\_filter
+    > for a single file filter type, separate the wildcard expressions
+    > with semicolons, as in "VB Files (\*.bas; \*.txt), \*.bas;\*.txt".
 
--   If file\_filter is omitted, \"ALL Files (\*.\*), \*.\*\" will be
+  - > If file\_filter is omitted, "ALL Files (\*.\*), \*.\*" will be
     > used as the default in Microsoft Excel for Windows. The default
     > for Microsoft Excel for the Macintosh is all file types.
 
--   If the user cancels the dialog box, FALSE is returned.
+  - > If the user cancels the dialog box, FALSE is returned.
 
 **Examples**
 
-SAVE.DIALOG(\"TRAVEL.XLS\",\"How do you want to save this file?\",,\
-\"Text Files (\*.TXT), \*.TXT, Add-in Files (\*.XLA), \*.XLA, ALL FILES
-(\*.\*), \*.\*\") opens a File Save As dialog box titled \"How do you
-want to save this file?\", with \"TRAVEL.XLS\" as the suggested file
-name, and with three file filter criteria in the drop-down list box.
+SAVE.DIALOG("TRAVEL.XLS","How do you want to save this file?",,  
+"Text Files (\*.TXT), \*.TXT, Add-in Files (\*.XLA), \*.XLA, ALL FILES
+(\*.\*), \*.\*") opens a File Save As dialog box titled "How do you want
+to save this file?", with "TRAVEL.XLS" as the suggested file name, and
+with three file filter criteria in the drop-down list box.
 
 **Related Function**
 
@@ -2010,8 +2613,7 @@ with the specified file filters
 
 Return to [top](#Q)
 
-SAVE.TOOLBAR
-============
+# SAVE.TOOLBAR
 
 Saves one or more toolbar definitions to a specified file.
 
@@ -2029,7 +2631,7 @@ Filename    is text specifying the name of the destination file. If
 filename does not exist, Microsoft Excel creates a new file. If filename
 exists, Microsoft Excel overwrites the file. If filename is omitted,
 Microsoft Excel saves the toolbar or toolbars in Username8.xlb, where
-\"username\" is your Windows or network logon name. With Microsoft
+"username" is your Windows or network logon name. With Microsoft
 Windows, Username8.xlb is stored in the directory where Windows is
 installed; with Apple Macintosh, EXCEL TOOLBARS is stored in the
 System:Preferences folder
@@ -2039,12 +2641,12 @@ System:Preferences folder
 In Microsoft Excel for Windows, the following macro formula saves
 Toolbar6 as \\EXCDT\\TOOLFILE.XLB.
 
-SAVE.TOOLBAR(\"Toolbar6\", \"\\EXCDT\\TOOLFILE.XLB\")
+SAVE.TOOLBAR("Toolbar6", "\\EXCDT\\TOOLFILE.XLB")
 
 In Microsoft Excel for the Macintosh, the following macro formula saves
 Toolbar6 as TOOLFILE.
 
-SAVE.TOOLBAR(\"Toolbar6\", \"TOOLFILE\")
+SAVE.TOOLBAR("Toolbar6", "TOOLFILE")
 
 **Related Functions**
 
@@ -2056,8 +2658,7 @@ OPEN   Opens a workbook
 
 Return to [top](#Q)
 
-SAVE.WORKBOOK
-=============
+# SAVE.WORKBOOK
 
 Equivalent to clicking the Save Workbook command on the File menu in
 Microsoft Excel version 4.0. Provided for compatibility with Microsoft
@@ -2087,8 +2688,7 @@ type, password, backup file, and location of the workbook
 
 Return to [top](#Q)
 
-SAVE.WORKSPACE
-==============
+# SAVE.WORKSPACE
 
 Equivalent to clicking the Save Workspace command on the File menu.
 Saves the currently opened workbook or workbooks as a workspace.
@@ -2107,8 +2707,7 @@ SAVE.AS   Specifies a new filename.
 
 Return to [top](#Q)
 
-SCALE
-=====
+# SCALE
 
 Changes the position, formatting, and scaling of axes in a chart. There
 are five syntax forms of this function.
@@ -2130,11 +2729,10 @@ axis in 3-D charts
 
 Return to [top](#Q)
 
-SCALE Syntax 1
-==============
+# SCALE Syntax 1
 
 Equivalent to clicking the Selected Axis command on the Format menu when
-a chart\'s category (x) axis is selected, and then clicking the Scale
+a chart's category (x) axis is selected, and then clicking the Scale
 tab. There are five syntax forms of this function. Syntax 1 of SCALE
 applies if the selected axis is a category (x) axis on a 2-D chart and
 the chart is not an xy (scatter) chart. Use this syntax of SCALE to
@@ -2190,11 +2788,10 @@ axis in 3-D charts
 
 Return to [top](#Q)
 
-SCALE Syntax 2
-==============
+# SCALE Syntax 2
 
 Equivalent to clicking the Selected Axes command on the Format menu when
-a chart\'s value (y) axis is selected, and then clicking the Scale tab.
+a chart's value (y) axis is selected, and then clicking the Scale tab.
 There are five syntax forms of this function. Syntax 2 of SCALE applies
 if the selected axis is a value (y) axis on a 2-D chart, or either axis
 on an xy (scatter) chart. Use this syntax of SCALE to change the
@@ -2212,9 +2809,10 @@ The first five arguments correspond to the five range variables on the
 Scale tab. Each argument can be either the logical value TRUE or a
 number:
 
--   If an argument is TRUE, Microsoft Excel selects the Auto check box.
+  - > If an argument is TRUE, Microsoft Excel selects the Auto check
+    > box.
 
--   If an argument is a number, that number is used for the variable.
+  - > If an argument is a number, that number is used for the variable.
 
 >  
 
@@ -2261,11 +2859,10 @@ axis in 3-D charts
 
 Return to [top](#Q)
 
-SCALE Syntax 3
-==============
+# SCALE Syntax 3
 
 Equivalent to clicking the Selected Axes command on the Format menu when
-a chart\'s category (x) axis is selected, and then click the Scale tab.
+a chart's category (x) axis is selected, and then click the Scale tab.
 There are five syntax forms of this function. Syntax 3 of SCALE applies
 if the selected axis is a category (x) axis on a 3-D chart. Use this
 syntax of SCALE to change the position, formatting, and scaling of the
@@ -2312,11 +2909,10 @@ axis in 3-D charts
 
 Return to [top](#Q)
 
-SCALE Syntax 4
-==============
+# SCALE Syntax 4
 
 Equivalent to clicking the Selected Axes command on the Format menu when
-a chart\'s value (y) axis is selected, and then clicking the Scale tab.
+a chart's value (y) axis is selected, and then clicking the Scale tab.
 There are five syntax forms of this function. Syntax 4 of SCALE applies
 if the selected axis is a series (y) axis on a 3-D chart. Use this
 syntax of SCALE to change the position, formatting, and scaling of the
@@ -2361,11 +2957,10 @@ axis in 3-D charts
 
 Return to [top](#Q)
 
-SCALE Syntax 5
-==============
+# SCALE Syntax 5
 
 Equivalent to clicking the Selected Axes command on the Format menu when
-a chart\'s value (z) axis is selected, and then clicking the Scale tab.
+a chart's value (z) axis is selected, and then clicking the Scale tab.
 There are five syntax forms of this function. Syntax 5 of SCALE applies
 if the selected axis is a value (z) axis on a 3-D chart. Use this syntax
 of SCALE to change the position, formatting, and scaling of the value
@@ -2383,9 +2978,9 @@ The first five arguments correspond to the five range variables in the
 Format Axis dialog box, as shown in the following list. Each argument
 can be either the logical value TRUE or a number.
 
--   If TRUE or omitted, the Auto check box is selected.
+  - > If TRUE or omitted, the Auto check box is selected.
 
--   If a number, that number is used.
+  - > If a number, that number is used.
 
 Min\_num    corresponds to the Minimum check box and is the minimum
 value for the value axis.
@@ -2428,8 +3023,7 @@ axis in 3-D charts
 
 Return to [top](#Q)
 
-SCENARIO.ADD
-============
+# SCENARIO.ADD
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 clicking the Add button. Defines the specified values as a scenario. A
@@ -2446,14 +3040,14 @@ Scen\_name    is the name of the scenario you want to define.
 Value\_array    is a horizontal array of values you want to use as input
 for the model on your worksheet.
 
--   Any entry that would be valid for a cell in your model can be a
+  - > Any entry that would be valid for a cell in your model can be a
     > value in value\_array.
 
--   The values must be arranged in the same order as the model\'s
+  - > The values must be arranged in the same order as the model's
     > changing cells. The changing cells are listed in the Changing
     > Cells box in the Scenario Manager dialog box.
 
--   If value\_array is omitted, it is assumed to contain the current
+  - > If value\_array is omitted, it is assumed to contain the current
     > values of the changing cells.
 
 >  
@@ -2461,13 +3055,13 @@ for the model on your worksheet.
 Changing\_ref    is a reference to cells you want to define as changing
 cells for a scenario.
 
--   If omitted, uses the changing cells for the last scenario defined
+  - > If omitted, uses the changing cells for the last scenario defined
     > for the sheet.
 
--   If changing\_ref contains nonadjacent references, you must separate
-    > the reference areas by commas (or other list separator). If you
-    > are using A1-style references, then you must enclose reference in
-    > an extra set of parentheses.
+  - > If changing\_ref contains nonadjacent references, you must
+    > separate the reference areas by commas (or other list separator).
+    > If you are using A1-style references, then you must enclose
+    > reference in an extra set of parentheses.
 
 >  
 
@@ -2498,8 +3092,7 @@ defined on your worksheet
 
 Return to [top](#Q)
 
-SCENARIO.CELLS
-==============
+# SCENARIO.CELLS
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 editing the Changing Cells box. Defines the changing cells for a model
@@ -2531,8 +3124,7 @@ Tools menu and then clicking the Edit button
 
 Return to [top](#Q)
 
-SCENARIO.DELETE
-===============
+# SCENARIO.DELETE
 
 Equivalent to clicking the Scenarios command on the Tools menu, clicking
 a scenario, and then clicking the Delete button. Deletes the specified
@@ -2557,8 +3149,7 @@ the Tools menu and then clicking the Edit button
 
 Return to [top](#Q)
 
-SCENARIO.EDIT
-=============
+# SCENARIO.EDIT
 
 Equivalent to clicking the Scenarios command from the Tools menu and
 then clicking the Edit button.
@@ -2578,10 +3169,10 @@ New\_scenname    is the new name you want to give to the scenario.
 Value\_array    is a horizontal array of values that you want to use for
 the scenario.
 
--   If value\_array is omitted but changing\_ref is specified, Scenario
-    > Manager uses the values in changing\_ref as value\_array.
+  - > If value\_array is omitted but changing\_ref is specified,
+    > Scenario Manager uses the values in changing\_ref as value\_array.
 
--   Value\_array must match the dimensions of changing\_ref for the
+  - > Value\_array must match the dimensions of changing\_ref for the
     > scenario being edit.
 
 Changing\_ref    is a reference to cells you want to define as changing
@@ -2617,8 +3208,7 @@ button
 
 Return to [top](#Q)
 
-SCENARIO.GET
-============
+# SCENARIO.GET
 
 Returns the specified information about the scenarios defined on your
 worksheet.
@@ -2630,41 +3220,82 @@ worksheet.
 Type\_num    is a number from 1 to 8 specifying the type of information
 you want.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **Information returned**                        |
-+-----------------+---------------------------------------------------+
-| > 1             | > A horizontal array of all scenario names in the |
-|                 | > form of text                                    |
-+-----------------+---------------------------------------------------+
-| > 2             | > A reference to the set of changing cells of     |
-|                 | > scen\_name (specified in the Changing Cells box |
-|                 | > of the Scenario Manager dialog box). If         |
-|                 | > scen\_name is omitted, the first scenario is    |
-|                 | > used.                                           |
-+-----------------+---------------------------------------------------+
-| > 3             | > A reference to the result cells (specified in   |
-|                 | > the Result Cells box in the Scenario Summary    |
-|                 | > dialog box)                                     |
-+-----------------+---------------------------------------------------+
-| > 4             | > An array of scenario values for the scenario    |
-|                 | > scen\_name . Each scenario is in a separate     |
-|                 | > row. If scen\_name is omitted, the first        |
-|                 | > scenario is used.                               |
-+-----------------+---------------------------------------------------+
-| > 5             | > Comment, as text, for the scenario              |
-+-----------------+---------------------------------------------------+
-| > 6             | > Returns TRUE if the specified scenario is       |
-|                 | > locked to prevent changes; FALSE, if unlocked.  |
-|                 | > Scen\_name is required.                         |
-+-----------------+---------------------------------------------------+
-| > 7             | > Returns TRUE if the specified scenario is       |
-|                 | > hidden; FALSE, if visible to the user.          |
-|                 | > Scen\_name is required.                         |
-+-----------------+---------------------------------------------------+
-| > 8             | > Returns the user name of the person who last    |
-|                 | > modified the scenario by either adding or       |
-|                 | > editing a scenario. Scen\_name is required.     |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Information returned</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>A horizontal array of all scenario names in the form of text</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>A reference to the set of changing cells of scen_name (specified in the Changing Cells box of the Scenario Manager dialog box). If scen_name is omitted, the first scenario is used.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>A reference to the result cells (specified in the Result Cells box in the Scenario Summary dialog box)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>An array of scenario values for the scenario scen_name . Each scenario is in a separate row. If scen_name is omitted, the first scenario is used.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Comment, as text, for the scenario</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Returns TRUE if the specified scenario is locked to prevent changes; FALSE, if unlocked. Scen_name is required.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Returns TRUE if the specified scenario is hidden; FALSE, if visible to the user. Scen_name is required.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Returns the user name of the person who last modified the scenario by either adding or editing a scenario. Scen_name is required.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Scen\_name    is the name of the scenario that you want information
 about. Ignored if type\_num equals 1 or 3.
@@ -2677,8 +3308,7 @@ cells.
 
 Return to [top](#Q)
 
-SCENARIO.MERGE
-==============
+# SCENARIO.MERGE
 
 Equivalent to choosing the Scenarios command from the Tools menu and
 then selecting Merge. This function merges scenarios from other sheets
@@ -2701,8 +3331,7 @@ defined on your worksheet
 
 Return to [top](#Q)
 
-SCENARIO.SHOW
-=============
+# SCENARIO.SHOW
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 selecting a scenario and clicking the Show button. Recalculates a model
@@ -2717,8 +3346,7 @@ values you want to switch to.
 
 Return to [top](#Q)
 
-SCENARIO.SHOW.NEXT
-==================
+# SCENARIO.SHOW.NEXT
 
 Equivalent to clicking the Scenarios command on the Tools menu,
 selecting the next scenario from the Scenarios list, and clicking the
@@ -2736,8 +3364,7 @@ displays the first scenario.
 
 Return to [top](#Q)
 
-SCENARIO.SUMMARY
-================
+# SCENARIO.SUMMARY
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 clicking the Summary button. Generates a table summarizing the results
@@ -2752,40 +3379,57 @@ of all the scenarios for the model on your worksheet.
 Result\_ref    is a reference to the result cells you want to include in
 the summary report. Normally, result\_ref refers to one or more cells
 containing the formulas that depend on the changing cell values for your
-model---that is, the cells that show the results of a particular
-scenario.
+model—that is, the cells that show the results of a particular scenario.
 
--   If result\_ref is omitted, no result cells are included in the
+  - > If result\_ref is omitted, no result cells are included in the
     > report.
 
--   If result\_ref contains nonadjacent references, you must separate
+  - > If result\_ref contains nonadjacent references, you must separate
     > the reference areas by commas and enclose result\_ref in an extra
     > set of parentheses.
 
 Report\_type    is a number specifying the type of report desired.
 
-+--------------------+------------------------------------------------+
-| > **Report\_type** | > **Type of Report**                           |
-+--------------------+------------------------------------------------+
-| > 1 or omitted     | > A scenario summary report (Microsoft Excel   |
-|                    | > version 4.0)                                 |
-+--------------------+------------------------------------------------+
-| > 2                | > A scenario PivotTable report. Requires       |
-|                    | > result\_ref.                                 |
-+--------------------+------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Report_type</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Type of Report</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1 or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>A scenario summary report (Microsoft Excel version 4.0)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>A scenario PivotTable report. Requires result_ref.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Remarks**
 
--   SCENARIO.SUMMARY generates a summary table of the changing cell and
-    > result cell values for each scenario.
+  - > SCENARIO.SUMMARY generates a summary table of the changing cell
+    > and result cell values for each scenario.
 
--   The table is generated on a new sheet in the current workbook. The
+  - > The table is generated on a new sheet in the current workbook. The
     > sheet becomes active after SCENARIO.SUMMARY runs.
 
 Return to [top](#Q)
 
-SCROLLBAR.PROPERTIES
-====================
+# SCROLLBAR.PROPERTIES
 
 Sets the properties of the scroll bar and spinner button on a worksheet
 or dialog sheet.
@@ -2834,8 +3478,7 @@ or dialog sheet
 
 Return to [top](#Q)
 
-SELECT
-======
+# SELECT
 
 Equivalent to selecting cells or changing the active cell. There are
 three syntax forms of SELECT. Use syntax 1 to select a cell on a
@@ -2850,8 +3493,7 @@ Syntax 3   Selects chart objects
 
 Return to [top](#Q)
 
-SELECT Syntax 1
-===============
+# SELECT Syntax 1
 
 Equivalent to selecting cells or changing the active cell. There are
 three syntax forms of SELECT. Use syntax 1 to select a cell on a
@@ -2863,33 +3505,33 @@ worksheet or macro sheet objects or chart items.
 **SELECT**(selection, active\_cell)
 
 Selection    is the cell or range of cells you want to select. Selection
-can be a reference to the active worksheet, such as !\$A\$1:\$A\$3 or
-!Sales, or an R1C1-style reference to a cell or range relative to the
+can be a reference to the active worksheet, such as \!$A$1:$A$3 or
+\!Sales, or an R1C1-style reference to a cell or range relative to the
 active cell in the current selection, such as
-\"R\[-1\]C\[-1\]:R\[1\]C\[1\]\". The reference must be in text form. If
+"R\[-1\]C\[-1\]:R\[1\]C\[1\]". The reference must be in text form. If
 selection is omitted, the current selection is used.
 
 Active\_cell    is the cell in selection you want to make the active
 cell. Active\_cell can be a reference to a single cell on the active
-worksheet, such as !\$A\$1, or an R1C1-style reference relative to the
-active cell, such as \"R\[-1\]C\[-1\]\". The reference must be in text
+worksheet, such as \!$A$1, or an R1C1-style reference relative to the
+active cell, such as "R\[-1\]C\[-1\]". The reference must be in text
 form. If active\_cell is omitted, SELECT makes the cell in the
 upper-left corner of selection the active cell.
 
 **Remarks**
 
--   Active\_cell must be within selection. If it is not, an error
-    > message is displayed and SELECT returns the \#VALUE! error value.
+  - > Active\_cell must be within selection. If it is not, an error
+    > message is displayed and SELECT returns the \#VALUE\! error value.
 
--   If you are recording a macro using relative references, Microsoft
+  - > If you are recording a macro using relative references, Microsoft
     > Excel records the action using R1C1-style relative references in
     > the form of text.
 
--   If you are recording using absolute references, Microsoft Excel
+  - > If you are recording using absolute references, Microsoft Excel
     > records the action using R1C1-style absolute references in the
     > form of text.
 
--   You cannot give an external reference to a specific sheet as the
+  - > You cannot give an external reference to a specific sheet as the
     > selection argument. The sheet on which you want to make a
     > selection must be active when you use SELECT. Use FORMULA.GOTO to
     > make a selection on another sheet in the same workbook or in
@@ -2905,29 +3547,29 @@ using the reference arguments to the CUT, COPY, or FORMULA functions.
 The following macro formula selects cells C3:E5 on the active worksheet
 and makes C5 the active cell:
 
-SELECT(!\$C\$3:\$E\$5, !\$C\$5)
+SELECT(\!$C$3:$E$5, \!$C$5)
 
 If the active cell is C3, the following macro formula selects cells
 E5:G7 and makes cell F6 the active cell in the selection:
 
-SELECT(\"R\[2\]C\[2\]:R\[4\]C\[4\]\", \"R\[1\]C\[1\]\")
+SELECT("R\[2\]C\[2\]:R\[4\]C\[4\]", "R\[1\]C\[1\]")
 
 You can also make multiple nonadjacent selections with SELECT. The
 following macro formula selects a number of nonadjacent ranges:
 
-SELECT(\"R1C1, R3C2:R4C3, R8C4:R10C5\")
+SELECT("R1C1, R3C2:R4C3, R8C4:R10C5")
 
 The following sequence of macro formulas moves the active cell right,
 left, down, and up within the selection, just as TAB, SHIFT+TAB, ENTER,
 and SHIFT+ENTER do:
 
-SELECT(, \"RC\[1\]\")
+SELECT(, "RC\[1\]")
 
-SELECT(, \"RC\[-1\]\")
+SELECT(, "RC\[-1\]")
 
-SELECT(, \"R\[1\]C\")
+SELECT(, "R\[1\]C")
 
-SELECT(, \"R\[-1\]C\")
+SELECT(, "R\[-1\]C")
 
 Use SELECT with the OFFSET function to select a new range a specified
 distance away from the current range. For example, the following macro
@@ -2950,8 +3592,7 @@ SELECT Syntax 3   Selects chart objects
 
 Return to [top](#Q)
 
-SELECT Syntax 2
-===============
+# SELECT Syntax 2
 
 Equivalent to selecting objects on a chart, worksheet, or macro sheet.
 There are three syntax forms of SELECT. Use syntax 2 to select an object
@@ -2966,7 +3607,7 @@ Object\_id\_text    is text that identifies the object to select.
 Object\_id\_text can be the name of more than one object. To give the
 name of more than one object, use the following format:
 
-SELECT(\"Oval 3, Arc 2, Line 4\")
+SELECT("Oval 3, Arc 2, Line 4")
 
 The last item in the object\_id\_text list will be the active object.
 The active object is important when moving and sizing a group of
@@ -2986,16 +3627,16 @@ the button with the arc and oval.
 Objects can be identified by their object type and number as described
 in CREATE.OBJECT, or by the unique number that specifies the order of
 their creation. For example, if the third object you create is an oval,
-you could use either \"oval 3\" or \"3\" as object\_id\_text.
+you could use either "oval 3" or "3" as object\_id\_text.
 
 **Examples**
 
 The following macro formulas each select a number of objects and specify
 Arc 2 as the active object:
 
-SELECT(\"Oval 3, Arc 1, Line 4, Arc 2\")
+SELECT("Oval 3, Arc 1, Line 4, Arc 2")
 
-SELECT(\"3, 1, 4, 2\")
+SELECT("3, 1, 4, 2")
 
 **Related Functions**
 
@@ -3013,8 +3654,7 @@ SELECT Syntax 3   Selects chart objects
 
 Return to [top](#Q)
 
-SELECT Syntax 3
-===============
+# SELECT Syntax 3
 
 Selects a chart object as specified by the selection code item\_text.
 There are three syntax forms of SELECT. Use syntax 3 to select a chart
@@ -3028,120 +3668,365 @@ forms to select cells or objects on a worksheet or macro sheet.
 Item\_text    is a selection code from the following table which
 specifies which chart object to select.
 
-+---------------------------------------------+-----------------------+
-| > **To select**                             | > **Item\_text**      |
-+---------------------------------------------+-----------------------+
-| > Entire chart                              | > \"Chart\"           |
-+---------------------------------------------+-----------------------+
-| > Plot area                                 | > \"Plot\"            |
-+---------------------------------------------+-----------------------+
-| > Legend                                    | > \"Legend\"          |
-+---------------------------------------------+-----------------------+
-| > Primary chart value axis                  | > \"Axis 1\"          |
-+---------------------------------------------+-----------------------+
-| > Primary chart category axis               | > \"Axis 2\"          |
-+---------------------------------------------+-----------------------+
-| > Secondary chart value axis or 3-D series  | > \"Axis 3\"          |
-| > axis                                      |                       |
-+---------------------------------------------+-----------------------+
-| > Secondary chart category axis             | > \"Axis 4\"          |
-+---------------------------------------------+-----------------------+
-| > Chart title                               | > \"Title\"           |
-+---------------------------------------------+-----------------------+
-| > Label for the primary chart value axis    | > \"Text Axis 1\"     |
-+---------------------------------------------+-----------------------+
-| > Label for the primary chart category axis | > \"Text Axis 2\"     |
-+---------------------------------------------+-----------------------+
-| > Label for the primary chart series axis   | > \"Text Axis 3\"     |
-+---------------------------------------------+-----------------------+
-| > nth floating text item                    | > \"Text n\"          |
-+---------------------------------------------+-----------------------+
-| > nth arrow                                 | > \"Arrow n\"         |
-+---------------------------------------------+-----------------------+
-| > Major gridlines of value axis             | > \"Gridline 1\"      |
-+---------------------------------------------+-----------------------+
-| > Minor gridlines of value axis             | > \"Gridline 2\"      |
-+---------------------------------------------+-----------------------+
-| > Major gridlines of category axis          | > \"Gridline 3\"      |
-+---------------------------------------------+-----------------------+
-| > Minor gridlines of category axis          | > \"Gridline 4\"      |
-+---------------------------------------------+-----------------------+
-| > Major gridlines of series axis            | > \"Gridline 5\"      |
-+---------------------------------------------+-----------------------+
-| > Minor gridlines of series axis            | > \"Gridline 6\"      |
-+---------------------------------------------+-----------------------+
-| > Primary chart droplines                   | > \"Dropline 1\"      |
-+---------------------------------------------+-----------------------+
-| > Secondary chart droplines                 | > \"Dropline 2\"      |
-+---------------------------------------------+-----------------------+
-| > Primary chart hi-lo lines                 | > \"Hiloline 1\"      |
-+---------------------------------------------+-----------------------+
-| > Secondary chart hi-lo lines               | > \"Hiloline 2\"      |
-+---------------------------------------------+-----------------------+
-| > Primary chart up bar                      | > \"UpBar1\"          |
-+---------------------------------------------+-----------------------+
-| > Secondary chart up bar                    | > \"UpBar2\"          |
-+---------------------------------------------+-----------------------+
-| > Primary chart down bar                    | > \"DownBar1\"        |
-+---------------------------------------------+-----------------------+
-| > Secondary chart down bar                  | > \"DownBar2\"        |
-+---------------------------------------------+-----------------------+
-| > Primary chart series line                 | > \"Seriesline1\"     |
-+---------------------------------------------+-----------------------+
-| > Secondary chart series line               | > \"Seriesline2\"     |
-+---------------------------------------------+-----------------------+
-| > Entire series                             | > \"Sn\"              |
-+---------------------------------------------+-----------------------+
-| > Data associated with point m in series n  | > \"SnPm\"            |
-| > if single\_point is TRUE                  |                       |
-+---------------------------------------------+-----------------------+
-| > Text attached to point m of series n      | > \"Text SnPm\"       |
-+---------------------------------------------+-----------------------+
-| > Series title text of series n of an area  | > \"Text Sn\"         |
-| > chart                                     |                       |
-+---------------------------------------------+-----------------------+
-| > Base of a 3-D chart                       | > \"Floor\"           |
-+---------------------------------------------+-----------------------+
-| > Back of a 3-D chart                       | > \"Walls\"           |
-+---------------------------------------------+-----------------------+
-| > Corners of a 3-D chart                    | > \"Corners\"         |
-+---------------------------------------------+-----------------------+
-| > Trend line                                | > \"SnTm\"            |
-+---------------------------------------------+-----------------------+
-| > Error bars                                | > \"SnEm\"            |
-+---------------------------------------------+-----------------------+
-| > Legend Marker                             | > \"Legend Marker n\" |
-+---------------------------------------------+-----------------------+
-| > Legend Entry                              | > \"Legend Entry n\"  |
-+---------------------------------------------+-----------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>To select</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Item_text</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Entire chart</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Chart"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Plot area</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Plot"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Legend</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Legend"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Primary chart value axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Axis 1"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Primary chart category axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Axis 2"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Secondary chart value axis or 3-D series axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Axis 3"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Secondary chart category axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Axis 4"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Chart title</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Title"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Label for the primary chart value axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Text Axis 1"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Label for the primary chart category axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Text Axis 2"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Label for the primary chart series axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Text Axis 3"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>nth floating text item</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Text n"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>nth arrow</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Arrow n"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Major gridlines of value axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Gridline 1"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Minor gridlines of value axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Gridline 2"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Major gridlines of category axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Gridline 3"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Minor gridlines of category axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Gridline 4"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Major gridlines of series axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Gridline 5"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Minor gridlines of series axis</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Gridline 6"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Primary chart droplines</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Dropline 1"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Secondary chart droplines</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Dropline 2"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Primary chart hi-lo lines</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Hiloline 1"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Secondary chart hi-lo lines</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Hiloline 2"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Primary chart up bar</p>
+</blockquote></td>
+<td><blockquote>
+<p>"UpBar1"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Secondary chart up bar</p>
+</blockquote></td>
+<td><blockquote>
+<p>"UpBar2"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Primary chart down bar</p>
+</blockquote></td>
+<td><blockquote>
+<p>"DownBar1"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Secondary chart down bar</p>
+</blockquote></td>
+<td><blockquote>
+<p>"DownBar2"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Primary chart series line</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Seriesline1"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Secondary chart series line</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Seriesline2"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Entire series</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Sn"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Data associated with point m in series n if single_point is TRUE</p>
+</blockquote></td>
+<td><blockquote>
+<p>"SnPm"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Text attached to point m of series n</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Text SnPm"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Series title text of series n of an area chart</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Text Sn"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Base of a 3-D chart</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Floor"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Back of a 3-D chart</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Walls"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Corners of a 3-D chart</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Corners"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Trend line</p>
+</blockquote></td>
+<td><blockquote>
+<p>"SnTm"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Error bars</p>
+</blockquote></td>
+<td><blockquote>
+<p>"SnEm"</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Legend Marker</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Legend Marker n"</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Legend Entry</p>
+</blockquote></td>
+<td><blockquote>
+<p>"Legend Entry n"</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 For trend lines and error bars, the value m can be X or Y, depending on
 which point you want to select. If m is blank, selects both.
 
 Single\_point    is a logical value that determines whether to select a
-single point. Single\_point is available only when item\_text is
-\"SnPm\".
+single point. Single\_point is available only when item\_text is "SnPm".
 
--   If single\_point is TRUE, Microsoft Excel selects a single point.
+  - > If single\_point is TRUE, Microsoft Excel selects a single point.
 
--   If single\_point is FALSE or omitted, Microsoft Excel selects a
+  - > If single\_point is FALSE or omitted, Microsoft Excel selects a
     > single point if there is only one series in the chart or selects
     > the entire series if there is more than one series in the chart.
 
--   If you specify single\_point when item\_text is any value other than
-    > \"SnPm\", SELECT returns an error value.
+  - > If you specify single\_point when item\_text is any value other
+    > than "SnPm", SELECT returns an error value.
 
 >  
 
 **Examples**
 
-SELECT(\"Chart\") selects the entire chart.
+SELECT("Chart") selects the entire chart.
 
-SELECT(\"Dropline 2\") selects the droplines of an overlay chart.
+SELECT("Dropline 2") selects the droplines of an overlay chart.
 
-SELECT(\"S1P3\", TRUE) selects the third point in the first series.
+SELECT("S1P3", TRUE) selects the third point in the first series.
 
-SELECT(\"Text S1\") selects the series title text of the first series in
+SELECT("Text S1") selects the series title text of the first series in
 an area chart.
 
 **Related Functions**
@@ -3154,8 +4039,7 @@ SELECT Syntax 2   Selects objects on worksheets
 
 Return to [top](#Q)
 
-SELECT.ALL
-==========
+# SELECT.ALL
 
 Equivalent to selecting all the sheets in a workbook.
 
@@ -3165,12 +4049,11 @@ Equivalent to selecting all the sheets in a workbook.
 
 Return to [top](#Q)
 
-SELECT.CHART
-============
+# SELECT.CHART
 
 Equivalent to the Select Chart command on the Chart menu in Microsoft
 Excel version 4.0. This function is equivalent to using the third form
-of SELECT with \"Chart\" as the item\_text argument.
+of SELECT with "Chart" as the item\_text argument.
 
 **Syntax**
 
@@ -3187,8 +4070,7 @@ SELECT   Selects a chart object
 
 Return to [top](#Q)
 
-SELECT.END
-==========
+# SELECT.END
 
 Selects the cell at the edge of the range or the first cell of the next
 range in the direction specified. Equivalent to pressing CTRL+ARROW in
@@ -3202,21 +4084,50 @@ Macintosh.
 Direction\_num    is a number from 1 to 4 indicating the direction in
 which to move.
 
-+----------------------+----------------------------------------------+
-| > **Direction\_num** | > **Direction**                              |
-+----------------------+----------------------------------------------+
-| > 1                  | > Left (equivalent to CTRL+LEFT ARROW or     |
-|                      | > COMMAND+LEFT ARROW)                        |
-+----------------------+----------------------------------------------+
-| > 2                  | > Right (equivalent to CTRL+RIGHT ARROW or   |
-|                      | > COMMAND+RIGHT ARROW)                       |
-+----------------------+----------------------------------------------+
-| > 3                  | > Up (equivalent to CTRL+UP ARROW or         |
-|                      | > COMMAND+UP ARROW)                          |
-+----------------------+----------------------------------------------+
-| > 4                  | > Down (equivalent to CTRL+DOWN ARROW or     |
-|                      | > COMMAND+DOWN ARROW)                        |
-+----------------------+----------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Direction_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Direction</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left (equivalent to CTRL+LEFT ARROW or COMMAND+LEFT ARROW)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Right (equivalent to CTRL+RIGHT ARROW or COMMAND+RIGHT ARROW)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Up (equivalent to CTRL+UP ARROW or COMMAND+UP ARROW)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Down (equivalent to CTRL+DOWN ARROW or COMMAND+DOWN ARROW)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Related Function**
 
@@ -3226,8 +4137,7 @@ formula or name
 
 Return to [top](#Q)
 
-SELECTION
-=========
+# SELECTION
 
 Returns the reference or object identifier of the selection as an
 external reference. Use SELECTION to return information about the
@@ -3241,37 +4151,130 @@ If a cell or range of cells is selected, Microsoft Excel returns the
 corresponding external reference. If an object is selected, Microsoft
 Excel returns the object identifier listed in the following table.
 
-+-------------------------------+---------------------------+
-| > **Item selected**           | > **Identifier returned** |
-+-------------------------------+---------------------------+
-| > Imported graphic            | > Picture n               |
-+-------------------------------+---------------------------+
-| > Linked graphic              | > Picture n               |
-+-------------------------------+---------------------------+
-| > Chart picture               | > Picture n               |
-+-------------------------------+---------------------------+
-| > Linked chart                | > Chart n                 |
-+-------------------------------+---------------------------+
-| > Range                       | > Picture n               |
-+-------------------------------+---------------------------+
-| > Linked range                | > Picture n               |
-+-------------------------------+---------------------------+
-| > Text box                    | > Text n                  |
-+-------------------------------+---------------------------+
-| > Button                      | > Button n                |
-+-------------------------------+---------------------------+
-| > Rectangle                   | > Rectangle n             |
-+-------------------------------+---------------------------+
-| > Oval                        | > Oval n                  |
-+-------------------------------+---------------------------+
-| > Line                        | > Line n                  |
-+-------------------------------+---------------------------+
-| > Arc                         | > Arc n                   |
-+-------------------------------+---------------------------+
-| > Group                       | > Group n                 |
-+-------------------------------+---------------------------+
-| > Freehand drawing or polygon | > Drawing n               |
-+-------------------------------+---------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Item selected</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Identifier returned</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Imported graphic</p>
+</blockquote></td>
+<td><blockquote>
+<p>Picture n</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Linked graphic</p>
+</blockquote></td>
+<td><blockquote>
+<p>Picture n</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Chart picture</p>
+</blockquote></td>
+<td><blockquote>
+<p>Picture n</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Linked chart</p>
+</blockquote></td>
+<td><blockquote>
+<p>Chart n</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Range</p>
+</blockquote></td>
+<td><blockquote>
+<p>Picture n</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Linked range</p>
+</blockquote></td>
+<td><blockquote>
+<p>Picture n</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Text box</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text n</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Button</p>
+</blockquote></td>
+<td><blockquote>
+<p>Button n</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Rectangle</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rectangle n</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Oval</p>
+</blockquote></td>
+<td><blockquote>
+<p>Oval n</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Line</p>
+</blockquote></td>
+<td><blockquote>
+<p>Line n</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Arc</p>
+</blockquote></td>
+<td><blockquote>
+<p>Arc n</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Group</p>
+</blockquote></td>
+<td><blockquote>
+<p>Group n</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Freehand drawing or polygon</p>
+</blockquote></td>
+<td><blockquote>
+<p>Drawing n</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 SELECTION also returns the identifiers of chart items. The identifiers
 returned are the same as the identifiers you specify when you use the
@@ -3289,13 +4292,13 @@ you can then store or manipulate.
 
 **Remarks**
 
--   If an object is selected, SELECTION returns the identifier of the
+  - > If an object is selected, SELECTION returns the identifier of the
     > object. If multiple objects are selected, it returns the
     > identifiers of all the selected objects, as a string separated by
     > commas.
 
--   If more than 1024 characters would be returned, SELECTION returns
-    > the \#VALUE! error value.
+  - > If more than 1024 characters would be returned, SELECTION returns
+    > the \#VALUE\! error value.
 
 >  
 
@@ -3304,7 +4307,7 @@ you can then store or manipulate.
 If the sheet in the active window is named SHEET1 in the workbook BOOK1,
 and if A1:A3 is the selection, then:
 
-SELECTION() equals \[BOOK1\]SHEET1!A1:A3
+SELECTION() equals \[BOOK1\]SHEET1\!A1:A3
 
 The following macro formula moves the current selection one row down:
 
@@ -3313,16 +4316,16 @@ SELECT(OFFSET(SELECTION(), 1, 0))
 The above formula is particularly useful for moving incrementally
 through a database to add or modify records.
 
-The following macro formula defines the name \"EntryRange\" on the
-active sheet to refer to one row below the current selection on the
-active sheet:
+The following macro formula defines the name "EntryRange" on the active
+sheet to refer to one row below the current selection on the active
+sheet:
 
-DEFINE.NAME(\"EntryRange\", OFFSET(SELECTION(), 1, 0))
+DEFINE.NAME("EntryRange", OFFSET(SELECTION(), 1, 0))
 
-The following macro formula defines the name \"Objects\" on your macro
+The following macro formula defines the name "Objects" on your macro
 sheet to refer to the object names in the current multiple selection:
 
-SET.NAME(\"Objects\", SELECTION())
+SET.NAME("Objects", SELECTION())
 
 **Related Functions**
 
@@ -3332,8 +4335,7 @@ SELECT   Selects a cell, graphic object, or chart
 
 Return to [top](#Q)
 
-SELECT.LAST.CELL
-================
+# SELECT.LAST.CELL
 
 Equivalent to choosing the Special button from the Go To dialog box and
 selecting the Last Cell option. The Go To dialog box appears when you
@@ -3351,8 +4353,7 @@ SELECT.END   Selects the last cell in a range
 
 Return to [top](#Q)
 
-SELECT.LIST.ITEM
-================
+# SELECT.LIST.ITEM
 
 Selects an item in a list box or in a group box.
 
@@ -3377,8 +4378,7 @@ REMOVE.LIST.ITEM   Removes an item in a list box or drop-down box
 
 Return to [top](#Q)
 
-SELECT.PLOT.AREA
-================
+# SELECT.PLOT.AREA
 
 Equivalent to clicking the Select Plot Area command on the Chart menu in
 Microsoft Excel version 4.0. Selects the plot area of the active chart.
@@ -3391,7 +4391,7 @@ Microsoft Excel version 4.0. Selects the plot area of the active chart.
 
 SELECT.PLOT.AREA is included only for compatibility with previous
 versions of Microsoft Excel for the Macintosh. SELECT.PLOT.AREA is the
-same as the SELECT(\"Plot\") function.
+same as the SELECT("Plot") function.
 
 **Related Function**
 
@@ -3399,8 +4399,7 @@ SELECT   Selects a cell, graphic object, or chart
 
 Return to [top](#Q)
 
-SELECT.SPECIAL
-==============
+# SELECT.SPECIAL
 
 Equivalent to clicking the Go To command on the Edit menu and then
 selecting the Special button. Use SELECT.SPECIAL to select groups of
@@ -3415,51 +4414,171 @@ similar cells in one of a variety of categories.
 Type\_num    is a number from 1 to 13 corresponding to options in the Go
 To Special dialog box and describes what to select.
 
-+-----------------+----------------------------------+
-| > **Type\_num** | > **Description**                |
-+-----------------+----------------------------------+
-| > 1             | > Notes/comments                 |
-+-----------------+----------------------------------+
-| > 2             | > Constants                      |
-+-----------------+----------------------------------+
-| > 3             | > Formulas                       |
-+-----------------+----------------------------------+
-| > 4             | > Blanks                         |
-+-----------------+----------------------------------+
-| > 5             | > Current region                 |
-+-----------------+----------------------------------+
-| > 6             | > Current array                  |
-+-----------------+----------------------------------+
-| > 7             | > Row differences                |
-+-----------------+----------------------------------+
-| > 8             | > Column differences             |
-+-----------------+----------------------------------+
-| > 9             | > Precedents                     |
-+-----------------+----------------------------------+
-| > 10            | > Dependents                     |
-+-----------------+----------------------------------+
-| > 11            | > Last cell                      |
-+-----------------+----------------------------------+
-| > 12            | > Visible cells only (outlining) |
-+-----------------+----------------------------------+
-| > 13            | > All objects                    |
-+-----------------+----------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Description</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Notes/comments</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Constants</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Formulas</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Blanks</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Current region</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Current array</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Row differences</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Column differences</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+<td><blockquote>
+<p>Precedents</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>Dependents</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>Last cell</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td><blockquote>
+<p>Visible cells only (outlining)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>13</p>
+</blockquote></td>
+<td><blockquote>
+<p>All objects</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Value\_type    is a number specifying which types of constants or
 formulas you want to select. Value\_type is available only when
 type\_num is 2 or 3.
 
-+-------------------+------------------+
-| > **Value\_type** | > **Selects**    |
-+-------------------+------------------+
-| > 1               | > Numbers        |
-+-------------------+------------------+
-| > 2               | > Text           |
-+-------------------+------------------+
-| > 4               | > Logical values |
-+-------------------+------------------+
-| > 16              | > Error values   |
-+-------------------+------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Value_type</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Selects</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Numbers</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Logical values</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>16</p>
+</blockquote></td>
+<td><blockquote>
+<p>Error values</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 These values can be added to select more than one type. The default for
 value\_type is 23, which select all value types.
@@ -3468,22 +4587,42 @@ Levels    is a number specifying how precedents and dependents are
 selected. Levels is available only when type\_num is 9 or 10. The
 default is 1.
 
-+--------------+---------------+
-| > **Levels** | > **Selects** |
-+--------------+---------------+
-| > 1          | > Direct only |
-+--------------+---------------+
-| > 2          | > All levels  |
-+--------------+---------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Levels</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Selects</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Direct only</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>All levels</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Return to [top](#Q)
 
-SEND.KEYS
-=========
+# SEND.KEYS
 
 Sends keystrokes to the active application just as if they were typed at
 the keyboard. Use SEND.KEYS to send keystrokes that perform actions and
-execute commands to applications you are running with Microsoft Excel\'s
+execute commands to applications you are running with Microsoft Excel's
 other dynamic data exchange (DDE) functions.
 
 **Syntax**
@@ -3500,10 +4639,10 @@ function.
 Wait\_logical    is a logical value that determines whether the macro
 continues before the actions caused by key\_text are carried out.
 
--   If wait\_logical is TRUE, Microsoft Excel waits for the keys to be
+  - > If wait\_logical is TRUE, Microsoft Excel waits for the keys to be
     > processed before returning control to the macro.
 
--   If wait\_logical is FALSE or omitted, the macro continues running
+  - > If wait\_logical is FALSE or omitted, the macro continues running
     > without waiting for the keys to be processed.
 
 >  
@@ -3514,7 +4653,7 @@ If Microsoft Excel is the active application, wait\_logical is assumed
 to be FALSE, even if you enter wait\_logical as TRUE. This is because if
 wait\_logical is TRUE, Microsoft Excel waits for the keys to be
 processed in the other application before returning control to the
-macro. Microsoft Excel doesn\'t process keys while a macro is running.
+macro. Microsoft Excel doesn't process keys while a macro is running.
 
 **Example**
 
@@ -3522,21 +4661,21 @@ The following macro uses the Calculator application in Microsoft Excel
 for Windows to multiply some numbers, and then cuts the result and
 pastes it into Microsoft Excel.
 
-=EXEC(\"CALC.EXE\", 1)
+\=EXEC("CALC.EXE", 1)
 
-=SEND.KEYS(\"10\*30\", TRUE)
+\=SEND.KEYS("10\*30", TRUE)
 
-=SEND.KEYS(\"\~\", TRUE)
+\=SEND.KEYS("\~", TRUE)
 
-=SEND.KEYS(\"%ec\", TRUE)
+\=SEND.KEYS("%ec", TRUE)
 
-=APP.ACTIVATE(, FALSE)
+\=APP.ACTIVATE(, FALSE)
 
-=SELECT(!B1)
+\=SELECT(\!B1)
 
-=PASTE()
+\=PASTE()
 
-=RETURN()
+\=RETURN()
 
 **Related Functions**
 
@@ -3548,8 +4687,7 @@ ON.KEY   Runs a macro when a specified key is pressed
 
 Return to [top](#Q)
 
-SEND.MAIL
-=========
+# SEND.MAIL
 
 Equivalent to clicking the Send Mail command on the File menu. Sends the
 active workbook using email.
@@ -3569,20 +4707,20 @@ Microsoft Mail version 2.0 or later.
 Recipients    is the name of the person to whom you want to send the
 mail. The name should be given as text.
 
--   To specify more than one name, give the list of names as an array.
-    > For example, SEND.MAIL({\"John\", \"Paul\", \"George\",
-    > \"Ringo\"}) would send the active workbook to the four names in
-    > the array. You can also refer to a range on a sheet or macro sheet
-    > that contains a list of names to whom you want the mail to be
-    > sent.
+  - > To specify more than one name, give the list of names as an array.
+    > For example, SEND.MAIL({"John", "Paul", "George", "Ringo"}) would
+    > send the active workbook to the four names in the array. You can
+    > also refer to a range on a sheet or macro sheet that contains a
+    > list of names to whom you want the mail to be sent.
 
--   To send mail to users on different Microsoft Mail for the Macintosh
-    > servers, specify the server name along with the user name. The
-    > following text, as the recipients argument, sends mail to wandagr
-    > on server2, gregpr on the current server, and victorge on server7:
+  - > To send mail to users on different Microsoft Mail for the
+    > Macintosh servers, specify the server name along with the user
+    > name. The following text, as the recipients argument, sends mail
+    > to wandagr on server2, gregpr on the current server, and victorge
+    > on server7:
 
-> {\"wandagr\@server2\", \"gregpr\", \"victorge\@server7\"}
->
+> {"wandagr@server2", "gregpr", "victorge@server7"}
+> 
 >  
 
 Subject    is a text string that specifies the subject of the message.
@@ -3601,14 +4739,13 @@ open
 
 Return to [top](#Q)
 
-SEND.TO.BACK
-============
+# SEND.TO.BACK
 
 Sends the selected object or objects to the back. Use SEND.TO.BACK to
 position selected objects behind other objects.
 
 If the selection is not an object or a group of objects, SEND.TO.BACK
-returns the \#VALUE! error value and interrupts the macro.
+returns the \#VALUE\! error value and interrupts the macro.
 
 **Syntax**
 
@@ -3620,8 +4757,7 @@ BRING.TO.FRONT   Brings selected objects to the front
 
 Return to [top](#Q)
 
-SERIES
-======
+# SERIES
 
 Charts Only
 
@@ -3639,15 +4775,15 @@ typing the changes.
 
 Name\_ref    is the name of the data series. It can be an external
 reference to a single cell or a name defined as a single cell. Name\_ref
-can also be text enclosed in quotation marks (for example, \"Projected
-Sales\").
+can also be text enclosed in quotation marks (for example, "Projected
+Sales").
 
 Categories    is an external reference to the name of the workbook and
 to the cells that contain one of the following sets of data:
 
--   Category labels for all charts except xy (scatter) charts
+  - > Category labels for all charts except xy (scatter) charts
 
--   X-coordinate data for xy (scatter) charts
+  - > X-coordinate data for xy (scatter) charts
 
 >  
 
@@ -3660,14 +4796,14 @@ the same plot\_order.
 
 **Remarks**
 
--   Categories and values can be arrays or references to a multiple
+  - > Categories and values can be arrays or references to a multiple
     > selection, although they cannot be names that refer to a multiple
     > selection. If you specify a multiple selection for any of these
     > arguments, make sure you include the necessary sets of parentheses
     > so that Microsoft Excel does not treat the components of the
     > references as separate arguments.
 
--   If either categories or values is a multiple selection, then all
+  - > If either categories or values is a multiple selection, then all
     > areas in that selection must be either vertical (more rows than
     > columns) or horizontal (more columns than rows).
 
@@ -3681,8 +4817,7 @@ EDIT.SERIES   Creates or changes a chart series
 
 Return to [top](#Q)
 
-SERIES.AXES
-===========
+# SERIES.AXES
 
 Equivalent to the Axis Tab in the Format Data Series dialog box. Changes
 the axis on which a series is plotted. This function is for
@@ -3698,8 +4833,7 @@ use 1 for primary axis, 2 for secondary axis.
 
 Return to [top](#Q)
 
-SERIES.ORDER
-============
+# SERIES.ORDER
 
 Changes the order of series in a chart.
 
@@ -3717,8 +4851,7 @@ group.
 
 Return to [top](#Q)
 
-SERIES.X
-========
+# SERIES.X
 
 Equivalent to the X Values tab in the Format Data Series dialog box.
 Specifies the category labels (x values) for a data series. This
@@ -3727,7 +4860,7 @@ Microsoft Excel 97.
 
 **Syntax**
 
-**SERIES.X**(x\_ref)\
+**SERIES.X**(x\_ref)  
 X-ref    is an external reference in the form of text specifying the
 range containing the category labels (or x values for a scatter (xy)
 chart) you want to use.
@@ -3738,8 +4871,7 @@ SERIES.Y   Specifies the name and values for a data series
 
 Return to [top](#Q)
 
-SERIES.Y
-========
+# SERIES.Y
 
 Equivalent to the Name and Values tab in the Format Data Series dialog
 box. Specifies the name and values for a data series. This function is
@@ -3763,8 +4895,7 @@ SERIES.X   Specifies the category labels (x values) for a data series
 
 Return to [top](#Q)
 
-SET.CONTROL.VALUE
-=================
+# SET.CONTROL.VALUE
 
 Changes the value for the active control, such as a list box, drop-down
 box, check box, option button, scroll bar, and spinner button.
@@ -3776,28 +4907,69 @@ box, check box, option button, scroll bar, and spinner button.
 Value    is the value you want to change. The control interprets this
 value as follows:
 
-+------------------+--------------------------------------------------+
-| > **Control**    | > **Value is**                                   |
-+------------------+--------------------------------------------------+
-| > List box       | > The index of the selected item. If zero, then  |
-|                  | > no item is selected.                           |
-+------------------+--------------------------------------------------+
-| > Drop-down box  | > The index of the selected item. If zero, then  |
-|                  | > no item is selected.                           |
-+------------------+--------------------------------------------------+
-| > Check box      | > 0 = Off\                                       |
-|                  | > 1 = On\                                        |
-|                  | > 2 = Mixed                                      |
-+------------------+--------------------------------------------------+
-| > Option button  | > 0= Off\                                        |
-|                  | > 1 = On                                         |
-+------------------+--------------------------------------------------+
-| > Scroll bar     | > The numeric value of the control, between the  |
-|                  | > maximum and minimum values                     |
-+------------------+--------------------------------------------------+
-| > Spinner button | > The numeric value of the control, between the  |
-|                  | > maximum and minimum values                     |
-+------------------+--------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Control</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Value is</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>List box</p>
+</blockquote></td>
+<td><blockquote>
+<p>The index of the selected item. If zero, then no item is selected.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Drop-down box</p>
+</blockquote></td>
+<td><blockquote>
+<p>The index of the selected item. If zero, then no item is selected.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Check box</p>
+</blockquote></td>
+<td><blockquote>
+<p>0 = Off<br />
+1 = On<br />
+2 = Mixed</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Option button</p>
+</blockquote></td>
+<td><blockquote>
+<p>0= Off<br />
+1 = On</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Scroll bar</p>
+</blockquote></td>
+<td><blockquote>
+<p>The numeric value of the control, between the maximum and minimum values</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>Spinner button</p>
+</blockquote></td>
+<td><blockquote>
+<p>The numeric value of the control, between the maximum and minimum values</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Related Functions**
 
@@ -3816,8 +4988,7 @@ controls
 
 Return to [top](#Q)
 
-SET.CRITERIA
-============
+# SET.CRITERIA
 
 Equivalent to clicking the Set Criteria command on the Data menu in
 Microsoft Excel version 4.0. Defines the name Criteria for the selected
@@ -3837,8 +5008,7 @@ menu in Microsoft Excel version 4.0
 
 Return to [top](#Q)
 
-SET.DATABASE
-============
+# SET.DATABASE
 
 Equivalent to clicking the Set Database command on the Data menu in
 Microsoft Excel version 4.0. Defines the name Database for the selected
@@ -3858,8 +5028,7 @@ menu in Microsoft Excel version 4.0
 
 Return to [top](#Q)
 
-SET.DIALOG.DEFAULT
-==================
+# SET.DIALOG.DEFAULT
 
 Sets which button is automatically pressed (the default button) when the
 user presses ENTER. While running, this default button is visually
@@ -3871,7 +5040,7 @@ sheet active.
 **SET.DIALOG.DEFAULT**(**object\_id\_text**)
 
 Object\_id\_text    is the name of the button control to set as the
-default button, as in \"Button 5\".
+default button, as in "Button 5".
 
 **Related Function**
 
@@ -3879,8 +5048,7 @@ SET.DIALOG.FOCUS   Sets the focus of a dialog box
 
 Return to [top](#Q)
 
-SET.DIALOG.FOCUS
-================
+# SET.DIALOG.FOCUS
 
 Sets the focus of a dialog box. This function is used only with a dialog
 sheet active.
@@ -3890,7 +5058,7 @@ sheet active.
 **SET.DIALOG.FOCUS**(**object\_id\_text**)
 
 Object\_id\_text    the name of the control or object as text to give
-the focus to, as in \"Check box 4\".
+the focus to, as in "Check box 4".
 
 **Related Function**
 
@@ -3899,8 +5067,7 @@ default button) when the user presses ENTER
 
 Return to [top](#Q)
 
-SET.EXTRACT
-===========
+# SET.EXTRACT
 
 Equivalent to clicking the Set Extract command on the Data menu in
 Microsoft Excel version 4.0. Defines the name Extract for the selected
@@ -3920,8 +5087,7 @@ Data menu in Microsoft Excel version 4.0
 
 Return to [top](#Q)
 
-SET.LIST.ITEM
-=============
+# SET.LIST.ITEM
 
 Sets the text of an item in a list box or drop-down box control.
 
@@ -3950,11 +5116,10 @@ SELECT.LIST.ITEM   Selects an item in a list box or in a group box
 
 Return to [top](#Q)
 
-SET.NAME
-========
+# SET.NAME
 
 Defines a name on a macro sheet to refer to a value. The defined name
-exists only on the macro sheet\'s list of names and does not appear in
+exists only on the macro sheet's list of names and does not appear in
 the global list of names for the workbook. The SET.NAME function is
 useful for storing values while the macro is calculating.
 
@@ -3966,27 +5131,27 @@ Name\_text    is the name in the form of text that refers to value.
 
 Value    is the value you want to store in name\_text.
 
--   If value is omitted, the name name\_text is deleted.
+  - > If value is omitted, the name name\_text is deleted.
 
--   If value is a reference, name\_text is defined to refer to that
+  - > If value is a reference, name\_text is defined to refer to that
     > reference.
 
 >  
 
 **Remarks**
 
--   If you want to define a name as a constant value, you can use the
+  - > If you want to define a name as a constant value, you can use the
     > following syntax instead of SET.NAME:
 
 > name\_text=value
->
+> 
 > See the first two examples following.
 
--   SET.NAME defines names as absolute references, even if a relative
+  - > SET.NAME defines names as absolute references, even if a relative
     > reference is specified. See the third and fourth examples
     > following.
 
--   If you want name\_text to refer permanently to the value of a
+  - > If you want name\_text to refer permanently to the value of a
     > referenced cell rather than to the reference itself, you must use
     > the DEREF function. Use of DEREF prevents name\_text from
     > referring to a new value every time the contents of the referenced
@@ -3996,18 +5161,18 @@ Value    is the value you want to store in name\_text.
 
 **Tips**
 
--   If you need to return an array to a macro sheet (for example, if the
-    > macro needs a list of all open windows), assign a name to the
+  - > If you need to return an array to a macro sheet (for example, if
+    > the macro needs a list of all open windows), assign a name to the
     > array instead of placing the array information in a range of
     > cells. For example:
 
-> SET.NAME(\"OpenDocuments\", WINDOWS()) or\
-> SET.NAME(\"OpenDocuments\", {\"WORKSHEET1\", \"WORKSHEET2\"})
+> SET.NAME("OpenDocuments", WINDOWS()) or  
+> SET.NAME("OpenDocuments", {"WORKSHEET1", "WORKSHEET2"})
 
--   You can then use the INDEX function with the name you have defined
+  - > You can then use the INDEX function with the name you have defined
     > to access items in the array stored in the name.
 
--   When you\'re debugging a macro and want to know the current value
+  - > When you're debugging a macro and want to know the current value
     > assigned to a name created by SET.NAME, you can halt the macro,
     > click Define on the Name submenu of the Insert menu, and select
     > the name from the Define Name dialog box.
@@ -4019,36 +5184,36 @@ Value    is the value you want to store in name\_text.
 Each of these formulas defines the name Counter to refer to the constant
 number 1 on the macro sheet:
 
-SET.NAME(\"Counter\", 1)
+SET.NAME("Counter", 1)
 
 Counter=1
 
 Each of these formulas redefines Counter to refer to the current value
 of Counter plus 1:
 
-SET.NAME(\"Counter\", Counter+1)
+SET.NAME("Counter", Counter+1)
 
 Counter=Counter+1
 
 The following macro formula defines the name Reference to refer to cell
-\$A\$1:
+$A$1:
 
-SET.NAME(\"Reference\", A1)
+SET.NAME("Reference", A1)
 
 The following macro formula defines the name Results to refer to the
-cells \$A\$1:\$C\$3:
+cells $A$1:$C$3:
 
-SET.NAME(\"Results\", A1:C3)
+SET.NAME("Results", A1:C3)
 
 The following macro formula defines the name Range as the current
 selection:
 
-SET.NAME(\"Range\", SELECTION())
+SET.NAME("Range", SELECTION())
 
-If \$A\$1 contains the value 2, the following macro formula defines the
+If $A$1 contains the value 2, the following macro formula defines the
 name Index to refer to the constant value 2:
 
-SET.NAME(\"Index\", DEREF(A1))
+SET.NAME("Index", DEREF(A1))
 
 **Related Functions**
 
@@ -4058,8 +5223,7 @@ SET.VALUE   Sets the value of a cell on a macro sheet
 
 Return to [top](#Q)
 
-SET.PAGE.BREAK
-==============
+# SET.PAGE.BREAK
 
 Equivalent to clicking the Page Break command on the Insert menu. Sets
 manual page breaks. Use SET.PAGE.BREAK to override the automatic page
@@ -4085,8 +5249,7 @@ REMOVE.PAGE.BREAK   Removes manual page breaks
 
 Return to [top](#Q)
 
-SET.PREFERRED
-=============
+# SET.PREFERRED
 
 Changes the default format that Microsoft Excel uses when you create a
 new chart or when you format a chart PREFERRED macro function. When you
@@ -4099,9 +5262,9 @@ the preferred format.
 
 Format    is the name of the format that you want as the default format
 for charts. If omitted, the format of the currently active chart is
-used. If format is \"Built\_in\", then Microsoft Excel will use the
+used. If format is "Built\_in", then Microsoft Excel will use the
 standard, built-in chart as the default. If the chart was created in
-Microsoft Excel version 4.0 and if format is \"PREFERRED\", then the
+Microsoft Excel version 4.0 and if format is "PREFERRED", then the
 preferred chart format used in Microsoft Excel version 4.0 will be used.
 Format is case sensitive.
 
@@ -4112,10 +5275,9 @@ format
 
 Return to [top](#Q)
 
-SET.PRINT.AREA
-==============
+# SET.PRINT.AREA
 
-Defines the print area for the workbook---the area that prints when you
+Defines the print area for the workbook—the area that prints when you
 click the Print command on the File menu. Equivalent to entering a range
 in the Print Area edit box on the Sheet tab in the Page Setup dialog
 box, which appears when you click the Page Setup command on the File
@@ -4126,16 +5288,16 @@ menu.
 **SET.PRINT.AREA**(range)
 
 Range    is the reference to the range that you want to be printed. If
-you specify no range by using a set of empty quotation marks (\"\"),
+you specify no range by using a set of empty quotation marks (""),
 deletes the print area.
 
 **Remarks**
 
--   If you use SET.PRINT.AREA with a multiple selection and then use the
-    > PRINT function, the individual selections are printed one after
-    > the other in the order they were selected.
+  - > If you use SET.PRINT.AREA with a multiple selection and then use
+    > the PRINT function, the individual selections are printed one
+    > after the other in the order they were selected.
 
--   To resume printing the entire worksheet, click the Page Setup
+  - > To resume printing the entire worksheet, click the Page Setup
     > command on the File menu and click the Sheet tab. Then delete the
     > range in the Print Area edit box.
 
@@ -4149,8 +5311,7 @@ SET.PRINT.TITLES   Identifies text to print as titles
 
 Return to [top](#Q)
 
-SET.PRINT.TITLES
-================
+# SET.PRINT.TITLES
 
 Defines the print titles for the sheet. Use SET.PRINT.TITLES if you want
 Microsoft Excel to print the titles whenever it prints any cells in a
@@ -4167,13 +5328,13 @@ above or to the left of that cell.
 Titles\_for\_cols\_ref    is a reference to the row to be used as a
 title for columns.
 
--   If you specify part of a row, Microsoft Excel expands the title to a
-    > full row.
+  - > If you specify part of a row, Microsoft Excel expands the title to
+    > a full row.
 
--   If you omit titles\_for\_cols\_ref, Microsoft Excel uses the
+  - > If you omit titles\_for\_cols\_ref, Microsoft Excel uses the
     > existing row of column titles, if any.
 
--   If you specify empty text (\"\"), Microsoft Excel removes the row
+  - > If you specify empty text (""), Microsoft Excel removes the row
     > from the print titles definition.
 
 >  
@@ -4181,24 +5342,24 @@ title for columns.
 Titles\_for\_rows\_ref    is a reference to the column to be used as a
 title for rows.
 
--   If you specify part of a column, Microsoft Excel expands the title
+  - > If you specify part of a column, Microsoft Excel expands the title
     > to a full column.
 
--   If you omit titles\_for\_rows\_ref, Microsoft Excel uses the
+  - > If you omit titles\_for\_rows\_ref, Microsoft Excel uses the
     > existing column of row titles, if any.
 
--   If you specify empty text (\"\"), Microsoft Excel removes the column
+  - > If you specify empty text (""), Microsoft Excel removes the column
     > from the print titles definition.
 
 >  
 
 **Remarks**
 
--   SET.PRINT.TITLES operates on the current sheet. If you specify a
+  - > SET.PRINT.TITLES operates on the current sheet. If you specify a
     > range that is invalid for the current sheet, Microsoft Excel
     > returns the \#VALUE error value.
 
--   The print titles selection can be a multiple selection. Microsoft
+  - > The print titles selection can be a multiple selection. Microsoft
     > Excel names this selection Print\_Titles when SET.PRINT.TITLES is
     > run.
 
@@ -4214,8 +5375,7 @@ SET.PRINT.AREA   Defines the print area
 
 Return to [top](#Q)
 
-SET.UPDATE.STATUS
-=================
+# SET.UPDATE.STATUS
 
 Sets the update status of a link to automatic or manual. Use
 SET.UPDATE.STATUS to change the way a link is updated.
@@ -4230,35 +5390,89 @@ change the update status.
 Status    is the number 1 or 2 and describes how you want the link to be
 updated.
 
-+--------------+---------------------+
-| > **Status** | > **Update method** |
-+--------------+---------------------+
-| > 1          | > Automatic         |
-+--------------+---------------------+
-| > 2          | > Manual            |
-+--------------+---------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Status</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Update method</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Automatic</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Manual</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Type\_of\_link    is a number from 1 to 4 that specifies what type of
 link you want to get information about.
 
-+----------------------+--------------------------+
-| > **Type\_of\_link** | > **Link document type** |
-+----------------------+--------------------------+
-| > 1                  | > Not available          |
-+----------------------+--------------------------+
-| > 2                  | > DDE/OLE link           |
-+----------------------+--------------------------+
-| > 3                  | > Not available          |
-+----------------------+--------------------------+
-| > 4                  | > Not available          |
-+----------------------+--------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_of_link</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Link document type</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Not available</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>DDE/OLE link</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Not available</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Not available</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Example**
 
 In Microsoft Excel for Windows, the following macro formula sets the
 update status of the DDE link to Microsoft Word for Windows to manual:
 
-SET.UPDATE.STATUS(\"WordDocument\|\'C:\\MEMO.DOC\'!DDE.LINK1\", 2, 2)
+SET.UPDATE.STATUS("WordDocument|'C:\\MEMO.DOC'\!DDE.LINK1", 2, 2)
 
 **Related Functions**
 
@@ -4268,8 +5482,7 @@ UPDATE.LINK   Updates a link to another document
 
 Return to [top](#Q)
 
-SET.VALUE
-=========
+# SET.VALUE
 
 Changes the value of a cell or cells on the macro sheet (not the
 worksheet) without changing any formulas entered in those cells. Use
@@ -4278,7 +5491,7 @@ calculation of a macro. SET.VALUE is especially useful for initializing
 a dialog box and the conditional test in a WHILE loop. SET.VALUE assigns
 values to a specific reference or to the name of a reference that has
 already been defined. For information about creating a new name or
-entering data on a worksheet, see \"Remarks\" later in this topic.
+entering data on a worksheet, see "Remarks" later in this topic.
 
 **Syntax**
 
@@ -4288,11 +5501,11 @@ Reference    specifies the cell or cells on the macro sheet to which you
 want to assign a new value or values. If the cell is empty, enters the
 value in the cell.
 
--   If a cell in reference previously contained a formula, the formula
+  - > If a cell in reference previously contained a formula, the formula
     > is not changed, but the value of the cell might change. See the
     > second example following.
 
--   If reference is a reference to a range of cells, rather than to a
+  - > If reference is a reference to a range of cells, rather than to a
     > single cell, then values should be an array of the same size. If
     > not, Microsoft Excel expands it into multiple values using the
     > normal rules for expanding arrays. See the third example
@@ -4308,17 +5521,17 @@ cell or cells in reference.
 Consider the following guidelines as you choose a function to set values
 on a worksheet or macro sheet:
 
--   Use SET.VALUE to assign initial values to a reference (including
+  - > Use SET.VALUE to assign initial values to a reference (including
     > names that have already been defined) on a macro sheet, and to
     > store values during the calculation of a macro.
 
--   Use FORMULA to enter values in a worksheet cell.
+  - > Use FORMULA to enter values in a worksheet cell.
 
--   Use SET.NAME to change the value of a name on a macro sheet (the
+  - > Use SET.NAME to change the value of a name on a macro sheet (the
     > name is created if it does not already exist). For more
     > information, see SET.NAME.
 
--   Use DEFINE.NAME to create or change the value of a name on a
+  - > Use DEFINE.NAME to create or change the value of a name on a
     > worksheet.
 
 >  
@@ -4328,7 +5541,7 @@ on a worksheet or macro sheet:
 The following macro formula changes the value of cell A1 on the macro
 sheet to 1:
 
-SET.VALUE(\$A\$1, 1)
+SET.VALUE($A$1, 1)
 
 Suppose the name TempAverage refers to a cell containing the formula
 AVERAGE(Temp1, Temp2, Temp3). The following formula assigns the value 99
@@ -4347,7 +5560,7 @@ recalculated until the macro actually uses them.)
 The following macro formula stores the values 1, 2, 3, and 4 in cells
 A1:B2:
 
-SET.VALUE(\$A\$1:\$B\$2, {1, 2;3, 4})
+SET.VALUE($A$1:$B$2, {1, 2;3, 4})
 
 **Related Functions**
 
@@ -4359,8 +5572,7 @@ SET.NAME   Defines a name as a value
 
 Return to [top](#Q)
 
-SHORT.MENUS
-===========
+# SHORT.MENUS
 
 Equivalent to clicking the Short Menus command on the Options menu or
 the Chart menu in Microsoft Excel version 3.0 or earlier.
@@ -4371,11 +5583,10 @@ the Chart menu in Microsoft Excel version 3.0 or earlier.
 
 Return to [top](#Q)
 
-SHOW.ACTIVE.CELL
-================
+# SHOW.ACTIVE.CELL
 
 Scrolls the active window so the active cell becomes visible. If an
-object is selected, SHOW.ACTIVE.CELL returns the \#VALUE! error value
+object is selected, SHOW.ACTIVE.CELL returns the \#VALUE\! error value
 and halts the macro.
 
 **Syntax**
@@ -4390,8 +5601,7 @@ FORMULA.GOTO   Selects a named area or reference on any open workbook
 
 Return to [top](#Q)
 
-SHOW.BAR
-========
+# SHOW.BAR
 
 Displays the specified menu bar. Use SHOW.BAR to display a menu bar you
 have created with the ADD.BAR function or to display a built-in
@@ -4409,52 +5619,140 @@ cell containing a previously executed ADD.BAR function.
 If bar\_num is omitted, Microsoft Excel displays the appropriate menu
 bar for the active workbook as shown in the following table.
 
-+----------------+----------------------------------------------------+
-| > **Bar\_num** | > **Bar displayed**                                |
-+----------------+----------------------------------------------------+
-| > 1            | > A sheet or macro sheet (Microsoft Excel version  |
-|                | > 4.0)                                             |
-+----------------+----------------------------------------------------+
-| > 2            | > A chart (Microsoft Excel version 4.0)            |
-+----------------+----------------------------------------------------+
-| > 3            | > No active window                                 |
-+----------------+----------------------------------------------------+
-| > 4            | > The Info window (Microsoft Excel 95 or earlier   |
-|                | > versions)                                        |
-+----------------+----------------------------------------------------+
-| > 5            | > A sheet or macro sheet (short menus)             |
-+----------------+----------------------------------------------------+
-| > 6            | > A chart (short menus)                            |
-+----------------+----------------------------------------------------+
-| > 7            | > Shortcut menus 1 (for Cells, Workbook tabs,      |
-|                | > Toolbars, VB Windows)                            |
-+----------------+----------------------------------------------------+
-| > 8            | > Shortcut menus 2 (for objects)                   |
-+----------------+----------------------------------------------------+
-| > 9            | > Shortcut menus 3 (for chart elements)            |
-+----------------+----------------------------------------------------+
-| > 10           | > A sheet or macro sheet                           |
-+----------------+----------------------------------------------------+
-| > 11           | > A chart                                          |
-+----------------+----------------------------------------------------+
-| > 12           | > A Visual Basic module                            |
-+----------------+----------------------------------------------------+
-| > 13-35        | > Reserved for use by shortcut menus. These        |
-|                | > numbers will return an error if a macro tries to |
-|                | > do anything with them.                           |
-+----------------+----------------------------------------------------+
-| > 37-51        | > Custom menu bar for macro use                    |
-+----------------+----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Bar_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Bar displayed</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>A sheet or macro sheet (Microsoft Excel version 4.0)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>A chart (Microsoft Excel version 4.0)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>No active window</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>The Info window (Microsoft Excel 95 or earlier versions)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>A sheet or macro sheet (short menus)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>A chart (short menus)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Shortcut menus 1 (for Cells, Workbook tabs, Toolbars, VB Windows)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Shortcut menus 2 (for objects)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+<td><blockquote>
+<p>Shortcut menus 3 (for chart elements)</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>A sheet or macro sheet</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>A chart</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td><blockquote>
+<p>A Visual Basic module</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>13-35</p>
+</blockquote></td>
+<td><blockquote>
+<p>Reserved for use by shortcut menus. These numbers will return an error if a macro tries to do anything with them.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>37-51</p>
+</blockquote></td>
+<td><blockquote>
+<p>Custom menu bar for macro use</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Remarks**
 
--   When displaying a built-in menu bar, you can display only bars 1 or
-    > 5 if a sheet or macro sheet is active, bars 2 or 6 if a chart is
-    > active, and so on. If you try to display a chart menu bar while a
-    > sheet or macro sheet is active, SHOW.BAR returns an error and
+  - > When displaying a built-in menu bar, you can display only bars 1
+    > or 5 if a sheet or macro sheet is active, bars 2 or 6 if a chart
+    > is active, and so on. If you try to display a chart menu bar while
+    > a sheet or macro sheet is active, SHOW.BAR returns an error and
     > interrupts the current macro.
 
--   Displaying a custom menu bar disables automatic menu-bar switching
+  - > Displaying a custom menu bar disables automatic menu-bar switching
     > when different types of sheets are selected. For example, if a
     > custom menu bar is displayed and you switch to a chart, neither of
     > the two chart menus is automatically displayed as it would be when
@@ -4480,8 +5778,7 @@ SHOW.TOOLBAR   Hides or displays a toolbar
 
 Return to [top](#Q)
 
-SHOW.CLIPBOARD
-==============
+# SHOW.CLIPBOARD
 
 Displays the contents of the Clipboard in a new window.
 
@@ -4491,13 +5788,13 @@ Displays the contents of the Clipboard in a new window.
 
 **Remarks**
 
--   In Microsoft Excel for Windows, the Clipboard must already be
+  - > In Microsoft Excel for Windows, the Clipboard must already be
     > running if you want to display its contents in a new window. If it
     > is not already running, you must run the SHOW.CLIPBOARD function
     > twice, once to start the Clipboard application and again to
     > display it in a new window.
 
--   If the Clipboard contains cells, the window shows the size of the
+  - > If the Clipboard contains cells, the window shows the size of the
     > Clipboard contents in rows and columns. If the Clipboard contains
     > text cut from the formula bar, the window displays the text.
 
@@ -4505,8 +5802,7 @@ Displays the contents of the Clipboard in a new window.
 
 Return to [top](#Q)
 
-SHOW.DETAIL
-===========
+# SHOW.DETAIL
 
 Expands or collapses the detail under the specified expand or collapse
 button.
@@ -4518,21 +5814,47 @@ button.
 Rowcol    is a number that specifies whether to operate on rows or
 columns of data.
 
-+--------------+------------------------------------------------------+
-| > **Rowcol** | > **Operates on**                                    |
-+--------------+------------------------------------------------------+
-| > 1          | > Rows                                               |
-+--------------+------------------------------------------------------+
-| > 2          | > Columns                                            |
-+--------------+------------------------------------------------------+
-| > 3          | > The current cell\'s row or column. The second      |
-|              | > argument, rowcol\_num, is then ignored.            |
-+--------------+------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Rowcol</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Operates on</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rows</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Columns</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>The current cell's row or column. The second argument, rowcol_num, is then ignored.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Rowcol\_num    is a number that specifies the row or column to expand or
 collapse. If you are in A1 mode, you must still give the column as a
 number. If rowcol\_num is not a summary row or column, SHOW.DETAIL
-returns the \#VALUE! error value and interrupts the macro.
+returns the \#VALUE\! error value and interrupts the macro.
 
 Expand    is a logical value that specifies whether to expand or
 collapse the detail under the row or column. If expand is TRUE,
@@ -4552,8 +5874,7 @@ SHOW.LEVELS   Displays a specific number of levels of an outline
 
 Return to [top](#Q)
 
-SHOW.DIALOG
-===========
+# SHOW.DIALOG
 
 Runs a dialog on a dialog sheet.
 
@@ -4579,8 +5900,7 @@ HIDE.DIALOG   Closes the dialog box that has the current focus
 
 Return to [top](#Q)
 
-SHOW.INFO
-=========
+# SHOW.INFO
 
 This function should not be used. The Info Window has been removed from
 Microsoft Excel 97 or later.
@@ -4595,8 +5915,7 @@ SELECT   Selects a cell, worksheet object, or chart item
 
 Return to [top](#Q)
 
-SHOW.LEVELS
-===========
+# SHOW.LEVELS
 
 Displays the specified number of row and column levels of an outline.
 
@@ -4616,7 +5935,7 @@ action is taken on columns.
 
 **Remarks**
 
-If you omit both arguments, SHOW.LEVELS returns the \#VALUE! error
+If you omit both arguments, SHOW.LEVELS returns the \#VALUE\! error
 value.
 
 **Related Function**
@@ -4625,8 +5944,7 @@ SHOW.DETAIL   Expands or collapses a portion of an outline
 
 Return to [top](#Q)
 
-SHOW.TOOLBAR
-============
+# SHOW.TOOLBAR
 
 Equivalent to selecting the check box corresponding to a toolbar on the
 Toolbars tab in the Customize dialog box, which appears when you select
@@ -4649,43 +5967,82 @@ is visible or, if FALSE, specifies that the toolbar is hidden.
 
 Dock    specifies the docking location of the toolbar.
 
-+------------+---------------------------+
-| > **Dock** | > **Position of toolbar** |
-+------------+---------------------------+
-| > 1        | > Top of workspace        |
-+------------+---------------------------+
-| > 2        | > Left edge of workspace  |
-+------------+---------------------------+
-| > 3        | > Right edge of workspace |
-+------------+---------------------------+
-| > 4        | > Bottom of workspace     |
-+------------+---------------------------+
-| > 5        | > Floating (not docked)   |
-+------------+---------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Dock</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Position of toolbar</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Top of workspace</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left edge of workspace</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Right edge of workspace</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Bottom of workspace</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Floating (not docked)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 X\_pos    specifies the horizontal position of the toolbar.
 
--   If the toolbar is docked (not floating), x\_pos is measured
+  - > If the toolbar is docked (not floating), x\_pos is measured
     > horizontally from the left edge of the toolbar to the left edge of
-    > the toolbar\'s docking area.
+    > the toolbar's docking area.
 
--   If the toolbar is floating, x\_pos is measured horizontally from the
-    > left edge of the toolbar to the right edge of the rightmost
+  - > If the toolbar is floating, x\_pos is measured horizontally from
+    > the left edge of the toolbar to the right edge of the rightmost
     > toolbar in the left docking area.
 
--   X\_pos is measured in points. A point is 1/72nd of an inch.
+  - > X\_pos is measured in points. A point is 1/72nd of an inch.
 
 Y\_pos    specifies the vertical position of the toolbar.
 
--   If the toolbar is docked, y\_pos is measured vertically from the top
-    > edge of the toolbar to the top edge of the toolbar\'s docking
+  - > If the toolbar is docked, y\_pos is measured vertically from the
+    > top edge of the toolbar to the top edge of the toolbar's docking
     > area.
 
--   If the toolbar is floating, y\_pos is measured vertically from the
+  - > If the toolbar is floating, y\_pos is measured vertically from the
     > top edge of the toolbar to the top edge of the Microsoft Excel
     > workspace.
 
--   Y\_pos is measured in points.
+  - > Y\_pos is measured in points.
 
 >  
 
@@ -4698,28 +6055,58 @@ protection status of its previous numbers. For example, a protect status
 of 3 (a toolbar cannot become docked if it is floating) assumes the
 protection status of 0, 1, and 2 as well.
 
-+---------------+-----------------------------------------------------+
-| > **Protect** | > **Description**                                   |
-+---------------+-----------------------------------------------------+
-| > 0           | > Default. Toolbars can be re-shaped, docked, and   |
-|               | > floating. Toolbar buttons can be removed from and |
-|               | > moved to the toolbar.                             |
-+---------------+-----------------------------------------------------+
-| > 1           | > Toolbars can be re-shaped, docked, and floating.  |
-|               | > Toolbar buttons can not be removed from nor moved |
-|               | > to the toolbar.                                   |
-+---------------+-----------------------------------------------------+
-| > 2           | > A floating toolbar cannot be re-shaped. It can be |
-|               | > docked.                                           |
-+---------------+-----------------------------------------------------+
-| > 3           | > A floating toolbar cannot be docked. If it is     |
-|               | > already docked, it cannot become floating.        |
-+---------------+-----------------------------------------------------+
-| > 4           | > The toolbar cannot be moved at all. If it is      |
-|               | > already floating, it cannot be re-shaped or       |
-|               | > moved. If it is docked, it cannot become          |
-|               | > un-docked.                                        |
-+---------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Protect</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Description</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>0</p>
+</blockquote></td>
+<td><blockquote>
+<p>Default. Toolbars can be re-shaped, docked, and floating. Toolbar buttons can be removed from and moved to the toolbar.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Toolbars can be re-shaped, docked, and floating. Toolbar buttons can not be removed from nor moved to the toolbar.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>A floating toolbar cannot be re-shaped. It can be docked.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>A floating toolbar cannot be docked. If it is already docked, it cannot become floating.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>The toolbar cannot be moved at all. If it is already floating, it cannot be re-shaped or moved. If it is docked, it cannot become un-docked.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Tool\_tips    is a logical value that corresponds to the Show Screentips
 On Toolbars check box on the Options tab. If TRUE, ScreenTips will be
@@ -4742,8 +6129,7 @@ ADD.TOOLBAR   Creates a new toolbar with the specified tools
 
 Return to [top](#Q)
 
-SIZE
-====
+# SIZE
 
 Equivalent to clicking the Size command on the Control menu in Microsoft
 Excel for Windows version 3.0 or earlier or to changing the size of a
@@ -4765,8 +6151,7 @@ WINDOW.SIZE   Changes the size of the active window
 
 Return to [top](#Q)
 
-SLIDE.COPY.ROW
-==============
+# SLIDE.COPY.ROW
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -4785,11 +6170,12 @@ add-in.
 
 **Remarks**
 
--   SLIDE.COPY.ROW, SLIDE.CUT.ROW, SLIDE.DELETE.ROW, and SLIDE.PASTE.ROW
-    > return TRUE if successful, or FALSE if not successful. If the
-    > active sheet is not a slide show or is protected, these functions
-    > return the \#N/A error value. If the current selection is not
-    > valid, these functions return the \#VALUE! error value.
+  - > SLIDE.COPY.ROW, SLIDE.CUT.ROW, SLIDE.DELETE.ROW, and
+    > SLIDE.PASTE.ROW return TRUE if successful, or FALSE if not
+    > successful. If the active sheet is not a slide show or is
+    > protected, these functions return the \#N/A error value. If the
+    > current selection is not valid, these functions return the
+    > \#VALUE\! error value.
 
 >  
 
@@ -4816,8 +6202,7 @@ SLIDE.SHOW   Starts a slide show in the active sheet
 
 Return to [top](#Q)
 
-SLIDE.CUT.ROW
-=============
+# SLIDE.CUT.ROW
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -4842,8 +6227,7 @@ Clipboard
 
 Return to [top](#Q)
 
-SLIDE.DEFAULTS
-==============
+# SLIDE.DEFAULTS
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -4869,15 +6253,14 @@ omitted, its default value is not changed.
 
 **Remarks**
 
--   SLIDE.DEFAULTS returns TRUE if it successfully changes the default
+  - > SLIDE.DEFAULTS returns TRUE if it successfully changes the default
     > values, or FALSE if you click the Cancel button when using the
     > dialog-box form. If the active sheet is not a slide show or is
     > protected, SLIDE.DEFAULTS returns the \#N/A error value.
 
 Return to [top](#Q)
 
-SLIDE.DELETE.ROW
-================
+# SLIDE.DELETE.ROW
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -4901,8 +6284,7 @@ Clipboard
 
 Return to [top](#Q)
 
-SLIDE.EDIT
-==========
+# SLIDE.EDIT
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -4926,11 +6308,11 @@ For a description of the arguments, see SLIDE.PASTE.
 
 **Remarks**
 
--   SLIDE.EDIT returns TRUE if it successfully edits the slide, or FALSE
-    > if you click the Cancel button when using the dialog-box form. If
-    > the active sheet is not a slide show or is protected, SLIDE.EDIT
-    > returns the \#N/A error value. If the current selection is not a
-    > valid slide, SLIDE.EDIT returns the \#VALUE error value.
+  - > SLIDE.EDIT returns TRUE if it successfully edits the slide, or
+    > FALSE if you click the Cancel button when using the dialog-box
+    > form. If the active sheet is not a slide show or is protected,
+    > SLIDE.EDIT returns the \#N/A error value. If the current selection
+    > is not a valid slide, SLIDE.EDIT returns the \#VALUE error value.
 
 >  
 
@@ -4940,8 +6322,7 @@ SLIDE.PASTE   Pastes the contents of the Clipboard onto a slide
 
 Return to [top](#Q)
 
-SLIDE.GET
-=========
+# SLIDE.GET
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -4961,41 +6342,98 @@ Type\_num    is a number specifying the type of information you want.
 
 These values of type\_num return information about a slide show.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **Type of information**                         |
-+-----------------+---------------------------------------------------+
-| > 1             | > Number of slides in the slide show              |
-+-----------------+---------------------------------------------------+
-| > 2             | > A two-item horizontal array containing the      |
-|                 | > numbers of the first and last slides in the     |
-|                 | > current selection, or the \#VALUE error value   |
-|                 | > if the selection is nonadjacent                 |
-+-----------------+---------------------------------------------------+
-| > 3             | > Version number of the Slide Show add-in that    |
-|                 | > created the slide show sheet                    |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Type of information</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Number of slides in the slide show</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>A two-item horizontal array containing the numbers of the first and last slides in the current selection, or the #VALUE error value if the selection is nonadjacent</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Version number of the Slide Show add-in that created the slide show sheet</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 These values of type\_num return information about a specific slide in
 the slide show.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **Type of information**                         |
-+-----------------+---------------------------------------------------+
-| > 4             | > Transition effect number                        |
-+-----------------+---------------------------------------------------+
-| > 5             | > Transition effect name                          |
-+-----------------+---------------------------------------------------+
-| > 6             | > Transition effect speed                         |
-+-----------------+---------------------------------------------------+
-| > 7             | > Number of seconds the slide is displayed before |
-|                 | > advancing                                       |
-+-----------------+---------------------------------------------------+
-| > 8             | > Name of the sound file associated with the      |
-|                 | > slide, or empty text (\"\") if none is          |
-|                 | > specified (in Microsoft Excel for the           |
-|                 | > Macintosh, this includes the number or name of  |
-|                 | > the sound resource within the sound file)       |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Type of information</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Transition effect number</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Transition effect name</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Transition effect speed</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Number of seconds the slide is displayed before advancing</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Name of the sound file associated with the slide, or empty text ("") if none is specified (in Microsoft Excel for the Macintosh, this includes the number or name of the sound resource within the sound file)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Name\_text    is the name of an open slide show sheet for which you want
 information. If name\_text is omitted, it is assumed to be the active
@@ -5004,15 +6442,14 @@ sheet.
 Slide\_num    is the number of the slide about which you want
 information.
 
--   If slide\_num is omitted, it is assumed to be the slide associated
+  - > If slide\_num is omitted, it is assumed to be the slide associated
     > with the active cell on the sheet specified by name\_text.
 
--   If type\_num is 1 through 3, slide\_num is ignored.
+  - > If type\_num is 1 through 3, slide\_num is ignored.
 
 Return to [top](#Q)
 
-SLIDE.PASTE
-===========
+# SLIDE.PASTE
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -5036,31 +6473,31 @@ soundfile\_text)
 Effect\_num    is a number specifying the transition effect you want to
 use when displaying the slide.
 
--   The numbers correspond to the effects in the Effect list in the Edit
-    > Slide dialog box. The first effect in the list is 1 (None).
+  - > The numbers correspond to the effects in the Effect list in the
+    > Edit Slide dialog box. The first effect in the list is 1 (None).
 
--   If effect\_num is omitted, the default setting is used.
+  - > If effect\_num is omitted, the default setting is used.
 
 >  
 
 Speed\_num    is a number from 1 to 10 specifying the speed of the
 transition effect.
 
--   If speed\_num is omitted, the default setting is used.
+  - > If speed\_num is omitted, the default setting is used.
 
--   If speed\_num is greater than 10, Microsoft Excel uses the value 10
-    > anyway.
+  - > If speed\_num is greater than 10, Microsoft Excel uses the value
+    > 10 anyway.
 
--   If effect\_num is 1 (none), speed\_num is ignored.
+  - > If effect\_num is 1 (none), speed\_num is ignored.
 
 >  
 
 Advance\_rate\_num    is a number specifying how long (in seconds) the
 slide is displayed before advancing to the next one.
 
--   If advance\_rate\_num is omitted, the default setting is used.
+  - > If advance\_rate\_num is omitted, the default setting is used.
 
--   If advance\_rate\_num is 0, you must press a key or click with the
+  - > If advance\_rate\_num is 0, you must press a key or click with the
     > mouse to advance to the next slide.
 
 >  
@@ -5068,25 +6505,26 @@ slide is displayed before advancing to the next one.
 Soundfile\_text    is the name of a file enclosed in quotation marks and
 specifies sound that will be played when the slide is displayed.
 
--   If soundfile\_text is omitted, Microsoft Excel plays the default
+  - > If soundfile\_text is omitted, Microsoft Excel plays the default
     > sound defined for the slide show sheet, if any.
 
--   If soundfile\_text is empty text (\"\"), no sound is played.
+  - > If soundfile\_text is empty text (""), no sound is played.
 
--   In Microsoft Excel for the Macintosh, soundfile\_text also includes
-    > the number or name of the sound resource to play in the file.
+  - > In Microsoft Excel for the Macintosh, soundfile\_text also
+    > includes the number or name of the sound resource to play in the
+    > file.
 
 >  
 
 Resource    is the number or name of a sound resource in
 soundfile\_text.
 
--   This argument applies only to Microsoft Excel for the Macintosh.
+  - > This argument applies only to Microsoft Excel for the Macintosh.
 
--   If resource is omitted, Microsoft Excel uses the first resource in
+  - > If resource is omitted, Microsoft Excel uses the first resource in
     > the file.
 
--   If the file does not contain a sound resource with the specified
+  - > If the file does not contain a sound resource with the specified
     > name or number, Microsoft Excel halts the macro and displays an
     > error message.
 
@@ -5094,11 +6532,11 @@ soundfile\_text.
 
 **Remarks**
 
--   SLIDE.PASTE returns TRUE if it successfully pastes the slide, or
+  - > SLIDE.PASTE returns TRUE if it successfully pastes the slide, or
     > FALSE if you click the Cancel button when using the dialog-box
     > form. If the active sheet is not a slide show or is protected,
     > SLIDE.PASTE returns the \#N/A error value. If the Clipboard format
-    > is not compatible with the slide show sheet\'s format, SLIDE.PASTE
+    > is not compatible with the slide show sheet's format, SLIDE.PASTE
     > returns the \#VALUE error value.
 
 >  
@@ -5106,20 +6544,19 @@ soundfile\_text.
 **Examples**
 
 In Microsoft Excel for Windows, the following macro formula pastes the
-contents of the Clipboard into the active slide show sheet. The slide\'s
+contents of the Clipboard into the active slide show sheet. The slide's
 transition effect is fade, at a speed of 8; it is displayed for five
 seconds; and Microsoft Excel plays the specified sound file:
 
-SLIDE.PASTE(3, 8, 5, \"C:\\SLIDES\\SOUND\\MACHINES.WAV\")
+SLIDE.PASTE(3, 8, 5, "C:\\SLIDES\\SOUND\\MACHINES.WAV")
 
 In Microsoft Excel for the Macintosh, the formula is:
 
-SLIDE.PASTE(3, 8, 5, \"HARD DISK:SLIDES:SOUND:MACHINE SOUNDS\")
+SLIDE.PASTE(3, 8, 5, "HARD DISK:SLIDES:SOUND:MACHINE SOUNDS")
 
 Return to [top](#Q)
 
-SLIDE.PASTE.ROW
-===============
+# SLIDE.PASTE.ROW
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -5143,8 +6580,7 @@ Clipboard
 
 Return to [top](#Q)
 
-SLIDE.SHOW
-==========
+# SLIDE.SHOW
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -5178,7 +6614,7 @@ ends.
 
 Dialogtitle\_text    is text enclosed in quotation marks that specifies
 the title of the dialog boxes displayed during the slide show. If
-dialogtitle\_text is omitted, it is assumed to be \"Slide Show\".
+dialogtitle\_text is omitted, it is assumed to be "Slide Show".
 
 Allownav\_logical    is a logical value specifying whether to enable or
 disable navigational keys (arrow keys, PAGE UP, PAGE DOWN, and so on) or
@@ -5193,36 +6629,65 @@ allowcontrol\_logical is TRUE or omitted, you can press ESC to interrupt
 the slide show and display the dialog box; if FALSE, pressing ESC stops
 the slide show but does not display the dialog box.
 
-**Tip   **If you want to display the last slide in a show but don\'t
-know its number, use SLIDE.GET(1) as the initialslide\_num argument.
+**Tip   **If you want to display the last slide in a show but don't know
+its number, use SLIDE.GET(1) as the initialslide\_num argument.
 
 **Remarks**
 
 SLIDE.SHOW returns the values shown in the following table:
 
-+----------------------------------------------+----------------------+
-| > **Situation**                              | > **Returned value** |
-+----------------------------------------------+----------------------+
-| > The slide show ends normally.              | > TRUE               |
-+----------------------------------------------+----------------------+
-| > You press the Cancel button when using the | > FALSE              |
-| > dialog-box form.                           |                      |
-+----------------------------------------------+----------------------+
-| > The active sheet is not a slide show or is | > \#N/A              |
-| > protected.                                 |                      |
-+----------------------------------------------+----------------------+
-| > You interrupt the slide show, and then     | > 1                  |
-| > stop it.                                   |                      |
-+----------------------------------------------+----------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Situation</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Returned value</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>The slide show ends normally.</p>
+</blockquote></td>
+<td><blockquote>
+<p>TRUE</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>You press the Cancel button when using the dialog-box form.</p>
+</blockquote></td>
+<td><blockquote>
+<p>FALSE</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>The active sheet is not a slide show or is protected.</p>
+</blockquote></td>
+<td><blockquote>
+<p>#N/A</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>You interrupt the slide show, and then stop it.</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Return to [top](#Q)
 
-SOLVER.ADD
-==========
+# SOLVER.ADD
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Add button in the Solver Parameters dialog box. Adds a constraint to
-the current problem. For an explanation of constraints, see \"Remarks\"
+the current problem. For an explanation of constraints, see "Remarks"
 later in this topic.
 
 If this function is not available, you must install the Solver add-in.
@@ -5237,31 +6702,63 @@ sheet and forms the left side of the constraint.
 Relation    specifies the arithmetic relationship between the left and
 right sides, or whether cell\_ref must be an integer.
 
-+----------------+---------------------------------+
-| > **Relation** | > **Arithmetic relationship**   |
-+----------------+---------------------------------+
-| > 1            | > \<=                           |
-+----------------+---------------------------------+
-| > 2            | > =                             |
-+----------------+---------------------------------+
-| > 3            | > \>=                           |
-+----------------+---------------------------------+
-| > 4            | > Int (cell\_ref is an integer) |
-+----------------+---------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Relation</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Arithmetic relationship</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt;=</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>=</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>&gt;=</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Int (cell_ref is an integer)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Formula    is the right side of the constraint and will often be a
 single number, but it may be a formula (as text) or a reference to a
 range of cells.
 
--   If relation is 4, cell\_ref must be a subset of the references in
+  - > If relation is 4, cell\_ref must be a subset of the references in
     > the By Changing cells text box.
 
--   if relation is 4, formula must be either \"=integer\" or
-    > \"integer\".
+  - > if relation is 4, formula must be either "=integer" or "integer".
 
--   Any cell reference in a formula must use the R1C1 reference style.
+  - > Any cell reference in a formula must use the R1C1 reference style.
 
--   If formula is a reference to a range of cells, the number of cells
+  - > If formula is a reference to a range of cells, the number of cells
     > in the range usually matches the number of cells in cell\_ref,
     > although the shape of the areas need not be the same. For example,
     > cell\_ref could be a row and formula could refer to a column, as
@@ -5272,14 +6769,14 @@ range of cells.
 
 **Remarks**
 
--   The SOLVER.ADD, SOLVER.CHANGE, and SOLVER.DELETE functions
+  - > The SOLVER.ADD, SOLVER.CHANGE, and SOLVER.DELETE functions
     > correspond to the Add, Change, and Delete buttons in the Solver
     > Parameters dialog box. You use these functions to define
     > constraints. For many macro applications, however, you may find it
     > more convenient to load the problem specifications from the sheet
     > in a single step using the SOLVER.LOAD function.
 
--   Each constraint is uniquely identified by the combination of the
+  - > Each constraint is uniquely identified by the combination of the
     > cell reference on the left and the relationship (\<=, =, or \>=)
     > between its left and right sides, or the cell reference may be
     > defined as an integer only. This takes the place of selecting the
@@ -5296,8 +6793,7 @@ SOLVER.DELETE   Deletes an existing constraint
 
 Return to [top](#Q)
 
-SOLVER.CHANGE
-=============
+# SOLVER.CHANGE
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Change button in the Solver Parameters dialog box. Changes the right
@@ -5313,11 +6809,11 @@ For an explanation of the arguments and constraints, see SOLVER.ADD.
 
 **Remarks**
 
--   If the combination of cell\_ref and relation does not match any
+  - > If the combination of cell\_ref and relation does not match any
     > existing constraint, the function returns the value 4 and no
     > action is taken.
 
--   To change the cell\_ref or relation of an existing constraint, use
+  - > To change the cell\_ref or relation of an existing constraint, use
     > SOLVER.DELETE to delete the old constraint and then use SOLVER.ADD
     > to add the constraint in the form you want.
 
@@ -5331,8 +6827,7 @@ SOLVER.ADD   Adds a constraint to the current problem
 
 Return to [top](#Q)
 
-SOLVER.DELETE
-=============
+# SOLVER.DELETE
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Delete button in the Solver Parameters dialog box. Deletes an
@@ -5359,8 +6854,7 @@ SOLVER.ADD   Adds a constraint to the current problem
 
 Return to [top](#Q)
 
-SOLVER.FINISH
-=============
+# SOLVER.FINISH
 
 Equivalent to clicking OK in the Solver Results dialog box that appears
 when the solution process is complete. The dialog-box form displays the
@@ -5385,15 +6879,42 @@ cells are restored.
 Report\_array    is an array argument specifying what reports to create
 when Solver is finished.
 
-+---------------------------+-------------------------------+
-| > **If report\_array is** | > **Microsoft Excel creates** |
-+---------------------------+-------------------------------+
-| > {1}                     | > An answer report            |
-+---------------------------+-------------------------------+
-| > {2}                     | > A sensitivity report        |
-+---------------------------+-------------------------------+
-| > {3}                     | > A limit report              |
-+---------------------------+-------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>If report_array is</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Microsoft Excel creates</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>{1}</p>
+</blockquote></td>
+<td><blockquote>
+<p>An answer report</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>{2}</p>
+</blockquote></td>
+<td><blockquote>
+<p>A sensitivity report</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>{3}</p>
+</blockquote></td>
+<td><blockquote>
+<p>A limit report</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Any combination of these produces multiple reports. For example, if
 report\_array is {1, 2}, Microsoft Excel creates an answer report and a
@@ -5406,8 +6927,7 @@ menu and clicking the Solve button in the Solver Parameters dialog box
 
 Return to [top](#Q)
 
-SOLVER.GET
-==========
+# SOLVER.GET
 
 Returns information about current settings for Solver. The settings are
 specified in the Solver Parameters and Solver Options dialog boxes.
@@ -5423,70 +6943,174 @@ Type\_num    is a number specifying the type of information you want.
 The following settings are specified in the Solver Parameters dialog
 box.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_Num** | > **Returns**                                     |
-+-----------------+---------------------------------------------------+
-| > 2             | > A number corresponding to the Equal To option\  |
-|                 | > 1 = Max\                                        |
-|                 | > 2 = Min\                                        |
-|                 | > 3 = Value of                                    |
-+-----------------+---------------------------------------------------+
-| > 3             | > The value in the Value Of box                   |
-+-----------------+---------------------------------------------------+
-| > 4             | > The reference (as a multiple reference if       |
-|                 | > necessary) in the By Changing Cells box         |
-+-----------------+---------------------------------------------------+
-| > 5             | > The number of constraints                       |
-+-----------------+---------------------------------------------------+
-| > 6             | > An array of the left sides of the constraints   |
-|                 | > in the form of text                             |
-+-----------------+---------------------------------------------------+
-| > 7             | > An array of numbers corresponding to the        |
-|                 | > relationships between the left and right sides  |
-|                 | > of the constraints:\                            |
-|                 | > 1 = \<=\                                        |
-|                 | > 2 = =\                                          |
-|                 | > 3 = \>=\                                        |
-|                 | > 4 = int                                         |
-+-----------------+---------------------------------------------------+
-| > 8             | > An array of the right sides of the constraints  |
-|                 | > in the form of text                             |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_Num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Returns</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>A number corresponding to the Equal To option<br />
+1 = Max<br />
+2 = Min<br />
+3 = Value of</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>The value in the Value Of box</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>The reference (as a multiple reference if necessary) in the By Changing Cells box</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>The number of constraints</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>An array of the left sides of the constraints in the form of text</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>An array of numbers corresponding to the relationships between the left and right sides of the constraints:<br />
+1 = &lt;=<br />
+2 = =<br />
+3 = &gt;=<br />
+4 = int</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>An array of the right sides of the constraints in the form of text</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 The following settings are specified in the Solver Options dialog box:
 
-+-----------------+---------------------------------------------------+
-| > **Type\_Num** | > **Returns**                                     |
-+-----------------+---------------------------------------------------+
-| > 10            | > The maximum number of iterations                |
-+-----------------+---------------------------------------------------+
-| > 11            | > The precision                                   |
-+-----------------+---------------------------------------------------+
-| > 12            | > The integer tolerance value                     |
-+-----------------+---------------------------------------------------+
-| > 13            | > TRUE if the Assume Linear Model check box is    |
-|                 | > selected; FALSE otherwise                       |
-+-----------------+---------------------------------------------------+
-| > 14            | > TRUE if the Show Iteration Results check box is |
-|                 | > selected; FALSE otherwise                       |
-+-----------------+---------------------------------------------------+
-| > 15            | > TRUE if the Use Automatic Scaling check box is  |
-|                 | > selected; FALSE otherwise                       |
-+-----------------+---------------------------------------------------+
-| > 16            | > A number corresponding to the type of           |
-|                 | > estimates:\                                     |
-|                 | > 1 = Tangent\                                    |
-|                 | > 2 = Quadratic                                   |
-+-----------------+---------------------------------------------------+
-| > 17            | > A number corresponding to the type of           |
-|                 | > derivatives:\                                   |
-|                 | > 1 = Forward\                                    |
-|                 | > 2 = Central                                     |
-+-----------------+---------------------------------------------------+
-| > 18            | > A number corresponding to the type of search:\  |
-|                 | > 1 = Quasi-Newton\                               |
-|                 | > 2 = Conjugate Gradient                          |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_Num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Returns</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>The maximum number of iterations</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>The precision</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td><blockquote>
+<p>The integer tolerance value</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>13</p>
+</blockquote></td>
+<td><blockquote>
+<p>TRUE if the Assume Linear Model check box is selected; FALSE otherwise</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>14</p>
+</blockquote></td>
+<td><blockquote>
+<p>TRUE if the Show Iteration Results check box is selected; FALSE otherwise</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>15</p>
+</blockquote></td>
+<td><blockquote>
+<p>TRUE if the Use Automatic Scaling check box is selected; FALSE otherwise</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>16</p>
+</blockquote></td>
+<td><blockquote>
+<p>A number corresponding to the type of estimates:<br />
+1 = Tangent<br />
+2 = Quadratic</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>17</p>
+</blockquote></td>
+<td><blockquote>
+<p>A number corresponding to the type of derivatives:<br />
+1 = Forward<br />
+2 = Central</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>18</p>
+</blockquote></td>
+<td><blockquote>
+<p>A number corresponding to the type of search:<br />
+1 = Quasi-Newton<br />
+2 = Conjugate Gradient</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Sheet\_name    is the name of a sheet that contains the scenario for
 which you want information. If sheet\_name is omitted, it is assumed to
@@ -5494,8 +7118,7 @@ be the active sheet.
 
 Return to [top](#Q)
 
-SOLVER.LOAD
-===========
+# SOLVER.LOAD
 
 Equivalent to clicking the Solver command on the Tools menu, clicking
 the Options button in the Solver Parameters dialog box, and clicking the
@@ -5511,20 +7134,19 @@ If this function is not available, you must install the Solver add-in.
 Load\_area    is a reference on the active sheet to a range of cells
 from which you want to load a complete problem specification.
 
--   The first cell in load\_area contains a formula for the Set Cell
+  - > The first cell in load\_area contains a formula for the Set Cell
     > box; the second cell contains a formula for the changing cells;
     > subsequent cells contain constraints in the form of logical
     > formulas. The last cell optionally contains an array of Solver
     > option values. The order of the Solver option values is the same
     > as the top-to-bottom order in the Solver Options dialog box.
 
--   Although load\_area must be on the active sheet, it need not be the
-    > current selection.
+  - > Although load\_area must be on the active sheet, it need not be
+    > the current selection.
 
 Return to [top](#Q)
 
-SOLVER.OK
-=========
+# SOLVER.OK
 
 Equivalent to clicking the Solver command on the Tools menu and
 specifying options in the Solver Parameters dialog box. Specifies basic
@@ -5541,9 +7163,9 @@ If this function is not available, you must install the Solver add-in.
 Set\_cell    corresponds to the Set Target Cell box in the Solver
 Parameters dialog box.
 
--   Set\_cell must be a reference to a cell on the active worksheet.
+  - > Set\_cell must be a reference to a cell on the active worksheet.
 
--   If you enter a cell reference, you must also enter a value for
+  - > If you enter a cell reference, you must also enter a value for
     > max\_min\_val. If you do not enter a cell, you must include three
     > commas before the by\_changing value.
 
@@ -5553,15 +7175,42 @@ Max\_min\_val    corresponds to the options Max, Min, and Value Of in
 the Solver Parameters dialog box. Use this option only if you entered a
 reference for set\_cell.
 
-+---------------------+------------------------+
-| > **Max\_min\_val** | > **Option specified** |
-+---------------------+------------------------+
-| > 1                 | > Maximize             |
-+---------------------+------------------------+
-| > 2                 | > Minimize             |
-+---------------------+------------------------+
-| > 3                 | > Match specific value |
-+---------------------+------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Max_min_val</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Option specified</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Maximize</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Minimize</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Match specific value</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Value\_of    is a number that becomes the target for the cell in the Set
 Target Cell box if max\_min\_val is 3. Value\_of is ignored if the cell
@@ -5582,8 +7231,7 @@ caused Solver to stop
 
 Return to [top](#Q)
 
-SOLVER.OPTIONS
-==============
+# SOLVER.OPTIONS
 
 Equivalent to clicking the Solver command on the Tools menu and then
 clicking the Options button in the Solver Parameters dialog box.
@@ -5646,8 +7294,7 @@ calculates normally.
 
 Return to [top](#Q)
 
-SOLVER.RESET
-============
+# SOLVER.RESET
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Reset All button in the Solver Parameters dialog box. Erases all
@@ -5663,8 +7310,7 @@ If this function is not available, you must install the Solver add-in.
 
 Return to [top](#Q)
 
-SOLVER.SAVE
-===========
+# SOLVER.SAVE
 
 Equivalent to clicking the Solver command on the Tools menu, clicking
 the Options button in the Solver Parameters dialog box, and clicking the
@@ -5681,27 +7327,26 @@ Save\_area    is a reference on the active sheet to a range of cells or
 to the upper-left corner of a range of cells into which you want to
 paste the current problem specification.
 
--   If you specify only one cell for save\_area, the area is extended
+  - > If you specify only one cell for save\_area, the area is extended
     > downwards for as many cells as are required to hold the problem
     > specifications (3 plus the number of constraints).
 
--   If you specify more than one cell and if the area is too small, the
-    > last constraints (in alphabetic order by cell reference) or
+  - > If you specify more than one cell and if the area is too small,
+    > the last constraints (in alphabetic order by cell reference) or
     > options will be omitted and the function will return a nonzero
     > value.
 
--   Save\_area must be on the active worksheet, but it need not be the
+  - > Save\_area must be on the active worksheet, but it need not be the
     > current selection.
 
 Return to [top](#Q)
 
-SOLVER.SOLVE
-============
+# SOLVER.SOLVE
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Solve button in the Solver Parameters dialog box. If successful,
 returns an integer value indicating the condition that caused Solver to
-stop as described in \"Remarks\" later in this topic.
+stop as described in "Remarks" later in this topic.
 
 If this function is not available, you must install the Solver add-in.
 
@@ -5712,13 +7357,13 @@ If this function is not available, you must install the Solver add-in.
 User\_finish    is a logical value specifying whether to display the
 Solver Results dialog box.
 
--   If user\_finish is TRUE, SOLVER.SOLVE returns its integer value
+  - > If user\_finish is TRUE, SOLVER.SOLVE returns its integer value
     > without displaying anything. Your macro should decide what action
     > to take (for example, by examining the return value or presenting
     > its own dialog box); it must call SOLVER.FINISH in any case to
     > restore the sheet to its proper state.
 
--   If user\_finish is FALSE or omitted, Solver displays the Solver
+  - > If user\_finish is FALSE or omitted, Solver displays the Solver
     > Results dialog box, which allows you to keep or discard the final
     > solution and run reports.
 
@@ -5728,12 +7373,12 @@ Show\_ref    is a macro to be called in place of the Show Trial Solution
 dialog box. It is used when you want to regain control whenever Solver
 finds a new intermediate solution value.
 
--   For this argument to have an effect, the Show Iteration Results
+  - > For this argument to have an effect, the Show Iteration Results
     > check box must be selected in the Solver Options dialog box. This
     > can be done manually by selecting the check box, or automatically
     > by calling SOLVER.OPTIONS in your macro.
 
--   The macro you call can inspect the current solution values on the
+  - > The macro you call can inspect the current solution values on the
     > sheet or take other actions such as saving or charting the
     > intermediate values. It must return the value TRUE with a
     > statement such as =RETURN(TRUE) if the solution process is to
@@ -5750,47 +7395,130 @@ problem specifications are passed to it. When the solution process is
 complete, SOLVER.SOLVE returns an integer value indicating the stopping
 condition:
 
-+-------------+-------------------------------------------------------+
-| > **Value** | > **Stopping condition**                              |
-+-------------+-------------------------------------------------------+
-| > 0         | > Solver found a solution. All constraints and        |
-|             | > optimality conditions are satisfied.                |
-+-------------+-------------------------------------------------------+
-| > 1         | > Solver has converged to the current solution. All   |
-|             | > constraints are satisfied.                          |
-+-------------+-------------------------------------------------------+
-| > 2         | > Solver cannot improve the current solution. All     |
-|             | > constraints are satisfied.                          |
-+-------------+-------------------------------------------------------+
-| > 3         | > Stop chosen when the maximum iteration limit was    |
-|             | > reached.                                            |
-+-------------+-------------------------------------------------------+
-| > 4         | > The Set Cells values do not converge.               |
-+-------------+-------------------------------------------------------+
-| > 5         | > Solver could not find a feasible solution.          |
-+-------------+-------------------------------------------------------+
-| > 6         | > Solver stopped at user\'s request.                  |
-+-------------+-------------------------------------------------------+
-| > 7         | > The conditions for Assume Linear Model are not      |
-|             | > satisfied.                                          |
-+-------------+-------------------------------------------------------+
-| > 8         | > The problem is too large for Solver to solve.       |
-+-------------+-------------------------------------------------------+
-| > 9         | > Solver encountered an error value in a target or    |
-|             | > constraint cell.                                    |
-+-------------+-------------------------------------------------------+
-| > 10        | > Stop chosen when the maximum time limit was         |
-|             | > reached.                                            |
-+-------------+-------------------------------------------------------+
-| > 11        | > There is not enough memory available to solve the   |
-|             | > problem.                                            |
-+-------------+-------------------------------------------------------+
-| > 12        | > Another Excel instance is using SOLVER.DLL. Try     |
-|             | > again later.                                        |
-+-------------+-------------------------------------------------------+
-| > 13        | > Error in model. Please verify that all cells and    |
-|             | > constraints are valid.                              |
-+-------------+-------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Value</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Stopping condition</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>0</p>
+</blockquote></td>
+<td><blockquote>
+<p>Solver found a solution. All constraints and optimality conditions are satisfied.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Solver has converged to the current solution. All constraints are satisfied.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Solver cannot improve the current solution. All constraints are satisfied.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Stop chosen when the maximum iteration limit was reached.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>The Set Cells values do not converge.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Solver could not find a feasible solution.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Solver stopped at user's request.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>The conditions for Assume Linear Model are not satisfied.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>The problem is too large for Solver to solve.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+<td><blockquote>
+<p>Solver encountered an error value in a target or constraint cell.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>Stop chosen when the maximum time limit was reached.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>There is not enough memory available to solve the problem.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td><blockquote>
+<p>Another Excel instance is using SOLVER.DLL. Try again later.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>13</p>
+</blockquote></td>
+<td><blockquote>
+<p>Error in model. Please verify that all cells and constraints are valid.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Related Function**
 
@@ -5799,8 +7527,7 @@ box that appears when the solution process is complete
 
 Return to [top](#Q)
 
-SORT
-====
+# SORT
 
 Equivalent to clicking the Sort command on the Data menu. Sorts the rows
 or columns of the selection according to the contents of a key row or
@@ -5834,15 +7561,26 @@ rows or which row to sort by when sorting columns. For a PivotTable
 report, if type is 1, then key1 is a cell reference which indicates what
 value to sort by. There are two ways to specify sort keys:
 
-+----------------------------------+----------------------------------+
-| > **Type of key**                | > **Examples**                   |
-+----------------------------------+----------------------------------+
-| > An R1C1-style reference in the | > \"C2\" or \"C\[1\]\" or        |
-| > form of text. If the reference | > \"Price\"                      |
-| > is relative, it is assumed to  |                                  |
-| > be relative to the active cell |                                  |
-| > in the selection.              |                                  |
-+----------------------------------+----------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type of key</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Examples</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>An R1C1-style reference in the form of text. If the reference is relative, it is assumed to be relative to the active cell in the selection.</p>
+</blockquote></td>
+<td><blockquote>
+<p>"C2" or "C[1]" or "Price"</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Order1    specifies whether to sort the row or column containing key1 in
 ascending or descending order. Enter 1 to sort in ascending order or 2
@@ -5856,15 +7594,42 @@ order3 work similarly.
 Header    is a number indicating how Microsoft Excel is to handle
 headers on list.
 
-+----------------+-------------------------------------------------------+
-| > **Header**   | > **Defined**                                         |
-+----------------+-------------------------------------------------------+
-| > 0            | > Microsoft Excel will guess if there is a header     |
-+----------------+-------------------------------------------------------+
-| > 1            | > Forces Microsoft Excel to assume there is a header  |
-+----------------+-------------------------------------------------------+
-| > 2 or omitted | > Forces Microsoft Excel to assume there is no header |
-+----------------+-------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Header</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Defined</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>0</p>
+</blockquote></td>
+<td><blockquote>
+<p>Microsoft Excel will guess if there is a header</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Forces Microsoft Excel to assume there is a header</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>2 or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>Forces Microsoft Excel to assume there is no header</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Type    is a number specifying whether to sort the field by labels or
 values. Use one to sort by values or two to sort by labels.
@@ -5874,19 +7639,58 @@ want. This corresponds to the First Key Sort Order drop-down box in the
 Sort Options dialog box. For a PivotTable report, custom is a number
 indicating what custom sort order to use when sorting labels.
 
-+--------------+--------------------------------------------------------------+
-| > **Number** | > **Type of sort**                                           |
-+--------------+--------------------------------------------------------------+
-| > 1          | > Normal                                                     |
-+--------------+--------------------------------------------------------------+
-| > 2          | > Weekdays in abbreviated form (\"Sun\", \"Mon\", and so on) |
-+--------------+--------------------------------------------------------------+
-| > 3          | > Weekdays                                                   |
-+--------------+--------------------------------------------------------------+
-| > 4          | > Months in abbreviated form (\"Jan\" \"Feb\", and so on)    |
-+--------------+--------------------------------------------------------------+
-| > 5          | > Months                                                     |
-+--------------+--------------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Number</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Type of sort</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Normal</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Weekdays in abbreviated form ("Sun", "Mon", and so on)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Weekdays</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Months in abbreviated form ("Jan" "Feb", and so on)</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Months</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Case    is a logical value that determines whether the sort is case
 sensitive. If TRUE, the sort is case sensitive. If FALSE or omitted, the
@@ -5905,8 +7709,7 @@ headers.
 
 Return to [top](#Q)
 
-SOUND.NOTE
-==========
+# SOUND.NOTE
 
 This function should not be used in Microsoft Excel 97 or later because
 sound notes are available only in Microsoft Excel 95 or earlier
@@ -5943,44 +7746,44 @@ File\_text    is the name of a file containing sounds.
 Resource    is the number or name of a sound resource in file\_text that
 you want to import into your note.
 
--   This argument applies only to Microsoft Excel for the Macintosh.
+  - > This argument applies only to Microsoft Excel for the Macintosh.
 
--   If resource is omitted, Microsoft Excel uses the first resource in
+  - > If resource is omitted, Microsoft Excel uses the first resource in
     > the file.
 
--   If the file does not contain a sound resource with the specified
+  - > If the file does not contain a sound resource with the specified
     > name or number, Microsoft Excel halts the macro and displays an
     > error message.
 
 **Remarks**
 
--   To find out if a cell has sound attached to it, use GET.CELL(47).
+  - > To find out if a cell has sound attached to it, use GET.CELL(47).
 
--   Sounds notes are not available in Microsoft Excel 97 or later.
+  - > Sounds notes are not available in Microsoft Excel 97 or later.
 
 **Examples**
 
 The following macro formula erases the sound, if present, from cell A1
 on the active sheet:
 
-SOUND.NOTE(!\$A\$1, TRUE)
+SOUND.NOTE(\!$A$1, TRUE)
 
 The following macro formula displays the Record dialog box so that you
 can record sound into a note for cell A1 on the active sheet:
 
-SOUND.NOTE(!\$A\$1)
+SOUND.NOTE(\!$A$1)
 
 In Microsoft Excel for Windows, the following macro formula imports the
 sound from a file named CHIMES.WAV into a note for the cell named
 Doorbell on the active sheet:
 
-SOUND.NOTE(!Doorbell, \"C:\\SOUNDS\\CHIMES.WAV\")
+SOUND.NOTE(\!Doorbell, "C:\\SOUNDS\\CHIMES.WAV")
 
 In Microsoft Excel for the Macintosh, the following macro formula
 imports a sound called Chimes from a file named SOFT SOUNDS into a note
 for the cell named Doorbell on the active sheet:
 
-SOUND.NOTE(!Doorbell, \"HARD DISK:SOUNDS:SOFT SOUNDS\", \"Chimes\")
+SOUND.NOTE(\!Doorbell, "HARD DISK:SOUNDS:SOFT SOUNDS", "Chimes")
 
 **Related Functions**
 
@@ -5990,8 +7793,7 @@ SOUND.PLAY   Plays the sound from a cell note or a file
 
 Return to [top](#Q)
 
-SOUND.PLAY
-==========
+# SOUND.PLAY
 
 This function should not be used in Microsoft Excel 97 or later because
 sound notes are available only in Microsoft Excel 95 or earlier
@@ -6018,14 +7820,14 @@ specified, file\_text is ignored.
 Resource    is a number or name given as text specifying a sound
 resource in file\_text that you want to play.
 
--   This argument applies only to Microsoft Excel for the Macintosh.
+  - > This argument applies only to Microsoft Excel for the Macintosh.
 
--   If cell\_ref is specified, resource is ignored.
+  - > If cell\_ref is specified, resource is ignored.
 
--   If resource is omitted, Microsoft Excel uses the first sound
+  - > If resource is omitted, Microsoft Excel uses the first sound
     > resource in the file.
 
--   If the file does not contain a sound resource with the specified
+  - > If the file does not contain a sound resource with the specified
     > name or number, Microsoft Excel halts the macro and displays an
     > error message.
 
@@ -6038,8 +7840,7 @@ notes
 
 Return to [top](#Q)
 
-SPELLING
-========
+# SPELLING
 
 Equivalent to clicking the Spelling command on the Tools menu. Checks
 the spelling of words in the current selection.
@@ -6055,31 +7856,82 @@ the currently specified dictionary is used.
 Ignore\_uppercase    is a logical value corresponding to the Ignore
 UPPERCASE check box.
 
-+-------------------------------+-----------------------------------------+
-| > **If ignore\_uppercase is** | > **Microsoft Excel will**              |
-+-------------------------------+-----------------------------------------+
-| > TRUE                        | > Ignore words in all uppercase letters |
-+-------------------------------+-----------------------------------------+
-| > FALSE                       | > Check words in all uppercase letters  |
-+-------------------------------+-----------------------------------------+
-| > Omitted                     | > Use the current setting               |
-+-------------------------------+-----------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>If ignore_uppercase is</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Microsoft Excel will</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>TRUE</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ignore words in all uppercase letters</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>FALSE</p>
+</blockquote></td>
+<td><blockquote>
+<p>Check words in all uppercase letters</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>Use the current setting</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Always\_suggest    is a logical value corresponding to the Always
 Suggest check box.
 
-+-----------------------------+---------------------------------------+
-| > **If always\_suggest is** | > **Microsoft Excel will**            |
-+-----------------------------+---------------------------------------+
-| > TRUE                      | > Display a list of suggested         |
-|                             | > alternate spellings when an         |
-|                             | > incorrect spelling is found         |
-+-----------------------------+---------------------------------------+
-| > FALSE                     | > Wait for user to input the correct  |
-|                             | > spelling                            |
-+-----------------------------+---------------------------------------+
-| > Omitted                   | > Use the current setting             |
-+-----------------------------+---------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>If always_suggest is</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Microsoft Excel will</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>TRUE</p>
+</blockquote></td>
+<td><blockquote>
+<p>Display a list of suggested alternate spellings when an incorrect spelling is found</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>FALSE</p>
+</blockquote></td>
+<td><blockquote>
+<p>Wait for user to input the correct spelling</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>Omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>Use the current setting</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Related Function**
 
@@ -6087,8 +7939,7 @@ SPELLING.CHECK   Checks the spelling of a word
 
 Return to [top](#Q)
 
-SPELLING.CHECK
-==============
+# SPELLING.CHECK
 
 Checks the spelling of a word. Returns TRUE if the word is spelled
 correctly; FALSE otherwise.
@@ -6120,11 +7971,10 @@ SPELLING   Checks the spelling of words in the current selection
 
 Return to [top](#Q)
 
-SPLIT
-=====
+# SPLIT
 
 Equivalent to choosing the Split command from the Window menu or to
-dragging the split bar in the active window\'s scroll bar. Splits the
+dragging the split bar in the active window's scroll bar. Splits the
 active window into panes. Use SPLIT when you want to view different
 parts of the active sheet at the same time.
 
@@ -6148,8 +7998,7 @@ FREEZE.PANES   Freezes or unfreezes the panes of a window
 
 Return to [top](#Q)
 
-SQL.BIND
-========
+# SQL.BIND
 
 Specifies where results from a SQL query are placed when they are
 retrieved with SQL.RETRIEVE. If this function is not available, you must
@@ -6162,11 +8011,11 @@ install the Microsoft ODBC add-in (XLODBC.XLA).
 Connection\_num    is the unique connection ID of the data source for
 which you want to define storage.
 
--   Connection\_num was returned by a previously executed SQL.OPEN
+  - > Connection\_num was returned by a previously executed SQL.OPEN
     > function.
 
--   If connection\_num is not valid, then SQL.BIND returns the \#VALUE!
-    > error value.
+  - > If connection\_num is not valid, then SQL.BIND returns the
+    > \#VALUE\! error value.
 
 >  
 
@@ -6187,30 +8036,30 @@ arguments.
 
 **Remarks**
 
--   If SQL.BIND is completed successfully then it will return a vertical
-    > array listing the bound columns on the current connection. If
-    > SQL.BIND is unable to bind the result column then it will return
-    > the error value \#N/A. In such a case SQL.BIND will place error
-    > information in memory for the SQL.ERROR function, if such
-    > information is available.
+  - > If SQL.BIND is completed successfully then it will return a
+    > vertical array listing the bound columns on the current
+    > connection. If SQL.BIND is unable to bind the result column then
+    > it will return the error value \#N/A. In such a case SQL.BIND will
+    > place error information in memory for the SQL.ERROR function, if
+    > such information is available.
 
--   SQL.BIND tells the ODBC interface where to place results when they
+  - > SQL.BIND tells the ODBC interface where to place results when they
     > are retrieved using SQL.RETRIEVE. Binding is not necessary but can
     > be useful if you want the results from different columns to be
     > placed in disjoint worksheet locations.
 
--   If bindings are used, SQL.BIND must be called once for each column
+  - > If bindings are used, SQL.BIND must be called once for each column
     > in the result set. If a result column is not bound then it will
     > not be returned. A binding remains valid for as long as
     > connection\_num is open.
 
--   Call SQL.BIND after calling SQL.OPEN and SQL.EXEC.QUERY, but before
-    > calling SQL.RETRIEVE or SQL.RETRIEVE.TO.FILE. Calls to SQL.BIND
-    > will not affect results that have already been retrieved.
+  - > Call SQL.BIND after calling SQL.OPEN and SQL.EXEC.QUERY, but
+    > before calling SQL.RETRIEVE or SQL.RETRIEVE.TO.FILE. Calls to
+    > SQL.BIND will not affect results that have already been retrieved.
 
 **Example**
 
-SQL.BIND(conn1,1,\"\[Book1\]Sheet1!C1\") stores data obtained from the
+SQL.BIND(conn1,1,"\[Book1\]Sheet1\!C1") stores data obtained from the
 data source conn1 on Sheet1 from left to right in cell C1, starting with
 column1.
 
@@ -6232,8 +8081,7 @@ SQL.ERROR   Returns detailed error information
 
 Return to [top](#Q)
 
-SQL.CLOSE
-=========
+# SQL.CLOSE
 
 Terminates a connection to an external data source. If this function is
 not available, you must install the Microsoft ODBC add-in (XLODBC.XLA).
@@ -6245,27 +8093,27 @@ not available, you must install the Microsoft ODBC add-in (XLODBC.XLA).
 Connection\_num    is the unique connection ID of the data source from
 which you wish to disconnect.
 
--   Connection\_num is returned by a previously executed SQL.OPEN
+  - > Connection\_num is returned by a previously executed SQL.OPEN
     > function.
 
--   If connection\_num is not valid, SQL.CLOSE returns the \#VALUE!
+  - > If connection\_num is not valid, SQL.CLOSE returns the \#VALUE\!
     > error value.
 
 >  
 
 **Remarks**
 
--   If the connection is successfully terminated SQL.CLOSE will return
+  - > If the connection is successfully terminated SQL.CLOSE will return
     > zero and the connection ID number is then no longer valid.
 
--   If SQL.CLOSE is unable to disconnect with the data source then it
+  - > If SQL.CLOSE is unable to disconnect with the data source then it
     > will return the error value the \#N/A error value. In such a case
     > SQL.CLOSE will place error information in memory for the SQL.ERROR
     > function, if such information is available.
 
--   SQL.CLOSE works with data sources in much the same manner as FCLOSE
-    > works with files. If the call is successful then SQL.CLOSE will
-    > terminate the specified data source connection.
+  - > SQL.CLOSE works with data sources in much the same manner as
+    > FCLOSE works with files. If the call is successful then SQL.CLOSE
+    > will terminate the specified data source connection.
 
 **Example**
 
@@ -6289,8 +8137,7 @@ SQL.ERROR   Returns detailed error information
 
 Return to [top](#Q)
 
-SQL.ERROR
-=========
+# SQL.ERROR
 
 Returns detailed error information when it is called after a previous
 XLODBC.XLA function call has failed. If this function is not available,
@@ -6311,30 +8158,30 @@ Each row will have exactly three fields. The information in these three
 fields is obtained through the SQLERROR API function call. These fields
 are:
 
--   A textual message describing the error.
+  - > A textual message describing the error.
 
--   The ODBC error class and subclass as a character string.
+  - > The ODBC error class and subclass as a character string.
 
--   The data source native error code as a numeric value.
+  - > The data source native error code as a numeric value.
 
 >  
 
 If one or more of these fields is not available for the type of error
 that was encountered, the field will be left blank. For more information
-on the meaning of these three fields, refer to Chapter 24, \"ODBC
-Function Reference\", in the Microsoft Open Database Connectivity
-Programmer\'s Reference for the SQLError API function. See also Appendix
-A, \"ODBC Error Codes\" in the same manual.
+on the meaning of these three fields, refer to Chapter 24, "ODBC
+Function Reference", in the Microsoft Open Database Connectivity
+Programmer's Reference for the SQLError API function. See also Appendix
+A, "ODBC Error Codes" in the same manual.
 
 **Remarks**
 
--   SQL.ERROR cannot provide information on Excel errors.
+  - > SQL.ERROR cannot provide information on Excel errors.
 
--   If no error information is available when SQL.ERROR is called, then
-    > it well return the error value \#N/A but does not post any error
-    > information to SQL.ERROR.
+  - > If no error information is available when SQL.ERROR is called,
+    > then it well return the error value \#N/A but does not post any
+    > error information to SQL.ERROR.
 
--   SQL.ERROR stores and returns error information by processing
+  - > SQL.ERROR stores and returns error information by processing
     > SQL.ERROR (in the ODBC API reference) in a loop until
     > SQL\_NO\_DATA\_FOUND is encountered. In the SQL.ERROR function,
     > the error information is automatically defined and stored in
@@ -6366,8 +8213,7 @@ SQL.CLOSE   Closes a data source connection
 
 Return to [top](#Q)
 
-SQL.EXEC.QUERY
-==============
+# SQL.EXEC.QUERY
 
 Sends a query to a data source using an existing connection. If this
 function is not available, you must install the Microsoft ODBC add-in
@@ -6380,20 +8226,21 @@ function is not available, you must install the Microsoft ODBC add-in
 Connection\_num    is the unique connection ID of the data source you
 want to query.
 
--   Connection\_num is returned by a previously executed SQL.OPEN
+  - > Connection\_num is returned by a previously executed SQL.OPEN
     > function.
 
--   If connection\_num is not valid, SQL.EXEC.QUERY returns the \#VALUE!
-    > error value.
+  - > If connection\_num is not valid, SQL.EXEC.QUERY returns the
+    > \#VALUE\! error value.
 
 Query\_text is the SQL language query that is to be executed on the data
 source. The query must follow the SQL syntax guidelines in the Appendix
 of the Microsoft Excel ODBC Developers Guide.
 
--   If SQL.EXEC.QUERY is unable to execute query\_text on the specified
-    > data source, SQL.EXEC.QUERY returns the \#N/A error value.
+  - > If SQL.EXEC.QUERY is unable to execute query\_text on the
+    > specified data source, SQL.EXEC.QUERY returns the \#N/A error
+    > value.
 
--   Excel limits strings to a length of 255 characters. If query\_text
+  - > Excel limits strings to a length of 255 characters. If query\_text
     > needs to be longer than 255 characters then query\_text should be
     > a vertical array or vertical range of cells. The values in the
     > array will be joined together to form the complete SQL query.
@@ -6402,45 +8249,44 @@ of the Microsoft Excel ODBC Developers Guide.
 
 **Remarks**
 
--   Before calling SQL.EXEC.QUERY a connection must be established with
-    > a data source using SQL.OPEN. A successful call to SQL.OPEN
+  - > Before calling SQL.EXEC.QUERY a connection must be established
+    > with a data source using SQL.OPEN. A successful call to SQL.OPEN
     > returns a unique connection ID number. SQL.EXEC.QUERY uses that
     > connection ID number to send SQL language queries to the data
     > source.
 
--   Any results generated from the query will not be returned
-    > immediately\-- SQL.EXEC.QUERY only executes the query. Retrieving
+  - > Any results generated from the query will not be returned
+    > immediately-- SQL.EXEC.QUERY only executes the query. Retrieving
     > results is handled by the functions SQL.RETRIEVE and
     > SQL.RETRIEVE.TO.FILE.
 
--   If SQL.EXEC.QUERY is called using a previously used connection ID
+  - > If SQL.EXEC.QUERY is called using a previously used connection ID
     > number, all pending results on that connection will automatically
     > be discarded. The connection ID will then refer to the new query
     > and its results.
 
--   If SQL.EXEC.QUERY is unable to successfully execute the query on the
-    > specified data source then an error value will be returned. In
+  - > If SQL.EXEC.QUERY is unable to successfully execute the query on
+    > the specified data source then an error value will be returned. In
     > such a case SQL.EXEC.QUERY will place error information in memory
     > for the SQL.ERROR function, if such information is available. If
     > SQL.EXEC.QUERY is able to successfully execute the query on the
     > specified connection it will return one of three values depending
     > on the type of SQL statement that was executed.
-
-    -   If it was a SELECT statement then SQL.EXEC.QUERY will return the
-        > number of result columns available.
-
-    -   If it was an UPDATE, INSERT, or DELETE statement then
+    
+      - > If it was a SELECT statement then SQL.EXEC.QUERY will return
+        > the number of result columns available.
+    
+      - > If it was an UPDATE, INSERT, or DELETE statement then
         > SQL.EXEC.QUERY will return the number of rows affected by the
         > statement.
-
-    -   If it was a legal SQL query that is not in one of the categories
-        > above, SQL.EXEC.QUERY will return 0 (zero).
+    
+      - > If it was a legal SQL query that is not in one of the
+        > categories above, SQL.EXEC.QUERY will return 0 (zero).
 
 **Example**
 
-SQL.EXEC.QUERY(conn1, \"SELECT Custmr\_ID, Due\_Date FROM Orders WHERE
-Order\_Amt \> 100\") executes a SQL query from a SQL table named
-\"Orders\"
+SQL.EXEC.QUERY(conn1, "SELECT Custmr\_ID, Due\_Date FROM Orders WHERE
+Order\_Amt \> 100") executes a SQL query from a SQL table named "Orders"
 
 **Related Functions**
 
@@ -6460,8 +8306,7 @@ SQL.ERROR   Returns detailed error information
 
 Return to [top](#Q)
 
-SQL.GET.SCHEMA
-==============
+# SQL.GET.SCHEMA
 
 Returns information about the structure of the data source on a
 particular connection. The return value from a successful call to
@@ -6479,106 +8324,191 @@ add-in (XLODBC.XLA).
 Connection\_num    is the unique connection ID of the data source you
 want information about.
 
--   Connection\_num is returned by a previously executed SQL.OPEN
+  - > Connection\_num is returned by a previously executed SQL.OPEN
     > function.
 
--   If connection\_num is not valid, SQL.GET.SCHEMA returns the \#VALUE!
-    > error value.
+  - > If connection\_num is not valid, SQL.GET.SCHEMA returns the
+    > \#VALUE\! error value.
 
 >  
 
 Type\_num specifies the type of information you want returned. The
 following is a list of valid type\_num values.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **Returns**                                     |
-+-----------------+---------------------------------------------------+
-| > 1             | > A list of available data sources, as a vertical |
-|                 | > array.                                          |
-+-----------------+---------------------------------------------------+
-| > 2             | > A list of databases on the current connection,  |
-|                 | > as a vertical array .                           |
-+-----------------+---------------------------------------------------+
-| > 3             | > A list of owners in a database on the current   |
-|                 | > connection, as a vertical array.                |
-+-----------------+---------------------------------------------------+
-| > 4             | > A list of tables for a given owner and database |
-|                 | > on the current connection, as a vertical array. |
-+-----------------+---------------------------------------------------+
-| > 5             | > A list of columns in a particular table and     |
-|                 | > their data types, as a two-dimensional array.   |
-|                 | > The returned array will have two fields and     |
-|                 | > will have a row for each column in the table.   |
-|                 | > The first field will be the name of the column. |
-|                 | > The second field is the data type of the        |
-|                 | > column. The data type will be a number that     |
-|                 | > corresponds to the ODBC C header file data      |
-|                 | > types. These \#define numbers are found in      |
-|                 | > Microsoft Excel ODBC Developer Guide.           |
-+-----------------+---------------------------------------------------+
-| > 6             | > User ID of the current user                     |
-+-----------------+---------------------------------------------------+
-| > 7             | > Name of the current database.                   |
-+-----------------+---------------------------------------------------+
-| > 8             | > The name of the data source as given in the     |
-|                 | > ODBC.INI file.                                  |
-+-----------------+---------------------------------------------------+
-| > 9             | > The name of the data source DBMS (i.e. Oracle,  |
-|                 | > SQL Server, etc.).                              |
-+-----------------+---------------------------------------------------+
-| > 10            | > The server name for the data source.            |
-+-----------------+---------------------------------------------------+
-| > 11            | > The terminology used by the data source to      |
-|                 | > refer to owners ( i.e. \"owner\",               |
-|                 | > \"Authorization ID\", \"Schema\", etc.).        |
-+-----------------+---------------------------------------------------+
-| > 12            | > The terminology used by the data source to      |
-|                 | > refer to tables ( i.e. \"table\", \"file\",     |
-|                 | > etc.).                                          |
-+-----------------+---------------------------------------------------+
-| > 13            | > The terminology used by the data source to      |
-|                 | > refer to qualifiers (i.e. \"database\" or       |
-|                 | > \"directory\").                                 |
-+-----------------+---------------------------------------------------+
-| > 14            | > The terminology used by the data source to      |
-|                 | > refer to procedures (i.e. \"database            |
-|                 | > procedure\", \"stored procedure\", or           |
-|                 | > \"procedure\").                                 |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Returns</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>A list of available data sources, as a vertical array.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>A list of databases on the current connection, as a vertical array .</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>A list of owners in a database on the current connection, as a vertical array.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>A list of tables for a given owner and database on the current connection, as a vertical array.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>A list of columns in a particular table and their data types, as a two-dimensional array. The returned array will have two fields and will have a row for each column in the table. The first field will be the name of the column. The second field is the data type of the column. The data type will be a number that corresponds to the ODBC C header file data types. These #define numbers are found in Microsoft Excel ODBC Developer Guide.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>User ID of the current user</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Name of the current database.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>The name of the data source as given in the ODBC.INI file.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+<td><blockquote>
+<p>The name of the data source DBMS (i.e. Oracle, SQL Server, etc.).</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>The server name for the data source.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>The terminology used by the data source to refer to owners ( i.e. "owner", "Authorization ID", "Schema", etc.).</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>12</p>
+</blockquote></td>
+<td><blockquote>
+<p>The terminology used by the data source to refer to tables ( i.e. "table", "file", etc.).</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>13</p>
+</blockquote></td>
+<td><blockquote>
+<p>The terminology used by the data source to refer to qualifiers (i.e. "database" or "directory").</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>14</p>
+</blockquote></td>
+<td><blockquote>
+<p>The terminology used by the data source to refer to procedures (i.e. "database procedure", "stored procedure", or "procedure").</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Qualifier\_text    is only included for type\_num values of 3, 4 and 5.
 It is a text string used to qualify the search for the requested
 information and should be enclosed by quotation marks.
 
-+-----------------+---------------------------------------------------+
-| > **Type\_num** | > **Qualifier\_text**                             |
-+-----------------+---------------------------------------------------+
-| > 3             | > The value of qualifier\_text should be the name |
-|                 | > of a database in the current data source.       |
-|                 | > SQL.GET.SCHEMA will then only return the names  |
-|                 | > of table owners in that database.               |
-+-----------------+---------------------------------------------------+
-| > 4             | > The value of qualifier\_text should be both a   |
-|                 | > database name and an owner name. The syntax of  |
-|                 | > qualifier\_text is \"DatabaseName.OwnerName\".  |
-|                 | > A period is used to separate the two names.     |
-|                 | > SQL.GET.SCHEMA will then return an array of     |
-|                 | > table names that are located in the given       |
-|                 | > database and owned by the given owner.          |
-+-----------------+---------------------------------------------------+
-| > 5             | > The value of qualifier\_text should be the name |
-|                 | > of a table. Information about the columns in    |
-|                 | > that table will be returned.                    |
-+-----------------+---------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Type_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Qualifier_text</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>The value of qualifier_text should be the name of a database in the current data source. SQL.GET.SCHEMA will then only return the names of table owners in that database.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>The value of qualifier_text should be both a database name and an owner name. The syntax of qualifier_text is "DatabaseName.OwnerName". A period is used to separate the two names. SQL.GET.SCHEMA will then return an array of table names that are located in the given database and owned by the given owner.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>The value of qualifier_text should be the name of a table. Information about the columns in that table will be returned.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Remarks**
 
--   If SQL.GET.SCHEMA is unable to find the requested information then
+  - > If SQL.GET.SCHEMA is unable to find the requested information then
     > it will return the error value \#N/A. In such a case
     > SQL.GET.SCHEMA will place error information in memory for the
     > SQL.ERROR function, if such information is available.
 
--   SQL.GET.SCHEMA works with the ODBC functions SQLGetInfo and
+  - > SQL.GET.SCHEMA works with the ODBC functions SQLGetInfo and
     > SQLTables to find the requested information. Refer to the
     > Microsoft Excel ODBC Programmer Guide for more information on
     > these two functions.
@@ -6608,8 +8538,7 @@ SQL.ERROR   Returns detailed error information
 
 Return to [top](#Q)
 
-SQL.OPEN
-========
+# SQL.OPEN
 
 Establishes a connection with a data source. If the connection is
 successfully established SQL.OPEN will return a connection ID number.
@@ -6629,17 +8558,17 @@ data-source-name that is used in connection\_string must be an existing
 data source name defined with ODBC Setup or the ODBC Administration
 Utility.
 
--   Connection\_string must follow the format described in Chapter 24,
-    > \"ODBC Function Reference\", of the Microsoft Open Database
-    > Connectivity Programmer\'s Reference for SQLDriverConnect. In this
+  - > Connection\_string must follow the format described in Chapter 24,
+    > "ODBC Function Reference", of the Microsoft Open Database
+    > Connectivity Programmer's Reference for SQLDriverConnect. In this
     > string the user supplies the data source name, one or more user
-    > ID\'s, one or more passwords, and any other information necessary
+    > ID's, one or more passwords, and any other information necessary
     > to successfully connect to a DBMS. An example of a SQL.OPEN
-    > connection\_string entered would be: \"DSN=MyServer; UID=dbayer;
-    > PWD=123; Database=pubs\"
+    > connection\_string entered would be: "DSN=MyServer; UID=dbayer;
+    > PWD=123; Database=pubs"
 
--   Enter the connection\_string as an array when the length exceeds 255
-    > characters. Or enter connection\_string as an array of cells
+  - > Enter the connection\_string as an array when the length exceeds
+    > 255 characters. Or enter connection\_string as an array of cells
     > containing the same information. The connection string should be
     > horizontal array.
 
@@ -6650,42 +8579,70 @@ completed connection string will not be returned.
 
 Driver\_prompt     is a number from 1 to 4 specifying if and how you
 want to be prompted by the driver. This sets the fDriverCompletion flag
-in ODBC\'s SQLDriverConnect.
+in ODBC's SQLDriverConnect.
 
-+--------------+------------------------------------------------------+
-| > **Number** | > **Description**                                    |
-+--------------+------------------------------------------------------+
-| > 1          | > Always brings up a dialog box.                     |
-+--------------+------------------------------------------------------+
-| > 2          | > Bring up dialog only if there is not enough        |
-|              | > information to connect. The driver uses            |
-|              | > information from the connection string and from    |
-|              | > the data source specification as defaults.         |
-+--------------+------------------------------------------------------+
-| > 3          | > Same as 2, but the driver grays and disables any   |
-|              | > prompts for information not needed.                |
-+--------------+------------------------------------------------------+
-| > 4          | > If the connection string is unsuccessful, do not   |
-|              | > bring up a dialog box.                             |
-+--------------+------------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Number</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Description</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Always brings up a dialog box.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Bring up dialog only if there is not enough information to connect. The driver uses information from the connection string and from the data source specification as defaults.</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Same as 2, but the driver grays and disables any prompts for information not needed.</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>If the connection string is unsuccessful, do not bring up a dialog box.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Remarks**
 
--   If SQL.OPEN is unable to connect with the information provided then
-    > it will return the error value \#N/A. In such a case, SQL.OPEN
-    > will place error information in memory for the SQL.ERROR function,
-    > if more information is available.
+  - > If SQL.OPEN is unable to connect with the information provided
+    > then it will return the error value \#N/A. In such a case,
+    > SQL.OPEN will place error information in memory for the SQL.ERROR
+    > function, if more information is available.
 
--   If the call is successful then SQL.OPEN will return a unique
+  - > If the call is successful then SQL.OPEN will return a unique
     > connection ID number that can be used in future function calls to
     > identify the connection.
 
--   If connection\_array does not allow SQL.OPEN to connect to a data
+  - > If connection\_array does not allow SQL.OPEN to connect to a data
     > source, then the error value \#N/A will be returned.
 
 **Example**
 
-conn1=SQL.OPEN(\'DSN=NWind;DBQ=C:\\MSQUERY;FIL=dBASE4\',C15, 2) sets the
+conn1=SQL.OPEN('DSN=NWind;DBQ=C:\\MSQUERY;FIL=dBASE4',C15, 2) sets the
 name conn1 to the return value of SQL.OPEN, which connects to the NWind
 data source, specifies where to place the connection string, and
 displays the driver dialog box only if additional information is needed.
@@ -6708,8 +8665,7 @@ SQL.ERROR   Returns detailed error information
 
 Return to [top](#Q)
 
-SQL.RETRIEVE
-============
+# SQL.RETRIEVE
 
 Retrieves all or part of the results from a previously executed query.
 The connection used must have already been established using the macro
@@ -6730,28 +8686,28 @@ data source specified must have pending query results. Pending query
 results are generated by a call to SQL.EXEC.QUERY on the same
 connection.
 
--   If there are no pending results on the connection SQL.RETRIEVE
+  - > If there are no pending results on the connection SQL.RETRIEVE
     > returns the \#N/A error value.
 
--   If connection\_num is not valid, SQL.EXEC.QUERY returns the \#VALUE!
-    > error value.
+  - > If connection\_num is not valid, SQL.EXEC.QUERY returns the
+    > \#VALUE\! error value.
 
 >  
 
 Destination\_ref    specifies where the results should be placed. It is
 either a reference to a single cell or it is omitted.
 
--   If destination\_ref refers to a single cell then SQL.RETRIEVE will
+  - > If destination\_ref refers to a single cell then SQL.RETRIEVE will
     > return all of the pending results in the cells to the right,
     > below, and including destination\_ref. This is the same convention
     > used in Microsoft Excel when multiple cells are pasted into a
     > single-cell selection. Any previous values contained in the
     > destination cells will be overwritten without confirmation.
 
--   If destination\_ref is omitted then the bindings established by
+  - > If destination\_ref is omitted then the bindings established by
     > previous calls to SQL.BIND will be used to return results. If no
     > such bindings exist for the current connection then SQL.RETRIEVE
-    > will return the \#REF! error value. If a particular result column
+    > will return the \#REF\! error value. If a particular result column
     > has not been bound then its results will be discarded. Max\_rows
     > specifies the number of rows that will be returned under each
     > bound column. The first row of results will be placed in the bound
@@ -6763,33 +8719,33 @@ either a reference to a single cell or it is omitted.
 Max\_columns    is the maximum number of columns to be retrieved. It is
 only used when destination\_ref is not omitted.
 
--   If max\_columns specifies more columns than are available in the
+  - > If max\_columns specifies more columns than are available in the
     > results, SQL.RETRIEVE will place data in the columns for which
     > data is available and clear the additional columns.
 
--   If max\_columns specifies fewer columns than are available in the
+  - > If max\_columns specifies fewer columns than are available in the
     > results, the rightmost result columns will be discarded to fit the
     > chosen size. Column position will be determined by the order in
     > which the data source returned them.
 
--   If max\_columns is omitted then all of the result columns will be
+  - > If max\_columns is omitted then all of the result columns will be
     > returned.
 
 >  
 
 Max\_rows    is the maximum number of rows to be returned.
 
--   If max\_rows specifies more rows than are available in the results,
-    > SQL.RETRIEVE will place data in the rows for which data is
-    > available and clear the additional rows.
+  - > If max\_rows specifies more rows than are available in the
+    > results, SQL.RETRIEVE will place data in the rows for which data
+    > is available and clear the additional rows.
 
--   If max\_rows specifies fewer rows than are available in the results,
-    > SQL.RETRIEVE will place data in the selected rows but will not
-    > discard the additional rows. These extra rows can be retrieved via
-    > additional calls to SQL.RETRIEVE. This process is described in the
-    > fetch\_first\_logical argument description.
+  - > If max\_rows specifies fewer rows than are available in the
+    > results, SQL.RETRIEVE will place data in the selected rows but
+    > will not discard the additional rows. These extra rows can be
+    > retrieved via additional calls to SQL.RETRIEVE. This process is
+    > described in the fetch\_first\_logical argument description.
 
--   If max\_rows is omitted then all rows in the result set will be
+  - > If max\_rows is omitted then all rows in the result set will be
     > returned.
 
 >  
@@ -6815,15 +8771,15 @@ range.
 Fetch\_first\_logical    is a logical value that allows you to request
 results from the beginning of the result set.
 
--   If the first call to SQL.RETRIEVE did not return all of the rows in
-    > the result set then SQL.RETRIEVE may be called again to return the
-    > next set of rows. This process can be repeated until no more
+  - > If the first call to SQL.RETRIEVE did not return all of the rows
+    > in the result set then SQL.RETRIEVE may be called again to return
+    > the next set of rows. This process can be repeated until no more
     > result rows are available, at which time SQL.RETRIEVE will return
     > the value 0 (zero). This will not halt the running of the macro.
     > During each of these calls, including the first call,
     > fetch\_first\_logical should be set to FALSE.
 
--   If you want to move the cursor back to the beginning of the result
+  - > If you want to move the cursor back to the beginning of the result
     > set then fetch\_first\_logical should be set to TRUE. This causes
     > the same SQL query text to be executed again on the data source.
     > The cursor will then be positioned at the top of the result set
@@ -6836,28 +8792,29 @@ results from the beginning of the result set.
 
 **Remarks**
 
--   Before calling SQL.RETRIEVE a connection must be established with a
-    > data source using SQL.OPEN.
+  - > Before calling SQL.RETRIEVE a connection must be established with
+    > a data source using SQL.OPEN.
 
--   If SQL.RETRIEVE is unable to retrieve the results on the specified
+  - > If SQL.RETRIEVE is unable to retrieve the results on the specified
     > data source then an error value will be returned. In such a case
     > SQL.RETRIEVE will place error information in memory for the
     > SQL.ERROR function, if such information is available.
 
--   If SQL.RETRIEVE is able to successfully return rows of results on
+  - > If SQL.RETRIEVE is able to successfully return rows of results on
     > the specified connection it will return the number of rows that
     > were actually returned. If there were no results pending on the
     > connection then SQL.RETRIEVE will return the \#N/A error value.If
     > no data was found then SQL.RETRIEVE returns 0 (zero).
 
--   A successful call to SQL.OPEN returns a unique connection ID number,
-    > which is used in a call to SQL.EXEC.QUERY to send a SQL language
-    > query. Following this call to SQL.EXEC.QUERY, SQL.RETRIEVE uses
-    > the same connection ID number to retrieve query results.
+  - > A successful call to SQL.OPEN returns a unique connection ID
+    > number, which is used in a call to SQL.EXEC.QUERY to send a SQL
+    > language query. Following this call to SQL.EXEC.QUERY,
+    > SQL.RETRIEVE uses the same connection ID number to retrieve query
+    > results.
 
 **Example**
 
-SQL.RETRIEVE(conn1,sheet1!C1,1) stores data obtained from the data
+SQL.RETRIEVE(conn1,sheet1\!C1,1) stores data obtained from the data
 source conn1 on Sheet1 from left to right in cell C1, using only column
 1.
 
@@ -6879,8 +8836,7 @@ SQL.ERROR   Returns detailed error information
 
 Return to [top](#Q)
 
-SQL.RETRIEVE.TO.FILE
-====================
+# SQL.RETRIEVE.TO.FILE
 
 Retrieves all of the results from a previously executed query and places
 them in a file. The connection used must have already been established
@@ -6900,12 +8856,12 @@ data source specified must have query results pending. Pending results
 were generated by a previous call to SQL.EXEC.QUERY on the same
 connection.
 
--   If there are no pending results on the connection
+  - > If there are no pending results on the connection
     > SQL.RETRIEVE.TO.FILE returns the \#N/A error value. The file is
     > not affected.
 
--   If connection\_num is not valid, SQL.RETRIEVE.TO.FILE returns the
-    > \#VALUE! error value.
+  - > If connection\_num is not valid, SQL.RETRIEVE.TO.FILE returns the
+    > \#VALUE\! error value.
 
 >  
 
@@ -6913,17 +8869,17 @@ Destination    specifies the name and path of the file where the results
 should be placed. SQL.RETRIEVE.TO.FILE will open the specified file and
 fill it with the entire result set.
 
--   The format of the data in the file will be compatible with the
-    > Microsoft Excel \".CSV\" format. The overall format will be that
+  - > The format of the data in the file will be compatible with the
+    > Microsoft Excel ".CSV" format. The overall format will be that
     > columns will be separated by the value in column\_delimiter (see
     > below) and the individual rows will be separated by a
     > linefeed/carriage-return.
 
--   If the file specified by destination cannot be opened then the error
-    > value \#N/A will be returned by SQL.RETRIEVE.TO.FILE.
+  - > If the file specified by destination cannot be opened then the
+    > error value \#N/A will be returned by SQL.RETRIEVE.TO.FILE.
 
--   If the file already exists its previous contents will be overwritten
-    > by SQL.RETRIEVE.TO.FILE.
+  - > If the file already exists its previous contents will be
+    > overwritten by SQL.RETRIEVE.TO.FILE.
 
 >  
 
@@ -6934,36 +8890,36 @@ omitted, the column names will not be returned.
 Column\_delimiter    is the value that will be used to separate the
 elements in each row. If column\_delimiter is omitted then a tab will be
 used. If another value is desired then it should be enclosed in
-quotation marks. Possible values for column\_delimiter might be: \",\"
-or \";\" or \" \". The string \"tab\" can also be used to specify a tab
-separator (even though this is redundant, since a tab is the default).
+quotation marks. Possible values for column\_delimiter might be: "," or
+";" or " ". The string "tab" can also be used to specify a tab separator
+(even though this is redundant, since a tab is the default).
 
 **Remarks**
 
--   If SQL.RETRIEVE.TO.FILE is unable to retrieve the results on the
+  - > If SQL.RETRIEVE.TO.FILE is unable to retrieve the results on the
     > specified connection then an error value will be returned. In such
     > a case SQL.RETRIEVE.TO.FILE will place error information in memory
     > for the SQL.ERROR function, if such information is available.
 
--   If SQL.RETRIEVE.TO.FILE is able to successfully return rows of
+  - > If SQL.RETRIEVE.TO.FILE is able to successfully return rows of
     > results on the specified connection and place them in a file it
     > will return the number of rows that were actually written to the
     > file. If there were no results pending on the connection then
     > SQL.RETRIEVE.TO.FILE will return the \#N/A error value and the
     > file will not be created or modified.
 
--   Before calling SQL.RETRIEVE.TO.FILE a connection must be established
-    > with a data source using SQL.OPEN.
+  - > Before calling SQL.RETRIEVE.TO.FILE a connection must be
+    > established with a data source using SQL.OPEN.
 
--   A successful call to SQL.OPEN returns a unique connection ID number,
-    > which can be used in a call to SQL.EXEC.QUERY to send a SQL
-    > language query. Following this call to SQL.EXEC.QUERY,
+  - > A successful call to SQL.OPEN returns a unique connection ID
+    > number, which can be used in a call to SQL.EXEC.QUERY to send a
+    > SQL language query. Following this call to SQL.EXEC.QUERY,
     > SQL.RETRIEVE.TO.FILE uses the same connection ID number to
     > retrieve query results and place them in a file.
 
 **Example**
 
-SQL.RETRIEVE.TO.FILE(conn1,\"C:\\MSQUERY\\RESULTS1.QRY\",TRUE,\",\")
+SQL.RETRIEVE.TO.FILE(conn1,"C:\\MSQUERY\\RESULTS1.QRY",TRUE,",")
 retrieves the results of a previously executed query and places them in
 the file RESULTS1.QRY, with column names that are comma delimited.
 
@@ -6985,8 +8941,7 @@ SQL.ERROR   Returns detailed error information
 
 Return to [top](#Q)
 
-STANDARD.FONT
-=============
+# STANDARD.FONT
 
 Sets the attributes of the standard font in Microsoft Excel version 2.2
 and earlier. This function is included only for macro compatibility. To
@@ -7010,8 +8965,7 @@ FORMAT.FONT   Applies a font to the selection
 
 Return to [top](#Q)
 
-STANDARD.WIDTH
-==============
+# STANDARD.WIDTH
 
 Sets the default width used for all columns that you have not previously
 adjusted on the active worksheet.
@@ -7025,8 +8979,7 @@ of one character of the font corresponding to the Normal cell style.
 
 Return to [top](#Q)
 
-STEP
-====
+# STEP
 
 Stops the normal flow of a macro and calculates it one cell at a time.
 Running a macro one cell at a time is called single-stepping and is very
@@ -7042,7 +8995,7 @@ submenu).
 
 **Remarks**
 
--   When Microsoft Excel encounters a STEP function, it stops running
+  - > When Microsoft Excel encounters a STEP function, it stops running
     > the macro and displays a dialog box. The dialog box tells you
     > which cell in the macro Microsoft Excel is about to calculate, and
     > what formula is in that cell. You can click Step to carry out the
@@ -7050,12 +9003,12 @@ submenu).
     > click Halt to interrupt the macro; or click Continue to continue
     > the macro without single-stepping.
 
--   When placed at the beginning of a macro, STEP is equivalent to
+  - > When placed at the beginning of a macro, STEP is equivalent to
     > clicking the Macro command on the Tools menu and clicking the Step
     > Into button in the Macro dialog box.
 
--   To step through the calculation of a custom function, place the STEP
-    > function at the start of the custom function.
+  - > To step through the calculation of a custom function, place the
+    > STEP function at the start of the custom function.
 
 >  
 
@@ -7067,8 +9020,7 @@ RUN   Runs a macro
 
 Return to [top](#Q)
 
-STYLE
-=====
+# STYLE
 
 Checks the fonts for a bold and/or italic font and applies it to the
 current selection in Microsoft Excel for the Macintosh version 1.5 or
@@ -7089,8 +9041,7 @@ FONT.PROPERTIES   Applies a font to the selection
 
 Return to [top](#Q)
 
-SUBSCRIBE.TO
-============
+# SUBSCRIBE.TO
 
 Inserts the contents of the edition into the active sheet at the point
 of the current selection. Use SUBSCRIBE.TO to incorporate editions
@@ -7108,19 +9059,19 @@ later.
 File\_text    is the name, as a text string, of the edition you want to
 insert into the active sheet. Unless file\_text is in the current
 folder, supply the full path of the workbook. If file\_text cannot be
-found, SUBSCRIBE.TO returns the \#VALUE! error value and interrupts the
+found, SUBSCRIBE.TO returns the \#VALUE\! error value and interrupts the
 macro.
 
 **Remarks**
 
--   If a single cell is selected, the data from the edition file is
+  - > If a single cell is selected, the data from the edition file is
     > placed into as large a range of cells as is required by the data.
     > Data already present in those cells is replaced. If the data is a
     > picture, it is inserted from the upper-left corner of the selected
     > cell.
 
--   If a range of cells is selected, and the range is not big enough to
-    > contain the edition data, Microsoft Excel displays a dialog box
+  - > If a range of cells is selected, and the range is not big enough
+    > to contain the edition data, Microsoft Excel displays a dialog box
     > asking if you want to clip the data to fit the range.
 
 >  
@@ -7128,13 +9079,34 @@ macro.
 Format\_num    is the number 1 or 2 and specifies the format type of the
 file you are subscribing to.
 
-+-------------------+-----------------------------------------------------+
-| > **Format\_num** | > **Format type**                                   |
-+-------------------+-----------------------------------------------------+
-| > 1 or omitted    | > Picture                                           |
-+-------------------+-----------------------------------------------------+
-| > 2               | > Text (includes BIFF, VALU, TEXT, and CSV formats) |
-+-------------------+-----------------------------------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Format_num</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Format type</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1 or omitted</p>
+</blockquote></td>
+<td><blockquote>
+<p>Picture</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Text (includes BIFF, VALU, TEXT, and CSV formats)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 **Related Functions**
 
@@ -7146,8 +9118,7 @@ GET.LINK.INFO   Returns information about a link
 
 Return to [top](#Q)
 
-SUBTOTAL.CREATE
-===============
+# SUBTOTAL.CREATE
 
 Equivalent to clicking the Subtotals command on the Data menu. Generates
 a subtotal in a list or database.
@@ -7166,31 +9137,106 @@ In text box on the Subtotal dialog box.
 Function\_Num    is a number corresponding to the Use Function list box
 specifying which function you want to use in subtotaling your data.
 
-+----------------+---------------------+
-| > **Function** | > **Function\_Num** |
-+----------------+---------------------+
-| > SUM          | > 1                 |
-+----------------+---------------------+
-| > COUNTA       | > 2                 |
-+----------------+---------------------+
-| > AVERAGE      | > 3                 |
-+----------------+---------------------+
-| > MAX          | > 4                 |
-+----------------+---------------------+
-| > MIN          | > 5                 |
-+----------------+---------------------+
-| > PRODUCT      | > 6                 |
-+----------------+---------------------+
-| > COUNT        | > 7                 |
-+----------------+---------------------+
-| > STDEV        | > 8                 |
-+----------------+---------------------+
-| > STDEVP       | > 9                 |
-+----------------+---------------------+
-| > VAR          | > 10                |
-+----------------+---------------------+
-| > VARP         | > 11                |
-+----------------+---------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Function</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Function_Num</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>SUM</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>COUNTA</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>AVERAGE</p>
+</blockquote></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>MAX</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>MIN</p>
+</blockquote></td>
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>PRODUCT</p>
+</blockquote></td>
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>COUNT</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>STDEV</p>
+</blockquote></td>
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>STDEVP</p>
+</blockquote></td>
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>VAR</p>
+</blockquote></td>
+<td><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>VARP</p>
+</blockquote></td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Total    is an array of column offsets corresponding to the Add Subtotal
 To list box. Indicates which columns you want aggregated according to
@@ -7218,8 +9264,7 @@ totals in a list
 
 Return to [top](#Q)
 
-SUBTOTAL.REMOVE
-===============
+# SUBTOTAL.REMOVE
 
 Equivalent to clicking the Subtotal command on the Data menu, and then
 clicking the Remove All button in the Subtotal dialog box. Removes all
@@ -7236,8 +9281,7 @@ SUBTOTAL.CREATE   Generates a subtotal in a list or database
 
 Return to [top](#Q)
 
-SUMMARY.INFO
-============
+# SUMMARY.INFO
 
 Equivalent to clicking the Properties command on the File menu.
 Generates the summary information for the active workbook.

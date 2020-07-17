@@ -1,5 +1,4 @@
 SERIES.ORDER
-============
 
 Changes the order of series in a chart.
 
@@ -15,6 +14,4 @@ Old\_series\_num    is the current number of the series in the group.
 New\_series\_num    is the new number you want for the series in the
 group.
 
-Return to [top](#Q)
 
-SERIES.X

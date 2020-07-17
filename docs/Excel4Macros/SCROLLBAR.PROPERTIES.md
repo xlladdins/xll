@@ -1,5 +1,4 @@
 SCROLLBAR.PROPERTIES
-====================
 
 Sets the properties of the scroll bar and spinner button on a worksheet
 or dialog sheet.
@@ -46,6 +45,4 @@ PUSHBUTTON.PROPERTIES   Sets the properties of the push button control
 EDITBOX.PROPERTIES   Sets the properties of an edit box on a worksheet
 or dialog sheet
 
-Return to [top](#Q)
 
-SELECT

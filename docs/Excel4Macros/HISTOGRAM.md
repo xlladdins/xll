@@ -1,5 +1,4 @@
 HISTOGRAM
-=========
 
 Calculates individual and cumulative percentages for a range of data and
 a corresponding range of data bins.
@@ -27,11 +26,11 @@ specified in binrng.
 
 Pareto    is a logical value.
 
--   If pareto is TRUE, data in the output table is presented in both
+  - > If pareto is TRUE, data in the output table is presented in both
     > ascending-bin order and descending-frequency order.
 
--   If pareto is FALSE or omitted, data in the output table is presented
-    > in ascending-bin order only.
+  - > If pareto is FALSE or omitted, data in the output table is
+    > presented in ascending-bin order only.
 
 >  
 
@@ -46,13 +45,11 @@ FALSE.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of inprng contains
+  - > If labels is TRUE, then the first row or column of inprng contains
     > labels.
 
--   If labels is FALSE or omitted, all cells in inprng are considered
+  - > If labels is FALSE or omitted, all cells in inprng are considered
     > data. Microsoft Excel generates appropriate data labels for the
     > output table.
 
-Return to [top](#H)
 
-HLINE

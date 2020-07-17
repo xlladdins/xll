@@ -1,5 +1,4 @@
 REFTEXT
-=======
 
 Converts a reference to an absolute reference in the form of text. Use
 REFTEXT when you need to manipulate references with text functions.
@@ -14,23 +13,24 @@ Reference    is the reference you want to convert.
 
 A1    is a logical value specifying A1-style or R1C1-style references.
 
--   If a1 is TRUE, REFTEXT returns an A1-style reference.
+  - > If a1 is TRUE, REFTEXT returns an A1-style reference.
 
--   If a1 is FALSE or omitted, REFTEXT returns an R1C1-style reference.
+  - > If a1 is FALSE or omitted, REFTEXT returns an R1C1-style
+    > reference.
 
 >  
 
 **Examples**
 
-REFTEXT(C3, TRUE) equals \"\$C\$3\"
+REFTEXT(C3, TRUE) equals "$C$3"
 
-REFTEXT(B2:F2) equals \"R2C2:R2C6\"
+REFTEXT(B2:F2) equals "R2C2:R2C6"
 
 If the active cell is B9 on the active sheet named SHEET1, then:
 
-REFTEXT(ACTIVE.CELL()) equals \"\[Book1\]SHEET1!R9C2\"
+REFTEXT(ACTIVE.CELL()) equals "\[Book1\]SHEET1\!R9C2"
 
-REFTEXT(ACTIVE.CELL(), TRUE) equals \"\[Book1\]SHEET1!\$B\$9\"
+REFTEXT(ACTIVE.CELL(), TRUE) equals "\[Book1\]SHEET1\!$B$9"
 
 **Related Functions**
 
@@ -43,6 +43,4 @@ RELREF   Returns a relative reference
 
 TEXTREF   Converts text to a reference
 
-Return to [top](#Q)
 
-REGISTER

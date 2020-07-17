@@ -1,5 +1,4 @@
 ZOOM
-====
 
 Equivalent to choosing the Zoom command from the View menu. Enlarges or
 reduces a sheet in the active window. Use ZOOM when you need to view
@@ -13,13 +12,13 @@ at a larger size.
 Magnification    is a logical value or a number specifying the amount of
 enlargement or reduction.
 
--   Magnification can be a number from 10 to 400 specifying the
+  - > Magnification can be a number from 10 to 400 specifying the
     > percentage of enlargement or reduction.
 
--   If magnification is TRUE or omitted, the current selection is
+  - > If magnification is TRUE or omitted, the current selection is
     > enlarged or reduced to completely fill the active window.
 
--   If magnification is FALSE, the sheet is restored to normal 100%
+  - > If magnification is FALSE, the sheet is restored to normal 100%
     > magnification.
 
 >  
@@ -28,6 +27,4 @@ enlargement or reduction.
 
 PRINT.PREVIEW   Previews pages and page breaks before printing.
 
-Return to [top](#T)
 
-ZTESTM

@@ -1,5 +1,4 @@
 PREFERRED
-=========
 
 Equivalent to clicking the Preferred command on the Gallery menu in
 Microsoft Excel version 4.0. Changes the format of the active chart to
@@ -15,6 +14,4 @@ macro function.
 
 SET.PREFERRED   Changes the default chart format
 
-Return to [top](#H)
 
-PRESS.TOOL

@@ -1,5 +1,4 @@
 MAIL.SEND.MAILER
-================
 
 Equivalent to clicking the Send Mailer command on the Mail submenu of
 the File menu. Sends a PowerTalk mailer.
@@ -11,6 +10,4 @@ Microsoft Excel and Apple PowerTalk only.
 
 **MAIL.SEND.MAILER**( )
 
-Return to [top](#H)
 
-MAIN.CHART

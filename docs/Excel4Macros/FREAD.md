@@ -1,13 +1,12 @@
 FREAD
-=====
 
 Reads characters from a file, starting at the current position in the
-file. (For more information about a file\'s position, see FPOS.) If
-FREAD is successful, it returns the text to the cell containing FREAD
-and set\'s the file\'s position to the start of the following line. If
-the end of the file is reached or if FREAD can\'t read the file, it
-returns the \#N/A error value. Use FREAD instead of FREADLN when you
-need to read a specific number of characters from a text file.
+file. (For more information about a file's position, see FPOS.) If FREAD
+is successful, it returns the text to the cell containing FREAD and
+set's the file's position to the start of the following line. If the end
+of the file is reached or if FREAD can't read the file, it returns the
+\#N/A error value. Use FREAD instead of FREADLN when you need to read a
+specific number of characters from a text file.
 
 **Syntax**
 
@@ -15,7 +14,7 @@ need to read a specific number of characters from a text file.
 
 File\_num    is the unique ID number of the file you want to read data
 from. File\_num is returned by a previously executed FOPEN function. If
-file\_num is not valid, FREAD returns the \#VALUE! error value.
+file\_num is not valid, FREAD returns the \#VALUE\! error value.
 
 Num\_chars    specifies how many bytes to read from the file. FREAD can
 read up to 255 bytes at a time.
@@ -37,6 +36,4 @@ FREADLN   Reads a line from a text file
 
 FWRITE   Writes characters to a text file
 
-Return to [top](#E)
 
-FREADLN

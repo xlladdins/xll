@@ -1,5 +1,4 @@
 ADD.CHART.AUTOFORMAT
-====================
 
 Adds the format of the currently active chart in the current window to
 the list of custom formats in the Custom Types tab in the Chart Type
@@ -19,6 +18,4 @@ format is selected.
 
 DELETE.CHART.AUTOFORMAT   Deletes a custom template
 
-Return to [top](#A)
 
-ADD.COMMAND

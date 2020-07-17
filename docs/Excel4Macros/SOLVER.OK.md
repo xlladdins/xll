@@ -1,5 +1,4 @@
 SOLVER.OK
-=========
 
 Equivalent to clicking the Solver command on the Tools menu and
 specifying options in the Solver Parameters dialog box. Specifies basic
@@ -16,9 +15,9 @@ If this function is not available, you must install the Solver add-in.
 Set\_cell    corresponds to the Set Target Cell box in the Solver
 Parameters dialog box.
 
--   Set\_cell must be a reference to a cell on the active worksheet.
+  - > Set\_cell must be a reference to a cell on the active worksheet.
 
--   If you enter a cell reference, you must also enter a value for
+  - > If you enter a cell reference, you must also enter a value for
     > max\_min\_val. If you do not enter a cell, you must include three
     > commas before the by\_changing value.
 
@@ -28,15 +27,42 @@ Max\_min\_val    corresponds to the options Max, Min, and Value Of in
 the Solver Parameters dialog box. Use this option only if you entered a
 reference for set\_cell.
 
-+---------------------+------------------------+
-| > **Max\_min\_val** | > **Option specified** |
-+---------------------+------------------------+
-| > 1                 | > Maximize             |
-+---------------------+------------------------+
-| > 2                 | > Minimize             |
-+---------------------+------------------------+
-| > 3                 | > Match specific value |
-+---------------------+------------------------+
+<table>
+<tbody>
+<tr class="odd">
+<td><blockquote>
+<p><strong>Max_min_val</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Option specified</strong></p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Maximize</p>
+</blockquote></td>
+</tr>
+<tr class="odd">
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Minimize</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Match specific value</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
 
 Value\_of    is a number that becomes the target for the cell in the Set
 Target Cell box if max\_min\_val is 3. Value\_of is ignored if the cell
@@ -55,6 +81,4 @@ The constraints in a Solver problem can refer to a maximum of 400 cells.
 SOLVER.SOLVE   Returns an integer value indicating the condition that
 caused Solver to stop
 
-Return to [top](#Q)
 
-SOLVER.OPTIONS

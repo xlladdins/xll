@@ -1,5 +1,4 @@
 MAIL.ADD.MAILER
-===============
 
 Equivalent to clicking the Add Mailer command on the Mail submenu of the
 File menu. Adds a new PowerTalk mailer to the active workbook. Use this
@@ -16,12 +15,10 @@ Microsoft Excel and Apple PowerTalk only.
 **Remarks**
 
 If there is already a mailer, this command fails and returns the
-\#VALUE! error value.
+\#VALUE\! error value.
 
 **Related Function**
 
 MAIL.DELETE.MAILER   Deletes an existing mailer from the active workbook
 
-Return to [top](#H)
 
-MAIL.DELETE.MAILER

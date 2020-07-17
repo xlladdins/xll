@@ -1,5 +1,4 @@
 COPY.PICTURE
-============
 
 Equivalent to choosing the Copy Picture command from the Edit menu. The
 Copy Picture command appears if you hold down SHIFT while choosing the
@@ -20,29 +19,29 @@ printed picture may look different from the one on screen.
 
 Appearance\_num    is a number describing how to copy the picture.
 
-  --------------------- ---------------------------------------------------------------------------------
-  **Appearance\_num**   **Action**
-  1 or omitted          Copies a picture as closely as possible to the picture displayed on your screen
-  2                     Copies what you would see if you printed the selection
-  --------------------- ---------------------------------------------------------------------------------
+|                     |                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------- |
+| **Appearance\_num** | **Action**                                                                      |
+| 1 or omitted        | Copies a picture as closely as possible to the picture displayed on your screen |
+| 2                   | Copies what you would see if you printed the selection                          |
 
 Size\_num    is a number describing how to copy the picture and is only
 available if the current selection is a chart.
 
-  --------------- --------------------------------------------------------------------------
-  **Size\_num**   **Action**
-  1 or omitted    Copies the chart in the same size as the window on which it is displayed
-  2               Copies what you would see if you printed the chart
-  --------------- --------------------------------------------------------------------------
+|               |                                                                          |
+| ------------- | ------------------------------------------------------------------------ |
+| **Size\_num** | **Action**                                                               |
+| 1 or omitted  | Copies the chart in the same size as the window on which it is displayed |
+| 2             | Copies what you would see if you printed the chart                       |
 
 Type\_num    is a number specifying the format of the picture. This
 argument is available only in Microsoft Excel for Windows.
 
-  --------------- ---------------------------
-  **Type\_num**   **Format of the picture**
-  1 or omitted    Picture
-  2               Bitmap
-  --------------- ---------------------------
+|               |                           |
+| ------------- | ------------------------- |
+| **Type\_num** | **Format of the picture** |
+| 1 or omitted  | Picture                   |
+| 2             | Bitmap                    |
 
 **Related Functions**
 
@@ -57,6 +56,4 @@ area
 
 PASTE.SPECIAL   Pastes specific components of copied data
 
-Return to [top](#A)
 
-COPY.TOOL

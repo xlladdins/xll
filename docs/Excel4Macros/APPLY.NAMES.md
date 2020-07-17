@@ -1,10 +1,9 @@
 APPLY.NAMES
-===========
 
 Equivalent to clicking the Apply command on the Name submenu on the
 Insert menu. Replaces definitions with their respective names. If no
 names are defined in the current selection, APPLY.NAMES returns the
-\#VALUE! error value. Use APPLY.NAMES to replace references and values
+\#VALUE\! error value. Use APPLY.NAMES to replace references and values
 in formulas with names.
 
 **Syntax**
@@ -18,14 +17,14 @@ order\_num, append\_last)
 Name\_array    is the name or names to apply as text elements in an
 array.
 
--   To give more than one name as the argument, you must use an array.
+  - > To give more than one name as the argument, you must use an array.
     > For example:
 
--   APPLY.NAMES({\"DataRange\", \"CriteriaRange\"})
+  - > APPLY.NAMES({"DataRange", "CriteriaRange"})
 
--   If the names indicated by the argument name\_array have already
-    > replaced all of the appropriate references or values, the \#VALUE!
-    > error value is returned.
+  - > If the names indicated by the argument name\_array have already
+    > replaced all of the appropriate references or values, the
+    > \#VALUE\! error value is returned.
 
 >  
 
@@ -48,20 +47,20 @@ Order\_num    determines which range name is listed first when a cell
 reference is replaced by a row-oriented and a column-oriented range
 name, as shown in the following table.
 
-  ---------------- --------------------------
-  **Order\_num**   **Order of range names**
-  1                Row Column
-  2                Column Row
-  ---------------- --------------------------
+|                |                          |
+| -------------- | ------------------------ |
+| **Order\_num** | **Order of range names** |
+| 1              | Row Column               |
+| 2              | Column Row               |
 
 Append\_last    determines whether the names most recently defined are
 also replaced.
 
--   If append\_last is TRUE, Microsoft Excel replaces the definitions of
-    > the names in name\_array and also replaces the definitions of the
-    > last names defined.
+  - > If append\_last is TRUE, Microsoft Excel replaces the definitions
+    > of the names in name\_array and also replaces the definitions of
+    > the last names defined.
 
--   If append\_last is FALSE or omitted, Microsoft Excel replaces the
+  - > If append\_last is FALSE or omitted, Microsoft Excel replaces the
     > definitions of the names in name\_array only.
 
 >  
@@ -74,6 +73,4 @@ DEFINE.NAME   Defines a name in the active workbook
 
 LIST.NAMES   Lists names and their associated information
 
-Return to [top](#A)
 
-APPLY.STYLE

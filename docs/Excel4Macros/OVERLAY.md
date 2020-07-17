@@ -1,5 +1,4 @@
 OVERLAY
-=======
 
 Equivalent to choosing the Overlay command from the Format menu in
 Microsoft Excel version 2.2 or earlier. This function is included only
@@ -15,6 +14,4 @@ overlap%, cluster, angle, series\_num, auto)
 
 FORMAT.CHART   Formats the chart according to the arguments you specify.
 
-Return to [top](#H)
 
-PAGE.SETUP

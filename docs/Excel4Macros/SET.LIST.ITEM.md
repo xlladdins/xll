@@ -1,5 +1,4 @@
 SET.LIST.ITEM
-=============
 
 Sets the text of an item in a list box or drop-down box control.
 
@@ -26,6 +25,4 @@ REMOVE.LIST.ITEM   Removes an item in a list box or drop-down box
 
 SELECT.LIST.ITEM   Selects an item in a list box or in a group box
 
-Return to [top](#Q)
 
-SET.NAME

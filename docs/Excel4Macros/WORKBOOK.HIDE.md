@@ -1,5 +1,4 @@
 WORKBOOK.HIDE
-=============
 
 Equivalent to clicking the Sheet command on the Format menu, and then
 clicking Hide on the Sheet submenu. Hides sheets in the active workbook.
@@ -14,20 +13,18 @@ currently selected sheet(s) are hidden.
 Very\_hidden    specifies how the sheet is hidden. If TRUE, then the
 sheet name does not appear in the Unhide dialog box. After using this
 argument, use WORKBOOK.UNHIDE to unhide the sheet. If FALSE or omitted,
-hides the sheet but does not prevent the sheet\'s name from appearing in
+hides the sheet but does not prevent the sheet's name from appearing in
 the Unhide dialog box.
 
 **Remarks**
 
--   If the structure of the workbook is protected, you cannot hide any
+  - > If the structure of the workbook is protected, you cannot hide any
     > sheets in the workbook.
 
--   You cannot hide the last visible sheet in a workbook.
+  - > You cannot hide the last visible sheet in a workbook.
 
--   To hide Sheet1:Sheet10, select them first with the WORKBOOK.SELECT
+  - > To hide Sheet1:Sheet10, select them first with the WORKBOOK.SELECT
     > function. You can also place the sheets in an array first, as in
-    > {\"Sheet1\", \"Sheet2\", \"Sheet3\",\...}.
+    > {"Sheet1", "Sheet2", "Sheet3",...}.
 
-Return to [top](#T)
 
-WORKBOOK.INSERT

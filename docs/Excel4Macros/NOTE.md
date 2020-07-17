@@ -1,5 +1,4 @@
 NOTE
-====
 
 Equivalent to choosing the Comment command from the Insert menu. Creates
 a comment or replaces text characters in a comment.
@@ -13,12 +12,12 @@ a comment or replaces text characters in a comment.
 Add\_text    is text of up to 255 characters you want to add to a
 comment. Add\_text must be enclosed in quotation marks.
 
--   If add\_text is omitted, it is assumed to be \"\" (empty text).
+  - > If add\_text is omitted, it is assumed to be "" (empty text).
 
 >  
 
 Cell\_ref    is the cell to which you want to add the comment text. If
-cell\_ref is omitted, add\_text is added to the active cell\'s comment.
+cell\_ref is omitted, add\_text is added to the active cell's comment.
 
 Start\_char    is the number of the character at which you want
 add\_text to be added. If start\_char is omitted, it is assumed to be 1.
@@ -30,13 +29,13 @@ length of the comment.
 
 **Remarks**
 
--   NOTE returns the number of the last character entered in the
+  - > NOTE returns the number of the last character entered in the
     > comment. This is useful if you want to know how many characters
     > are in the text string.
 
--   The dialog-box form of this function, NOTE?, takes no arguments.
+  - > The dialog-box form of this function, NOTE?, takes no arguments.
 
--   NOTE() deletes the comment attached to the active cell.
+  - > NOTE() deletes the comment attached to the active cell.
 
 >  
 
@@ -46,6 +45,4 @@ To find out if a cell has a comment attached to it, use GET.CELL.
 
 GET.NOTE   Returns characters from a comment
 
-Return to [top](#H)
 
-OBJECT.PROPERTIES

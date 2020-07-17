@@ -1,5 +1,4 @@
 APP.RESTORE
-===========
 
 Equivalent to clicking the Restore command on the Control menu for the
 application window. Restores the Microsoft Excel window to its previous
@@ -25,6 +24,4 @@ APP.MOVE   Moves the Microsoft Excel application window
 
 APP.SIZE   Changes the size of the Microsoft Excel application window
 
-Return to [top](#A)
 
-APP.SIZE

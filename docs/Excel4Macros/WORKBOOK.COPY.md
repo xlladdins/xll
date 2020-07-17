@@ -1,5 +1,4 @@
 WORKBOOK.COPY
-=============
 
 Equivalent to clicking the Move or Copy Sheet command on the Edit menu.
 Copies one or more sheets from their current positions to the specified
@@ -22,28 +21,26 @@ name\_array becomes a separate workbook.
 Position\_num    is a number that specifies the target position for the
 sheet within the new workbook. The first position is 1.
 
--   If position\_num is specified, Microsoft Excel inserts the copy of
+  - > If position\_num is specified, Microsoft Excel inserts the copy of
     > the sheet at the specified position in the workbook.
 
--   If position\_num is omitted, Microsoft Excel places the sheet at the
-    > last position in the workbook.
+  - > If position\_num is omitted, Microsoft Excel places the sheet at
+    > the last position in the workbook.
 
--   If dest\_book is omitted, position\_num is ignored.
+  - > If dest\_book is omitted, position\_num is ignored.
 
 >  
 
 **Remarks**
 
--   If the structure of the workbook is protected, you cannot copy
+  - > If the structure of the workbook is protected, you cannot copy
     > sheets within the workbook or to another workbook.
 
--   You cannot copy a hidden sheet.
+  - > You cannot copy a hidden sheet.
 
 **Related Function**
 
 WORKBOOK.MOVE   Moves one or more documents from one workbook to another
 workbook or to another position in the same workbook
 
-Return to [top](#T)
 
-WORKBOOK.DELETE

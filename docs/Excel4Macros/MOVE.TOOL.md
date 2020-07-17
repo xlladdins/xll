@@ -1,5 +1,4 @@
 MOVE.TOOL
-=========
 
 Moves or copies a button from one toolbar to another.
 
@@ -41,6 +40,4 @@ COPY.TOOL   Copies a button face to the Clipboard
 
 GET.TOOL   Returns information about a button or buttons on a toolbar
 
-Return to [top](#H)
 
-NAMES

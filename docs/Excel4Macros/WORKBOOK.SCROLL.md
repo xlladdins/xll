@@ -1,5 +1,4 @@
 WORKBOOK.SCROLL
-===============
 
 Scrolls through the sheets in a workbook.
 
@@ -17,6 +16,4 @@ sheet in the workbook. If TRUE, scrolls to the last sheet in the
 workbook. If FALSE, scrolls to the first sheet in the workbook. If this
 argument is specified, then num\_sheets is ignored.
 
-Return to [top](#T)
 
-WORKBOOK.SELECT

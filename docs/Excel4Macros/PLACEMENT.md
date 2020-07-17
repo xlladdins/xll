@@ -1,5 +1,4 @@
 PLACEMENT
-=========
 
 Equivalent to choosing the Object Placement command from the Format menu
 in Microsoft Excel version 3.0. Determines how the selected object or
@@ -16,9 +15,7 @@ information, see OBJECT.PROPERTIES.
 
 **Related Functions**
 
-OBJECT.PROPERTIES   Determines an object\'s relationship to underlying
+OBJECT.PROPERTIES   Determines an object's relationship to underlying
 cells
 
-Return to [top](#H)
 
-POKE

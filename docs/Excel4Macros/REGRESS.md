@@ -1,5 +1,4 @@
 REGRESS
-=======
 
 Performs multiple linear regression analysis.
 
@@ -25,11 +24,11 @@ non-zero number.
 
 Labels    is a logical value.
 
--   If labels is TRUE, then the first row or column of the input ranges
-    > contain labels.
+  - > If labels is TRUE, then the first row or column of the input
+    > ranges contain labels.
 
--   If labels is FALSE or omitted, all cells in inpyrng and inpxrng are
-    > considered data. Microsoft Excel will then generate the
+  - > If labels is FALSE or omitted, all cells in inpyrng and inpxrng
+    > are considered data. Microsoft Excel will then generate the
     > appropriate data labels for the output table.
 
 >  
@@ -78,6 +77,4 @@ probability output table in a new worksheet. This argument is for
 compatibility with Microsoft Excel version 4.0 only and is ignored in
 later versions.
 
-Return to [top](#Q)
 
-RELREF

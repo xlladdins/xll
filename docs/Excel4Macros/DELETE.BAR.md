@@ -1,5 +1,4 @@
 DELETE.BAR
-==========
 
 Deletes a custom menu bar.
 
@@ -22,6 +21,4 @@ ADD.BAR   Adds a menu bar
 
 SHOW.BAR   Displays a menu bar
 
-Return to [top](#A)
 
-DELETE.CHART.AUTOFORMAT

@@ -1,5 +1,4 @@
 VOLATILE
-========
 
 Specifies whether a custom worksheet function is volatile or
 nonvolatile. A volatile custom function is recalculated every time a
@@ -15,15 +14,15 @@ volatile; if FALSE, nonvolatile.
 
 **Remarks**
 
--   VOLATILE must precede every other formula in the custom function
+  - > VOLATILE must precede every other formula in the custom function
     > except RESULT and ARGUMENT.
 
--   Normally, a worksheet recalculates a cell containing a nonvolatile
+  - > Normally, a worksheet recalculates a cell containing a nonvolatile
     > custom function only when any part of the complete formula in the
     > cell is recalculated. Use VOLATILE(TRUE) to recalculate the
     > function every time the worksheet is recalculated.
 
--   Most custom functions are nonvolatile by default, but custom
+  - > Most custom functions are nonvolatile by default, but custom
     > functions with reference arguments are volatile by default. Use
     > VOLATILE(FALSE) to prevent these functions from being recalculated
     > unnecessarily often.
@@ -34,6 +33,4 @@ volatile; if FALSE, nonvolatile.
 
 RESULT   Specifies the data type a custom function returns
 
-Return to [top](#T)
 
-VPAGE

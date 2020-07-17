@@ -1,5 +1,4 @@
 CALCULATE.NOW
-=============
 
 Equivalent to clicking the Calculation tab in the Options dialog box and
 then clicking the Calc Now button. Calculates all sheets in all open
@@ -16,6 +15,4 @@ CALCULATE.DOCUMENT   Calculates the active sheet only
 
 CALCULATION   Controls calculation settings
 
-Return to [top](#A)
 
-CALCULATION

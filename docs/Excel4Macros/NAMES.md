@@ -1,5 +1,4 @@
 NAMES
-=====
 
 Returns, as a horizontal array of text, the specified names defined in
 the specified workbook. The returned array lists the names in alphabetic
@@ -17,12 +16,12 @@ active workbook.
 Type\_num    is a number from 1 to 3 that specifies whether to include
 hidden names in the returned array.
 
-  --------------------- -------------------
-  **If type\_num is**   **NAMES returns**
-  1 or omitted          Normal names only
-  2                     Hidden names only
-  3                     All names
-  --------------------- -------------------
+|                     |                   |
+| ------------------- | ----------------- |
+| **If type\_num is** | **NAMES returns** |
+| 1 or omitted        | Normal names only |
+| 2                   | Hidden names only |
+| 3                   | All names         |
 
 Match\_text    is text that specifies the names you want returned and
 can include wildcard characters. If match\_text is omitted, all names
@@ -30,15 +29,16 @@ are returned.
 
 **Remarks**
 
--   Hidden names are defined using the DEFINE.NAME macro function and do
-    > not appear in the Paste Name, Define Name, or Go To dialog boxes.
+  - > Hidden names are defined using the DEFINE.NAME macro function and
+    > do not appear in the Paste Name, Define Name, or Go To dialog
+    > boxes.
 
--   NAMES returns a horizontal array, so you will normally enter this
+  - > NAMES returns a horizontal array, so you will normally enter this
     > function as an array in several horizontal cells or define a name
     > to refer to the array that NAMES returns. If you want the names in
     > a vertical array instead, use the TRANSPOSE function.
 
--   You can use the COLUMNS function to count the number of entries in
+  - > You can use the COLUMNS function to count the number of entries in
     > the horizontal array.
 
 >  
@@ -48,7 +48,7 @@ are returned.
 The following macro formula returns all names on the active workbook
 starting with the letter P.
 
-NAMES(, 3, \"P\*\")
+NAMES(, 3, "P\*")
 
 **Related Functions**
 
@@ -64,6 +64,4 @@ LIST.NAMES   Lists names and their associated information
 
 SET.NAME   Defines a name as a value
 
-Return to [top](#H)
 
-NEW

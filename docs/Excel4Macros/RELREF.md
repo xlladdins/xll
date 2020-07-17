@@ -1,9 +1,8 @@
 RELREF
-======
 
 Returns the reference of a cell or cells relative to the upper-left cell
 of rel\_to\_ref. The reference is given as an R1C1-style relative
-reference in the form of text, such as \"R\[1\]C\[1\]\".
+reference in the form of text, such as "R\[1\]C\[1\]".
 
 **Syntax**
 
@@ -25,12 +24,11 @@ absolute references to relative references.
 
 **Examples**
 
-RELREF(\$A\$1, \$C\$3) equals \"R\[-2\]C\[-2\]\"
+RELREF($A$1, $C$3) equals "R\[-2\]C\[-2\]"
 
-RELREF(\$A\$1:\$E\$5, \$C\$3:\$G\$7) equals
-\"R\[-2\]C\[-2\]:R\[2\]C\[2\]\"
+RELREF($A$1:$E$5, $C$3:$G$7) equals "R\[-2\]C\[-2\]:R\[2\]C\[2\]"
 
-RELREF(\$A\$1:\$E\$5, \$C\$3) equals \"R\[-2\]C\[-2\]:R\[2\]C\[2\]\"
+RELREF($A$1:$E$5, $C$3) equals "R\[-2\]C\[-2\]:R\[2\]C\[2\]"
 
 **Related Functions**
 
@@ -43,6 +41,4 @@ FORMULA   Enters values into a cell or range or onto a chart
 
 FORMULA.CONVERT   Changes the reference style and type
 
-Return to [top](#Q)
 
-REMOVE.LIST.ITEM

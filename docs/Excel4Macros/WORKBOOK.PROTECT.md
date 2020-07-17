@@ -1,5 +1,4 @@
 WORKBOOK.PROTECT
-================
 
 Equivalent to clicking the Protect Workbook command on the Protection
 submenu of the Tools menu. Controls protection of workbooks.
@@ -31,6 +30,4 @@ To protect a sheet in a workbook, use the PROTECT.DOCUMENT function.
 
 PROTECT.DOCUMENT   Protects a sheet in a workbook
 
-Return to [top](#T)
 
-WORKBOOK.SCROLL

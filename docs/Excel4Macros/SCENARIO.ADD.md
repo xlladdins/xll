@@ -1,5 +1,4 @@
 SCENARIO.ADD
-============
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 clicking the Add button. Defines the specified values as a scenario. A
@@ -16,14 +15,14 @@ Scen\_name    is the name of the scenario you want to define.
 Value\_array    is a horizontal array of values you want to use as input
 for the model on your worksheet.
 
--   Any entry that would be valid for a cell in your model can be a
+  - > Any entry that would be valid for a cell in your model can be a
     > value in value\_array.
 
--   The values must be arranged in the same order as the model\'s
+  - > The values must be arranged in the same order as the model's
     > changing cells. The changing cells are listed in the Changing
     > Cells box in the Scenario Manager dialog box.
 
--   If value\_array is omitted, it is assumed to contain the current
+  - > If value\_array is omitted, it is assumed to contain the current
     > values of the changing cells.
 
 >  
@@ -31,13 +30,13 @@ for the model on your worksheet.
 Changing\_ref    is a reference to cells you want to define as changing
 cells for a scenario.
 
--   If omitted, uses the changing cells for the last scenario defined
+  - > If omitted, uses the changing cells for the last scenario defined
     > for the sheet.
 
--   If changing\_ref contains nonadjacent references, you must separate
-    > the reference areas by commas (or other list separator). If you
-    > are using A1-style references, then you must enclose reference in
-    > an extra set of parentheses.
+  - > If changing\_ref contains nonadjacent references, you must
+    > separate the reference areas by commas (or other list separator).
+    > If you are using A1-style references, then you must enclose
+    > reference in an extra set of parentheses.
 
 >  
 
@@ -66,6 +65,4 @@ REPORT.DEFINE   Creates a report
 SCENARIO.GET   Returns the specified information about the scenarios
 defined on your worksheet
 
-Return to [top](#Q)
 
-SCENARIO.CELLS

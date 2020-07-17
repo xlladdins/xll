@@ -1,5 +1,4 @@
 FILES
-=====
 
 Returns a horizontal text array of the names of all files in the
 specified directory or folder. Use FILES to build a list of filenames
@@ -12,11 +11,11 @@ upon which you want your macro to operate.
 Directory\_text    specifies which directories or folders to return
 filenames from.
 
--   Directory\_text accepts an asterisk (\*) to represent a series of
+  - > Directory\_text accepts an asterisk (\*) to represent a series of
     > characters and a question mark (?) to represent a single character
     > in filenames.
 
--   If directory\_text is not specified, FILES returns filenames from
+  - > If directory\_text is not specified, FILES returns filenames from
     > the current directory.
 
 >  
@@ -37,7 +36,7 @@ In Microsoft Excel for Windows, the following macro formula returns the
 names of all files starting with the letter F in the current directory
 or folder:
 
-FILES(\"F\*.\*\")
+FILES("F\*.\*")
 
 When entered as an array formula in several cells, the following macro
 formula returns the filenames in the current directory to those cells.
@@ -47,20 +46,20 @@ cells, the \#N/A error value appears in the extra cells.
 FILES()
 
 In Microsoft Excel for Windows, the following macro formula returns all
-files starting with \"SALE\" and ending with the .XLS extension in the
+files starting with "SALE" and ending with the .XLS extension in the
 \\EXCEL\\CHARTS subdirectory:
 
-FILES(\"C:\\EXCEL\\CHARTS\\SALE\*.XLS\")
+FILES("C:\\EXCEL\\CHARTS\\SALE\*.XLS")
 
 In Microsoft Excel for the Macintosh, the following macro formula
-returns all files starting with \"SALE\" in the nested CHART folder:
+returns all files starting with "SALE" in the nested CHART folder:
 
-FILES(\"DISK:EXCEL:CHART:SALE\*\")
+FILES("DISK:EXCEL:CHART:SALE\*")
 
 The following macro stores the names of the files in the current
 directory in the named array FileArray
 
-SET.NAME(\"FileArray\",FILES())
+SET.NAME("FileArray",FILES())
 
 **Related Functions**
 
@@ -72,6 +71,4 @@ OPEN   Opens a workbook
 
 SET.NAME   Defines a name as a value
 
-Return to [top](#E)
 
-FILL.AUTO

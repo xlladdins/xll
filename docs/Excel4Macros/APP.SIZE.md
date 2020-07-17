@@ -1,5 +1,4 @@
 APP.SIZE
-========
 
 Equivalent to choosing the Size command from the Control menu for the
 application window. Changes the size of the Microsoft Excel window.
@@ -18,8 +17,8 @@ X\_num    specifies the width of the Microsoft Excel window in points.
 
 Y\_num    specifies the height of the Microsoft Excel window in points.
 
-APP.SIZE?, the dialog-box form of the function, doesn\'t display a
-dialog box. Instead, it is equivalent to pressing ALT, SPACEBAR, S or to
+APP.SIZE?, the dialog-box form of the function, doesn't display a dialog
+box. Instead, it is equivalent to pressing ALT, SPACEBAR, S or to
 dragging a window border with the mouse. Using APP.SIZE?, you can size
 the window with the keyboard or mouse. If you specify x\_num and/or
 y\_num in the dialog-box form of the function, the window is sized
@@ -37,6 +36,4 @@ APP.MOVE   Moves the Microsoft Excel application window
 
 APP.RESTORE   Restores the Microsoft Excel application window
 
-Return to [top](#A)
 
-APP.TITLE

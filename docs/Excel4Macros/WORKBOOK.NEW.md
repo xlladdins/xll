@@ -1,5 +1,4 @@
 WORKBOOK.NEW
-============
 
 Adds a sheet to a workbook. This function is for compatibility with
 Microsoft Excel version 4.0. To add a new sheet to a workbook in
@@ -18,6 +17,4 @@ workbooks.
 
 WORKBOOK.INSERT   Adds sheets to workbooks
 
-Return to [top](#T)
 
-WORKBOOK.NEXT

@@ -1,5 +1,4 @@
 APP.MAXIMIZE
-============
 
 Equivalent to clicking the Maximize command on the Control menu for the
 application window. Maximizes the Microsoft Excel window.
@@ -26,6 +25,4 @@ APP.SIZE   Changes the size of the Microsoft Excel application window
 
 FULL.SCREEN   Controls full screen display
 
-Return to [top](#A)
 
-APP.MINIMIZE

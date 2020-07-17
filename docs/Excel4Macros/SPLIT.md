@@ -1,8 +1,7 @@
 SPLIT
-=====
 
 Equivalent to choosing the Split command from the Window menu or to
-dragging the split bar in the active window\'s scroll bar. Splits the
+dragging the split bar in the active window's scroll bar. Splits the
 active window into panes. Use SPLIT when you want to view different
 parts of the active sheet at the same time.
 
@@ -24,6 +23,4 @@ changed.
 
 FREEZE.PANES   Freezes or unfreezes the panes of a window
 
-Return to [top](#Q)
 
-SQL.BIND

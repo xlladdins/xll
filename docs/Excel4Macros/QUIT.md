@@ -1,5 +1,4 @@
 QUIT
-====
 
 Equivalent to clicking the Exit command on the File menu in Microsoft
 Excel for Windows. Equivalent to clicking the Quit command on the File
@@ -26,12 +25,10 @@ Auto\_Close macros before closing the workbook.
 The following function displays a confirmation alert and quits Microsoft
 Excel if the user clicks OK:
 
-IF(ALERT(\"Are you sure you want to quit Microsoft Excel?\",1), QUIT(),)
+IF(ALERT("Are you sure you want to quit Microsoft Excel?",1), QUIT(),)
 
 **Related Function**
 
 FILE.CLOSE   Closes the active workbook
 
-Return to [top](#Q)
 
-RANDOM

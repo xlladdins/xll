@@ -1,5 +1,4 @@
 FCLOSE
-======
 
 Closes the specified file.
 
@@ -10,7 +9,7 @@ Closes the specified file.
 File\_num    is the number of the file you want to close. File\_num is
 returned by the FOPEN function that originally opened the file. If
 file\_num is not a valid file number, FCLOSE halts the macro and returns
-the \#VALUE! error value.
+the \#VALUE\! error value.
 
 **Examples**
 
@@ -26,6 +25,4 @@ FILE.CLOSE   Closes the active workbook
 
 FOPEN   Opens a file with the type of permission specified
 
-Return to [top](#E)
 
-FILE.CLOSE

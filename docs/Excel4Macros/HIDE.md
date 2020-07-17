@@ -1,5 +1,4 @@
 HIDE
-====
 
 Equivalent to clicking the Hide command on the Window menu. Hides the
 active window.
@@ -17,6 +16,4 @@ functions, even when those sheets are hidden.
 
 UNHIDE   Displays a hidden window
 
-Return to [top](#H)
 
-HIDE.DIALOG

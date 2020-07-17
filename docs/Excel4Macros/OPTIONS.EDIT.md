@@ -1,5 +1,4 @@
 OPTIONS.EDIT
-============
 
 Equivalent to clicking the Options command on the tools menu and then
 clicking the Edit tab in the Options dialog box. Sets various worksheet
@@ -75,6 +74,4 @@ rows and columns will slowly appear.
 
 OPTIONS.GENERAL   Sets various general Microsoft Excel settings
 
-Return to [top](#H)
 
-OPTIONS.GENERAL

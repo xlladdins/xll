@@ -1,5 +1,4 @@
 FONT.PROPERTIES
-===============
 
 Equivalent to choosing the Cells command from the Format menu. Applies a
 font and other attributes to the selection. Applies to cells, charts,
@@ -50,14 +49,14 @@ their absence prevent it from working on the Macintosh.
 
 Underline    corresponds to the Underline Drop-down box.
 
-  --------------- -------------------
-  **Underline**   **Type applied**
-  0               None
-  1               Single
-  2               Double
-  3               Single Accounting
-  4               Double Accounting
-  --------------- -------------------
+|               |                   |
+| ------------- | ----------------- |
+| **Underline** | **Type applied**  |
+| 0             | None              |
+| 1             | Single            |
+| 2             | Double            |
+| 3             | Single Accounting |
+| 4             | Double Accounting |
 
 Color    is a number from 0 to 56 corresponding to the colors listed in
 the Color box; 0 corresponds to automatic color.
@@ -68,12 +67,12 @@ font for your system
 Background    is a number from 1 to 3 specifying which type of
 background to apply to text in a chart.
 
-  ---------------- --------------------------------
-  **Background**   **Type of background applied**
-  1                Automatic
-  2                Transparent
-  3                Opaque
-  ---------------- --------------------------------
+|                |                                |
+| -------------- | ------------------------------ |
+| **Background** | **Type of background applied** |
+| 1              | Automatic                      |
+| 2              | Transparent                    |
+| 3              | Opaque                         |
 
 Start\_char    specifies the first character to be formatted. If
 start\_char is omitted, it is assumed to be 1 (the first character in
@@ -88,8 +87,8 @@ box starting at start\_char.
 Some extended TrueType styles do not have corresponding arguments to
 FONT.PROPERTIES. To access an extended TrueType font style, append the
 style name to the font name in the font argument. For example, the font
-Taipei can be formatted in an upside-down style by specifying \"Taipei
-Upside-down\" as the font argument. For more information about TrueType,
+Taipei can be formatted in an upside-down style by specifying "Taipei
+Upside-down" as the font argument. For more information about TrueType,
 see your Microsoft Windows documentation.
 
 **Related Functions**
@@ -100,6 +99,4 @@ FORMAT.NUMBER   Applies a number format to the selection
 
 FORMAT.TEXT   Formats a worksheet text box or a chart text item
 
-Return to [top](#E)
 
-FOPEN

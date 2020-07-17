@@ -1,5 +1,4 @@
 OPTIONS.GENERAL
-===============
 
 Equivalent to clicking the Options command on the Tools menu and then
 clicking the General tab from the Options dialog box. Sets various
@@ -82,6 +81,4 @@ OPTIONS.LISTS.GET   Returns contents of custom AutoFill lists
 
 OPTIONS.VIEW   Sets various view settings
 
-Return to [top](#H)
 
-OPTIONS.LISTS.ADD

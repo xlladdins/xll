@@ -1,5 +1,4 @@
 PRESS.TOOL
-==========
 
 Formats a button so that it appears either normal or depressed into the
 screen.
@@ -31,7 +30,7 @@ type of button.
 The following macro formula sets the third button image on Toolbar4 to
 normal (up).
 
-PRESS.TOOL(\"Toolbar4\", 3, FALSE)
+PRESS.TOOL("Toolbar4", 3, FALSE)
 
 **Related Functions**
 
@@ -39,6 +38,4 @@ ADD.TOOL   Adds one or more buttons to a toolbar
 
 DELETE.TOOL   Deletes a button from a toolbar
 
-Return to [top](#H)
 
-PRINT

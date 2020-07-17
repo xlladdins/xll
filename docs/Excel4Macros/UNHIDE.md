@@ -1,5 +1,4 @@
 UNHIDE
-======
 
 Equivalent to clicking the Unhide command on the Window menu. Use UNHIDE
 to display hidden windows.
@@ -22,6 +21,4 @@ GET.WINDOW   Returns information about a window
 
 HIDE   Hides the active window
 
-Return to [top](#T)
 
-UNLOCKED.NEXT, UNLOCKED.PREV

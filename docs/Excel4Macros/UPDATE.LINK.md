@@ -1,5 +1,4 @@
 UPDATE.LINK
-===========
 
 Equivalent to clicking the Links command on the Edit menu and clicking
 the Update Now button with a link selected in the Links dialog box.
@@ -17,13 +16,13 @@ from the active workbook to other Microsoft Excel workbooks are updated.
 Type\_of\_link    is a number from 1 to 4 that specifies the type of
 link to update.
 
-  -------------------- ------------------------
-  **Type\_of\_link**   **Link document type**
-  1 or omitted         Microsoft Excel link
-  2                    DDE link
-  3                    Not available
-  4                    Not available
-  -------------------- ------------------------
+|                    |                        |
+| ------------------ | ---------------------- |
+| **Type\_of\_link** | **Link document type** |
+| 1 or omitted       | Microsoft Excel link   |
+| 2                  | DDE link               |
+| 3                  | Not available          |
+| 4                  | Not available          |
 
 **Related Functions**
 
@@ -33,6 +32,4 @@ GET.LINK.INFO   Returns information about a link
 
 OPEN.LINKS   Opens specified supporting documents
 
-Return to [top](#T)
 
-VBA.INSERT.FILE

@@ -1,5 +1,4 @@
 SET.PAGE.BREAK
-==============
 
 Equivalent to clicking the Page Break command on the Insert menu. Sets
 manual page breaks. Use SET.PAGE.BREAK to override the automatic page
@@ -23,6 +22,4 @@ PRINT.PREVIEW   Previews pages and page breaks before printing
 
 REMOVE.PAGE.BREAK   Removes manual page breaks
 
-Return to [top](#Q)
 
-SET.PREFERRED

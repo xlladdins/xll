@@ -1,5 +1,4 @@
 ELSE.IF
-=======
 
 Used with IF, ELSE, and END.IF to control which functions are carried
 out in a macro. ELSE.IF signals the beginning of a group of formulas in
@@ -14,28 +13,28 @@ your macros more structured.
 **ELSE.IF**(**logical\_test**)
 
 Logical\_test    is a logical value that ELSE.IF uses to determine what
-functions to carry out next---that is, where to branch.
+functions to carry out next—that is, where to branch.
 
--   If logical\_test is TRUE, Microsoft Excel carries out the functions
-    > between the ELSE.IF function and the next ELSE.IF, ELSE, or END.IF
-    > function.
+  - > If logical\_test is TRUE, Microsoft Excel carries out the
+    > functions between the ELSE.IF function and the next ELSE.IF, ELSE,
+    > or END.IF function.
 
--   If logical\_test is FALSE, Microsoft Excel immediately branches to
+  - > If logical\_test is FALSE, Microsoft Excel immediately branches to
     > the next ELSE.IF, ELSE, or END.IF function.
 
 >  
 
 **Remarks**
 
--   ELSE.IF must be entered in a cell by itself.
+  - > ELSE.IF must be entered in a cell by itself.
 
--   Logical\_test will always be evaluated, even if the ELSE.IF section
-    > is not reached (due to a previous IF or ELSE.IF logical\_test
-    > evaluating to TRUE). For this reason, you should not use formulas
-    > that carry out actions for logical\_test. If you need to base the
-    > ELSE.IF condition on the return value of a formula that carries
-    > out an action, use the form \"ELSE, IF(logical\_test), and
-    > END.IF\" in place of \"ELSE.IF(logical\_test).\"
+  - > Logical\_test will always be evaluated, even if the ELSE.IF
+    > section is not reached (due to a previous IF or ELSE.IF
+    > logical\_test evaluating to TRUE). For this reason, you should not
+    > use formulas that carry out actions for logical\_test. If you need
+    > to base the ELSE.IF condition on the return value of a formula
+    > that carries out an action, use the form "ELSE, IF(logical\_test),
+    > and END.IF" in place of "ELSE.IF(logical\_test)."
 
 >  
 
@@ -50,6 +49,4 @@ END.IF   Ends a group of macro functions started with an IF statement
 
 IF   Specifies an action to take if a logical test is TRUE
 
-Return to [top](#E)
 
-EMBED

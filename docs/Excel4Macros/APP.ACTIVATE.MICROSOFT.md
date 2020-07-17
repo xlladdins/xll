@@ -1,5 +1,4 @@
 APP.ACTIVATE.MICROSOFT
-======================
 
 Activates a Microsoft application. If the application is not already
 activated, this function will load the application into memory.
@@ -10,16 +9,16 @@ activated, this function will load the application into memory.
 
 App\_id    is the ID number associated with the Microsoft Application.
 
-  ------------- -----------------------------------------------
-  **App\_id**   **Application**
-  1             Microsoft Word
-  2             Microsoft PowerPoint
-  3             Microsoft Mail
-  4             Microsoft Access (for Microsoft Windows only)
-  5             Microsoft Fox Pro
-  6             Microsoft Project
-  7             Microsoft Schedule +
-  ------------- -----------------------------------------------
+|             |                                               |
+| ----------- | --------------------------------------------- |
+| **App\_id** | **Application**                               |
+| 1           | Microsoft Word                                |
+| 2           | Microsoft PowerPoint                          |
+| 3           | Microsoft Mail                                |
+| 4           | Microsoft Access (for Microsoft Windows only) |
+| 5           | Microsoft Fox Pro                             |
+| 6           | Microsoft Project                             |
+| 7           | Microsoft Schedule +                          |
 
 **Remarks**
 
@@ -30,6 +29,4 @@ if the application is not activated successfully.
 
 APP.ACTIVATE   Switches to an application.
 
-Return to [top](#A)
 
-APPLY.NAMES

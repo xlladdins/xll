@@ -1,5 +1,4 @@
 PASTE.TOOL
-==========
 
 Pastes a button face from the Clipboard to a specified position on a
 toolbar.
@@ -20,6 +19,4 @@ left side (if horizontal) or at the top (if vertical).
 
 COPY.TOOL   Copies a button face
 
-Return to [top](#H)
 
-PATTERNS

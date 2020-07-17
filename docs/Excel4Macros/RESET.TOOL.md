@@ -1,5 +1,4 @@
 RESET.TOOL
-==========
 
 Resets a button to its original button face.
 
@@ -22,6 +21,4 @@ DELETE.TOOL   Deletes a button from a toolbar
 
 RESET.TOOLBAR   Resets a button to its original button face
 
-Return to [top](#Q)
 
-RESET.TOOLBAR

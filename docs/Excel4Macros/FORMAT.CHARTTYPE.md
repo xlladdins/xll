@@ -1,5 +1,4 @@
 FORMAT.CHARTTYPE
-================
 
 Changes the chart type for a selected data series, a group of data
 series, or an entire chart.
@@ -14,12 +13,12 @@ series, or an entire chart.
 Apply\_to    is a number from 1 to 3 specifying what part of a chart the
 new chart type effects.
 
-  ----------- ----------------------
-  **Value**   **Part of chart**
-  1           Selected data series
-  2           Group of data series
-  3           Entire chart
-  ----------- ----------------------
+|           |                      |
+| --------- | -------------------- |
+| **Value** | **Part of chart**    |
+| 1         | Selected data series |
+| 2         | Group of data series |
+| 3         | Entire chart         |
 
 Group\_num    corresponds to the number of the group you want to change
 as listed in the Group list box of the Chart Type dialog box, which
@@ -35,22 +34,20 @@ same dimension as the series, group, or chart to be changed.
 Type\_num    specifies the chart type to apply. Meaning of type\_num
 varies depending on the value of dimension:
 
-  --------------- ----------------------------------
-  **Type\_num**   **Chart type if dimension is 1**
-  1               Area or 3-D area
-  2               Bar or 3-D bar
-  3               Column or 3-D column
-  4               Line or 3-D line
-  5               Pie or 3-D pie
-  6               Doughnut or 3-D surface
-  7               Radar
-  8               XY (scatter)
-  --------------- ----------------------------------
+|               |                                  |
+| ------------- | -------------------------------- |
+| **Type\_num** | **Chart type if dimension is 1** |
+| 1             | Area or 3-D area                 |
+| 2             | Bar or 3-D bar                   |
+| 3             | Column or 3-D column             |
+| 4             | Line or 3-D line                 |
+| 5             | Pie or 3-D pie                   |
+| 6             | Doughnut or 3-D surface          |
+| 7             | Radar                            |
+| 8             | XY (scatter)                     |
 
 **Related Function**
 
 FORMAT.CHART   Formats the selected chart
 
-Return to [top](#E)
 
-FORMAT.FONT

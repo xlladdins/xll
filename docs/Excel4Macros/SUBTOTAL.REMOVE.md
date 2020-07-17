@@ -1,5 +1,4 @@
 SUBTOTAL.REMOVE
-===============
 
 Equivalent to clicking the Subtotal command on the Data menu, and then
 clicking the Remove All button in the Subtotal dialog box. Removes all
@@ -14,6 +13,4 @@ breaks and outlines will also be removed.
 
 SUBTOTAL.CREATE   Generates a subtotal in a list or database
 
-Return to [top](#Q)
 
-SUMMARY.INFO

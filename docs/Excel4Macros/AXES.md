@@ -1,5 +1,4 @@
 AXES
-====
 
 Controls whether the axes on a chart are visible. There are two syntax
 forms of this function. Syntax 1 is for 2-D charts; syntax 2 is for 3-D
@@ -24,13 +23,13 @@ For 3-D charts
 Arguments are logical values corresponding to the check boxes in the
 Axes dialog box.
 
--   If an argument is TRUE, Microsoft Excel selects the check box and
+  - > If an argument is TRUE, Microsoft Excel selects the check box and
     > displays the corresponding axis.
 
--   If an argument is FALSE, Microsoft Excel clears the check box and
+  - > If an argument is FALSE, Microsoft Excel clears the check box and
     > hides the corresponding axis.
 
--   If an argument is omitted, the display of that axis is unchanged.
+  - > If an argument is omitted, the display of that axis is unchanged.
 
 >  
 
@@ -54,6 +53,4 @@ used.
 
 GRIDLINES   Controls whether chart gridlines are visible
 
-Return to [top](#A)
 
-BEEP

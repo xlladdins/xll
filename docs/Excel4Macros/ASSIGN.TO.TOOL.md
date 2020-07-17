@@ -1,5 +1,4 @@
 ASSIGN.TO.TOOL
-==============
 
 Assigns a macro to be run when a button is clicked with the mouse.
 
@@ -28,6 +27,4 @@ ADD.TOOL   Adds one or more buttons to a toolbar
 
 GET.TOOL   Returns information about a button or buttons on a toolbar
 
-Return to [top](#A)
 
-ATTACH.TEXT

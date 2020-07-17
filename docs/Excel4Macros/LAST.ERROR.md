@@ -1,5 +1,4 @@
 LAST.ERROR
-==========
 
 Returns the reference to the cell where the last macro sheet error
 occurred. If no error has occurred, LAST.ERROR returns the \#N/A error
@@ -15,6 +14,4 @@ quickly locate errors.
 ERROR   Specifies what action to take if an error is encountered while a
 macro is running
 
-Return to [top](#H)
 
-LEGEND

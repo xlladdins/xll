@@ -1,5 +1,4 @@
 WORKBOOK.OPTIONS
-================
 
 Equivalent to selecting the Options button in a workbook contents window
 in Microsoft Excel version 4.0. This function is for compatibility with
@@ -27,6 +26,4 @@ WORKBOOK.NAME   Changes the name of a sheet in a workbook
 
 WORKBOOK.SELECT   Selects the specified sheets in a workbook
 
-Return to [top](#T)
 
-WORKBOOK.PREV

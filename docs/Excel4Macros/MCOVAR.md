@@ -1,5 +1,4 @@
 MCOVAR
-======
 
 Returns a covariance matrix that measures the covariance between two or
 more data sets.
@@ -22,28 +21,26 @@ blank, or omitted, places the output table in a new workbook.
 Grouped    is a text character that indicates whether the data in the
 input range is organized by row or column.
 
--   If grouped is \"C\" or omitted, then the data is organized by
+  - > If grouped is "C" or omitted, then the data is organized by
     > column.
 
--   If grouped is \"R\", then the data is organized by row.
+  - > If grouped is "R", then the data is organized by row.
 
 >  
 
 Labels    is a logical value that describes where the labels are located
 in the input range, as shown in the following table:
 
-  ------------------ ------------- ---------------------------------------------------
-  **Labels**         **Grouped**   **Labels are in**
-  TRUE               \"C\"         First row of the input range
-  TRUE               \"R\"         First column of the input range
-  FALSE or omitted   (ignored)     No labels. All cells in the input range are data.
-  ------------------ ------------- ---------------------------------------------------
+|                  |             |                                                   |
+| ---------------- | ----------- | ------------------------------------------------- |
+| **Labels**       | **Grouped** | **Labels are in**                                 |
+| TRUE             | "C"         | First row of the input range                      |
+| TRUE             | "R"         | First column of the input range                   |
+| FALSE or omitted | (ignored)   | No labels. All cells in the input range are data. |
 
 **Related Function**
 
 MCORREL   Returns the correlation coefficient of two or more data sets
 that are scaled to be independent of the unit of measurement
 
-Return to [top](#H)
 
-MENU.EDITOR

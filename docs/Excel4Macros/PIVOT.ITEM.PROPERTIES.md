@@ -1,5 +1,4 @@
 PIVOT.ITEM.PROPERTIES
-=====================
 
 Changes the properties of an item within a header field.
 
@@ -40,11 +39,11 @@ fields.
 
 **Remarks**
 
--   If name is omitted, Microsoft Excel will use the PivotTable report
+  - > If name is omitted, Microsoft Excel will use the PivotTable report
     > containing the active cell.
 
--   If pivot\_field\_name is not a header field, then this function will
-    > return the \#VALUE! error value.
+  - > If pivot\_field\_name is not a header field, then this function
+    > will return the \#VALUE\! error value.
 
 **Related Functions**
 
@@ -71,6 +70,4 @@ active cell
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.REFRESH

@@ -1,5 +1,4 @@
 ADD.COMMAND
-===========
 
 Adds a command to a menu. ADD.COMMAND returns the position number on the
 menu of the added command. Use ADD.COMMAND to add one or more custom
@@ -14,11 +13,11 @@ menu.
 Bar\_num    is the number corresponding to a menu bar or a type of
 shortcut menu to which you want to add a command.
 
--   Bar\_num can be the ID number of a built-in or custom menu bar. The
-    > ID number of a custom menu bar is the number returned by the
+  - > Bar\_num can be the ID number of a built-in or custom menu bar.
+    > The ID number of a custom menu bar is the number returned by the
     > ADD.BAR function.
 
--   Bar\_num can also refer to a type of shortcut menu; use menu to
+  - > Bar\_num can also refer to a type of shortcut menu; use menu to
     > identify the specific shortcut menu.
 
 >  
@@ -28,65 +27,65 @@ are listed in the following tables. Short menus are abbreviated versions
 of the normal Microsoft Excel menus. To turn on short menus, use the
 SHORT.MENUS function.
 
-  -------------- --------------------------------------------------------------------------
-  **Bar\_num**   **Built-in menu bar**
-  1              Worksheet and macro sheet (Microsoft Excel 4.0 or later)
-  2              Chart (Microsoft Excel 4.0 or later)
-  3              Null (the menu displayed when no workbooks are open)
-  4              Info
-  5              Worksheet and macro sheet (short menus, Microsoft Excel 3.0 and earlier)
-  6              Chart (short menus, Microsoft Excel 3.0 and earlier)
-  7              Cell, toolbar, and workbook (shortcut menus)
-  8              Object (shortcut menus)
-  9              Chart (Microsoft Excel 4.0 or later shortcut menus)
-  10             Worksheet and macro sheet
-  11             Chart
-  12             Visual Basic
-  -------------- --------------------------------------------------------------------------
+|              |                                                                          |
+| ------------ | ------------------------------------------------------------------------ |
+| **Bar\_num** | **Built-in menu bar**                                                    |
+| 1            | Worksheet and macro sheet (Microsoft Excel 4.0 or later)                 |
+| 2            | Chart (Microsoft Excel 4.0 or later)                                     |
+| 3            | Null (the menu displayed when no workbooks are open)                     |
+| 4            | Info                                                                     |
+| 5            | Worksheet and macro sheet (short menus, Microsoft Excel 3.0 and earlier) |
+| 6            | Chart (short menus, Microsoft Excel 3.0 and earlier)                     |
+| 7            | Cell, toolbar, and workbook (shortcut menus)                             |
+| 8            | Object (shortcut menus)                                                  |
+| 9            | Chart (Microsoft Excel 4.0 or later shortcut menus)                      |
+| 10           | Worksheet and macro sheet                                                |
+| 11           | Chart                                                                    |
+| 12           | Visual Basic                                                             |
 
 Menu    is the menu to which you want the new command added.
 
--   Menu can be either the name of a menu as text or the number of a
+  - > Menu can be either the name of a menu as text or the number of a
     > menu.
 
--   If bar\_num is 1 through 6, menus are numbered starting with 1 from
-    > the left of the menu bar.
+  - > If bar\_num is 1 through 6, menus are numbered starting with 1
+    > from the left of the menu bar.
 
--   If bar\_num is 7, 8, or 9, menu refers to a built-in shortcut menu.
-    > The combination of bar\_num and menu determines which shortcut
-    > menu to modify, as shown in the following table.
+  - > If bar\_num is 7, 8, or 9, menu refers to a built-in shortcut
+    > menu. The combination of bar\_num and menu determines which
+    > shortcut menu to modify, as shown in the following table.
 
 >  
 
-  -------------- ---------- --------------------------------------------------------------------
-  **Bar\_num**   **Menu**   **Shortcut menu**
-  7              1          Toolbars
-  7              2          Toolbar buttons
-  7              3          Workbook paging icons in Microsoft Excel 4.0
-  7              4          Cells (worksheet)
-  7              5          Column selections
-  7              6          Row selections
-  7              7          Workbook tabs
-  7              8          Cells (macro sheet)
-  7              9          Workbook title bar
-  7              10         Desktop (Microsoft Excel for Windows only)
-  7              11         Module
-  7              12         Watch pane
-  7              13         Immediate pane
-  7              14         Debug code pane
-  8              1          Drawn or imported objects on worksheets, dialog sheets, and charts
-  8              2          Buttons on sheets
-  8              3          Text boxes
-  8              4          Dialog sheet
-  9              1          Chart series
-  9              2          Chart and axis titles
-  9              3          Chart plot area and walls
-  9              4          Entire chart
-  9              5          Chart axes
-  9              6          Chart gridlines
-  9              7          Chart floor and arrows
-  9              8          Chart legend
-  -------------- ---------- --------------------------------------------------------------------
+|              |          |                                                                    |
+| ------------ | -------- | ------------------------------------------------------------------ |
+| **Bar\_num** | **Menu** | **Shortcut menu**                                                  |
+| 7            | 1        | Toolbars                                                           |
+| 7            | 2        | Toolbar buttons                                                    |
+| 7            | 3        | Workbook paging icons in Microsoft Excel 4.0                       |
+| 7            | 4        | Cells (worksheet)                                                  |
+| 7            | 5        | Column selections                                                  |
+| 7            | 6        | Row selections                                                     |
+| 7            | 7        | Workbook tabs                                                      |
+| 7            | 8        | Cells (macro sheet)                                                |
+| 7            | 9        | Workbook title bar                                                 |
+| 7            | 10       | Desktop (Microsoft Excel for Windows only)                         |
+| 7            | 11       | Module                                                             |
+| 7            | 12       | Watch pane                                                         |
+| 7            | 13       | Immediate pane                                                     |
+| 7            | 14       | Debug code pane                                                    |
+| 8            | 1        | Drawn or imported objects on worksheets, dialog sheets, and charts |
+| 8            | 2        | Buttons on sheets                                                  |
+| 8            | 3        | Text boxes                                                         |
+| 8            | 4        | Dialog sheet                                                       |
+| 9            | 1        | Chart series                                                       |
+| 9            | 2        | Chart and axis titles                                              |
+| 9            | 3        | Chart plot area and walls                                          |
+| 9            | 4        | Entire chart                                                       |
+| 9            | 5        | Chart axes                                                         |
+| 9            | 6        | Chart gridlines                                                    |
+| 9            | 7        | Chart floor and arrows                                             |
+| 9            | 8        | Chart legend                                                       |
 
 **Note**   Any commands that you add to the toolbar buttons, watch pane,
 immediate pane or debug code pane shortcut menus will be dimmed.
@@ -94,17 +93,17 @@ immediate pane or debug code pane shortcut menus will be dimmed.
 Command\_ref    is an array or a reference to an area on the macro sheet
 that describes the new command or commands.
 
--   Command\_ref must be at least two columns wide. The first column
+  - > Command\_ref must be at least two columns wide. The first column
     > specifies command names; the second specifies macro names.
     > Optional columns can be specified for shortcut keys (in Microsoft
     > Excel for the Macintosh), status bar messages, and custom Help
     > topics, in that order.
 
--   Command\_ref is similar to menu\_ref in ADD.MENU. For more
+  - > Command\_ref is similar to menu\_ref in ADD.MENU. For more
     > information about command\_ref, see the description of menu\_ref
     > in ADD.MENU.
 
--   Command\_ref can be the name, as text, of a previously deleted
+  - > Command\_ref can be the name, as text, of a previously deleted
     > built-in command that you want to restore. You can also use the
     > value returned by the DELETE.COMMAND formula that deleted the
     > command.
@@ -113,41 +112,41 @@ that describes the new command or commands.
 
 Position1    specifies the placement of the new command.
 
--   Use a hyphen (-) to represent a line separating commands on a menu.
-    > If you want to place a command before the second separator on a
-    > menu, use two hyphens (\--), three hyphens for the third
+  - > Use a hyphen (-) to represent a line separating commands on a
+    > menu. If you want to place a command before the second separator
+    > on a menu, use two hyphens (--), three hyphens for the third
     > separator, and so on.
 
--   Position1 can be a number indicating the position of the command on
-    > the menu. Commands are numbered from the top of the menu starting
-    > with 1.
+  - > Position1 can be a number indicating the position of the command
+    > on the menu. Commands are numbered from the top of the menu
+    > starting with 1.
 
--   Position1 can be the name of an existing command, as text, above
+  - > Position1 can be the name of an existing command, as text, above
     > which you want to add the new command.
 
--   If position1 is omitted, the command is added to the bottom of the
+  - > If position1 is omitted, the command is added to the bottom of the
     > menu.
 
--   For the toolbar shortcut menu (bar\_num 7, menu 1) and the shortcut
-    > menu for workbook paging icons in Microsoft Excel version 4.0
-    > (bar\_num 7, menu 3), you cannot add commands to the middle of the
-    > toolbar name list or the middle of the workbook contents list.
+  - > For the toolbar shortcut menu (bar\_num 7, menu 1) and the
+    > shortcut menu for workbook paging icons in Microsoft Excel version
+    > 4.0 (bar\_num 7, menu 3), you cannot add commands to the middle of
+    > the toolbar name list or the middle of the workbook contents list.
 
 >  
 
 Position2    specifies the placement of the new command on a submenu.
 
--   Position2 can be a number indicating the position of the command on
-    > the submenu. Commands are numbered from the top of the menu
+  - > Position2 can be a number indicating the position of the command
+    > on the submenu. Commands are numbered from the top of the menu
     > starting with 1.
 
--   Position2 can be the name of an existing command, as text, above
+  - > Position2 can be the name of an existing command, as text, above
     > which you want to add the new command.
 
--   If position2 is omitted, the command is added to the main menu, not
-    > the submenu.
+  - > If position2 is omitted, the command is added to the main menu,
+    > not the submenu.
 
--   To add a command to the bottom of a submenu, use 0 for position2.
+  - > To add a command to the bottom of a submenu, use 0 for position2.
 
 **Tip**   In general, use menu and command names rather than numbers for
 arguments. The numbers assigned to menus and commands change as you add
@@ -179,6 +178,4 @@ GET.TOOLBAR   Retrieves information about a toolbar
 
 RENAME.COMMAND   Changes the name of a command or menu
 
-Return to [top](#A)
 
-ADDIN.MANAGER

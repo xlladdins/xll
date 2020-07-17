@@ -1,5 +1,4 @@
 PIVOT.REFRESH
-=============
 
 Refreshes a PivotTable report.
 
@@ -13,10 +12,10 @@ the PivotTable report containing the active cell.
 
 **Remarks**
 
--   If the function is successful, it returns TRUE; otherwise, it
-    > returns the \#VALUE! error value.
+  - > If the function is successful, it returns TRUE; otherwise, it
+    > returns the \#VALUE\! error value.
 
--   If name is not a valid PivotTable name, then the \#VALUE! error
+  - > If name is not a valid PivotTable name, then the \#VALUE\! error
     > value is returned.
 
 **Related Functions**
@@ -45,6 +44,4 @@ active cell
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.SHOW.PAGES

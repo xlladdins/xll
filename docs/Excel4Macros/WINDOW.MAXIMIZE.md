@@ -1,5 +1,4 @@
 WINDOW.MAXIMIZE
-===============
 
 Changes the active window from its normal size to full size. In
 Microsoft Excel for Windows, using WINDOW.MAXIMIZE is equivalent to
@@ -31,6 +30,4 @@ WINDOW.RESTORE   Restores a window to its previous size
 
 WINDOW.SIZE   Changes the size of a window
 
-Return to [top](#T)
 
-WINDOW.MINIMIZE

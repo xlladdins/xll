@@ -1,5 +1,4 @@
 OPTIONS.VIEW
-============
 
 Equivalent to clicking the Options command on the Tools menu and then
 clicking the View tab in the Options dialog box. Sets various view
@@ -41,12 +40,12 @@ or later.
 Object\_num    is a number from 1 to 3 corresponding to the display
 options in the Objects box.
 
-  ----------------- --------------------
-  **Object\_num**   **Corresponds to**
-  1 or omitted      Show All
-  2                 Show Placeholders
-  3                 Hide
-  ----------------- --------------------
+|                 |                    |
+| --------------- | ------------------ |
+| **Object\_num** | **Corresponds to** |
+| 1 or omitted    | Show All           |
+| 2               | Show Placeholders  |
+| 3               | Hide               |
 
 Page\_breaks    is a logical value corresponding to the Page Breaks
 check box. If TRUE, page breaks will appear. If FALSE, page breaks will
@@ -94,6 +93,4 @@ OPTIONS.LISTS.GET   Returns contents of custom AutoFill lists
 
 OPTIONS.LISTS.DELETE   Deletes a custom list
 
-Return to [top](#H)
 
-OUTLINE

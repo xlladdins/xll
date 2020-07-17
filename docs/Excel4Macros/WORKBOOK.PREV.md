@@ -1,5 +1,4 @@
 WORKBOOK.PREV
-=============
 
 Activates the previous sheet in the workbook.
 
@@ -9,11 +8,9 @@ Activates the previous sheet in the workbook.
 
 **Remarks**
 
--   If the first sheet in the workbook is active, this function has no
+  - > If the first sheet in the workbook is active, this function has no
     > effect.
 
--   This function skips over hidden sheets in the workbook.
+  - > This function skips over hidden sheets in the workbook.
 
-Return to [top](#T)
 
-WORKBOOK.PROTECT

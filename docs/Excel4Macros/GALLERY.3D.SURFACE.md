@@ -1,5 +1,4 @@
 GALLERY.3D.SURFACE
-==================
 
 Changes the active chart to a 3-D surface chart.
 
@@ -12,6 +11,4 @@ Changes the active chart to a 3-D surface chart.
 Type\_num    is the number of the 3-D Surface format that you want to
 apply to the chart.
 
-Return to [top](#E)
 
-GALLERY.AREA

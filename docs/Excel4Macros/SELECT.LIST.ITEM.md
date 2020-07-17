@@ -1,5 +1,4 @@
 SELECT.LIST.ITEM
-================
 
 Selects an item in a list box or in a group box.
 
@@ -22,6 +21,4 @@ worksheet or dialog sheet control
 
 REMOVE.LIST.ITEM   Removes an item in a list box or drop-down box
 
-Return to [top](#Q)
 
-SELECT.PLOT.AREA

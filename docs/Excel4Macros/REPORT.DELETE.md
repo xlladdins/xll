@@ -1,5 +1,4 @@
 REPORT.DELETE
-=============
 
 Equivalent to clicking the Report Manager command on the View menu and
 then selecting a report in the Report Manager dialog box and clicking
@@ -29,6 +28,4 @@ REPORT.PRINT   Prints a report
 REPORT.GET   Returns information about reports defined for the active
 workbook
 
-Return to [top](#Q)
 
-REPORT.GET

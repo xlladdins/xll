@@ -1,5 +1,4 @@
 ADD.ARROW
-=========
 
 Equivalent to clicking the Arrow button on the Drawing toolbar. Adds an
 arrow to the active chart. If a chart is not the active window, displays
@@ -28,6 +27,4 @@ FORMAT.SIZE   Changes the size of the selected object
 
 PATTERNS   Changes the appearance of the selected object
 
-Return to [top](#A)
 
-ADD.BAR

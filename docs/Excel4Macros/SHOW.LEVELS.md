@@ -1,5 +1,4 @@
 SHOW.LEVELS
-===========
 
 Displays the specified number of row and column levels of an outline.
 
@@ -19,13 +18,11 @@ action is taken on columns.
 
 **Remarks**
 
-If you omit both arguments, SHOW.LEVELS returns the \#VALUE! error
+If you omit both arguments, SHOW.LEVELS returns the \#VALUE\! error
 value.
 
 **Related Function**
 
 SHOW.DETAIL   Expands or collapses a portion of an outline
 
-Return to [top](#Q)
 
-SHOW.TOOLBAR

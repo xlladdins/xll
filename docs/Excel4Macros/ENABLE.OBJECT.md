@@ -1,5 +1,4 @@
 ENABLE.OBJECT
-=============
 
 Enables or disables a drawing object or the selected drawing object. A
 disabled object will not run any macro events assigned to it, and the
@@ -18,13 +17,11 @@ is disabled.
 
 **Examples**
 
-ENABLE.OBJECT(\"Button 2\",FALSE) disables the button with object name
+ENABLE.OBJECT("Button 2",FALSE) disables the button with object name
 Button 2 on the dialog box.
 
 **Related Function**
 
 SET.CONTROL.VALUE   Changes the value of the active control
 
-Return to [top](#E)
 
-ENABLE.TIPWIZARD

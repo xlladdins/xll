@@ -1,5 +1,4 @@
 PIVOT.ADD.FIELDS
-================
 
 Add fields onto a PivotTable report.
 
@@ -32,8 +31,8 @@ with the fields specified by row\_array, column\_array and page\_array.
 
 **Remarks**
 
-If name is not a valid PivotTable name, then the \#VALUE! error value is
-returned.
+If name is not a valid PivotTable name, then the \#VALUE\! error value
+is returned.
 
 **Related Functions**
 
@@ -61,6 +60,4 @@ active cell
 
 PIVOT.TABLE.WIZARD   Creates an empty PivotTable report
 
-Return to [top](#H)
 
-PIVOT.FIELD

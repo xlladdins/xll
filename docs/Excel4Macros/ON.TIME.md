@@ -1,5 +1,4 @@
 ON.TIME
-=======
 
 Runs a macro at a specified time. Use ON.TIME to run a macro at a
 specific time of day or after a specified period has passed.
@@ -37,12 +36,12 @@ ON.TIME returns the \#VALUE error value.
 The following macro formula runs a macro called Test at 5:00:00 P.M.
 every day when Microsoft Excel is in Ready mode:
 
-ON.TIME(\"5:00:00 PM\", \"Test\")
+ON.TIME("5:00:00 PM", "Test")
 
 The following macro formula runs a macro called Test 5 seconds after the
 formula is evaluated:
 
-ON.TIME(NOW()+\"00:00:05\", \"Test\")
+ON.TIME(NOW()+"00:00:05", "Test")
 
 The following macro formula runs a macro called Test 10 seconds after
 the formula is evaluated. If Microsoft Excel is not in Ready mode at
@@ -51,8 +50,6 @@ argument specifies 5 seconds of additional time to wait to run the
 macro. If Microsoft Excel is still not in Ready mode at that time,
 macro\_text is not run.
 
-ON.TIME(NOW()+\"00:00:10\", \"Test\", NOW()+\"00:00:15\")
+ON.TIME(NOW()+"00:00:10", "Test", NOW()+"00:00:15")
 
-Return to [top](#H)
 
-ON.WINDOW

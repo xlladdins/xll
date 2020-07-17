@@ -1,5 +1,4 @@
 WORKBOOK.ACTIVATE
-=================
 
 Equivalent to activating a worksheet by clicking on its tab.
 
@@ -18,6 +17,4 @@ WORKBOOK.SELECT   Selects one or more sheets for group editing
 
 WORKBOOK.OPTIONS   Changes the settings of a workbook sheet
 
-Return to [top](#T)
 
-WORKBOOK.ADD

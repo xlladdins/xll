@@ -1,5 +1,4 @@
 SOLVER.RESET
-============
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Reset All button in the Solver Parameters dialog box. Erases all
@@ -13,6 +12,4 @@ If this function is not available, you must install the Solver add-in.
 
 **SOLVER.RESET**( )
 
-Return to [top](#Q)
 
-SOLVER.SAVE

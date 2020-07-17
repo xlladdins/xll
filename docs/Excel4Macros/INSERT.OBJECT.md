@@ -1,5 +1,4 @@
 INSERT.OBJECT
-=============
 
 Equivalent to choosing the Object command from the Insert menu, and then
 selecting an object type and choosing the OK button. Creates an embedded
@@ -17,10 +16,10 @@ display\_icon\_logical, icon\_file, icon\_number, icon\_label)
 Object\_class    is a text string containing the classname for the
 object you want to create.
 
--   Object\_class is the classname corresponding to the Object Type
+  - > Object\_class is the classname corresponding to the Object Type
     > selection in the Insert Object dialog box.
 
--   For more information about object classnames, consult the
+  - > For more information about object classnames, consult the
     > documentation for your source application to see how it supports
     > object linking and embedding (OLE).
 
@@ -49,18 +48,18 @@ Icon\_number    is the number of the icon within icon\_file that should
 be used.
 
 Icon\_label    is a text string indicating a label to display beneath
-the icon. If the parameter is an empty string (\"\") or is omitted, no
+the icon. If the parameter is an empty string ("") or is omitted, no
 label is displayed.
 
 **Remarks**
 
--   If INSERT.OBJECT starts another application, your macro pauses. Your
-    > macro resumes when you return to Microsoft Excel.
+  - > If INSERT.OBJECT starts another application, your macro pauses.
+    > Your macro resumes when you return to Microsoft Excel.
 
--   Although you will not normally use Microsoft Excel class names in a
-    > Microsoft Excel macro, you may need them in macros written for
+  - > Although you will not normally use Microsoft Excel class names in
+    > a Microsoft Excel macro, you may need them in macros written for
     > other applications. Microsoft Excel uses classnames
-    > \"Excel.Sheet.5\" and \"Excel.Chart.5\".
+    > "Excel.Sheet.5" and "Excel.Chart.5".
 
 >  
 
@@ -68,6 +67,4 @@ label is displayed.
 
 EDIT.OBJECT   Edits an object
 
-Return to [top](#H)
 
-INSERT.PICTURE

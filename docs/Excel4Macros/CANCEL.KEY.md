@@ -1,5 +1,4 @@
 CANCEL.KEY
-==========
 
 Disables macro interruption, or specifies a macro to run when a macro is
 interrupted. Use CANCEL.KEY to control what happens when a macro is
@@ -13,23 +12,23 @@ Enable    specifies whether the macro can be interrupted by pressing ESC
 in Microsoft Excel for Windows or ESC or COMMAND+PERIOD in Microsoft
 Excel for the Macintosh.
 
-  ---------------------------------- -----------------------------------------------------------
-  **If enable is**                   **Then**
-  FALSE                              Pressing ESC or COMMAND+PERIOD does not interrupt a macro
-  TRUE and macro\_ref is omitted     Pressing ESC or COMMAND+PERIOD interrupts a macro
-  TRUE and macro\_ref is specified   Macro\_ref runs when ESC or COMMAND+PERIOD is pressed
-  ---------------------------------- -----------------------------------------------------------
+|                                  |                                                           |
+| -------------------------------- | --------------------------------------------------------- |
+| **If enable is**                 | **Then**                                                  |
+| FALSE                            | Pressing ESC or COMMAND+PERIOD does not interrupt a macro |
+| TRUE and macro\_ref is omitted   | Pressing ESC or COMMAND+PERIOD interrupts a macro         |
+| TRUE and macro\_ref is specified | Macro\_ref runs when ESC or COMMAND+PERIOD is pressed     |
 
 Macro\_ref    is a reference to a macro, as a cell reference or a name,
 that runs when enable is TRUE and ESC or COMMAND+PERIOD is pressed.
 
 **Remarks**
 
--   CANCEL.KEY affects only the macro that is currently running. Once
+  - > CANCEL.KEY affects only the macro that is currently running. Once
     > the macro is stopped by a RETURN or HALT function, ESC or
     > COMMAND+PERIOD is reactivated.
 
--   When CANCEL.KEY is in effect, users can still cancel a dialog box
+  - > When CANCEL.KEY is in effect, users can still cancel a dialog box
     > displayed while the macro is running.
 
 >  
@@ -60,6 +59,4 @@ ON.KEY   Runs a macro when a specified key is pressed
 
 ON.TIME   Runs a macro at a specified time
 
-Return to [top](#A)
 
-CELL.PROTECTION

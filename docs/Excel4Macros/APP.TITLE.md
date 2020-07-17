@@ -1,11 +1,10 @@
 APP.TITLE
-=========
 
 Changes the title of the Microsoft Excel application workspace to the
 title you specify. The title appears at the top of the application
-window. Use APP.TITLE to control the application title when you\'re
-using Microsoft Excel to create a custom application. This function does
-not apply to Microsoft Excel for the Macintosh.
+window. Use APP.TITLE to control the application title when you're using
+Microsoft Excel to create a custom application. This function does not
+apply to Microsoft Excel for the Macintosh.
 
 **Syntax**
 
@@ -17,12 +16,12 @@ Excel.
 
 **Remarks**
 
--   The custom application title, followed by the individual workbook
+  - > The custom application title, followed by the individual workbook
     > title, will appear in the application title bar if the workbook is
     > maximized.
 
--   APP.TITLE does not affect DDE communications. You will still refer
-    > to the application as \"Excel\".
+  - > APP.TITLE does not affect DDE communications. You will still refer
+    > to the application as "Excel".
 
 >  
 
@@ -30,6 +29,4 @@ Excel.
 
 WINDOW.TITLE   Changes the title of the active window
 
-Return to [top](#A)
 
-ARGUMENT

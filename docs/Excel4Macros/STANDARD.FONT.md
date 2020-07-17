@@ -1,5 +1,4 @@
 STANDARD.FONT
-=============
 
 Sets the attributes of the standard font in Microsoft Excel version 2.2
 and earlier. This function is included only for macro compatibility. To
@@ -21,6 +20,4 @@ DEFINE.STYLE   Defines a cell style
 
 FORMAT.FONT   Applies a font to the selection
 
-Return to [top](#Q)
 
-STANDARD.WIDTH

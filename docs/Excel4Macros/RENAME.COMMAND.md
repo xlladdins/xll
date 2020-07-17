@@ -1,5 +1,4 @@
 RENAME.COMMAND
-==============
 
 Changes the name of a built-in or custom menu command or the name of a
 menu. Use RENAME.COMMAND to change the name of a command on a menu, for
@@ -27,7 +26,7 @@ you should use the name of the command rather than a number whenever
 possible.
 
 If the specified menu bar, menu, or command does not exist,
-RENAME.COMMAND returns the \#VALUE! error value and interrupts the
+RENAME.COMMAND returns the \#VALUE\! error value and interrupts the
 macro.
 
 Name\_text    is the new name for the command.
@@ -46,9 +45,9 @@ Options dialog box, click Options on the Tools menu.
 **Example**
 
 To rename the Save All command as Global Save, and to make the letter
-\"G\" in Global Save an access key, use the following macro formula:
+"G" in Global Save an access key, use the following macro formula:
 
-RENAME.COMMAND(10, \"File\", \"Save All\", \"&Global Save\")
+RENAME.COMMAND(10, "File", "Save All", "\&Global Save")
 
 **Related Functions**
 
@@ -62,6 +61,4 @@ DELETE.COMMAND   Deletes a command from a menu
 
 ENABLE.COMMAND   Enables or disables a menu or custom command
 
-Return to [top](#Q)
 
-RENAME.OBJECT

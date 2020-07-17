@@ -1,5 +1,4 @@
 SLIDE.PASTE.ROW
-===============
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0
@@ -21,6 +20,4 @@ add-in.
 SLIDE.COPY.ROW   Copies the selected slides and pastes them onto the
 Clipboard
 
-Return to [top](#Q)
 
-SLIDE.SHOW

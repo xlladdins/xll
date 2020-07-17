@@ -1,5 +1,4 @@
 ANOVA1
-======
 
 Performs single-factor analysis of variance, which tests the hypothesis
 that means from several samples are equal.
@@ -22,20 +21,20 @@ blank, or omitted, places the output table in a new workbook.
 Grouped    is a text character that indicates whether the data in the
 input range is organized by row or column.
 
--   If grouped is \"C\" or omitted, then the data is organized by
+  - > If grouped is "C" or omitted, then the data is organized by
     > column.
 
--   If grouped is \"R\", then the data is organized by row.
+  - > If grouped is "R", then the data is organized by row.
 
 Labels    is a logical value that describes where the labels are located
 in the input range, as shown in the following table:
 
-  ------------------ ------------- ---------------------------------------------------
-  **Labels**         **Grouped**   **Labels are in**
-  TRUE               \"C\"         First row of the input range.
-  TRUE               \"R\"         First column of the input range.
-  FALSE or omitted   (ignored)     No labels. All cells in the input range are data.
-  ------------------ ------------- ---------------------------------------------------
+|                  |             |                                                   |
+| ---------------- | ----------- | ------------------------------------------------- |
+| **Labels**       | **Grouped** | **Labels are in**                                 |
+| TRUE             | "C"         | First row of the input range.                     |
+| TRUE             | "R"         | First column of the input range.                  |
+| FALSE or omitted | (ignored)   | No labels. All cells in the input range are data. |
 
 Alpha    is the significance level at which to evaluate critical values
 for the F statistic. If omitted, alpha is 0.05.
@@ -46,6 +45,4 @@ ANOVA2   Performs two-factor analysis of variance with replication
 
 ANOVA3   Performs two-factor analysis of variance without replication
 
-Return to [top](#A)
 
-ANOVA2
