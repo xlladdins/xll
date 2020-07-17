@@ -37,3 +37,316 @@ If you omit all arguments, FILTER toggles the display of filter arrows.
 FILTER.ADVANCED   Lets you set options for filtering a list
 
 
+FILTER
+
+Filters lists of data one column at a time. Only one list can be
+filtered on any one sheet at a time.
+
+**Syntax**
+
+**FILTER**(field\_num, criteria1, operation, criteria2)
+
+**FILTER**?(field\_num, criteria1, operation, criteria2)
+
+Field\_num    is the number of the field that you want to filter. Fields
+are numbered from left to right starting with 1.
+
+Criteria1    is a text string specifying criteria for filtering a list,
+such as "\>2". If you want to include all items in the list, omit this
+argument.
+
+Operation    is a number that specifies how you want criteria2 used with
+criteria1:
+
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
+
+Criteria2    is a text string specifying criteria for filtering a list,
+such as "\>2". If you include this argument, operation is required.
+
+**Remarks**
+
+If you omit all arguments, FILTER toggles the display of filter arrows.
+
+**Related Function**
+
+FILTER.ADVANCED   Lets you set options for filtering a list
+
+
+FILTER
+
+Filters lists of data one column at a time. Only one list can be
+filtered on any one sheet at a time.
+
+**Syntax**
+
+**FILTER**(field\_num, criteria1, operation, criteria2)
+
+**FILTER**?(field\_num, criteria1, operation, criteria2)
+
+Field\_num    is the number of the field that you want to filter. Fields
+are numbered from left to right starting with 1.
+
+Criteria1    is a text string specifying criteria for filtering a list,
+such as "\>2". If you want to include all items in the list, omit this
+argument.
+
+Operation    is a number that specifies how you want criteria2 used with
+criteria1:
+
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
+
+Criteria2    is a text string specifying criteria for filtering a list,
+such as "\>2". If you include this argument, operation is required.
+
+**Remarks**
+
+If you omit all arguments, FILTER toggles the display of filter arrows.
+
+**Related Function**
+
+FILTER.ADVANCED   Lets you set options for filtering a list
+
+
+FILTER
+
+Filters lists of data one column at a time. Only one list can be
+filtered on any one sheet at a time.
+
+**Syntax**
+
+**FILTER**(field\_num, criteria1, operation, criteria2)
+
+**FILTER**?(field\_num, criteria1, operation, criteria2)
+
+Field\_num    is the number of the field that you want to filter. Fields
+are numbered from left to right starting with 1.
+
+Criteria1    is a text string specifying criteria for filtering a list,
+such as "\>2". If you want to include all items in the list, omit this
+argument.
+
+Operation    is a number that specifies how you want criteria2 used with
+criteria1:
+
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
+
+Criteria2    is a text string specifying criteria for filtering a list,
+such as "\>2". If you include this argument, operation is required.
+
+**Remarks**
+
+If you omit all arguments, FILTER toggles the display of filter arrows.
+
+**Related Function**
+
+FILTER.ADVANCED   Lets you set options for filtering a list
+
+
+FILTER
+
+Filters lists of data one column at a time. Only one list can be
+filtered on any one sheet at a time.
+
+**Syntax**
+
+**FILTER**(field\_num, criteria1, operation, criteria2)
+
+**FILTER**?(field\_num, criteria1, operation, criteria2)
+
+Field\_num    is the number of the field that you want to filter. Fields
+are numbered from left to right starting with 1.
+
+Criteria1    is a text string specifying criteria for filtering a list,
+such as "\>2". If you want to include all items in the list, omit this
+argument.
+
+Operation    is a number that specifies how you want criteria2 used with
+criteria1:
+
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
+
+Criteria2    is a text string specifying criteria for filtering a list,
+such as "\>2". If you include this argument, operation is required.
+
+**Remarks**
+
+If you omit all arguments, FILTER toggles the display of filter arrows.
+
+**Related Function**
+**Related Function**
+
+FILTER.ADVANCED   Lets you set options for filtering a list
+
+
+FILTER
+
+Filters lists of data one column at a time. Only one list can be
+filtered on any one sheet at a time.
+
+**Syntax**
+
+**FILTER**(field\_num, criteria1, operation, criteria2)
+
+**FILTER**?(field\_num, criteria1, operation, criteria2)
+
+Field\_num    is the number of the field that you want to filter. Fields
+are numbered from left to right starting with 1.
+
+Criteria1    is a text string specifying criteria for filtering a list,
+such as "\>2". If you want to include all items in the list, omit this
+argument.
+
+Operation    is a number that specifies how you want criteria2 used with
+criteria1:
+
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
+
+Criteria2    is a text string specifying criteria for filtering a list,
+such as "\>2". If you include this argument, operation is required.
+
+**Remarks**
+
+If you omit all arguments, FILTER toggles the display of filter arrows.
+
+**Related Function**
+
+FILTER.ADVANCED   Lets you set options for filtering a list
+
+
+FILTER
+
+Filters lists of data one column at a time. Only one list can be
+filtered on any one sheet at a time.
+
+**Syntax**
+
+**FILTER**(field\_num, criteria1, operation, criteria2)
+
+**FILTER**?(field\_num, criteria1, operation, criteria2)
+
+Field\_num    is the number of the field that you want to filter. Fields
+are numbered from left to right starting with 1.
+
+Criteria1    is a text string specifying criteria for filtering a list,
+such as "\>2". If you want to include all items in the list, omit this
+argument.
+
+Operation    is a number that specifies how you want criteria2 used with
+criteria1:
+
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
+
+Criteria2    is a text string specifying criteria for filtering a list,
+such as "\>2". If you include this argument, operation is required.
+
+**Remarks**
+
+If you omit all arguments, FILTER toggles the display of filter arrows.
+
+**Related Function**
+
+FILTER.ADVANCED   Lets you set options for filtering a list
+
+
+FILTER
+
+Filters lists of data one column at a time. Only one list can be
+filtered on any one sheet at a time.
+
+**Syntax**
+
+**FILTER**(field\_num, criteria1, operation, criteria2)
+
+**FILTER**?(field\_num, criteria1, operation, criteria2)
+
+Field\_num    is the number of the field that you want to filter. Fields
+are numbered from left to right starting with 1.
+
+Criteria1    is a text string specifying criteria for filtering a list,
+such as "\>2". If you want to include all items in the list, omit this
+argument.
+
+Operation    is a number that specifies how you want criteria2 used with
+criteria1:
+
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
+
+Criteria2    is a text string specifying criteria for filtering a list,
+such as "\>2". If you include this argument, operation is required.
+
+**Remarks**
+
+If you omit all arguments, FILTER toggles the display of filter arrows.
+
+**Related Function**
+
+FILTER.ADVANCED   Lets you set options for filtering a list
+
+
+FILTER
+
+Filters lists of data one column at a time. Only one list can be
+filtered on any one sheet at a time.
+
+**Syntax**
+
+**FILTER**(field\_num, criteria1, operation, criteria2)
+
+**FILTER**?(field\_num, criteria1, operation, criteria2)
+
+Field\_num    is the number of the field that you want to filter. Fields
+are numbered from left to right starting with 1.
+
+Criteria1    is a text string specifying criteria for filtering a list,
+such as "\>2". If you want to include all items in the list, omit this
+argument.
+
+Operation    is a number that specifies how you want criteria2 used with
+criteria1:
+
+|            |                    |
+| ---------- | ------------------ |
+| **Number** | **Operation Used** |
+| 1          | AND                |
+| 2          | OR                 |
+
+Criteria2    is a text string specifying criteria for filtering a list,
+such as "\>2". If you include this argument, operation is required.
+
+**Remarks**
+
+If you omit all arguments, FILTER toggles the display of filter arrows.
+
+**Related Function**
+
+[FILTER.ADVANCED](FILTER.ADVANCED.md)   Lets you set options for filtering a list
+
+
