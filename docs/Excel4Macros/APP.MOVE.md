@@ -47,3 +47,6 @@ Microsoft Excel window.
 [APP.SIZE](APP.SIZE.md)   Changes the size of the Microsoft Excel application window
 
 
+
+Return to [README](README.md)
+

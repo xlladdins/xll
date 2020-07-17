@@ -22,3 +22,6 @@ buttons are counted as positions.
 [GET.TOOLBAR](GET.TOOLBAR.md)   Returns information about a toolbar
 
 
+
+Return to [README](README.md)
+

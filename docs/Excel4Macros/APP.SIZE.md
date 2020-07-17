@@ -37,3 +37,6 @@ according to the specified coordinates, and you are left in size mode.
 [APP.RESTORE](APP.RESTORE.md)   Restores the Microsoft Excel application window
 
 
+
+Return to [README](README.md)
+

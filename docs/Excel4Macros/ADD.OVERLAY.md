@@ -17,3 +17,6 @@ with charts that have only one chart type.
 [LEGEND](LEGEND.md)   Adds a legend to a chart
 
 
+
+Return to [README](README.md)
+

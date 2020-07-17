@@ -28,3 +28,6 @@ the button is clicked.
 [GET.TOOL](GET.TOOL.md)   Returns information about a button or buttons on a toolbar
 
 
+
+Return to [README](README.md)
+

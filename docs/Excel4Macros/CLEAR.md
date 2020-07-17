@@ -49,3 +49,6 @@ following table.
 [EDIT.DELETE](EDIT.DELETE.md)   Removes cells from a sheet
 
 
+
+Return to [README](README.md)
+

@@ -17,3 +17,6 @@ returned.
 [QUERY.GET.DATA](QUERY.GET.DATA.md)   Builds a new query using the supplied information
 
 
+
+Return to [README](README.md)
+

@@ -25,3 +25,6 @@ Button 2 on the dialog box.
 [SET.CONTROL.VALUE](SET.CONTROL.VALUE.md)   Changes the value of the active control
 
 
+
+Return to [README](README.md)
+

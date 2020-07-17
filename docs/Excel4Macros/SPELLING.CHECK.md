@@ -29,3 +29,6 @@ dialog box, use SPELLING.
 [SPELLING](SPELLING.md)   Checks the spelling of words in the current selection
 
 
+
+Return to [README](README.md)
+

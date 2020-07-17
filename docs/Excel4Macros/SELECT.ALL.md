@@ -7,3 +7,6 @@ Equivalent to selecting all the sheets in a workbook.
 **SELECT.ALL**( )
 
 
+
+Return to [README](README.md)
+

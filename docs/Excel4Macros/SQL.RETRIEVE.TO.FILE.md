@@ -102,3 +102,6 @@ the file RESULTS1.QRY, with column names that are comma delimited.
 [SQL.ERROR](SQL.ERROR.md)   Returns detailed error information
 
 
+
+Return to [README](README.md)
+

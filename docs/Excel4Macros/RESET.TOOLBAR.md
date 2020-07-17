@@ -22,3 +22,6 @@ takes no other action.
 [DELETE.TOOLBAR](DELETE.TOOLBAR.md)   Deletes custom toolbars
 
 
+
+Return to [README](README.md)
+

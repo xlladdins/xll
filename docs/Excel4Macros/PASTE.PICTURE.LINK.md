@@ -24,3 +24,6 @@ another program
 [PASTE.PICTURE](PASTE.PICTURE.md)   Pastes a picture of the currently copied area
 
 
+
+Return to [README](README.md)
+

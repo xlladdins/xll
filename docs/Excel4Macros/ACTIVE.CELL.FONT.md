@@ -16,3 +16,6 @@ FONT.PROPERTIES.
 [FONT.PROPERTIES](FONT.PROPERTIES.md)   Applies a font and other attributes to the selection
 
 
+
+Return to [README](README.md)
+

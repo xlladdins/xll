@@ -13,3 +13,6 @@ If this function is not available, you must install the Solver add-in.
 **SOLVER.RESET**( )
 
 
+
+Return to [README](README.md)
+

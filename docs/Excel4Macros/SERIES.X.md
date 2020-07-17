@@ -17,3 +17,6 @@ chart) you want to use.
 [SERIES.Y](SERIES.Y.md)   Specifies the name and values for a data series
 
 
+
+Return to [README](README.md)
+

@@ -146,3 +146,6 @@ determine which numbers corresponds to all of the installed converters.
 [OPEN.LINKS](OPEN.LINKS.md)   Opens specified supporting workbooks
 
 
+
+Return to [README](README.md)
+

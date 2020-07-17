@@ -15,3 +15,6 @@ custom templates.
 [ADD.CHART.AUTOFORMAT](ADD.CHART.AUTOFORMAT.md)   Adds a custom template
 
 
+
+Return to [README](README.md)
+

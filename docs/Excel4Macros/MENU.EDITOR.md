@@ -5,3 +5,6 @@ the Menu Editor is only available in Microsoft Excel 95 and Microsoft
 Excel version 5.0.
 
 
+
+Return to [README](README.md)
+

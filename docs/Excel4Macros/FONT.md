@@ -19,3 +19,6 @@ functions. For more information, see FONT.PROPERTIES and DEFINE.STYLE.
 [FONT.PROPERTIES](FONT.PROPERTIES.md)   Sets various font properties
 
 
+
+Return to [README](README.md)
+

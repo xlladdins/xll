@@ -35,3 +35,6 @@ to merge styles into the active workbook.
 [DELETE.STYLE](DELETE.STYLE.md)   Deletes a cell style
 
 
+
+Return to [README](README.md)
+

@@ -111,3 +111,6 @@ report.
 [GET.PIVOT.TABLE](GET.PIVOT.TABLE.md)   Returns information about a PivotTable report.
 
 
+
+Return to [README](README.md)
+

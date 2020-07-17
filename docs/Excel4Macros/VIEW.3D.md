@@ -84,3 +84,6 @@ setting is not changed.
 [FORMAT.MAIN](FORMAT.MAIN.md)   Formats a main chart
 
 
+
+Return to [README](README.md)
+

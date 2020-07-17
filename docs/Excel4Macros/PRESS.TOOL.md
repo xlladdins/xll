@@ -39,3 +39,6 @@ PRESS.TOOL("Toolbar4", 3, FALSE)
 [DELETE.TOOL](DELETE.TOOL.md)   Deletes a button from a toolbar
 
 
+
+Return to [README](README.md)
+

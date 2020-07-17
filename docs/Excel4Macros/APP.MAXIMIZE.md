@@ -26,3 +26,6 @@ Macintosh, but it will return the \#N/A error value.
 [FULL.SCREEN](FULL.SCREEN.md)   Controls full screen display
 
 
+
+Return to [README](README.md)
+

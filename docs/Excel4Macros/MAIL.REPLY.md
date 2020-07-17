@@ -28,3 +28,6 @@ workbook
 [MAIL.ADD.MAILER](MAIL.ADD.MAILER.md)   Adds a new PowerTalk mailer to the active workbook
 
 
+
+Return to [README](README.md)
+

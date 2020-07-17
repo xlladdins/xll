@@ -30,3 +30,6 @@ if the application is not activated successfully.
 [APP.ACTIVATE](APP.ACTIVATE.md)   Switches to an application.
 
 
+
+Return to [README](README.md)
+

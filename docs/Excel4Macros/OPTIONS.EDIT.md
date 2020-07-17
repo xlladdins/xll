@@ -75,3 +75,6 @@ rows and columns will slowly appear.
 [OPTIONS.GENERAL](OPTIONS.GENERAL.md)   Sets various general Microsoft Excel settings
 
 
+
+Return to [README](README.md)
+

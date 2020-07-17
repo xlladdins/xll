@@ -110,3 +110,6 @@ available only for radar charts.
 [FORMAT.CHART](FORMAT.CHART.md)   Formats a chart
 
 
+
+Return to [README](README.md)
+

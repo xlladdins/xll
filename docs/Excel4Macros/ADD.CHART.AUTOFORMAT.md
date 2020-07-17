@@ -19,3 +19,6 @@ format is selected.
 [DELETE.CHART.AUTOFORMAT](DELETE.CHART.AUTOFORMAT.md)   Deletes a custom template
 
 
+
+Return to [README](README.md)
+

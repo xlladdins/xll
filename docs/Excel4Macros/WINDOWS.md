@@ -60,3 +60,6 @@ WINDOWS() equals {"BOOK1", "MACROS:2", "MACROS:1"}
 [ON.WINDOW](ON.WINDOW.md)   Runs a macro when you switch to a window
 
 
+
+Return to [README](README.md)
+

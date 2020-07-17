@@ -104,3 +104,6 @@ Selection    specifies what portion of the sheet to print.
 submenu of the Insert menu
 
 
+
+Return to [README](README.md)
+

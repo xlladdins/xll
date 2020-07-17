@@ -13,6 +13,7 @@ BEGIN {
 /^# / {
     related = 0
     if (length($2) > 1) {
+		print "\nReturn to [README](README.md)\n" >> file".md"
         skip = 0
         file = $2
         gsub(/,/, "", file)
@@ -20,9 +21,11 @@ BEGIN {
         if (key != okey) {
             print "\n## "key"\n" >> "README.md"
             okey = key
+            bull = ""
         }
         sub(/^# /, "")
-		print "["$0"]("file".md)" >> "README.md"
+		print bull"["$0"]("file".md)" >> "README.md"
+        bull = " &bull; "
     }
 }
 /Related Function/ {

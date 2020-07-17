@@ -100,3 +100,6 @@ see your Microsoft Windows documentation.
 [FORMAT.TEXT](FORMAT.TEXT.md)   Formats a worksheet text box or a chart text item
 
 
+
+Return to [README](README.md)
+

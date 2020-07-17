@@ -422,3 +422,6 @@ where currency is any number and the $ represents the current currency symbol.<b
 [GET.WINDOW](GET.WINDOW.md)   Returns information about a window
 
 
+
+Return to [README](README.md)
+

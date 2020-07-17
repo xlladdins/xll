@@ -104,3 +104,6 @@ In Microsoft Excel for the Macintosh, the formula is:
 SLIDE.PASTE(3, 8, 5, "HARD DISK:SLIDES:SOUND:MACHINE SOUNDS")
 
 
+
+Return to [README](README.md)
+

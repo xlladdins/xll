@@ -24,3 +24,6 @@ Position starts with 1 at the left side (if horizontal) or at the top
 [DELETE.TOOLBAR](DELETE.TOOLBAR.md)   Deletes custom toolbars
 
 
+
+Return to [README](README.md)
+

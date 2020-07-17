@@ -187,3 +187,6 @@ Repeat\_seq    is the number of times to repeat each sequence of values.
 Inprng    is a two-column range of values and their probabilities.
 
 
+
+Return to [README](README.md)
+

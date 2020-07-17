@@ -8,3 +8,6 @@ the Chart menu in Microsoft Excel version 3.0 or earlier.
 **SHORT.MENUS**(logical)
 
 
+
+Return to [README](README.md)
+

@@ -41,3 +41,6 @@ FWRITELN(FileNumber, TEXT(MONTH(NOW()),"mmmm"))
 [FWRITE](FWRITE.md)   Writes characters to a text file
 
 
+
+Return to [README](README.md)
+

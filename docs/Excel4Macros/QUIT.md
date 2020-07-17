@@ -32,3 +32,6 @@ IF(ALERT("Are you sure you want to quit Microsoft Excel?",1), QUIT(),)
 [FILE.CLOSE](FILE.CLOSE.md)   Closes the active workbook
 
 
+
+Return to [README](README.md)
+

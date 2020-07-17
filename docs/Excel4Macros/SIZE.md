@@ -19,3 +19,6 @@ macro sheets. For more information, see WINDOW.SIZE.
 [WINDOW.SIZE](WINDOW.SIZE.md)   Changes the size of the active window
 
 
+
+Return to [README](README.md)
+

@@ -104,3 +104,6 @@ SET.UPDATE.STATUS("WordDocument|'C:\\MEMO.DOC'\!DDE.LINK1", 2, 2)
 [UPDATE.LINK](UPDATE.LINK.md)   Updates a link to another document
 
 
+
+Return to [README](README.md)
+

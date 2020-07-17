@@ -40,3 +40,6 @@ in the book STORE.XLS is activated
 window.
 
 
+
+Return to [README](README.md)
+

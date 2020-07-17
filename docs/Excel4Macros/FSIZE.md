@@ -26,3 +26,6 @@ FSIZE(FileNumber)
 [FPOS](FPOS.md)   Sets the position in a text file
 
 
+
+Return to [README](README.md)
+

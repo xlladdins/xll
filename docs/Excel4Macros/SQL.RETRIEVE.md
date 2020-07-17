@@ -168,3 +168,6 @@ source conn1 on Sheet1 from left to right in cell C1, using only column
 [SQL.ERROR](SQL.ERROR.md)   Returns detailed error information
 
 
+
+Return to [README](README.md)
+

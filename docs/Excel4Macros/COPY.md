@@ -35,3 +35,6 @@ source of the data or object
 [PASTE.SPECIAL](PASTE.SPECIAL.md)   Pastes specific components of copied data
 
 
+
+Return to [README](README.md)
+

@@ -37,3 +37,6 @@ entire row or column.
 [CLEAR](CLEAR.md)   Clears specified information from the selected cells or chart
 
 
+
+Return to [README](README.md)
+

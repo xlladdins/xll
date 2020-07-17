@@ -48,3 +48,6 @@ DELETE.MENU(Financials, "Reports")
 [ENABLE.COMMAND](ENABLE.COMMAND.md)   Enables or disables a menu or custom command
 
 
+
+Return to [README](README.md)
+

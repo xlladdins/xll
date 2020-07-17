@@ -84,3 +84,6 @@ if the application you want to switch to is not yet running.
 [EXEC](EXEC.md)   Starts another application
 
 
+
+Return to [README](README.md)
+

@@ -23,3 +23,6 @@ also use the CLEAR function to delete the arrow.
 [DELETE.OVERLAY](DELETE.OVERLAY.md)   Deletes the overlay on a chart
 
 
+
+Return to [README](README.md)
+

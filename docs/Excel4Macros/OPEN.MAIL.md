@@ -50,3 +50,6 @@ displayed. If omitted, the current setting is not changed.
 [SEND.MAIL](SEND.MAIL.md)   Sends the active workbook
 
 
+
+Return to [README](README.md)
+

@@ -79,3 +79,6 @@ following variables:
 | M            | Arithmetic mean                           |
 
 
+
+Return to [README](README.md)
+

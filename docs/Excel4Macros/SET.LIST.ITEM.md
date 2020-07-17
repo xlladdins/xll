@@ -26,3 +26,6 @@ non-blank element and index\_num entries.
 [SELECT.LIST.ITEM](SELECT.LIST.ITEM.md)   Selects an item in a list box or in a group box
 
 
+
+Return to [README](README.md)
+

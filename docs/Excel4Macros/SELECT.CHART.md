@@ -18,3 +18,6 @@ Microsoft Excel for the Macintosh version 1.5 or earlier.
 [SELECT](SELECT.md)   Selects a chart object
 
 
+
+Return to [README](README.md)
+

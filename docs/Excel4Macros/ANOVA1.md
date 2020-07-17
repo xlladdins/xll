@@ -46,3 +46,6 @@ for the F statistic. If omitted, alpha is 0.05.
 [ANOVA](ANOVA.md)3   Performs two-factor analysis of variance without replication
 
 
+
+Return to [README](README.md)
+

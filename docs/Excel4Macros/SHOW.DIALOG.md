@@ -23,3 +23,6 @@ pressing COMMAND+. (period).
 [HIDE.DIALOG](HIDE.DIALOG.md)   Closes the dialog box that has the current focus
 
 
+
+Return to [README](README.md)
+

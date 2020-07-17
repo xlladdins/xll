@@ -182,3 +182,6 @@ This argument is for compatibility with Microsoft Excel version 5.0.
 [ADD.TOOLBAR](ADD.TOOLBAR.md)   Creates a new toolbar with the specified tools
 
 
+
+Return to [README](README.md)
+

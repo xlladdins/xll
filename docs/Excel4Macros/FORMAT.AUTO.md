@@ -68,3 +68,6 @@ Width    corresponds to the Column Width/Row Height check box.
 [PATTERNS](PATTERNS.md)   Changes the appearance of the selected object
 
 
+
+Return to [README](README.md)
+

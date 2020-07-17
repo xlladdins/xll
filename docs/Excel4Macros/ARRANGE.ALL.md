@@ -83,3 +83,6 @@ corresponding macro values in another window of the same macro sheet.
 [ACTIVATE](ACTIVATE.md)   Switches to a window
 
 
+
+Return to [README](README.md)
+

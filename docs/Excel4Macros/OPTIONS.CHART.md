@@ -37,3 +37,6 @@ within the Options dialog box.
 [SET.PREFERRED](SET.PREFERRED.md)   Changes the default chart format
 
 
+
+Return to [README](README.md)
+

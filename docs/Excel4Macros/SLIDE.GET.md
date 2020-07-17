@@ -124,3 +124,6 @@ information.
   - > If type\_num is 1 through 3, slide\_num is ignored.
 
 
+
+Return to [README](README.md)
+

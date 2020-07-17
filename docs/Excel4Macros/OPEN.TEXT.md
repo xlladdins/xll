@@ -71,3 +71,6 @@ data\_format" if file\_type is 2.
 [TEXT.TO.COLUMNS](TEXT.TO.COLUMNS.md)   Parses text, as in a text file, into columns of data
 
 
+
+Return to [README](README.md)
+

@@ -13,6 +13,9 @@ Syntax 1   Sizes worksheet objects and chart items
 Syntax 2   Sizes worksheet objects relative to a cell or range
 
 
+
+Return to [README](README.md)
+
 FORMAT.SIZE Syntax 1
 
 Equivalent to sizing an object with the mouse. Sizes the selected object
@@ -56,6 +59,9 @@ specify height and not width, the height changes but the width does not.
 [S](S.md)yntax 2   Sizes worksheet objects relative to a cell or range
 
 
+
+Return to [README](README.md)
+
 FORMAT.SIZE Syntax 2
 
 Equivalent to sizing an object with the mouse. Sizes the selected
@@ -95,4 +101,7 @@ the upper-left cell in the range is used.
 
 [S](S.md)yntax 1   Sizes worksheet objects and chart items
 
+
+
+Return to [README](README.md)
 

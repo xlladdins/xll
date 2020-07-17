@@ -96,3 +96,6 @@ Suggest check box.
 [SPELLING.CHECK](SPELLING.CHECK.md)   Checks the spelling of a word
 
 
+
+Return to [README](README.md)
+

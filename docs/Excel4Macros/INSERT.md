@@ -45,3 +45,6 @@ your old macros with later versions of Microsoft Excel.
 [PASTE](PASTE.md)   Pastes cut or copied data
 
 
+
+Return to [README](README.md)
+

@@ -42,3 +42,6 @@ To change the text in a selected title, use the FORMULA function.
 [FORMULA](FORMULA.md)   Enters formulas in a chart
 
 
+
+Return to [README](README.md)
+

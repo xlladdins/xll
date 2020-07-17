@@ -23,3 +23,6 @@ value between 0 and 1. If omitted defaults to 6.
 [GET.WINDOW](GET.WINDOW.md)   Returns information about a workbook window
 
 
+
+Return to [README](README.md)
+

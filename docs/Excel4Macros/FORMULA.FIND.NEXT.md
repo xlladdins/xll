@@ -19,3 +19,6 @@ criteria
 [FORMULA.FIND](FORMULA.FIND.md)   Finds text in a workbook
 
 
+
+Return to [README](README.md)
+

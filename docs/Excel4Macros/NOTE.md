@@ -46,3 +46,6 @@ To find out if a cell has a comment attached to it, use GET.CELL.
 [GET.NOTE](GET.NOTE.md)   Returns characters from a comment
 
 
+
+Return to [README](README.md)
+

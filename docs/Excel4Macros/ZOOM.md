@@ -28,3 +28,6 @@ enlargement or reduction.
 [PRINT.PREVIEW](PRINT.PREVIEW.md)   Previews pages and page breaks before printing.
 
 
+
+Return to [README](README.md)
+

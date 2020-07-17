@@ -82,3 +82,6 @@ The constraints in a Solver problem can refer to a maximum of 400 cells.
 caused Solver to stop
 
 
+
+Return to [README](README.md)
+

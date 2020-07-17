@@ -12,6 +12,9 @@ Syntax 2   Selects objects on worksheets
 Syntax 3   Selects chart objects
 
 
+
+Return to [README](README.md)
+
 SELECT Syntax 1
 
 Equivalent to selecting cells or changing the active cell. There are
@@ -110,6 +113,9 @@ SELECT(OFFSET(SELECTION(), 0, 1))
 [SELECT](SELECT.md) Syntax 3   Selects chart objects
 
 
+
+Return to [README](README.md)
+
 SELECT Syntax 2
 
 Equivalent to selecting objects on a chart, worksheet, or macro sheet.
@@ -170,6 +176,9 @@ SELECT("3, 1, 4, 2")
 
 [SELECT](SELECT.md) Syntax 3   Selects chart objects
 
+
+
+Return to [README](README.md)
 
 SELECT Syntax 3
 
@@ -554,4 +563,7 @@ an area chart.
 
 [SELECT](SELECT.md) Syntax 2   Selects objects on worksheets
 
+
+
+Return to [README](README.md)
 

@@ -37,3 +37,6 @@ If you omit all arguments, FILTER toggles the display of filter arrows.
 [FILTER.ADVANCED](FILTER.ADVANCED.md)   Lets you set options for filtering a list
 
 
+
+Return to [README](README.md)
+

@@ -79,3 +79,6 @@ CREATE.PUBLISHER should use when it creates the Edition file.
 [UPDATE.LINK](UPDATE.LINK.md)   Updates a link to another workbook
 
 
+
+Return to [README](README.md)
+

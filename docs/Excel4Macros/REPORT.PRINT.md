@@ -34,3 +34,6 @@ invalid or if the workbook is protected.
 [REPORT.DELETE](REPORT.DELETE.md)   Removes a report from the active workbook
 
 
+
+Return to [README](README.md)
+

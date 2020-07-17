@@ -141,3 +141,6 @@ information on the following Excel macro functions:
 [SUBTOTAL.CREATE](#subtotal.create),
 [SUBTOTAL.REMOVE](#subtotal.remove), [SUMMARY.INFO](#summary.info)
 
+
+Return to [README](README.md)
+

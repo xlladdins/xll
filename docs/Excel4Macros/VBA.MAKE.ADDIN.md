@@ -16,3 +16,6 @@ For information about creating add-ins with Visual Basic, see Chapter
 Visual Basic User's Guide.
 
 
+
+Return to [README](README.md)
+

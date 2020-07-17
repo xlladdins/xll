@@ -31,3 +31,6 @@ For detailed information about bar\_name, see ADD.TOOL.
 [RESET.TOOLBAR](RESET.TOOLBAR.md)   Resets a built-in toolbar to its initial default setting
 
 
+
+Return to [README](README.md)
+

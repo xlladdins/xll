@@ -20,3 +20,6 @@ COLOR.PALETTE sets colors to the default values.
 [EDIT.COLOR](EDIT.COLOR.md)   Defines a color on the color palette
 
 
+
+Return to [README](README.md)
+

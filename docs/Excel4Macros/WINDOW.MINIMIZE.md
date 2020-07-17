@@ -34,3 +34,6 @@ If a window is already minimized, WINDOW.MINIMIZE has no effect.
 [WINDOW.SIZE](WINDOW.SIZE.md)   Changes the size of a window
 
 
+
+Return to [README](README.md)
+

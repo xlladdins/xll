@@ -42,3 +42,6 @@ key for each command macro; and the category of the custom functions.
 [NAMES](NAMES.md)   Returns the names defined in a workbook
 
 
+
+Return to [README](README.md)
+

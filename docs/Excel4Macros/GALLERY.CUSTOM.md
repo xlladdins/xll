@@ -15,3 +15,6 @@ Name\_text    is the name of the custom template you want to apply.
 [DELETE.CHART.AUTOFORMAT](DELETE.CHART.AUTOFORMAT.md)   Deletes a custom gallery
 
 
+
+Return to [README](README.md)
+

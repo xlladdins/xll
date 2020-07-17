@@ -35,3 +35,6 @@ For a description of the arguments, see SLIDE.PASTE.
 [SLIDE.PASTE](SLIDE.PASTE.md)   Pastes the contents of the Clipboard onto a slide
 
 
+
+Return to [README](README.md)
+
