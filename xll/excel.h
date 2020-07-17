@@ -3,6 +3,8 @@
 #pragma once
 #include "oper.h"
 
+#define ExcelX Excel<XLOPERX>
+
 namespace xll {
 
 	template<typename X, typename... Args>
