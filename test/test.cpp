@@ -4,7 +4,7 @@
 
 using namespace xll;
 
-// Call using Alt-F8 then typing 'XLL.MACRO'
+// Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
 AddInX xai_macro(MacroX(X_("?xll_macro"), X_("XLL.MACRO")));
 int WINAPI xll_macro(void)
 {
