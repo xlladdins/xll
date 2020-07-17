@@ -8,18 +8,19 @@ BEGIN {
 
 /^Return to/ { skip }
 /==/ {
+	key = substr(file,1,1)
+	if (okey != key) {
+		print "\n## "key"\n" >> "README.md"
+		okey = key
+	}
 	if (file) {
 		#print "Previous ["file"]("file".md)  "
 		print "close "file".md"
 		close(file".md")
-		if (okey != substr(file, 1, 1)) {
-			print
-		}
 		print "["link"]("file".md)" >> "README.md"
 	}
 	file = prev
 	link = name
-	okey = substr(file, 1, 1);
 	print file > file".md"
 	print $0 >> file".md"
 }
