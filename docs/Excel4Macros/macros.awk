@@ -5,12 +5,14 @@ BEGIN {
 	print >> "README.md"
 }
 
+
+/^Return to/ { skip }
 /==/ {
 	if (file) {
 		#print "Previous ["file"]("file".md)  "
 		print "close "file".md"
 		close(file".md")
-		print "["file"]("file".md)" >> "README.md"
+		print "["file"]("file".md)  " >> "README.md"
 	}
 	file = prev
 	print file > file".md"
@@ -18,5 +20,6 @@ BEGIN {
 }
 !/==/ {
 	prev = $1
+	gsub(/,/, //, prev)
 	print >> file".md"
  }
