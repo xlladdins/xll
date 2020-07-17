@@ -117,3 +117,6 @@ EDITION.OPTIONS(2, "Monthly Totals", , 3)
 [SUBSCRIBE.TO](SUBSCRIBE.TO.md)   Inserts contents of an edition into the active workbook
 
 
+
+Return to [README](README.md)
+

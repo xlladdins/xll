@@ -44,3 +44,6 @@ in the input range, as shown in the following table:
 [MCOVAR](MCOVAR.md)   Returns the covariance between two or more data sets
 
 
+
+Return to [README](README.md)
+

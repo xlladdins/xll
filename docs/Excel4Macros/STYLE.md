@@ -18,3 +18,6 @@ change a font to bold or italic, use the FONT.PROPERTIES function.
 [FONT.PROPERTIES](FONT.PROPERTIES.md)   Applies a font to the selection
 
 
+
+Return to [README](README.md)
+

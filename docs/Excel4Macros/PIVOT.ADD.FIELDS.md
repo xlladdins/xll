@@ -61,3 +61,6 @@ active cell
 [PIVOT.TABLE.WIZARD](PIVOT.TABLE.WIZARD.md)   Creates an empty PivotTable report
 
 
+
+Return to [README](README.md)
+

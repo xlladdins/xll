@@ -19,3 +19,6 @@ exist, then FALSE is returned.
 [OPTIONS.LISTS.ADD](OPTIONS.LISTS.ADD.md)   Used to add a new custom list
 
 
+
+Return to [README](README.md)
+

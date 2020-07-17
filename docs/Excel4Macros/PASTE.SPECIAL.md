@@ -13,6 +13,9 @@ Syntax 3   Copying and pasting between charts
 Syntax 4   Pasting information from another application.
 
 
+
+Return to [README](README.md)
+
 PASTE.SPECIAL Syntax 1
 
 Equivalent to clicking the Paste Special command on the Edit menu.
@@ -86,6 +89,9 @@ in the Paste Special dialog box.
 [S](S.md)yntax 4   Pasting information from another application.
 
 
+
+Return to [README](README.md)
+
 PASTE.SPECIAL Syntax 2
 
 Equivalent to clicking the Paste Special command on the Edit menu on the
@@ -157,6 +163,9 @@ Series    is a number specifying how cells are added to a chart.
 [S](S.md)yntax 4   Pasting information from another application
 
 
+
+Return to [README](README.md)
+
 PASTE.SPECIAL Syntax 3
 
 Equivalent to clicking the Paste Special command on the Edit menu on the
@@ -187,6 +196,9 @@ Paste\_num    is a number from 1 to 3 specifying what to paste.
 
 [S](S.md)yntax 4   Pasting information from another application
 
+
+
+Return to [README](README.md)
 
 PASTE.SPECIAL Syntax 4
 
@@ -259,4 +271,7 @@ ignored.
 
 [S](S.md)yntax 3   Copying and pasting between charts
 
+
+
+Return to [README](README.md)
 

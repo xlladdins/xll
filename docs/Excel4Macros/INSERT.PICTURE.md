@@ -33,3 +33,6 @@ will use to open the file.
 | 13                | Macintosh PICT (pct)                 |
 
 
+
+Return to [README](README.md)
+

@@ -24,3 +24,6 @@ which format to apply to the selection.
 [FORMAT.TEXT](FORMAT.TEXT.md)   Formats a sheet text box or a chart text item
 
 
+
+Return to [README](README.md)
+

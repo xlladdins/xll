@@ -107,3 +107,6 @@ information on the following Excel macro functions:
 [PTTESTM](#pttestm), [PTTESTV](#pttestv),
 [PUSHBUTTON.PROPERTIES](#pushbutton.properties)
 
+
+Return to [README](README.md)
+

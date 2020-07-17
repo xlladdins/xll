@@ -30,3 +30,6 @@ might reset the Undo command.
 [CUSTOM.REPEAT](CUSTOM.REPEAT.md)   Specifies a macro to run to repeat a custom command
 
 
+
+Return to [README](README.md)
+

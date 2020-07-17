@@ -23,3 +23,6 @@ If TERMINATE is not successful, it returns the \#VALUE\! error value.
 [INITIATE](INITIATE.md)   Opens a channel to another application
 
 
+
+Return to [README](README.md)
+

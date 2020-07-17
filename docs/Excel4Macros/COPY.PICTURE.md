@@ -57,3 +57,6 @@ area
 [PASTE.SPECIAL](PASTE.SPECIAL.md)   Pastes specific components of copied data
 
 
+
+Return to [README](README.md)
+

@@ -22,3 +22,6 @@ worksheet or dialog sheet control
 [REMOVE.LIST.ITEM](REMOVE.LIST.ITEM.md)   Removes an item in a list box or drop-down box
 
 
+
+Return to [README](README.md)
+

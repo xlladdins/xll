@@ -74,3 +74,6 @@ file you are subscribing to.
 [GET.LINK.INFO](GET.LINK.INFO.md)   Returns information about a link
 
 
+
+Return to [README](README.md)
+

@@ -64,3 +64,6 @@ how much red, green, and blue are in each color.
 [COLOR.PALETTE](COLOR.PALETTE.md)   Copies a color palette from one workbook to another
 
 
+
+Return to [README](README.md)
+

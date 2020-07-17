@@ -24,3 +24,6 @@ Macintosh, but it will return the \#N/A error value.
 [APP.SIZE](APP.SIZE.md)   Changes the size of the Microsoft Excel application window
 
 
+
+Return to [README](README.md)
+

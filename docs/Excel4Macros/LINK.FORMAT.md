@@ -8,3 +8,6 @@ or range containing the data label text.
 **LINK.FORMAT**( )
 
 
+
+Return to [README](README.md)
+

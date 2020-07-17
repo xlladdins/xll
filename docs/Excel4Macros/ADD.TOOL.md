@@ -127,3 +127,6 @@ ADD.TOOL(1, 5, 6)
 [RESET.TOOLBAR](RESET.TOOLBAR.md)   Resets a built-in toolbar to its default initial setting
 
 
+
+Return to [README](README.md)
+

@@ -17,3 +17,6 @@ range on the active sheet.
 [D](D.md)ata menu in Microsoft Excel version 4.0
 
 
+
+Return to [README](README.md)
+

@@ -16,3 +16,6 @@ underline, strike, color, outline, shadow)
 [FONT.PROPERTIES](FONT.PROPERTIES.md)   Sets various font attributes
 
 
+
+Return to [README](README.md)
+

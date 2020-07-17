@@ -17,3 +17,6 @@ Returns TRUE if the session was ended, or \#VALUE\! if there was no
 session.
 
 
+
+Return to [README](README.md)
+

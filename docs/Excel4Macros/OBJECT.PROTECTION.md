@@ -39,3 +39,6 @@ omitted, text cannot be changed; if FALSE, text can be changed.
 [WORKBOOK.PROTECT](WORKBOOK.PROTECT.md)   Controls protection for the active workbook
 
 
+
+Return to [README](README.md)
+

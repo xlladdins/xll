@@ -17,3 +17,6 @@ want to control which cell is active on a protected sheet.
 [PROTECT.DOCUMENT](PROTECT.DOCUMENT.md)   Controls protection for the active sheet
 
 
+
+Return to [README](README.md)
+

@@ -97,3 +97,6 @@ ADD.MENU(1, A10:B15)
 [ENABLE.COMMAND](ENABLE.COMMAND.md)   Enables or disables a menu or custom command
 
 
+
+Return to [README](README.md)
+

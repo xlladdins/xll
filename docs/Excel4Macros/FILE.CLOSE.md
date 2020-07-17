@@ -49,3 +49,6 @@ not run any Auto\_Close macros before closing the workbook.
 [FCLOSE](FCLOSE.md)   Closes a text file
 
 
+
+Return to [README](README.md)
+

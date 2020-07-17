@@ -32,3 +32,6 @@ legend.
 [LEGEND](LEGEND.md)   Adds or deletes a chart legend
 
 
+
+Return to [README](README.md)
+

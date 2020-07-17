@@ -21,3 +21,6 @@ add-in.
 [C](C.md)lipboard
 
 
+
+Return to [README](README.md)
+

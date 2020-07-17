@@ -19,6 +19,9 @@ Syntax 5   Changes the position, formatting, and scaling of the value
 axis in 3-D charts
 
 
+
+Return to [README](README.md)
+
 SCALE Syntax 1
 
 Equivalent to clicking the Selected Axis command on the Format menu when
@@ -76,6 +79,9 @@ axis in 3-D charts
 [S](S.md)yntax 5   Changes the position, formatting, and scaling of the value
 axis in 3-D charts
 
+
+
+Return to [README](README.md)
 
 SCALE Syntax 2
 
@@ -147,6 +153,9 @@ axis in 3-D charts
 axis in 3-D charts
 
 
+
+Return to [README](README.md)
+
 SCALE Syntax 3
 
 Equivalent to clicking the Selected Axes command on the Format menu when
@@ -196,6 +205,9 @@ axis in 3-D charts
 axis in 3-D charts
 
 
+
+Return to [README](README.md)
+
 SCALE Syntax 4
 
 Equivalent to clicking the Selected Axes command on the Format menu when
@@ -242,6 +254,9 @@ axis in 3-D charts
 [S](S.md)yntax 5   Changes the position, formatting, and scaling of the value
 axis in 3-D charts
 
+
+
+Return to [README](README.md)
 
 SCALE Syntax 5
 
@@ -307,4 +322,7 @@ axis in 3-D charts
 [S](S.md)yntax 4   Changes the position, formatting, and scaling of the series
 axis in 3-D charts
 
+
+
+Return to [README](README.md)
 

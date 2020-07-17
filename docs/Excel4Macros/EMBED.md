@@ -23,3 +23,6 @@ sheet as a graphic, and the link to the creating application is deleted.
 Double-clicking the object no longer starts the creating application.
 
 
+
+Return to [README](README.md)
+

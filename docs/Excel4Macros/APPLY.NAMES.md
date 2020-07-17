@@ -74,3 +74,6 @@ also replaced.
 [LIST.NAMES](LIST.NAMES.md)   Lists names and their associated information
 
 
+
+Return to [README](README.md)
+

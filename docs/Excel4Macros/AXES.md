@@ -54,3 +54,6 @@ used.
 [GRIDLINES](GRIDLINES.md)   Controls whether chart gridlines are visible
 
 
+
+Return to [README](README.md)
+

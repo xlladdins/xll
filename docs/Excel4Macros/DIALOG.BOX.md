@@ -113,3 +113,6 @@ dialog box.
 [INPUT](INPUT.md)   Displays a dialog box for user input
 
 
+
+Return to [README](README.md)
+

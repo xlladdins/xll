@@ -57,3 +57,6 @@ DELETE.COMMAND(Financials, "Reports", "Compile Reports...")
 [RENAME.COMMAND](RENAME.COMMAND.md)   Changes the name of a command or menu
 
 
+
+Return to [README](README.md)
+

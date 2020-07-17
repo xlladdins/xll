@@ -63,3 +63,6 @@ CHECK.COMMAND(Reports, "Weekly", "Sales", TRUE)
 [RENAME.COMMAND](RENAME.COMMAND.md)   Changes the name of a command or menu
 
 
+
+Return to [README](README.md)
+

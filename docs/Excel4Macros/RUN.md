@@ -98,3 +98,6 @@ normally.
 [GOTO](GOTO.md)   Directs macro execution to another cell
 
 
+
+Return to [README](README.md)
+

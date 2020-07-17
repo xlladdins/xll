@@ -41,3 +41,6 @@ are numbers from 1 to 56 corresponding to the Color box in the Border
 dialog box. Zero corresponds to automatic color.
 
 
+
+Return to [README](README.md)
+

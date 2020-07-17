@@ -12,6 +12,9 @@ Syntax 1
 Syntaxes 2-7
 
 
+
+Return to [README](README.md)
+
 DEFINE.STYLE Syntax 1
 
 Equivalent to clicking the Define button in the Style dialog box, which
@@ -63,6 +66,9 @@ Protection    corresponds to the Protection check box.
 [MERGE.STYLES](MERGE.STYLES.md)   Imports styles from another workbook into the active
 workbook
 
+
+
+Return to [README](README.md)
 
 DEFINE.STYLE Syntaxes 2 - 7
 
@@ -170,4 +176,7 @@ workbook
 
 [PATTERNS](PATTERNS.md)   Changes the appearance of the selected object
 
+
+
+Return to [README](README.md)
 

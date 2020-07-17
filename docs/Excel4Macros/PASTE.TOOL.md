@@ -20,3 +20,6 @@ left side (if horizontal) or at the top (if vertical).
 [COPY.TOOL](COPY.TOOL.md)   Copies a button face
 
 
+
+Return to [README](README.md)
+

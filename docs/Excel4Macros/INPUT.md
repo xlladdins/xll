@@ -138,3 +138,6 @@ selection.", 8)) returns R2C1:R8C1
 [HELP](HELP.md)   Displays a custom Help topic
 
 
+
+Return to [README](README.md)
+

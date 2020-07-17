@@ -47,3 +47,6 @@ macro and any related menu items or toolbar buttons.
 Help\_file    is the pathname of the help file for the macro.
 
 
+
+Return to [README](README.md)
+

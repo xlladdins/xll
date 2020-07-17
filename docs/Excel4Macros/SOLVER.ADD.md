@@ -107,3 +107,6 @@ range of cells.
 [SOLVER.DELETE](SOLVER.DELETE.md)   Deletes an existing constraint
 
 
+
+Return to [README](README.md)
+

@@ -22,3 +22,6 @@ If there is already a mailer, this command fails and returns the
 [MAIL.DELETE.MAILER](MAIL.DELETE.MAILER.md)   Deletes an existing mailer from the active workbook
 
 
+
+Return to [README](README.md)
+

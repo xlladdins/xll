@@ -76,3 +76,6 @@ Logical    is a logical value that turns Data Entry mode on or off.
 [FORMULA](FORMULA.md)   Enters values into a cell or range or onto a chart
 
 
+
+Return to [README](README.md)
+

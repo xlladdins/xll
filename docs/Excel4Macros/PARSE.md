@@ -29,3 +29,6 @@ into as many columns as you specify with parse\_text and replaces any
 information in those columns.
 
 
+
+Return to [README](README.md)
+

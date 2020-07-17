@@ -42,3 +42,6 @@ returned.
 [PASTE](PASTE.md)   Pastes cut or copied data
 
 
+
+Return to [README](README.md)
+

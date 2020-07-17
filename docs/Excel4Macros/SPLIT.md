@@ -24,3 +24,6 @@ changed.
 [FREEZE.PANES](FREEZE.PANES.md)   Freezes or unfreezes the panes of a window
 
 
+
+Return to [README](README.md)
+

@@ -38,3 +38,6 @@ AutoFill operation.
 [DATA.SERIES](DATA.SERIES.md)   Fills a range of cells with a series of numbers or dates
 
 
+
+Return to [README](README.md)
+

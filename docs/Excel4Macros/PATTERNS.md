@@ -341,3 +341,6 @@ in a picture chart.
 [FORMAT.TEXT](FORMAT.TEXT.md)   Formats a text box or a chart text item
 
 
+
+Return to [README](README.md)
+

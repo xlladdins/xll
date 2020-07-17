@@ -28,3 +28,6 @@ size of the arrow.
 [PATTERNS](PATTERNS.md)   Changes the appearance of the selected object
 
 
+
+Return to [README](README.md)
+

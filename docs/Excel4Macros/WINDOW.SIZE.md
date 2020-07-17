@@ -55,3 +55,6 @@ Window\_text    specifies which window to size.
 [WINDOW.RESTORE](WINDOW.RESTORE.md)   Restores a window to its previous size
 
 
+
+Return to [README](README.md)
+

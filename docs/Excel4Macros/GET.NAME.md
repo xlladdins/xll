@@ -58,3 +58,6 @@ GET.NAME("\!Database") equals "=R1C1:R500C6"
 [SET.NAME](SET.NAME.md)   Defines a name as a value
 
 
+
+Return to [README](README.md)
+

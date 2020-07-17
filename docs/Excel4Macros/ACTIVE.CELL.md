@@ -70,3 +70,6 @@ ACTIVE.CELL() equals 'SALES 1'\!$A$1
 [SELECT](SELECT.md)   Selects a cell, worksheet object, or chart item
 
 
+
+Return to [README](README.md)
+

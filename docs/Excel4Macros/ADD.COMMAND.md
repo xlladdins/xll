@@ -179,3 +179,6 @@ ADD.COMMAND(7, 4, G16:J16)
 [RENAME.COMMAND](RENAME.COMMAND.md)   Changes the name of a command or menu
 
 
+
+Return to [README](README.md)
+

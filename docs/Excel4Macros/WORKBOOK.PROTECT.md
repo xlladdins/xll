@@ -31,3 +31,6 @@ To protect a sheet in a workbook, use the PROTECT.DOCUMENT function.
 [PROTECT.DOCUMENT](PROTECT.DOCUMENT.md)   Protects a sheet in a workbook
 
 
+
+Return to [README](README.md)
+

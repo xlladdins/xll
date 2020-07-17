@@ -51,3 +51,6 @@ GET.TOOL(6, "Toolbar2", 3)
 [GET.TOOLBAR](GET.TOOLBAR.md)   Retrieves information about a toolbar
 
 
+
+Return to [README](README.md)
+

@@ -41,3 +41,6 @@ Alpha    is the confidence level for the test. If omitted, alpha is
 equal variances
 
 
+
+Return to [README](README.md)
+

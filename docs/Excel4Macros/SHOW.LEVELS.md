@@ -26,3 +26,6 @@ value.
 [SHOW.DETAIL](SHOW.DETAIL.md)   Expands or collapses a portion of an outline
 
 
+
+Return to [README](README.md)
+

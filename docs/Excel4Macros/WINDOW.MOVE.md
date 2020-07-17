@@ -69,3 +69,6 @@ Window\_text    specifies which window to restore.
 [WINDOW.SIZE](WINDOW.SIZE.md)   Changes the size of a window
 
 
+
+Return to [README](README.md)
+

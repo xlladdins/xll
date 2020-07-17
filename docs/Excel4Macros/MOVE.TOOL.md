@@ -41,3 +41,6 @@ button you are moving is not a drop-down list, width is ignored.
 [GET.TOOL](GET.TOOL.md)   Returns information about a button or buttons on a toolbar
 
 
+
+Return to [README](README.md)
+

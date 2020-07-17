@@ -26,3 +26,6 @@ FCLOSE(FileNumber)
 [FOPEN](FOPEN.md)   Opens a file with the type of permission specified
 
 
+
+Return to [README](README.md)
+

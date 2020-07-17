@@ -57,3 +57,6 @@ the same plot\_order.
 [EDIT.SERIES](EDIT.SERIES.md)   Creates or changes a chart series
 
 
+
+Return to [README](README.md)
+

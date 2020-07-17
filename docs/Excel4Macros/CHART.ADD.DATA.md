@@ -60,3 +60,6 @@ Series    is a number specifying how cells are added to a chart.
 | 2          | New point(s) |
 
 
+
+Return to [README](README.md)
+

@@ -9,3 +9,6 @@ chart has no overlay, DELETE.OVERLAY takes no action and returns TRUE.
 **DELETE.OVERLAY**( )
 
 
+
+Return to [README](README.md)
+

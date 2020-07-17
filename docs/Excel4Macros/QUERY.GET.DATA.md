@@ -67,3 +67,6 @@ destination is the currently selected cell or range.
 [Q](Q.md)uery
 
 
+
+Return to [README](README.md)
+

@@ -118,3 +118,6 @@ macro is running
 [SEND.KEYS](SEND.KEYS.md)   Sends a key sequence to an application
 
 
+
+Return to [README](README.md)
+

@@ -62,3 +62,6 @@ RENAME.COMMAND(10, "File", "Save All", "\&Global Save")
 [ENABLE.COMMAND](ENABLE.COMMAND.md)   Enables or disables a menu or custom command
 
 
+
+Return to [README](README.md)
+

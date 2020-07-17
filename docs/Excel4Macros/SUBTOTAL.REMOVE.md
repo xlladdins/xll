@@ -14,3 +14,6 @@ breaks and outlines will also be removed.
 [SUBTOTAL.CREATE](SUBTOTAL.CREATE.md)   Generates a subtotal in a list or database
 
 
+
+Return to [README](README.md)
+

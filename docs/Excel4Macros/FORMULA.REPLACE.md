@@ -76,3 +76,6 @@ If match\_case is omitted, the status of the check box is unchanged.
 [FORMULA.FIND](FORMULA.FIND.md)   Finds text in a workbook
 
 
+
+Return to [README](README.md)
+

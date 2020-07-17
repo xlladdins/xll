@@ -51,3 +51,6 @@ LINKS function.
 [UPDATE.LINK](UPDATE.LINK.md)   Updates a link to another document
 
 
+
+Return to [README](README.md)
+

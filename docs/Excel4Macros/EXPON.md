@@ -30,3 +30,6 @@ actual and forecast values. If FALSE, the chart is not generated.
 [MOVEAVG](MOVEAVG.md)   Returns values along a moving average trend
 
 
+
+Return to [README](README.md)
+

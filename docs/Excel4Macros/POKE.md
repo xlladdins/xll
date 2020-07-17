@@ -51,3 +51,6 @@ text from cell C3 into the Microsoft Word document named Report.
 [TERMINATE](TERMINATE.md)   Closes a channel to another application
 
 
+
+Return to [README](README.md)
+

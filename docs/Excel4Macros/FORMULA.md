@@ -13,6 +13,9 @@ Syntax 1   Enters numbers, text, references, and formulas in a worksheet
 Syntax 2   Enters formulas in a chart
 
 
+
+Return to [README](README.md)
+
 FORMULA Syntax 1
 
 Enters a formula in the active cell or in a reference. If the active
@@ -115,6 +118,9 @@ FORMULA("Year to Date", 'SALES 1993'\!B4)
 [FORMULA](FORMULA.md) Syntax 2   Enters formulas in a chart
 
 
+
+Return to [README](README.md)
+
 FORMULA Syntax 2
 
 Enters a text label or SERIES formula in a chart. To enter formulas on a
@@ -154,4 +160,7 @@ FORMULA("=SERIES(""Title"", , {1, 2, 3}, 1)")
 [FORMULA](FORMULA.md), Syntax 1   Enters numbers, text, references, and formulas in a
 worksheet
 
+
+
+Return to [README](README.md)
 

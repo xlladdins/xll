@@ -42,3 +42,6 @@ macros assigned by previous ON.DOUBLECLICK functions are turned off.
 [ON.WINDOW](ON.WINDOW.md)   Runs a macro when you switch to a window
 
 
+
+Return to [README](README.md)
+

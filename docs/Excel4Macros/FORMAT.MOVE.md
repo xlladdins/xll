@@ -15,6 +15,9 @@ Syntax 2   Moves chart items
 Syntax 3   Moves pie-chart and doughnut-chart items
 
 
+
+Return to [README](README.md)
+
 FORMAT.MOVE Syntax 1
 
 Equivalent to moving an object with the mouse. Moves the selected object
@@ -77,6 +80,9 @@ FORMAT.MOVE(10, 15, \!$D$4)
 [S](S.md)yntax 3   Moves pie-chart and doughnut-chart items
 
 
+
+Return to [README](README.md)
+
 FORMAT.MOVE Syntax 2
 
 Equivalent to moving an object with the mouse. Moves the base of the
@@ -131,6 +137,9 @@ FORMAT.MOVE(10, 20)
 [S](S.md)yntax 3   Moves pie-chart and doughnut-chart items
 
 
+
+Return to [README](README.md)
+
 FORMAT.MOVE Syntax 3
 
 Equivalent to exploding by moving a pie-chart or doughnut-chart slice
@@ -159,4 +168,7 @@ Zero is no explosion (the tip of the slice is in the center of the pie).
 
 [WINDOW.MOVE](WINDOW.MOVE.md)   Moves a window
 
+
+
+Return to [README](README.md)
 

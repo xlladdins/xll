@@ -43,3 +43,6 @@ RETURN(SUM(B1:B10))
 [RESULT](RESULT.md)   Specifies the data type a custom function returns
 
 
+
+Return to [README](README.md)
+

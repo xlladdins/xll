@@ -48,3 +48,6 @@ current selection
 [SLIDE.SHOW](SLIDE.SHOW.md)   Starts a slide show in the active sheet
 
 
+
+Return to [README](README.md)
+

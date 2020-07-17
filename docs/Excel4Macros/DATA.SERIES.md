@@ -73,3 +73,6 @@ if FALSE or omitted, Microsoft Excel generates a standard data series.
 [FILL.AUTO](FILL.AUTO.md)   Copies cells or automatically fills a selection
 
 
+
+Return to [README](README.md)
+

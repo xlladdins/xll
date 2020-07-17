@@ -9,3 +9,6 @@ is included only for macro compatibility.
 **MAIN.CHART.TYPE**(**type\_num**)
 
 
+
+Return to [README](README.md)
+

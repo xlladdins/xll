@@ -55,3 +55,6 @@ GET.FORMULA(ACTIVE.CELL())
 [GET.NOTE](GET.NOTE.md)   Returns characters from a comment
 
 
+
+Return to [README](README.md)
+

@@ -14,3 +14,6 @@ omitted, does not place them on the Clipboard. Render\_logical is
 available only in Microsoft Excel for the Macintosh.
 
 
+
+Return to [README](README.md)
+

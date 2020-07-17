@@ -55,3 +55,6 @@ reports the confidence interval for the input range. If confid is
 omitted, the confidence interval is 95%.
 
 
+
+Return to [README](README.md)
+

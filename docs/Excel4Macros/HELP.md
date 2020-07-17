@@ -60,3 +60,6 @@ path along with the name of the file. For example:
 HELP("HARD DISK:EXCEL:HELP:CUSTOM HELP\!101")
 
 
+
+Return to [README](README.md)
+

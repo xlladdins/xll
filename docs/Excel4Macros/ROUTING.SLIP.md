@@ -92,3 +92,6 @@ information
 [SEND.MAIL](SEND.MAIL.md)   Sends the active workbook using email
 
 
+
+Return to [README](README.md)
+
