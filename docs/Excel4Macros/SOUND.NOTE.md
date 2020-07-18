@@ -22,20 +22,20 @@ Importing sound from another file
 
 **SOUND.NOTE**(cell\_ref, file\_text, resource)
 
-Cell\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell containing a
+Cell\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the cell containing a
 note into which you want to record or import sounds or from which you
 want to erase a sound.
 
-Erase\_snd&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
+Erase\_snd**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether
 to erase the sound in the note. If erase\_snd is TRUE, Microsoft Excel
 erases only the sound from the note. If FALSE or omitted, Microsoft
 Excel displays the Record dialog box so that you can record sound into
 the note.
 
-File\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a file containing
+File\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a file containing
 sounds.
 
-Resource&nbsp;&nbsp;&nbsp;&nbsp;is the number or name of a sound
+Resource**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number or name of a sound
 resource in file\_text that you want to import into your note.
 
   - > This argument applies only to Microsoft Excel for the Macintosh.
@@ -79,9 +79,9 @@ SOUND.NOTE(\!Doorbell, "HARD DISK:SOUNDS:SOFT SOUNDS", "Chimes")
 
 **Related Functions**
 
-[NOTE](NOTE.md)&nbsp;&nbsp;&nbsp;Creates or changes a cell note
+[NOTE](NOTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or changes a cell note
 
-[SOUND.PLAY](SOUND.PLAY.md)&nbsp;&nbsp;&nbsp;Plays the sound from a cell note or a file
+[SOUND.PLAY](SOUND.PLAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Plays the sound from a cell note or a file
 
 
 

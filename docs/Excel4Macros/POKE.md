@@ -8,18 +8,18 @@ exchange (DDE).
 
 **POKE**(**channel\_num, item\_text**, **data\_ref**)
 
-**Important**&nbsp;&nbsp;&nbsp;Microsoft Excel for the Macintosh
+**Important****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this function.
 
-Channel\_num&nbsp;&nbsp;&nbsp;&nbsp;is the channel number returned by a
+Channel\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the channel number returned by a
 previously run INITIATE function.
 
-Item\_text&nbsp;&nbsp;&nbsp;&nbsp;is text that identifies the item you
+Item\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text that identifies the item you
 want to send data to in the application you are accessing through
 channel\_num. The form of item\_text depends on the application
 connected to channel\_num.
 
-Data\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the workbook
+Data\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the workbook
 containing the data to send.
 
 If POKE is not successful, it returns the following values.
@@ -46,11 +46,11 @@ text from cell C3 into the Microsoft Word document named Report.
 
 **Related Functions**
 
-[INITIATE](INITIATE.md)&nbsp;&nbsp;&nbsp;Opens a channel to another application
+[INITIATE](INITIATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a channel to another application
 
-[REQUEST](REQUEST.md)&nbsp;&nbsp;&nbsp;Returns data from another application
+[REQUEST](REQUEST.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns data from another application
 
-[TERMINATE](TERMINATE.md)&nbsp;&nbsp;&nbsp;Closes a channel to another application
+[TERMINATE](TERMINATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a channel to another application
 
 
 

@@ -12,10 +12,10 @@ want to control which cell is active on a protected sheet.
 
 **Related Functions**
 
-[CELL.PROTECTION](CELL.PROTECTION.md)&nbsp;&nbsp;&nbsp;Controls protection for the selected
+[CELL.PROTECTION](CELL.PROTECTION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls protection for the selected
 cells
 
-[PROTECT.DOCUMENT](PROTECT.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Controls protection for the active
+[PROTECT.DOCUMENT](PROTECT.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls protection for the active
 sheet
 
 

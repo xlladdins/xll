@@ -9,7 +9,7 @@ combination chart types.
 
 **COMBINATION**?(type\_num)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the
 combination chart you want.
 
 |               |                                                                                                                                             |
@@ -24,9 +24,9 @@ combination chart you want.
 
 **Related Functions**
 
-[FORMAT.MAIN](FORMAT.MAIN.md)&nbsp;&nbsp;&nbsp;Formats a main chart
+[FORMAT.MAIN](FORMAT.MAIN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats a main chart
 
-[FORMAT.OVERLAY](FORMAT.OVERLAY.md)&nbsp;&nbsp;&nbsp;Formats an overlay chart
+[FORMAT.OVERLAY](FORMAT.OVERLAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats an overlay chart
 
 
 

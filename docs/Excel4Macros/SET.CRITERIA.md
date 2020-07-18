@@ -10,10 +10,10 @@ range on a sheet or macro sheet.
 
 **Related Functions**
 
-[SET.DATABASE](SET.DATABASE.md)&nbsp;&nbsp;&nbsp;Equivalent to clicking the Set Database
+[SET.DATABASE](SET.DATABASE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Equivalent to clicking the Set Database
 command on the Data menu in Microsoft Excel version 4.0
 
-[SET.EXTRACT](SET.EXTRACT.md)&nbsp;&nbsp;&nbsp;Equivalent to clicking the Set Extract
+[SET.EXTRACT](SET.EXTRACT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Equivalent to clicking the Set Extract
 command on the Data menu in Microsoft Excel version 4.0
 
 

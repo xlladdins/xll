@@ -12,7 +12,7 @@ when a particular workbook is closed.
 
 **QUIT**( )
 
-**Caution&nbsp;&nbsp;&nbsp;**If you have cleared error-checking with an
+**Caution**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**If you have cleared error-checking with an
 ERROR(FALSE) function, QUIT will not ask whether you want to save
 changes.
 
@@ -30,7 +30,7 @@ IF(ALERT("Are you sure you want to quit Microsoft Excel?",1), QUIT(),)
 
 **Related Function**
 
-[FILE.CLOSE](FILE.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes the active workbook
+[FILE.CLOSE](FILE.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes the active workbook
 
 
 

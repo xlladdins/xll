@@ -7,7 +7,7 @@ adjusted on the active worksheet.
 
 **STANDARD.WIDTH**(standard\_num)
 
-Standard\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies how wide you want the
+Standard\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies how wide you want the
 columns to be in units of one character of the font corresponding to the
 Normal cell style.
 

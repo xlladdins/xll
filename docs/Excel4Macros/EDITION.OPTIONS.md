@@ -10,7 +10,7 @@ the Macintosh.
 **EDITION.OPTIONS**(**edition\_type**, edition\_name, reference,
 **option**, appearance, size, formats)
 
-Edition\_type&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 specifying the
+Edition\_type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number 1 or 2 specifying the
 type of edition.
 
 |                   |                     |
@@ -19,11 +19,11 @@ type of edition.
 | 1                 | Publisher           |
 | 2                 | Subscriber          |
 
-Edition\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of the edition you want
+Edition\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the edition you want
 to change the edition options for or to perform actions on. If
 edition\_name is omitted, reference is required.
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies the range (given in text form
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the range (given in text form
 as a name or an R1C1-style reference) occupied by the publisher or
 subscriber.
 
@@ -38,9 +38,8 @@ subscriber.
 
   - > If reference is omitted, edition\_name is required.
 
-> &nbsp;
 
-Option&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 6 specifying the
+Option**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 6 specifying the
 edition option you want to set or the action you want to take, according
 to the following two tables. Options 2 to 6 are only available if you
 are using Microsoft Excel for the Macintosh with system software version
@@ -71,7 +70,7 @@ If a subscriber is specified, then option applies as follows.
 
 The following three arguments are available only when option is 6.
 
-Appearance&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the selection is
+Appearance**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether the selection is
 published as shown on screen or as shown when printed. The default value
 for appearance is 1 if the selection is a sheet or macro sheet and 2 if
 the selection is a chart.
@@ -82,7 +81,7 @@ the selection is a chart.
 | 1              | As shown on screen         |
 | 2              | As shown when printed      |
 
-Size&nbsp;&nbsp;&nbsp;&nbsp;specifies the size of a published chart.
+Size**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the size of a published chart.
 Size is only available if a chart is to be published.
 
 |              |                             |
@@ -91,7 +90,7 @@ Size is only available if a chart is to be published.
 | 1 or omitted | As shown on screen          |
 | 2            | As shown when printed       |
 
-Formats&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the format of the
+Formats**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the format of the
 file.
 
 |              |                 |
@@ -114,11 +113,11 @@ EDITION.OPTIONS(2, "Monthly Totals", , 3)
 
 **Related Functions**
 
-[CREATE.PUBLISHER](CREATE.PUBLISHER.md)&nbsp;&nbsp;&nbsp;Creates a publisher from the selection
+[CREATE.PUBLISHER](CREATE.PUBLISHER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a publisher from the selection
 
-[GET.LINK.INFO](GET.LINK.INFO.md)&nbsp;&nbsp;&nbsp;Returns information about a link
+[GET.LINK.INFO](GET.LINK.INFO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a link
 
-[SUBSCRIBE.TO](SUBSCRIBE.TO.md)&nbsp;&nbsp;&nbsp;Inserts contents of an edition into the
+[SUBSCRIBE.TO](SUBSCRIBE.TO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Inserts contents of an edition into the
 active workbook
 
 

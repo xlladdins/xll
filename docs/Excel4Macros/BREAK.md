@@ -19,13 +19,13 @@ a WHILE-NEXT loop when a certain value is encountered:
 
 **Related Functions**
 
-[FOR](FOR.md)&nbsp;&nbsp;&nbsp;Starts a FOR-NEXT loop
+[FOR](FOR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a FOR-NEXT loop
 
-[FOR.CELL](FOR.CELL.md)&nbsp;&nbsp;&nbsp;Starts a FOR.CELL-NEXT loop
+[FOR.CELL](FOR.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a FOR.CELL-NEXT loop
 
-[NEXT](NEXT.md)&nbsp;&nbsp;&nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
+[NEXT](NEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
-[WHILE](WHILE.md)&nbsp;&nbsp;&nbsp;Starts a WHILE-NEXT loop
+[WHILE](WHILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a WHILE-NEXT loop
 
 
 

@@ -8,7 +8,7 @@ version number, and available memory.
 
 **GET.WORKSPACE**(**type\_num**)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the type of
 workspace information you want. The following list shows the type\_num
 values and their corresponding results.
 
@@ -417,9 +417,9 @@ where currency is any number and the $ represents the current currency symbol.<b
 
 **Related Functions**
 
-[GET.DOCUMENT](GET.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook
+[GET.DOCUMENT](GET.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook
 
-[GET.WINDOW](GET.WINDOW.md)&nbsp;&nbsp;&nbsp;Returns information about a window
+[GET.WINDOW](GET.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a window
 
 
 

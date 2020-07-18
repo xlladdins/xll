@@ -12,7 +12,7 @@ once.
 
 **FILL.GROUP**?(type\_num)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 that
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 that
 corresponds to the choices in the Fill Across Worksheets dialog box.
 
 |               |                                |
@@ -24,9 +24,9 @@ corresponds to the choices in the Fill Across Worksheets dialog box.
 
 **Related Functions**
 
-[NEW](NEW.md)&nbsp;&nbsp;&nbsp;Creates a new workbook
+[NEW](NEW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a new workbook
 
-[WORKBOOK.SELECT](WORKBOOK.SELECT.md)&nbsp;&nbsp;&nbsp;Selects one or more sheets in a
+[WORKBOOK.SELECT](WORKBOOK.SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects one or more sheets in a
 workbook
 
 

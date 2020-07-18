@@ -7,12 +7,12 @@ information about the update settings of a link.
 
 **GET.LINK.INFO**(**link\_text, type\_num**, type\_of\_link, reference)
 
-Link\_text&nbsp;&nbsp;&nbsp;&nbsp;is the path of the link as displayed
+Link\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the path of the link as displayed
 in the Links dialog box, which appears when you choose the Links command
 from the Edit menu. The path to the file you wish to return DDE
 information on must be surrounded by single quotes.
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies what type of
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies what type of
 information about the currently selected link to return. Type\_num 2
 applies only to publishers and subscribers in Microsoft Excel for the
 Macintosh.
@@ -23,7 +23,7 @@ Macintosh.
 | 1             | If the link is set to automatic update, returns 1; otherwise 2.                                                |
 | 2             | Date of the latest edition as a serial number. Returns \#N/A if link\_text is not a publisher or a subscriber. |
 
-Type\_of\_link&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 6 that
+Type\_of\_link**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 6 that
 specifies what type of link you want to get information about.
 
 |                    |                              |
@@ -36,7 +36,7 @@ specifies what type of link you want to get information about.
 | 5                  | Publisher (Macintosh)        |
 | 6                  | Subscriber (Macintosh)       |
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies the cell range in R1C1 format
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the cell range in R1C1 format
 of the publisher or subscriber that you want information about.
 Reference is required if you have more than one publisher or subscriber
 of a single edition name on the active workbook. Use reference to
@@ -55,7 +55,6 @@ the Name box.
     > if the same area is published more than once, you must specify
     > reference.
 
-> &nbsp;
 
 **Example**
 
@@ -74,12 +73,12 @@ Products'\!R1C1:R3C3")
 
 **Related Functions**
 
-[CREATE.PUBLISHER](CREATE.PUBLISHER.md)&nbsp;&nbsp;&nbsp;Creates a publisher from the selection
+[CREATE.PUBLISHER](CREATE.PUBLISHER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a publisher from the selection
 
-[SUBSCRIBE.TO](SUBSCRIBE.TO.md)&nbsp;&nbsp;&nbsp;Inserts contents of an edition into the
+[SUBSCRIBE.TO](SUBSCRIBE.TO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Inserts contents of an edition into the
 active workbook
 
-[UPDATE.LINK](UPDATE.LINK.md)&nbsp;&nbsp;&nbsp;Updates a link to another workbook
+[UPDATE.LINK](UPDATE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Updates a link to another workbook
 
 
 

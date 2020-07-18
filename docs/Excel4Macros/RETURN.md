@@ -12,7 +12,7 @@ or by clicking an object, control is returned to the user.
 
 **RETURN**(value)
 
-Value&nbsp;&nbsp;&nbsp;&nbsp;specifies what to return.
+Value**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies what to return.
 
   - > If the macro is a custom function or a subroutine, value specifies
     > what value to return. However, not all subroutines return values;
@@ -21,7 +21,6 @@ Value&nbsp;&nbsp;&nbsp;&nbsp;specifies what to return.
   - > If the macro is a command macro run by the user, value should be
     > omitted.
 
-> &nbsp;
 
 **Remarks**
 
@@ -36,12 +35,12 @@ RETURN(SUM(B1:B10))
 
 **Related Functions**
 
-[BREAK](BREAK.md)&nbsp;&nbsp;&nbsp;Interrupts a FOR-NEXT, FOR.CELL-NEXT, or
+[BREAK](BREAK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Interrupts a FOR-NEXT, FOR.CELL-NEXT, or
 [WHILE](WHILE.md)-NEXT loop
 
-[HALT](HALT.md)&nbsp;&nbsp;&nbsp;Stops all macros from running
+[HALT](HALT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Stops all macros from running
 
-[RESULT](RESULT.md)&nbsp;&nbsp;&nbsp;Specifies the data type a custom function
+[RESULT](RESULT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies the data type a custom function
 returns
 
 

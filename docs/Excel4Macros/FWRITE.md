@@ -8,12 +8,12 @@ can't write to the file, it returns the \#N/A error value.
 
 **FWRITE**(**file\_num, text**)
 
-File\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique ID number of the file you
+File\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique ID number of the file you
 want to write data to. File\_num is returned by a previously executed
 FOPEN function. If file\_num is not valid, FWRITE returns the \#VALUE\!
 error value.
 
-Text&nbsp;&nbsp;&nbsp;&nbsp;is the text you want to write to the file.
+Text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the text you want to write to the file.
 
 **Example**
 
@@ -24,14 +24,14 @@ FWRITE(FileNumber, TEXT(MONTH(NOW()),"mmmm"))
 
 **Related Functions**
 
-[FOPEN](FOPEN.md)&nbsp;&nbsp;&nbsp;Opens a file with the type of permission
+[FOPEN](FOPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a file with the type of permission
 specified
 
-[FPOS](FPOS.md)&nbsp;&nbsp;&nbsp;Sets the position in a text file
+[FPOS](FPOS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the position in a text file
 
-[FREAD](FREAD.md)&nbsp;&nbsp;&nbsp;Reads characters from a text file
+[FREAD](FREAD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Reads characters from a text file
 
-[FWRITELN](FWRITELN.md)&nbsp;&nbsp;&nbsp;Writes a line to a text file
+[FWRITELN](FWRITELN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Writes a line to a text file
 
 
 

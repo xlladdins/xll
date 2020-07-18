@@ -12,7 +12,7 @@ or format, or that is referred to in a formula or name.
 
 **Related Function**
 
-[SELECT.END](SELECT.END.md)&nbsp;&nbsp;&nbsp;Selects the last cell in a range
+[SELECT.END](SELECT.END.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects the last cell in a range
 
 
 

@@ -28,11 +28,10 @@ For a description of the arguments, see SLIDE.PASTE.
     > SLIDE.EDIT returns the \#N/A error value. If the current selection
     > is not a valid slide, SLIDE.EDIT returns the \#VALUE error value.
 
-> &nbsp;
 
 **Related Function**
 
-[SLIDE.PASTE](SLIDE.PASTE.md)&nbsp;&nbsp;&nbsp;Pastes the contents of the Clipboard onto a
+[SLIDE.PASTE](SLIDE.PASTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes the contents of the Clipboard onto a
 slide
 
 

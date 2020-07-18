@@ -14,32 +14,32 @@ from top to bottom: XY (Scatter), Line, Column, Bar, Area.
 **EDIT.SERIES**?(series\_num, name\_ref, x\_ref, y\_ref, z\_ref,
 plot\_order)
 
-Series\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the series you want
+Series\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the series you want
 to change. If series\_num is 0 or omitted, Microsoft Excel creates a new
 data series.
 
-Name\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the name of the data series. It can
+Name\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the data series. It can
 be an external reference to a single cell, a name defined as a single
 cell, or a name defined as a sequence of characters. Name\_ref can also
 be text (for example, "Projected Sales").
 
-X\_ref&nbsp;&nbsp;&nbsp;&nbsp;is an external reference to the name of
+X\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an external reference to the name of
 the sheet and the cells that contain one of the following sets of data:
 
   - > Category labels for all charts except xy (scatter) charts
 
   - > X-coordinate data for xy (scatter) charts
 
-Y\_ref&nbsp;&nbsp;&nbsp;&nbsp;is an external reference to the name of
+Y\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an external reference to the name of
 the sheet and the cells that contain values (or y-coordinate data in xy
 (scatter) charts) for all 2-D charts. Y\_ref is required in 2-D charts
 but does not apply to 3-D charts.
 
-Z\_ref&nbsp;&nbsp;&nbsp;&nbsp;is an external reference to the name of
+Z\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an external reference to the name of
 the sheet and the cells that contain values for all 3-D charts. Z\_ref
 is required in 3-D charts but does not apply to 2-D charts.
 
-Plot\_order&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying whether the
+Plot\_order**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying whether the
 data series is plotted first, second, and so on, in the chart type.
 
   - > If you assign a plot\_order to a series, Microsoft Excel plots
@@ -75,7 +75,7 @@ arguments, make sure to enclose the reference to the selection in
 parentheses so that Microsoft Excel does not treat the components of the
 references as separate arguments.
 
-**Tip**&nbsp;&nbsp;&nbsp;To delete a data series, use the SELECT("Sn")
+**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;To delete a data series, use the SELECT("Sn")
 macro function, where n is the series number, followed by the
 FORMULA("") macro function. You can also use the CLEAR function instead
 of FORMULA.

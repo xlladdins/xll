@@ -7,14 +7,14 @@ an existing chart.
 
 **CHART.ADD.DATA**(**ref**, rowcol, titles, categories, replace, series)
 
-Ref&nbsp;&nbsp;&nbsp;&nbsp;is the cell reference for the data that is
+Ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the cell reference for the data that is
 being dragged onto the chart
 
-Rowcol&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 and specifies whether
+Rowcol**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number 1 or 2 and specifies whether
 the values corresponding to a particular data series are in rows or
 columns. Enter 1 for rows or 2 for columns.
 
-Titles&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Titles**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 Series Names In First Column check box (or First Row, depending on the
 value of rowcol) in the Paste Special dialog box.
 
@@ -27,7 +27,7 @@ value of rowcol) in the Paste Special dialog box.
     > the contents of the cell in the first column of each row (or first
     > row of each column) as the first data point of the data series.
 
-Categories&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
+Categories**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
 the Categories (X Labels) In First Row (or First Column, depending on
 the value of rowcol) check box in the Paste Special dialog box.
 
@@ -39,9 +39,8 @@ the value of rowcol) check box in the Paste Special dialog box.
     > uses the contents of the first row (or column) as the first data
     > series in the chart.
 
-> &nbsp;
 
-Replace&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Replace**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 Replace Existing Categories check box in the Paste Special dialog box.
 
   - > If replace is TRUE, Microsoft Excel selects the check box and
@@ -51,7 +50,7 @@ Replace Existing Categories check box in the Paste Special dialog box.
   - > If replace is FALSE, Microsoft Excel clears the check box and
     > applies new categories without replacing any old ones.
 
-Series&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying how cells are added
+Series**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying how cells are added
 to a chart.
 
 |            |              |

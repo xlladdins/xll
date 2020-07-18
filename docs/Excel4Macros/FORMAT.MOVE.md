@@ -8,11 +8,11 @@ objects. Use syntax 2 to move chart items. Use syntax 3 to move
 pie-chart and doughnut-chart items. It is generally easier to use the
 macro recorder to enter this function on your macro sheet.
 
-Syntax 1&nbsp;&nbsp;&nbsp;Moves worksheet items
+Syntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves worksheet items
 
-Syntax 2&nbsp;&nbsp;&nbsp;Moves chart items
+Syntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves chart items
 
-Syntax 3&nbsp;&nbsp;&nbsp;Moves pie-chart and doughnut-chart items
+Syntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves pie-chart and doughnut-chart items
 
 
 
@@ -34,17 +34,17 @@ macro recorder to enter this function on your macro sheet.
 
 **FORMAT.MOVE**?(x\_offset, y\_offset, reference)
 
-X\_offset&nbsp;&nbsp;&nbsp;&nbsp;specifies the horizontal position to
+X\_offset**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the horizontal position to
 which you want to move the object and is measured in points from the
 upper-left corner of the object to the upper-left corner of the cell
 specified by reference. A point is 1/72nd of an inch.
 
-Y\_offset&nbsp;&nbsp;&nbsp;&nbsp;specifies the vertical position to
+Y\_offset**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the vertical position to
 which you want to move the object and is measured in points from the
 upper-left corner of the object to the upper-left corner of the cell
 specified by reference.
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies which cell or range of cells
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies which cell or range of cells
 to place the object in relation to.
 
   - > If reference is a range of cells, only the upper-left cell is
@@ -52,7 +52,6 @@ to place the object in relation to.
 
   - > If reference is omitted, it is assumed to be cell A1.
 
-> &nbsp;
 
 **Remarks**
 
@@ -70,15 +69,15 @@ FORMAT.MOVE(10, 15, \!$D$4)
 
 **Related Functions**
 
-[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
 
-[FORMAT.SIZE](FORMAT.SIZE.md)&nbsp;&nbsp;&nbsp;Sizes an object
+[FORMAT.SIZE](FORMAT.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sizes an object
 
-[WINDOW.MOVE](WINDOW.MOVE.md)&nbsp;&nbsp;&nbsp;Moves a window
+[WINDOW.MOVE](WINDOW.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves a window
 
-[S](S.md)yntax 2&nbsp;&nbsp;&nbsp;Moves chart items
+[S](S.md)yntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves chart items
 
-[S](S.md)yntax 3&nbsp;&nbsp;&nbsp;Moves pie-chart and doughnut-chart items
+[S](S.md)yntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves pie-chart and doughnut-chart items
 
 
 
@@ -100,12 +99,12 @@ function on your macro sheet.
 
 **FORMAT.MOVE**?(x\_pos, y\_pos)
 
-X\_pos&nbsp;&nbsp;&nbsp;&nbsp;specifies the horizontal position to which
+X\_pos**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the horizontal position to which
 you want to move the object and is measured in points from the base of
 the object to the lower-left corner of the window. A point is 1/72nd of
 an inch.
 
-Y\_pos&nbsp;&nbsp;&nbsp;&nbsp;specifies the vertical position to which
+Y\_pos**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the vertical position to which
 you want to move the object and is measured in points from the base of
 the object to the lower-left corner of the window.
 
@@ -118,7 +117,6 @@ the object to the lower-left corner of the window.
 
   - > The base of a pie slice is the point.
 
-> &nbsp;
 
 **Example**
 
@@ -130,13 +128,13 @@ FORMAT.MOVE(10, 20)
 
 **Related Functions**
 
-[FORMAT.SIZE](FORMAT.SIZE.md)&nbsp;&nbsp;&nbsp;Sizes an object
+[FORMAT.SIZE](FORMAT.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sizes an object
 
-[WINDOW.MOVE](WINDOW.MOVE.md)&nbsp;&nbsp;&nbsp;Moves a window
+[WINDOW.MOVE](WINDOW.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves a window
 
-[S](S.md)yntax 1&nbsp;&nbsp;&nbsp;Moves worksheet items
+[S](S.md)yntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves worksheet items
 
-[S](S.md)yntax 3&nbsp;&nbsp;&nbsp;Moves pie-chart and doughnut-chart items
+[S](S.md)yntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves pie-chart and doughnut-chart items
 
 
 
@@ -156,20 +154,20 @@ this function on your macro sheet.
 
 **FORMAT.MOVE**(**explosion\_num**)
 
-Explosion\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the
+Explosion\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the
 explosion percentage for the selected pie slice or the entire chart (if
 the series is selected). Zero is no explosion (the tip of the slice is
 in the center of the pie).
 
 **Related Functions**
 
-[FORMAT.SIZE](FORMAT.SIZE.md)&nbsp;&nbsp;&nbsp;Sizes an object
+[FORMAT.SIZE](FORMAT.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sizes an object
 
-[S](S.md)yntax 1&nbsp;&nbsp;&nbsp;Moves worksheet items
+[S](S.md)yntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves worksheet items
 
-[S](S.md)yntax 2&nbsp;&nbsp;&nbsp;Moves chart items
+[S](S.md)yntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves chart items
 
-[WINDOW.MOVE](WINDOW.MOVE.md)&nbsp;&nbsp;&nbsp;Moves a window
+[WINDOW.MOVE](WINDOW.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves a window
 
 
 

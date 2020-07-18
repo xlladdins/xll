@@ -11,7 +11,7 @@ direction of scrolling. Positive numbers scroll forward by that many
 sheets. Negative numbers scroll backward by that many sheets. Zero (0)
 does not scroll.
 
-Firstlast\_logical&nbsp;&nbsp;&nbsp;&nbsp;specifies whether to scroll to
+Firstlast\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether to scroll to
 the first or last sheet in the workbook. If TRUE, scrolls to the last
 sheet in the workbook. If FALSE, scrolls to the first sheet in the
 workbook. If this argument is specified, then num\_sheets is ignored.

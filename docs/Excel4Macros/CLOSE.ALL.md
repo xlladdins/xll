@@ -13,13 +13,13 @@ workbook.
 
 **Related Functions**
 
-[CLOSE](CLOSE.md)&nbsp;&nbsp;&nbsp;Closes the active window
+[CLOSE](CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes the active window
 
-[FILE.CLOSE](FILE.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes the active workbook
+[FILE.CLOSE](FILE.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes the active workbook
 
-[QUIT](QUIT.md)&nbsp;&nbsp;&nbsp;Ends a Microsoft Excel session
+[QUIT](QUIT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends a Microsoft Excel session
 
-[SAVE](SAVE.md)&nbsp;&nbsp;&nbsp;Saves the active workbook
+[SAVE](SAVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Saves the active workbook
 
 
 

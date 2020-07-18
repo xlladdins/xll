@@ -9,14 +9,14 @@ other dynamic data exchange (DDE) functions.
 
 **SEND.KEYS**(**key\_text**, wait\_logical)
 
-**Note&nbsp;&nbsp;&nbsp;**This function is available only in Microsoft
+**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**This function is available only in Microsoft
 Excel for Windows.
 
-Key\_text&nbsp;&nbsp;&nbsp;&nbsp;is the key or key combination you want
+Key\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the key or key combination you want
 to send to another application. The format for key\_text is described in
 the ON.KEY function.
 
-Wait\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines
+Wait\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that determines
 whether the macro continues before the actions caused by key\_text are
 carried out.
 
@@ -26,7 +26,6 @@ carried out.
   - > If wait\_logical is FALSE or omitted, the macro continues running
     > without waiting for the keys to be processed.
 
-> &nbsp;
 
 **Remarks**
 
@@ -60,11 +59,11 @@ pastes it into Microsoft Excel.
 
 **Related Functions**
 
-[APP.ACTIVATE](APP.ACTIVATE.md)&nbsp;&nbsp;&nbsp;Switches to an application
+[APP.ACTIVATE](APP.ACTIVATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to an application
 
-[EXECUTE](EXECUTE.md)&nbsp;&nbsp;&nbsp;Carries out a command in another application
+[EXECUTE](EXECUTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Carries out a command in another application
 
-[ON.KEY](ON.KEY.md)&nbsp;&nbsp;&nbsp;Runs a macro when a specified key is pressed
+[ON.KEY](ON.KEY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when a specified key is pressed
 
 
 

@@ -13,10 +13,10 @@ the edit box. If you click the Cancel button, INPUT returns FALSE.
 **INPUT**(**message\_text**, type\_num, title\_text, default, x\_pos,
 y\_pos, help\_ref)
 
-Message\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text to be displayed in the
+Message\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the text to be displayed in the
 dialog box. Message\_text must be enclosed in quotation marks.
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of data
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the type of data
 to be entered.
 
 |               |               |
@@ -56,22 +56,21 @@ is assumed to be 2.
     > type. If the information can't be converted, Microsoft Excel
     > displays an error message.
 
-> &nbsp;
 
-Title\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying a title to be
+Title\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying a title to be
 displayed in the title bar of the dialog box. If title\_text is omitted,
 it is assumed to be "Input".
 
-Default&nbsp;&nbsp;&nbsp;&nbsp;specifies a value to be shown in the edit
+Default**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies a value to be shown in the edit
 box when the dialog box is initially displayed. If default is omitted,
 the edit box is left empty.
 
-X\_pos, y\_pos&nbsp;&nbsp;&nbsp;&nbsp;specify the horizontal and
+X\_pos, y\_pos**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specify the horizontal and
 vertical position, in points, of the dialog box. A point is 1/72nd of an
 inch. If either or both arguments are omitted, the dialog box is
 centered in the corresponding direction.
 
-Help\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a custom online Help
+Help\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to a custom online Help
 topic in a text file, in the form "filename\!topic\_number".
 
   - > If help\_ref is present, a Help button appears in the lower-right
@@ -82,7 +81,6 @@ topic in a text file, in the form "filename\!topic\_number".
 
   - > Help\_ref must be given as text.
 
-> &nbsp;
 
 For more information about custom Help topics, see HELP.
 
@@ -130,14 +128,14 @@ selection.", 8)) returns R2C1:R8C1
 
 **Related Functions**
 
-[ALERT](ALERT.md)&nbsp;&nbsp;&nbsp;Displays a dialog box and a message
+[ALERT](ALERT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a dialog box and a message
 
-[DIALOG.BOX](DIALOG.BOX.md)&nbsp;&nbsp;&nbsp;Displays a custom dialog box
+[DIALOG.BOX](DIALOG.BOX.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a custom dialog box
 
-[FORMULA.CONVERT](FORMULA.CONVERT.md)&nbsp;&nbsp;&nbsp;Changes the style and type of
+[FORMULA.CONVERT](FORMULA.CONVERT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the style and type of
 references in a formula
 
-[HELP](HELP.md)&nbsp;&nbsp;&nbsp;Displays a custom Help topic
+[HELP](HELP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a custom Help topic
 
 
 

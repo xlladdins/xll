@@ -9,16 +9,16 @@ FOR.CELL when you need to repeat instructions over a range of cells.
 
 **FOR**(**counter\_text, start\_num, end\_num**, step\_num)
 
-Counter\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the loop counter in
+Counter\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the loop counter in
 the form of text.
 
-Start\_num&nbsp;&nbsp;&nbsp;&nbsp;is the value initially assigned to
+Start\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the value initially assigned to
 counter\_text.
 
-End\_num&nbsp;&nbsp;&nbsp;&nbsp;is the last value assigned to
+End\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the last value assigned to
 counter\_text.
 
-Step\_num&nbsp;&nbsp;&nbsp;&nbsp;is a value added to the loop counter
+Step\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a value added to the loop counter
 after each iteration. If step\_num is omitted, it is assumed to be 1.
 
 **Remarks**
@@ -60,7 +60,6 @@ after each iteration. If step\_num is omitted, it is assumed to be 1.
 
   - > You can interrupt a FOR-NEXT loop by using the BREAK function.
 
-> &nbsp;
 
 **Example**
 
@@ -71,14 +70,14 @@ FOR("Counter", 1, COLUMNS(WINDOWS()))
 
 **Related Functions**
 
-[BREAK](BREAK.md)&nbsp;&nbsp;&nbsp;Interrupts a FOR-NEXT, FOR.CELL-NEXT, or
+[BREAK](BREAK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Interrupts a FOR-NEXT, FOR.CELL-NEXT, or
 [WHILE](WHILE.md)-NEXT loop
 
-[FOR.CELL](FOR.CELL.md)&nbsp;&nbsp;&nbsp;Starts a FOR.CELL-NEXT loop
+[FOR.CELL](FOR.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a FOR.CELL-NEXT loop
 
-[NEXT](NEXT.md)&nbsp;&nbsp;&nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
+[NEXT](NEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
-[WHILE](WHILE.md)&nbsp;&nbsp;&nbsp;Starts a WHILE-NEXT loop
+[WHILE](WHILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a WHILE-NEXT loop
 
 
 

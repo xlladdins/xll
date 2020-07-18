@@ -10,7 +10,7 @@ series, or an entire chart.
 
 **FORMAT.CHARTTYPE**?(apply\_to, group\_num, dimension, type\_num)
 
-Apply\_to&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying what
+Apply\_to**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying what
 part of a chart the new chart type effects.
 
 |           |                      |
@@ -20,19 +20,19 @@ part of a chart the new chart type effects.
 | 2         | Group of data series |
 | 3         | Entire chart         |
 
-Group\_num&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the number of the group
+Group\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the number of the group
 you want to change as listed in the Group list box of the Chart Type
 dialog box, which appears when you click Chart Type from the Format menu
 while a chart is active. Groups are numbered starting with 1 for the
 group at the top of the list. This argument is required if apply\_to
 equals 2; otherwise it is ignored.
 
-Dimension&nbsp;&nbsp;&nbsp;&nbsp;specifies whether to apply a 2-D or 3-D
+Dimension**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether to apply a 2-D or 3-D
 chart type. Use 1 for a 2-D chart type or 2 for a 3-D chart type. If
 omitted, uses the same dimension as the series, group, or chart to be
 changed.
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the chart type to apply.
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the chart type to apply.
 Meaning of type\_num varies depending on the value of dimension:
 
 |               |                                  |
@@ -49,7 +49,7 @@ Meaning of type\_num varies depending on the value of dimension:
 
 **Related Function**
 
-[FORMAT.CHART](FORMAT.CHART.md)&nbsp;&nbsp;&nbsp;Formats the selected chart
+[FORMAT.CHART](FORMAT.CHART.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats the selected chart
 
 
 

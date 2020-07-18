@@ -7,7 +7,7 @@ module.
 
 **VBA.INSERT.FILE**(**filename\_text**)
 
-Filename\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a text file that
+Filename\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a text file that
 contains Microsoft Visual Basic code that is inserted into the currently
 active module.
 

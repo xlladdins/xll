@@ -10,13 +10,13 @@ a link from one supporting workbook to another.
 
 **CHANGE.LINK**?(old\_text, new\_text, type\_of\_link)
 
-Old\_text&nbsp;&nbsp;&nbsp;&nbsp;is the path of the link from the active
+Old\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the path of the link from the active
 dependent workbook you want to change.
 
-New\_text&nbsp;&nbsp;&nbsp;&nbsp;is the path of the link you want to
+New\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the path of the link you want to
 change to.
 
-Type\_of\_link&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 specifying
+Type\_of\_link**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number 1 or 2 specifying
 what type of link you want to change.
 
 |                    |                        |
@@ -32,15 +32,15 @@ function is calculated.
 
 **Related Functions**
 
-[GET.LINK.INFO](GET.LINK.INFO.md)&nbsp;&nbsp;&nbsp;Returns information about a link
+[GET.LINK.INFO](GET.LINK.INFO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a link
 
-[LINKS](LINKS.md)&nbsp;&nbsp;&nbsp;Returns the name of all linked workbooks
+[LINKS](LINKS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the name of all linked workbooks
 
-[OPEN.LINKS](OPEN.LINKS.md)&nbsp;&nbsp;&nbsp;Opens specified supporting workbooks
+[OPEN.LINKS](OPEN.LINKS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens specified supporting workbooks
 
-[SET.UPDATE.STATUS](SET.UPDATE.STATUS.md)&nbsp;&nbsp;&nbsp;Controls the update status of a link
+[SET.UPDATE.STATUS](SET.UPDATE.STATUS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls the update status of a link
 
-[UPDATE.LINK](UPDATE.LINK.md)&nbsp;&nbsp;&nbsp;Updates a link to another workbook
+[UPDATE.LINK](UPDATE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Updates a link to another workbook
 
 
 

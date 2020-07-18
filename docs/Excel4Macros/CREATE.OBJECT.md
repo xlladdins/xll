@@ -27,7 +27,7 @@ Embedded charts
 **ref2**, x\_offset2,  
 y\_offset2, xy\_series, fill, gallery\_num, type\_num, plot\_visible)
 
-Obj\_type&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of
+Obj\_type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the type of
 object to create.
 
 |               |                                        |
@@ -54,46 +54,46 @@ object to create.
 | 19            | Group box                              |
 | 20            | Drop down list box                     |
 
-Ref1&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell from which the
+Ref1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the cell from which the
 upper-left corner of the object is drawn, or from which the upper-left
 corner of the object's bounding rectangle is defined.
 
-X\_offset1&nbsp;&nbsp;&nbsp;&nbsp;is the horizontal distance from the
+X\_offset1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the horizontal distance from the
 upper-left corner of ref1 to the upper-left corner of the object or to
 the upper-left corner of the object's bounding rectangle. X\_offset1 is
 measured in points. A point is 1/72nd of an inch. If x\_offset1 is
 omitted, it is assumed to be 0.
 
-Y\_offset1&nbsp;&nbsp;&nbsp;&nbsp;is the vertical distance from the
+Y\_offset1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the vertical distance from the
 upper-left corner of ref1 to the upper-left corner of the object or to
 the upper-left corner of the object's bounding rectangle. Y\_offset1 is
 measured in points. If y\_offset1 is omitted, it is assumed to be 0.
 
-Ref2&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell from which the
+Ref2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the cell from which the
 lower-right corner of the object is drawn, or from which the lower-right
 corner of the object's bounding rectangle is defined.
 
-X\_offset2&nbsp;&nbsp;&nbsp;&nbsp;is the horizontal distance from the
+X\_offset2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the horizontal distance from the
 upper-left corner of ref2 to the lower-right corner of the object or to
 the lower-right corner of the object's bounding rectangle. X\_offset2 is
 measured in points. If x\_offset2 is omitted, it is assumed to be 0.
 
-Y\_offset2&nbsp;&nbsp;&nbsp;&nbsp;is the vertical distance from the
+Y\_offset2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the vertical distance from the
 upper-left corner of ref2 to the lower-right corner of the object or to
 the lower-right corner of the object's bounding rectangle. Y\_offset2 is
 measured in points. If y\_offset2 is omitted, it is assumed to be 0.
 
-Text&nbsp;&nbsp;&nbsp;&nbsp;specifies the text that appears in a text
+Text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the text that appears in a text
 box or button. If text is omitted for a button, the button is named
 "Button n", where n is a number. If obj\_type is not 6 or 7, text is
 ignored.
 
-Fill&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether the
+Fill**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether the
 object is filled or transparent. If fill is TRUE, the object is filled;
 if FALSE, the object is transparent; if omitted, the object is filled
 with an applicable pattern for the object being created.
 
-Array&nbsp;&nbsp;&nbsp;&nbsp;is an n by 2 array of values, or a
+Array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an n by 2 array of values, or a
 reference to a range of cells containing values, that indicate the
 position of each vertex in a polygon, relative to the upper-left corner
 of the polygon's bounding rectangle.
@@ -108,9 +108,8 @@ of the polygon's bounding rectangle.
     > automatically records EXTEND.POLYGON functions as needed. For more
     > information, see EXTEND.POLYGON.
 
-> &nbsp;
 
-Xy\_series&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 3 that specifies
+Xy\_series**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 3 that specifies
 how data is arranged in a chart and corresponds to options in the Paste
 Special dialog box.
 
@@ -130,9 +129,8 @@ Special dialog box.
     > plot\_by, categories, and ser\_titles arguments to the
     > CHART.WIZARD function. For more information, see CHART.WIZARD.
 
-> &nbsp;
 
-Gallery\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 15 specifying
+Gallery\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 15 specifying
 the type of embedded chart you want to create.
 
 |                  |              |
@@ -154,16 +152,16 @@ the type of embedded chart you want to create.
 | 14               | 3-D surface  |
 | 15               | Doughnut     |
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number identifying a formatting
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number identifying a formatting
 option for a chart. The formatting options are shown in the dialog box
 of the AutoFormat command that corresponds to the type of chart you're
 creating. The first formatting option in any gallery is 1.
 
-Plot\_visible&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds
+Plot\_visible**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds
 to the Plot Visible Cells Only checkbox in the Chart tab of the Options
 dialog box. If FALSE or omitted, all values are plotted.
 
-Editable&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines
+Editable**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that determines
 whether the drop down list box is editable or not. If TRUE, the drop
 down list box is editable. If FALSE, the drop down list box is not
 editable. If obj\_type is not 20, this argument is ignored.
@@ -189,30 +187,29 @@ editable. If obj\_type is not 20, this argument is ignored.
   - > You must use the COPY function before the CREATE.OBJECT function
     > to create a chart or a picture.
 
-> &nbsp;
 
-**Tip**&nbsp;&nbsp;&nbsp;To assign a macro to an object, use the
+**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;To assign a macro to an object, use the
 ASSIGN.TO.OBJECT function immediately after creating the object.
 
 **Related Functions**
 
-[ASSIGN.TO.OBJECT](ASSIGN.TO.OBJECT.md)&nbsp;&nbsp;&nbsp;Assigns a macro to an object
+[ASSIGN.TO.OBJECT](ASSIGN.TO.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Assigns a macro to an object
 
-[EXTEND.POLYGON](EXTEND.POLYGON.md)&nbsp;&nbsp;&nbsp;Adds vertices to a polygon
+[EXTEND.POLYGON](EXTEND.POLYGON.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds vertices to a polygon
 
-[FORMAT.MOVE](FORMAT.MOVE.md)&nbsp;&nbsp;&nbsp;Moves the selected object
+[FORMAT.MOVE](FORMAT.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves the selected object
 
-[FORMAT.SHAPE](FORMAT.SHAPE.md)&nbsp;&nbsp;&nbsp;Inserts, moves, or deletes vertices of the
+[FORMAT.SHAPE](FORMAT.SHAPE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Inserts, moves, or deletes vertices of the
 selected polygon
 
-[FORMAT.SIZE](FORMAT.SIZE.md)&nbsp;&nbsp;&nbsp;Sizes an object
+[FORMAT.SIZE](FORMAT.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sizes an object
 
-[GET.OBJECT](GET.OBJECT.md)&nbsp;&nbsp;&nbsp;Returns information about an object
+[GET.OBJECT](GET.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about an object
 
-[OBJECT.PROPERTIES](OBJECT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Determines an object's relationship
+[OBJECT.PROPERTIES](OBJECT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Determines an object's relationship
 to underlying cells
 
-[TEXT.BOX](TEXT.BOX.md)&nbsp;&nbsp;&nbsp;Replaces text in a text box
+[TEXT.BOX](TEXT.BOX.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Replaces text in a text box
 
 
 

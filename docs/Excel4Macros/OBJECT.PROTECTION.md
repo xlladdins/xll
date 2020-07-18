@@ -8,11 +8,11 @@ Changes the protection status of the selected object.
 
 **OBJECT.PROTECTION**?(locked, lock\_text)
 
-Locked&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines whether
+Locked**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that determines whether
 the selected object is locked or unlocked. If locked is TRUE, Microsoft
 Excel locks the object; if FALSE, Microsoft Excel unlocks the object.
 
-Lock\_text&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines
+Lock\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that determines
 whether text in a text box or button can be changed. Lock\_text applies
 only if the object is a text box, button, or worksheet control. If
 lock\_text is TRUE or omitted, text cannot be changed; if FALSE, text
@@ -31,14 +31,13 @@ can be changed.
     > PROTECT.DOCUMENT(, , , TRUE) function after changing the object's
     > status with OBJECT.PROTECTION.
 
-> &nbsp;
 
 **Related Functions**
 
-[PROTECT.DOCUMENT](PROTECT.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Controls protection for the active
+[PROTECT.DOCUMENT](PROTECT.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls protection for the active
 worksheet
 
-[WORKBOOK.PROTECT](WORKBOOK.PROTECT.md)&nbsp;&nbsp;&nbsp;Controls protection for the active
+[WORKBOOK.PROTECT](WORKBOOK.PROTECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls protection for the active
 workbook
 
 

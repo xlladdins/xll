@@ -10,9 +10,9 @@ and halts the macro.
 
 **Related Functions**
 
-[ACTIVE.CELL](ACTIVE.CELL.md)&nbsp;&nbsp;&nbsp;Returns the reference of the active cell
+[ACTIVE.CELL](ACTIVE.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the active cell
 
-[FORMULA.GOTO](FORMULA.GOTO.md)&nbsp;&nbsp;&nbsp;Selects a named area or reference on any
+[FORMULA.GOTO](FORMULA.GOTO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects a named area or reference on any
 open workbook
 
 

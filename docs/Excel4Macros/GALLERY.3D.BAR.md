@@ -8,7 +8,7 @@ Changes the active chart to a 3-D bar chart.
 
 **GALLERY.3D.BAR**?(type\_num)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the 3-D Bar format
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the 3-D Bar format
 that you want to apply to the chart.
 
 

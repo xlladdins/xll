@@ -15,7 +15,7 @@ versions, you must install the View Manager add-in.
 
 **VIEW.SHOW**?(view\_name)
 
-View\_name&nbsp;&nbsp;&nbsp;&nbsp;is text enclosed in quotation marks
+View\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text enclosed in quotation marks
 and specifies the name of a view in the active workbook.
 
 **Remarks**
@@ -25,9 +25,9 @@ the workbook is protected.
 
 **Related Functions**
 
-[VIEW.DEFINE](VIEW.DEFINE.md)&nbsp;&nbsp;&nbsp;Creates or replaces a view
+[VIEW.DEFINE](VIEW.DEFINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or replaces a view
 
-[VIEW.DELETE](VIEW.DELETE.md)&nbsp;&nbsp;&nbsp;Removes a view from the active workbook
+[VIEW.DELETE](VIEW.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes a view from the active workbook
 
 
 

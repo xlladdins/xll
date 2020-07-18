@@ -8,7 +8,7 @@ information you can use in other macro formulas that manipulate objects.
 **GET.OBJECT**(**type\_num**, object\_id\_text, start\_num, count\_num,
 item\_index)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the type of
 information you want returned about an object. GET.OBJECT returns the
 \#VALUE\! error value (and the macro is halted) if an object isn't
 specified or if more than one object is selected.
@@ -384,31 +384,31 @@ If the object is not a line, returns the #N/A error value.</td>
 </tbody>
 </table>
 
-Object\_id\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name and number, or
+Object\_id\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name and number, or
 number alone, of the object you want information about. Object\_id\_text
 is the text displayed in the reference area when the object is selected.
 If object\_id\_text is omitted, it is assumed to be the selected object.
 If object\_id\_text is omitted and no object is selected, GET.OBJECT
 returns the \#REF\! error value and interrupts the macro.
 
-Start\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the first character
+Start\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the first character
 in the text box or button or the first vertex in a polygon you want
 information about. Start\_num is ignored unless a text box, button, or
 polygon is specified by type\_num and object\_id\_text. If start\_num is
 omitted, it is assumed to be 1.
 
-Count\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of characters in a text
+Count\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of characters in a text
 box or button, or the number of vertices in a polygon, starting at
 start\_num, that you want information about. Count\_num is ignored
 unless a text box, button, or polygon is specified by type\_num and
 object\_id\_text. If count\_num is omitted, it is assumed to be 255.
 
-Item\_index&nbsp;&nbsp;&nbsp;&nbsp;is the index number or position of
+Item\_index**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the index number or position of
 the item in the list box or drop-down box that you want information
 about, ranging from 1 to the number of items in the list box or
 drop-down box.
 
-**Tip&nbsp;&nbsp;&nbsp;**Use GET.OBJECT(45) - GET.OBJECT(43) to
+**Tip**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Use GET.OBJECT(45) - GET.OBJECT(43) to
 determine the height of an object and GET.OBJECT(44) - GET.OBJECT(42) to
 determine the width.
 
@@ -431,13 +431,13 @@ GET.OBJECT(12, "Text 5", 25, 160)
 
 **Related Functions**
 
-[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
 
-[FONT.PROPERTIES](FONT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Applies a font to the selection
+[FONT.PROPERTIES](FONT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a font to the selection
 
-[OBJECT.PROTECTION](OBJECT.PROTECTION.md)&nbsp;&nbsp;&nbsp;Controls how an object is protected
+[OBJECT.PROTECTION](OBJECT.PROTECTION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls how an object is protected
 
-[PLACEMENT](PLACEMENT.md)&nbsp;&nbsp;&nbsp;Determines an object's relationship to
+[PLACEMENT](PLACEMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Determines an object's relationship to
 underlying cells
 
 

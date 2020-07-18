@@ -10,7 +10,7 @@ form.
 
 **ENTER.DATA**(logical)
 
-Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that turns Data Entry
+Logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that turns Data Entry
 mode on or off.
 
   - > If logical is TRUE, Data Entry mode is turned on; if FALSE, Data
@@ -24,7 +24,6 @@ mode on or off.
   - > Logical can also be a reference. Using a reference for this
     > argument turns on Data Entry mode for the supplied reference.
 
-> &nbsp;
 
 **Remarks**
 
@@ -54,7 +53,6 @@ mode on or off.
 > resume or run other macros based on an event, such as pressing the
 > CONTROL+D keys.
 > 
-> &nbsp;
 
 **Tips**
 
@@ -72,9 +70,9 @@ mode on or off.
 
 **Related Functions**
 
-[DISABLE.INPUT](DISABLE.INPUT.md)&nbsp;&nbsp;&nbsp;Blocks all input to Microsoft Excel
+[DISABLE.INPUT](DISABLE.INPUT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Blocks all input to Microsoft Excel
 
-[FORMULA](FORMULA.md)&nbsp;&nbsp;&nbsp;Enters values into a cell or range or onto a
+[FORMULA](FORMULA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters values into a cell or range or onto a
 chart
 
 

@@ -9,12 +9,12 @@ sheet active.
 
 **SET.DIALOG.DEFAULT**(**object\_id\_text**)
 
-Object\_id\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the button
+Object\_id\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the button
 control to set as the default button, as in "Button 5".
 
 **Related Function**
 
-[SET.DIALOG.FOCUS](SET.DIALOG.FOCUS.md)&nbsp;&nbsp;&nbsp;Sets the focus of a dialog box
+[SET.DIALOG.FOCUS](SET.DIALOG.FOCUS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the focus of a dialog box
 
 
 

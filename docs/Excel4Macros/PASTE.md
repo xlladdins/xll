@@ -10,26 +10,26 @@ PASTE.SPECIAL.
 
 **PASTE**(to\_reference)
 
-To\_reference&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell or range
+To\_reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the cell or range
 of cells where you want to paste what you have copied. If to\_reference
 is omitted, Microsoft Excel pastes to the current selection. If there is
 nothing to paste, the macro halts.
 
 **Related Functions**
 
-[COPY](COPY.md)&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
+[COPY](COPY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies and pastes data or objects
 
-[CUT](CUT.md)&nbsp;&nbsp;&nbsp;Cuts or moves data or objects
+[CUT](CUT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Cuts or moves data or objects
 
-[FORMULA](FORMULA.md)&nbsp;&nbsp;&nbsp;Enters values into a cell or range or onto a
+[FORMULA](FORMULA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters values into a cell or range or onto a
 chart
 
-[INSERT](INSERT.md)&nbsp;&nbsp;&nbsp;Inserts cells
+[INSERT](INSERT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Inserts cells
 
-[PASTE.LINK](PASTE.LINK.md)&nbsp;&nbsp;&nbsp;Pastes copied data and establishes a link to
+[PASTE.LINK](PASTE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes copied data and establishes a link to
 its source
 
-[PASTE.SPECIAL](PASTE.SPECIAL.md)&nbsp;&nbsp;&nbsp;Pastes specific components of copied data
+[PASTE.SPECIAL](PASTE.SPECIAL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes specific components of copied data
 
 
 

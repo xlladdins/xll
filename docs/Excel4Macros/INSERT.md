@@ -11,7 +11,7 @@ the current selection.
 
 **INSERT**?(shift\_num)
 
-Shift\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying
+Shift\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying
 which way to shift the cells. If an entire row or column is selected,
 shift\_num is ignored. If shift\_num is omitted, Microsoft Excel shifts
 cells in the logical direction based on the selection.
@@ -36,13 +36,13 @@ your old macros with later versions of Microsoft Excel.
 
 **Related Functions**
 
-[COPY](COPY.md)&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
+[COPY](COPY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies and pastes data or objects
 
-[CUT](CUT.md)&nbsp;&nbsp;&nbsp;Cuts or moves data or objects
+[CUT](CUT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Cuts or moves data or objects
 
-[EDIT.DELETE](EDIT.DELETE.md)&nbsp;&nbsp;&nbsp;Removes cells from a sheet
+[EDIT.DELETE](EDIT.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes cells from a sheet
 
-[PASTE](PASTE.md)&nbsp;&nbsp;&nbsp;Pastes cut or copied data
+[PASTE](PASTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes cut or copied data
 
 
 

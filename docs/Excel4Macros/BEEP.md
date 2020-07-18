@@ -7,7 +7,7 @@ a macro, or whenever you need to get the user's attention.
 
 **BEEP**(tone\_num)
 
-Tone\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying the
+Tone\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying the
 tone to be played.
 
   - > On most computers, all numbers produce the same sound, the sound
@@ -16,7 +16,6 @@ tone to be played.
 
   - > If tone\_num is omitted, it is assumed to be 1.
 
-> &nbsp;
 
 **Remarks**
 
@@ -26,13 +25,12 @@ tone to be played.
   - > With Microsoft Windows version 3.0 or later, you can turn off the
     > tone by using the Control Panel.
 
-> &nbsp;
 
 **Related Functions**
 
-[ALERT](ALERT.md)&nbsp;&nbsp;&nbsp;Displays a dialog box and a message
+[ALERT](ALERT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a dialog box and a message
 
-[MESSAGE](MESSAGE.md)&nbsp;&nbsp;&nbsp;Displays a message in the status bar
+[MESSAGE](MESSAGE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a message in the status bar
 
 
 

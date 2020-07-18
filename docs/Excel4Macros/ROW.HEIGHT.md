@@ -9,10 +9,10 @@ Format menu. Changes the height of the rows in a reference.
 
 **ROW.HEIGHT**?(height\_num, reference, standard\_height, type\_num)
 
-Height\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies how high you want the rows
+Height\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies how high you want the rows
 to be in points. If standard\_height is TRUE, height\_num is ignored.
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies the rows for which you want
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the rows for which you want
 to change the height.
 
   - > If reference is omitted, the reference is assumed to be the
@@ -26,9 +26,8 @@ to change the height.
   - > If reference is a relative R1C1-style reference in the form of
     > text, it is assumed to be relative to the active cell.
 
-> &nbsp;
 
-Standard\_height&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that sets the
+Standard\_height**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that sets the
 row height as determined by the font in each row.
 
   - > If standard\_height is TRUE, Microsoft Excel sets the row height
@@ -38,9 +37,8 @@ row height as determined by the font in each row.
   - > If standard\_height is FALSE or omitted, Microsoft Excel sets the
     > row height according to height\_num.
 
-> &nbsp;
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 corresponding
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 corresponding
 to selecting the Hide, Unhide, or AutoFit commands from the Row submenu.
 
 <table>
@@ -95,11 +93,10 @@ to selecting the Hide, Unhide, or AutoFit commands from the Row submenu.
     > is not selected, Microsoft Excel uses R1C1-style absolute
     > references.
 
-> &nbsp;
 
 **Related Function**
 
-[COLUMN.WIDTH](COLUMN.WIDTH.md)&nbsp;&nbsp;&nbsp;Sets the widths of the specified columns
+[COLUMN.WIDTH](COLUMN.WIDTH.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the widths of the specified columns
 
 
 

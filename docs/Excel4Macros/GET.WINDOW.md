@@ -8,7 +8,7 @@ display options.
 
 **GET.WINDOW**(**type\_num**, window\_text)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies what type of
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies what type of
 window information you want. The following list shows the possible
 values of type\_num and the corresponding results:
 
@@ -144,7 +144,7 @@ widths and heights of those panes.
 </tbody>
 </table>
 
-Window\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name that appears in the
+Window\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name that appears in the
 title bar of the window that you want information about. If window\_text
 is omitted, it is assumed to be the active window.
 
@@ -170,9 +170,9 @@ GET.WINDOW(12, "REPORT MASTER")
 
 **Related Functions**
 
-[GET.DOCUMENT](GET.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook
+[GET.DOCUMENT](GET.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook
 
-[GET.WORKSPACE](GET.WORKSPACE.md)&nbsp;&nbsp;&nbsp;Returns information about the workspace
+[GET.WORKSPACE](GET.WORKSPACE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the workspace
 
 
 

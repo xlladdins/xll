@@ -14,7 +14,7 @@ versions, you must install the View Manager add-in.
 
 **VIEW.DELETE**(**view\_name**)
 
-View\_name&nbsp;&nbsp;&nbsp;&nbsp;is text enclosed in quotation marks
+View\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text enclosed in quotation marks
 and specifies the name of the view in the current workbook that you want
 to delete.
 
@@ -25,9 +25,9 @@ if the workbook is protected.
 
 **Related Functions**
 
-[VIEW.DEFINE](VIEW.DEFINE.md)&nbsp;&nbsp;&nbsp;Creates or replaces a view
+[VIEW.DEFINE](VIEW.DEFINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or replaces a view
 
-[VIEW.SHOW](VIEW.SHOW.md)&nbsp;&nbsp;&nbsp;Shows a view
+[VIEW.SHOW](VIEW.SHOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Shows a view
 
 
 

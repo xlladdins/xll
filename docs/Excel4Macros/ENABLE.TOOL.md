@@ -9,15 +9,15 @@ in a particular situation.
 
 **ENABLE.TOOL**(**bar\_id, position**, enable)
 
-Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;is the number or name of a toolbar on
+Bar\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number or name of a toolbar on
 which the button resides. For detailed information about bar\_id, see
 ADD.TOOL.
 
-Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the position of the button on
+Position**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the position of the button on
 the toolbar. Position starts with 1 at the left side (if horizontal) or
 from the top (if vertical).
 
-Enable&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the button can be
+Enable**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether the button can be
 accessed. If enable is TRUE or omitted, the user can access the button;
 if FALSE, the user cannot access it.
 
@@ -33,7 +33,7 @@ ENABLE.TOOL("Toolbar1", 4, TRUE)
 
 **Related Function**
 
-[GET.TOOL](GET.TOOL.md)&nbsp;&nbsp;&nbsp;Returns information about a button or buttons
+[GET.TOOL](GET.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a button or buttons
 on a toolbar
 
 

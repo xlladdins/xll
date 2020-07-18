@@ -9,7 +9,7 @@ If this function is not available, you must install the Solver add-in.
 
 **SOLVER.GET**(**type\_num**, sheet\_name)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the type of
 information you want.
 
 The following settings are specified in the Solver Parameters dialog
@@ -184,7 +184,7 @@ The following settings are specified in the Solver Options dialog box:
 </tbody>
 </table>
 
-Sheet\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of a sheet that contains
+Sheet\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a sheet that contains
 the scenario for which you want information. If sheet\_name is omitted,
 it is assumed to be the active sheet.
 

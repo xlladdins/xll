@@ -15,7 +15,7 @@ Microsoft Excel for the Macintosh version 1.5 or earlier.
 
 **Related Function**
 
-[SELECT](SELECT.md)&nbsp;&nbsp;&nbsp;Selects a chart object
+[SELECT](SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects a chart object
 
 
 

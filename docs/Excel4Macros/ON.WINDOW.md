@@ -6,12 +6,12 @@ Runs a specified macro when you switch to a particular window.
 
 **ON.WINDOW**(window\_text, macro\_text)
 
-Window\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a window in the form
+Window\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a window in the form
 of text. If window\_text is omitted, ON.WINDOW starts the macro whenever
 you switch to any window, except for windows that are named in other
 ON.WINDOW statements.
 
-Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or an R1C1-style
+Macro\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of, or an R1C1-style
 reference to, a macro to run when you switch to window\_text. If
 macro\_text is omitted, switching to window\_text no longer runs the
 previously specified macro.
@@ -28,7 +28,6 @@ previously specified macro.
     > Auto\_Deactivate macro defined for it, those macros will be run
     > after the macro specified by ON.WINDOW.
 
-> &nbsp;
 
 **Examples**
 
@@ -54,14 +53,14 @@ ON.WINDOW("MAIN WINDOW")
 
 **Related Functions**
 
-[GET.WINDOW](GET.WINDOW.md)&nbsp;&nbsp;&nbsp;Returns information about a window
+[GET.WINDOW](GET.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a window
 
-[ON.KEY](ON.KEY.md)&nbsp;&nbsp;&nbsp;Runs a macro when a specified key is pressed
+[ON.KEY](ON.KEY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when a specified key is pressed
 
-[ON.SHEET](ON.SHEET.md)&nbsp;&nbsp;&nbsp;Triggers a macro whenever the specified sheet
+[ON.SHEET](ON.SHEET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Triggers a macro whenever the specified sheet
 is activated from another sheet
 
-[WINDOWS](WINDOWS.md)&nbsp;&nbsp;&nbsp;Returns the names of all open windows
+[WINDOWS](WINDOWS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the names of all open windows
 
 
 

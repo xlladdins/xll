@@ -6,7 +6,7 @@ Converts a workbook containing Visual Basic procedures into an add-in.
 
 **VBA.MAKE.ADDIN**(**filename\_text**)
 
-Filename\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the workbook that
+Filename\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the workbook that
 you want to convert to an add-in.
 
 **Remarks**

@@ -16,27 +16,27 @@ z\_minor, 2D\_effect)
 **GRIDLINES**?(x\_major, x\_minor, y\_major, y\_minor, z\_major,
 z\_minor, 2D\_effect)
 
-X\_major&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Category (X) Axis:
+X\_major**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Category (X) Axis:
 Major Gridlines check box.
 
-X\_minor&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Category (X) Axis:
+X\_minor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Category (X) Axis:
 Minor Gridlines check box.
 
-Y\_major&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Value (Y) Axis: Major
+Y\_major**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Value (Y) Axis: Major
 Gridlines check box. On 3-D charts, y\_major corresponds to the Series
 (Y) Axis: Major Gridlines check box.
 
-Y\_minor&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Value (Y) Axis: Minor
+Y\_minor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Value (Y) Axis: Minor
 Gridlines check box. On 3-D charts, y\_minor corresponds to the Series
 (Y) Axis: Minor Gridlines check box.
 
-Z\_major&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Value (Z) Axis: Major
+Z\_major**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Value (Z) Axis: Major
 Gridlines check box (3-D only).
 
-Z\_minor&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Value (Z) Axis: Minor
+Z\_minor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Value (Z) Axis: Minor
 Gridlines check box (3-D only).
 
-2D\_effect&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the 2-D Walls and
+2D\_effect**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the 2-D Walls and
 Gridlines check box (3-D only).
 
 

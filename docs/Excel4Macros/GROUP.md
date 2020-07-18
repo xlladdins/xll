@@ -15,7 +15,7 @@ the macro.
 
 **Related Function**
 
-[UNGROUP](UNGROUP.md)&nbsp;&nbsp;&nbsp;Separates a grouped object
+[UNGROUP](UNGROUP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Separates a grouped object
 
 <span id="H" class="anchor"></span>This document contains reference
 information on the following Excel macro functions:

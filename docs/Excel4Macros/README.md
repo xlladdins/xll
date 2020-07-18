@@ -266,14 +266,7 @@
 ## I
 
 [IF](IF.md)
-
-## T
-
-[Tips](Tips.md)
-
-## I
-
-[INITIATE](INITIATE.md)
+ &bull; [INITIATE](INITIATE.md)
  &bull; [INPUT](INPUT.md)
  &bull; [INSERT](INSERT.md)
  &bull; [INSERT.OBJECT](INSERT.OBJECT.md)

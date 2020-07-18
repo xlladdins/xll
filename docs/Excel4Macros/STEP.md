@@ -29,13 +29,12 @@ submenu).
   - > To step through the calculation of a custom function, place the
     > STEP function at the start of the custom function.
 
-> &nbsp;
 
 **Related Functions**
 
-[HALT](HALT.md)&nbsp;&nbsp;&nbsp;Stops all macros from running
+[HALT](HALT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Stops all macros from running
 
-[RUN](RUN.md)&nbsp;&nbsp;&nbsp;Runs a macro
+[RUN](RUN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro
 
 
 

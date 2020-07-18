@@ -20,11 +20,11 @@ For cell storage
 
 **ARGUMENT**(name\_text, data\_type\_num, **reference**)
 
-Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the argument or of the
+Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the argument or of the
 cells containing the argument. Name\_text is required if you omit
 reference.
 
-Data\_type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that determines what
+Data\_type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that determines what
 type of values Microsoft Excel accepts for the argument. The following
 table lists the possible data types.
 
@@ -53,9 +53,8 @@ table lists the possible data types.
     > to convert it to the specified type. If the value cannot be
     > converted, the macro returns the \#VALUE\! error value.
 
-> &nbsp;
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;is the cell or cells in which you want
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the cell or cells in which you want
 to store the argument's value.
 
   - > If you specify reference, the value that is passed to ARGUMENT is
@@ -67,7 +66,6 @@ to store the argument's value.
     > and refers to the value that is passed to ARGUMENT. Once
     > name\_text is defined, you can use it in formulas.
 
-> &nbsp;
 
 **Remarks**
 
@@ -78,7 +76,6 @@ to store the argument's value.
     > corresponding argument in the function that starts the macro, the
     > macro uses the \#N/A error value as the value of the argument.
 
-> &nbsp;
 
 **Examples**
 
@@ -93,10 +90,10 @@ ARGUMENT("UnitPrice", 1)
 
 **Related Functions**
 
-[RESULT](RESULT.md)&nbsp;&nbsp;&nbsp;Specifies the data type a custom function
+[RESULT](RESULT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies the data type a custom function
 returns
 
-[VOLATILE](VOLATILE.md)&nbsp;&nbsp;&nbsp;Makes custom functions recalculate
+[VOLATILE](VOLATILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Makes custom functions recalculate
 automatically
 
 

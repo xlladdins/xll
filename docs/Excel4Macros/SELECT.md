@@ -5,11 +5,11 @@ three syntax forms of SELECT. Use syntax 1 to select a cell on a
 worksheet or macro sheet; use one of the other syntax forms to select
 worksheet or macro sheet objects or chart items.
 
-Syntax 1&nbsp;&nbsp;&nbsp;Selects cells
+Syntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects cells
 
-Syntax 2&nbsp;&nbsp;&nbsp;Selects objects on worksheets
+Syntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects objects on worksheets
 
-Syntax 3&nbsp;&nbsp;&nbsp;Selects chart objects
+Syntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects chart objects
 
 
 
@@ -26,14 +26,14 @@ worksheet or macro sheet objects or chart items.
 
 **SELECT**(selection, active\_cell)
 
-Selection&nbsp;&nbsp;&nbsp;&nbsp;is the cell or range of cells you want
+Selection**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the cell or range of cells you want
 to select. Selection can be a reference to the active worksheet, such as
 \!$A$1:$A$3 or \!Sales, or an R1C1-style reference to a cell or range
 relative to the active cell in the current selection, such as
 "R\[-1\]C\[-1\]:R\[1\]C\[1\]". The reference must be in text form. If
 selection is omitted, the current selection is used.
 
-Active\_cell&nbsp;&nbsp;&nbsp;&nbsp;is the cell in selection you want to
+Active\_cell**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the cell in selection you want to
 make the active cell. Active\_cell can be a reference to a single cell
 on the active worksheet, such as \!$A$1, or an R1C1-style reference
 relative to the active cell, such as "R\[-1\]C\[-1\]". The reference
@@ -59,9 +59,8 @@ in the upper-left corner of selection the active cell.
     > make a selection on another sheet in the same workbook or in
     > another workbook.
 
-> &nbsp;
 
-**Tip**&nbsp;&nbsp;&nbsp;You can enter data in a cell without selecting
+**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;You can enter data in a cell without selecting
 the cell by using the reference arguments to the CUT, COPY, or FORMULA
 functions.
 
@@ -103,16 +102,16 @@ SELECT(OFFSET(SELECTION(), 0, 1))
 
 **Related Functions**
 
-[ACTIVE.CELL](ACTIVE.CELL.md)&nbsp;&nbsp;&nbsp;Returns the reference of the active cell
+[ACTIVE.CELL](ACTIVE.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the active cell
 
-[SELECT.SPECIAL](SELECT.SPECIAL.md)&nbsp;&nbsp;&nbsp;Selects a group of cells belonging to a
+[SELECT.SPECIAL](SELECT.SPECIAL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects a group of cells belonging to a
 category
 
-[SELECTION](SELECTION.md)&nbsp;&nbsp;&nbsp;Returns the reference of the selection
+[SELECTION](SELECTION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the selection
 
-[SELECT](SELECT.md) Syntax 2&nbsp;&nbsp;&nbsp;Selects objects on worksheets
+[SELECT](SELECT.md) Syntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects objects on worksheets
 
-[SELECT](SELECT.md) Syntax 3&nbsp;&nbsp;&nbsp;Selects chart objects
+[SELECT](SELECT.md) Syntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects chart objects
 
 
 
@@ -129,7 +128,7 @@ select cells on a worksheet or macro sheet or items on a chart.
 
 **SELECT**(object\_id\_text, replace)
 
-Object\_id\_text&nbsp;&nbsp;&nbsp;&nbsp;is text that identifies the
+Object\_id\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text that identifies the
 object to select. Object\_id\_text can be the name of more than one
 object. To give the name of more than one object, use the following
 format:
@@ -141,7 +140,7 @@ The active object is important when moving and sizing a group of
 objects. A multiple selection of objects is moved and sized relative to
 the upper-left corner of the active object.
 
-Replace&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies whether
+Replace**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies whether
 previously selected objects are included in the selection. If replace is
 TRUE or omitted, Microsoft Excel only selects the objects specified by
 object\_id\_text; if FALSE, it includes any objects that were previously
@@ -167,17 +166,17 @@ SELECT("3, 1, 4, 2")
 
 **Related Functions**
 
-[FORMAT.MOVE](FORMAT.MOVE.md)&nbsp;&nbsp;&nbsp;Moves the selected object
+[FORMAT.MOVE](FORMAT.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves the selected object
 
-[FORMAT.SIZE](FORMAT.SIZE.md)&nbsp;&nbsp;&nbsp;Changes the size of the selected objects
+[FORMAT.SIZE](FORMAT.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the size of the selected objects
 
-[GET.OBJECT](GET.OBJECT.md)&nbsp;&nbsp;&nbsp;Returns information about an object
+[GET.OBJECT](GET.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about an object
 
-[SELECTION](SELECTION.md)&nbsp;&nbsp;&nbsp;Returns the reference of the selection
+[SELECTION](SELECTION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the selection
 
-[SELECT](SELECT.md) Syntax 1&nbsp;&nbsp;&nbsp;Selects cells
+[SELECT](SELECT.md) Syntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects cells
 
-[SELECT](SELECT.md) Syntax 3&nbsp;&nbsp;&nbsp;Selects chart objects
+[SELECT](SELECT.md) Syntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects chart objects
 
 
 
@@ -194,7 +193,7 @@ forms to select cells or objects on a worksheet or macro sheet.
 
 **SELECT**(item\_text, single\_point)
 
-Item\_text&nbsp;&nbsp;&nbsp;&nbsp;is a selection code from the following
+Item\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a selection code from the following
 table which specifies which chart object to select.
 
 <table>
@@ -533,7 +532,7 @@ table which specifies which chart object to select.
 For trend lines and error bars, the value m can be X or Y, depending on
 which point you want to select. If m is blank, selects both.
 
-Single\_point&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines
+Single\_point**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that determines
 whether to select a single point. Single\_point is available only when
 item\_text is "SnPm".
 
@@ -546,7 +545,6 @@ item\_text is "SnPm".
   - > If you specify single\_point when item\_text is any value other
     > than "SnPm", SELECT returns an error value.
 
-> &nbsp;
 
 **Examples**
 
@@ -561,11 +559,11 @@ an area chart.
 
 **Related Functions**
 
-[SELECTION](SELECTION.md)&nbsp;&nbsp;&nbsp;Returns the reference of the selection
+[SELECTION](SELECTION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the selection
 
-[SELECT](SELECT.md) Syntax 1&nbsp;&nbsp;&nbsp;Selects cells
+[SELECT](SELECT.md) Syntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects cells
 
-[SELECT](SELECT.md) Syntax 2&nbsp;&nbsp;&nbsp;Selects objects on worksheets
+[SELECT](SELECT.md) Syntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects objects on worksheets
 
 
 

@@ -3,19 +3,19 @@ SCALE
 Changes the position, formatting, and scaling of axes in a chart. There
 are five syntax forms of this function.
 
-Syntax 1&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+Syntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 2-D charts
 
-Syntax 2&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+Syntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 2-D charts
 
-Syntax 3&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+Syntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 3-D charts
 
-Syntax 4&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+Syntax 4**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the series axis in 3-D charts
 
-Syntax 5&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+Syntax 5**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 3-D charts
 
 
@@ -42,44 +42,44 @@ the Format Axis dialog box. Arguments corresponding to check boxes are
 logical values. If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box.
 
-Cross&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the Value (Y)
+Cross**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the Value (Y)
 Axis Crosses At Category number text box. The default is 1. Cross is
 ignored if max is set to TRUE.
 
-Cat\_labels&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Cat\_labels**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the
 Number Of Categories Between Tick Mark Labels text box. The default is
 1.
 
-Cat\_marks&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Cat\_marks**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the
 Number Of Categories Between Tick Marks text box. The default is 1.
 
-Between&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Value (Y) Axis Crosses
+Between**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Value (Y) Axis Crosses
 Between Categories check box. This argument only applies if cat\_labels
 is set to a number other than 1.
 
-Max&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Value (Y) Axis Crosses At
+Max**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Value (Y) Axis Crosses At
 Maximum Category check box. If max is TRUE, it overrides any setting for
 cross.
 
-Reverse&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Categories In Reverse
+Reverse**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Categories In Reverse
 Order check box.
 
 **Related Functions**
 
-[AXES](AXES.md)&nbsp;&nbsp;&nbsp;Controls whether axes on a chart are visible
+[AXES](AXES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls whether axes on a chart are visible
 
-[GRIDLINES](GRIDLINES.md)&nbsp;&nbsp;&nbsp;Controls whether chart gridlines are visible
+[GRIDLINES](GRIDLINES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls whether chart gridlines are visible
 
-[S](S.md)yntax 2&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 2-D charts
 
-[S](S.md)yntax 3&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 3-D charts
 
-[S](S.md)yntax 4&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 4**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the series axis in 3-D charts
 
-[S](S.md)yntax 5&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 5**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 3-D charts
 
 
@@ -112,21 +112,20 @@ number:
 
   - > If an argument is a number, that number is used for the variable.
 
-> &nbsp;
 
-Min\_num&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Minimum check box and
+Min\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Minimum check box and
 is the minimum value for the value axis.
 
-Max\_num&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Maximum check box and
+Max\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Maximum check box and
 is the maximum value for the value axis.
 
-Major&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Major Unit check box and
+Major**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Major Unit check box and
 is the major unit of measure.
 
-Minor&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Minor Unit check box and
+Minor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Minor Unit check box and
 is the minor unit of measure.
 
-Cross&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Category (X) Axis
+Cross**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Category (X) Axis
 Crosses At text box for the value (y) axis of a 2-D chart or the Value
 (Y) Axis Crosses At text box for the category (x) axis of an xy
 (scatter) chart.
@@ -135,27 +134,27 @@ The last three arguments are logical values corresponding to check boxes
 on the Scale tab . If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box.
 
-Logarithmic&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Logarithmic Scale
+Logarithmic**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Logarithmic Scale
 check box.
 
-Reverse&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Values In Reverse
+Reverse**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Values In Reverse
 Order check box.
 
-Max&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Category (X) Axis Crosses
+Max**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Category (X) Axis Crosses
 At Maximum Value check box.
 
 **Related Functions**
 
-[S](S.md)yntax 1&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 2-D charts
 
-[S](S.md)yntax 3&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 3-D charts
 
-[S](S.md)yntax 4&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 4**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the series axis in 3-D charts
 
-[S](S.md)yntax 5&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 5**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 3-D charts
 
 
@@ -177,37 +176,37 @@ category axis.
 
 **SCALE**?(cat\_labels, cat\_marks, reverse, between)
 
-Cat\_labels&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Cat\_labels**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the
 Number Of Categories Between Tick-Mark Labels box. The default is 1.
 Cat\_labels can also be a logical value. If TRUE, an automatic setting
 will be used. If FALSE, or omitted, the number will be used.
 
-Cat\_marks&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Cat\_marks**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the
 Number Of Categories Between Tick Marks text box. The default is 1.
 Cat\_marks can also be a logical value. If TRUE, an automatic setting
 will be used. If FALSE, or omitted, the number will be used.
 
-Reverse&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Categories In Reverse
+Reverse**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Categories In Reverse
 Order check box. If reverse is TRUE, Microsoft Excel selects the check
 box; if FALSE, Microsoft Excel clears the check box.
 
-Between&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Value (Z) Axis Crosses
+Between**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Value (Z) Axis Crosses
 Between Categories check box. If between is TRUE, Microsoft Excel
 selects the check box and the data points appear between categories. If
 between is FALSE or omitted, Microsoft Excel clears the check box.
 
 **Related Functions**
 
-[S](S.md)yntax 1&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 2-D charts
 
-[S](S.md)yntax 2&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 2-D charts
 
-[S](S.md)yntax 4&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 4**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the series axis in 3-D charts
 
-[S](S.md)yntax 5&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 5**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 3-D charts
 
 
@@ -231,33 +230,33 @@ Series (y) axis, 3-D chart
 
 **SCALE**?(series\_labels, series\_marks, reverse)
 
-Series\_labels&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Series\_labels**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the
 Number Of Series Between Tick Labels text box. The default is 1.
 Series\_labels can also be a logical value. If TRUE, and automatic
 setting will be used. If FALSE, or omitted, the number will be used.
 
-Series\_marks&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Series\_marks**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the
 Number Of Series Between Tick Marks text box. The default is 1.
 Series\_marks can also be a logical value. If TRUE, and automatic
 setting will be used. If FALSE, or omitted, the number will be used.
 
-Reverse&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to
+Reverse**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds to
 the Series In Reverse Order check box on the Scale tab. If reverse is
 TRUE, Microsoft Excel displays the series in reverse order; if FALSE or
 omitted, Microsoft Excel displays the series normally.
 
 **Related Functions**
 
-[S](S.md)yntax 1&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 2-D charts
 
-[S](S.md)yntax 2&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 2-D charts
 
-[S](S.md)yntax 3&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 3-D charts
 
-[S](S.md)yntax 5&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 5**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 3-D charts
 
 
@@ -289,46 +288,46 @@ can be either the logical value TRUE or a number.
 
   - > If a number, that number is used.
 
-Min\_num&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Minimum check box and
+Min\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Minimum check box and
 is the minimum value for the value axis.
 
-Max\_num&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Maximum check box and
+Max\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Maximum check box and
 is the maximum value for the value axis.
 
-Major&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Major Unit check box and
+Major**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Major Unit check box and
 is the major unit of measure.
 
-Minor&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Minor Unit check box and
+Minor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Minor Unit check box and
 is the minor unit of measure.
 
-Cross&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Floor (XY Plane) Crosses
+Cross**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Floor (XY Plane) Crosses
 At check box.
 
 The last three arguments are logical values corresponding to check boxes
 on the Scale tab. If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box.
 
-Logarithmic&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Logarithmic Scale
+Logarithmic**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Logarithmic Scale
 check box.
 
-Reverse&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Values In Reverse
+Reverse**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Values In Reverse
 Order check box.
 
-Min&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Floor (XY Plane) Crosses
+Min**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Floor (XY Plane) Crosses
 At Minimum Value check box.
 
 **Related Functions**
 
-[S](S.md)yntax 1&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 2-D charts
 
-[S](S.md)yntax 2&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the value axis in 2-D charts
 
-[S](S.md)yntax 3&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 3**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the category axis in 3-D charts
 
-[S](S.md)yntax 4&nbsp;&nbsp;&nbsp;Changes the position, formatting, and scaling
+[S](S.md)yntax 4**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the position, formatting, and scaling
 of the series axis in 3-D charts
 
 

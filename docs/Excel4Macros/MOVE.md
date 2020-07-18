@@ -15,9 +15,9 @@ WINDOW.MOVE.
 
 **Related Functions**
 
-[WINDOW.MOVE](WINDOW.MOVE.md)&nbsp;&nbsp;&nbsp;Sizes a window
+[WINDOW.MOVE](WINDOW.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sizes a window
 
-[WINDOW.SIZE](WINDOW.SIZE.md)&nbsp;&nbsp;&nbsp;Moves a window
+[WINDOW.SIZE](WINDOW.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves a window
 
 
 

@@ -8,7 +8,7 @@ delete, or alter toolbars.
 
 **GET.TOOLBAR**(**type\_num**, bar\_id)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies what type of information to
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies what type of information to
 return. If type\_num is 8 or 9, GET.TOOLBAR returns an array of names or
 numbers of all visible or hidden toolbars. Otherwise, bar\_id is
 required, and GET.TOOLBAR returns the requested information about the
@@ -33,7 +33,7 @@ specified toolbar.
 | 9             | An array of toolbar IDs (names or numbers in the bar\_id array) for all visible toolbars.                                                         |
 | 10            | If the toolbar is visible in full-screen mode, returns TRUE; otherwise, returns FALSE.                                                            |
 
-Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;specifies the number or name of a toolbar
+Bar\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the number or name of a toolbar
 for which you want information. If type\_num is 8 or 9, Microsoft Excel
 ignores bar\_id. For detailed information about bar\_id, see ADD.TOOL.
 
@@ -57,17 +57,17 @@ SET.NAME("All\_Bar\_Ids", GET.TOOLBAR(9))
 
 **Related Functions**
 
-[ADD.TOOL](ADD.TOOL.md)&nbsp;&nbsp;&nbsp;Adds one or more buttons to a toolbar
+[ADD.TOOL](ADD.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds one or more buttons to a toolbar
 
-[ADD.TOOLBAR](ADD.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Creates a new toolbar with the specified
+[ADD.TOOLBAR](ADD.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a new toolbar with the specified
 tools
 
-[DELETE.TOOLBAR](DELETE.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Deletes custom toolbars
+[DELETE.TOOLBAR](DELETE.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes custom toolbars
 
-[GET.TOOL](GET.TOOL.md)&nbsp;&nbsp;&nbsp;Returns information about a tool or tools on a
+[GET.TOOL](GET.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a tool or tools on a
 toolbar
 
-[SHOW.TOOLBAR](SHOW.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Hides or displays a toolbar
+[SHOW.TOOLBAR](SHOW.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Hides or displays a toolbar
 
 
 

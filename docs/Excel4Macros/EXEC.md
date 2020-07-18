@@ -21,11 +21,11 @@ For Microsoft Excel for the Macintosh
 
 **EXEC**(program\_text, , background, preferred\_size\_only)
 
-**Important**&nbsp;&nbsp;&nbsp;Microsoft Excel for the Macintosh
+**Important****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for the last two arguments
 of this function.
 
-Program\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name, as a text string, of
+Program\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name, as a text string, of
 any executable file or, in Microsoft Excel for Windows, any data file
 that is associated with an executable file.
 
@@ -38,13 +38,12 @@ that is associated with an executable file.
     > with a specific installed program, EXEC starts the program and
     > loads the specified file.
 
-> &nbsp;
 
-**Note&nbsp;&nbsp;&nbsp;**In Microsoft Excel for the Macintosh, you must
+**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**In Microsoft Excel for the Macintosh, you must
 use an extra comma after the program\_text argument. This skips the
 window\_num argument that does not apply to the Macintosh.
 
-Window\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 that
+Window\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 that
 specifies how the window containing the program should appear.
 Window\_num is only available for use with Microsoft Excel for Windows.
 The window\_num argument is allowed on the Macintosh, but it is ignored.
@@ -56,7 +55,7 @@ The window\_num argument is allowed on the Macintosh, but it is ignored.
 | 2 or omitted    | Minimized size     |
 | 3               | Maximized size     |
 
-Background&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines
+Background**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that determines
 whether the program specified by program\_text is opened as the active
 program or in the background, leaving Microsoft Excel as the active
 program. If background is TRUE, the program is started in the
@@ -64,7 +63,7 @@ background; if FALSE or omitted, the program is started in the
 foreground. Background is only available for use with Microsoft Excel
 for the Macintosh and system software version 7.0 or later.
 
-Preferred\_size\_only&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that
+Preferred\_size\_only**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that
 determines the amount of memory allocated to the program. If
 preferred\_size\_only is TRUE, the program is opened with its preferred
 memory allocation; if FALSE or omitted, it opens with the available
@@ -104,21 +103,21 @@ EXEC("HARD DISK:APPS:WORD")
 
 **Related Functions**
 
-[APP.ACTIVATE](APP.ACTIVATE.md)&nbsp;&nbsp;&nbsp;Switches to another application
+[APP.ACTIVATE](APP.ACTIVATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to another application
 
-[EXECUTE](EXECUTE.md)&nbsp;&nbsp;&nbsp;Carries out a command in another application
+[EXECUTE](EXECUTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Carries out a command in another application
 
-[INITIATE](INITIATE.md)&nbsp;&nbsp;&nbsp;Opens a channel to another application
+[INITIATE](INITIATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a channel to another application
 
-[SEND.KEYS](SEND.KEYS.md)&nbsp;&nbsp;&nbsp;Sends a key sequence to an application
+[SEND.KEYS](SEND.KEYS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends a key sequence to an application
 
-[TERMINATE](TERMINATE.md)&nbsp;&nbsp;&nbsp;Closes a channel to another application
+[TERMINATE](TERMINATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a channel to another application
 
-[REQUEST](REQUEST.md)&nbsp;&nbsp;&nbsp;Requests an array of a specific type of
+[REQUEST](REQUEST.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Requests an array of a specific type of
 information from an application with which you have a dynamic data
 exchange (DDE) link
 
-[POKE](POKE.md)&nbsp;&nbsp;&nbsp;Sends data to another application with which you
+[POKE](POKE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends data to another application with which you
 have a dynamic data exchange (DDE) link
 
 

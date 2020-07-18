@@ -11,7 +11,7 @@ return\_logical, status\_logical)
 **ROUTING.SLIP**?(recipients,subject, message, route\_num,
 return\_logical, status\_logical)
 
-Recipients&nbsp;&nbsp;&nbsp;&nbsp;is the name of the person to whom you
+Recipients**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the person to whom you
 want to send the mail. The name should be given as text.
 
   - > To specify more than one name, give the list of names as an array.
@@ -25,15 +25,15 @@ want to send the mail. The name should be given as text.
     > received the message yet). Recipients who have already received,
     > reviewed and forwarded the routed workbook cannot be modified.
 
-Subject&nbsp;&nbsp;&nbsp;&nbsp;is a text string containing the subject
+Subject**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string containing the subject
 text used for the mail messages used to route the workbook. If omitted,
 the default subject line is "Routing: name", where name is the file name
 or title as displayed in the Summary Info dialog box, if available.
 
-Message&nbsp;&nbsp;&nbsp;&nbsp;is a text string containing the body text
+Message**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string containing the body text
 used for the mail messages used to route the workbook.
 
-Route\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number indicating the type of
+Route\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number indicating the type of
 routing method.
 
 <table>
@@ -65,13 +65,13 @@ routing method.
 </tbody>
 </table>
 
-Return\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE
+Return\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value which, if TRUE
 or omitted, indicates that the routing should be returned to the
 originator when the routing is complete. If FALSE, the routing will end
 with the last recipient in the To list box in the Routing Slip Dialog
 box.
 
-Status\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding
+Status\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding
 to the Track Status check box in the Routing Slip dialog box. If TRUE or
 omitted, status tracking messages for the routing are sent. FALSE means
 that no status tracking is performed.
@@ -88,10 +88,10 @@ that no status tracking is performed.
 
 **Related Functions**
 
-[ROUTE.DOCUMENT](ROUTE.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Routes the workbook using the defined
+[ROUTE.DOCUMENT](ROUTE.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Routes the workbook using the defined
 routing slip information
 
-[SEND.MAIL](SEND.MAIL.md)&nbsp;&nbsp;&nbsp;Sends the active workbook using email
+[SEND.MAIL](SEND.MAIL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends the active workbook using email
 
 
 

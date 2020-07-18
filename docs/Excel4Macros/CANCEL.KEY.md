@@ -8,7 +8,7 @@ interrupted.
 
 **CANCEL.KEY**(**enable**, macro\_ref)
 
-Enable&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the macro can be
+Enable**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether the macro can be
 interrupted by pressing ESC in Microsoft Excel for Windows or ESC or
 COMMAND+PERIOD in Microsoft Excel for the Macintosh.
 
@@ -19,7 +19,7 @@ COMMAND+PERIOD in Microsoft Excel for the Macintosh.
 | TRUE and macro\_ref is omitted   | Pressing ESC or COMMAND+PERIOD interrupts a macro         |
 | TRUE and macro\_ref is specified | Macro\_ref runs when ESC or COMMAND+PERIOD is pressed     |
 
-Macro\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a macro, as a cell
+Macro\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to a macro, as a cell
 reference or a name, that runs when enable is TRUE and ESC or
 COMMAND+PERIOD is pressed.
 
@@ -32,7 +32,6 @@ COMMAND+PERIOD is pressed.
   - > When CANCEL.KEY is in effect, users can still cancel a dialog box
     > displayed while the macro is running.
 
-> &nbsp;
 
 **Examples**
 
@@ -53,12 +52,12 @@ CANCEL.KEY(TRUE, CheckCancel)
 
 **Related Functions**
 
-[ERROR](ERROR.md)&nbsp;&nbsp;&nbsp;Specifies an action to take if an error occurs
+[ERROR](ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies an action to take if an error occurs
 while a macro is running
 
-[ON.KEY](ON.KEY.md)&nbsp;&nbsp;&nbsp;Runs a macro when a specified key is pressed
+[ON.KEY](ON.KEY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when a specified key is pressed
 
-[ON.TIME](ON.TIME.md)&nbsp;&nbsp;&nbsp;Runs a macro at a specified time
+[ON.TIME](ON.TIME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro at a specified time
 
 
 

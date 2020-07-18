@@ -8,7 +8,7 @@ as descriptions of commands in user-defined menus.
 
 **MESSAGE**(**logical**, text)
 
-Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether to
+Logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether to
 display or remove a message.
 
   - > If logical is TRUE, Microsoft Excel displays text in the message
@@ -18,7 +18,7 @@ display or remove a message.
     > status bar is returned to normal (that is, command help messages
     > are displayed).
 
-Text&nbsp;&nbsp;&nbsp;&nbsp;is the message you want to display in the
+Text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the message you want to display in the
 status bar. If text is "" (empty text), Microsoft Excel removes any
 messages currently displayed in the status bar.
 
@@ -40,7 +40,6 @@ messages currently displayed in the status bar.
     > however, this interrupts the macro and requires the user's
     > intervention before the macro can continue.
 
-> &nbsp;
 
 **Example**
 
@@ -51,9 +50,9 @@ MESSAGE(TRUE, "One moment please...")
 
 **Related Functions**
 
-[ALERT](ALERT.md)&nbsp;&nbsp;&nbsp;Displays a dialog box and a message
+[ALERT](ALERT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a dialog box and a message
 
-[BEEP](BEEP.md)&nbsp;&nbsp;&nbsp;Sounds a tone
+[BEEP](BEEP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sounds a tone
 
 
 

@@ -12,9 +12,9 @@ with charts that have only one chart type.
 
 **Related Functions**
 
-[ADD.ARROW](ADD.ARROW.md)&nbsp;&nbsp;&nbsp;Adds an arrow to a chart
+[ADD.ARROW](ADD.ARROW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds an arrow to a chart
 
-[LEGEND](LEGEND.md)&nbsp;&nbsp;&nbsp;Adds a legend to a chart
+[LEGEND](LEGEND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a legend to a chart
 
 
 

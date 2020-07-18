@@ -8,13 +8,13 @@ Microsoft Excel 97.
 **Syntax**
 
 **SERIES.X**(x\_ref)  
-X-ref&nbsp;&nbsp;&nbsp;&nbsp;is an external reference in the form of
+X-ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an external reference in the form of
 text specifying the range containing the category labels (or x values
 for a scatter (xy) chart) you want to use.
 
 **Related Function**
 
-[SERIES.Y](SERIES.Y.md)&nbsp;&nbsp;&nbsp;Specifies the name and values for a data
+[SERIES.Y](SERIES.Y.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies the name and values for a data
 series
 
 

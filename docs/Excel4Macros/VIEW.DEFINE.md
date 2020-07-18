@@ -13,24 +13,24 @@ versions, you must install the View Manager add-in.
 
 **VIEW.DEFINE**(**view\_name**, print\_settings\_log, row\_col\_log)
 
-View\_name&nbsp;&nbsp;&nbsp;&nbsp;is text enclosed in quotation marks
+View\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text enclosed in quotation marks
 and specifies the name of the view you want to define for the sheet. If
 the workbook already contains a view with view\_name, the new view
 replaces the existing one.
 
-Print\_settings\_log&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if
+Print\_settings\_log**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that, if
 TRUE or omitted, includes current print settings in the view or, if
 FALSE, does not include current print settings in the view.
 
-Row\_col\_log&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if TRUE or
+Row\_col\_log**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that, if TRUE or
 omitted, includes current row and column settings in the view or, if
 FALSE, does not include current row and column settings in the view.
 
 **Related Functions**
 
-[VIEW.DELETE](VIEW.DELETE.md)&nbsp;&nbsp;&nbsp;Removes a view from the active workbook
+[VIEW.DELETE](VIEW.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes a view from the active workbook
 
-[VIEW.SHOW](VIEW.SHOW.md)&nbsp;&nbsp;&nbsp;Shows a view
+[VIEW.SHOW](VIEW.SHOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Shows a view
 
 
 

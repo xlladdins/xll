@@ -9,13 +9,13 @@ menu bar with its original menus and commands.
 
 **ADD.BAR**(bar\_num)
 
-Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of a built-in menu bar
+Bar\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of a built-in menu bar
 that you want to restore. Use ADD.BAR(bar\_num) to restore an unaltered
 version of a built-in menu bar after you have made changes to the menu
 bar's menus and commands. See ADD.COMMAND for a list of ID numbers for
 built-in menu bars.
 
-**Important&nbsp;&nbsp;&nbsp;**Restoring a built-in menu bar will remove
+**Important**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Restoring a built-in menu bar will remove
 menus and commands added by other macros. Use ADD.COMMAND and ADD.MENU
 to restore individual commands and menus.
 
@@ -40,13 +40,13 @@ ADD.BAR()
 
 **Related Functions**
 
-[ADD.COMMAND](ADD.COMMAND.md)&nbsp;&nbsp;&nbsp;Adds a command to a menu
+[ADD.COMMAND](ADD.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a command to a menu
 
-[ADD.MENU](ADD.MENU.md)&nbsp;&nbsp;&nbsp;Adds a menu to a menu bar
+[ADD.MENU](ADD.MENU.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu to a menu bar
 
-[DELETE.BAR](DELETE.BAR.md)&nbsp;&nbsp;&nbsp;Deletes a menu bar
+[DELETE.BAR](DELETE.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a menu bar
 
-[SHOW.BAR](SHOW.BAR.md)&nbsp;&nbsp;&nbsp;Displays a menu bar
+[SHOW.BAR](SHOW.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a menu bar
 
 
 

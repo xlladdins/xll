@@ -8,12 +8,12 @@ feature).
 
 **FILL.AUTO**(destination\_ref, copy\_only)
 
-Destination\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the range of cells into which
+Destination\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the range of cells into which
 you want to fill data. The top, bottom, left, or right end of
 destination\_ref must include all of the cells in the source reference
 (the current selection).
 
-Copy\_only&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying whether to copy
+Copy\_only**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying whether to copy
 cells or perform an AutoFill operation.
 
 |              |                      |
@@ -33,9 +33,9 @@ cells or perform an AutoFill operation.
 
 **Related Functions**
 
-[COPY](COPY.md)&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
+[COPY](COPY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies and pastes data or objects
 
-[DATA.SERIES](DATA.SERIES.md)&nbsp;&nbsp;&nbsp;Fills a range of cells with a series of
+[DATA.SERIES](DATA.SERIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Fills a range of cells with a series of
 numbers or dates
 
 

@@ -86,7 +86,7 @@ correspond to check boxes, list boxes, and options in the Patterns tab
 of the Format Cells dialog box for the selected item. The default for
 each argument reflects the setting in the dialog box.
 
-Aauto&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 2 specifying area
+Aauto**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 2 specifying area
 settings (that is, the object's "surface area").
 
 |                 |                                    |
@@ -96,21 +96,21 @@ settings (that is, the object's "surface area").
 | 1               | Automatic (set by Microsoft Excel) |
 | 2               | None                               |
 
-Aback&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 56 corresponding to
+Aback**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 56 corresponding to
 the 56 area background colors in the Patterns tab of the Format Cells
 dialog box.
 
-Afore&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 56 corresponding to
+Afore**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 56 corresponding to
 the 56 area foreground colors in the Patterns tab of the Format Cells
 dialog box.
 
-Apattern&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the area
+Apattern**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the area
 patterns in the Patterns tab of the Format Cells or Format Object dialog
 box. If an object is selected, apattern can be from 1 to 18; if a cell
 is selected, apattern can be from 0 to 18. If apattern is 0 and a cell
 is selected, Microsoft Excel applies no pattern.
 
-Apply&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Apply**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 Apply To All check box in Microsoft Excel version 4.0. This argument is
 for compatibility with previous versions of Microsoft Excel and applies
 only when a chart data point or a data series is selected.
@@ -121,9 +121,8 @@ only when a chart data point or a data series is selected.
   - > If apply is FALSE, Microsoft Excel applies formatting changes only
     > to the selected item on the chart.
 
-> &nbsp;
 
-Bauto&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 2 specifying border
+Bauto**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 2 specifying border
 settings.
 
 |                 |                                    |
@@ -133,15 +132,15 @@ settings.
 | 1               | Automatic (set by Microsoft Excel) |
 | 2               | None                               |
 
-Bcolor&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 56 corresponding to
+Bcolor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 56 corresponding to
 the 56 border colors in the Border tab of the Format Object or Format
 (chart element) dialog box.
 
-Bstyle&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 8 corresponding to
+Bstyle**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 8 corresponding to
 the eight border styles in the Border tab of the Format Object or Format
 (chart element) dialog box.
 
-Bwt&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 corresponding to the
+Bwt**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 corresponding to the
 four border weights in the Border tab of the Format Object or Format
 (chart element) dialog box.
 
@@ -153,7 +152,7 @@ four border weights in the Border tab of the Format Object or Format
 | 3             | Medium        |
 | 4             | Thick         |
 
-Hlength&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying the
+Hlength**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying the
 length of the arrowhead.
 
 |                   |                  |
@@ -163,7 +162,7 @@ length of the arrowhead.
 | 2                 | Medium           |
 | 3                 | Long             |
 
-Htype&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 5 specifying the
+Htype**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 5 specifying the
 style of the arrowhead.
 
 |                 |                           |
@@ -175,7 +174,7 @@ style of the arrowhead.
 | 4               | Double open head          |
 | 5               | Double closed head        |
 
-Hwidth&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying the
+Hwidth**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying the
 width of the arrowhead.
 
 |                  |                  |
@@ -185,7 +184,7 @@ width of the arrowhead.
 | 2                | Medium           |
 | 3                | Wide             |
 
-Invert&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Invert**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 Invert If Negative check box in the Patterns tab of the Format Data
 Series dialog box. This argument applies only to data markers.
 
@@ -196,9 +195,8 @@ Series dialog box. This argument applies only to data markers.
     > if present, from the selected item corresponding to a negative
     > value.
 
-> &nbsp;
 
-Lauto&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 2 specifying line
+Lauto**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 2 specifying line
 settings.
 
 |                 |                                    |
@@ -208,15 +206,15 @@ settings.
 | 1               | Automatic (set by Microsoft Excel) |
 | 2               | None                               |
 
-Lcolor&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 56 corresponding to
+Lcolor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 56 corresponding to
 the 16 line colors in the Patterns tab of the Format Object or Format
 (chart element) dialog box.
 
-Lstyle&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 8 corresponding to
+Lstyle**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 8 corresponding to
 the eight line styles in the Patterns tab of the Format Object or Format
 (chart element) dialog box.
 
-Lwt&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 corresponding to the
+Lwt**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 corresponding to the
 four line weights in the Patterns tab of the Format Object or Format
 (chart element) dialog box.
 
@@ -228,7 +226,7 @@ four line weights in the Patterns tab of the Format Object or Format
 | 3             | Medium      |
 | 4             | Thick       |
 
-Mauto&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 2 specifying marker
+Mauto**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 2 specifying marker
 settings.
 
 |                 |                                    |
@@ -238,50 +236,50 @@ settings.
 | 1               | Automatic (set by Microsoft Excel) |
 | 2               | None                               |
 
-Mback&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 56corresponding to
+Mback**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 56corresponding to
 the 56 marker background colors in the Patterns tab of the Format Data
 Series dialog box.
 
-Mfore&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 56 corresponding to
+Mfore**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 56 corresponding to
 the 56 marker foreground colors in the Patterns tab of the Format Data
 Series dialog box.
 
-Mstyle&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 9 corresponding to
+Mstyle**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 9 corresponding to
 the nine marker styles in the Patterns tab of the Format Data Series
 dialog box.
 
-Picture\_units&nbsp;&nbsp;&nbsp;&nbsp;is the number of units you want
+Picture\_units**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of units you want
 each picture to represent in a scaled, stacked picture chart. This
 argument applies only to picture charts and only if type is 3.
 
-Rounded&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Rounded**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 Round Corners check box and specifying whether to make the corners on
 text boxes and rectangles rounded. If rounded is TRUE, the corners are
 rounded; if FALSE, the corners are square. If the selection is an arc or
 an oval, rounded is ignored.
 
-Newui&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies whether
+Newui**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies whether
 to use the foreground, background, and patterns of Microsoft Excel
 version 5.0 or later. If TRUE or omitted, the colors and patterns of
 Microsoft Excel version 5.0 or later will be used. If FALSE, the colors
 and patterns of Microsoft Excel version 4.0 will be used.
 
-Newfill&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies whether
+Newfill**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies whether
 to use the chart patterns of Microsoft Excel version 5.0 or later. If
 TRUE or omitted, the chart patterns of Microsoft Excel version 5.0 or
 later will be used. If FALSE, the chart patterns of Microsoft Excel
 version 4.0 will be used.
 
-Shadow&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Shadow**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 Shadow check box. Shadow does not apply to area charts or bars in bar
 charts. If shadow is TRUE, Microsoft Excel adds a shadow to the selected
 item; if FALSE, Microsoft Excel removes the shadow, if one is present,
 from the selected item. If the selection is an arc, shadow is ignored.
 
-Smooth&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that applies smoothing
+Smooth**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that applies smoothing
 to picture markers in line or xy (scatter) charts. The default is FALSE.
 
-Tlabel&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying the
+Tlabel**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying the
 position of tick labels.
 
 |                  |                            |
@@ -292,7 +290,7 @@ position of tick labels.
 | 3                | High                       |
 | 4                | Next to axis               |
 
-Tmajor&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying the
+Tmajor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying the
 type of major tick marks.
 
 |                  |                                 |
@@ -303,7 +301,7 @@ type of major tick marks.
 | 3                | Outside                         |
 | 4                | Cross                           |
 
-Tminor&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying the
+Tminor**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying the
 type of minor tick marks.
 
 |                  |                                 |
@@ -314,7 +312,7 @@ type of minor tick marks.
 | 3                | Outside                         |
 | 4                | Cross                           |
 
-Type&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying the type
+Type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying the type
 of pictures to use in a picture chart.
 
 |                |                                                                                           |
@@ -340,13 +338,12 @@ of pictures to use in a picture chart.
   - > To apply formatting to similar items on a chart, use the apply
     > argument described above.
 
-> &nbsp;
 
 **Related Functions**
 
-[FONT.PROPERTIES](FONT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Applies a font to the selection
+[FONT.PROPERTIES](FONT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a font to the selection
 
-[FORMAT.TEXT](FORMAT.TEXT.md)&nbsp;&nbsp;&nbsp;Formats a text box or a chart text item
+[FORMAT.TEXT](FORMAT.TEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats a text box or a chart text item
 
 
 

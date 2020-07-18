@@ -12,10 +12,10 @@ trans\_eval, trans\_entry)
 **OPTIONS.TRANSITION**?(menu\_key, menu\_key\_action, nav\_keys,
 trans\_eval, trans\_entry)
 
-Menu\_key&nbsp;&nbsp;&nbsp;&nbsp;is text specifying which alternate menu
+Menu\_key**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying which alternate menu
 key to use.
 
-Menu\_key\_action&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 specifying
+Menu\_key\_action**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number 1 or 2 specifying
 options for the alternate menu or Help key. In Microsoft Excel for the
 Macintosh, menu\_key\_action is ignored.
 
@@ -25,12 +25,12 @@ Macintosh, menu\_key\_action is ignored.
 | 1 or omitted          | Microsoft Excel menus                    |
 | 2                     | Lotus 1-2-3 Help                         |
 
-Nav\_keys&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to
+Nav\_keys**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds to
 the Transition Navigation Keys check box, which if TRUE uses alternate
 navigation keys that correspond to the navigation keys for Lotus 1-2-3.
 In Microsoft Excel for the Macintosh, nav\_keys is ignored.
 
-Trans\_eval&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds
+Trans\_eval**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds
 to the Transition Formula Evaluation check box.
 
   - > If trans\_eval is TRUE, Microsoft Excel uses a set of rules
@@ -42,7 +42,7 @@ to the Transition Formula Evaluation check box.
   - > If trans\_eval is FALSE or omitted, Microsoft Excel calculates
     > normally.
 
-Trans\_entry&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds
+Trans\_entry**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds
 to the Transition Formula Entry check box.
 
   - > This argument is available only in Microsoft Excel for Windows.
@@ -56,12 +56,12 @@ to the Transition Formula Entry check box.
 
 **Related Functions**
 
-[OPTIONS.LISTS.DELETE](OPTIONS.LISTS.DELETE.md)&nbsp;&nbsp;&nbsp;Deletes a custom list
+[OPTIONS.LISTS.DELETE](OPTIONS.LISTS.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a custom list
 
-[OPTIONS.LISTS.GET](OPTIONS.LISTS.GET.md)&nbsp;&nbsp;&nbsp;Returns contents of custom AutoFill
+[OPTIONS.LISTS.GET](OPTIONS.LISTS.GET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns contents of custom AutoFill
 lists
 
-[OPTIONS.VIEW](OPTIONS.VIEW.md)&nbsp;&nbsp;&nbsp;Sets various view settings
+[OPTIONS.VIEW](OPTIONS.VIEW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets various view settings
 
 
 

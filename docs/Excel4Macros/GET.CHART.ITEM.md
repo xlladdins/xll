@@ -9,7 +9,7 @@ point is 1/72nd of an inch.
 
 **GET.CHART.ITEM**(**x\_y\_index**, point\_index, item\_text)
 
-X\_y\_index&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying which of the
+X\_y\_index**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying which of the
 coordinates you want returned.
 
 |                 |                         |
@@ -18,7 +18,7 @@ coordinates you want returned.
 | 1               | Horizontal coordinate   |
 | 2               | Vertical coordinate     |
 
-Point\_index&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the point on
+Point\_index**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the point on
 the chart item. These indexes are described below. If point\_index is
 omitted, it is assumed to be 1.
 
@@ -79,7 +79,7 @@ omitted, it is assumed to be 1.
 | 5                | Center point                                 |
 | 6                | Midpoint of the most counterclockwise radius |
 
-Item\_text&nbsp;&nbsp;&nbsp;&nbsp;is a selection code that specifies
+Item\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a selection code that specifies
 which item of a chart to select. See the chart form of SELECT for the
 item\_text codes to use for each item of a chart.
 
@@ -89,7 +89,6 @@ item\_text codes to use for each item of a chart.
   - > If item\_text is omitted and no item is selected, GET.CHART.ITEM
     > returns the \#VALUE\! error value.
 
-> &nbsp;
 
 **Remarks**
 
@@ -110,9 +109,9 @@ position returned by these two formulas.
 
 **Related Functions**
 
-[GET.DOCUMENT](GET.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook
+[GET.DOCUMENT](GET.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook
 
-[GET.FORMULA](GET.FORMULA.md)&nbsp;&nbsp;&nbsp;Returns the contents of a cell
+[GET.FORMULA](GET.FORMULA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the contents of a cell
 
 
 

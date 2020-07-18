@@ -24,30 +24,29 @@ add-in.
     > current selection is not valid, these functions return the
     > \#VALUE\! error value.
 
-> &nbsp;
 
 **Related Functions**
 
-[SLIDE.CUT.ROW](SLIDE.CUT.ROW.md)&nbsp;&nbsp;&nbsp;Cuts the selected slides and pastes them
+[SLIDE.CUT.ROW](SLIDE.CUT.ROW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Cuts the selected slides and pastes them
 onto the Clipboard
 
-[SLIDE.DEFAULTS](SLIDE.DEFAULTS.md)&nbsp;&nbsp;&nbsp;Specifies default values for the active
+[SLIDE.DEFAULTS](SLIDE.DEFAULTS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies default values for the active
 slide show sheet
 
-[SLIDE.DELETE.ROW](SLIDE.DELETE.ROW.md)&nbsp;&nbsp;&nbsp;Deletes the selected slides
+[SLIDE.DELETE.ROW](SLIDE.DELETE.ROW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes the selected slides
 
-[SLIDE.EDIT](SLIDE.EDIT.md)&nbsp;&nbsp;&nbsp;Changes the attributes of the selected slide
+[SLIDE.EDIT](SLIDE.EDIT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the attributes of the selected slide
 
-[SLIDE.GET](SLIDE.GET.md)&nbsp;&nbsp;&nbsp;Returns information about a slide or slide
+[SLIDE.GET](SLIDE.GET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a slide or slide
 show
 
-[SLIDE.PASTE](SLIDE.PASTE.md)&nbsp;&nbsp;&nbsp;Pastes the contents of the Clipboard onto a
+[SLIDE.PASTE](SLIDE.PASTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes the contents of the Clipboard onto a
 slide
 
-[SLIDE.PASTE.ROW](SLIDE.PASTE.ROW.md)&nbsp;&nbsp;&nbsp;Pastes previously cut or copied slides
+[SLIDE.PASTE.ROW](SLIDE.PASTE.ROW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes previously cut or copied slides
 onto the current selection
 
-[SLIDE.SHOW](SLIDE.SHOW.md)&nbsp;&nbsp;&nbsp;Starts a slide show in the active sheet
+[SLIDE.SHOW](SLIDE.SHOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a slide show in the active sheet
 
 
 

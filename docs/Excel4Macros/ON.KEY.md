@@ -7,7 +7,7 @@ pressed.
 
 **ON.KEY**(**key\_text**, macro\_text)
 
-Key\_text&nbsp;&nbsp;&nbsp;&nbsp;can specify any single key, or any key
+Key\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;can specify any single key, or any key
 combined with ALT, CTRL, or SHIFT, or any combination of those keys (in
 Microsoft Excel for Windows) or COMMAND, CTRL, OPTION, or SHIFT or any
 combination of those keys (in Microsoft Excel for the Macintosh). Each
@@ -64,7 +64,7 @@ enclose the character in brackets. For example, ON.KEY("^{+}",
 "InsertItem") assigns a macro named InsertItem to the key sequence
 CTRL+PLUS SIGN.
 
-Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a macro that you want
+Macro\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a macro that you want
 to run when key\_text is pressed. The reference must be in text form.
 
   - > If macro\_text is "" (empty text), nothing happens when key\_text
@@ -75,7 +75,6 @@ to run when key\_text is pressed. The reference must be in text form.
     > in Microsoft Excel, and any special key assignments made with
     > previous ON.KEY functions are cleared.
 
-> &nbsp;
 
 **Remarks**
 
@@ -89,7 +88,6 @@ to run when key\_text is pressed. The reference must be in text form.
   - > If another macro is running when you press key\_text, macro\_text
     > will not run.
 
-> &nbsp;
 
 **Examples**
 
@@ -110,12 +108,12 @@ ON.KEY("+^{RIGHT}", "")
 
 **Related Functions**
 
-[CANCEL.KEY](CANCEL.KEY.md)&nbsp;&nbsp;&nbsp;Disables macro interruption
+[CANCEL.KEY](CANCEL.KEY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Disables macro interruption
 
-[ERROR](ERROR.md)&nbsp;&nbsp;&nbsp;Specifies what action to take if an error is
+[ERROR](ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies what action to take if an error is
 encountered while a macro is running
 
-[SEND.KEYS](SEND.KEYS.md)&nbsp;&nbsp;&nbsp;Sends a key sequence to an application
+[SEND.KEYS](SEND.KEYS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends a key sequence to an application
 
 
 

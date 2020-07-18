@@ -76,22 +76,22 @@ Discrete distribution
 
 **RANDOM**?(outrng, variables, points, distribution, seed, inprng)
 
-Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+Outrng**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the first cell (the upper-left cell) in
 the output table or the name, as text, of a new sheet to contain the
 output table. If FALSE, blank, or omitted, places the output table in a
 new workbook.
 
-Variables&nbsp;&nbsp;&nbsp;&nbsp;is the number of random number sets to
+Variables**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of random number sets to
 generate. RANDOM will generate variables columns of random numbers. If
 omitted, variables is equal to the number of columns in the output
 range.
 
-Points&nbsp;&nbsp;&nbsp;&nbsp;is the number of data points per random
+Points**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of data points per random
 number set. RANDOM will generate points rows of random numbers for each
 random number set. If omitted, points is equal to the number of rows in
 the output range. Points is ignored when distribution is 6 (Patterned).
 
-Distribution&nbsp;&nbsp;&nbsp;&nbsp;indicates the type of number
+Distribution**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;indicates the type of number
 distribution.
 
 <table>
@@ -163,34 +163,34 @@ distribution.
 </tbody>
 </table>
 
-Seed&nbsp;&nbsp;&nbsp;&nbsp;is an optional value with which to begin
+Seed**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an optional value with which to begin
 random number generation. Seed is ignored when distribution is 6
 (Patterned) or 7 (Discrete).
 
-From&nbsp;&nbsp;&nbsp;&nbsp;is the lower bound.
+From**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the lower bound.
 
-To&nbsp;&nbsp;&nbsp;&nbsp;is the upper bound.
+To**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the upper bound.
 
-Mean&nbsp;&nbsp;&nbsp;&nbsp;is the mean.
+Mean**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the mean.
 
-Standard\_dev&nbsp;&nbsp;&nbsp;&nbsp;is the standard deviation.
+Standard\_dev**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the standard deviation.
 
-Probability&nbsp;&nbsp;&nbsp;&nbsp;is the probability of success on each
+Probability**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the probability of success on each
 trial.
 
-Trials&nbsp;&nbsp;&nbsp;&nbsp;is the number of trials.
+Trials**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of trials.
 
-Lambda&nbsp;&nbsp;&nbsp;&nbsp;is the Poisson distribution parameter.
+Lambda**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the Poisson distribution parameter.
 
-Step&nbsp;&nbsp;&nbsp;&nbsp;is the increment between from and to.
+Step**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the increment between from and to.
 
-Repeat\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of times to repeat each
+Repeat\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of times to repeat each
 value.
 
-Repeat\_seq&nbsp;&nbsp;&nbsp;&nbsp;is the number of times to repeat each
+Repeat\_seq**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of times to repeat each
 sequence of values.
 
-Inprng&nbsp;&nbsp;&nbsp;&nbsp;is a two-column range of values and their
+Inprng**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a two-column range of values and their
 probabilities.
 
 

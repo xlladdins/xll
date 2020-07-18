@@ -6,15 +6,15 @@ Returns characters from a comment.
 
 **GET.NOTE**(cell\_ref, start\_char, num\_chars)
 
-Cell\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the cell to which the note is
+Cell\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the cell to which the note is
 attached. If cell\_ref is omitted, the comment attached to the active
 cell is returned.
 
-Start\_char&nbsp;&nbsp;&nbsp;&nbsp;is the number of the first character
+Start\_char**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the first character
 in the comment to return. If start\_char is omitted, it is assumed to be
 1, the first character in the comment.
 
-Num\_chars&nbsp;&nbsp;&nbsp;&nbsp;is the number of characters to return.
+Num\_chars**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of characters to return.
 Num\_chars must be less than or equal to 255. If num\_chars is omitted,
 it is assumed to be the length of the comment attached to cell\_ref.
 
@@ -44,9 +44,9 @@ NOTE(GET.NOTE(\!$B$10),ACTIVE.CELL())
 
 **Related Functions**
 
-[GET.CELL](GET.CELL.md)&nbsp;&nbsp;&nbsp;Returns information about the specified cell
+[GET.CELL](GET.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the specified cell
 
-[NOTE](NOTE.md)&nbsp;&nbsp;&nbsp;Creates or changes a comment.
+[NOTE](NOTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or changes a comment.
 
 
 

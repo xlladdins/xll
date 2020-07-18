@@ -12,7 +12,7 @@ name is the window directly under the active window, and so on.
 
 **WINDOWS**(type\_num, match\_text)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies which types
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies which types
 of workbooks are returned by WINDOWS, according to the following table.
 
 |               |                                                        |
@@ -22,7 +22,7 @@ of workbooks are returned by WINDOWS, according to the following table.
 | 2             | Add-in workbooks only                                  |
 | 3             | All types of workbooks                                 |
 
-Match\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies the windows whose names you
+Match\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the windows whose names you
 want returned and can include wildcard characters. If match\_text is
 omitted, WINDOWS returns the names of all open windows.
 
@@ -38,7 +38,6 @@ omitted, WINDOWS returns the names of all open windows.
   - > You can use the COLUMNS functions to count the number of entries
     > in the array, which is the number of windows.
 
-> &nbsp;
 
 **Examples**
 
@@ -49,17 +48,17 @@ WINDOWS() equals {"BOOK1", "MACROS:2", "MACROS:1"}
 
 **Related Functions**
 
-[ACTIVATE](ACTIVATE.md)&nbsp;&nbsp;&nbsp;Switches to a window
+[ACTIVATE](ACTIVATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to a window
 
-[DOCUMENTS](DOCUMENTS.md)&nbsp;&nbsp;&nbsp;Returns the names of the specified open
+[DOCUMENTS](DOCUMENTS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the names of the specified open
 workbooks
 
-[GET.WINDOW](GET.WINDOW.md)&nbsp;&nbsp;&nbsp;Returns information about a window
+[GET.WINDOW](GET.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a window
 
-[NEW.WINDOW](NEW.WINDOW.md)&nbsp;&nbsp;&nbsp;Creates a new window for an existing sheet
+[NEW.WINDOW](NEW.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a new window for an existing sheet
 or macro sheet
 
-[ON.WINDOW](ON.WINDOW.md)&nbsp;&nbsp;&nbsp;Runs a macro when you switch to a window
+[ON.WINDOW](ON.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when you switch to a window
 
 
 

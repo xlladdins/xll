@@ -15,9 +15,9 @@ value.
 
 **Related Functions**
 
-[CALCULATE.NOW](CALCULATE.NOW.md)&nbsp;&nbsp;&nbsp;Calculates all open workbooks immediately
+[CALCULATE.NOW](CALCULATE.NOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Calculates all open workbooks immediately
 
-[CALCULATION](CALCULATION.md)&nbsp;&nbsp;&nbsp;Controls calculation settings
+[CALCULATION](CALCULATION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls calculation settings
 
 
 

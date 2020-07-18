@@ -12,17 +12,17 @@ add-in.
 
 **MOVEAVG**?(inprng, outrng, interval, stderrs, chart, labels)
 
-Inprng&nbsp;&nbsp;&nbsp;&nbsp;is the input range.
+Inprng**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the input range.
 
-Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+Outrng**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the first cell (the upper-left cell) in
 the output table or the name, as text, of a new sheet to contain the
 output table. If FALSE, blank, or omitted, places the output table in a
 new workbook.
 
-Interval&nbsp;&nbsp;&nbsp;&nbsp;is the number of values to include in
+Interval**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of values to include in
 the moving average. If omitted, interval is 3.
 
-Stderrs&nbsp;&nbsp;&nbsp;&nbsp;is a logical value.
+Stderrs**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value.
 
   - > If stderrs is TRUE, standard error values are included in the
     > output table.
@@ -30,18 +30,16 @@ Stderrs&nbsp;&nbsp;&nbsp;&nbsp;is a logical value.
   - > If stderrs is FALSE or omitted, standard errors are not included
     > in the output table.
 
-> &nbsp;
 
-Chart&nbsp;&nbsp;&nbsp;&nbsp;is a logical value.
+Chart**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value.
 
   - > If chart is TRUE, then MOVEAVG generates a chart for the actual
     > and forecast values.
 
   - > If chart is FALSE or omitted, the chart is not generated.
 
-> &nbsp;
 
-Labels&nbsp;&nbsp;&nbsp;&nbsp;is a logical value.
+Labels**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value.
 
   - > If labels is TRUE, then the first row or column of inprng contains
     > labels.

@@ -10,7 +10,7 @@ return a list of files with the FILES function.
 
 **DIRECTORY**(**path\_text**)
 
-Path\_text&nbsp;&nbsp;&nbsp;&nbsp;is the drive and directory or folder
+Path\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the drive and directory or folder
 you want to change to.
 
   - > If path\_text is not specified, DIRECTORY returns the name of the
@@ -19,7 +19,6 @@ you want to change to.
   - > If path\_text does not specify a drive, the current drive is
     > assumed.
 
-> &nbsp;
 
 **Examples**
 
@@ -43,7 +42,7 @@ DIRECTORY("HARD DISK:APPS:EXCEL:FINANCIALS")
 
 **Related Function**
 
-[FILES](FILES.md)&nbsp;&nbsp;&nbsp;Returns the filenames in the specified directory
+[FILES](FILES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the filenames in the specified directory
 or folder
 
 

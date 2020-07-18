@@ -12,7 +12,7 @@ dialog-box syntax only.
 
 **CUSTOMIZE.TOOLBAR**?(category)
 
-Category&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies which
+Category**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies which
 category of tools you want displayed in the dialog box. If omitted, the
 previous setting is used. This argument is for compatibility with
 Microsoft Excel 95.
@@ -37,10 +37,10 @@ Microsoft Excel 95.
 
 **Related Functions**
 
-[ADD.TOOLBAR](ADD.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Creates a new toolbar with the specified
+[ADD.TOOLBAR](ADD.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a new toolbar with the specified
 tools
 
-[SHOW.TOOLBAR](SHOW.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Hides or displays a toolbar
+[SHOW.TOOLBAR](SHOW.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Hides or displays a toolbar
 
 
 

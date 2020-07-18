@@ -41,7 +41,6 @@ depends on the location, size, name, or other attribute of the caller.
   - > If CALLER appears in a macro that was run manually, or for any
     > reason not described above, it returns the \#REF\! error value.
 
-> &nbsp;
 
 **Examples**
 
@@ -70,10 +69,10 @@ the following values would be returned.
 
 **Related Functions**
 
-[GET.BAR](GET.BAR.md)&nbsp;&nbsp;&nbsp;Returns the name or position number of menu
+[GET.BAR](GET.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the name or position number of menu
 bars, menus, and commands
 
-[GET.CELL](GET.CELL.md)&nbsp;&nbsp;&nbsp;Returns information about the specified cell
+[GET.CELL](GET.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the specified cell
 
 
 

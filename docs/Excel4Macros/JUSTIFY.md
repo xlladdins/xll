@@ -10,7 +10,7 @@ evenly.
 
 **Related Function**
 
-[ALIGNMENT](ALIGNMENT.md)&nbsp;&nbsp;&nbsp;Aligns the contents of the selected cells
+[ALIGNMENT](ALIGNMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Aligns the contents of the selected cells
 
 
 

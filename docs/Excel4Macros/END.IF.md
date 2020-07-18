@@ -24,17 +24,16 @@ structured.
   - > For more information about ELSE, ELSE.IF, END.IF, and IF, and for
     > examples of these functions, see form 2 of the IF function.
 
-> &nbsp;
 
 **Related Functions**
 
-[ELSE](ELSE.md)&nbsp;&nbsp;&nbsp;Specifies an action to take if an IF function
+[ELSE](ELSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies an action to take if an IF function
 returns FALSE
 
-[ELSE.IF](ELSE.IF.md)&nbsp;&nbsp;&nbsp;Specifies an action to take if an IF or another
+[ELSE.IF](ELSE.IF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies an action to take if an IF or another
 [ELSE.IF](ELSE.IF.md) function returns FALSE
 
-[IF](IF.md)&nbsp;&nbsp;&nbsp;Specifies an action to take if a logical test is
+[IF](IF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies an action to take if a logical test is
 [TRUE](TRUE.md)
 
 

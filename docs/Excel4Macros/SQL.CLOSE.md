@@ -7,7 +7,7 @@ not available, you must install the Microsoft ODBC add-in (XLODBC.XLA).
 
 **SQL.CLOSE**(**connection\_num**)
 
-Connection\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique connection ID of
+Connection\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique connection ID of
 the data source from which you wish to disconnect.
 
   - > Connection\_num is returned by a previously executed SQL.OPEN
@@ -16,7 +16,6 @@ the data source from which you wish to disconnect.
   - > If connection\_num is not valid, SQL.CLOSE returns the \#VALUE\!
     > error value.
 
-> &nbsp;
 
 **Remarks**
 
@@ -38,21 +37,21 @@ SQL.CLOSE(conn1) will close the connection with connection\_num conn1
 
 **Related Functions**
 
-[SQL.OPEN](SQL.OPEN.md)&nbsp;&nbsp;&nbsp;Establishes a connection with a data source
+[SQL.OPEN](SQL.OPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Establishes a connection with a data source
 
-[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)&nbsp;&nbsp;&nbsp;Sends a query to a data source
+[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends a query to a data source
 
-[SQL.BIND](SQL.BIND.md)&nbsp;&nbsp;&nbsp;Specifies storage for a result column
+[SQL.BIND](SQL.BIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies storage for a result column
 
-[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)&nbsp;&nbsp;&nbsp;Retrieves query results and places
+[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results and places
 them in a file
 
-[SQL.RETRIEVE](SQL.RETRIEVE.md)&nbsp;&nbsp;&nbsp;Retrieves query results
+[SQL.RETRIEVE](SQL.RETRIEVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results
 
-[SQL.GET.SCHEMA](SQL.GET.SCHEMA.md)&nbsp;&nbsp;&nbsp;Gets information about a connected data
+[SQL.GET.SCHEMA](SQL.GET.SCHEMA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Gets information about a connected data
 source.
 
-[SQL.ERROR](SQL.ERROR.md)&nbsp;&nbsp;&nbsp;Returns detailed error information
+[SQL.ERROR](SQL.ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns detailed error information
 
 
 

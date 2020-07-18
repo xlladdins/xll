@@ -8,12 +8,11 @@ can be used just like the built-in Microsoft Excel Help.
 
 **HELP**(help\_ref)
 
-Help\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a topic in a Help
+Help\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to a topic in a Help
 file, in the form "filename\!topic\_number".
 
   - > Help\_ref must be given as text.
 
-> &nbsp;
 
 **Remarks**
 
@@ -23,7 +22,6 @@ file, in the form "filename\!topic\_number".
   - > In Microsoft Excel for the Macintosh, custom Help files are plain
     > text files or text files with line breaks.
 
-> &nbsp;
 
 **Tips**
 

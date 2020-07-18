@@ -8,20 +8,20 @@ custom commands that you have added.
 
 **DELETE.COMMAND**(**bar\_num, menu, command**, subcommand)
 
-Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the menu bar from which you want to
+Bar\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the menu bar from which you want to
 delete the command. Bar\_num can be the ID number of a built-in or
 custom menu bar. See ADD.COMMAND for a list of ID numbers for built-in
 menu bars and shortcut menus.
 
-Menu&nbsp;&nbsp;&nbsp;&nbsp;is the menu from which you want to delete
+Menu**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the menu from which you want to delete
 the command. Menu can be the name of a menu as text or the number of a
 menu. Menus are numbered starting with 1 from the left of the screen.
 
-Command&nbsp;&nbsp;&nbsp;&nbsp;is the command you want to delete, or the
+Command**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the command you want to delete, or the
 name of a submenu. Command can be the name of the command as text or the
 number of the command; the first command on a menu is in position 1.
 
-Subcommand&nbsp;&nbsp;&nbsp;&nbsp;is the command you want to delete from
+Subcommand**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the command you want to delete from
 a submenu. If you use subcommand, you must use command as the name of
 the submenu.
 
@@ -37,7 +37,6 @@ the submenu.
     > unique ID number for that command. You can use this ID number with
     > ADD.COMMAND to restore the built-in command to the original menu.
 
-> &nbsp;
 
 **Example**
 
@@ -49,15 +48,15 @@ DELETE.COMMAND(Financials, "Reports", "Compile Reports...")
 
 **Related Functions**
 
-[ADD.COMMAND](ADD.COMMAND.md)&nbsp;&nbsp;&nbsp;Adds a command to a menu
+[ADD.COMMAND](ADD.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a command to a menu
 
-[CHECK.COMMAND](CHECK.COMMAND.md)&nbsp;&nbsp;&nbsp;Adds or deletes a check mark to or from a
+[CHECK.COMMAND](CHECK.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds or deletes a check mark to or from a
 command
 
-[ENABLE.COMMAND](ENABLE.COMMAND.md)&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+[ENABLE.COMMAND](ENABLE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enables or disables a menu or custom
 command
 
-[RENAME.COMMAND](RENAME.COMMAND.md)&nbsp;&nbsp;&nbsp;Changes the name of a command or menu
+[RENAME.COMMAND](RENAME.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the name of a command or menu
 
 
 

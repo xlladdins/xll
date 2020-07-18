@@ -9,11 +9,11 @@ position number in the menu bar of the new menu.
 
 **ADD.MENU**(**bar\_num, menu\_ref**, position1, position2)
 
-Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the menu bar to which you want a menu
+Bar\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the menu bar to which you want a menu
 added. Bar\_num can be the ID number of a built-in or custom menu bar.
 See ADD.COMMAND for a list of ID numbers for built-in menu bars.
 
-Menu\_ref&nbsp;&nbsp;&nbsp;&nbsp;is an array or a reference to an area
+Menu\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an array or a reference to an area
 on the macro sheet that describes the new menu or the name of a deleted
 built-in menu you want to restore.
 
@@ -33,9 +33,8 @@ built-in menu you want to restore.
     > Macintosh, you can specify shortcut keys in the third column of
     > menu\_ref.
 
-> &nbsp;
 
-Position1&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of the new
+Position1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the placement of the new
 menu. Position can be the name of a menu, as text, or the number of a
 menu. Menus are numbered from left to right starting with 1. Menus are
 added to the left of the position specified.
@@ -58,9 +57,8 @@ added to the left of the position specified.
     > is omitted, the menu is added to the right of the last menu
     > restored.
 
-> &nbsp;
 
-Position2&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of a submenu.
+Position2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the placement of a submenu.
 
   - > Use a hyphen (-) to represent a line separating commands on a
     > menu. If you want to place a command before the second separator
@@ -77,7 +75,6 @@ Position2&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of a submenu.
   - > If position2 is omitted, the command is added to the main menu,
     > not the submenu.
 
-> &nbsp;
 
 **Example**
 
@@ -88,13 +85,13 @@ ADD.MENU(1, A10:B15)
 
 **Related Functions**
 
-[ADD.BAR](ADD.BAR.md)&nbsp;&nbsp;&nbsp;Adds a menu bar
+[ADD.BAR](ADD.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu bar
 
-[ADD.COMMAND](ADD.COMMAND.md)&nbsp;&nbsp;&nbsp;Adds a command to a menu
+[ADD.COMMAND](ADD.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a command to a menu
 
-[DELETE.MENU](DELETE.MENU.md)&nbsp;&nbsp;&nbsp;Deletes a menu
+[DELETE.MENU](DELETE.MENU.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a menu
 
-[ENABLE.COMMAND](ENABLE.COMMAND.md)&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+[ENABLE.COMMAND](ENABLE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enables or disables a menu or custom
 command
 
 

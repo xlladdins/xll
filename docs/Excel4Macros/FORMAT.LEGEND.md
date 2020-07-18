@@ -11,7 +11,7 @@ legend is not already selected.
 
 **FORMAT.LEGEND**?(position\_num)
 
-Position\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 5 specifying
+Position\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 5 specifying
 the position of the legend.
 
 |                   |                        |
@@ -25,11 +25,11 @@ the position of the legend.
 
 **Related Functions**
 
-[FORMAT.MOVE](FORMAT.MOVE.md)&nbsp;&nbsp;&nbsp;Moves the selected object
+[FORMAT.MOVE](FORMAT.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves the selected object
 
-[FORMAT.SIZE](FORMAT.SIZE.md)&nbsp;&nbsp;&nbsp;Sizes an object
+[FORMAT.SIZE](FORMAT.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sizes an object
 
-[LEGEND](LEGEND.md)&nbsp;&nbsp;&nbsp;Adds or deletes a chart legend
+[LEGEND](LEGEND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds or deletes a chart legend
 
 
 

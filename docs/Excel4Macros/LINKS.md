@@ -8,12 +8,12 @@ Use LINKS with OPEN.LINKS to open supporting workbooks.
 
 **LINKS**(document\_text, type\_num)
 
-Document\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a workbook,
+Document\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a workbook,
 including its path. If document\_text is omitted, LINKS operates on the
 active workbook. If the workbook specified by document\_text is not
 open, LINKS returns the \#N/A error value.
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 6 specifying the
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 6 specifying the
 type of linked workbooks to return.
 
 |               |                                                |
@@ -44,7 +44,6 @@ type of linked workbooks to return.
     > first row contains the edition name and the second row contains
     > the reference.
 
-> &nbsp;
 
 **Examples**
 
@@ -70,13 +69,13 @@ SALES.
 
 **Related Functions**
 
-[CHANGE.LINK](CHANGE.LINK.md)&nbsp;&nbsp;&nbsp;Changes supporting workbook links
+[CHANGE.LINK](CHANGE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes supporting workbook links
 
-[GET.LINK.INFO](GET.LINK.INFO.md)&nbsp;&nbsp;&nbsp;Returns information about a link
+[GET.LINK.INFO](GET.LINK.INFO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a link
 
-[OPEN.LINKS](OPEN.LINKS.md)&nbsp;&nbsp;&nbsp;Opens specified supporting workbook
+[OPEN.LINKS](OPEN.LINKS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens specified supporting workbook
 
-[UPDATE.LINK](UPDATE.LINK.md)&nbsp;&nbsp;&nbsp;Updates a link to another workbook
+[UPDATE.LINK](UPDATE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Updates a link to another workbook
 
 
 

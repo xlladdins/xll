@@ -10,10 +10,10 @@ range on the active sheet.
 
 **Related Functions**
 
-[SET.DATABASE](SET.DATABASE.md)&nbsp;&nbsp;&nbsp;Equivalent to clicking the Set Database
+[SET.DATABASE](SET.DATABASE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Equivalent to clicking the Set Database
 command on the Data menu in Microsoft Excel version 4.0
 
-[SET.CRITERIA](SET.CRITERIA.md)&nbsp;&nbsp;&nbsp;Equivalent to clicking the Set Criteria
+[SET.CRITERIA](SET.CRITERIA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Equivalent to clicking the Set Criteria
 command on the Data menu in Microsoft Excel version 4.0
 
 

@@ -6,7 +6,7 @@ Returns information about a field in a PivotTable report.
 
 **GET.PIVOT.FIELD**(type\_num, pivot\_field\_name, pivot\_table\_name)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a value from 1 to 17 that returns
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a value from 1 to 17 that returns
 the following types of information:
 
 <table>
@@ -94,11 +94,11 @@ the following types of information:
 </tbody>
 </table>
 
-Pivot\_field\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of the field that
+Pivot\_field\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the field that
 you want information about. If there is no field named
 pivot\_field\_name in the PivotTable report, returns \#VALUE\!.
 
-Pivot\_table\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of a PivotTable
+Pivot\_table\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a PivotTable
 report containing the field that you want information about. If omitted,
 the PivotTable report containing the active cell is used. If the active
 cell is not in a PivotTable report, the \#VALUE\! error value is
@@ -106,10 +106,10 @@ returned.
 
 **Related Functions**
 
-[GET.PIVOT.ITEM](GET.PIVOT.ITEM.md)&nbsp;&nbsp;&nbsp;Returns information about an item in a
+[GET.PIVOT.ITEM](GET.PIVOT.ITEM.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about an item in a
 [P](P.md)ivotTable report.
 
-[GET.PIVOT.TABLE](GET.PIVOT.TABLE.md)&nbsp;&nbsp;&nbsp;Returns information about a PivotTable
+[GET.PIVOT.TABLE](GET.PIVOT.TABLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a PivotTable
 report.
 
 

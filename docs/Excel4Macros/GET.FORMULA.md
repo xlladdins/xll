@@ -11,7 +11,7 @@ either A1 or R1C1 format, depending on the workspace setting.
 
 **GET.FORMULA**(**reference**)
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;is a cell or range of cells on a sheet
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a cell or range of cells on a sheet
 or macro sheet.
 
   - > If a range of cells is selected, GET.FORMULA returns the contents
@@ -27,7 +27,7 @@ or macro sheet.
     > specified, GET.FORMULA returns the series formula using R1C1-style
     > references.
 
-**Tip**&nbsp;&nbsp;&nbsp;If you want to get the formula in the active
+**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;If you want to get the formula in the active
 cell, use the ACTIVE.CELL function as the reference argument.
 
 **Examples**
@@ -47,13 +47,13 @@ GET.FORMULA(ACTIVE.CELL())
 
 **Related Functions**
 
-[GET.CELL](GET.CELL.md)&nbsp;&nbsp;&nbsp;Returns information about the specified cell
+[GET.CELL](GET.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the specified cell
 
-[GET.DEF](GET.DEF.md)&nbsp;&nbsp;&nbsp;Returns a name matching a definition
+[GET.DEF](GET.DEF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns a name matching a definition
 
-[GET.NAME](GET.NAME.md)&nbsp;&nbsp;&nbsp;Returns the definition of a name
+[GET.NAME](GET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the definition of a name
 
-[GET.NOTE](GET.NOTE.md)&nbsp;&nbsp;&nbsp;Returns characters from a comment
+[GET.NOTE](GET.NOTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns characters from a comment
 
 
 

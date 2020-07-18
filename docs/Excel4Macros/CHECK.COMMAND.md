@@ -8,23 +8,23 @@ check mark beside a command indicates that the command has been chosen.
 **CHECK.COMMAND**(**bar\_num**, **menu**, **command**, **check**,
 position)
 
-Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the menu bar containing the command.
+Bar\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the menu bar containing the command.
 Bar\_num can be the ID number of a built-in or custom menu bar.
 
-Menu&nbsp;&nbsp;&nbsp;&nbsp;is the menu containing the command. Menu can
+Menu**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the menu containing the command. Menu can
 be either the name of a menu as text or the number of a menu. Menus are
 numbered starting with 1 from the left of the screen.
 
-Command&nbsp;&nbsp;&nbsp;&nbsp;is the command you want to check or the
+Command**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the command you want to check or the
 submenu containing the command you want to check. Command can be the
 name of the command as text or the number of the command; the first
 command on a menu is in position 1.
 
-Check&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Check**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 check mark. If check is TRUE, Microsoft Excel adds a check mark to the
 command; if FALSE, Microsoft Excel removes the check mark.
 
-position&nbsp;&nbsp;&nbsp;&nbsp;is the name of a command on a submenu
+position**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a command on a submenu
 that you want to check.
 
 **Remarks**
@@ -42,7 +42,6 @@ that you want to check.
     > version 4.0 menu bar, the corresponding command on the Microsoft
     > Excel version 5.0 or later menu bar will not be effected.
 
-> &nbsp;
 
 **Example**
 
@@ -54,14 +53,14 @@ CHECK.COMMAND(Reports, "Weekly", "Sales", TRUE)
 
 **Related Functions**
 
-[ADD.COMMAND](ADD.COMMAND.md)&nbsp;&nbsp;&nbsp;Adds a command to a menu
+[ADD.COMMAND](ADD.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a command to a menu
 
-[DELETE.COMMAND](DELETE.COMMAND.md)&nbsp;&nbsp;&nbsp;Deletes a command from a menu
+[DELETE.COMMAND](DELETE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a command from a menu
 
-[ENABLE.COMMAND](ENABLE.COMMAND.md)&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+[ENABLE.COMMAND](ENABLE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enables or disables a menu or custom
 command
 
-[RENAME.COMMAND](RENAME.COMMAND.md)&nbsp;&nbsp;&nbsp;Changes the name of a command or menu
+[RENAME.COMMAND](RENAME.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the name of a command or menu
 
 
 

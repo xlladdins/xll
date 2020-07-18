@@ -9,7 +9,7 @@ to determine which macro regains control.
 
 **RESTART**(level\_num)
 
-Level\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the number of
+Level\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the number of
 previous RETURN statements you want to be ignored. If level\_num is
 omitted, the next RETURN statement will halt macro execution.
 
@@ -29,9 +29,9 @@ that called, either directly or indirectly, the currently running macro.
 
 **Related Functions**
 
-[HALT](HALT.md)&nbsp;&nbsp;&nbsp;Stops all macros from running
+[HALT](HALT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Stops all macros from running
 
-[RETURN](RETURN.md)&nbsp;&nbsp;&nbsp;Ends the currently running macro
+[RETURN](RETURN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends the currently running macro
 
 
 

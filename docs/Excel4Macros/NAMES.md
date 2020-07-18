@@ -9,11 +9,11 @@ to the macro sheet instead of to the active worksheet.
 
 **NAMES**(document\_text, type\_num, match\_text)
 
-Document\_text&nbsp;&nbsp;&nbsp;&nbsp;is text that specifies the
+Document\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text that specifies the
 workbook whose names you want returned. If document\_text is omitted, it
 is assumed to be the active workbook.
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 that specifies
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 that specifies
 whether to include hidden names in the returned array.
 
 |                     |                   |
@@ -23,7 +23,7 @@ whether to include hidden names in the returned array.
 | 2                   | Hidden names only |
 | 3                   | All names         |
 
-Match\_text&nbsp;&nbsp;&nbsp;&nbsp;is text that specifies the names you
+Match\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text that specifies the names you
 want returned and can include wildcard characters. If match\_text is
 omitted, all names are returned.
 
@@ -41,7 +41,6 @@ omitted, all names are returned.
   - > You can use the COLUMNS function to count the number of entries in
     > the horizontal array.
 
-> &nbsp;
 
 **Example**
 
@@ -52,18 +51,18 @@ NAMES(, 3, "P\*")
 
 **Related Functions**
 
-[DEFINE.NAME](DEFINE.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name on the active worksheet or
+[DEFINE.NAME](DEFINE.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name on the active worksheet or
 macro sheet
 
-[DELETE.NAME](DELETE.NAME.md)&nbsp;&nbsp;&nbsp;Deletes a name
+[DELETE.NAME](DELETE.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a name
 
-[GET.DEF](GET.DEF.md)&nbsp;&nbsp;&nbsp;Returns a name matching a definition
+[GET.DEF](GET.DEF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns a name matching a definition
 
-[GET.NAME](GET.NAME.md)&nbsp;&nbsp;&nbsp;Returns the definition of a name
+[GET.NAME](GET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the definition of a name
 
-[LIST.NAMES](LIST.NAMES.md)&nbsp;&nbsp;&nbsp;Lists names and their associated information
+[LIST.NAMES](LIST.NAMES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Lists names and their associated information
 
-[SET.NAME](SET.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name as a value
+[SET.NAME](SET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name as a value
 
 
 

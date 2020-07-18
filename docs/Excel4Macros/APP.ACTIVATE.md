@@ -8,10 +8,10 @@ EXEC.
 
 **APP.ACTIVATE**(title\_text, wait\_logical)
 
-**Important&nbsp;&nbsp;&nbsp;**Microsoft Excel for the Macintosh
+**Important**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this function.
 
-Title\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of an application as
+Title\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of an application as
 displayed in its title bar.
 
   - > If title\_text is omitted, APP.ACTIVATE switches to Microsoft
@@ -30,9 +30,8 @@ displayed in its title bar.
     > to the Process Serial Number (PSN) that is returned by an EXEC
     > function.
 
-> &nbsp;
 
-Wait\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value determining when
+Wait\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value determining when
 to switch to the application specified by title\_text.
 
   - > If wait\_logical is TRUE, Microsoft Excel waits to be switched to
@@ -41,7 +40,6 @@ to switch to the application specified by title\_text.
   - > If wait\_logical is FALSE or omitted, Microsoft Excel immediately
     > switches to the application specified by title\_text.
 
-> &nbsp;
 
 **Remarks**
 
@@ -63,7 +61,7 @@ switches to Microsoft Word:
 
 APP.ACTIVATE("MICROSOFT WORD")
 
-**Tip**&nbsp;&nbsp;&nbsp;Use an IF statement with APP.ACTIVATE to run an
+**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Use an IF statement with APP.ACTIVATE to run an
 EXEC function if the application you want to switch to is not yet
 running.
 
@@ -72,21 +70,21 @@ running.
 [T](T.md)he first five functions following are only for Microsoft Excel for
 [W](W.md)indows.
 
-[APP.MAXIMIZE](APP.MAXIMIZE.md)&nbsp;&nbsp;&nbsp;Maximizes the Microsoft Excel application
+[APP.MAXIMIZE](APP.MAXIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Maximizes the Microsoft Excel application
 window
 
-[APP.MINIMIZE](APP.MINIMIZE.md)&nbsp;&nbsp;&nbsp;Minimizes the Microsoft Excel application
+[APP.MINIMIZE](APP.MINIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Minimizes the Microsoft Excel application
 window
 
-[APP.MOVE](APP.MOVE.md)&nbsp;&nbsp;&nbsp;Moves the Microsoft Excel application window
+[APP.MOVE](APP.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves the Microsoft Excel application window
 
-[APP.RESTORE](APP.RESTORE.md)&nbsp;&nbsp;&nbsp;Restores the Microsoft Excel application
+[APP.RESTORE](APP.RESTORE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Restores the Microsoft Excel application
 window
 
-[APP.SIZE](APP.SIZE.md)&nbsp;&nbsp;&nbsp;Changes the size of the Microsoft Excel
+[APP.SIZE](APP.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the size of the Microsoft Excel
 application window
 
-[EXEC](EXEC.md)&nbsp;&nbsp;&nbsp;Starts another application
+[EXEC](EXEC.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts another application
 
 
 

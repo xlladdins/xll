@@ -9,10 +9,10 @@ Format menu. Renames a sheet in a workbook.
 
 **WORKBOOK.NAME**?(oldname\_text, newname\_text)
 
-Oldname\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the sheet that you
+Oldname\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the sheet that you
 want to rename.
 
-Newname\_text&nbsp;&nbsp;&nbsp;&nbsp;is the new name of the sheet.
+Newname\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the new name of the sheet.
 
 **Remarks**
 

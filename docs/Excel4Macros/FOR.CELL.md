@@ -8,15 +8,15 @@ range of cells, one cell at a time, and there is no loop counter.
 
 **FOR.CELL**(**ref\_name**, area\_ref, skip\_blanks)
 
-Ref\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name in the form of text that
+Ref\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name in the form of text that
 Microsoft Excel gives to the one cell in the range that is currently
 being operated on; ref\_name refers to a new cell during each loop.
 
-Area\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the range of cells on which you want
+Area\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the range of cells on which you want
 the FOR.CELL-NEXT loop to operate and can be a multiple selection. If
 area\_ref is omitted, it is assumed to be the current selection.
 
-Skip\_blanks&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying
+Skip\_blanks**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying
 whether Microsoft Excel skips blank cells as it operates on the cells in
 area\_ref.
 
@@ -41,14 +41,14 @@ FOR.CELL("CurrentCell", SELECTION(), TRUE)
 
 **Related Functions**
 
-[BREAK](BREAK.md)&nbsp;&nbsp;&nbsp;Interrupts a FOR-NEXT, FOR.CELL-NEXT, or
+[BREAK](BREAK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Interrupts a FOR-NEXT, FOR.CELL-NEXT, or
 [WHILE](WHILE.md)-NEXT loop
 
-[FOR](FOR.md)&nbsp;&nbsp;&nbsp;Starts a FOR-NEXT loop
+[FOR](FOR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a FOR-NEXT loop
 
-[NEXT](NEXT.md)&nbsp;&nbsp;&nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
+[NEXT](NEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
-[WHILE](WHILE.md)&nbsp;&nbsp;&nbsp;Starts a WHILE-NEXT loop
+[WHILE](WHILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a WHILE-NEXT loop
 
 
 

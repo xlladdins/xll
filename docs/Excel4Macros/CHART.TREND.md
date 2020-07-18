@@ -8,7 +8,7 @@ stacked column, scatter, line, and area.
 **CHART.TREND**(**type**, ord\_per, forecast, backcast, intercept,
 equation, r\_squared, name)
 
-Type&nbsp;&nbsp;&nbsp;&nbsp;is the type of trend or regression.
+Type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the type of trend or regression.
 
 |            |                |
 | ---------- | -------------- |
@@ -20,36 +20,36 @@ Type&nbsp;&nbsp;&nbsp;&nbsp;is the type of trend or regression.
 | 5          | Exponential    |
 | 6          | Moving Average |
 
-Ord\_per&nbsp;&nbsp;&nbsp;&nbsp;depends on type. If type is 3, then
+Ord\_per**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;depends on type. If type is 3, then
 ord\_per is the order of the polynomial. If type is 6, ord\_per is the
 number of periods for the moving average. If type is neither 3 nor 6,
 then ord\_per is ignored.
 
-Forecast&nbsp;&nbsp;&nbsp;&nbsp;is the number of periods or units to
+Forecast**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of periods or units to
 extrapolate the trendline in the positive or forward direction. This
 argument is ignored for moving averages (type 6). The default is zero.
 
-Backcast&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the number of
+Backcast**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the number of
 periods or units to extrapolate the trendline in the negative or
 backward direction. This argument is ignored for moving averages (type
 6). The default is zero.
 
-Intercept&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the value of the
+Intercept**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the value of the
 y-intercept of the trendline, if it is already known. If FALSE or
 omitted, Microsoft Excel will calculate the y-intercept . This argument
 is ignored for moving averages.
 
-Equation&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
+Equation**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether
 the trend equation should be displayed on the chart. If TRUE, the
 equation will be displayed on the chart. If FALSE or omitted, the
 equation will not be displayed on the chart.
 
-R\_squared&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
+R\_squared**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether
 the r-squared equation should be displayed on the chart. If TRUE, the
 value will be displayed on the chart. If FALSE or omitted, the equation
 will not be displayed on the chart.
 
-Name&nbsp;&nbsp;&nbsp;&nbsp;is a text string specifying the custom name
+Name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string specifying the custom name
 of the trendline. Can also be a logical value. If TRUE or omitted, the
 automatic name will be used instead.
 
@@ -89,7 +89,7 @@ automatic name will be used instead.
 
 **Related Function**
 
-[CHART.WIZARD](CHART.WIZARD.md)&nbsp;&nbsp;&nbsp;Equivalent to clicking the ChartWizard
+[CHART.WIZARD](CHART.WIZARD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Equivalent to clicking the ChartWizard
 button on the Standard toolbar
 
 

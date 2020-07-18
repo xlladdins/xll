@@ -9,17 +9,17 @@ must install the Report Manager add-in.
 
 **REPORT.DEFINE**(**report\_name, sections\_array**, pages\_logical)
 
-Report\_name&nbsp;&nbsp;&nbsp;&nbsp;specifies the name of the report. If
+Report\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the name of the report. If
 the workbook already contains a report with report\_name, the new report
 replaces the existing one.
 
-Sections\_array&nbsp;&nbsp;&nbsp;&nbsp;is an array that contains one or
+Sections\_array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an array that contains one or
 more rows of view, scenario, and sheet name that define the report. The
 sheet name is the sheet on which the view and scenario are defined. If
 the sheet name is not specified, the current sheet is used when
 REPORT.DEFINE is run.
 
-Pages\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if TRUE
+Pages\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that, if TRUE
 or omitted, specifies continuous page numbers for multiple sections or,
 if FALSE, resets page numbers to 1 for each new section.
 
@@ -33,11 +33,11 @@ if FALSE, resets page numbers to 1 for each new section.
 
 **Related Functions**
 
-[REPORT.DELETE](REPORT.DELETE.md)&nbsp;&nbsp;&nbsp;Removes a report from the active workbook
+[REPORT.DELETE](REPORT.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes a report from the active workbook
 
-[REPORT.PRINT](REPORT.PRINT.md)&nbsp;&nbsp;&nbsp;Prints a report
+[REPORT.PRINT](REPORT.PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints a report
 
-[REPORT.GET](REPORT.GET.md)&nbsp;&nbsp;&nbsp;Returns information about reports defined
+[REPORT.GET](REPORT.GET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about reports defined
 for the active workbook
 
 

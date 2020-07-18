@@ -21,7 +21,7 @@ value 0.
 
 **Related Function**
 
-[SOLVER.ADD](SOLVER.ADD.md)&nbsp;&nbsp;&nbsp;Adds a constraint to the current problem
+[SOLVER.ADD](SOLVER.ADD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a constraint to the current problem
 
 
 

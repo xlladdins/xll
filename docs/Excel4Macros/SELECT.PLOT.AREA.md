@@ -15,7 +15,7 @@ same as the SELECT("Plot") function.
 
 **Related Function**
 
-[SELECT](SELECT.md)&nbsp;&nbsp;&nbsp;Selects a cell, graphic object, or chart
+[SELECT](SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects a cell, graphic object, or chart
 
 
 

@@ -12,7 +12,7 @@ affected.
 
 **TABLE**?(row\_ref, column\_ref)
 
-Row\_ref&nbsp;&nbsp;&nbsp;&nbsp;specifies the one cell to use as the row
+Row\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the one cell to use as the row
 input for your table.
 
   - > Row\_ref should be either an external reference to a single cell
@@ -23,9 +23,8 @@ input for your table.
   - > If row\_ref is an R1C1-style reference, it is assumed to be
     > relative to the active cell in the selection.
 
-> &nbsp;
 
-Column\_ref&nbsp;&nbsp;&nbsp;&nbsp;specifies the one cell to use as the
+Column\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the one cell to use as the
 column input for your table. Column\_ref is subject to the same
 restrictions as row\_ref.
 

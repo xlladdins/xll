@@ -7,16 +7,16 @@ sheet.
 
 **ON.SHEET**(sheet\_text, macro\_text, activate\_logical)
 
-Sheet\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the sheet that
+Sheet\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the sheet that
 triggers a macro when it is activated, in the form "\[Book1\]Sheet1". If
 omitted, then when any sheet in any book is activated, macro\_text will
 run.
 
-Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the macro to run when
+Macro\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the macro to run when
 the specified sheet is activated. If omitted, then the triggering of a
 macro on the specified sheet is cancelled.
 
-Activate\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that
+Activate\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that
 specifies if the macro is run when the sheet is activated or
 deactivated. If TRUE or omitted, the macro is run when the sheet is
 activated. If FALSE, the macro is run when the sheet is deactivated.
@@ -37,7 +37,7 @@ in the book STORE.XLS is activated
 
 **Related Function**
 
-[ON.WINDOW](ON.WINDOW.md)&nbsp;&nbsp;&nbsp;Runs a specified macro when you switch to a
+[ON.WINDOW](ON.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a specified macro when you switch to a
 particular window.
 
 

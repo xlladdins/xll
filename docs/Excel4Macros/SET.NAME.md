@@ -9,10 +9,10 @@ useful for storing values while the macro is calculating.
 
 **SET.NAME**(**name\_text**, value)
 
-Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name in the form of text that
+Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name in the form of text that
 refers to value.
 
-Value&nbsp;&nbsp;&nbsp;&nbsp;is the value you want to store in
+Value**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the value you want to store in
 name\_text.
 
   - > If value is omitted, the name name\_text is deleted.
@@ -20,7 +20,6 @@ name\_text.
   - > If value is a reference, name\_text is defined to refer to that
     > reference.
 
-> &nbsp;
 
 **Remarks**
 
@@ -41,7 +40,6 @@ name\_text.
     > referring to a new value every time the contents of the referenced
     > cell changes. See the last example following.
 
-> &nbsp;
 
 **Tips**
 
@@ -61,7 +59,6 @@ name\_text.
     > click Define on the Name submenu of the Insert menu, and select
     > the name from the Define Name dialog box.
 
-> &nbsp;
 
 **Examples**
 
@@ -101,10 +98,10 @@ SET.NAME("Index", DEREF(A1))
 
 **Related Functions**
 
-[DEFINE.NAME](DEFINE.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name on the active worksheet or
+[DEFINE.NAME](DEFINE.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name on the active worksheet or
 macro sheet
 
-[SET.VALUE](SET.VALUE.md)&nbsp;&nbsp;&nbsp;Sets the value of a cell on a macro sheet
+[SET.VALUE](SET.VALUE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the value of a cell on a macro sheet
 
 
 

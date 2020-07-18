@@ -7,16 +7,16 @@ specific time of day or after a specified period has passed.
 
 **ON.TIME**(**time, macro\_text**, tolerance, insert\_logical)
 
-Time&nbsp;&nbsp;&nbsp;&nbsp;is the time and date, given as a serial
+Time**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the time and date, given as a serial
 number, at which the macro is to be run. If time does not include a date
 (that is, if time is a serial number less than 1), the macro is run the
 next time this time occurs.
 
-Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or an R1C1-style
+Macro\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of, or an R1C1-style
 reference to, a macro to run at the specified time and every subsequent
 day at that time.
 
-Tolerance&nbsp;&nbsp;&nbsp;&nbsp;is the time and date, given as a serial
+Tolerance**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the time and date, given as a serial
 number, that you are willing to wait until and still have the macro run.
 For example, if Microsoft Excel is not in Ready, Copy, Cut, or Find mode
 at time, because another macro is running, but is in Ready mode 15
@@ -25,7 +25,7 @@ specified by macro\_text will run. If Microsoft Excel was not in Ready
 mode within 30 seconds, the macro would not run. If tolerance is
 omitted, it is assumed to be infinite.
 
-Insert\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying
+Insert\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying
 whether you want every day macro\_text to run at time. Use
 insert\_logical when you want to clear a previously set ON.TIME formula.
 If insert\_logical is TRUE or omitted, the macro specified by

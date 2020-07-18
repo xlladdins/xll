@@ -12,14 +12,14 @@ add-in.
 
 **RANKPERC**?(inprng, outrng, grouped, labels)
 
-Inprng&nbsp;&nbsp;&nbsp;&nbsp;is the input range.
+Inprng**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the input range.
 
-Outrng&nbsp;&nbsp;&nbsp;&nbsp;is the first cell (the upper-left cell) in
+Outrng**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the first cell (the upper-left cell) in
 the output table or the name, as text, of a new sheet to contain the
 output table. If FALSE, blank, or omitted, places the output table in a
 new workbook.
 
-Grouped&nbsp;&nbsp;&nbsp;&nbsp;is a text character that indicates
+Grouped**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text character that indicates
 whether the data in the input range is organized by row or column.
 
   - > If grouped is "C" or omitted, then the data is organized by
@@ -27,9 +27,8 @@ whether the data in the input range is organized by row or column.
 
   - > If grouped is "R", then the data is organized by row.
 
-> &nbsp;
 
-Labels&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that describes where
+Labels**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that describes where
 the labels are located in the input range, as shown in the following
 table:
 

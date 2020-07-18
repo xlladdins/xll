@@ -28,12 +28,12 @@ For Microsoft Excel for the Macintosh
 argument\_text, macro\_type, category, shortcut\_text, help\_topic,
 function\_help, argument\_help1, argument\_help2,...)
 
-Module\_text or file\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the
+Module\_text or file\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying the
 name of the DLL that contains the function (in Microsoft Excel for
 Windows) or the name of the file that contains the code resource (in
 Microsoft Excel for the Macintosh).
 
-Procedure or resource&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the name
+Procedure or resource**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying the name
 of the function in the DLL (in Microsoft Excel for Windows) or the name
 of the code resource (in Microsoft Excel for the Macintosh). In
 Microsoft Excel for Windows, you can also use the ordinal value of the
@@ -46,24 +46,24 @@ This argument may be omitted for stand-alone DLLs or code resources. In
 this case, REGISTER will register all functions or code resources and
 then return module\_text or file\_text.
 
-Type\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the data type of
+Type\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying the data type of
 the return value and the data types of all arguments to the DLL or code
 resource. The first letter of type\_text specifies the return value.
 
-Function\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the name of the
+Function\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying the name of the
 function as you want it to appear in the Paste Function dialog box. If
 you omit this argument, the function will not appear in the Paste
 Function dialog box.
 
-Argument\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the names of
+Argument\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying the names of
 the arguments you want to appear in the Paste Function dialog box.
 Argument names should be separated by commas.
 
-Macro\_type&nbsp;&nbsp;&nbsp;&nbsp;specifies the macro type: 1 for a
+Macro\_type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the macro type: 1 for a
 function or 2 for a command. If macro\_type is omitted, it is assumed to
 be 1 (function).
 
-Category&nbsp;&nbsp;&nbsp;&nbsp;specifies the function category in the
+Category**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the function category in the
 Paste Function dialog box in which you want the registered function to
 appear. You can use the category number or the category name for
 category. If you use the category name, be sure to enclose it in double
@@ -195,24 +195,24 @@ Defined).
 </tbody>
 </table>
 
-Shortcut\_text&nbsp;&nbsp;&nbsp;&nbsp;is a character specifying the
+Shortcut\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a character specifying the
 shortcut key for the registered command. The shortcut key is
 case-sensitive. This argument is used only if macro\_type = 2 (command).
 If shortcut\_text is omitted, the command will not have a shortcut key.
 
-Help\_topic&nbsp;&nbsp;&nbsp;&nbsp;is the reference (including path) to
+Help\_topic**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the reference (including path) to
 the help file that you want displayed when the user clicks the Help
 button when your custom function is displayed.
 
-Function\_help&nbsp;&nbsp;&nbsp;&nbsp;is a text string describing your
+Function\_help**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string describing your
 custom function when it is selected in the Paste Function dialog box.
 The maximum number of characters is 255.
 
-Argument\_help1, argument\_help2&nbsp;&nbsp;&nbsp;&nbsp;are 1 to 21 text
+Argument\_help1, argument\_help2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;are 1 to 21 text
 strings that describes you custom function's arguments when the function
 is selected in the Paste Function dialog box.
 
-Example&nbsp;&nbsp;&nbsp;&nbsp;  
+Example**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;  
 Syntax 1
 
 In Microsoft Excel for Windows, the following macro formula registers
@@ -228,7 +228,7 @@ number of milliseconds that have elapsed:
 
 CALL(A5)
 
-Example&nbsp;&nbsp;&nbsp;&nbsp;  
+Example**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;  
 Syntax 1 with optional function\_text
 
 You can use the following macro formula to register the GetTickCount
@@ -254,14 +254,14 @@ MACRO1.XLS, the following formula calls the function from another sheet:
 
 MACRO1.XLS\!GetTicks()
 
-**Tip&nbsp;&nbsp;&nbsp;**You can use functions in a DLL or code resource
+**Tip**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**You can use functions in a DLL or code resource
 directly on a sheet without first registering them from a macro sheet.
 Use syntax 2a or 2b of the CALL function. For more information, see
 CALL.
 
 **Related Function**
 
-[UNREGISTER](UNREGISTER.md)&nbsp;&nbsp;&nbsp;Removes a registered code resource from
+[UNREGISTER](UNREGISTER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes a registered code resource from
 memory
 
 

@@ -18,7 +18,6 @@ Displays the contents of the Clipboard in a new window.
     > Clipboard contents in rows and columns. If the Clipboard contains
     > text cut from the formula bar, the window displays the text.
 
-> &nbsp;
 
 
 

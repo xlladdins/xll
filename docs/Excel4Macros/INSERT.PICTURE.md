@@ -9,10 +9,10 @@ function is available for Microsoft Excel for Windows only .
 
 **INSERT.PICTURE**?(file\_name, filter\_number)
 
-File\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name, as text, of the file
+File\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name, as text, of the file
 containing the picture that you want to insert into your workbook.
 
-Filter\_number&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying which
+Filter\_number**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying which
 converter Microsoft Excel will use to open the file.
 
 |                   |                                      |

@@ -14,17 +14,17 @@ Init\_filename&nbsp;&nbsp; Specifies the suggested filename for saving.
 If omitted, the active workbook's name is used, as returned by the
 GET.DOCUMENT(1) function.
 
-Title&nbsp;&nbsp;&nbsp;&nbsp;Specifies the default window title on
+Title**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;Specifies the default window title on
 Microsoft Excel for Windows. For Microsoft Excel for the Macintosh,
 title specifies the prompt string. If omitted, "File Save As" will be
 used for Microsoft Excel for Windows, and "Save As:" For Microsoft Excel
 for the Macintosh.
 
-Button\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text used for the save button
+Button\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the text used for the save button
 in the dialog. If omitted, "Save" will be used as the default. This
 argument is ignored on the Microsoft Excel for Windows.
 
-File\_filter&nbsp;&nbsp;&nbsp;&nbsp;is the file filtering criteria to
+File\_filter**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the file filtering criteria to
 use, as text. For Microsoft Excel for Windows, file\_filter consists of
 two parts, a descriptive phrase denoting the file type followed by a
 comma and then the MS-DOS wildcard file filter specification, as in
@@ -38,7 +38,7 @@ as in "TEXT,XLA,XLS4". Spaces are significant and should not be inserted
 before or after the comma separators unless they are part of the file
 type code.
 
-Filter\_index&nbsp;&nbsp;&nbsp;&nbsp;specifies the index number of the
+Filter\_index**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the index number of the
 default file filtering criteria from 1 to the number of filters
 specified in file\_filter. If omitted or greater than the number of
 filters present, 1 will be used as the starting index number. The
@@ -66,7 +66,7 @@ with three file filter criteria in the drop-down list box.
 
 **Related Function**
 
-[OPEN.DIALOG](OPEN.DIALOG.md)&nbsp;&nbsp;&nbsp;Displays the standard Microsoft Excel File
+[OPEN.DIALOG](OPEN.DIALOG.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays the standard Microsoft Excel File
 [O](O.md)pen dialog box with the specified file filters
 
 

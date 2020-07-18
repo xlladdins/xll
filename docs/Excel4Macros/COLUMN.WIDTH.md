@@ -12,12 +12,12 @@ standard\_num)
 **COLUMN.WIDTH**?(width\_num, reference, standard, type\_num,
 standard\_num)
 
-Width\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies how wide you want the
+Width\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies how wide you want the
 columns to be in units of one character of the font corresponding to the
 Normal cell style. Width\_num is ignored if standard is TRUE or if
 type\_num is provided.
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies the columns for which you
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the columns for which you
 want to change the width.
 
   - > If reference is specified, it must be either an external reference
@@ -31,9 +31,8 @@ want to change the width.
   - > If reference is omitted, it is assumed to be the current
     > selection.
 
-> &nbsp;
 
-Standard\_num&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
+Standard\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
 the Standard Width command from the Column submenu on the Format menu.
 
   - > If standard is TRUE, Microsoft Excel sets the column width to the
@@ -42,9 +41,8 @@ the Standard Width command from the Column submenu on the Format menu.
   - > If standard is FALSE or omitted, Microsoft Excel sets the width
     > according to width\_num or type\_num.
 
-> &nbsp;
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 corresponding
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 corresponding
 to the Hide, Unhide, or AutoFit Selection commands, respectively, on the
 Column submenu of the Format menu.
 
@@ -55,7 +53,7 @@ Column submenu of the Format menu.
 | 2             | Unhides the column selection by setting the column width to the value set before the selection was hidden                                           |
 | 3             | Sets the column selection to a best-fit width, which varies from column to column depending on the length of the longest data string in each column |
 
-Standard\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies how wide the standard
+Standard\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies how wide the standard
 width is, and is measured in points. If standard\_num is omitted, the
 standard width setting remains unchanged.
 
@@ -73,11 +71,10 @@ standard width setting remains unchanged.
     > records the references of the columns using R1C1-style references
     > in the form of text.
 
-> &nbsp;
 
 **Related Function**
 
-[ROW.HEIGHT](ROW.HEIGHT.md)&nbsp;&nbsp;&nbsp;Changes the heights of rows
+[ROW.HEIGHT](ROW.HEIGHT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the heights of rows
 
 
 

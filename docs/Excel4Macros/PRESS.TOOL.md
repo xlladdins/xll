@@ -7,15 +7,15 @@ screen.
 
 **PRESS.TOOL**(**bar\_id, position**, down)
 
-Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;specifies the number or name of the
+Bar\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the number or name of the
 toolbar in which you want to change the button appearance. For detailed
 information about bar\_id, see ADD.TOOL.
 
-Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the position of the button
+Position**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the position of the button
 within the toolbar. Position starts with 1 at the left side (if
 horizontal) or at the top (if vertical).
 
-Down&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying the appearance
+Down**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying the appearance
 of the button. If down is TRUE, the button appears depressed into the
 screen; if FALSE or omitted, it appears normal (up).
 
@@ -34,9 +34,9 @@ PRESS.TOOL("Toolbar4", 3, FALSE)
 
 **Related Functions**
 
-[ADD.TOOL](ADD.TOOL.md)&nbsp;&nbsp;&nbsp;Adds one or more buttons to a toolbar
+[ADD.TOOL](ADD.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds one or more buttons to a toolbar
 
-[DELETE.TOOL](DELETE.TOOL.md)&nbsp;&nbsp;&nbsp;Deletes a button from a toolbar
+[DELETE.TOOL](DELETE.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a button from a toolbar
 
 
 

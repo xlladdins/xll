@@ -13,12 +13,12 @@ INSERT.PICTURE to import pictures.
 
 **Related Functions**
 
-[COPY.PICTURE](COPY.PICTURE.md)&nbsp;&nbsp;&nbsp;Creates a picture of the current selection
+[COPY.PICTURE](COPY.PICTURE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a picture of the current selection
 for use in another program
 
-[INSERT.PICTURE](INSERT.PICTURE.md)&nbsp;&nbsp;&nbsp;Inserts a picture from a file
+[INSERT.PICTURE](INSERT.PICTURE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Inserts a picture from a file
 
-[PASTE.PICTURE.LINK](PASTE.PICTURE.LINK.md)&nbsp;&nbsp;&nbsp;Pastes a linked picture of the
+[PASTE.PICTURE.LINK](PASTE.PICTURE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes a linked picture of the
 currently copied area
 
 

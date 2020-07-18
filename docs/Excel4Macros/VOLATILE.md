@@ -8,7 +8,7 @@ calculation occurs on the worksheet.
 
 **VOLATILE**(logical)
 
-Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether the
+Logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether the
 custom function is volatile or nonvolatile. If logical is TRUE or
 omitted, the function is volatile; if FALSE, nonvolatile.
 
@@ -27,11 +27,10 @@ omitted, the function is volatile; if FALSE, nonvolatile.
     > VOLATILE(FALSE) to prevent these functions from being recalculated
     > unnecessarily often.
 
-> &nbsp;
 
 **Related Function**
 
-[RESULT](RESULT.md)&nbsp;&nbsp;&nbsp;Specifies the data type a custom function
+[RESULT](RESULT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies the data type a custom function
 returns
 
 

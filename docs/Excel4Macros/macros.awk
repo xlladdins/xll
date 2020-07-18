@@ -10,22 +10,29 @@ BEGIN {
 }
 
 /^Return to/ { next }
+/^> \&nbsp;$/ { next }
 /^# / {
     related = 0
     if (length($2) > 1) {
-		print "\nReturn to [README](README.md)\n" >> file".md"
-        skip = 0
-        file = $2
-        gsub(/,/, "", file)
-        key = substr(file, 1, 1)
-        if (key != okey) {
-            print "\n## "key"\n" >> "README.md"
-            okey = key
-            bull = ""
+        if ($2 == "Tips") { # bogus pandoc parse
+            print "**Tips**" >> file".md"
+            next
         }
-        sub(/^# /, "")
-		print bull"["$0"]("file".md)" >> "README.md"
-        bull = " &bull; "
+        else {
+            print "\nReturn to [README](README.md)\n" >> file".md"
+            skip = 0
+            file = $2
+            gsub(/,/, "", file)
+            key = substr(file, 1, 1)
+            if (key != okey) {
+                print "\n## "key"\n" >> "README.md"
+                okey = key
+                bull = ""
+            }
+            sub(/^# /, "")
+            print bull"["$0"]("file".md)" >> "README.md"
+            bull = " &bull; "
+        }
     }
 }
 /Related Function/ {
@@ -34,6 +41,7 @@ BEGIN {
     next
 }
 skip == 0 {
+    sub("&nbsp;&nbsp;&nbsp;**", "**&nbsp;&nbsp;&nbsp;")
     if (related) {
         sub(/^[A-Z\.]+/, "[&](&.md)")
     }

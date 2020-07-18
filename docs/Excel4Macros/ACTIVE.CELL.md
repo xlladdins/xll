@@ -28,7 +28,7 @@ reference.
     > can then store or manipulate (or convert back to a reference with
     > TEXTREF). See the second example following.
 
-**Tip&nbsp;&nbsp;&nbsp;**Use the following macro formula to verify that
+**Tip**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Use the following macro formula to verify that
 the current selection is a cell or range of cells:
 
 \=ISREF(ACTIVE.CELL( ))
@@ -67,7 +67,7 @@ ACTIVE.CELL() equals 'SALES&nbsp;1'\!$A$1
 
 **Related Function**
 
-[SELECT](SELECT.md)&nbsp;&nbsp;&nbsp;Selects a cell, worksheet object, or chart item
+[SELECT](SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects a cell, worksheet object, or chart item
 
 
 

@@ -12,7 +12,7 @@ create\_links)
 **CONSOLIDATE**?(source\_refs, function\_num, top\_row, left\_col,
 create\_links)
 
-Source\_refs&nbsp;&nbsp;&nbsp;&nbsp;are references to areas that contain
+Source\_refs**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;are references to areas that contain
 data to be consolidated on the destination worksheet. Source\_refs must
 be in text form and include the full path of the file and the cell
 reference or named ranges in the workbook to be consolidated.
@@ -23,7 +23,7 @@ To add or delete source\_refs from an existing consolidation on a
 worksheet, reuse the CONSOLIDATE function, specifying the new
 source\_refs.
 
-Function\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 11 that
+Function\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 11 that
 specifies one of the 11 functions you can use to consolidate data. If
 function\_num is omitted, the SUM function, number 9, is used. The
 functions and their corresponding numbers are listed in the following
@@ -49,16 +49,16 @@ Consolidate dialog box. Arguments that correspond to check boxes are
 logical values. If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box.
 
-Top\_row&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Top Row check box.
+Top\_row**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Top Row check box.
 The default is FALSE.
 
-Left\_col&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Left Column check
+Left\_col**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Left Column check
 box. The default is FALSE.
 
 If top\_row and left\_col are both FALSE or omitted, the data is
 consolidated by position.
 
-Create\_links&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Create Links To
+Create\_links**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Create Links To
 Source Data check box.
 
 **Remarks**
@@ -72,17 +72,16 @@ Source Data check box.
     > no consolidation on the active worksheet, the function returns the
     > \#VALUE\! error value.
 
-> &nbsp;
 
 **Related Functions**
 
-[CHANGE.LINK](CHANGE.LINK.md)&nbsp;&nbsp;&nbsp;Changes supporting workbook links
+[CHANGE.LINK](CHANGE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes supporting workbook links
 
-[LINKS](LINKS.md)&nbsp;&nbsp;&nbsp;Returns the names of all linked workbooks
+[LINKS](LINKS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the names of all linked workbooks
 
-[OPEN.LINKS](OPEN.LINKS.md)&nbsp;&nbsp;&nbsp;Opens specified supporting workbooks
+[OPEN.LINKS](OPEN.LINKS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens specified supporting workbooks
 
-[UPDATE.LINK](UPDATE.LINK.md)&nbsp;&nbsp;&nbsp;Updates a link to another workbook
+[UPDATE.LINK](UPDATE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Updates a link to another workbook
 
 
 

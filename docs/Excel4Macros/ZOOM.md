@@ -9,7 +9,7 @@ at a larger size.
 
 **ZOOM**(magnification)
 
-Magnification&nbsp;&nbsp;&nbsp;&nbsp;is a logical value or a number
+Magnification**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value or a number
 specifying the amount of enlargement or reduction.
 
   - > Magnification can be a number from 10 to 400 specifying the
@@ -21,11 +21,10 @@ specifying the amount of enlargement or reduction.
   - > If magnification is FALSE, the sheet is restored to normal 100%
     > magnification.
 
-> &nbsp;
 
 **Related Function**
 
-[PRINT.PREVIEW](PRINT.PREVIEW.md)&nbsp;&nbsp;&nbsp;Previews pages and page breaks before
+[PRINT.PREVIEW](PRINT.PREVIEW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Previews pages and page breaks before
 printing.
 
 

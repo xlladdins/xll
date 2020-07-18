@@ -8,7 +8,7 @@ use in other functions that manipulate open workbooks.
 
 **DOCUMENTS**(type\_num, match\_text)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying whether to
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying whether to
 include add-in workbooks in the array of workbooks, according to the
 following table.
 
@@ -19,7 +19,7 @@ following table.
 | 2             | Names of add-in workbooks only                      |
 | 3             | Names of all open workbooks                         |
 
-Match\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies the workbooks whose names
+Match\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the workbooks whose names
 you want returned and can include wildcard characters. If match\_text is
 omitted, DOCUMENTS returns the names of all open workbooks.
 
@@ -37,7 +37,6 @@ omitted, DOCUMENTS returns the names of all open workbooks.
   - > Since the DOCUMENTS function only returns actual workbook names,
     > it ignores any changes made by the WINDOW.TITLE function.
 
-> &nbsp;
 
 **Examples**
 
@@ -58,14 +57,14 @@ DOCUMENTS(1) equals the four-cell array {"ACTUALS", "BOOK", "BUDGET",
 
 **Related Functions**
 
-[FILES](FILES.md)&nbsp;&nbsp;&nbsp;Returns the filenames in the specified directory
+[FILES](FILES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the filenames in the specified directory
 or folder
 
-[GET.DOCUMENT](GET.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook
+[GET.DOCUMENT](GET.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook
 
-[GET.WINDOW](GET.WINDOW.md)&nbsp;&nbsp;&nbsp;Returns information about a window
+[GET.WINDOW](GET.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a window
 
-[WINDOWS](WINDOWS.md)&nbsp;&nbsp;&nbsp;Returns the names of all open windows
+[WINDOWS](WINDOWS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the names of all open windows
 
 
 

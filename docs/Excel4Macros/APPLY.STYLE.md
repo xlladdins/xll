@@ -10,18 +10,18 @@ the current selection.
 
 **APPLY.STYLE**?(style\_text)
 
-Style\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name, as text, of a previously
+Style\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name, as text, of a previously
 defined style. If style\_text is not defined, APPLY.STYLE returns the
 \#VALUE\! error value and interrupts the macro. If style\_text is
 omitted, the Normal style is applied to the selection.
 
 **Related Functions**
 
-[DEFINE.STYLE](DEFINE.STYLE.md)&nbsp;&nbsp;&nbsp;Defines a cell style
+[DEFINE.STYLE](DEFINE.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a cell style
 
-[DELETE.STYLE](DELETE.STYLE.md)&nbsp;&nbsp;&nbsp;Deletes a cell style
+[DELETE.STYLE](DELETE.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a cell style
 
-[MERGE.STYLES](MERGE.STYLES.md)&nbsp;&nbsp;&nbsp;Imports styles from another workbook into
+[MERGE.STYLES](MERGE.STYLES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Imports styles from another workbook into
 the active workbook
 
 

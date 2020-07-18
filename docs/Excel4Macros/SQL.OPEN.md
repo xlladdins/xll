@@ -12,7 +12,7 @@ add-in (XLODBC.XLA).
 
 **SQL.OPEN**(**connection\_string**, output\_ref, driver\_prompt)
 
-Connection\_string&nbsp;&nbsp;&nbsp;&nbsp;is a text string that contains
+Connection\_string**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string that contains
 the information necessary to establish a connection to a data source.
 Any data-source-name that is used in connection\_string must be an
 existing data source name defined with ODBC Setup or the ODBC
@@ -32,13 +32,13 @@ Administration Utility.
     > containing the same information. The connection string should be
     > horizontal array.
 
-Output\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a single cell reference where you
+Output\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a single cell reference where you
 want the completed connection string to be placed. Use output\_ref when
 you want SQL.OPEN to return the completed connection string. If
 output\_ref is omitted, a completed connection string will not be
 returned.
 
-Driver\_prompt&nbsp;&nbsp;&nbsp;&nbsp; is a number from 1 to 4
+Driver\_prompt**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp; is a number from 1 to 4
 specifying if and how you want to be prompted by the driver. This sets
 the fDriverCompletion flag in ODBC's SQLDriverConnect.
 
@@ -110,21 +110,21 @@ displays the driver dialog box only if additional information is needed.
 
 **Related Functions**
 
-[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)&nbsp;&nbsp;&nbsp;Sends a query to a data source
+[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends a query to a data source
 
-[SQL.BIND](SQL.BIND.md)&nbsp;&nbsp;&nbsp;Specifies storage for a result column
+[SQL.BIND](SQL.BIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies storage for a result column
 
-[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)&nbsp;&nbsp;&nbsp;Retrieves query results and places
+[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results and places
 them in a file
 
-[SQL.RETRIEVE](SQL.RETRIEVE.md)&nbsp;&nbsp;&nbsp;Retrieves query results
+[SQL.RETRIEVE](SQL.RETRIEVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results
 
-[SQL.GET.SCHEMA](SQL.GET.SCHEMA.md)&nbsp;&nbsp;&nbsp;Gets information about a connected data
+[SQL.GET.SCHEMA](SQL.GET.SCHEMA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Gets information about a connected data
 source.
 
-[SQL.CLOSE](SQL.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes a data source connection
+[SQL.CLOSE](SQL.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a data source connection
 
-[SQL.ERROR](SQL.ERROR.md)&nbsp;&nbsp;&nbsp;Returns detailed error information
+[SQL.ERROR](SQL.ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns detailed error information
 
 
 

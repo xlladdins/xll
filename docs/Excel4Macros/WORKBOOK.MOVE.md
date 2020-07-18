@@ -10,16 +10,16 @@ within a workbook.
 
 **WORKBOOK.MOVE**?(name\_array, dest\_book, position\_num)
 
-Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is the name of a sheet or an array of
+Name\_array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a sheet or an array of
 names of sheets in the active workbook that you want to move.
 
-Dest\_book&nbsp;&nbsp;&nbsp;&nbsp;is the name of the workbook to which
+Dest\_book**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the workbook to which
 you want to move name\_array. If dest\_book is omitted, WORKBOOK.MOVE
 moves the sheet out of the workbook and puts it in a new separate
 workbook. If dest\_book is the same as the current book, then the sheet
 is moved within the workbook.
 
-Position\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies the
+Position\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies the
 target position for the sheet within dest\_book. The first position is
 1.
 
@@ -30,11 +30,10 @@ target position for the sheet within dest\_book. The first position is
     > the last position in the workbook. If you move the last sheet out
     > of a workbook, the workbook closes.
 
-> &nbsp;
 
 **Related Function**
 
-[WORKBOOK.COPY](WORKBOOK.COPY.md)&nbsp;&nbsp;&nbsp;Copies one or more documents from their
+[WORKBOOK.COPY](WORKBOOK.COPY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies one or more documents from their
 current workbook into another workbook
 
 

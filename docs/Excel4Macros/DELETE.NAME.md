@@ -8,20 +8,20 @@ the Insert menu. Deletes the specified name.
 
 **DELETE.NAME**(**name\_text**)
 
-Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text value specifying the name
+Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text value specifying the name
 that you want to delete.
 
-**Important&nbsp;&nbsp;&nbsp;**Formulas that use names in their
+**Important**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Formulas that use names in their
 arguments may return incorrect or error values when a name used in the
 formula is deleted.
 
 **Related Functions**
 
-[DEFINE.NAME](DEFINE.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name in the active workbook
+[DEFINE.NAME](DEFINE.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name in the active workbook
 
-[GET.NAME](GET.NAME.md)&nbsp;&nbsp;&nbsp;Returns the definition of a name
+[GET.NAME](GET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the definition of a name
 
-[SET.NAME](SET.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name as a value
+[SET.NAME](SET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name as a value
 
 
 

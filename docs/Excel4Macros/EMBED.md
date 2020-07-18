@@ -7,12 +7,12 @@ cannot be entered on a sheet or used in a macro.
 
 **EMBED**(**object\_class**, item)
 
-Object\_class&nbsp;&nbsp;&nbsp;&nbsp;is the name of the application and
+Object\_class**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the application and
 document type that created the embedded object. For example, the
 object\_class arguments used when Microsoft Excel sheets are embedded in
 other applications are "Excel.sheet.5" and "Excel.Chart.5".
 
-Item&nbsp;&nbsp;&nbsp;&nbsp;is the area selected to copy, and determines
+Item**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the area selected to copy, and determines
 the view on the embedded document. When item is empty text (""), EMBED
 creates a view on the entire document.
 

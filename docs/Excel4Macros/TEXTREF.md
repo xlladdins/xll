@@ -8,9 +8,9 @@ can use them with other functions, such as OFFSET.
 
 **TEXTREF**(**text**, a1)
 
-Text&nbsp;&nbsp;&nbsp;&nbsp;is a reference in the form of text.
+Text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference in the form of text.
 
-A1&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying the reference
+A1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying the reference
 type of text. If a1 is TRUE, text is assumed to be an A1-style
 reference; if FALSE or omitted, text is assumed to be an R1C1-style
 reference.
@@ -25,9 +25,8 @@ reference.
   - > If you use TEXTREF as a reference argument to a function,
     > Microsoft Excel does not convert the reference to a value.
 
-> &nbsp;
 
-**Tip&nbsp;&nbsp;&nbsp;**You can convert a reference to text with
+**Tip**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**You can convert a reference to text with
 REFTEXT, manipulate it with the REPLACE and MID functions, and convert
 it back to a reference with TEXTREF.
 
@@ -42,9 +41,9 @@ be interpreted as an R1C1-style reference.
 
 **Related Functions**
 
-[DEREF](DEREF.md)&nbsp;&nbsp;&nbsp;Returns the values of the cells in a reference
+[DEREF](DEREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the values of the cells in a reference
 
-[REFTEXT](REFTEXT.md)&nbsp;&nbsp;&nbsp;Converts a reference to text
+[REFTEXT](REFTEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Converts a reference to text
 
 
 

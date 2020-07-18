@@ -16,7 +16,7 @@ macro sheets. For more information, see WINDOW.SIZE.
 
 **Related Function**
 
-[WINDOW.SIZE](WINDOW.SIZE.md)&nbsp;&nbsp;&nbsp;Changes the size of the active window
+[WINDOW.SIZE](WINDOW.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the size of the active window
 
 
 

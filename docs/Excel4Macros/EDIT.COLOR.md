@@ -15,10 +15,10 @@ formatted with that color are displayed in the new color.
 
 **EDIT.COLOR**?(**color\_num**, red\_value, green\_value, blue\_value)
 
-Color\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 56 specifying
+Color\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 56 specifying
 one of the 56 color palette boxes for which you want to set the color.
 
-Red\_value, green\_value, and blue\_value&nbsp;&nbsp;&nbsp;&nbsp;are
+Red\_value, green\_value, and blue\_value**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;are
 numbers that specify how much red, green, and blue are in each color.
 
   - > In Microsoft Excel for Windows, red\_value, green\_value, and
@@ -38,7 +38,6 @@ numbers that specify how much red, green, and blue are in each color.
   - > If red\_value, green\_value, or blue\_value is omitted, Microsoft
     > Excel assumes it to be the appropriate value for that color\_num.
 
-> &nbsp;
 
 **Remarks**
 
@@ -57,11 +56,10 @@ numbers that specify how much red, green, and blue are in each color.
     > current settings for the color\_num you specify. Color\_num is a
     > required argument for the dialog-box form of this function.
 
-> &nbsp;
 
 **Related Function**
 
-[COLOR.PALETTE](COLOR.PALETTE.md)&nbsp;&nbsp;&nbsp;Copies a color palette from one workbook
+[COLOR.PALETTE](COLOR.PALETTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies a color palette from one workbook
 to another
 
 

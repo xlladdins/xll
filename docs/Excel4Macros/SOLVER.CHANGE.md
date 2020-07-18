@@ -22,13 +22,12 @@ For an explanation of the arguments and constraints, see SOLVER.ADD.
     > SOLVER.DELETE to delete the old constraint and then use SOLVER.ADD
     > to add the constraint in the form you want.
 
-> &nbsp;
 
 **Related Functions**
 
-[SOLVER.DELETE](SOLVER.DELETE.md)&nbsp;&nbsp;&nbsp;Deletes an existing constraint
+[SOLVER.DELETE](SOLVER.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes an existing constraint
 
-[SOLVER.ADD](SOLVER.ADD.md)&nbsp;&nbsp;&nbsp;Adds a constraint to the current problem
+[SOLVER.ADD](SOLVER.ADD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a constraint to the current problem
 
 
 

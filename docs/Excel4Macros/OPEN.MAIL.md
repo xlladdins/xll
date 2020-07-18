@@ -3,7 +3,7 @@ OPEN.MAIL
 Equivalent to clicking the Open Mail command on the Mail submenu on File
 menu.
 
-**Note&nbsp;&nbsp;&nbsp;**This function is available for only Microsoft
+**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**This function is available for only Microsoft
 Excel for the Macintosh and Microsoft Mail version 2.0 or later.
 
 **Syntax**
@@ -12,7 +12,7 @@ Excel for the Macintosh and Microsoft Mail version 2.0 or later.
 
 **OPEN.MAIL**?(subject, comments)
 
-Subject&nbsp;&nbsp;&nbsp;&nbsp;is the subject of the message containing
+Subject**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the subject of the message containing
 a file that Microsoft Excel can open.
 
   - > For each message whose subject matches the subject argument and
@@ -24,9 +24,8 @@ a file that Microsoft Excel can open.
     > Microsoft Excel can open, the files are opened; each message that
     > has no unread enclosures is deleted from the list of pending mail.
 
-> &nbsp;
 
-Comments&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
+Comments**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies
 whether comments associated with the Microsoft Excel files are
 displayed. If comments is TRUE, Microsoft Excel displays the comments;
 if FALSE, comments are not displayed. If omitted, the current setting is
@@ -48,7 +47,7 @@ not changed.
 
 **Related Function**
 
-[SEND.MAIL](SEND.MAIL.md)&nbsp;&nbsp;&nbsp;Sends the active workbook
+[SEND.MAIL](SEND.MAIL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends the active workbook
 
 
 

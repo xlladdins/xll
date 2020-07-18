@@ -19,7 +19,6 @@ the macro.
 
   - > The data form can handle up to 32 fields.
 
-> &nbsp;
 
 
 

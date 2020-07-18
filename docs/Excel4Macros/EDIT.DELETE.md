@@ -10,7 +10,7 @@ space.
 
 **EDIT.DELETE**?(shift\_num)
 
-Shift\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying
+Shift\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying
 whether to shift cells left or up after deleting the current selection
 or else to delete the entire row or column.
 
@@ -30,11 +30,10 @@ or else to delete the entire row or column.
   - > If shift\_num is omitted and a vertical range is selected,
     > EDIT.DELETE shifts cells left.
 
-> &nbsp;
 
 **Related Function**
 
-[CLEAR](CLEAR.md)&nbsp;&nbsp;&nbsp;Clears specified information from the selected
+[CLEAR](CLEAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Clears specified information from the selected
 cells or chart
 
 

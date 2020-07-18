@@ -8,7 +8,7 @@ are displayed, or to run your own macro when an error is encountered.
 
 **ERROR**(**enable\_logical**, macro\_ref)
 
-Enable\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value or number that
+Enable\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value or number that
 selects or clears error-checking.
 
   - > If enable\_logical is FALSE or 0, all error-checking is cleared.
@@ -36,14 +36,13 @@ selects or clears error-checking.
     > the Cancel button in an alert message, FALSE is returned and the
     > macro is not interrupted.
 
-> &nbsp;
 
-Macro\_ref&nbsp;&nbsp;&nbsp;&nbsp;specifies a macro to run if
+Macro\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies a macro to run if
 enable\_logical is TRUE, 1, or 2 and an error is encountered. It can be
 either the name of the macro or a cell reference. If enable\_logical is
 FALSE or 0, macro\_ref is ignored.
 
-**Important&nbsp;&nbsp;&nbsp;**Both ERROR(FALSE) and ERROR(TRUE,
+**Important**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Both ERROR(FALSE) and ERROR(TRUE,
 macro\_ref ) keep Microsoft Excel from displaying any messages at all,
 including the message asking whether to save changes when you close an
 unsaved workbook. If you want alert messages but not error messages to
@@ -68,12 +67,12 @@ current macro:
 
 **Related Functions**
 
-[CANCEL.KEY](CANCEL.KEY.md)&nbsp;&nbsp;&nbsp;Disables macro interruption
+[CANCEL.KEY](CANCEL.KEY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Disables macro interruption
 
-[LAST.ERROR](LAST.ERROR.md)&nbsp;&nbsp;&nbsp;Returns the reference of the cell where the
+[LAST.ERROR](LAST.ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the cell where the
 last error occurred
 
-[ON.KEY](ON.KEY.md)&nbsp;&nbsp;&nbsp;Runs a macro when a specified key is pressed
+[ON.KEY](ON.KEY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when a specified key is pressed
 
 
 

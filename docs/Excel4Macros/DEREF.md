@@ -6,7 +6,7 @@ Returns the value of the cells in a reference.
 
 **DEREF**(**reference**)
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;is the cell or cells from which you
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the cell or cells from which you
 want to obtain a value. If reference is the reference of a single cell,
 DEREF returns the value of that cell. If reference is the reference of a
 range of cells, DEREF returns the array of values in those cells. If
@@ -31,7 +31,7 @@ See the sixth example for SET.NAME.
 
 **Related Function**
 
-[SET.NAME](SET.NAME.md)&nbsp;&nbsp;&nbsp;Defines a names as a value
+[SET.NAME](SET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a names as a value
 
 
 

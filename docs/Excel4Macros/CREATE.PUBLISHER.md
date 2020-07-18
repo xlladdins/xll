@@ -4,7 +4,7 @@ Equivalent to clicking the Create Publisher command on the Publishing
 submenu of the Edit menu. Publishes the selected range or chart to an
 edition file for use by other Macintosh applications.
 
-**Important**&nbsp;&nbsp;&nbsp;This function is only available if you
+**Important****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;This function is only available if you
 are using Microsoft Excel for the Macintosh with system software version
 7.0 or later.
 
@@ -14,7 +14,7 @@ are using Microsoft Excel for the Macintosh with system software version
 
 **CREATE.PUBLISHER**?(file\_text, appearance, size, formats)
 
-File\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text string to be used as the
+File\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string to be used as the
 name of the new file that will contain the selected data. If file\_text
 is omitted, Microsoft Excel uses the format "\<WorkbookName\> Edition
 \#n", where WorkbookName is the name of the workbook from which the
@@ -26,7 +26,7 @@ a workbook named Seasonal, and it is your third publisher from that
 workbook in the current work session, the default name of the publisher
 would be "Seasonal Edition \#3".
 
-Appearance&nbsp;&nbsp;&nbsp;&nbsp;specifies whether the selection is to
+Appearance**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether the selection is to
 be published as shown on screen or as shown when printed. The default
 value for appearance is 1 if the selection is a sheet and 2 if the
 selection is a chart.
@@ -37,7 +37,7 @@ selection is a chart.
 | 1              | As shown on screen         |
 | 2              | As shown when printed      |
 
-Size&nbsp;&nbsp;&nbsp;&nbsp;specifies the size at which to publish a
+Size**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the size at which to publish a
 chart. Size is only available if a chart is to be published.
 
 |              |                        |
@@ -46,7 +46,7 @@ chart. Size is only available if a chart is to be published.
 | 1 or omitted | As shown on screen     |
 | 2            | As shown when printed  |
 
-Formats&nbsp;&nbsp;&nbsp;&nbsp;is number specifying what file format or
+Formats**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is number specifying what file format or
 formats CREATE.PUBLISHER should use when it creates the Edition file.
 
 |             |                 |
@@ -66,18 +66,17 @@ formats CREATE.PUBLISHER should use when it creates the Edition file.
     > assumed to be 15 (all formats); if the document is a chart,
     > formats is assumed to be 1 (PICT).
 
-> &nbsp;
 
 **Related Functions**
 
-[EDITION.OPTIONS](EDITION.OPTIONS.md)&nbsp;&nbsp;&nbsp;Sets publisher and subscriber options
+[EDITION.OPTIONS](EDITION.OPTIONS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets publisher and subscriber options
 
-[GET.LINK.INFO](GET.LINK.INFO.md)&nbsp;&nbsp;&nbsp;Returns information about a link
+[GET.LINK.INFO](GET.LINK.INFO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a link
 
-[SUBSCRIBE.TO](SUBSCRIBE.TO.md)&nbsp;&nbsp;&nbsp;Inserts contents of an edition into the
+[SUBSCRIBE.TO](SUBSCRIBE.TO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Inserts contents of an edition into the
 active workbook
 
-[UPDATE.LINK](UPDATE.LINK.md)&nbsp;&nbsp;&nbsp;Updates a link to another workbook
+[UPDATE.LINK](UPDATE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Updates a link to another workbook
 
 
 

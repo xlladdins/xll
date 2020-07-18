@@ -14,13 +14,13 @@ The following arguments correspond to check boxes, option buttons and
 text buttons in the Text To Columns Wizard, which is started with the
 Text To Columns command on the Data menu.
 
-Destination\_Ref&nbsp;&nbsp;&nbsp;&nbsp;is a single cell reference to
+Destination\_Ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a single cell reference to
 specifies where to place the converted text.
 
-Data\_Type&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying whether that
+Data\_Type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying whether that
 data is delimited (1) or fixed width (2)
 
-Text\_Delim&nbsp;&nbsp;&nbsp;&nbsp;denotes how text strings are
+Text\_Delim**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;denotes how text strings are
 represented, and can be one of the following values:
 
 |            |                 |
@@ -30,38 +30,38 @@ represented, and can be one of the following values:
 | 2          | '               |
 | 3          | none            |
 
-Consecutive\_delim&nbsp;&nbsp;&nbsp;&nbsp;is a logical value
+Consecutive\_delim**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value
 corresponding to the Treat Consecutive Delimiters as One check box
 which, if TRUE, allows consecutive delimiters (such as ",,,") to be
 treated as a single delimiter. If FALSE, all consecutive delimiters are
 considered separate column breaks.
 
-Tab&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE, specifies
+Tab**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value which, if TRUE, specifies
 that the column has tab delimiters. If FALSE, the column does not have
 tab delimiters. Tab is ignored if data\_type is 2.
 
-Semicolon&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+Semicolon**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value which, if TRUE,
 specifies that the column has semicolon delimiters. If FALSE, the column
 does not have semicolon delimiters. Semicolon is ignored if data\_type
 is 2.
 
-Comma&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+Comma**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value which, if TRUE,
 specifies that the column has comma delimiters. If FALSE, the column
 does not have comma delimiters. Comma is ignored if data\_type is 2.
 
-Space&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+Space**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value which, if TRUE,
 specifies that the column has space delimiters. If FALSE, the column
 does not have space delimiters. Space is ignored if data\_type is 2.
 
-Other&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
+Other**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value which, if TRUE,
 specifies that the column has custom delimiters. If FALSE, the column
 does not have custom delimiters. Other is ignored if data\_type is 2.
 
-Other\_Char&nbsp;&nbsp;&nbsp;&nbsp;is a single character that specifies
+Other\_Char**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a single character that specifies
 a delimiter not included in the list of delimiters. Other\_Char is
 ignored if data\_type is 2 and if the argument other is FALSE.
 
-Field\_Info&nbsp;&nbsp;&nbsp;&nbsp;is an array which consists of the
+Field\_Info**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an array which consists of the
 following elements: "column number, data\_format", if data\_type is 1;
 or "start\_pos, data\_format" if data\_type is 2. The second number
 defines the column's data format, and can be one of the following.

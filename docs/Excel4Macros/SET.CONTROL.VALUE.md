@@ -7,7 +7,7 @@ box, check box, option button, scroll bar, and spinner button.
 
 **SET.CONTROL.VALUE**(value)
 
-Value&nbsp;&nbsp;&nbsp;&nbsp;is the value you want to change. The
+Value**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the value you want to change. The
 control interprets this value as follows:
 
 <table>
@@ -76,19 +76,19 @@ control interprets this value as follows:
 
 **Related Functions**
 
-[ADD.LIST.ITEM](ADD.LIST.ITEM.md)&nbsp;&nbsp;&nbsp;Adds an item in a list box or drop-down
+[ADD.LIST.ITEM](ADD.LIST.ITEM.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds an item in a list box or drop-down
 control on a worksheet or dialog sheet control
 
-[REMOVE.LIST.ITEM](REMOVE.LIST.ITEM.md)&nbsp;&nbsp;&nbsp;Removes an item in a list box or
+[REMOVE.LIST.ITEM](REMOVE.LIST.ITEM.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes an item in a list box or
 drop-down box
 
-[SELECT.LIST.ITEM](SELECT.LIST.ITEM.md)&nbsp;&nbsp;&nbsp;Selects an item in a list box or in a
+[SELECT.LIST.ITEM](SELECT.LIST.ITEM.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects an item in a list box or in a
 group box
 
-[CHECKBOX.PROPERTIES](CHECKBOX.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Sets various properties of check
+[CHECKBOX.PROPERTIES](CHECKBOX.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets various properties of check
 box and option box controls
 
-[SCROLLBAR.PROPERTIES](SCROLLBAR.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Sets the properties of the scroll
+[SCROLLBAR.PROPERTIES](SCROLLBAR.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the properties of the scroll
 bar and spinner controls
 
 

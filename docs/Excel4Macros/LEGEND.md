@@ -8,7 +8,7 @@ chart is active.
 
 **LEGEND**(logical)
 
-Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying which
+Logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying which
 command LEGEND is equivalent to.
 
   - > If logical is TRUE or omitted, LEGEND is equivalent to the Legend
@@ -20,11 +20,10 @@ command LEGEND is equivalent to.
   - > If logical is FALSE and the active chart has no legend, LEGEND
     > takes no action.
 
-> &nbsp;
 
 **Related Function**
 
-[FORMAT.LEGEND](FORMAT.LEGEND.md)&nbsp;&nbsp;&nbsp;Determines the position and orientation
+[FORMAT.LEGEND](FORMAT.LEGEND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Determines the position and orientation
 of the legend on a chart
 
 

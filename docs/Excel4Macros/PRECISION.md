@@ -10,7 +10,7 @@ to match the values used to calculate the formulas.
 
 **PRECISION**(logical)
 
-Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 Precision As Displayed check box in the Calculation tab.
 
   - > If logical is TRUE, Microsoft Excel stores future entries at full
@@ -19,9 +19,8 @@ Precision As Displayed check box in the Calculation tab.
   - > If logical is FALSE or omitted, Microsoft Excel stores values
     > exactly as they are displayed.
 
-> &nbsp;
 
-**Caution&nbsp;&nbsp;&nbsp;**The PRECISION function may permanently
+**Caution**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**The PRECISION function may permanently
 alter your data. PRECISION(FALSE) causes Microsoft Excel to change
 values on your worksheet or macro sheet to match displayed values.
 PRECISION(TRUE) causes Microsoft Excel to store future values at full
@@ -37,13 +36,12 @@ original values.
     > precision because with Precision As Displayed selected, Microsoft
     > Excel has to round off numbers as it calculates.
 
-> &nbsp;
 
 **Related Functions**
 
-[FORMAT.NUMBER](FORMAT.NUMBER.md)&nbsp;&nbsp;&nbsp;Applies a number format to the selection
+[FORMAT.NUMBER](FORMAT.NUMBER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a number format to the selection
 
-[WORKSPACE](WORKSPACE.md)&nbsp;&nbsp;&nbsp;Changes workspace settings
+[WORKSPACE](WORKSPACE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes workspace settings
 
 
 

@@ -10,7 +10,7 @@ similar cells in one of a variety of categories.
 
 **SELECT.SPECIAL**?(type\_num, value\_type, levels)
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 13 corresponding
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 13 corresponding
 to options in the Go To Special dialog box and describes what to select.
 
 <table>
@@ -130,7 +130,7 @@ to options in the Go To Special dialog box and describes what to select.
 </tbody>
 </table>
 
-Value\_type&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying which types of
+Value\_type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying which types of
 constants or formulas you want to select. Value\_type is available only
 when type\_num is 2 or 3.
 
@@ -182,7 +182,7 @@ when type\_num is 2 or 3.
 These values can be added to select more than one type. The default for
 value\_type is 23, which select all value types.
 
-Levels&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying how precedents and
+Levels**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying how precedents and
 dependents are selected. Levels is available only when type\_num is 9 or
 10. The default is 1.
 

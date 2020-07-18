@@ -12,12 +12,12 @@ specific number of characters from a text file.
 
 **FREAD**(**file\_num, num\_chars**)
 
-File\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique ID number of the file you
+File\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique ID number of the file you
 want to read data from. File\_num is returned by a previously executed
 FOPEN function. If file\_num is not valid, FREAD returns the \#VALUE\!
 error value.
 
-Num\_chars&nbsp;&nbsp;&nbsp;&nbsp;specifies how many bytes to read from
+Num\_chars**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies how many bytes to read from
 the file. FREAD can read up to 255 bytes at a time.
 
 **Example**
@@ -29,14 +29,14 @@ FREAD(FileNumber, 200)
 
 **Related Functions**
 
-[FOPEN](FOPEN.md)&nbsp;&nbsp;&nbsp;Opens a file with the type of permission
+[FOPEN](FOPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a file with the type of permission
 specified
 
-[FPOS](FPOS.md)&nbsp;&nbsp;&nbsp;Sets the position in a text file
+[FPOS](FPOS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the position in a text file
 
-[FREADLN](FREADLN.md)&nbsp;&nbsp;&nbsp;Reads a line from a text file
+[FREADLN](FREADLN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Reads a line from a text file
 
-[FWRITE](FWRITE.md)&nbsp;&nbsp;&nbsp;Writes characters to a text file
+[FWRITE](FWRITE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Writes characters to a text file
 
 
 

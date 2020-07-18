@@ -161,7 +161,6 @@ you can then store or manipulate.
   - > If more than 1024 characters would be returned, SELECTION returns
     > the \#VALUE\! error value.
 
-> &nbsp;
 
 **Examples**
 
@@ -190,9 +189,9 @@ SET.NAME("Objects", SELECTION())
 
 **Related Functions**
 
-[ACTIVE.CELL](ACTIVE.CELL.md)&nbsp;&nbsp;&nbsp;Returns the reference of the active cell
+[ACTIVE.CELL](ACTIVE.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the active cell
 
-[SELECT](SELECT.md)&nbsp;&nbsp;&nbsp;Selects a cell, graphic object, or chart
+[SELECT](SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects a cell, graphic object, or chart
 
 
 

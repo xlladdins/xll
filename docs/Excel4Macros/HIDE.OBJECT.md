@@ -6,7 +6,7 @@ Hides or displays the specified object.
 
 **HIDE.OBJECT**(object\_id\_text, hide)
 
-Object\_id\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name and number, or
+Object\_id\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name and number, or
 number alone, of the object, as text, as it appears in the reference
 area when the object is selected. The name of the object is also the
 text returned by the CREATE.OBJECT function, so object\_id\_text can be
@@ -22,7 +22,7 @@ objects. If no object is selected or if the object specified by
 object\_id\_text does not exist, HIDE.OBJECT returns the \#VALUE\! error
 value.
 
-Hide&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies whether to
+Hide**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies whether to
 hide or display the specified object. If hide is TRUE or omitted,
 Microsoft Excel hides the object; if FALSE, Microsoft Excel displays the
 object.
@@ -47,9 +47,9 @@ HIDE.OBJECT("oval 3, text 2, arc 5", FALSE)
 
 **Related Functions**
 
-[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
 
-[DISPLAY](DISPLAY.md)&nbsp;&nbsp;&nbsp;Controls how an object is displayed
+[DISPLAY](DISPLAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls how an object is displayed
 
 
 

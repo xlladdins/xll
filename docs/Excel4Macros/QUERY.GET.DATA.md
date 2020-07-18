@@ -11,7 +11,7 @@ keep\_query\_def, field\_names, row\_numbers, destination)
 **QUERY.GET.DATA**?(connection\_string, query\_text, keep\_query\_def,
 field\_names, row\_numbers, destination)
 
-Connection\_string&nbsp;&nbsp;&nbsp;&nbsp;supplies information, such as
+Connection\_string**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;supplies information, such as
 the data source name, user ID, and passwords, necessary to making a SQL
 connection to an external data source. For example: "DSN=Myserver;
 Server=server1; UID=dbayer; PWD=buyer1; Database=nwind".
@@ -28,25 +28,24 @@ Server=server1; UID=dbayer; PWD=buyer1; Database=nwind".
   - > If QUERY.GET.DATA is unable to access the data source using
     > connection\_string, it returns the \#N/A error value.
 
-> &nbsp;
 
-Query\_text&nbsp;&nbsp;&nbsp;&nbsp;is the SQL language query to be
+Query\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the SQL language query to be
 executed on the data source.
 
-Keep\_query\_def&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if TRUE
+Keep\_query\_def**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that, if TRUE
 or omitted, preserves the query definition. If FALSE, the query
 definition is lost and the data from the query no longer constitutes a
 data range.
 
-Field\_names&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if TRUE or
+Field\_names**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that, if TRUE or
 omitted, places field names from Microsoft Query into the first row of
 the data range. If FALSE, the field names are discarded.
 
-Row\_numbers&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if TRUE,
+Row\_numbers**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that, if TRUE,
 places row numbers from Microsoft Query into the first column in the
 data range. If FALSE or omitted, the row numbers are discarded.
 
-Destination&nbsp;&nbsp;&nbsp;&nbsp;is the location as a cell reference
+Destination**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the location as a cell reference
 where you want the data placed. If destination is in a current data
 range then that data range is changed to reflect the new SQL statement.
 The default destination is the currently selected cell or range.
@@ -64,7 +63,7 @@ The default destination is the currently selected cell or range.
 
 **Related Function**
 
-[QUERY.REFRESH](QUERY.REFRESH.md)&nbsp;&nbsp;&nbsp;Refreshes the data in a data range
+[QUERY.REFRESH](QUERY.REFRESH.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Refreshes the data in a data range
 returned by Microsoft Query
 
 

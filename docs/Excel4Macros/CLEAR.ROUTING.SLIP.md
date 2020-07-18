@@ -7,7 +7,7 @@ the routing slip.
 
 **CLEAR.ROUTING.SLIP**(reset\_only\_logical)
 
-Reset\_only\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that
+Reset\_only\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that
 specifies whether the routing slip should be cleared.
 
   - > This option is valid only after every recipient on the routing

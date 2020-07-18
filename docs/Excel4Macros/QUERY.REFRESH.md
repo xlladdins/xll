@@ -8,13 +8,13 @@ the External Data toolbar.
 
 **QUERY.REFRESH**(reference)
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;is the reference to a single cell
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the reference to a single cell
 inside a data range. If reference is not in a data range then the error
 value \#REF\! is returned.
 
 **Related Function**
 
-[QUERY.GET.DATA](QUERY.GET.DATA.md)&nbsp;&nbsp;&nbsp;Builds a new query using the supplied
+[QUERY.GET.DATA](QUERY.GET.DATA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Builds a new query using the supplied
 information
 
 

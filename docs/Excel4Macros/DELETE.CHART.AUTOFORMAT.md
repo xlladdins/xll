@@ -7,12 +7,12 @@ Types tab in the Chart Type dialog box.
 
 **DELETE.CHART.AUTOFORMAT**(**name\_text**)
 
-Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the template name you want to
+Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the template name you want to
 delete from the list of custom templates.
 
 **Related Function**
 
-[ADD.CHART.AUTOFORMAT](ADD.CHART.AUTOFORMAT.md)&nbsp;&nbsp;&nbsp;Adds a custom template
+[ADD.CHART.AUTOFORMAT](ADD.CHART.AUTOFORMAT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a custom template
 
 
 

@@ -8,20 +8,20 @@ Auto\_Close macro), or any time you want to remove a menu.
 
 **DELETE.MENU**(**bar\_num, menu**, submenu)
 
-Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the menu bar from which you want to
+Bar\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the menu bar from which you want to
 delete the menu. Bar\_num can be the number of a Microsoft Excel
 built-in menu bar or the number returned by a previously run ADD.BAR
 function. For a list of ID numbers for built-in menu bars, see
 ADD.COMMAND.
 
-Menu&nbsp;&nbsp;&nbsp;&nbsp;is the menu you want to delete. Menu can be
+Menu**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the menu you want to delete. Menu can be
 either the name of a menu as text or the number of a menu. Menus are
 numbered starting with 1 from the left of the screen. If the specified
 menu does not exist, DELETE.MENU returns the \#VALUE\! error value and
 interrupts the macro. After a menu is deleted, the menu number for each
 menu to the right of that menu is decreased by 1.
 
-Submenu&nbsp;&nbsp;&nbsp;&nbsp;is the name of the submenu you want to
+Submenu**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the submenu you want to
 delete or the number of the menu in the list of commands.
 
 **Remarks**
@@ -38,15 +38,15 @@ DELETE.MENU(Financials, "Reports")
 
 **Related Functions**
 
-[ADD.MENU](ADD.MENU.md)&nbsp;&nbsp;&nbsp;Adds a menu to a menu bar
+[ADD.MENU](ADD.MENU.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu to a menu bar
 
-[ADD.BAR](ADD.BAR.md)&nbsp;&nbsp;&nbsp;Adds a menu bar
+[ADD.BAR](ADD.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu bar
 
-[DELETE.BAR](DELETE.BAR.md)&nbsp;&nbsp;&nbsp;Deletes a menu bar
+[DELETE.BAR](DELETE.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a menu bar
 
-[DELETE.COMMAND](DELETE.COMMAND.md)&nbsp;&nbsp;&nbsp;Deletes a command from a menu
+[DELETE.COMMAND](DELETE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a command from a menu
 
-[ENABLE.COMMAND](ENABLE.COMMAND.md)&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
+[ENABLE.COMMAND](ENABLE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enables or disables a menu or custom
 command
 
 

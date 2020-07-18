@@ -11,9 +11,9 @@ entire sheet.
 
 **Related Functions**
 
-[AUTO.OUTLINE](AUTO.OUTLINE.md)&nbsp;&nbsp;&nbsp;Creates an outline
+[AUTO.OUTLINE](AUTO.OUTLINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an outline
 
-[OUTLINE](OUTLINE.md)&nbsp;&nbsp;&nbsp;Creates an outline and defines settings for
+[OUTLINE](OUTLINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an outline and defines settings for
 automatically creating outlines
 
 

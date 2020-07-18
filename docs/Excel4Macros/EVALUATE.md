@@ -7,7 +7,7 @@ returns the result. To run a macro or subroutine, use the RUN function.
 
 **EVALUATE**(**formula\_text**)
 
-Formula\_text&nbsp;&nbsp;&nbsp;&nbsp;is the expression in the form of
+Formula\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the expression in the form of
 text that you want to evaluate.
 
 **Remarks**
@@ -28,7 +28,7 @@ EVALUATE("LabResult"\&TrialNum)
 
 **Related Function**
 
-[RUN](RUN.md)&nbsp;&nbsp;&nbsp;Runs a macro
+[RUN](RUN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro
 
 
 

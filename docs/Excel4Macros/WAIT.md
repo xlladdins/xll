@@ -6,14 +6,14 @@ Pauses the macro until the time specified by the serial number.
 
 **WAIT**(**serial\_number**)
 
-Serial\_number&nbsp;&nbsp;&nbsp;&nbsp;is the date-time code used by
+Serial\_number**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the date-time code used by
 Microsoft Excel for date and time calculations. You can give
 serial\_number as text, such as "4:30 PM", or as a formula, such as
 NOW()+"00:00:04", instead of as a number. The text or formula is
 automatically converted to a serial number. For more information about
 serial\_number, see NOW.
 
-**Important&nbsp;&nbsp;&nbsp;**WAIT suspends all Microsoft Excel
+**Important**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**WAIT suspends all Microsoft Excel
 activity and may prevent you from performing other operations on your
 computer. Background processes, such as printing and recalculation, are
 continued.
@@ -28,7 +28,7 @@ WAIT(NOW()+"00:00:03")
 
 **Related Function**
 
-[ON.TIME](ON.TIME.md)&nbsp;&nbsp;&nbsp;Runs a macro at a specific time
+[ON.TIME](ON.TIME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro at a specific time
 
 
 

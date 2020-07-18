@@ -8,7 +8,7 @@ Assigns a macro to the currently select object.
 
 **ASSIGN.TO.OBJECT**?(macro\_ref)
 
-Macro\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or a reference to, the
+Macro\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of, or a reference to, the
 macro you want to run when the object is clicked. If macro\_ref is
 omitted, Microsoft Excel no longer runs the previously specified macro
 (ASSIGN.TO.OBJECT is turned off).
@@ -22,13 +22,12 @@ omitted, Microsoft Excel no longer runs the previously specified macro
     > use ASSIGN.TO.OBJECT again, using the reference to the new macro
     > as macro\_ref. The previous macro is replaced with the new macro.
 
-> &nbsp;
 
 **Related Functions**
 
-[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
 
-[RUN](RUN.md)&nbsp;&nbsp;&nbsp;Runs a macro
+[RUN](RUN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro
 
 
 

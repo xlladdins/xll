@@ -10,7 +10,7 @@ other actions that are not normally available when a macro is running.
 
 **PAUSE**(no\_tool)
 
-No\_tool&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether to
+No\_tool**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether to
 display the Resume Macro button when the macro is paused. If no\_tool is
 TRUE, the toolbar is not displayed; if FALSE, the toolbar is displayed;
 if omitted, the toolbar is displayed unless you previously clicked the
@@ -47,7 +47,7 @@ close box on the toolbar.
     > all macros and prevents resuming or returning to any macro. For
     > more information, see RESUME.
 
-**Tip&nbsp;&nbsp;&nbsp;**Since the automatic Resume Macro button can be
+**Tip**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Since the automatic Resume Macro button can be
 customized, you can create a custom toolbar that will appear whenever a
 macro pauses.
 
@@ -61,11 +61,11 @@ IF(TestValue\>9, PAUSE())
 
 **Related Functions**
 
-[HALT](HALT.md)&nbsp;&nbsp;&nbsp;Stops all macros from running
+[HALT](HALT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Stops all macros from running
 
-[RESUME](RESUME.md)&nbsp;&nbsp;&nbsp;Resumes a paused macro
+[RESUME](RESUME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Resumes a paused macro
 
-[STEP](STEP.md)&nbsp;&nbsp;&nbsp;Turns on macro single-stepping
+[STEP](STEP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Turns on macro single-stepping
 
 
 

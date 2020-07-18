@@ -15,13 +15,13 @@ inactive.
 
 **WINDOW.SIZE**?(width, height, window\_text)
 
-Width&nbsp;&nbsp;&nbsp;&nbsp;specifies the width of the window and is
+Width**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the width of the window and is
 measured in points. A point is 1/72nd of an inch.
 
-Height&nbsp;&nbsp;&nbsp;&nbsp;specifies the height of the window and is
+Height**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the height of the window and is
 measured in points.
 
-Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to size.
+Window\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies which window to size.
 
   - > Window\_text is text enclosed in quotation marks or a reference to
     > a cell containing text.
@@ -29,7 +29,6 @@ Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to size.
   - > If window\_text is omitted, it is assumed to be the name of the
     > active window.
 
-> &nbsp;
 
 **Remarks**
 
@@ -41,19 +40,18 @@ Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to size.
 
   - > WINDOW.SIZE replaces SIZE in earlier versions of Microsoft Excel.
 
-> &nbsp;
 
 **Related Functions**
 
-[FORMAT.SIZE](FORMAT.SIZE.md)&nbsp;&nbsp;&nbsp;Sizes an object
+[FORMAT.SIZE](FORMAT.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sizes an object
 
-[WINDOW.MAXIMIZE](WINDOW.MAXIMIZE.md)&nbsp;&nbsp;&nbsp;Maximizes a window
+[WINDOW.MAXIMIZE](WINDOW.MAXIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Maximizes a window
 
-[WINDOW.MINIMIZE](WINDOW.MINIMIZE.md)&nbsp;&nbsp;&nbsp;Minimizes a window
+[WINDOW.MINIMIZE](WINDOW.MINIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Minimizes a window
 
-[WINDOW.MOVE](WINDOW.MOVE.md)&nbsp;&nbsp;&nbsp;Moves a window
+[WINDOW.MOVE](WINDOW.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves a window
 
-[WINDOW.RESTORE](WINDOW.RESTORE.md)&nbsp;&nbsp;&nbsp;Restores a window to its previous size
+[WINDOW.RESTORE](WINDOW.RESTORE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Restores a window to its previous size
 
 
 

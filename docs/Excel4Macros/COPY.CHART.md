@@ -9,7 +9,7 @@ COPY.PICTURE function by omitting the appearance\_num argument.
 
 **COPY.CHART**(**size\_num**)
 
-Size\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number describing how to copy the
+Size\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number describing how to copy the
 picture and is only available if the current selection is a chart.
 
 |               |                                                                          |
@@ -20,7 +20,7 @@ picture and is only available if the current selection is a chart.
 
 **Related Function**
 
-[COPY.PICTURE](COPY.PICTURE.md)&nbsp;&nbsp;&nbsp;Creates a picture of the current selection
+[COPY.PICTURE](COPY.PICTURE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a picture of the current selection
 for use in another program
 
 

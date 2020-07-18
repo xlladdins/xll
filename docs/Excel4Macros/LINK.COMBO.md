@@ -10,7 +10,7 @@ visible and dropped down.
 
 **LINK.COMBO**(**link\_logical**)
 
-Link\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
+Link\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies
 whether the controls are linked or unlinked. If TRUE, the controls will
 become linked. If FALSE, the controls will be unlinked.
 
@@ -26,10 +26,10 @@ LINK.COMBO(FALSE) will unlink a list box and an edit box.
 
 **Related Functions**
 
-[ADD.LIST.ITEM](ADD.LIST.ITEM.md)&nbsp;&nbsp;&nbsp;Adds an item in a list box or drop-down
+[ADD.LIST.ITEM](ADD.LIST.ITEM.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds an item in a list box or drop-down
 control on a worksheet or dialog sheet control
 
-[SELECT.LIST.ITEM](SELECT.LIST.ITEM.md)&nbsp;&nbsp;&nbsp;Selects an item in a list box or in a
+[SELECT.LIST.ITEM](SELECT.LIST.ITEM.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects an item in a list box or in a
 group box
 
 

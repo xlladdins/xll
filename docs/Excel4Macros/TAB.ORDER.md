@@ -18,10 +18,10 @@ selected when the user presses the TAB key.
 
 **Related Functions**
 
-[BRING.TO.FRONT](BRING.TO.FRONT.md)&nbsp;&nbsp;&nbsp;Puts the selected object or objects on
+[BRING.TO.FRONT](BRING.TO.FRONT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Puts the selected object or objects on
 top of all other objects
 
-[SEND.TO.BACK](SEND.TO.BACK.md)&nbsp;&nbsp;&nbsp;Puts the selected object or objects behind
+[SEND.TO.BACK](SEND.TO.BACK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Puts the selected object or objects behind
 all other objects
 
 

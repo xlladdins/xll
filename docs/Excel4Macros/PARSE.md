@@ -11,13 +11,13 @@ created by another application, such as a database.
 
 **PARSE**?(parse\_text, destination\_ref)
 
-Parse\_text&nbsp;&nbsp;&nbsp;&nbsp;is the parse line in the form of
+Parse\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the parse line in the form of
 text. It is a copy of the first nonblank cell in the selected column,
 with square brackets indicating where to distribute (or parse) text. If
 parse\_text is omitted, Microsoft Excel guesses where to place the
 brackets based on the spacing and formatting of data.
 
-Destination\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the upper-left
+Destination\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the upper-left
 corner of the range of cells where you want to place the parsed data. If
 destination\_ref is omitted, it is assumed to be the current selection,
 so the parsed data will replace the original data.

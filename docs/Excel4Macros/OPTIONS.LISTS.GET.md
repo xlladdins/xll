@@ -11,7 +11,7 @@ Returns contents of custom AutoFill lists as an array of text strings.
 List\_num&nbsp;&nbsp; is a number specifying which list to return, as a
 horizontal string array. If list\_num is zero, then FALSE is returned.
 
-String\_array&nbsp;&nbsp;&nbsp;&nbsp;is an array or cell reference to
+String\_array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an array or cell reference to
 store the returned list.
 
 **Example**
@@ -25,11 +25,11 @@ If list\_num is zero or omitted, then FALSE is returned.
 
 **Related Functions**
 
-[OPTIONS.LISTS.ADD](OPTIONS.LISTS.ADD.md)&nbsp;&nbsp;&nbsp;Adds a new custom list
+[OPTIONS.LISTS.ADD](OPTIONS.LISTS.ADD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a new custom list
 
-[OPTIONS.LISTS.DELETE](OPTIONS.LISTS.DELETE.md)&nbsp;&nbsp;&nbsp;Deletes a custom list
+[OPTIONS.LISTS.DELETE](OPTIONS.LISTS.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a custom list
 
-[OPTIONS.VIEW](OPTIONS.VIEW.md)&nbsp;&nbsp;&nbsp;Sets various view settings
+[OPTIONS.VIEW](OPTIONS.VIEW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets various view settings
 
 
 

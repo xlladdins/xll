@@ -17,7 +17,7 @@ dialog box. Arguments that correspond to check boxes are logical values.
 If an argument is TRUE, Microsoft Excel selects the check box; if FALSE,
 Microsoft Excel clears the check box.
 
-Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 indicating the
+Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 indicating the
 type of calculation.
 
 |               |                         |
@@ -27,33 +27,33 @@ type of calculation.
 | 2             | Automatic except tables |
 | 3             | Manual                  |
 
-Iter&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Iteration check box. The
+Iter**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Iteration check box. The
 default is FALSE.
 
-Max\_num&nbsp;&nbsp;&nbsp;&nbsp;is the maximum number of iterations. The
+Max\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the maximum number of iterations. The
 default is 100.
 
-Max\_change&nbsp;&nbsp;&nbsp;&nbsp;is the maximum change of each
+Max\_change**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the maximum change of each
 iteration. The default is 0.001.
 
-Update&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Update Remote
+Update**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Update Remote
 References check box. The default is TRUE.
 
-Precision&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Precision As
+Precision**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Precision As
 Displayed check box. The default is FALSE.
 
-Date\_1904&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the 1904 Date System
+Date\_1904**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the 1904 Date System
 check box. The default is FALSE in Microsoft Excel for Windows and TRUE
 in Microsoft Excel for the Macintosh.
 
-Calc\_save&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Recalculate Before
+Calc\_save**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Recalculate Before
 Save check box. If calc\_save is FALSE, the workbook is not recalculated
 before saving when in manual calculation mode. The default is TRUE.
 
-Save\_values&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Save External
+Save\_values**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Save External
 Link Values check box. The default is TRUE.
 
-Alt\_exp&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Transition Formula
+Alt\_exp**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Transition Formula
 Evaluation check box in the Transition tab of the Options dialog box.
 
   - > If alt\_exp is TRUE, Microsoft Excel uses a set of rules
@@ -65,9 +65,8 @@ Evaluation check box in the Transition tab of the Options dialog box.
   - > If alt\_exp is FALSE or omitted, Microsoft Excel calculates
     > normally.
 
-> &nbsp;
 
-Alt\_form&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Transition Formula
+Alt\_form**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Transition Formula
 Entry check box in the Transition tab of the Options dialog box.
 
   - > This argument is available only in Microsoft Excel for Windows.
@@ -78,9 +77,8 @@ Entry check box in the Transition tab of the Options dialog box.
   - > If alt\_form is FALSE or omitted, Microsoft Excel only accepts
     > formulas entered in Microsoft Excel style.
 
-> &nbsp;
 
-**Note&nbsp;&nbsp;&nbsp;**Microsoft Excel for Windows and Microsoft
+**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Microsoft Excel for Windows and Microsoft
 Excel for the Macintosh use different date systems as their default.
 Excel for Windows uses the 1900 date system, in which serial numbers
 correspond to the dates January 1, 1900, through December 31, 9999.
@@ -95,15 +93,15 @@ workbook. For more information, see GET.DOCUMENT.
 
 **Related Functions**
 
-[CALCULATE.DOCUMENT](CALCULATE.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Calculates the active sheet only
+[CALCULATE.DOCUMENT](CALCULATE.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Calculates the active sheet only
 
-[CALCULATE.NOW](CALCULATE.NOW.md)&nbsp;&nbsp;&nbsp;Calculates all open workbooks immediately
+[CALCULATE.NOW](CALCULATE.NOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Calculates all open workbooks immediately
 
-[GET.DOCUMENT](GET.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook
+[GET.DOCUMENT](GET.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook
 
-[OPTIONS.CALCULATION](OPTIONS.CALCULATION.md)&nbsp;&nbsp;&nbsp;Controls calculation
+[OPTIONS.CALCULATION](OPTIONS.CALCULATION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls calculation
 
-[OPTIONS.TRANSITION](OPTIONS.TRANSITION.md)&nbsp;&nbsp;&nbsp;Controls transition options
+[OPTIONS.TRANSITION](OPTIONS.TRANSITION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls transition options
 
 
 

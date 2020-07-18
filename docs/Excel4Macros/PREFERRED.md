@@ -12,7 +12,7 @@ macro function.
 
 **Related Function**
 
-[SET.PREFERRED](SET.PREFERRED.md)&nbsp;&nbsp;&nbsp;Changes the default chart format
+[SET.PREFERRED](SET.PREFERRED.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the default chart format
 
 
 

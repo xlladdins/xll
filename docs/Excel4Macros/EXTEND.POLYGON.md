@@ -10,7 +10,7 @@ your macro sheet.
 
 **EXTEND.POLYGON**(**array**)
 
-Array&nbsp;&nbsp;&nbsp;&nbsp;is an array of values, or a reference to a
+Array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an array of values, or a reference to a
 range of cells containing values, that indicate the position of vertices
 in the polygon. The position is measured in points and is relative to
 the upper-left corner of the polygon's bounding rectangle.
@@ -31,9 +31,9 @@ the upper-left corner of the polygon's bounding rectangle.
 
 **Related Functions**
 
-[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
 
-[FORMAT.SHAPE](FORMAT.SHAPE.md)&nbsp;&nbsp;&nbsp;Inserts, moves, or deletes vertices of the
+[FORMAT.SHAPE](FORMAT.SHAPE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Inserts, moves, or deletes vertices of the
 selected polygon
 
 

@@ -13,7 +13,7 @@ display\_icon\_logical, icon\_file, icon\_number, icon\_label)
 **INSERT.OBJECT**?(object\_class, file\_name, link\_logical,
 display\_icon\_logical, icon\_file, icon\_number, icon\_label)
 
-Object\_class&nbsp;&nbsp;&nbsp;&nbsp;is a text string containing the
+Object\_class**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string containing the
 classname for the object you want to create.
 
   - > Object\_class is the classname corresponding to the Object Type
@@ -23,31 +23,30 @@ classname for the object you want to create.
     > documentation for your source application to see how it supports
     > object linking and embedding (OLE).
 
-> &nbsp;
 
-File\_name&nbsp;&nbsp;&nbsp;&nbsp;is a text string specifying the file
+File\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string specifying the file
 from which to create an OLE object.
 
-Link\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value indicating
+Link\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value indicating
 whether the new object based on file\_name should be linked to
 file\_name. If it is not linked, the object is created as a copy or the
 file. Link\_logical is ignored if file\_name is not specified. If
 link\_logical is FALSE or omitted, then no link is established.
 
-Display\_icon\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value
+Display\_icon\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value
 corresponding to the Display as Icon checkbox. If it is FALSE or
 omitted, then the regular picture for the object is displayed. If it is
 TRUE, then the icon icon\_number found in icon\_file is displayed with
 the label icon\_label. If display\_icon\_logical is not TRUE, then
 icon\_file, icon\_number, and icon\_label are ignored.
 
-Icon\_file&nbsp;&nbsp;&nbsp;&nbsp;is the name of the file where the icon
+Icon\_file**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the file where the icon
 to display is located.
 
-Icon\_number&nbsp;&nbsp;&nbsp;&nbsp;is the number of the icon within
+Icon\_number**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the icon within
 icon\_file that should be used.
 
-Icon\_label&nbsp;&nbsp;&nbsp;&nbsp;is a text string indicating a label
+Icon\_label**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string indicating a label
 to display beneath the icon. If the parameter is an empty string ("") or
 is omitted, no label is displayed.
 
@@ -61,11 +60,10 @@ is omitted, no label is displayed.
     > other applications. Microsoft Excel uses classnames
     > "Excel.Sheet.5" and "Excel.Chart.5".
 
-> &nbsp;
 
 **Related Function**
 
-[EDIT.OBJECT](EDIT.OBJECT.md)&nbsp;&nbsp;&nbsp;Edits an object
+[EDIT.OBJECT](EDIT.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Edits an object
 
 
 

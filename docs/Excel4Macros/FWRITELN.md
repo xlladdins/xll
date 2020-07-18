@@ -11,12 +11,12 @@ characters that you write to a text file.
 
 **FWRITELN**(**file\_num, text**)
 
-File\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique ID number of the file you
+File\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique ID number of the file you
 want to write data to. File\_num is returned by a previously executed
 FOPEN function. If file\_num is not valid, FWRITELN returns the
 \#VALUE\! error value.
 
-Text&nbsp;&nbsp;&nbsp;&nbsp;is the text you want to write to the file.
+Text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the text you want to write to the file.
 
 **Remarks**
 
@@ -33,14 +33,14 @@ FWRITELN(FileNumber, TEXT(MONTH(NOW()),"mmmm"))
 
 **Related Functions**
 
-[FOPEN](FOPEN.md)&nbsp;&nbsp;&nbsp;Opens a file with the type of permission
+[FOPEN](FOPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a file with the type of permission
 specified
 
-[FPOS](FPOS.md)&nbsp;&nbsp;&nbsp;Sets the position in a text file
+[FPOS](FPOS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the position in a text file
 
-[FREAD](FREAD.md)&nbsp;&nbsp;&nbsp;Reads characters from a text file
+[FREAD](FREAD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Reads characters from a text file
 
-[FWRITE](FWRITE.md)&nbsp;&nbsp;&nbsp;Writes characters to a text file
+[FWRITE](FWRITE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Writes characters to a text file
 
 
 

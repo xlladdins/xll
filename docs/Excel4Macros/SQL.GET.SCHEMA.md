@@ -13,7 +13,7 @@ add-in (XLODBC.XLA).
 
 **SQL.GET.SCHEMA**(**connection\_num**, **type\_num**, qualifier\_text)
 
-Connection\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique connection ID of
+Connection\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique connection ID of
 the data source you want information about.
 
   - > Connection\_num is returned by a previously executed SQL.OPEN
@@ -22,7 +22,6 @@ the data source you want information about.
   - > If connection\_num is not valid, SQL.GET.SCHEMA returns the
     > \#VALUE\! error value.
 
-> &nbsp;
 
 Type\_num specifies the type of information you want returned. The
 following is a list of valid type\_num values.
@@ -152,7 +151,7 @@ following is a list of valid type\_num values.
 </tbody>
 </table>
 
-Qualifier\_text&nbsp;&nbsp;&nbsp;&nbsp;is only included for type\_num
+Qualifier\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is only included for type\_num
 values of 3, 4 and 5. It is a text string used to qualify the search for
 the requested information and should be enclosed by quotation marks.
 
@@ -214,20 +213,20 @@ source.
 
 **Related Functions**
 
-[SQL.OPEN](SQL.OPEN.md)&nbsp;&nbsp;&nbsp;Establishes a connection with a data source
+[SQL.OPEN](SQL.OPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Establishes a connection with a data source
 
-[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)&nbsp;&nbsp;&nbsp;Sends a query to a data source
+[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends a query to a data source
 
-[SQL.BIND](SQL.BIND.md)&nbsp;&nbsp;&nbsp;Specifies storage for a result column
+[SQL.BIND](SQL.BIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies storage for a result column
 
-[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)&nbsp;&nbsp;&nbsp;Retrieves query results and places
+[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results and places
 them in a file
 
-[SQL.RETRIEVE](SQL.RETRIEVE.md)&nbsp;&nbsp;&nbsp;Retrieves query results
+[SQL.RETRIEVE](SQL.RETRIEVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results
 
-[SQL.CLOSE](SQL.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes a data source connection
+[SQL.CLOSE](SQL.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a data source connection
 
-[SQL.ERROR](SQL.ERROR.md)&nbsp;&nbsp;&nbsp;Returns detailed error information
+[SQL.ERROR](SQL.ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns detailed error information
 
 
 

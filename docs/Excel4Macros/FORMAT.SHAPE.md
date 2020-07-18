@@ -11,10 +11,10 @@ and EXTEND.POLYGON functions.
 **FORMAT.SHAPE**(**vertex\_num, insert**, reference, x\_offset,
 y\_offset)
 
-Vertex\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
+Vertex\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the
 vertex you want to insert, move, or delete.
 
-Insert&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether to
+Insert**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether to
 insert a vertex, or move or delete a vertex.
 
   - > If insert is TRUE, Microsoft Excel inserts a vertex between the
@@ -27,9 +27,8 @@ insert a vertex, or move or delete a vertex.
     > remaining arguments are omitted) or moves the vertex to the
     > position specified by the remaining arguments.
 
-> &nbsp;
 
-Reference&nbsp;&nbsp;&nbsp;&nbsp;is the reference from which the vertex
+Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the reference from which the vertex
 you are inserting or moving is measured; that is, the cell or range of
 cells to use as the basis for the x and y offsets.
 
@@ -39,15 +38,14 @@ cells to use as the basis for the x and y offsets.
   - > If reference is omitted, the vertex is measured from the
     > upper-left corner of the polygon's bounding rectangle.
 
-> &nbsp;
 
-X\_offset&nbsp;&nbsp;&nbsp;&nbsp;is the horizontal distance from the
+X\_offset**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the horizontal distance from the
 upper-left corner of reference to the vertex. X\_offset is measured in
 points. A point is 1/72nd of an inch. If reference is omitted, x\_offset
 specifies the horizontal distance from the upper-left corner of the
 polygon bounding rectangle.
 
-Y\_offset&nbsp;&nbsp;&nbsp;&nbsp;is the vertical distance from the
+Y\_offset**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the vertical distance from the
 upper-left corner of reference to the vertex. Y\_offset is measured in
 points. If reference is omitted, y\_offset specifies the vertical
 distance from the upper-left corner of the polygon bounding rectangle.
@@ -77,9 +75,9 @@ FORMAT.SHAPE(3, TRUE, , 60, 75)
 
 **Related Functions**
 
-[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
 
-[EXTEND.POLYGON](EXTEND.POLYGON.md)&nbsp;&nbsp;&nbsp;Adds vertices to a polygon
+[EXTEND.POLYGON](EXTEND.POLYGON.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds vertices to a polygon
 
 
 

@@ -11,7 +11,7 @@ which operate only on the active pane.
 
 **ACTIVATE**?(window\_text, pane\_num)
 
-Window\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the name of a
+Window\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying the name of a
 window to switch to: for example, "Book1" or "Book1:2".
 
   - > If a workbook is displayed in more than one window and
@@ -20,9 +20,8 @@ window to switch to: for example, "Book1" or "Book1:2".
 
   - > If window\_text is omitted, the active window is not changed.
 
-> &nbsp;
 
-Pane\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying
+Pane\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying
 which pane to switch to. If pane\_num is omitted and the window has more
 than one pane, the active pane is not changed.
 
@@ -36,25 +35,25 @@ than one pane, the active pane is not changed.
 
 **Related Functions**
 
-[ACTIVATE.NEXT](ACTIVATE.NEXT.md)&nbsp;&nbsp;&nbsp;Switches to the next window, or switches
+[ACTIVATE.NEXT](ACTIVATE.NEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to the next window, or switches
 to the next sheet in a workbook
 
-[ACTIVATE.PREV](ACTIVATE.PREV.md)&nbsp;&nbsp;&nbsp;Switches to the previous window, or
+[ACTIVATE.PREV](ACTIVATE.PREV.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to the previous window, or
 switches to the previous sheet in a workbook
 
-[DOCUMENTS](DOCUMENTS.md)&nbsp;&nbsp;&nbsp;Returns the names of the specified open
+[DOCUMENTS](DOCUMENTS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the names of the specified open
 workbooks
 
-[FREEZE.PANES](FREEZE.PANES.md)&nbsp;&nbsp;&nbsp;Freezes the panes of a window so that they
+[FREEZE.PANES](FREEZE.PANES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Freezes the panes of a window so that they
 do not scroll
 
-[ON.WINDOW](ON.WINDOW.md)&nbsp;&nbsp;&nbsp;Runs a macro when you switch to a window
+[ON.WINDOW](ON.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when you switch to a window
 
-[SPLIT](SPLIT.md)&nbsp;&nbsp;&nbsp;Splits a window
+[SPLIT](SPLIT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Splits a window
 
-[WINDOWS](WINDOWS.md)&nbsp;&nbsp;&nbsp;Returns the names of all open windows
+[WINDOWS](WINDOWS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the names of all open windows
 
-[WORKBOOK.SELECT](WORKBOOK.SELECT.md)&nbsp;&nbsp;&nbsp;Select a sheet in a workbook
+[WORKBOOK.SELECT](WORKBOOK.SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Select a sheet in a workbook
 
 
 

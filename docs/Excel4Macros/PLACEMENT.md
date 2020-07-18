@@ -15,7 +15,7 @@ information, see OBJECT.PROPERTIES.
 
 **Related Functions**
 
-[OBJECT.PROPERTIES](OBJECT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Determines an object's relationship
+[OBJECT.PROPERTIES](OBJECT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Determines an object's relationship
 to underlying cells
 
 

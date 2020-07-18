@@ -12,23 +12,23 @@ to add a new custom list.
 
 **OPTIONS.LISTS.ADD**?(**import\_ref, list\_num**)
 
-String\_array&nbsp;&nbsp;&nbsp;&nbsp;is an array of strings or cell
+String\_array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an array of strings or cell
 reference that contains the custom items in the list, a named cell
 reference, or an external reference containing the items of the custom
 list to add.
 
-Import\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the reference to the cells that
+Import\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the reference to the cells that
 contain the members of the custom list. If A1:A12 contains the twelve
 signs of the Zodiac starting with Aquarius, then this function will add
 the contents of these twelve cells as a custom list.
 
-By\_row&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that if TRUE, and if
+By\_row**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that if TRUE, and if
 importing from cells, assumes that the list items are in sequential
 rows. If FALSE, assumes that the list items are in columns. If omitted,
 Microsoft Excel will try to determine the order of the custom lists
 according to the layout of the sheet.
 
-List\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying which list to
+List\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying which list to
 activate. If omitted, then New List will be activated.
 
 **Remarks**
@@ -42,12 +42,12 @@ activate. If omitted, then New List will be activated.
 
 **Related Functions**
 
-[OPTIONS.VIEW](OPTIONS.VIEW.md)&nbsp;&nbsp;&nbsp;Sets various view settings
+[OPTIONS.VIEW](OPTIONS.VIEW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets various view settings
 
-[OPTIONS.LISTS.GET](OPTIONS.LISTS.GET.md)&nbsp;&nbsp;&nbsp;Returns contents of custom AutoFill
+[OPTIONS.LISTS.GET](OPTIONS.LISTS.GET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns contents of custom AutoFill
 lists
 
-[OPTIONS.LISTS.DELETE](OPTIONS.LISTS.DELETE.md)&nbsp;&nbsp;&nbsp;Deletes a custom list
+[OPTIONS.LISTS.DELETE](OPTIONS.LISTS.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a custom list
 
 
 

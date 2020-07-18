@@ -8,7 +8,7 @@ a series of macro formulas while a certain condition remains TRUE.
 
 **WHILE**(**logical\_test**)
 
-Logical\_test&nbsp;&nbsp;&nbsp;&nbsp;is a value or formula that
+Logical\_test**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a value or formula that
 evaluates to TRUE or FALSE. If logical\_test is FALSE the first time the
 WHILE function is reached, the macro skips the loop and resumes running
 at the statement after the next NEXT function. If there is no NEXT
@@ -36,14 +36,14 @@ in the open file identified as FileNumber reaches the end of the file:
 
 **Related Functions**
 
-[FOR](FOR.md)&nbsp;&nbsp;&nbsp;Starts a FOR-NEXT loop
+[FOR](FOR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a FOR-NEXT loop
 
-[FOR.CELL](FOR.CELL.md)&nbsp;&nbsp;&nbsp;Starts a FOR.CELL-NEXT loop
+[FOR.CELL](FOR.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a FOR.CELL-NEXT loop
 
-[IF](IF.md)&nbsp;&nbsp;&nbsp;Specifies an action to take if a logical test is
+[IF](IF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies an action to take if a logical test is
 [TRUE](TRUE.md)
 
-[NEXT](NEXT.md)&nbsp;&nbsp;&nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
+[NEXT](NEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends a FOR-NEXT, FOR.CELL-NEXT, or WHILE-NEXT loop
 
 
 

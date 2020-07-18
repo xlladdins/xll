@@ -12,7 +12,7 @@ see WORKBOOK.PROTECT.
 
 **PROTECT.DOCUMENT**?( contents, windows, password, objects, scenarios)
 
-Contents&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
+Contents**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
 Contents check box in the Protect Sheet dialog box.
 
   - > If contents is TRUE or omitted, Microsoft Excel selects the check
@@ -22,9 +22,8 @@ Contents check box in the Protect Sheet dialog box.
   - > If contents is FALSE, Microsoft Excel clears the check box (and
     > removes protection if the correct password is supplied).
 
-> &nbsp;
 
-Windows&nbsp;&nbsp;&nbsp;&nbsp;is provided for compatibility with
+Windows**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is provided for compatibility with
 Microsoft Excel version 4.0. To protect the window placement and
 structure of workbooks in Microsoft Excel version 5.0 or later, see
 WORKBOOK.PROTECT.
@@ -35,9 +34,8 @@ WORKBOOK.PROTECT.
   - > If windows is FALSE or omitted, Microsoft Excel removes protection
     > if the correct password is supplied.
 
-> &nbsp;
 
-Password&nbsp;&nbsp;&nbsp;&nbsp;is the password you specify in the form
+Password**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the password you specify in the form
 of text to protect or unprotect the file. Password is case-sensitive.
 
   - > If password is omitted when you protect a sheet, then you will be
@@ -51,9 +49,8 @@ of text to protect or unprotect the file. Password is case-sensitive.
   - > Passwords are not recorded into the PROTECT.DOCUMENT function when
     > you use the macro recorder.
 
-> &nbsp;
 
-Objects&nbsp;&nbsp;&nbsp;&nbsp;is a logical value. This argument applies
+Objects**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value. This argument applies
 only to charts, worksheets and macro sheets. Objects corresponds to the
 Objects check box in the Protect Sheet dialog box.
 
@@ -63,7 +60,7 @@ Objects check box in the Protect Sheet dialog box.
 
   - > If objects is FALSE, Microsoft Excel clears the check box.
 
-Scenarios&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to
+Scenarios**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds to
 the Scenarios check box on the Protect Sheet dialog box. If TRUE,
 Microsoft Excel protects all the scenarios. If FALSE, the scenarios are
 not protected.
@@ -80,25 +77,24 @@ not protected.
     > needed to unprotect the worksheet. For example,
     > PROTECT.DOCUMENT(TRUE, TRUE, "XD1411C", TRUE).
 
-> &nbsp;
 
-**Warning**&nbsp;&nbsp;&nbsp;If you forget the password of a workbook
+**Warning****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;If you forget the password of a workbook
 that was previously protected with a password, you cannot unprotect the
 workbook.
 
 **Related Functions**
 
-[CELL.PROTECTION](CELL.PROTECTION.md)&nbsp;&nbsp;&nbsp;Controls protection for the selected
+[CELL.PROTECTION](CELL.PROTECTION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls protection for the selected
 cells
 
-[ENTER.DATA](ENTER.DATA.md)&nbsp;&nbsp;&nbsp;Turns Data Entry mode on and off
+[ENTER.DATA](ENTER.DATA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Turns Data Entry mode on and off
 
-[OBJECT.PROTECTION](OBJECT.PROTECTION.md)&nbsp;&nbsp;&nbsp;Controls how an object is protected
+[OBJECT.PROTECTION](OBJECT.PROTECTION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls how an object is protected
 
-[SAVE.AS](SAVE.AS.md)&nbsp;&nbsp;&nbsp;Saves a workbook and allows you to specify the
+[SAVE.AS](SAVE.AS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Saves a workbook and allows you to specify the
 name, file type, password, backup file, and location of the workbook
 
-[WORKBOOK.PROTECT](WORKBOOK.PROTECT.md)&nbsp;&nbsp;&nbsp;Protects a workbook
+[WORKBOOK.PROTECT](WORKBOOK.PROTECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Protects a workbook
 
 
 

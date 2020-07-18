@@ -9,14 +9,14 @@ application window. Changes the size of the Microsoft Excel window.
 
 **APP.SIZE**?(x\_num, y\_num)
 
-**Note&nbsp;&nbsp;&nbsp;**This function is only for Microsoft Excel for
+**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**This function is only for Microsoft Excel for
 Windows. You can use this function in macros created with Microsoft
 Excel for the Macintosh, but it will return the \#N/A error value.
 
-X\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the width of the Microsoft Excel
+X\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the width of the Microsoft Excel
 window in points.
 
-Y\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the height of the Microsoft
+Y\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the height of the Microsoft
 Excel window in points.
 
 APP.SIZE?, the dialog-box form of the function, doesn't display a dialog
@@ -28,17 +28,17 @@ according to the specified coordinates, and you are left in size mode.
 
 **Related Functions**
 
-[APP.ACTIVATE](APP.ACTIVATE.md)&nbsp;&nbsp;&nbsp;Switches to an application
+[APP.ACTIVATE](APP.ACTIVATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to an application
 
-[APP.MAXIMIZE](APP.MAXIMIZE.md)&nbsp;&nbsp;&nbsp;Maximizes the Microsoft Excel application
+[APP.MAXIMIZE](APP.MAXIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Maximizes the Microsoft Excel application
 window
 
-[APP.MINIMIZE](APP.MINIMIZE.md)&nbsp;&nbsp;&nbsp;Minimizes the Microsoft Excel application
+[APP.MINIMIZE](APP.MINIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Minimizes the Microsoft Excel application
 window
 
-[APP.MOVE](APP.MOVE.md)&nbsp;&nbsp;&nbsp;Moves the Microsoft Excel application window
+[APP.MOVE](APP.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves the Microsoft Excel application window
 
-[APP.RESTORE](APP.RESTORE.md)&nbsp;&nbsp;&nbsp;Restores the Microsoft Excel application
+[APP.RESTORE](APP.RESTORE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Restores the Microsoft Excel application
 window
 
 

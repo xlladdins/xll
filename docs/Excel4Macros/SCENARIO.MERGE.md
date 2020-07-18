@@ -11,12 +11,12 @@ for a model on your worksheet.
 
 **SCENARIO.MERGE**?(source\_file)
 
-Source\_file&nbsp;&nbsp;&nbsp;&nbsp;is the name of the book and sheet
+Source\_file**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the book and sheet
 from which you want to merge scenarios onto the active sheet.
 
 **Related Function**
 
-[SCENARIO.GET](SCENARIO.GET.md)&nbsp;&nbsp;&nbsp;Returns the specified information about
+[SCENARIO.GET](SCENARIO.GET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the specified information about
 the scenarios defined on your worksheet
 
 

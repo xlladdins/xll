@@ -9,7 +9,7 @@ actions.
 
 **EDIT.OBJECT**(verb\_num)
 
-Verb\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying which verb to
+Verb\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying which verb to
 use while working with the object, that is, what you want to do with the
 object.
 
@@ -24,7 +24,6 @@ object.
 
   - > If verb\_num is omitted, it is assumed to be 1.
 
-> &nbsp;
 
 **Remarks**
 
@@ -33,7 +32,7 @@ return to Microsoft Excel.
 
 **Related Function**
 
-[INSERT.OBJECT](INSERT.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object of a specified type
+[INSERT.OBJECT](INSERT.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object of a specified type
 
 
 

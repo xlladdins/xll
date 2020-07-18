@@ -10,7 +10,7 @@ temporary files created by the macro.
 
 **FILE.DELETE**?(file\_text)
 
-File\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the file to delete.
+File\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the file to delete.
 
 **Remarks**
 
@@ -28,7 +28,6 @@ File\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the file to delete.
     > represent any single character. See the following third and sixth
     > examples.
 
-> &nbsp;
 
 **Examples**
 
@@ -64,9 +63,9 @@ FILE.DELETE?("Clients\*")
 
 **Related Functions**
 
-[FILE.CLOSE](FILE.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes the active workbook
+[FILE.CLOSE](FILE.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes the active workbook
 
-[FILES](FILES.md)&nbsp;&nbsp;&nbsp;Returns the filenames in the specified directory
+[FILES](FILES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the filenames in the specified directory
 or folder
 
 
