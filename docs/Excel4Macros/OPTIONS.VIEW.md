@@ -20,25 +20,25 @@ logical values. If an argument is TRUE, the check box is selected; if
 FALSE, the check box is cleared; if omitted, the current setting is not
 changed.
 
-Formula**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Formula&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Formula Bar check box. If TRUE, displays the formula bar. If FALSE, the
 formula bar is not displayed.
 
-Status**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Status&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Status Bar check box. If TRUE, the status bar is displayed. If FALSE,
 the status bar is not displayed.
 
-Notes**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Notes&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Comment & Indicator check box. If TRUE, comments and comment indicators
 will be displayed. If FALSE, comments and indicators will not be
 displayed.
 
-Show\_info**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
+Show\_info&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
 the Info Window check box (only in Microsoft Excel 95 and earlier
 versions). If TRUE, displays the Info Window. The Info Window is not
 available in Microsoft Excel 97 or later.
 
-Object\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 corresponding
+Object\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 corresponding
 to the display options in the Objects box.
 
 |                 |                    |
@@ -48,54 +48,54 @@ to the display options in the Objects box.
 | 2               | Show Placeholders  |
 | 3               | Hide               |
 
-Page\_breaks**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
+Page\_breaks&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
 the Page Breaks check box. If TRUE, page breaks will appear. If FALSE,
 page breaks will not appear.
 
-Formulas**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Formulas&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Formulas check box. If TRUE, formulas will appear in the cells. If
 FALSE, formulas will not appear in the cells. The default is FALSE on
 worksheets and TRUE on macro sheets.
 
-Gridlines**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Gridlines&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Gridlines check box. If TRUE, gridlines will be displayed. If FALSE,
 gridlines will not appear. The default is TRUE.
 
-Color\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 56 corresponding
+Color\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 56 corresponding
 to gridline color. Zero corresponds to automatic color and is the
 default value.
 
-Headings**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Headings&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Row & Column Headers check box. If TRUE, row and column headers will be
 displayed. If FALSE, they will not be displayed. The default is TRUE.
 
-Outline**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Outline&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Outline Symbols check box. If TRUE, outline symbols will appear. If
 FALSE, they will not appear. The default is TRUE.
 
-Zeros**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Zeros&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Zero Values check box. If TRUE, zero values will appear, If FALSE, zero
 values will not appear. The default is TRUE.
 
-Hor\_scroll**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
+Hor\_scroll&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
 the Horizontal Scroll Bar checkbox. If TRUE, the horizontal scroll bar
 will be displayed. If FALSE, it will not be displayed. The default is
 TRUE.
 
-Vert\_scroll**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
+Vert\_scroll&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
 the Vertical Scroll Bar checkbox. If TRUE, the vertical scroll bar will
 be displayed. If FALSE, it will not be displayed. The default is TRUE.
 
-Sheet\_tabs**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
+Sheet\_tabs&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
 the Sheet Tabs check box. If TRUE, sheet tabs will be displayed. If
 FALSE, sheet tabs will not be displayed. The default is TRUE.
 
 **Related Functions**
 
-[OPTIONS.LISTS.GET](OPTIONS.LISTS.GET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns contents of custom AutoFill
+[OPTIONS.LISTS.GET](OPTIONS.LISTS.GET.md)&nbsp;&nbsp;&nbsp;Returns contents of custom AutoFill
 lists
 
-[OPTIONS.LISTS.DELETE](OPTIONS.LISTS.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a custom list
+[OPTIONS.LISTS.DELETE](OPTIONS.LISTS.DELETE.md)&nbsp;&nbsp;&nbsp;Deletes a custom list
 
 
 

@@ -10,16 +10,16 @@ Remove Page Break commands on the Insert menu.
 
 **RENAME.COMMAND**(**bar\_num, menu, command, name\_text**, position)
 
-Bar\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;can be either the number of one of the
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;can be either the number of one of the
 Microsoft Excel built-in menu bars or the number returned by a
 previously run ADD.BAR function. See ADD.COMMAND for a list of ID
 numbers for built-in menu bars.
 
-Menu**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;can be either the name of a menu as text or
+Menu&nbsp;&nbsp;&nbsp;&nbsp;can be either the name of a menu as text or
 the number of a menu. Menus are numbered starting with 1 from the left
 of the screen.
 
-Command**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;can be either the name of the command as
+Command&nbsp;&nbsp;&nbsp;&nbsp;can be either the name of the command as
 text or the number of the command to be renamed (the first command on a
 menu is command 1). If command is 0, RENAME.COMMAND renames the menu
 instead of the command. Because other macros can change the position of
@@ -30,13 +30,13 @@ If the specified menu bar, menu, or command does not exist,
 RENAME.COMMAND returns the \#VALUE\! error value and interrupts the
 macro.
 
-Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the new name for the command.
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the new name for the command.
 
-Position**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the command on a submenu
+Position&nbsp;&nbsp;&nbsp;&nbsp;is the name of the command on a submenu
 that you want to rename. If you use position, you must use command as
 the name of the submenu.
 
-**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;To specify an access key for the new name,
+**Tip**&nbsp;&nbsp;&nbsp;To specify an access key for the new name,
 precede the character you want to use with an ampersand (&). The access
 key is indicated by an underline under one letter of a menu or command
 name. In Microsoft Excel for the Macintosh, you can use the General tab
@@ -52,16 +52,16 @@ RENAME.COMMAND(10, "File", "Save All", "\&Global Save")
 
 **Related Functions**
 
-[ADD.BAR](ADD.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu bar
+[ADD.BAR](ADD.BAR.md)&nbsp;&nbsp;&nbsp;Adds a menu bar
 
-[ADD.COMMAND](ADD.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a command to a menu
+[ADD.COMMAND](ADD.COMMAND.md)&nbsp;&nbsp;&nbsp;Adds a command to a menu
 
-[CHECK.COMMAND](CHECK.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds or deletes a check mark to or from a
+[CHECK.COMMAND](CHECK.COMMAND.md)&nbsp;&nbsp;&nbsp;Adds or deletes a check mark to or from a
 command
 
-[DELETE.COMMAND](DELETE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a command from a menu
+[DELETE.COMMAND](DELETE.COMMAND.md)&nbsp;&nbsp;&nbsp;Deletes a command from a menu
 
-[ENABLE.COMMAND](ENABLE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enables or disables a menu or custom
+[ENABLE.COMMAND](ENABLE.COMMAND.md)&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
 command
 
 

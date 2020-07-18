@@ -7,11 +7,11 @@ the spelling of words in the current selection.
 
 **SPELLING**(custom\_dic, ignore\_uppercase, always\_suggest)
 
-Custom\_dic**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the filename of the custom
+Custom\_dic&nbsp;&nbsp;&nbsp;&nbsp;is the filename of the custom
 dictionary to examine if words are not found in the main dictionary. If
 custom\_dic is omitted, the currently specified dictionary is used.
 
-Ignore\_uppercase**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value
+Ignore\_uppercase&nbsp;&nbsp;&nbsp;&nbsp;is a logical value
 corresponding to the Ignore UPPERCASE check box.
 
 <table>
@@ -51,7 +51,7 @@ corresponding to the Ignore UPPERCASE check box.
 </tbody>
 </table>
 
-Always\_suggest**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding
+Always\_suggest&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding
 to the Always Suggest check box.
 
 <table>
@@ -93,7 +93,7 @@ to the Always Suggest check box.
 
 **Related Function**
 
-[SPELLING.CHECK](SPELLING.CHECK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Checks the spelling of a word
+[SPELLING.CHECK](SPELLING.CHECK.md)&nbsp;&nbsp;&nbsp;Checks the spelling of a word
 
 
 

@@ -9,7 +9,7 @@ COLOR.PALETTE to share color palettes between workbooks.
 
 **COLOR.PALETTE**?(file\_text)
 
-File\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a workbook, as a text
+File\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a workbook, as a text
 string, that you want to copy a color palette from. The workbook
 specified by file\_text must be open, or COLOR.PALETTE returns the
 \#VALUE\! error value and interrupts the macro. If file\_text is empty
@@ -17,7 +17,7 @@ text (""), then COLOR.PALETTE sets colors to the default values.
 
 **Related Function**
 
-[EDIT.COLOR](EDIT.COLOR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a color on the color palette
+[EDIT.COLOR](EDIT.COLOR.md)&nbsp;&nbsp;&nbsp;Defines a color on the color palette
 
 
 

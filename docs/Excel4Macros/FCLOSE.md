@@ -6,7 +6,7 @@ Closes the specified file.
 
 **FCLOSE**(**file\_num**)
 
-File\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the file you want to
+File\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the file you want to
 close. File\_num is returned by the FOPEN function that originally
 opened the file. If file\_num is not a valid file number, FCLOSE halts
 the macro and returns the \#VALUE\! error value.
@@ -19,11 +19,11 @@ FCLOSE(FileNumber)
 
 **Related Functions**
 
-[CLOSE](CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes the active window
+[CLOSE](CLOSE.md)&nbsp;&nbsp;&nbsp;Closes the active window
 
-[FILE.CLOSE](FILE.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes the active workbook
+[FILE.CLOSE](FILE.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes the active workbook
 
-[FOPEN](FOPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a file with the type of permission
+[FOPEN](FOPEN.md)&nbsp;&nbsp;&nbsp;Opens a file with the type of permission
 specified
 
 

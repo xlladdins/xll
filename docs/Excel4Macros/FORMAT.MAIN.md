@@ -17,7 +17,7 @@ doughnut\_size)
 angle, gap\_depth, chart\_depth, up\_down, series\_line, labels,
 doughnut\_size)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the type of
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of
 chart.
 
 |               |              |
@@ -38,11 +38,11 @@ chart.
 | 13            | 3-D Surface  |
 | 14            | Doughnut     |
 
-View**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying one of the views in
+View&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying one of the views in
 the Data View box in the Main Chart dialog box. The view varies
 depending on the type of chart.
 
-Overlap**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from -100 to 100 specifying
+Overlap&nbsp;&nbsp;&nbsp;&nbsp;is a number from -100 to 100 specifying
 how you want bars or columns to be positioned. It corresponds to the
 Overlap box in the Main Chart dialog box. Overlap is ignored if
 type\_num is not 2 or 3 (bar or column chart).
@@ -59,7 +59,7 @@ type\_num is not 2 or 3 (bar or column chart).
   - > If overlap is omitted, it is assumed to be 0 (bars or columns do
     > not overlap), or it is unchanged if a value was previously set.
 
-Gap\_width**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 500 specifying
+Gap\_width&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 500 specifying
 the space between bar or column clusters as a percentage of the width of
 a bar or column. It corresponds to the Gap Width box in the Main Chart
 dialog box.
@@ -76,24 +76,24 @@ Microsoft Excel selects the corresponding check box; if FALSE, Microsoft
 Excel clears the check box. If an argument is omitted, the setting is
 unchanged.
 
-Vary**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Vary By Categories check
+Vary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Vary By Categories check
 box. Vary applies only to charts with one data series and is not
 available for area charts.
 
-Drop**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Drop Lines check box.
+Drop&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Drop Lines check box.
 Drop is available only for area and line charts.
 
-Hilo**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Hi-Lo Lines check box.
+Hilo&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Hi-Lo Lines check box.
 Hilo is available only for line charts.
 
-Angle**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 360 specifying the
+Angle&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 360 specifying the
 angle of the first pie slice (in degrees) if the chart is a pie chart.
 If angle is omitted, it is assumed to be 0, or it is unchanged if a
 value was previously set.
 
 The next two arguments are for 3-D charts only.
 
-Gap\_depth**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 500 specifying
+Gap\_depth&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 500 specifying
 the depth of the gap in front of and behind a bar, column, area, or line
 as a percentage of the depth of the bar, column, area, or line.
 
@@ -107,7 +107,7 @@ as a percentage of the depth of the bar, column, area, or line.
     > unchanged if a value was previously set.
 
 
-Chart\_depth**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 20 to 2000
+Chart\_depth&nbsp;&nbsp;&nbsp;&nbsp;is a number from 20 to 2000
 specifying the visual depth of the chart as a percentage of the width of
 the chart. Chart\_depth corresponds to the Chart Depth box in the Main
 Chart dialog box.
@@ -124,24 +124,24 @@ selects the corresponding check box; if FALSE, Microsoft Excel clears
 the check box. If an argument is omitted, the setting is unchanged. The
 final argument is for compatibility with Microsoft Excel version 4.0.
 
-Up\_down**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Up/Down Bars check
+Up\_down&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Up/Down Bars check
 box. Up\_down is available only for line charts.
 
-Series\_line**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Series Lines
+Series\_line&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Series Lines
 check box. Series\_line is available only for stacked bar and column
 charts.
 
-Labels**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Radar Axis Labels check
+Labels&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Radar Axis Labels check
 box. Labels is available only for radar charts.
 
-Doughnut\_size**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the size of the hole in
+Doughnut\_size&nbsp;&nbsp;&nbsp;&nbsp;specifies the size of the hole in
 a doughnut chart. Can be a value from 10% - 90%. Default is 50%
 
 **Related Functions**
 
-[FORMAT.CHART](FORMAT.CHART.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats a chart
+[FORMAT.CHART](FORMAT.CHART.md)&nbsp;&nbsp;&nbsp;Formats a chart
 
-[FORMAT.OVERLAY](FORMAT.OVERLAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats an overlay chart
+[FORMAT.OVERLAY](FORMAT.OVERLAY.md)&nbsp;&nbsp;&nbsp;Formats an overlay chart
 
 
 

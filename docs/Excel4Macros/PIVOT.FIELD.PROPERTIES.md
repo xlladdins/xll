@@ -10,20 +10,20 @@ orientation, function, formats)
 **PIVOT.FIELD.PROPERTIES**?(name, pivot\_field\_name, new\_name,
 orientation, function, formats)
 
-Name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the PivotTable report
+Name&nbsp;&nbsp;&nbsp;&nbsp;is the name of the PivotTable report
 containing the field which the user wants to edit. If name is omitted,
 Microsoft Excel will use the PivotTable report containing the active
 cell.
 
-Pivot\_field\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a field in the
+Pivot\_field\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of a field in the
 PivotTable report which the user would like to edit, as text. If it is
 omitted, Microsoft Excel uses the field containing the active cell.
 
-New\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name which you would like to
+New\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name which you would like to
 rename the current field. If it is omitted, the name of the current
 field will not change.
 
-Orientation**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number between 0 and 4
+Orientation&nbsp;&nbsp;&nbsp;&nbsp;is a number between 0 and 4
 specifying which area will show the field containing the active cell. If
 zero, then the field is deleted and all other arguments to this function
 are ignored. If this argument is omitted, the orientation of the field
@@ -38,7 +38,7 @@ will not change.
 | 3         | Display as page   |
 | 4         | Display as data   |
 
-Function**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number between 0 and 4094
+Function&nbsp;&nbsp;&nbsp;&nbsp;is a number between 0 and 4094
 specifying which calculation or subtotals to apply to the field. If you
 will be showing the field in the header (orientation 1, 2, or 3), add up
 the values from the table corresponding to the subtotals you would like
@@ -64,7 +64,7 @@ are currently attached to the field.
 | 1024      | VAR          |
 | 2048      | VARP         |
 
-Formats**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is either a one- or a two- dimensional
+Formats&nbsp;&nbsp;&nbsp;&nbsp;is either a one- or a two- dimensional
 array, depending on whether the field is a header field or a data field.
 
   - > If the active field is a header field (orientation argument is 1,
@@ -129,30 +129,30 @@ array, depending on whether the field is a header field or a data field.
 
 **Related Functions**
 
-[PIVOT.ADD.DATA](PIVOT.ADD.DATA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a field to a PivotTable report as a
+[PIVOT.ADD.DATA](PIVOT.ADD.DATA.md)&nbsp;&nbsp;&nbsp;Adds a field to a PivotTable report as a
 data field
 
-[PIVOT.ADD.FIELDS](PIVOT.ADD.FIELDS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds fields to a PivotTable report
+[PIVOT.ADD.FIELDS](PIVOT.ADD.FIELDS.md)&nbsp;&nbsp;&nbsp;Adds fields to a PivotTable report
 
-[PIVOT.FIELD](PIVOT.FIELD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pivots fields within a PivotTable report
+[PIVOT.FIELD](PIVOT.FIELD.md)&nbsp;&nbsp;&nbsp;Pivots fields within a PivotTable report
 
-[PIVOT.FIELD.GROUP](PIVOT.FIELD.GROUP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates groups within a PivotTable
+[PIVOT.FIELD.GROUP](PIVOT.FIELD.GROUP.md)&nbsp;&nbsp;&nbsp;Creates groups within a PivotTable
 report
 
-[PIVOT.FIELD.UNGROUP](PIVOT.FIELD.UNGROUP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ungroups all selected groups within
+[PIVOT.FIELD.UNGROUP](PIVOT.FIELD.UNGROUP.md)&nbsp;&nbsp;&nbsp;Ungroups all selected groups within
 a PivotTable report
 
-[PIVOT.ITEM](PIVOT.ITEM.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves an item within a PivotTable report
+[PIVOT.ITEM](PIVOT.ITEM.md)&nbsp;&nbsp;&nbsp;Moves an item within a PivotTable report
 
-[PIVOT.ITEM.PROPERTIES](PIVOT.ITEM.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the properties of an item
+[PIVOT.ITEM.PROPERTIES](PIVOT.ITEM.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Changes the properties of an item
 within a header field
 
-[PIVOT.REFRESH](PIVOT.REFRESH.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Refreshes a PivotTable report
+[PIVOT.REFRESH](PIVOT.REFRESH.md)&nbsp;&nbsp;&nbsp;Refreshes a PivotTable report
 
-[PIVOT.SHOW.PAGES](PIVOT.SHOW.PAGES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates new sheets in the workbook
+[PIVOT.SHOW.PAGES](PIVOT.SHOW.PAGES.md)&nbsp;&nbsp;&nbsp;Creates new sheets in the workbook
 containing the active cell
 
-[PIVOT.TABLE.WIZARD](PIVOT.TABLE.WIZARD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an empty PivotTable report
+[PIVOT.TABLE.WIZARD](PIVOT.TABLE.WIZARD.md)&nbsp;&nbsp;&nbsp;Creates an empty PivotTable report
 
 
 

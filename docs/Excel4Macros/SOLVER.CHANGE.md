@@ -25,9 +25,9 @@ For an explanation of the arguments and constraints, see SOLVER.ADD.
 
 **Related Functions**
 
-[SOLVER.DELETE](SOLVER.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes an existing constraint
+[SOLVER.DELETE](SOLVER.DELETE.md)&nbsp;&nbsp;&nbsp;Deletes an existing constraint
 
-[SOLVER.ADD](SOLVER.ADD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a constraint to the current problem
+[SOLVER.ADD](SOLVER.ADD.md)&nbsp;&nbsp;&nbsp;Adds a constraint to the current problem
 
 
 

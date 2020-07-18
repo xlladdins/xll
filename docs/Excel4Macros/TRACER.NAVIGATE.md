@@ -8,16 +8,16 @@ tracer arrow, then the selection goes to the end of the branch.
 
 **TRACER.NAVIGATE**(direction, arrow\_num, ref\_num)
 
-Direction**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value which, if TRUE,
+Direction&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE,
 moves the selection to the arrow endpoint in the precedents direction.
 If FALSE, moves the selection to the arrow endpoint in the dependents
 direction.
 
-Arrow\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying which reference
+Arrow\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying which reference
 a tracer arrow will follow. For example, a 1 indicates that the arrow
 will follow the first reference in the formula. 1 is the default.
 
-Ref\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;If the arrow is an external reference
+Ref\_num&nbsp;&nbsp;&nbsp;&nbsp;If the arrow is an external reference
 arrow with multiple links, this argument tells which of the links to
 follow. Refer to the Links dialog, which is displayed with the Links
 command from the Edit menu. If ref\_num is 1, the link in the first
@@ -36,7 +36,7 @@ reference in the Links dialog box will be followed. The default is 1.
 
 **Related Function**
 
-[TRACER.DISPLAY](TRACER.DISPLAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Allows tracer arrow to be displayed
+[TRACER.DISPLAY](TRACER.DISPLAY.md)&nbsp;&nbsp;&nbsp;Allows tracer arrow to be displayed
 showing which cells formulas in other cells depend on
 
 

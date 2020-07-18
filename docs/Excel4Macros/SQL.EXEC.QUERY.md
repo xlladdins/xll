@@ -8,7 +8,7 @@ function is not available, you must install the Microsoft ODBC add-in
 
 **SQL.EXEC.QUERY**(**connection\_num**, **query\_text**)
 
-Connection\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique connection ID of
+Connection\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique connection ID of
 the data source you want to query.
 
   - > Connection\_num is returned by a previously executed SQL.OPEN
@@ -74,21 +74,21 @@ Order\_Amt \> 100") executes a SQL query from a SQL table named "Orders"
 
 **Related Functions**
 
-[SQL.OPEN](SQL.OPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Establishes a connection with a data source
+[SQL.OPEN](SQL.OPEN.md)&nbsp;&nbsp;&nbsp;Establishes a connection with a data source
 
-[SQL.BIND](SQL.BIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies storage for a result column
+[SQL.BIND](SQL.BIND.md)&nbsp;&nbsp;&nbsp;Specifies storage for a result column
 
-[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results and places
+[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)&nbsp;&nbsp;&nbsp;Retrieves query results and places
 them in a file
 
-[SQL.RETRIEVE](SQL.RETRIEVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results
+[SQL.RETRIEVE](SQL.RETRIEVE.md)&nbsp;&nbsp;&nbsp;Retrieves query results
 
-[SQL.GET.SCHEMA](SQL.GET.SCHEMA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Gets information about a connected data
+[SQL.GET.SCHEMA](SQL.GET.SCHEMA.md)&nbsp;&nbsp;&nbsp;Gets information about a connected data
 source.
 
-[SQL.CLOSE](SQL.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a data source connection
+[SQL.CLOSE](SQL.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes a data source connection
 
-[SQL.ERROR](SQL.ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns detailed error information
+[SQL.ERROR](SQL.ERROR.md)&nbsp;&nbsp;&nbsp;Returns detailed error information
 
 
 

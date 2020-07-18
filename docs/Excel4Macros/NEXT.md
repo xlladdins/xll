@@ -10,11 +10,11 @@ function.
 
 **Related Functions**
 
-[FOR](FOR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a FOR-NEXT loop
+[FOR](FOR.md)&nbsp;&nbsp;&nbsp;Starts a FOR-NEXT loop
 
-[FOR.CELL](FOR.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a FOR.CELL-NEXT loop
+[FOR.CELL](FOR.CELL.md)&nbsp;&nbsp;&nbsp;Starts a FOR.CELL-NEXT loop
 
-[WHILE](WHILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a WHILE-NEXT loop
+[WHILE](WHILE.md)&nbsp;&nbsp;&nbsp;Starts a WHILE-NEXT loop
 
 
 

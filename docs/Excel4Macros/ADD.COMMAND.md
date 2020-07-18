@@ -10,7 +10,7 @@ menu.
 
 **ADD.COMMAND**(**bar\_num, menu, command\_ref**, position1, position2)
 
-Bar\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number corresponding to a menu
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number corresponding to a menu
 bar or a type of shortcut menu to which you want to add a command.
 
   - > Bar\_num can be the ID number of a built-in or custom menu bar.
@@ -42,7 +42,7 @@ SHORT.MENUS function.
 | 11           | Chart                                                                    |
 | 12           | Visual Basic                                                             |
 
-Menu**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the menu to which you want the new
+Menu&nbsp;&nbsp;&nbsp;&nbsp;is the menu to which you want the new
 command added.
 
   - > Menu can be either the name of a menu as text or the number of a
@@ -86,11 +86,11 @@ command added.
 | 9            | 7        | Chart floor and arrows                                             |
 | 9            | 8        | Chart legend                                                       |
 
-**Note****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Any commands that you add to the toolbar
+**Note**&nbsp;&nbsp;&nbsp;Any commands that you add to the toolbar
 buttons, watch pane, immediate pane or debug code pane shortcut menus
 will be dimmed.
 
-Command\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an array or a reference to an
+Command\_ref&nbsp;&nbsp;&nbsp;&nbsp;is an array or a reference to an
 area on the macro sheet that describes the new command or commands.
 
   - > Command\_ref must be at least two columns wide. The first column
@@ -109,7 +109,7 @@ area on the macro sheet that describes the new command or commands.
     > command.
 
 
-Position1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the placement of the new
+Position1&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of the new
 command.
 
   - > Use a hyphen (-) to represent a line separating commands on a
@@ -133,7 +133,7 @@ command.
     > the toolbar name list or the middle of the workbook contents list.
 
 
-Position2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the placement of the new
+Position2&nbsp;&nbsp;&nbsp;&nbsp;specifies the placement of the new
 command on a submenu.
 
   - > Position2 can be a number indicating the position of the command
@@ -148,7 +148,7 @@ command on a submenu.
 
   - > To add a command to the bottom of a submenu, use 0 for position2.
 
-**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;In general, use menu and command names rather
+**Tip**&nbsp;&nbsp;&nbsp;In general, use menu and command names rather
 than numbers for arguments. The numbers assigned to menus and commands
 change as you add and delete menus and commands. Using names ensures
 that your menu and command macro functions always refer to the correct
@@ -163,22 +163,22 @@ ADD.COMMAND(7, 4, G16:J16)
 
 **Related Functions**
 
-[ADD.BAR](ADD.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu bar
+[ADD.BAR](ADD.BAR.md)&nbsp;&nbsp;&nbsp;Adds a menu bar
 
-[ADD.MENU](ADD.MENU.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu to a menu bar
+[ADD.MENU](ADD.MENU.md)&nbsp;&nbsp;&nbsp;Adds a menu to a menu bar
 
-[ADD.TOOL](ADD.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds one or more buttons to a toolbar
+[ADD.TOOL](ADD.TOOL.md)&nbsp;&nbsp;&nbsp;Adds one or more buttons to a toolbar
 
-[ADD.TOOLBAR](ADD.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a toolbar with the specified tools
+[ADD.TOOLBAR](ADD.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Creates a toolbar with the specified tools
 
-[DELETE.COMMAND](DELETE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a command from a menu
+[DELETE.COMMAND](DELETE.COMMAND.md)&nbsp;&nbsp;&nbsp;Deletes a command from a menu
 
-[ENABLE.COMMAND](ENABLE.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enables or disables a menu or custom
+[ENABLE.COMMAND](ENABLE.COMMAND.md)&nbsp;&nbsp;&nbsp;Enables or disables a menu or custom
 command
 
-[GET.TOOLBAR](GET.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves information about a toolbar
+[GET.TOOLBAR](GET.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Retrieves information about a toolbar
 
-[RENAME.COMMAND](RENAME.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the name of a command or menu
+[RENAME.COMMAND](RENAME.COMMAND.md)&nbsp;&nbsp;&nbsp;Changes the name of a command or menu
 
 
 

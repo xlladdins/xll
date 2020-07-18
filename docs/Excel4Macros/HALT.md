@@ -7,7 +7,7 @@ macro from returning to the macro that called it.
 
 **HALT**(cancel\_close)
 
-Cancel\_close**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies
+Cancel\_close&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
 whether a macro sheet, when encountering the HALT function in an
 Auto\_Close macro, is closed.
 
@@ -41,10 +41,10 @@ HALT(TRUE)
 
 **Related Functions**
 
-[BREAK](BREAK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Interrupts a FOR-NEXT, FOR.CELL-NEXT, or
+[BREAK](BREAK.md)&nbsp;&nbsp;&nbsp;Interrupts a FOR-NEXT, FOR.CELL-NEXT, or
 [WHILE](WHILE.md)-NEXT loop
 
-[RETURN](RETURN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends the currently running macro
+[RETURN](RETURN.md)&nbsp;&nbsp;&nbsp;Ends the currently running macro
 
 
 

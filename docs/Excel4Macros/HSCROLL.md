@@ -7,7 +7,7 @@ number.
 
 **HSCROLL**(**position**, col\_logical)
 
-Position**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the column you want to scroll
+Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the column you want to scroll
 to. Position can be an integer representing the column number or a
 fraction or percentage representing the horizontal position of the
 column in the sheet. If position is 0, HSCROLL scrolls through your
@@ -15,7 +15,7 @@ sheet to its leftmost edge. If position is 1, HSCROLL scrolls through
 your sheet to its rightmost edge. For charts that do not size with the
 window, use a fraction or percentage.
 
-Col\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying how
+Col\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying how
 the function scrolls.
 
   - > If col\_logical is TRUE, HSCROLL scrolls through the sheet to
@@ -40,19 +40,19 @@ the function scrolls.
 
 **Related Functions**
 
-[HLINE](HLINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Horizontally scrolls through the active window by
+[HLINE](HLINE.md)&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window by
 columns
 
-[HPAGE](HPAGE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Horizontally scrolls through the active window
+[HPAGE](HPAGE.md)&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window
 one window at a time
 
-[VLINE](VLINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Vertically scrolls through the active window by
+[VLINE](VLINE.md)&nbsp;&nbsp;&nbsp;Vertically scrolls through the active window by
 rows
 
-[VPAGE](VPAGE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Vertically scrolls through the active window one
+[VPAGE](VPAGE.md)&nbsp;&nbsp;&nbsp;Vertically scrolls through the active window one
 window at a time
 
-[VSCROLL](VSCROLL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Vertically scrolls through a sheet by
+[VSCROLL](VSCROLL.md)&nbsp;&nbsp;&nbsp;Vertically scrolls through a sheet by
 percentage or row number
 
 

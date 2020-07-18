@@ -8,7 +8,7 @@ Changes the active chart to a 3-D surface chart.
 
 **GALLERY.3D.SURFACE**?(type\_num)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the 3-D Surface format
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the 3-D Surface format
 that you want to apply to the chart.
 
 

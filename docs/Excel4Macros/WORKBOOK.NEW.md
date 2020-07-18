@@ -15,7 +15,7 @@ workbooks.
 
 **Related Function**
 
-[WORKBOOK.INSERT](WORKBOOK.INSERT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds sheets to workbooks
+[WORKBOOK.INSERT](WORKBOOK.INSERT.md)&nbsp;&nbsp;&nbsp;Adds sheets to workbooks
 
 
 

@@ -14,7 +14,7 @@ selection is something other than worksheet.
 
 **Related Function**
 
-[TRACER.DISPLAY](TRACER.DISPLAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Allows tracer arrow to be displayed
+[TRACER.DISPLAY](TRACER.DISPLAY.md)&nbsp;&nbsp;&nbsp;Allows tracer arrow to be displayed
 showing relationship among cells
 
 

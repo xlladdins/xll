@@ -6,7 +6,7 @@ Adds one or more buttons to a toolbar.
 
 **ADD.TOOL**(**bar\_id, position, tool\_ref**)
 
-Bar\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is either a number specifying one of the
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;is either a number specifying one of the
 built-in toolbars or the name of a custom toolbar.
 
 |             |                      |
@@ -26,11 +26,11 @@ built-in toolbars or the name of a custom toolbar.
 | 12          | Microsoft            |
 | 13          | Full Screen          |
 
-Position**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the position of the button
+Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the position of the button
 within the toolbar. Position starts with 1 at the left side (if
 horizontal) or at the top (if vertical).
 
-Tool\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is either a number specifying a
+Tool\_ref&nbsp;&nbsp;&nbsp;&nbsp;is either a number specifying a
 built-in button or a reference to an area on the macro sheet that
 defines a custom button or set of buttons (or an array containing this
 information).
@@ -115,15 +115,15 @@ ADD.TOOL(1, 5, 6)
 
 **Related Functions**
 
-[ADD.COMMAND](ADD.COMMAND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a command to a menu
+[ADD.COMMAND](ADD.COMMAND.md)&nbsp;&nbsp;&nbsp;Adds a command to a menu
 
-[ADD.TOOLBAR](ADD.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a toolbar with the specified tools
+[ADD.TOOLBAR](ADD.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Creates a toolbar with the specified tools
 
-[DELETE.TOOL](DELETE.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a button from a toolbar
+[DELETE.TOOL](DELETE.TOOL.md)&nbsp;&nbsp;&nbsp;Deletes a button from a toolbar
 
-[DELETE.TOOLBAR](DELETE.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes custom toolbars
+[DELETE.TOOLBAR](DELETE.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Deletes custom toolbars
 
-[RESET.TOOLBAR](RESET.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Resets a built-in toolbar to its default
+[RESET.TOOLBAR](RESET.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Resets a built-in toolbar to its default
 initial setting
 
 

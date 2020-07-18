@@ -12,17 +12,17 @@ create and apply custom formats.
 
 **FORMAT.NUMBER**?(format\_text)
 
-Format\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a format string, such as "\#,
+Format\_text&nbsp;&nbsp;&nbsp;&nbsp;is a format string, such as "\#,
 \#\#0.00", specifying which format to apply to the selection.
 
 **Related Functions**
 
-[DELETE.FORMAT](DELETE.FORMAT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes the specified custom number
+[DELETE.FORMAT](DELETE.FORMAT.md)&nbsp;&nbsp;&nbsp;Deletes the specified custom number
 format
 
-[FONT.PROPERTIES](FONT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a font to the selection
+[FONT.PROPERTIES](FONT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Applies a font to the selection
 
-[FORMAT.TEXT](FORMAT.TEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats a sheet text box or a chart text
+[FORMAT.TEXT](FORMAT.TEXT.md)&nbsp;&nbsp;&nbsp;Formats a sheet text box or a chart text
 item
 
 

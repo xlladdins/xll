@@ -9,7 +9,7 @@ the next or previous sheet in a workbook.
 
 **ACTIVATE.PREV**(workbook\_text)
 
-Workbook\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the workbook for
+Workbook\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the workbook for
 which you want to activate a window.
 
   - > If workbook\_text is specified, ACTIVATE.NEXT and ACTIVATE.PREV
@@ -27,16 +27,16 @@ which you want to activate a window.
 
 **Related Functions**
 
-[ACTIVATE](ACTIVATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to a window
+[ACTIVATE](ACTIVATE.md)&nbsp;&nbsp;&nbsp;Switches to a window
 
-[ON.WINDOW](ON.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when you switch to a window
+[ON.WINDOW](ON.WINDOW.md)&nbsp;&nbsp;&nbsp;Runs a macro when you switch to a window
 
-[WORKBOOK.NEXT](WORKBOOK.NEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to the next sheet in a workbook
+[WORKBOOK.NEXT](WORKBOOK.NEXT.md)&nbsp;&nbsp;&nbsp;Switches to the next sheet in a workbook
 
-[WORKBOOK.PREV](WORKBOOK.PREV.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to the previous sheet in a
+[WORKBOOK.PREV](WORKBOOK.PREV.md)&nbsp;&nbsp;&nbsp;Switches to the previous sheet in a
 workbook
 
-[WORKBOOK.SELECT](WORKBOOK.SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Select a sheet in a workbook
+[WORKBOOK.SELECT](WORKBOOK.SELECT.md)&nbsp;&nbsp;&nbsp;Select a sheet in a workbook
 
 
 

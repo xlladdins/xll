@@ -18,14 +18,14 @@ cells of a scenario.
 
 **SCENARIO.CELLS**? (changing\_ref)
 
-Changing\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the cells you
+Changing\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cells you
 want to define as changing cells for the model. If changing\_ref
 contains nonadjacent references, you must separate the reference areas
 by commas and enclose changing\_ref in an extra set of parentheses.
 
 **Related Function**
 
-[SCENARIO.EDIT](SCENARIO.EDIT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Equivalent to clicking the Scenarios
+[SCENARIO.EDIT](SCENARIO.EDIT.md)&nbsp;&nbsp;&nbsp;Equivalent to clicking the Scenarios
 command on the Tools menu and then clicking the Edit button
 
 

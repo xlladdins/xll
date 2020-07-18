@@ -6,14 +6,14 @@ Saves one or more toolbar definitions to a specified file.
 
 **SAVE.TOOLBAR**(bar\_id, filename)
 
-Bar\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is either the name or number of a toolbar
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;is either the name or number of a toolbar
 whose definition you want to save or an array of toolbar names or
 numbers whose definitions you want to save. Use an array to save several
 toolbar definitions at the same time. For detailed information about
 bar\_id, see ADD.TOOL. If bar\_id is omitted, all toolbar definitions
 are saved.
 
-Filename**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying the name of the
+Filename&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the name of the
 destination file. If filename does not exist, Microsoft Excel creates a
 new file. If filename exists, Microsoft Excel overwrites the file. If
 filename is omitted, Microsoft Excel saves the toolbar or toolbars in
@@ -36,12 +36,12 @@ SAVE.TOOLBAR("Toolbar6", "TOOLFILE")
 
 **Related Functions**
 
-[ADD.TOOL](ADD.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds one or more tools to a toolbar
+[ADD.TOOL](ADD.TOOL.md)&nbsp;&nbsp;&nbsp;Adds one or more tools to a toolbar
 
-[ADD.TOOLBAR](ADD.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a new toolbar with the specified
+[ADD.TOOLBAR](ADD.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Creates a new toolbar with the specified
 tools
 
-[OPEN](OPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a workbook
+[OPEN](OPEN.md)&nbsp;&nbsp;&nbsp;Opens a workbook
 
 
 

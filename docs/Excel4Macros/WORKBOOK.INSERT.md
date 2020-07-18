@@ -9,7 +9,7 @@ Insert menu. Inserts one or more new sheets into the current workbook.
 
 **WORKBOOK.INSERT**?(**type\_num**)
 
-**Type\_num****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the type of sheet to
+**Type\_num**&nbsp;&nbsp;&nbsp;&nbsp;specifies the type of sheet to
 insert.
 
 |               |                                               |

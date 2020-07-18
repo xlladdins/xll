@@ -10,7 +10,7 @@ used to synchronize scrolling of windows of the active sheet.
 
 **ARRANGE.ALL**?(arrange\_num, active\_doc, sync\_horiz, sync\_vert)
 
-Arrange\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 7 specifying
+Arrange\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 7 specifying
 how to arrange the windows.
 
 |                  |                                                                                                             |
@@ -27,12 +27,12 @@ how to arrange the windows.
 If you want to change whether the windows are synchronized for scrolling
 but not how they are arranged, make sure arrange\_num is 4.
 
-Active\_doc**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying which
+Active\_doc&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying which
 windows to arrange. If active\_doc is TRUE, Microsoft Excel arranges
 only windows on the active workbook; if FALSE or omitted, all open
 windows are arranged.
 
-Sync\_horiz**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
+Sync\_horiz&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
 the Sync Horizontal check box in Microsoft Excel version 4.0.
 
   - > If sync\_horiz is TRUE, Microsoft Excel selects the check box and
@@ -45,7 +45,7 @@ the Sync Horizontal check box in Microsoft Excel version 4.0.
   - > This argument is used only when active\_doc is TRUE.
 
 
-Sync\_vert**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to
+Sync\_vert&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to
 the Sync Vertical check box in Microsoft Excel version 4.0.
 
   - > If sync\_vert is TRUE, Microsoft Excel selects the check box and
@@ -58,7 +58,7 @@ the Sync Vertical check box in Microsoft Excel version 4.0.
   - > This argument is used only when active\_doc is TRUE.
 
 
-**Note****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;If arguments are omitted in the dialog box
+**Note**&nbsp;&nbsp;&nbsp;If arguments are omitted in the dialog box
 form of this function, the default values are the previous settings, if
 any; otherwise the default values are as described above.
 
@@ -72,14 +72,14 @@ any; otherwise the default values are as described above.
     > workspace.
 
 
-**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;You can use synchronized horizontal or vertical
+**Tip**&nbsp;&nbsp;&nbsp;You can use synchronized horizontal or vertical
 scrolling when you need to scroll while viewing macro formulas in one
 window and corresponding macro values in another window of the same
 macro sheet.
 
 **Related Function**
 
-[ACTIVATE](ACTIVATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to a window
+[ACTIVATE](ACTIVATE.md)&nbsp;&nbsp;&nbsp;Switches to a window
 
 
 

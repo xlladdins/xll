@@ -12,14 +12,14 @@ write\_res\_pwd, read\_only\_rec)
 **SAVE.AS**?(document\_text, type\_num, prot\_pwd, backup,
 write\_res\_pwd, read\_only\_rec)
 
-Document\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the name of a workbook
+Document\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies the name of a workbook
 to save, such as SALES.XLS (in Microsoft Excel for Windows) or SALES (in
 Microsoft Excel for the Macintosh). You can include a full path in
 document\_text, such as C:\\EXCEL\\ANALYZE.XLS (in Microsoft Excel for
 Windows) or HARDDISK:FINANCIALS:ANALYZE (in Microsoft Excel for the
 Macintosh).
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the file format
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the file format
 in which to save the workbook.
 
 <table>
@@ -387,7 +387,7 @@ Microsoft Excel document types.
 </tbody>
 </table>
 
-Prot\_pwd**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Protection Password
+Prot\_pwd&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Protection Password
 box in the Save Options dialog box in Microsoft Excel 95 or earlier
 versions, or the Password To Open box in Microsoft Excel 97 or later.
 
@@ -398,20 +398,20 @@ versions, or the Password To Open box in Microsoft Excel 97 or later.
     > for the file to be opened.
 
 
-Backup**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Backup&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Always Create Backup check box in the Save Options dialog box and
 specifies whether to make a backup workbook. If backup is TRUE,
 Microsoft Excel creates a backup file; if FALSE, no backup file is
 created; if omitted, the status is unchanged.
 
-Write\_res\_pwd**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Write
+Write\_res\_pwd&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Write
 Reservation Password box in the Save Options dialog box in Microsoft
 Excel 95 or earlier versions, or the Password To Modify box in Microsoft
 Excel 97 or later. Allows the user to write to a file. If a file is
 saved with a password and the password is not supplied when the file is
 opened, the file is opened read-only.
 
-Read\_only\_rec**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding
+Read\_only\_rec&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding
 to the Read-Only Recommended check box in the Save Options dialog box.
 
   - > If read\_only\_rec is TRUE, Microsoft Excel saves the workbook as
@@ -426,13 +426,13 @@ to the Read-Only Recommended check box in the Save Options dialog box.
 
 **Related Functions**
 
-[CLOSE](CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes the active window
+[CLOSE](CLOSE.md)&nbsp;&nbsp;&nbsp;Closes the active window
 
-[GET.DOCUMENT](GET.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook
+[GET.DOCUMENT](GET.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook
 
-[SAVE](SAVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Saves the active workbook
+[SAVE](SAVE.md)&nbsp;&nbsp;&nbsp;Saves the active workbook
 
-[SAVE.WORKBOOK](SAVE.WORKBOOK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Saves a workbook
+[SAVE.WORKBOOK](SAVE.WORKBOOK.md)&nbsp;&nbsp;&nbsp;Saves a workbook
 
 
 

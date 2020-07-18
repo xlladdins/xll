@@ -110,7 +110,7 @@ you want about a PivotTable report.
 </tbody>
 </table>
 
-Pivot\_table\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a PivotTable
+Pivot\_table\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of a PivotTable
 report containing the field that you want information about. If omitted,
 uses the PivotTable report containing the active cell.
 
@@ -122,10 +122,10 @@ PivotTable report.
 
 **Related Functions**
 
-[GET.PIVOT.FIELD](GET.PIVOT.FIELD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about an item in a
+[GET.PIVOT.FIELD](GET.PIVOT.FIELD.md)&nbsp;&nbsp;&nbsp;Returns information about an item in a
 [P](P.md)ivotTable report.
 
-[GET.PIVOT.ITEM](GET.PIVOT.ITEM.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a PivotTable
+[GET.PIVOT.ITEM](GET.PIVOT.ITEM.md)&nbsp;&nbsp;&nbsp;Returns information about a PivotTable
 report.
 
 

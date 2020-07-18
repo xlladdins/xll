@@ -13,7 +13,7 @@ entering data on a worksheet, see "Remarks" later in this topic.
 
 **SET.VALUE**(**reference**, values)
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the cell or cells on the
+Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies the cell or cells on the
 macro sheet to which you want to assign a new value or values. If the
 cell is empty, enters the value in the cell.
 
@@ -28,7 +28,7 @@ cell is empty, enters the value in the cell.
     > following.
 
 
-Values**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the value or set of values to which you
+Values&nbsp;&nbsp;&nbsp;&nbsp;is the value or set of values to which you
 want to assign the cell or cells in reference.
 
 **Remarks**
@@ -78,13 +78,13 @@ SET.VALUE($A$1:$B$2, {1, 2;3, 4})
 
 **Related Functions**
 
-[DEFINE.NAME](DEFINE.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name on the active worksheet or
+[DEFINE.NAME](DEFINE.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name on the active worksheet or
 macro sheet
 
-[FORMULA](FORMULA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters values into a cell or range or onto a
+[FORMULA](FORMULA.md)&nbsp;&nbsp;&nbsp;Enters values into a cell or range or onto a
 chart
 
-[SET.NAME](SET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name as a value
+[SET.NAME](SET.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name as a value
 
 
 

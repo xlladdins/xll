@@ -13,10 +13,10 @@ return FALSE. For more information see FORMULA.FIND.
 
 **Related Functions**
 
-[DATA.FIND](DATA.FIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects records in a database that match the
+[DATA.FIND](DATA.FIND.md)&nbsp;&nbsp;&nbsp;Selects records in a database that match the
 specified criteria
 
-[FORMULA.FIND](FORMULA.FIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Finds text in a workbook
+[FORMULA.FIND](FORMULA.FIND.md)&nbsp;&nbsp;&nbsp;Finds text in a workbook
 
 
 

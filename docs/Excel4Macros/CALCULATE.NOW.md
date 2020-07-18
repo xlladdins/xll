@@ -11,9 +11,9 @@ calculation is set to manual.
 
 **Related Functions**
 
-[CALCULATE.DOCUMENT](CALCULATE.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Calculates the active sheet only
+[CALCULATE.DOCUMENT](CALCULATE.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Calculates the active sheet only
 
-[CALCULATION](CALCULATION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls calculation settings
+[CALCULATION](CALCULATION.md)&nbsp;&nbsp;&nbsp;Controls calculation settings
 
 
 

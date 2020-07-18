@@ -13,7 +13,7 @@ underline, strike, color, outline, shadow)
 
 **Related Function**
 
-[FONT.PROPERTIES](FONT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets various font attributes
+[FONT.PROPERTIES](FONT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Sets various font attributes
 
 
 

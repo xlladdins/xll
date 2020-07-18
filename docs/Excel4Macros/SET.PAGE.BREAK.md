@@ -18,10 +18,10 @@ has a page break, SET.PAGE.BREAK takes no action.
 
 **Related Functions**
 
-[PRINT.PREVIEW](PRINT.PREVIEW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Previews pages and page breaks before
+[PRINT.PREVIEW](PRINT.PREVIEW.md)&nbsp;&nbsp;&nbsp;Previews pages and page breaks before
 printing
 
-[REMOVE.PAGE.BREAK](REMOVE.PAGE.BREAK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes manual page breaks
+[REMOVE.PAGE.BREAK](REMOVE.PAGE.BREAK.md)&nbsp;&nbsp;&nbsp;Removes manual page breaks
 
 
 

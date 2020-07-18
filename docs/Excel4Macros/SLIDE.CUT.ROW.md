@@ -18,7 +18,7 @@ add-in.
 
 **Related Function**
 
-[SLIDE.COPY.ROW](SLIDE.COPY.ROW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies the selected slides and pastes
+[SLIDE.COPY.ROW](SLIDE.COPY.ROW.md)&nbsp;&nbsp;&nbsp;Copies the selected slides and pastes
 them onto the Clipboard
 
 

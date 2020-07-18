@@ -21,9 +21,9 @@ error occurred. Returns FALSE if an error is not found.
 
 **Related Functions**
 
-[TRACER.DISPLAY](TRACER.DISPLAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Allows tracer arrow to be displayed
+[TRACER.DISPLAY](TRACER.DISPLAY.md)&nbsp;&nbsp;&nbsp;Allows tracer arrow to be displayed
 
-[TRACER.CLEAR](TRACER.CLEAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Clears all tracer arrows on the worksheet
+[TRACER.CLEAR](TRACER.CLEAR.md)&nbsp;&nbsp;&nbsp;Clears all tracer arrows on the worksheet
 
 
 

@@ -8,7 +8,7 @@ of a particular cell.
 
 **GET.CELL**(**type\_num**, reference)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies what type of
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies what type of
 cell information you want. The following list shows the possible values
 of type\_num and the corresponding results.
 
@@ -326,7 +326,7 @@ of type\_num and the corresponding results.
 </tbody>
 </table>
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a cell or a range of cells from
+Reference&nbsp;&nbsp;&nbsp;&nbsp;is a cell or a range of cells from
 which you want information.
 
   - > If reference is a range of cells, the cell in the upper-left
@@ -335,7 +335,7 @@ which you want information.
   - > If reference is omitted, the active cell is assumed.
 
 
-**Tip**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Use GET.CELL(17) to determine the height of a
+**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Use GET.CELL(17) to determine the height of a
 cell and GET.CELL(44) - GET.CELL(42) to determine the width.
 
 **Examples**
@@ -353,18 +353,18 @@ IF(GET.CELL(20, Sheet1\!$B$4), , BoldCell())
 
 **Related Functions**
 
-[ABSREF](ABSREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the absolute reference of a range of
+[ABSREF](ABSREF.md)&nbsp;&nbsp;&nbsp;Returns the absolute reference of a range of
 cells to another range
 
-[ACTIVE.CELL](ACTIVE.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the active cell
+[ACTIVE.CELL](ACTIVE.CELL.md)&nbsp;&nbsp;&nbsp;Returns the reference of the active cell
 
-[GET.FORMULA](GET.FORMULA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the contents of a cell
+[GET.FORMULA](GET.FORMULA.md)&nbsp;&nbsp;&nbsp;Returns the contents of a cell
 
-[GET.NAME](GET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the definition of a name
+[GET.NAME](GET.NAME.md)&nbsp;&nbsp;&nbsp;Returns the definition of a name
 
-[GET.NOTE](GET.NOTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns characters from a note
+[GET.NOTE](GET.NOTE.md)&nbsp;&nbsp;&nbsp;Returns characters from a note
 
-[RELREF](RELREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns a relative reference
+[RELREF](RELREF.md)&nbsp;&nbsp;&nbsp;Returns a relative reference
 
 
 

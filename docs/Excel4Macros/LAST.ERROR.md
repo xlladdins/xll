@@ -11,7 +11,7 @@ quickly locate errors.
 
 **Related Function**
 
-[ERROR](ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies what action to take if an error is
+[ERROR](ERROR.md)&nbsp;&nbsp;&nbsp;Specifies what action to take if an error is
 encountered while a macro is running
 
 

@@ -189,9 +189,9 @@ SET.NAME("Objects", SELECTION())
 
 **Related Functions**
 
-[ACTIVE.CELL](ACTIVE.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the reference of the active cell
+[ACTIVE.CELL](ACTIVE.CELL.md)&nbsp;&nbsp;&nbsp;Returns the reference of the active cell
 
-[SELECT](SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects a cell, graphic object, or chart
+[SELECT](SELECT.md)&nbsp;&nbsp;&nbsp;Selects a cell, graphic object, or chart
 
 
 

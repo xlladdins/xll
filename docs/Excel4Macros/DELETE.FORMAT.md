@@ -9,7 +9,7 @@ Deletes a specified built-in or custom number format.
 
 **DELETE.FORMAT**(**format\_text**)
 
-Format\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the format given as a text
+Format\_text&nbsp;&nbsp;&nbsp;&nbsp;is the format given as a text
 string, for example, "000-00-0000".
 
 **Remarks**
@@ -19,9 +19,9 @@ number format are formatted with the General format.
 
 **Related Functions**
 
-[FORMAT.NUMBER](FORMAT.NUMBER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a number format to the selection
+[FORMAT.NUMBER](FORMAT.NUMBER.md)&nbsp;&nbsp;&nbsp;Applies a number format to the selection
 
-[GET.CELL](GET.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the specified cell
+[GET.CELL](GET.CELL.md)&nbsp;&nbsp;&nbsp;Returns information about the specified cell
 
 
 

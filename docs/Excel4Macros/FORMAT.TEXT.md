@@ -17,7 +17,7 @@ logical values. If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box; if omitted,
 the current setting is used.
 
-X\_align**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying the
+X\_align&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying the
 horizontal alignment of the text.
 
 |              |                          |
@@ -28,7 +28,7 @@ horizontal alignment of the text.
 | 3            | Right                    |
 | 4            | Justify                  |
 
-Y\_align**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying the
+Y\_align&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying the
 vertical alignment of the text.
 
 |              |                        |
@@ -39,7 +39,7 @@ vertical alignment of the text.
 | 3            | Bottom                 |
 | 4            | Justify                |
 
-Orient\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 3 specifying
+Orient\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 3 specifying
 the orientation of the text.
 
 |                 |                      |
@@ -50,30 +50,30 @@ the orientation of the text.
 | 2               | Upward               |
 | 3               | Downward             |
 
-Auto\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Automatic Text
+Auto\_text&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Automatic Text
 check box. If the selected text was created with the Data Labels command
 from the Insert menu and later edited, this option restores the original
 text. Auto\_text is ignored for text boxes on worksheets and macro
 sheets.
 
-Auto\_size**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Automatic Size
+Auto\_size&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Automatic Size
 check box. If you have changed the size of the border around the
 selected text, this option restores the border to automatic size.
 Automatic size makes the border fit exactly around the text no matter
 how you change the text.
 
-Show\_key**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Show Legend Key Next
+Show\_key&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Show Legend Key Next
 to Label check box in the Data Labels dialog box. This argument applies
 only if the selected text is an attached data label on a chart.
 
-Show\_value**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Show Value option
+Show\_value&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Show Value option
 button in the Format Data Labels dialog box. This argument applies only
 if the selected text is an attached data label on a chart.
 
 The following list summarizes which arguments apply to each type of text
 item.
 
-Add\_indent**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;This argument is for only Far East versions
+Add\_indent&nbsp;&nbsp;&nbsp;This argument is for only Far East versions
 of Microsoft Excel.
 
 |                              |                                             |
@@ -86,11 +86,11 @@ of Microsoft Excel.
 
 **Related Functions**
 
-[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
 
-[FONT.PROPERTIES](FONT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a font to the selection
+[FONT.PROPERTIES](FONT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Applies a font to the selection
 
-[FORMULA](FORMULA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters values into a cell or range or onto a
+[FORMULA](FORMULA.md)&nbsp;&nbsp;&nbsp;Enters values into a cell or range or onto a
 chart
 
 

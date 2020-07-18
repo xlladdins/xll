@@ -8,18 +8,18 @@ Use PRINTER.SETUP to change the printer you are using.
 
 **PRINTER.SETUP**?(printer\_text)
 
-Printer\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the printer you want
+Printer\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the printer you want
 to switch to. Enter printer\_text exactly as it appears in the Setup
 dialog box.
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**This function is only available in Microsoft
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is only available in Microsoft
 Excel for Windows.
 
 **Related Functions**
 
-[PAGE.SETUP](PAGE.SETUP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets page printing specifications
+[PAGE.SETUP](PAGE.SETUP.md)&nbsp;&nbsp;&nbsp;Sets page printing specifications
 
-[PRINT](PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints the active workbook
+[PRINT](PRINT.md)&nbsp;&nbsp;&nbsp;Prints the active workbook
 
 
 

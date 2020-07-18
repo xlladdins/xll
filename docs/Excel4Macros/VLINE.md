@@ -7,7 +7,7 @@ specify.
 
 **VLINE**(**num\_rows**)
 
-Num\_rows**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies how many
+Num\_rows&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies how many
 rows to scroll.
 
   - > If num\_rows is positive, Microsoft Excel scrolls down by the
@@ -19,19 +19,19 @@ rows to scroll.
 
 **Related Functions**
 
-[HLINE](HLINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Horizontally scrolls through the active window by
+[HLINE](HLINE.md)&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window by
 columns
 
-[HPAGE](HPAGE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Horizontally scrolls through the active window
+[HPAGE](HPAGE.md)&nbsp;&nbsp;&nbsp;Horizontally scrolls through the active window
 one window at a time
 
-[HSCROLL](HSCROLL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Horizontally scrolls through a worksheet by
+[HSCROLL](HSCROLL.md)&nbsp;&nbsp;&nbsp;Horizontally scrolls through a worksheet by
 percentage or by column number
 
-[VPAGE](VPAGE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Vertically scrolls through the active window one
+[VPAGE](VPAGE.md)&nbsp;&nbsp;&nbsp;Vertically scrolls through the active window one
 window at a time
 
-[VSCROLL](VSCROLL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Vertically scrolls through a worksheet by
+[VSCROLL](VSCROLL.md)&nbsp;&nbsp;&nbsp;Vertically scrolls through a worksheet by
 percentage or by row number
 
 

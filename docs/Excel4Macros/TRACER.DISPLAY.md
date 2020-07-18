@@ -8,11 +8,11 @@ graphically displayed showing relationship among cells.
 
 **TRACER.DISPLAY**(direction, create)
 
-Direction**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is logical value which, if TRUE,
+Direction&nbsp;&nbsp;&nbsp;&nbsp;is logical value which, if TRUE,
 displays tracer arrows for precedents. If FALSE tracer arrows for
 dependents are displayed.
 
-Create**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value which, if TRUE displays
+Create&nbsp;&nbsp;&nbsp;&nbsp;is a logical value which, if TRUE displays
 the next level of tracer arrows in the direction specified by direction.
 If FALSE, removes the current level of tracer arrows in the direction
 specified by direction. A level is the number of "arrows" away from the
@@ -26,7 +26,7 @@ traced.
 
 **Related Function**
 
-[TRACER.CLEAR](TRACER.CLEAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Clears all tracer arrows on the worksheet
+[TRACER.CLEAR](TRACER.CLEAR.md)&nbsp;&nbsp;&nbsp;Clears all tracer arrows on the worksheet
 
 
 

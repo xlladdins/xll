@@ -11,7 +11,7 @@ title bar or clicking the zoom box.
 
 **WINDOW.RESTORE**(window\_text)
 
-Window\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies which window to switch to
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to switch to
 and restore.
 
   - > Window\_text is text enclosed in quotation marks or a reference to
@@ -33,13 +33,13 @@ and restore.
 
 **Related Functions**
 
-[WINDOW.MAXIMIZE](WINDOW.MAXIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Maximizes a window
+[WINDOW.MAXIMIZE](WINDOW.MAXIMIZE.md)&nbsp;&nbsp;&nbsp;Maximizes a window
 
-[WINDOW.MINIMIZE](WINDOW.MINIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Minimizes a window
+[WINDOW.MINIMIZE](WINDOW.MINIMIZE.md)&nbsp;&nbsp;&nbsp;Minimizes a window
 
-[WINDOW.MOVE](WINDOW.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves a window
+[WINDOW.MOVE](WINDOW.MOVE.md)&nbsp;&nbsp;&nbsp;Moves a window
 
-[WINDOW.SIZE](WINDOW.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the size of a window
+[WINDOW.SIZE](WINDOW.SIZE.md)&nbsp;&nbsp;&nbsp;Changes the size of a window
 
 
 

@@ -9,7 +9,7 @@ whenever you move or size the cells.
 
 **OBJECT.PROPERTIES**?(placement\_type, print\_object)
 
-Placement\_type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3
+Placement\_type&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3
 specifying how to attach the selected object or objects. If
 placement\_type is omitted, the current status is unchanged.
 
@@ -20,7 +20,7 @@ placement\_type is omitted, the current status is unchanged.
 | 2                         | Moved but not sized with cells.                                    |
 | 3                         | Free-floating&mdash;it is not affected by moving and sizing cells. |
 
-Print\_object**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying
+Print\_object&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying
 whether to print the selected object or objects. If TRUE or omitted, the
 objects are printed; if FALSE, they are not printed.
 
@@ -31,11 +31,11 @@ returns the \#VALUE\! error value.
 
 **Related Functions**
 
-[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
 
-[FORMAT.MOVE](FORMAT.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves the selected object
+[FORMAT.MOVE](FORMAT.MOVE.md)&nbsp;&nbsp;&nbsp;Moves the selected object
 
-[FORMAT.SIZE](FORMAT.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the size of the selected object
+[FORMAT.SIZE](FORMAT.SIZE.md)&nbsp;&nbsp;&nbsp;Changes the size of the selected object
 
 
 

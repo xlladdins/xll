@@ -12,7 +12,7 @@ WINDOW.MOVE?, is supported only in Microsoft Excel for Windows.
 
 **WINDOW.MOVE**?(x\_pos, y\_pos, window\_text)
 
-X\_pos**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the horizontal position to which you
+X\_pos&nbsp;&nbsp;&nbsp;&nbsp;is the horizontal position to which you
 want to move the window. X\_pos is measured in points. A point is 1/72nd
 of an inch.
 
@@ -24,12 +24,12 @@ of an inch.
 
   - > If x\_pos is omitted, the window does not move horizontally.
 
-Y\_pos**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the vertical position to which you want
+Y\_pos&nbsp;&nbsp;&nbsp;&nbsp;is the vertical position to which you want
 to move the window. Y\_pos in measured in points from the bottom edge of
 the formula bar to the top edge of the window. If y\_pos is omitted, the
 window does not move vertically.
 
-Window\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies which window to restore.
+Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to restore.
 
   - > Window\_text is text enclosed in quotation marks or a reference to
     > a cell containing text.
@@ -57,15 +57,15 @@ Window\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nb
 
 **Related Functions**
 
-[FORMAT.MOVE](FORMAT.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves the selected object
+[FORMAT.MOVE](FORMAT.MOVE.md)&nbsp;&nbsp;&nbsp;Moves the selected object
 
-[WINDOW.MAXIMIZE](WINDOW.MAXIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Maximizes a window
+[WINDOW.MAXIMIZE](WINDOW.MAXIMIZE.md)&nbsp;&nbsp;&nbsp;Maximizes a window
 
-[WINDOW.MINIMIZE](WINDOW.MINIMIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Minimizes a window
+[WINDOW.MINIMIZE](WINDOW.MINIMIZE.md)&nbsp;&nbsp;&nbsp;Minimizes a window
 
-[WINDOW.RESTORE](WINDOW.RESTORE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Restores a window to its previous size
+[WINDOW.RESTORE](WINDOW.RESTORE.md)&nbsp;&nbsp;&nbsp;Restores a window to its previous size
 
-[WINDOW.SIZE](WINDOW.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the size of a window
+[WINDOW.SIZE](WINDOW.SIZE.md)&nbsp;&nbsp;&nbsp;Changes the size of a window
 
 
 

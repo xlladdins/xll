@@ -47,40 +47,40 @@ scale, quality, head\_margin, foot\_margin, pg\_num)
 **PAGE.SETUP**?(head, foot, left, right, top, bot, orient, paper\_size,
 scale, quality, head\_margin, foot\_margin, pg\_num)
 
-Head**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the text and formatting codes for
+Head&nbsp;&nbsp;&nbsp;&nbsp;specifies the text and formatting codes for
 the header for the current sheet . For information about formatting
 codes, see "Remarks" later in this topic.
 
-Foot**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the text and formatting codes for
+Foot&nbsp;&nbsp;&nbsp;&nbsp;specifies the text and formatting codes for
 the workbook footer.
 
-Left**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Left box and is a number
+Left&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Left box and is a number
 specifying the left margin.
 
-Right**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Right box and is a
+Right&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Right box and is a
 number specifying the right margin.
 
-Top**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Top box and is a number
+Top&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Top box and is a number
 specifying the top margin.
 
-Bot**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Bottom box and is a number
+Bot&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Bottom box and is a number
 specifying the bottom margin.
 
-Hdng**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Row & Column Headings
+Hdng&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Row & Column Headings
 check box. Hdng is available only in the sheet and macro sheet form of
 the function.
 
-Grid**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Cell Gridlines check box.
+Grid&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Cell Gridlines check box.
 Grid is available only in the sheet and macro sheet form of the
 function.
 
-H\_cntr**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Center Horizontally
+H\_cntr&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Center Horizontally
 check box in the Margins panel of the Page Setup dialog box.
 
-V\_cntr**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Center Vertically
+V\_cntr&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Center Vertically
 check box in the Margins panel of the Page Setup dialog box.
 
-Orient**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;determines the direction in which your
+Orient&nbsp;&nbsp;&nbsp;&nbsp;determines the direction in which your
 workbook is printed.
 
 |            |                  |
@@ -89,7 +89,7 @@ workbook is printed.
 | 1          | Portrait         |
 | 2          | Landscape        |
 
-Paper\_size**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 26 that
+Paper\_size&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 26 that
 specifies the size of the paper.
 
 |                 |                |
@@ -122,7 +122,7 @@ specifies the size of the paper.
 | 25              | D Sheet        |
 | 26              | E Sheet        |
 
-Scale**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number representing the percentage to
+Scale&nbsp;&nbsp;&nbsp;&nbsp;is a number representing the percentage to
 increase or decrease the size of the sheet. All scaling retains the
 aspect ratio of the original.
 
@@ -139,12 +139,12 @@ aspect ratio of the original.
     > single page, set scale to TRUE.
 
 
-Pg\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the number of the first page.
+Pg\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the number of the first page.
 If zero, sets first page to zero. If "Auto" is used, then the page
 numbering is set to automatic. If omitted, PAGE.SETUP retains the
 existing pg\_num.
 
-Pg\_order**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether pagination is
+Pg\_order&nbsp;&nbsp;&nbsp;&nbsp;specifies whether pagination is
 left-to-right and then down, or top-to-bottom and then right.
 
 |               |                           |
@@ -153,7 +153,7 @@ left-to-right and then down, or top-to-bottom and then right.
 | 1             | Top-to-bottom, then right |
 | 2             | Left-to-right, then down  |
 
-Bw\_cells**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies
+Bw\_cells&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
 whether to print cells and all graphic objects, such as text boxes and
 buttons, in color.
 
@@ -164,10 +164,10 @@ buttons, in color.
     > and background patterns in color (or in gray scale).
 
 
-Bw\_chart**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies
+Bw\_chart&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
 whether to print chart in color.
 
-Size**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the options in
+Size&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the options in
 the Chart Size box, and determines how you want the chart printed on the
 page within the margins. Size is available only in the chart form of the
 function.
@@ -179,22 +179,22 @@ function.
 | 2        | Fit to page                 |
 | 3        | Full page                   |
 
-Quality**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the print quality in
+Quality&nbsp;&nbsp;&nbsp;&nbsp;specifies the print quality in
 dots-per-inch. To specify both horizontal and vertical print quality,
 use an array of two values.
 
-Head\_margin**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the placement, in inches, of the
+Head\_margin&nbsp;&nbsp;&nbsp;&nbsp;is the placement, in inches, of the
 running head margin from the edge of the page.
 
-Foot\_margin**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the placement, in inches, of the
+Foot\_margin&nbsp;&nbsp;&nbsp;&nbsp;is the placement, in inches, of the
 running foot margin from the edge of the page.
 
-Draft**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Draft Quality checkbox
+Draft&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Draft Quality checkbox
 in the Sheet tab and in the Chart tab of the Page Setup dialog box. If
 FALSE or omitted, graphics are printed with the sheet. If TRUE, no
 graphics are printed.
 
-Notes**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether to print cell notes with
+Notes&nbsp;&nbsp;&nbsp;&nbsp;specifies whether to print cell notes with
 the sheet. If TRUE, both the sheet and the cell notes are printed. If
 FALSE or omitted, just the sheet is printed.
 
@@ -236,13 +236,13 @@ or workbook name; and to print the header or footer in bold or italic.
 
 **Related Functions**
 
-[DISPLAY](DISPLAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls screen and Info Window display
+[DISPLAY](DISPLAY.md)&nbsp;&nbsp;&nbsp;Controls screen and Info Window display
 
-[GET.DOCUMENT](GET.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook
+[GET.DOCUMENT](GET.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook
 
-[PRINT](PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints the active workbook
+[PRINT](PRINT.md)&nbsp;&nbsp;&nbsp;Prints the active workbook
 
-[WORKSPACE](WORKSPACE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes workspace settings
+[WORKSPACE](WORKSPACE.md)&nbsp;&nbsp;&nbsp;Changes workspace settings
 
 
 

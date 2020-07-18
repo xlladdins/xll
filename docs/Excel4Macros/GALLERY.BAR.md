@@ -8,10 +8,10 @@ Changes the format of the active chart to a bar chart.
 
 **GALLERY.BAR**?(type\_num, delete\_overlay)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the format that you
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the format that you
 want to apply to the bar chart.
 
-Delete\_overlay**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying
+Delete\_overlay&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying
 whether to delete an overlay chart.
 
   - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,

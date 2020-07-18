@@ -9,21 +9,21 @@ references of one style or type to another style or type.
 **FORMULA.CONVERT**(**formula\_text, from\_a1**, to\_a1, to\_ref\_type,
 rel\_to\_ref)
 
-Formula\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the formula, given as text,
+Formula\_text&nbsp;&nbsp;&nbsp;&nbsp;is the formula, given as text,
 containing the references you want to change. Formula\_text must be a
 valid formula, and an equal sign must be included.
 
-From\_a1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether
+From\_a1&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
 the references in formula\_text are in A1 or R1C1 style. If from\_a1 is
 TRUE, references are in A1 style; if FALSE, references are in R1C1
 style.
 
-To\_a1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying the form for
+To\_a1&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying the form for
 the references FORMULA.CONVERT returns. If to\_a1 is TRUE, references
 are returned in A1 style; if FALSE, references are returned in R1C1
 style. If to\_a1 is omitted, the reference style is not changed.
 
-To\_ref\_type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying
+To\_ref\_type&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying
 the reference type of the returned formula. If to\_ref\_type is omitted,
 the reference type is not changed.
 
@@ -35,7 +35,7 @@ the reference type is not changed.
 | 3                 | Relative row, absolute column |
 | 4                 | Relative                      |
 
-Rel\_to\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an absolute reference that
+Rel\_to\_ref&nbsp;&nbsp;&nbsp;&nbsp;is an absolute reference that
 specifies what cell the relative references are or should be relative
 to.
 
@@ -54,19 +54,19 @@ to relative, A1-style references:
 FORMULA.CONVERT("=SUM(R10C2:R15C2)", FALSE, TRUE, 4) equals
 "=SUM(B10:B15)"
 
-**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;To put the converted formula into a cell or
+**Tip**&nbsp;&nbsp;&nbsp;To put the converted formula into a cell or
 range of cells, use the FORMULA.CONVERT function as the formula\_text
 argument to the FORMULA function.
 
 **Related Functions**
 
-[ABSREF](ABSREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the absolute reference of a range of
+[ABSREF](ABSREF.md)&nbsp;&nbsp;&nbsp;Returns the absolute reference of a range of
 cells to another range
 
-[FORMULA](FORMULA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters values into a cell or range or onto a
+[FORMULA](FORMULA.md)&nbsp;&nbsp;&nbsp;Enters values into a cell or range or onto a
 chart
 
-[RELREF](RELREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns a relative reference
+[RELREF](RELREF.md)&nbsp;&nbsp;&nbsp;Returns a relative reference
 
 
 

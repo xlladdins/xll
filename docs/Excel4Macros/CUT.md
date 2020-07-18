@@ -7,11 +7,11 @@ data or objects.
 
 **CUT**(from\_reference, to\_reference)
 
-From\_reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the cell or
+From\_reference&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell or
 range of cells you want to cut. If from\_reference is omitted, it is
 assumed to be the current selection.
 
-To\_reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the cell or range
+To\_reference&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the cell or range
 of cells where you want to paste what you have cut.
 
   - > To\_reference should be a single cell or an enlarged multiple of
@@ -36,9 +36,9 @@ returned.
 
 **Related Functions**
 
-[COPY](COPY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies and pastes data or objects
+[COPY](COPY.md)&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
 
-[PASTE](PASTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes cut or copied data
+[PASTE](PASTE.md)&nbsp;&nbsp;&nbsp;Pastes cut or copied data
 
 
 

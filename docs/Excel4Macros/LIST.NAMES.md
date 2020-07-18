@@ -34,11 +34,11 @@ key for each command macro; and the category of the custom functions.
 
 **Related Functions**
 
-[GET.DEF](GET.DEF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns a name matching a definition
+[GET.DEF](GET.DEF.md)&nbsp;&nbsp;&nbsp;Returns a name matching a definition
 
-[GET.NAME](GET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the definition of a name
+[GET.NAME](GET.NAME.md)&nbsp;&nbsp;&nbsp;Returns the definition of a name
 
-[NAMES](NAMES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the names defined in a workbook
+[NAMES](NAMES.md)&nbsp;&nbsp;&nbsp;Returns the names defined in a workbook
 
 
 

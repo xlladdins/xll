@@ -13,13 +13,13 @@ show\_print\_dlg\_logical)
 
 **REPORT.PRINT**?(report\_name, copies\_num)
 
-Report\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the name of a report in
+Report\_name&nbsp;&nbsp;&nbsp;&nbsp;specifies the name of a report in
 the active workbook.
 
-Copies\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of copies you want to
+Copies\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of copies you want to
 print. If omitted, the default is 1.
 
-Show\_print\_dlg\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value
+Show\_print\_dlg\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value
 that, if TRUE, displays a dialog box asking how many copies to print,
 or, if FALSE or omitted, prints the report immediately using existing
 print settings.
@@ -31,9 +31,9 @@ invalid or if the workbook is protected.
 
 **Related Functions**
 
-[REPORT.DEFINE](REPORT.DEFINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a report
+[REPORT.DEFINE](REPORT.DEFINE.md)&nbsp;&nbsp;&nbsp;Creates a report
 
-[REPORT.DELETE](REPORT.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes a report from the active workbook
+[REPORT.DELETE](REPORT.DELETE.md)&nbsp;&nbsp;&nbsp;Removes a report from the active workbook
 
 
 

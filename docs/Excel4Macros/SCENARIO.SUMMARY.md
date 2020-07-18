@@ -10,7 +10,7 @@ of all the scenarios for the model on your worksheet.
 
 **SCENARIO.SUMMARY**?(result\_ref, report\_type)
 
-Result\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the result cells
+Result\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the result cells
 you want to include in the summary report. Normally, result\_ref refers
 to one or more cells containing the formulas that depend on the changing
 cell values for your model&mdash;that is, the cells that show the
@@ -23,7 +23,7 @@ results of a particular scenario.
     > the reference areas by commas and enclose result\_ref in an extra
     > set of parentheses.
 
-Report\_type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the type of
+Report\_type&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of
 report desired.
 
 <table>

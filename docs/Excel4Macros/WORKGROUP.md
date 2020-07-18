@@ -11,7 +11,7 @@ versions, you can create a group by using the WORKBOOK.SELECT function.
 
 **WORKGROUP**?(name\_array)
 
-Name\_array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the list of workbooks or sheets in
+Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is the list of workbooks or sheets in
 workbooks that you want grouped.
 
   - > If name\_array is omitted, the most recently created group is
@@ -32,10 +32,10 @@ is a chart or module.
 
 **Related Functions**
 
-[FILL.GROUP](FILL.GROUP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Fills the contents of the active worksheet's
+[FILL.GROUP](FILL.GROUP.md)&nbsp;&nbsp;&nbsp;Fills the contents of the active worksheet's
 selection to the same area on all other worksheets in the group
 
-[WORKBOOK.SELECT](WORKBOOK.SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects one or more sheets in a
+[WORKBOOK.SELECT](WORKBOOK.SELECT.md)&nbsp;&nbsp;&nbsp;Selects one or more sheets in a
 workbook
 
 

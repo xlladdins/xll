@@ -32,15 +32,15 @@ separately with the contents of the source range.
 
 **Related Functions**
 
-[COPY](COPY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies and pastes data or objects
+[COPY](COPY.md)&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
 
-[DATA.SERIES](DATA.SERIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Fills a range of cells with a series of
+[DATA.SERIES](DATA.SERIES.md)&nbsp;&nbsp;&nbsp;Fills a range of cells with a series of
 numbers or dates
 
-[FILL.AUTO](FILL.AUTO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies cells or automatically fills a
+[FILL.AUTO](FILL.AUTO.md)&nbsp;&nbsp;&nbsp;Copies cells or automatically fills a
 selection
 
-[FORMULA.FILL](FORMULA.FILL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters a formula in the specified range
+[FORMULA.FILL](FORMULA.FILL.md)&nbsp;&nbsp;&nbsp;Enters a formula in the specified range
 
 
 

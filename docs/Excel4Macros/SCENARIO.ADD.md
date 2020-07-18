@@ -10,10 +10,10 @@ worksheet.
 **SCENARIO.ADD**(**scen\_name**, value\_array, changing\_ref,
 scen\_comment, locked, hidden)
 
-Scen\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the scenario you want
+Scen\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of the scenario you want
 to define.
 
-Value\_array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a horizontal array of values you
+Value\_array&nbsp;&nbsp;&nbsp;&nbsp;is a horizontal array of values you
 want to use as input for the model on your worksheet.
 
   - > Any entry that would be valid for a cell in your model can be a
@@ -27,7 +27,7 @@ want to use as input for the model on your worksheet.
     > values of the changing cells.
 
 
-Changing\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to cells you want to
+Changing\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to cells you want to
 define as changing cells for a scenario.
 
   - > If omitted, uses the changing cells for the last scenario defined
@@ -39,17 +39,17 @@ define as changing cells for a scenario.
     > reference in an extra set of parentheses.
 
 
-Scen\_comment**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying a descriptive
+Scen\_comment&nbsp;&nbsp;&nbsp;&nbsp;is text specifying a descriptive
 comment for the scenario defined by scen\_name.
 
-Locked**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds to the
+Locked&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to the
 Prevent Changes check box in the Add or Edit Scenario dialogs boxes. If
 TRUE or omitted , prevents users from changing values in a scenario. If
 FALSE, users are allowed to make changes to the scenario. The locking
 will not become enabled until the sheet is protected with the Protect
 Sheet command from the Protection submenu on the Tools menu.
 
-Hidden**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds to the
+Hidden&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to the
 Hide check box in the Add or Edit Scenario dialog boxes. If TRUE, the
 scenario will be hidden from view from the users and will not appear in
 the Scenario Manager dialog box. If FALSE or omitted, the scenario will
@@ -59,9 +59,9 @@ the Tools menu.
 
 **Related Functions**
 
-[REPORT.DEFINE](REPORT.DEFINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a report
+[REPORT.DEFINE](REPORT.DEFINE.md)&nbsp;&nbsp;&nbsp;Creates a report
 
-[SCENARIO.GET](SCENARIO.GET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the specified information about
+[SCENARIO.GET](SCENARIO.GET.md)&nbsp;&nbsp;&nbsp;Returns the specified information about
 the scenarios defined on your worksheet
 
 

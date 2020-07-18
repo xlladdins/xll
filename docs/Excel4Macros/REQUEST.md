@@ -9,14 +9,14 @@ application into Microsoft Excel.
 
 **REQUEST**(**channel\_num, item\_text**)
 
-**Important****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Microsoft Excel for the Macintosh
+**Important**&nbsp;&nbsp;&nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this function.
 
-Channel\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number returned by a previously
+Channel\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number returned by a previously
 run INITIATE function. Channel\_num refers to a channel through which
 Microsoft Excel communicates with another program.
 
-Item\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a code indicating the type of
+Item\_text&nbsp;&nbsp;&nbsp;&nbsp;is a code indicating the type of
 information you want to request from another application. The form of
 item\_text depends on the application connected to channel\_num.
 
@@ -77,7 +77,7 @@ If REQUEST is not successful, it returns the following error values.
 </tbody>
 </table>
 
-**Tip**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Use the ERROR.TYPE function to distinguish
+**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Use the ERROR.TYPE function to distinguish
 between the different error values.
 
 **Example**
@@ -91,15 +91,15 @@ bookmark named BMK1.
 
 **Related Functions**
 
-[EXECUTE](EXECUTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Carries out a command in another application
+[EXECUTE](EXECUTE.md)&nbsp;&nbsp;&nbsp;Carries out a command in another application
 
-[INITIATE](INITIATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a channel to another application
+[INITIATE](INITIATE.md)&nbsp;&nbsp;&nbsp;Opens a channel to another application
 
-[POKE](POKE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends data to another application
+[POKE](POKE.md)&nbsp;&nbsp;&nbsp;Sends data to another application
 
-[SEND.KEYS](SEND.KEYS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends a key sequence to another application
+[SEND.KEYS](SEND.KEYS.md)&nbsp;&nbsp;&nbsp;Sends a key sequence to another application
 
-[TERMINATE](TERMINATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a dynamic data exchange (DDE) channel
+[TERMINATE](TERMINATE.md)&nbsp;&nbsp;&nbsp;Closes a dynamic data exchange (DDE) channel
 previously opened with the INITIATE function
 
 

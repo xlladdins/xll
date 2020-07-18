@@ -14,7 +14,7 @@ omit\_row, order\_num, append\_last)
 **APPLY.NAMES**?(name\_array, ignore, use\_rowcol, omit\_col, omit\_row,
 order\_num, append\_last)
 
-Name\_array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name or names to apply as text
+Name\_array&nbsp;&nbsp;&nbsp;&nbsp;is the name or names to apply as text
 elements in an array.
 
   - > To give more than one name as the argument, you must use an array.
@@ -32,20 +32,20 @@ Apply Names dialog box. Arguments that correspond to check boxes are
 logical values. If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box.
 
-Ignore**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Ignore
+Ignore&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Ignore
 Relative/Absolute check box.
 
-Use\_rowcol**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Use Row And Column
+Use\_rowcol&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Use Row And Column
 Names check box. If use\_rowcol is FALSE, the next three arguments are
 ignored.
 
-Omit\_col**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Omit Column Name If
+Omit\_col&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Omit Column Name If
 Same Column check box.
 
-Omit\_row**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Omit Row Name If
+Omit\_row&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Omit Row Name If
 Same Row check box.
 
-Order\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;determines which range name is listed
+Order\_num&nbsp;&nbsp;&nbsp;&nbsp;determines which range name is listed
 first when a cell reference is replaced by a row-oriented and a
 column-oriented range name, as shown in the following table.
 
@@ -55,7 +55,7 @@ column-oriented range name, as shown in the following table.
 | 1              | Row Column               |
 | 2              | Column Row               |
 
-Append\_last**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;determines whether the names most
+Append\_last&nbsp;&nbsp;&nbsp;&nbsp;determines whether the names most
 recently defined are also replaced.
 
   - > If append\_last is TRUE, Microsoft Excel replaces the definitions
@@ -68,12 +68,12 @@ recently defined are also replaced.
 
 **Related Functions**
 
-[CREATE.NAMES](CREATE.NAMES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates names automatically from text
+[CREATE.NAMES](CREATE.NAMES.md)&nbsp;&nbsp;&nbsp;Creates names automatically from text
 labels on a sheet
 
-[DEFINE.NAME](DEFINE.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name in the active workbook
+[DEFINE.NAME](DEFINE.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name in the active workbook
 
-[LIST.NAMES](LIST.NAMES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Lists names and their associated information
+[LIST.NAMES](LIST.NAMES.md)&nbsp;&nbsp;&nbsp;Lists names and their associated information
 
 
 

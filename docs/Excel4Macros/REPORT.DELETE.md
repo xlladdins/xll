@@ -11,7 +11,7 @@ add-in.
 
 **REPORT.DELETE**(**report\_name**)
 
-Report\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the name of the report to
+Report\_name&nbsp;&nbsp;&nbsp;&nbsp;specifies the name of the report to
 be removed. Report\_name can be any text that does not contain quotation
 marks.
 
@@ -22,11 +22,11 @@ or if the workbook is protected.
 
 **Related Functions**
 
-[REPORT.DEFINE](REPORT.DEFINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a report
+[REPORT.DEFINE](REPORT.DEFINE.md)&nbsp;&nbsp;&nbsp;Creates a report
 
-[REPORT.PRINT](REPORT.PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints a report
+[REPORT.PRINT](REPORT.PRINT.md)&nbsp;&nbsp;&nbsp;Prints a report
 
-[REPORT.GET](REPORT.GET.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about reports defined
+[REPORT.GET](REPORT.GET.md)&nbsp;&nbsp;&nbsp;Returns information about reports defined
 for the active workbook
 
 

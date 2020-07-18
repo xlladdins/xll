@@ -8,10 +8,10 @@ finished communicating with another application.
 
 **TERMINATE**(**channel\_num**)
 
-**Important**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Microsoft Excel for the Macintosh
+**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this function.
 
-Channel\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number returned by a
+Channel\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number returned by a
 previously run INITIATE function. Channel\_num identifies a DDE channel
 to close.
 
@@ -19,9 +19,9 @@ If TERMINATE is not successful, it returns the \#VALUE\! error value.
 
 **Related Functions**
 
-[EXEC](EXEC.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts another application
+[EXEC](EXEC.md)&nbsp;&nbsp;&nbsp;Starts another application
 
-[INITIATE](INITIATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a channel to another application
+[INITIATE](INITIATE.md)&nbsp;&nbsp;&nbsp;Opens a channel to another application
 
 
 

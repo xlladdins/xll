@@ -15,10 +15,10 @@ a file to a different directory or folder.
 
 **Related Functions**
 
-[SAVE.AS](SAVE.AS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Saves a workbook and allows you to specify the
+[SAVE.AS](SAVE.AS.md)&nbsp;&nbsp;&nbsp;Saves a workbook and allows you to specify the
 name, file type, password, backup file, and location of the workbook
 
-[SAVE.WORKBOOK](SAVE.WORKBOOK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Saves a workbook
+[SAVE.WORKBOOK](SAVE.WORKBOOK.md)&nbsp;&nbsp;&nbsp;Saves a workbook
 
 
 

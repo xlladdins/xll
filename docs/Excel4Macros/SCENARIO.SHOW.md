@@ -8,7 +8,7 @@ using the specified scenario and displays the result.
 
 **SCENARIO.SHOW**(**scen\_name**)
 
-Scen\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the previously defined
+Scen\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of the previously defined
 scenario whose values you want to switch to.
 
 

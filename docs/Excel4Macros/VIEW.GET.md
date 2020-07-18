@@ -13,7 +13,7 @@ versions, you must install the View Manager add-in.
 
 **VIEW.GET**(**type\_num**, view\_name)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 that specifies
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 that specifies
 the type of information to return, as shown in the following table.
 
 |               |                                                                                                                                                                                                                               |
@@ -23,7 +23,7 @@ the type of information to return, as shown in the following table.
 | 2             | Returns TRUE if print settings are included in the specified view. Returns FALSE if print settings are not included. Returns the \#VALUE\! error value if the name is invalid or the workbook is protected.                   |
 | 3             | Returns TRUE if row and column settings are included in the specified view. Returns FALSE if row and column settings are not included. Returns the \#VALUE\! error value if the name is invalid or the workbook is protected. |
 
-View\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text enclosed in quotation marks
+View\_name&nbsp;&nbsp;&nbsp;&nbsp;is text enclosed in quotation marks
 and specifies the name of a view in the active workbook. View\_name is
 required if type\_num is 2 or 3.
 
@@ -36,11 +36,11 @@ VIEW.GET(1)
 
 **Related Functions**
 
-[VIEW.DEFINE](VIEW.DEFINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or replaces a view
+[VIEW.DEFINE](VIEW.DEFINE.md)&nbsp;&nbsp;&nbsp;Creates or replaces a view
 
-[VIEW.DELETE](VIEW.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes a view from the active workbook
+[VIEW.DELETE](VIEW.DELETE.md)&nbsp;&nbsp;&nbsp;Removes a view from the active workbook
 
-[VIEW.SHOW](VIEW.SHOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Shows a view
+[VIEW.SHOW](VIEW.SHOW.md)&nbsp;&nbsp;&nbsp;Shows a view
 
 
 

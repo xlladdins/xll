@@ -9,7 +9,7 @@ Microsoft Excel workbook or opens a template.
 
 **NEW**?(type\_num, xy\_series, add\_logical)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the type of workbook to
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the type of workbook to
 create, as shown in the following table. Type\_num is most often 5 or
 quoted text; other values are mainly for compatibility with Microsoft
 Excel version 4.0.
@@ -27,7 +27,7 @@ Excel version 4.0.
 | 7             | New workbook with one dialog sheet                                            |
 | Quoted text   | Template.                                                                     |
 
-Xy\_series**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 3 that specifies
+Xy\_series&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 3 that specifies
 how data is arranged in a chart.
 
 |                |                                                                                         |
@@ -38,7 +38,7 @@ how data is arranged in a chart.
 | 2              | The first row/column contains the category (x) axis labels.                             |
 | 3              | The first row/column contains the x-values; the created chart is an xy (scatter) chart. |
 
-Add\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether or not to add the
+Add\_logical&nbsp;&nbsp;&nbsp;&nbsp;specifies whether or not to add the
 sheet type to the open workbook. If add\_logical is TRUE, the sheet type
 is inserted before the current sheet; if FALSE or omitted, it is not
 inserted. This argument is for compatibility with Microsoft Excel
@@ -55,10 +55,10 @@ that is not in the start-up directory, use the OPEN function.
 
 **Related Functions**
 
-[NEW.WINDOW](NEW.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a new window for an existing
+[NEW.WINDOW](NEW.WINDOW.md)&nbsp;&nbsp;&nbsp;Creates a new window for an existing
 worksheet or macro sheet
 
-[OPEN](OPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a workbook
+[OPEN](OPEN.md)&nbsp;&nbsp;&nbsp;Opens a workbook
 
 
 

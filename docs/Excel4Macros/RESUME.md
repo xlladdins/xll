@@ -10,7 +10,7 @@ choose the Step Into button from the Macro dialog box.
 
 **RESUME**(type\_num)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying how
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying how
 to resume.
 
 <table>
@@ -58,7 +58,7 @@ to resume.
 </tbody>
 </table>
 
-**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;You can use Microsoft Excel's ON functions to
+**Tip**&nbsp;&nbsp;&nbsp;You can use Microsoft Excel's ON functions to
 resume based on an event. For an example, see ENTER.DATA.
 
 **Remarks**
@@ -73,11 +73,11 @@ resume based on an event. For an example, see ENTER.DATA.
 
 **Related Functions**
 
-[HALT](HALT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Stops all macros from running
+[HALT](HALT.md)&nbsp;&nbsp;&nbsp;Stops all macros from running
 
-[PAUSE](PAUSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pauses a macro
+[PAUSE](PAUSE.md)&nbsp;&nbsp;&nbsp;Pauses a macro
 
-[RETURN](RETURN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends the currently running macro
+[RETURN](RETURN.md)&nbsp;&nbsp;&nbsp;Ends the currently running macro
 
 
 

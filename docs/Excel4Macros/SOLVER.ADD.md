@@ -11,10 +11,10 @@ If this function is not available, you must install the Solver add-in.
 
 **SOLVER.ADD**(**cell\_ref, relation**, formula)
 
-Cell\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to a cell or range of
+Cell\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a cell or range of
 cells on the active sheet and forms the left side of the constraint.
 
-Relation**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the arithmetic relationship
+Relation&nbsp;&nbsp;&nbsp;&nbsp;specifies the arithmetic relationship
 between the left and right sides, or whether cell\_ref must be an
 integer.
 
@@ -63,7 +63,7 @@ integer.
 </tbody>
 </table>
 
-Formula**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the right side of the constraint and
+Formula&nbsp;&nbsp;&nbsp;&nbsp;is the right side of the constraint and
 will often be a single number, but it may be a formula (as text) or a
 reference to a range of cells.
 
@@ -104,7 +104,7 @@ reference to a range of cells.
 
 **Related Function**
 
-[SOLVER.DELETE](SOLVER.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes an existing constraint
+[SOLVER.DELETE](SOLVER.DELETE.md)&nbsp;&nbsp;&nbsp;Deletes an existing constraint
 
 
 

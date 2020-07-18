@@ -9,11 +9,11 @@ custom application.
 
 **WINDOW.TITLE**(text)
 
-Text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the title you want to assign to the
+Text&nbsp;&nbsp;&nbsp;&nbsp;is the title you want to assign to the
 window. If text is omitted, it is assumed to be the name of the workbook
 as it is stored on your disk. Empty text ("") specifies no title.
 
-**Important****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;WINDOW.TITLE changes the name of the
+**Important**&nbsp;&nbsp;&nbsp;WINDOW.TITLE changes the name of the
 window, not the actual name of the workbook as it is stored on your
 disk. To change the name of the workbook, use the SAVE.AS function.
 
@@ -42,10 +42,10 @@ WINDOW.TITLE("First Quarter")
 
 **Related Functions**
 
-[APP.TITLE](APP.TITLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the title of the application
+[APP.TITLE](APP.TITLE.md)&nbsp;&nbsp;&nbsp;Changes the title of the application
 workspace
 
-[SAVE.AS](SAVE.AS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies a new filename, file type, protection
+[SAVE.AS](SAVE.AS.md)&nbsp;&nbsp;&nbsp;Specifies a new filename, file type, protection
 password, or write-reservation password, or to create a backup file
 
 

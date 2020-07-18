@@ -9,9 +9,9 @@ normal reference by using TEXTREF.
 
 **REFTEXT**(**reference**, a1)
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the reference you want to convert.
+Reference&nbsp;&nbsp;&nbsp;&nbsp;is the reference you want to convert.
 
-A1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying A1-style or
+A1&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying A1-style or
 R1C1-style references.
 
   - > If a1 is TRUE, REFTEXT returns an A1-style reference.
@@ -34,14 +34,14 @@ REFTEXT(ACTIVE.CELL(), TRUE) equals "\[Book1\]SHEET1\!$B$9"
 
 **Related Functions**
 
-[ABSREF](ABSREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the absolute reference of a range of
+[ABSREF](ABSREF.md)&nbsp;&nbsp;&nbsp;Returns the absolute reference of a range of
 cells to another range
 
-[DEREF](DEREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the values of cells in the reference
+[DEREF](DEREF.md)&nbsp;&nbsp;&nbsp;Returns the values of cells in the reference
 
-[RELREF](RELREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns a relative reference
+[RELREF](RELREF.md)&nbsp;&nbsp;&nbsp;Returns a relative reference
 
-[TEXTREF](TEXTREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Converts text to a reference
+[TEXTREF](TEXTREF.md)&nbsp;&nbsp;&nbsp;Converts text to a reference
 
 
 

@@ -11,7 +11,7 @@ extract range.
 
 **EXTRACT**?(unique)
 
-Unique**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value corresponding to the
+Unique&nbsp;&nbsp;&nbsp;&nbsp;is a logical value corresponding to the
 Unique Records Only check box in the Extract dialog box.
 
   - > If unique is TRUE, Microsoft Excel selects the check box and
@@ -23,15 +23,15 @@ Unique Records Only check box in the Extract dialog box.
 
 **Related Functions**
 
-[DATA.FIND](DATA.FIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Finds records in a database
+[DATA.FIND](DATA.FIND.md)&nbsp;&nbsp;&nbsp;Finds records in a database
 
-[SET.CRITERIA](SET.CRITERIA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines the name Criteria for the selected
+[SET.CRITERIA](SET.CRITERIA.md)&nbsp;&nbsp;&nbsp;Defines the name Criteria for the selected
 range on the active sheet
 
-[SET.DATABASE](SET.DATABASE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines the name Database for the selected
+[SET.DATABASE](SET.DATABASE.md)&nbsp;&nbsp;&nbsp;Defines the name Database for the selected
 range on the active sheet
 
-[SET.EXTRACT](SET.EXTRACT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines the name Extract for the selected
+[SET.EXTRACT](SET.EXTRACT.md)&nbsp;&nbsp;&nbsp;Defines the name Extract for the selected
 range on the active sheet
 
 

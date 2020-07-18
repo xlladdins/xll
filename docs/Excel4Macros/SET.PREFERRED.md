@@ -9,7 +9,7 @@ the preferred format.
 
 **SET.PREFERRED**(format)
 
-Format**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the format that you want as
+Format&nbsp;&nbsp;&nbsp;&nbsp;is the name of the format that you want as
 the default format for charts. If omitted, the format of the currently
 active chart is used. If format is "Built\_in", then Microsoft Excel
 will use the standard, built-in chart as the default. If the chart was
@@ -19,7 +19,7 @@ be used. Format is case sensitive.
 
 **Related Function**
 
-[PREFERRED](PREFERRED.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the format of the active chart to the
+[PREFERRED](PREFERRED.md)&nbsp;&nbsp;&nbsp;Changes the format of the active chart to the
 preferred format
 
 

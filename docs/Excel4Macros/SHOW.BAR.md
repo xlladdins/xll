@@ -8,7 +8,7 @@ Microsoft Excel 95 or earlier version menu bar.
 
 **SHOW.BAR**(bar\_num)
 
-Bar\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the menu bar you want
+Bar\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the menu bar you want
 to display. It can be the number of one of the Microsoft Excel built-in
 menu bars, the number returned by a previously executed ADD.BAR
 function, or a reference to a cell containing a previously executed
@@ -167,11 +167,11 @@ SHOW.BAR(5)
 
 **Related Functions**
 
-[ADD.BAR](ADD.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu bar
+[ADD.BAR](ADD.BAR.md)&nbsp;&nbsp;&nbsp;Adds a menu bar
 
-[DELETE.BAR](DELETE.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a menu bar
+[DELETE.BAR](DELETE.BAR.md)&nbsp;&nbsp;&nbsp;Deletes a menu bar
 
-[SHOW.TOOLBAR](SHOW.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Hides or displays a toolbar
+[SHOW.TOOLBAR](SHOW.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Hides or displays a toolbar
 
 
 

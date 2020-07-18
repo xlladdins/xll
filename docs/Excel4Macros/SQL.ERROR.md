@@ -59,18 +59,18 @@ SQL.ERROR()
 
 **Related Functions**
 
-[SQL.OPEN](SQL.OPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Establishes a connection with a data source
+[SQL.OPEN](SQL.OPEN.md)&nbsp;&nbsp;&nbsp;Establishes a connection with a data source
 
-[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends a query to a data source
+[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)&nbsp;&nbsp;&nbsp;Sends a query to a data source
 
-[SQL.BIND](SQL.BIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies storage for a result column
+[SQL.BIND](SQL.BIND.md)&nbsp;&nbsp;&nbsp;Specifies storage for a result column
 
-[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results and places
+[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)&nbsp;&nbsp;&nbsp;Retrieves query results and places
 them in a file
 
-[SQL.RETRIEVE](SQL.RETRIEVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results
+[SQL.RETRIEVE](SQL.RETRIEVE.md)&nbsp;&nbsp;&nbsp;Retrieves query results
 
-[SQL.CLOSE](SQL.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a data source connection
+[SQL.CLOSE](SQL.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes a data source connection
 
 
 

@@ -11,7 +11,7 @@ If this function is not available, you must install the Solver add-in.
 
 **SOLVER.LOAD**(**load\_area**)
 
-Load\_area**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference on the active sheet to
+Load\_area&nbsp;&nbsp;&nbsp;&nbsp;is a reference on the active sheet to
 a range of cells from which you want to load a complete problem
 specification.
 

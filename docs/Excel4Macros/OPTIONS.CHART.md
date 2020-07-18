@@ -10,7 +10,7 @@ activated for editing. Sets various chart settings.
 
 **OPTIONS.CHART**?( Display\_Blanks, Plot\_Visible, Size\_With\_Window)
 
-Display\_Blanks**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number indicating how blank
+Display\_Blanks&nbsp;&nbsp;&nbsp;&nbsp;is a number indicating how blank
 cells are plotted.
 
 |            |                              |
@@ -20,11 +20,11 @@ cells are plotted.
 | 2          | Zero values                  |
 | 3          | Interpolated                 |
 
-Plot\_Visible**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that if TRUE
+Plot\_Visible&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that if TRUE
 plots only visible data. If FALSE, all cells in the selection are
 plotted.
 
-Size\_With\_Window**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that if
+Size\_With\_Window&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that if
 TRUE allows the chart to resize with window. If FALSE, chart will not
 size with window.
 
@@ -35,9 +35,9 @@ within the Options dialog box.
 
 **Related Functions**
 
-[PREFERRED](PREFERRED.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the format of the active chart
+[PREFERRED](PREFERRED.md)&nbsp;&nbsp;&nbsp;Changes the format of the active chart
 
-[SET.PREFERRED](SET.PREFERRED.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the default chart format
+[SET.PREFERRED](SET.PREFERRED.md)&nbsp;&nbsp;&nbsp;Changes the default chart format
 
 
 

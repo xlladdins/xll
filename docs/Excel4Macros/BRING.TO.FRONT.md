@@ -14,7 +14,7 @@ returns the \#VALUE\! error value.
 
 **Related Function**
 
-[SEND.TO.BACK](SEND.TO.BACK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends selected objects behind other
+[SEND.TO.BACK](SEND.TO.BACK.md)&nbsp;&nbsp;&nbsp;Sends selected objects behind other
 objects
 
 

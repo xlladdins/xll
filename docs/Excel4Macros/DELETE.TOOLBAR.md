@@ -8,7 +8,7 @@ submenu). Deletes a custom toolbar.
 
 **DELETE.TOOLBAR**(**bar\_name**)
 
-Bar\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the name of the toolbar that
+Bar\_name&nbsp;&nbsp;&nbsp;&nbsp;specifies the name of the toolbar that
 you want to delete. For detailed information about bar\_name, see
 ADD.TOOL.
 
@@ -24,12 +24,12 @@ ADD.TOOL.
 
 **Related Functions**
 
-[ADD.TOOL](ADD.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds or more buttons to a toolbar
+[ADD.TOOL](ADD.TOOL.md)&nbsp;&nbsp;&nbsp;Adds or more buttons to a toolbar
 
-[ADD.TOOLBAR](ADD.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a new toolbar with the specified
+[ADD.TOOLBAR](ADD.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Creates a new toolbar with the specified
 buttons
 
-[RESET.TOOLBAR](RESET.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Resets a built-in toolbar to its initial
+[RESET.TOOLBAR](RESET.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Resets a built-in toolbar to its initial
 default setting
 
 

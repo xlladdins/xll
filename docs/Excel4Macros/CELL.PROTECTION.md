@@ -16,10 +16,10 @@ defaults, the setting is not changed.
 
 **CELL.PROTECTION**?(locked, hidden)
 
-Locked**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Locked check box. The
+Locked&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Locked check box. The
 default is TRUE.
 
-Hidden**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Hidden check box. The
+Hidden&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Hidden check box. The
 default is FALSE.
 
 **Remarks**
@@ -31,10 +31,10 @@ the PROTECT.DOCUMENT function is used to select protection.
 
 **Related Functions**
 
-[PROTECT.DOCUMENT](PROTECT.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls protection for the active
+[PROTECT.DOCUMENT](PROTECT.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Controls protection for the active
 sheet
 
-[SAVE.AS](SAVE.AS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Saves a workbook and allows you to specify the
+[SAVE.AS](SAVE.AS.md)&nbsp;&nbsp;&nbsp;Saves a workbook and allows you to specify the
 name, file type, password, backup file, and location of the workbook
 
 

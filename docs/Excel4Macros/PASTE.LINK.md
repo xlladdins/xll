@@ -12,19 +12,19 @@ in the source.
 
 **PASTE.LINK**( )
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**To work properly, the application you are
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;To work properly, the application you are
 linking to must support dynamic data exchange (DDE) or object linking
 and embedding (OLE).
 
 **Related Functions**
 
-[COPY](COPY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies and pastes data or objects
+[COPY](COPY.md)&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
 
-[CUT](CUT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Cuts or moves data or objects
+[CUT](CUT.md)&nbsp;&nbsp;&nbsp;Cuts or moves data or objects
 
-[PASTE](PASTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes cut or copied data
+[PASTE](PASTE.md)&nbsp;&nbsp;&nbsp;Pastes cut or copied data
 
-[PASTE.SPECIAL](PASTE.SPECIAL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes specific components of copied data
+[PASTE.SPECIAL](PASTE.SPECIAL.md)&nbsp;&nbsp;&nbsp;Pastes specific components of copied data
 
 
 

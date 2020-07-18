@@ -7,7 +7,7 @@ activated, this function will load the application into memory.
 
 **APP.ACTIVATE.MICROSOFT**(**app\_id**)
 
-App\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the ID number associated with the
+App\_id&nbsp;&nbsp;&nbsp;&nbsp;is the ID number associated with the
 Microsoft Application.
 
 |             |                                               |
@@ -28,7 +28,7 @@ if the application is not activated successfully.
 
 **Related Function**
 
-[APP.ACTIVATE](APP.ACTIVATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to an application.
+[APP.ACTIVATE](APP.ACTIVATE.md)&nbsp;&nbsp;&nbsp;Switches to an application.
 
 
 

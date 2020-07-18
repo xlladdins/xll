@@ -6,7 +6,7 @@ Runs a dialog on a dialog sheet.
 
 **SHOW.DIALOG**(dialog\_sheet)
 
-Dialog\_sheet**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the dialog sheet to
+Dialog\_sheet&nbsp;&nbsp;&nbsp;&nbsp;is the name of the dialog sheet to
 run. If omitted, the active sheet will be the sheet that is run. If this
 function is run on a sheet other than a dialog sheet, this function
 returns the \#VALUE error value.
@@ -20,7 +20,7 @@ pressing COMMAND+. (period).
 
 **Related Function**
 
-[HIDE.DIALOG](HIDE.DIALOG.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes the dialog box that has the current
+[HIDE.DIALOG](HIDE.DIALOG.md)&nbsp;&nbsp;&nbsp;Closes the dialog box that has the current
 focus
 
 

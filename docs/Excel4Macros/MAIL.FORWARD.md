@@ -4,7 +4,7 @@ Equivalent to clicking the Forward command on the Mail submenu of the
 File menu. Creates a new mailer to replace the previous version and
 brings up the mailer dialog.
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**This function is available on Macintosh
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is available on Macintosh
 computers with Microsoft Excel and Apple PowerTalk only.
 
 **Syntax**
@@ -22,13 +22,13 @@ computers with Microsoft Excel and Apple PowerTalk only.
 
 **Related Functions**
 
-[MAIL.EDIT.MAILER](MAIL.EDIT.MAILER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Allows you to edit a PowerTalk mailer
+[MAIL.EDIT.MAILER](MAIL.EDIT.MAILER.md)&nbsp;&nbsp;&nbsp;Allows you to edit a PowerTalk mailer
 attached to the active workbook
 
-[MAIL.DELETE.MAILER](MAIL.DELETE.MAILER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a new PowerTalk mailer to
+[MAIL.DELETE.MAILER](MAIL.DELETE.MAILER.md)&nbsp;&nbsp;&nbsp;Deletes a new PowerTalk mailer to
 the active workbook
 
-[MAIL.ADD.MAILER](MAIL.ADD.MAILER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a new PowerTalk mailer to the
+[MAIL.ADD.MAILER](MAIL.ADD.MAILER.md)&nbsp;&nbsp;&nbsp;Adds a new PowerTalk mailer to the
 active workbook
 
 

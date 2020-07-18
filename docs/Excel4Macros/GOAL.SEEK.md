@@ -12,16 +12,16 @@ the amount you want.
 
 **GOAL.SEEK**?(target\_cell, target\_value, variable\_cell)
 
-Target\_cell**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Set Cell box in
+Target\_cell&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Set Cell box in
 the Goal Seek dialog box and is a reference to the cell containing the
 formula. If target\_cell does not contain a formula, Microsoft Excel
 displays an error message.
 
-Target\_value**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the To Value box in
+Target\_value&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the To Value box in
 the Goal Seek dialog box and is the value you want the formula in
 target\_cell to return. This value is called a goal.
 
-Variable\_cell**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the By Changing
+Variable\_cell&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the By Changing
 Cell box in the Goal Seek dialog box and is the single cell that you
 want Microsoft Excel to change so that the formula in target\_cell
 returns target\_value. Target\_cell must depend on variable\_cell; if it
@@ -33,7 +33,7 @@ The max\_num and max\_change values set with the CALCULATION function
 can be used to change the solution process. Max\_num sets the number of
 iterations; max\_change determines the precision of the solution.
 
-**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;You can also use Microsoft Excel Solver to help
+**Tip**&nbsp;&nbsp;&nbsp;You can also use Microsoft Excel Solver to help
 solve your math equations for optimal values.
 
 **Related Functions**

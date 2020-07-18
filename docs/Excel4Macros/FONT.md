@@ -14,9 +14,9 @@ functions. For more information, see FONT.PROPERTIES and DEFINE.STYLE.
 
 **Related Functions**
 
-[DEFINE.STYLE](DEFINE.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or changes a cell style
+[DEFINE.STYLE](DEFINE.STYLE.md)&nbsp;&nbsp;&nbsp;Creates or changes a cell style
 
-[FONT.PROPERTIES](FONT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets various font properties
+[FONT.PROPERTIES](FONT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Sets various font properties
 
 
 

@@ -7,7 +7,7 @@ Deletes a sheet or group of sheets from the current workbook.
 
 **WORKBOOK.DELETE**(sheet\_text)
 
-Sheet\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the sheet to delete.
+Sheet\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the sheet to delete.
 If omitted, the currently active sheet or sheets is deleted.
 
 **Remarks**

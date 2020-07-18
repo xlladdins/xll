@@ -9,7 +9,7 @@ absolute reference in text form.
 
 **ABSREF**(**ref\_text**, **reference**)
 
-Ref\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies a position relative to
+Ref\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies a position relative to
 reference. Think of ref\_text as "directions" from one range of cells to
 another.
 
@@ -20,7 +20,7 @@ another.
     > corner of reference.
 
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a cell or range of cells specifying
+Reference&nbsp;&nbsp;&nbsp;&nbsp;is a cell or range of cells specifying
 a starting point that ref\_text uses to locate another range of cells.
 Reference can be an external reference.
 
@@ -61,7 +61,7 @@ In Microsoft Excel for the Macintosh ABSREF("R\[-2\]C\[-2\]",
 
 **Related Function**
 
-[RELREF](RELREF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns a relative reference
+[RELREF](RELREF.md)&nbsp;&nbsp;&nbsp;Returns a relative reference
 
 
 

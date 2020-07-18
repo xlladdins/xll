@@ -8,7 +8,7 @@ button\_text, the filename the user picks or types in will be returned.
 
 **OPEN.DIALOG**(file\_filter, button\_text, title, filter\_index)
 
-File\_filter**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the file filtering criteria to
+File\_filter&nbsp;&nbsp;&nbsp;&nbsp;is the file filtering criteria to
 use, as text. For Microsoft Excel for Windows, file\_filter consists of
 two parts, a descriptive phrase denoting the file type followed by a
 comma and then the MS-DOS wildcard file filter specification, as in
@@ -22,14 +22,14 @@ as in "TEXT,XLA ,XLS4". Spaces are significant and should not be
 inserted before or after the comma separators unless they are part of
 the file type code.
 
-Button\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the text used for the Open button
+Button\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text used for the Open button
 in the dialog. If omitted, "Open" will be used. Button\_text is ignored
 on Microsoft Excel for Windows.
 
-Title**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the dialog window title. If
+Title&nbsp;&nbsp;&nbsp;&nbsp;specifies the dialog window title. If
 omitted, "File Open" will be used as the default.
 
-Filter\_index**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the index number of the
+Filter\_index&nbsp;&nbsp;&nbsp;&nbsp;specifies the index number of the
 default file filtering criteria from 1 to the number of filters
 specified in file\_filter. If omitted or greater than the number of
 filters present, 1 will be used as the starting index number. The
@@ -56,7 +56,7 @@ drop-down list box.
 
 **Related Function**
 
-[SAVE.DIALOG](SAVE.DIALOG.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays the standard Microsoft Excel File
+[SAVE.DIALOG](SAVE.DIALOG.md)&nbsp;&nbsp;&nbsp;Displays the standard Microsoft Excel File
 [S](S.md)ave As dialog box and gets a file name from the user
 
 

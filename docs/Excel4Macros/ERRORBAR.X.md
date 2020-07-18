@@ -11,7 +11,7 @@ the Y (value) axis for all charts.
 
 **ERRORBAR.Y**(include, type, amount, minus)
 
-Include**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the type of error value to
+Include&nbsp;&nbsp;&nbsp;&nbsp;specifies the type of error value to
 include:
 
 |              |                         |
@@ -22,7 +22,7 @@ include:
 | 3            | Minus                   |
 | 4            | None                    |
 
-Type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the type of error bars to display:
+Type&nbsp;&nbsp;&nbsp;&nbsp;specifies the type of error bars to display:
 
 |              |                                                            |
 | ------------ | ---------------------------------------------------------- |
@@ -33,7 +33,7 @@ Type**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp
 | 4            | Standard error                                             |
 | 5            | Custom                                                     |
 
-Amount**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the range of error values to display.
+Amount&nbsp;&nbsp;&nbsp;&nbsp;is the range of error values to display.
 This argument depends on the value of type:
 
 |                |                                              |
@@ -45,7 +45,7 @@ This argument depends on the value of type:
 | 4              | Not required                                 |
 | 5              | Is the positive amount for custom error bars |
 
-Minus**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the negative amount for custom error
+Minus&nbsp;&nbsp;&nbsp;&nbsp;is the negative amount for custom error
 bars. Applicable only if type is 5.
 
 **Remarks**

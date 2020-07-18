@@ -8,10 +8,10 @@ Changes the format of the active chart to a line chart.
 
 **GALLERY.LINE**?(type\_num, delete\_overlay)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the format you want to
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the format you want to
 apply to the line chart.
 
-Delete\_overlay**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying
+Delete\_overlay&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying
 whether to delete an overlay chart.
 
   - > If delete\_overlay is TRUE, Microsoft Excel deletes all overlays,

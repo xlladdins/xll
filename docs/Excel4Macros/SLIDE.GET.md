@@ -14,7 +14,7 @@ add-in.
 
 **SLIDE.GET**(**type\_num**, name\_text, slide\_num)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the type of
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the type of
 information you want.
 
 These values of type\_num return information about a slide show.
@@ -112,11 +112,11 @@ the slide show.
 </tbody>
 </table>
 
-Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of an open slide show
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of an open slide show
 sheet for which you want information. If name\_text is omitted, it is
 assumed to be the active sheet.
 
-Slide\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the slide about which
+Slide\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number of the slide about which
 you want information.
 
   - > If slide\_num is omitted, it is assumed to be the slide associated

@@ -6,7 +6,7 @@ Removes an item in a list box or drop-down box.
 
 **REMOVE.LIST.ITEM**(**index\_num**, count\_num)
 
-Index\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the index of the item to
+Index\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies the index of the item to
 remove, from 1 to the number of items in the list. Specify zero to
 remove all items in the list.
 
@@ -27,7 +27,7 @@ REMOVE.LIST.ITEM(3) removes only the third item
 
 **Related Function**
 
-[LISTBOX.PROPERTIES](LISTBOX.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the properties of a list box
+[LISTBOX.PROPERTIES](LISTBOX.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Sets the properties of a list box
 and drop-down controls on worksheet and dialog sheets
 
 

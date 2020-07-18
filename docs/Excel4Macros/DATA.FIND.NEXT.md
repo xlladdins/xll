@@ -14,7 +14,7 @@ FALSE.
 
 **Related Function**
 
-[DATA.FIND](DATA.FIND.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters or exits Data Find mode
+[DATA.FIND](DATA.FIND.md)&nbsp;&nbsp;&nbsp;Enters or exits Data Find mode
 
 
 

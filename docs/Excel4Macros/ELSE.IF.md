@@ -12,7 +12,7 @@ your macros more structured.
 
 **ELSE.IF**(**logical\_test**)
 
-Logical\_test**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that ELSE.IF
+Logical\_test&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that ELSE.IF
 uses to determine what functions to carry out next&mdash;that is, where
 to branch.
 
@@ -42,13 +42,13 @@ examples of these functions, see form 2 of the IF function.
 
 **Related Functions**
 
-[ELSE](ELSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies an action to take if an IF function
+[ELSE](ELSE.md)&nbsp;&nbsp;&nbsp;Specifies an action to take if an IF function
 returns FALSE
 
-[END.IF](END.IF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends a group of macro functions started with an
+[END.IF](END.IF.md)&nbsp;&nbsp;&nbsp;Ends a group of macro functions started with an
 [IF](IF.md) statement
 
-[IF](IF.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies an action to take if a logical test is
+[IF](IF.md)&nbsp;&nbsp;&nbsp;Specifies an action to take if a logical test is
 [TRUE](TRUE.md)
 
 

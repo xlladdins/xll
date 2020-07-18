@@ -6,12 +6,12 @@ Displays the specified number of row and column levels of an outline.
 
 **SHOW.LEVELS**(row\_level, col\_level)
 
-Row\_level**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the number of row levels of
+Row\_level&nbsp;&nbsp;&nbsp;&nbsp;specifies the number of row levels of
 an outline to display. If the outline has fewer levels than specified by
 row\_level, Microsoft Excel shows all levels. If row\_level is zero or
 omitted, no action is taken on rows.
 
-Col\_level**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the number of column levels
+Col\_level&nbsp;&nbsp;&nbsp;&nbsp;specifies the number of column levels
 of an outline to display. If the outline has fewer levels than specified
 by col\_level, Microsoft Excel shows all levels. If col\_level is zero
 or omitted, no action is taken on columns.
@@ -23,7 +23,7 @@ value.
 
 **Related Function**
 
-[SHOW.DETAIL](SHOW.DETAIL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Expands or collapses a portion of an
+[SHOW.DETAIL](SHOW.DETAIL.md)&nbsp;&nbsp;&nbsp;Expands or collapses a portion of an
 outline
 
 

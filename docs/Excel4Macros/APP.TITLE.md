@@ -10,7 +10,7 @@ apply to Microsoft Excel for the Macintosh.
 
 **APP.TITLE**(text)
 
-Text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the title you want to assign to the
+Text&nbsp;&nbsp;&nbsp;&nbsp;is the title you want to assign to the
 Microsoft Excel application workspace. If text is omitted, it is
 restored to Microsoft Excel.
 
@@ -26,7 +26,7 @@ restored to Microsoft Excel.
 
 **Related Function**
 
-[WINDOW.TITLE](WINDOW.TITLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the title of the active window
+[WINDOW.TITLE](WINDOW.TITLE.md)&nbsp;&nbsp;&nbsp;Changes the title of the active window
 
 
 

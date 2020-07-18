@@ -9,10 +9,10 @@ useful for storing values while the macro is calculating.
 
 **SET.NAME**(**name\_text**, value)
 
-Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name in the form of text that
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name in the form of text that
 refers to value.
 
-Value**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the value you want to store in
+Value&nbsp;&nbsp;&nbsp;&nbsp;is the value you want to store in
 name\_text.
 
   - > If value is omitted, the name name\_text is deleted.
@@ -98,10 +98,10 @@ SET.NAME("Index", DEREF(A1))
 
 **Related Functions**
 
-[DEFINE.NAME](DEFINE.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name on the active worksheet or
+[DEFINE.NAME](DEFINE.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name on the active worksheet or
 macro sheet
 
-[SET.VALUE](SET.VALUE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the value of a cell on a macro sheet
+[SET.VALUE](SET.VALUE.md)&nbsp;&nbsp;&nbsp;Sets the value of a cell on a macro sheet
 
 
 

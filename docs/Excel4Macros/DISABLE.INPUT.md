@@ -8,7 +8,7 @@ from the user or from other applications.
 
 **DISABLE.INPUT**(**logical**)
 
-Logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether
+Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
 input is currently disabled. If logical is TRUE, input is disabled; if
 FALSE, input is reenabled.
 
@@ -17,7 +17,7 @@ FALSE, input is reenabled.
 Disabling input can be useful if you are using dynamic data exchange
 (DDE) to communicate with Microsoft Excel from another application.
 
-**Important****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Be sure to end any macro that uses
+**Important**&nbsp;&nbsp;&nbsp;Be sure to end any macro that uses
 DISABLE.INPUT(TRUE) with a DISABLE.INPUT(FALSE) function. If you do not
 include DISABLE.INPUT(FALSE) to allow non-dialog-box input, you will not
 be able to take any actions on your computer after the macro has
@@ -25,11 +25,11 @@ finished.
 
 **Related Functions**
 
-[CANCEL.KEY](CANCEL.KEY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Disables macro interruption
+[CANCEL.KEY](CANCEL.KEY.md)&nbsp;&nbsp;&nbsp;Disables macro interruption
 
-[ENTER.DATA](ENTER.DATA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Turns Data Entry mode on and off
+[ENTER.DATA](ENTER.DATA.md)&nbsp;&nbsp;&nbsp;Turns Data Entry mode on and off
 
-[WORKSPACE](WORKSPACE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes workspace settings
+[WORKSPACE](WORKSPACE.md)&nbsp;&nbsp;&nbsp;Changes workspace settings
 
 
 

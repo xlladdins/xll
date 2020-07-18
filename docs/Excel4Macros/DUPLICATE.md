@@ -9,9 +9,9 @@ the \#VALUE\! error value and interrupts the macro.
 
 **Related Functions**
 
-[COPY](COPY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies and pastes data or objects
+[COPY](COPY.md)&nbsp;&nbsp;&nbsp;Copies and pastes data or objects
 
-[PASTE](PASTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes cut or copied data
+[PASTE](PASTE.md)&nbsp;&nbsp;&nbsp;Pastes cut or copied data
 
 <span id="E" class="anchor"></span>This document contains reference
 information on the following Excel macro functions:

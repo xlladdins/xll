@@ -10,9 +10,9 @@ single cell is selected, creates an outline for the entire sheet.
 
 **Related Functions**
 
-[CLEAR.OUTLINE](CLEAR.OUTLINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes outlining from the current sheet
+[CLEAR.OUTLINE](CLEAR.OUTLINE.md)&nbsp;&nbsp;&nbsp;Removes outlining from the current sheet
 
-[OUTLINE](OUTLINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an outline and defines settings for
+[OUTLINE](OUTLINE.md)&nbsp;&nbsp;&nbsp;Creates an outline and defines settings for
 automatically creating outlines
 
 

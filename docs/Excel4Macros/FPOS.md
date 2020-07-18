@@ -12,12 +12,12 @@ file.
 
 **FPOS**(**file\_num**, position\_num)
 
-File\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique ID number of the file for
+File\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique ID number of the file for
 which you want to set the position. File\_num is returned by a
 previously executed FOPEN function. If file\_num is not valid, FPOS
 returns the \#VALUE\! error value.
 
-Position\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the location in the file that a
+Position\_num&nbsp;&nbsp;&nbsp;&nbsp;is the location in the file that a
 character will be read from or written to.
 
   - > The first position in a file is 1, the location of the first byte.
@@ -43,18 +43,18 @@ in the open file identified as FileNumber reaches the end of the file:
 
 **Related Functions**
 
-[FCLOSE](FCLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a text file
+[FCLOSE](FCLOSE.md)&nbsp;&nbsp;&nbsp;Closes a text file
 
-[FOPEN](FOPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a file with the type of permission
+[FOPEN](FOPEN.md)&nbsp;&nbsp;&nbsp;Opens a file with the type of permission
 specified
 
-[FREAD](FREAD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Reads characters from a text file
+[FREAD](FREAD.md)&nbsp;&nbsp;&nbsp;Reads characters from a text file
 
-[FREADLN](FREADLN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Reads a line from a text file
+[FREADLN](FREADLN.md)&nbsp;&nbsp;&nbsp;Reads a line from a text file
 
-[FWRITE](FWRITE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Writes characters to a text file
+[FWRITE](FWRITE.md)&nbsp;&nbsp;&nbsp;Writes characters to a text file
 
-[FWRITELN](FWRITELN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Writes a line to a text file
+[FWRITELN](FWRITELN.md)&nbsp;&nbsp;&nbsp;Writes a line to a text file
 
 
 

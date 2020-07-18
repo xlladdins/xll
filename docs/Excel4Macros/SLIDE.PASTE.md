@@ -19,7 +19,7 @@ soundfile\_text)
 **SLIDE.PASTE**?(effect\_num, speed\_num, advance\_rate\_num,
 soundfile\_text)
 
-Effect\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the transition
+Effect\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the transition
 effect you want to use when displaying the slide.
 
   - > The numbers correspond to the effects in the Effect list in the
@@ -28,7 +28,7 @@ effect you want to use when displaying the slide.
   - > If effect\_num is omitted, the default setting is used.
 
 
-Speed\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 10 specifying
+Speed\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 10 specifying
 the speed of the transition effect.
 
   - > If speed\_num is omitted, the default setting is used.
@@ -39,7 +39,7 @@ the speed of the transition effect.
   - > If effect\_num is 1 (none), speed\_num is ignored.
 
 
-Advance\_rate\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying how
+Advance\_rate\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying how
 long (in seconds) the slide is displayed before advancing to the next
 one.
 
@@ -49,7 +49,7 @@ one.
     > mouse to advance to the next slide.
 
 
-Soundfile\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a file enclosed in
+Soundfile\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of a file enclosed in
 quotation marks and specifies sound that will be played when the slide
 is displayed.
 
@@ -63,7 +63,7 @@ is displayed.
     > file.
 
 
-Resource**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number or name of a sound
+Resource&nbsp;&nbsp;&nbsp;&nbsp;is the number or name of a sound
 resource in soundfile\_text.
 
   - > This argument applies only to Microsoft Excel for the Macintosh.

@@ -7,7 +7,7 @@ worksheet.
 
 **SCENARIO.GET**(**type\_num**, scen\_name)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 8 specifying the
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 8 specifying the
 type of information you want.
 
 <table>
@@ -87,7 +87,7 @@ type of information you want.
 </tbody>
 </table>
 
-Scen\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the scenario that you
+Scen\_name&nbsp;&nbsp;&nbsp;&nbsp;is the name of the scenario that you
 want information about. Ignored if type\_num equals 1 or 3.
 
 **Remarks**

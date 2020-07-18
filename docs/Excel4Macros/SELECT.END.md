@@ -9,7 +9,7 @@ Macintosh.
 
 **SELECT.END**(**direction\_num**)
 
-Direction\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 indicating
+Direction\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 indicating
 the direction in which to move.
 
 <table>
@@ -59,7 +59,7 @@ the direction in which to move.
 
 **Related Function**
 
-[SELECT.LAST.CELL](SELECT.LAST.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects the last cell on a worksheet
+[SELECT.LAST.CELL](SELECT.LAST.CELL.md)&nbsp;&nbsp;&nbsp;Selects the last cell on a worksheet
 or macro sheet that contains a formula, value, or format or that is
 referred to in a formula or name
 

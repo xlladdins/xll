@@ -11,7 +11,7 @@ If this function is not available, you must install the Solver add-in.
 
 **SOLVER.SOLVE**(user\_finish, show\_ref)
 
-User\_finish**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying
+User\_finish&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying
 whether to display the Solver Results dialog box.
 
   - > If user\_finish is TRUE, SOLVER.SOLVE returns its integer value
@@ -25,7 +25,7 @@ whether to display the Solver Results dialog box.
     > solution and run reports.
 
 
-Show\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a macro to be called in place of the
+Show\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a macro to be called in place of the
 Show Trial Solution dialog box. It is used when you want to regain
 control whenever Solver finds a new intermediate solution value.
 
@@ -177,7 +177,7 @@ condition:
 
 **Related Function**
 
-[SOLVER.FINISH](SOLVER.FINISH.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Equivalent to clicking OK in the Solver
+[SOLVER.FINISH](SOLVER.FINISH.md)&nbsp;&nbsp;&nbsp;Equivalent to clicking OK in the Solver
 [R](R.md)esults dialog box that appears when the solution process is complete
 
 

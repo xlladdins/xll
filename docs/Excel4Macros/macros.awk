@@ -41,7 +41,7 @@ BEGIN {
     next
 }
 skip == 0 {
-    sub("&nbsp;&nbsp;&nbsp;**", "**&nbsp;&nbsp;&nbsp;")
+    sub(/&nbsp;&nbsp;&nbsp;\*\*(\*\*)?/, "**\&nbsp;\&nbsp;\&nbsp;")
     if (related) {
         sub(/^[A-Z\.]+/, "[&](&.md)")
     }

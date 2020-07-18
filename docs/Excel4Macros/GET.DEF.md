@@ -8,7 +8,7 @@ definition. To get the definition of a name, use GET.NAME.
 
 **GET.DEF**(**def\_text**, document\_text, type\_num)
 
-Def\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;can be anything you can define a name
+Def\_text&nbsp;&nbsp;&nbsp;&nbsp;can be anything you can define a name
 to refer to, including a reference, a value, an object, or a formula.
 
   - > References must be given in R1C1 style, such as "R3C5".
@@ -22,11 +22,11 @@ to refer to, including a reference, a value, an object, or a formula.
     > first name. If no name matches def\_text, GET.DEF returns the
     > \#NAME? error value.
 
-Document\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the sheet or macro sheet
+Document\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies the sheet or macro sheet
 that def\_text is on. If document\_text is omitted, it is assumed to be
 the active macro sheet.
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying
 which types of names are returned.
 
 |               |                   |
@@ -60,13 +60,13 @@ GET.DEF("3", , 2)
 
 **Related Functions**
 
-[GET.CELL](GET.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the specified cell
+[GET.CELL](GET.CELL.md)&nbsp;&nbsp;&nbsp;Returns information about the specified cell
 
-[GET.NAME](GET.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the definition of a name
+[GET.NAME](GET.NAME.md)&nbsp;&nbsp;&nbsp;Returns the definition of a name
 
-[GET.NOTE](GET.NOTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns characters from a note
+[GET.NOTE](GET.NOTE.md)&nbsp;&nbsp;&nbsp;Returns characters from a note
 
-[NAMES](NAMES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns the names defined on a workbook
+[NAMES](NAMES.md)&nbsp;&nbsp;&nbsp;Returns the names defined on a workbook
 
 
 

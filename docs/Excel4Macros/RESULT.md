@@ -8,7 +8,7 @@ values of the correct data type.
 
 **RESULT**(type\_num)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the data type.
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the data type.
 
 <table>
 <tbody>
@@ -92,9 +92,9 @@ RESULT(5)
 
 **Related Functions**
 
-[ARGUMENT](ARGUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Passes an argument to a macro
+[ARGUMENT](ARGUMENT.md)&nbsp;&nbsp;&nbsp;Passes an argument to a macro
 
-[RETURN](RETURN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Ends the currently running macro
+[RETURN](RETURN.md)&nbsp;&nbsp;&nbsp;Ends the currently running macro
 
 
 

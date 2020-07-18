@@ -6,7 +6,7 @@ Sets the ratio of the tabs to the horizontal scrollbar.
 
 **WORKBOOK.TAB.SPLIT**(ratio\_num)
 
-Ratio\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the ratio of tabs to horizontal
+Ratio\_num&nbsp;&nbsp;&nbsp;&nbsp;is the ratio of tabs to horizontal
 scroll, as a decimal value between 0 and 1. If omitted defaults to 6.
 
 **Remarks**
@@ -19,7 +19,7 @@ scroll, as a decimal value between 0 and 1. If omitted defaults to 6.
 
 **Related Function**
 
-[GET.WINDOW](GET.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook window
+[GET.WINDOW](GET.WINDOW.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook window
 
 
 

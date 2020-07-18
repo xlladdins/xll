@@ -12,7 +12,7 @@ overlap%, cluster, angle, series\_num, auto)
 
 **Related Function**
 
-[FORMAT.CHART](FORMAT.CHART.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats the chart according to the
+[FORMAT.CHART](FORMAT.CHART.md)&nbsp;&nbsp;&nbsp;Formats the chart according to the
 arguments you specify.
 
 

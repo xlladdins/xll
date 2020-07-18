@@ -6,7 +6,7 @@ Displays the dialog box described in a dialog box definition table.
 
 **DIALOG.BOX**(**dialog\_ref**)
 
-Dialog\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to a dialog box
+Dialog\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a dialog box
 definition table on sheet, or an array containing the definition table.
 
   - > If an OK button in the dialog box is chosen, DIALOG.BOX enters
@@ -106,9 +106,9 @@ dialog box.
 
 **Related Functions**
 
-[ALERT](ALERT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a dialog box and a message
+[ALERT](ALERT.md)&nbsp;&nbsp;&nbsp;Displays a dialog box and a message
 
-[INPUT](INPUT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a dialog box for user input
+[INPUT](INPUT.md)&nbsp;&nbsp;&nbsp;Displays a dialog box for user input
 
 
 

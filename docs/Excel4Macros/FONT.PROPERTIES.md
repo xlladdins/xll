@@ -20,38 +20,38 @@ logical values. If an argument is TRUE, Microsoft Excel selects the
 check box; if FALSE, Microsoft Excel clears the check box. If an
 argument is omitted, the format is not changed.
 
-Font**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the font as it appears on the
+Font&nbsp;&nbsp;&nbsp;&nbsp;is the name of the font as it appears on the
 Font tab. For example, Courier is a font name.
 
-Font\_style**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the font style as it
+Font\_style&nbsp;&nbsp;&nbsp;&nbsp;is the name of the font style as it
 appears on the Font tab. For example, Bold Italic is a font style.
 
-Size**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the font size, in points.
+Size&nbsp;&nbsp;&nbsp;&nbsp;is the font size, in points.
 
-Strikethrough**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Strikethrough
+Strikethrough&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Strikethrough
 check box.
 
-Superscript**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Superscript check
+Superscript&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Superscript check
 box
 
-Subscript**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Subscript check box
+Subscript&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Subscript check box
 
-Outline**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Outline check box.
+Outline&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Outline check box.
 Outline fonts are available in Microsoft Excel for the Macintosh. For
 macro compatibility, this argument is ignored by Microsoft Excel for
 Windows..
 
-Shadow**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Shadow check box.
+Shadow&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Shadow check box.
 Shadow fonts are available in Microsoft Excel for the Macintosh. For
 macro compatibility, this argument is ignored by Microsoft Excel for
 Windows.
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**For macro compatibility with Microsoft Excel
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;For macro compatibility with Microsoft Excel
 for the Macintosh, the presence of the outline and shadow arguments do
 not prevent the macro from working on Microsoft Excel for Windows, nor
 does their absence prevent it from working on the Macintosh.
 
-Underline**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Underline Drop-down
+Underline&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Underline Drop-down
 box.
 
 |               |                   |
@@ -63,13 +63,13 @@ box.
 | 3             | Single Accounting |
 | 4             | Double Accounting |
 
-Color**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 0 to 56 corresponding to
+Color&nbsp;&nbsp;&nbsp;&nbsp;is a number from 0 to 56 corresponding to
 the colors listed in the Color box; 0 corresponds to automatic color.
 
-Normal**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Normal Font check box.
+Normal&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Normal Font check box.
 Applies the default font for your system
 
-Background**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying
+Background&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying
 which type of background to apply to text in a chart.
 
 |                |                                |
@@ -79,11 +79,11 @@ which type of background to apply to text in a chart.
 | 2              | Transparent                    |
 | 3              | Opaque                         |
 
-Start\_char**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the first character to be
+Start\_char&nbsp;&nbsp;&nbsp;&nbsp;specifies the first character to be
 formatted. If start\_char is omitted, it is assumed to be 1 (the first
 character in the cell or text box).
 
-Char\_count**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies how many characters to
+Char\_count&nbsp;&nbsp;&nbsp;&nbsp;specifies how many characters to
 format. If char\_count is omitted, Microsoft Excel formats all
 characters in the cell or text box starting at start\_char.
 
@@ -98,11 +98,11 @@ see your Microsoft Windows documentation.
 
 **Related Functions**
 
-[ALIGNMENT](ALIGNMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Aligns or wraps text in cells
+[ALIGNMENT](ALIGNMENT.md)&nbsp;&nbsp;&nbsp;Aligns or wraps text in cells
 
-[FORMAT.NUMBER](FORMAT.NUMBER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a number format to the selection
+[FORMAT.NUMBER](FORMAT.NUMBER.md)&nbsp;&nbsp;&nbsp;Applies a number format to the selection
 
-[FORMAT.TEXT](FORMAT.TEXT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats a worksheet text box or a chart
+[FORMAT.TEXT](FORMAT.TEXT.md)&nbsp;&nbsp;&nbsp;Formats a worksheet text box or a chart
 text item
 
 

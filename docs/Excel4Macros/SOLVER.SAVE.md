@@ -11,7 +11,7 @@ If this function is not available, you must install the Solver add-in.
 
 **SOLVER.SAVE** (**save\_area**)
 
-Save\_area**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference on the active sheet to
+Save\_area&nbsp;&nbsp;&nbsp;&nbsp;is a reference on the active sheet to
 a range of cells or to the upper-left corner of a range of cells into
 which you want to paste the current problem specification.
 

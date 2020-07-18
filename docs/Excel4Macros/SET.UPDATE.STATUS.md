@@ -7,10 +7,10 @@ SET.UPDATE.STATUS to change the way a link is updated.
 
 **SET.UPDATE.STATUS**(**link\_text, status**, type\_of\_link)
 
-Link\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the path of the linked file for
+Link\_text&nbsp;&nbsp;&nbsp;&nbsp;is the path of the linked file for
 which you want to change the update status.
 
-Status**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number 1 or 2 and describes how you
+Status&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 and describes how you
 want the link to be updated.
 
 <table>
@@ -42,7 +42,7 @@ want the link to be updated.
 </tbody>
 </table>
 
-Type\_of\_link**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 that
+Type\_of\_link&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 that
 specifies what type of link you want to get information about.
 
 <table>
@@ -99,9 +99,9 @@ SET.UPDATE.STATUS("WordDocument|'C:\\MEMO.DOC'\!DDE.LINK1", 2, 2)
 
 **Related Functions**
 
-[GET.LINK.INFO](GET.LINK.INFO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a link
+[GET.LINK.INFO](GET.LINK.INFO.md)&nbsp;&nbsp;&nbsp;Returns information about a link
 
-[UPDATE.LINK](UPDATE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Updates a link to another document
+[UPDATE.LINK](UPDATE.LINK.md)&nbsp;&nbsp;&nbsp;Updates a link to another document
 
 
 

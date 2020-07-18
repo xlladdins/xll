@@ -8,7 +8,7 @@ file.
 
 **FSIZE**(**file\_num**)
 
-File\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique ID number of the file
+File\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique ID number of the file
 whose size you want to know. File\_num is returned by a previously
 executed FOPEN function. If file\_num is not valid, FSIZE returns the
 \#VALUE\! error value.
@@ -22,10 +22,10 @@ FSIZE(FileNumber)
 
 **Related Functions**
 
-[FOPEN](FOPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a file with the type of permission
+[FOPEN](FOPEN.md)&nbsp;&nbsp;&nbsp;Opens a file with the type of permission
 specified
 
-[FPOS](FPOS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the position in a text file
+[FPOS](FPOS.md)&nbsp;&nbsp;&nbsp;Sets the position in a text file
 
 
 

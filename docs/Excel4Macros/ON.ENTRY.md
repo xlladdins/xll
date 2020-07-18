@@ -6,11 +6,11 @@ Runs a macro when you enter data into any cell on the specified sheet.
 
 **ON.ENTRY**(sheet\_text, macro\_text)
 
-Sheet\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text value specifying the name
+Sheet\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text value specifying the name
 of a sheet in a workbook. If sheet\_text is omitted, the macro is run
 whenever you enter data into any sheet or macro sheet.
 
-Macro\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of, or an R1C1-style
+Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or an R1C1-style
 reference to, a macro you want to run when you enter data into the sheet
 specified by sheet\_text. The name or reference must be in text form. If
 macro\_text is omitted, entering data reverts to its normal behavior,
@@ -27,9 +27,9 @@ and any macros assigned by previous ON.ENTRY functions are turned off.
 
 **Related Functions**
 
-[ENTER.DATA](ENTER.DATA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Turns Data Entry mode on or off
+[ENTER.DATA](ENTER.DATA.md)&nbsp;&nbsp;&nbsp;Turns Data Entry mode on or off
 
-[ON.RECALC](ON.RECALC.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when a workbook is recalculated
+[ON.RECALC](ON.RECALC.md)&nbsp;&nbsp;&nbsp;Runs a macro when a workbook is recalculated
 
 
 

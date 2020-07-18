@@ -28,11 +28,11 @@ the following table.
 | 6            | Double line   |
 | 7            | Hairline      |
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**For compatibility with earlier versions of
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;For compatibility with earlier versions of
 Microsoft Excel, TRUE and FALSE values for the above arguments create a
 thin border or no border, respectively.
 
-Shade**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Shade check box in the
+Shade&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Shade check box in the
 Border dialog box of Microsoft Excel version 4.0. This argument is
 included for compatibility only.
 

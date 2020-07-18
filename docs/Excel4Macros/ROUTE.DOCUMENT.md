@@ -13,9 +13,9 @@ routing is not enabled for the system, returns \#VALUE\!.
 
 **Related Functions**
 
-[SEND.MAIL](SEND.MAIL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends the active workbook using email
+[SEND.MAIL](SEND.MAIL.md)&nbsp;&nbsp;&nbsp;Sends the active workbook using email
 
-[ROUTING.SLIP](ROUTING.SLIP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds or Edits the routing slip attached to
+[ROUTING.SLIP](ROUTING.SLIP.md)&nbsp;&nbsp;&nbsp;Adds or Edits the routing slip attached to
 the current workbook
 
 

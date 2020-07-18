@@ -32,19 +32,19 @@ Axes dialog box.
   - > If an argument is omitted, the display of that axis is unchanged.
 
 
-X\_primary**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the primary category
+X\_primary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the primary category
 (x) axis.
 
-Y\_primary**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the primary value (y)
+Y\_primary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the primary value (y)
 axis.
 
-Z\_primary**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the value (z) axis on
+Z\_primary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the value (z) axis on
 the primary 3-D chart.
 
-X\_secondary**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the secondary
+X\_secondary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the secondary
 category (x) axis on a 2-D chart only.
 
-Y\_secondary**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the secondary value
+Y\_secondary&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the secondary value
 (y) axis on a 2-D chart only.
 
 If a 2-D chart has no secondary axis, only the first two arguments are
@@ -52,7 +52,7 @@ used.
 
 **Related Function**
 
-[GRIDLINES](GRIDLINES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Controls whether chart gridlines are visible
+[GRIDLINES](GRIDLINES.md)&nbsp;&nbsp;&nbsp;Controls whether chart gridlines are visible
 
 
 

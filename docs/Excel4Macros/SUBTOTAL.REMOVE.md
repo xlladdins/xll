@@ -11,7 +11,7 @@ breaks and outlines will also be removed.
 
 **Related Function**
 
-[SUBTOTAL.CREATE](SUBTOTAL.CREATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Generates a subtotal in a list or
+[SUBTOTAL.CREATE](SUBTOTAL.CREATE.md)&nbsp;&nbsp;&nbsp;Generates a subtotal in a list or
 database
 
 

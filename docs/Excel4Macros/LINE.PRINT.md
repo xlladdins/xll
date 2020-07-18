@@ -5,7 +5,7 @@ Prints the active worksheet using methods compatible with those of Lotus
 Unless you have a specific need for the LINE.PRINT function, use the
 PRINT function instead.
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**This function is only available in Microsoft
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is only available in Microsoft
 Excel for Windows.
 
 **Syntax 1**
@@ -28,7 +28,7 @@ Global settings
 **LINE.PRINT**(**command**, setup\_text, leftmarg, rightmarg, topmarg,
 botmarg, pglen, wait, autolf, port, update)
 
-Command**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number corresponding to the command
+Command&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the command
 you want LINE.PRINT to carry out. For syntax 2, command must be 5. For
 syntax 3, command must be 6.
 
@@ -43,52 +43,52 @@ syntax 3, command must be 6.
 | 6           | Global settings (saved in EXCEL5.INI)     |
 | 7           | Clear (change to current global settings) |
 
-File**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of a file to which you want to
+File&nbsp;&nbsp;&nbsp;&nbsp;is the name of a file to which you want to
 print. If omitted, Microsoft Excel prints to the printer port determined
 by the current global settings.
 
-Append**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether to
+Append&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether to
 append text to file. If TRUE, the file you are printing is appended to
 file; if FALSE or omitted, the file you are printing overwrites the
 contents of file.
 
-Setup\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text that includes a printer
+Setup\_text&nbsp;&nbsp;&nbsp;&nbsp;is text that includes a printer
 initialization sequence or other control codes to prepare your printer
 for printing. If omitted, no setup text is used.
 
-Leftmarg**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the size of the left margin measured
+Leftmarg&nbsp;&nbsp;&nbsp;&nbsp;is the size of the left margin measured
 in characters from the left side of the page. If omitted, it is assumed
 to be 4.
 
-Rightmarg**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the size of the right margin
+Rightmarg&nbsp;&nbsp;&nbsp;&nbsp;is the size of the right margin
 measured in characters from the left side of the page. If omitted, it is
 assumed to be 76.
 
-Topmarg**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the size of the top margin measured in
+Topmarg&nbsp;&nbsp;&nbsp;&nbsp;is the size of the top margin measured in
 lines from the top of the page. If omitted, it is assumed to be 2.
 
-Botmarg**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the size of the bottom margin measured
+Botmarg&nbsp;&nbsp;&nbsp;&nbsp;is the size of the bottom margin measured
 in lines from the bottom of the page. If omitted, it is assumed to be 2.
 
-Pglen**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of lines on one page. If
+Pglen&nbsp;&nbsp;&nbsp;&nbsp;is the number of lines on one page. If
 omitted, it is assumed to be 66 (11 inches with 6 lines per inch). If
 you're using an HP LaserJet or compatible printer, set pglen to 60 (the
 printer reserves six lines).
 
-Formatted**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether
+Formatted&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
 to format the output. If TRUE or omitted, the output is formatted; if
 FALSE, it is not formatted.
 
-Wait**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether to
+Wait&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether to
 wait after printing a page. If TRUE, Microsoft Excel waits; if FALSE or
 omitted, Microsoft Excel continues printing.
 
-Autolf**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether your
+Autolf&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether your
 printer has automatic line feeding. If TRUE, Microsoft Excel prints
 lines normally; if FALSE or omitted, Microsoft Excel sends an additional
 line feed character after printing each line.
 
-Port**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 8 specifying which
+Port&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 8 specifying which
 port to use when printing.
 
 |              |                             |
@@ -103,7 +103,7 @@ port to use when printing.
 | 7            | LPT3                        |
 | 8            | LPT4                        |
 
-Update**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether to
+Update&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether to
 update and save global settings. If TRUE, the settings are saved in the
 EXCEL5.INI file; if FALSE or omitted, the global settings are not saved.
 
@@ -121,7 +121,7 @@ LINE.PRINT(1)
 
 **Related Function**
 
-[PRINT](PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints the active sheet
+[PRINT](PRINT.md)&nbsp;&nbsp;&nbsp;Prints the active sheet
 
 
 

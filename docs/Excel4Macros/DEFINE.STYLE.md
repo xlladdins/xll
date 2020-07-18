@@ -32,7 +32,7 @@ pattern, protection)
 **DEFINE.STYLE**?(style\_text, number, font, alignment, border, pattern,
 protection)
 
-Style\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name, as text, that you want
+Style\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name, as text, that you want
 to assign to the style.
 
 The following arguments are logical values corresponding to check boxes
@@ -43,28 +43,28 @@ formatting descriptions for that attribute. If style\_text is omitted
 and all selected cells have identical formatting, the default is TRUE;
 if cells have different formatting, the default is FALSE.
 
-Number**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Number check box.
+Number&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Number check box.
 
-Font**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Font check box.
+Font&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Font check box.
 
-Alignment**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Alignment check box.
+Alignment&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Alignment check box.
 
-Border**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Border check box.
+Border&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Border check box.
 
-Pattern**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Pattern check box.
+Pattern&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Pattern check box.
 
-Protection**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Protection check
+Protection&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Protection check
 box.
 
 **Related Functions**
 
 [DEFINE.STYLE](DEFINE.STYLE.md) Syntaxes 2-7
 
-[APPLY.STYLE](APPLY.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a style to the selection
+[APPLY.STYLE](APPLY.STYLE.md)&nbsp;&nbsp;&nbsp;Applies a style to the selection
 
-[DELETE.STYLE](DELETE.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a cell style
+[DELETE.STYLE](DELETE.STYLE.md)&nbsp;&nbsp;&nbsp;Deletes a cell style
 
-[MERGE.STYLES](MERGE.STYLES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Imports styles from another workbook into
+[MERGE.STYLES](MERGE.STYLES.md)&nbsp;&nbsp;&nbsp;Imports styles from another workbook into
 the active workbook
 
 
@@ -122,10 +122,10 @@ Cell protection, using the arguments from the CELL.PROTECTION function
 
 **DEFINE.STYLE**(**style\_text, attribute\_num**, locked, hidden)
 
-Style\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name, as text, that you want
+Style\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name, as text, that you want
 to assign to the style.
 
-Attribute\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 2 to 7 that
+Attribute\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 2 to 7 that
 specifies which attribute of the style, such as its font, alignment, or
 number format, you want to designate with this function.
 
@@ -157,26 +157,26 @@ number format, you want to designate with this function.
 
 [DEFINE.STYLE](DEFINE.STYLE.md) Syntax 1
 
-[ALIGNMENT](ALIGNMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Aligns or wraps text in cells
+[ALIGNMENT](ALIGNMENT.md)&nbsp;&nbsp;&nbsp;Aligns or wraps text in cells
 
-[APPLY.STYLE](APPLY.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a style to the selection
+[APPLY.STYLE](APPLY.STYLE.md)&nbsp;&nbsp;&nbsp;Applies a style to the selection
 
-[BORDER](BORDER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a border to the selected cell or object
+[BORDER](BORDER.md)&nbsp;&nbsp;&nbsp;Adds a border to the selected cell or object
 
-[CELL.PROTECTION](CELL.PROTECTION.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Allows you to control cell protection
+[CELL.PROTECTION](CELL.PROTECTION.md)&nbsp;&nbsp;&nbsp;Allows you to control cell protection
 and display
 
-[DELETE.STYLE](DELETE.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a cell style
+[DELETE.STYLE](DELETE.STYLE.md)&nbsp;&nbsp;&nbsp;Deletes a cell style
 
-[FONT.PROPERTIES](FONT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a font to the selection
+[FONT.PROPERTIES](FONT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Applies a font to the selection
 
-[FORMAT.NUMBER](FORMAT.NUMBER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Formats numbers, dates, and times in the
+[FORMAT.NUMBER](FORMAT.NUMBER.md)&nbsp;&nbsp;&nbsp;Formats numbers, dates, and times in the
 selected cells
 
-[MERGE.STYLES](MERGE.STYLES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Imports styles from another workbook into
+[MERGE.STYLES](MERGE.STYLES.md)&nbsp;&nbsp;&nbsp;Imports styles from another workbook into
 the active workbook
 
-[PATTERNS](PATTERNS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the appearance of the selected object
+[PATTERNS](PATTERNS.md)&nbsp;&nbsp;&nbsp;Changes the appearance of the selected object
 
 
 

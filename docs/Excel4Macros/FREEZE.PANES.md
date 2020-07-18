@@ -9,7 +9,7 @@ column titles on the screen while scrolling to other parts of the sheet.
 
 **FREEZE.PANES**(logical, col\_split, row\_split)
 
-Logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying which
+Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying which
 command FREEZE.PANES is equivalent to.
 
   - > If logical is TRUE, the function is equivalent to the Freeze Panes
@@ -26,10 +26,10 @@ command FREEZE.PANES is equivalent to.
     > frozen, or unfreezes existing panes if they're currently frozen.
 
 
-Col\_split**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies where to split the window
+Col\_split&nbsp;&nbsp;&nbsp;&nbsp;specifies where to split the window
 vertically and is measured in columns from the left of the window.
 
-Row\_split**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies where to split the window
+Row\_split&nbsp;&nbsp;&nbsp;&nbsp;specifies where to split the window
 horizontally and is measured in rows from the top of the window.
 
 Col\_split and row\_split are ignored unless logical is TRUE and split
@@ -43,9 +43,9 @@ function.
 
 **Related Functions**
 
-[ACTIVATE](ACTIVATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Switches to a window
+[ACTIVATE](ACTIVATE.md)&nbsp;&nbsp;&nbsp;Switches to a window
 
-[SPLIT](SPLIT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Splits a window
+[SPLIT](SPLIT.md)&nbsp;&nbsp;&nbsp;Splits a window
 
 
 

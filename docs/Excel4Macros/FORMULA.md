@@ -8,10 +8,10 @@ FORMULA for this purpose. Use syntax 2 to enter a formula in a chart.
 For information about setting values on a macro sheet, see "Remarks" in
 the following topics.
 
-Syntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters numbers, text, references, and formulas
+Syntax 1&nbsp;&nbsp;&nbsp;Enters numbers, text, references, and formulas
 in a worksheet
 
-Syntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters formulas in a chart
+Syntax 2&nbsp;&nbsp;&nbsp;Enters formulas in a chart
 
 
 
@@ -35,7 +35,7 @@ in a chart. For information about setting values on a macro sheet, see
 
 **FORMULA**(**formula\_text**, reference)
 
-Formula\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;can be text, a number, a reference,
+Formula\_text&nbsp;&nbsp;&nbsp;&nbsp;can be text, a number, a reference,
 or a formula in the form of text, or a reference to a cell containing
 any of the above.
 
@@ -55,7 +55,7 @@ any of the above.
   - > If formula\_text is a number, text, or logical value, the value is
     > entered as a constant.
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies where formula\_text is to be
+Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies where formula\_text is to be
 entered. It can be a reference to a cell in the active workbook or an
 external reference to a workbook. If reference is omitted, formula\_text
 is entered in the active cell.
@@ -110,13 +110,13 @@ FORMULA("Year to Date", 'SALES 1993'\!B4)
 
 **Related Functions**
 
-[FORMULA.ARRAY](FORMULA.ARRAY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters an array
+[FORMULA.ARRAY](FORMULA.ARRAY.md)&nbsp;&nbsp;&nbsp;Enters an array
 
-[FORMULA.FILL](FORMULA.FILL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters a formula in the specified range
+[FORMULA.FILL](FORMULA.FILL.md)&nbsp;&nbsp;&nbsp;Enters a formula in the specified range
 
-[SET.VALUE](SET.VALUE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets the value of a cell on a macro sheet
+[SET.VALUE](SET.VALUE.md)&nbsp;&nbsp;&nbsp;Sets the value of a cell on a macro sheet
 
-[FORMULA](FORMULA.md) Syntax 2**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters formulas in a chart
+[FORMULA](FORMULA.md) Syntax 2&nbsp;&nbsp;&nbsp;Enters formulas in a chart
 
 
 
@@ -131,7 +131,7 @@ worksheet or macro sheet, use syntax 1 of this function.
 
 **FORMULA**(**formula\_text**)
 
-Formula\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the text label or SERIES formula
+Formula\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text label or SERIES formula
 you want to enter into the chart.
 
 |                                                                                                                             |                                                             |
@@ -156,9 +156,9 @@ FORMULA("=SERIES(""Title"", , {1, 2, 3}, 1)")
 
 **Related Functions**
 
-[EDIT.SERIES](EDIT.SERIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or changes a chart series
+[EDIT.SERIES](EDIT.SERIES.md)&nbsp;&nbsp;&nbsp;Creates or changes a chart series
 
-[FORMULA](FORMULA.md), Syntax 1**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters numbers, text, references, and
+[FORMULA](FORMULA.md), Syntax 1&nbsp;&nbsp;&nbsp;Enters numbers, text, references, and
 formulas in a worksheet
 
 

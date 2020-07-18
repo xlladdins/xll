@@ -8,7 +8,7 @@ delete, or alter buttons.
 
 **GET.TOOL**(**type\_num, bar\_id, position**)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies what type of information you
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;specifies what type of information you
 want GET.TOOL to return.
 
 |               |                                                                                                                          |
@@ -26,11 +26,11 @@ want GET.TOOL to return.
 | 8             | The Help context string associated with the custom button.                                                               |
 | 9             | The Tip\_text associated with the custom button.                                                                         |
 
-Bar\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the number or name of the
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;specifies the number or name of the
 toolbar for which you want information. For detailed information about
 bar\_id, see ADD.TOOL.
 
-Position**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the position of the button on
+Position&nbsp;&nbsp;&nbsp;&nbsp;specifies the position of the button on
 the toolbar. Position starts with 1 at the left side (if horizontal) or
 at the top (if vertical). A position can be occupied by a button or a
 gap.
@@ -44,13 +44,13 @@ GET.TOOL(6, "Toolbar2", 3)
 
 **Related Functions**
 
-[ADD.TOOL](ADD.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds one or more buttons to a toolbar
+[ADD.TOOL](ADD.TOOL.md)&nbsp;&nbsp;&nbsp;Adds one or more buttons to a toolbar
 
-[DELETE.TOOL](DELETE.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a button from a toolbar
+[DELETE.TOOL](DELETE.TOOL.md)&nbsp;&nbsp;&nbsp;Deletes a button from a toolbar
 
-[ENABLE.TOOL](ENABLE.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enables or disables a button on a toolbar
+[ENABLE.TOOL](ENABLE.TOOL.md)&nbsp;&nbsp;&nbsp;Enables or disables a button on a toolbar
 
-[GET.TOOLBAR](GET.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves information about a toolbar
+[GET.TOOLBAR](GET.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Retrieves information about a toolbar
 
 
 

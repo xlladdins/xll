@@ -13,10 +13,10 @@ the file.
 
 **FOPEN**(**file\_text**, access\_num)
 
-File\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the file you want to
+File\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the file you want to
 open.
 
-Access\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying
+Access\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying
 what type of permission to allow to the file:
 
 |                 |                                                                       |
@@ -52,13 +52,13 @@ FOPEN(FileName, 2)
 
 **Related Functions**
 
-[FCLOSE](FCLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a text file
+[FCLOSE](FCLOSE.md)&nbsp;&nbsp;&nbsp;Closes a text file
 
-[FREAD](FREAD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Reads characters from a text file
+[FREAD](FREAD.md)&nbsp;&nbsp;&nbsp;Reads characters from a text file
 
-[FWRITE](FWRITE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Writes characters to a text file
+[FWRITE](FWRITE.md)&nbsp;&nbsp;&nbsp;Writes characters to a text file
 
-[OPEN](OPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a workbook
+[OPEN](OPEN.md)&nbsp;&nbsp;&nbsp;Opens a workbook
 
 
 

@@ -8,17 +8,17 @@ recorded using the macro recorder.
 
 **CUSTOM.REPEAT**(macro\_text, repeat\_text, record\_text)
 
-Macro\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of, or a reference to,
+Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or a reference to,
 the macro you want to run when the Repeat command is chosen. If
 macro\_text is omitted, no repeat macro is run, but the custom command
 can still be recorded.
 
-Repeat\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the text you want to use as the
+Repeat\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text you want to use as the
 repeat command on the Edit menu (for example, "Repeat Reports"). You can
 omit repeat\_text and macro\_text if you only want to record the formula
 specified by record\_text when using the macro recorder.
 
-Record\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the formula you want to record.
+Record\_text&nbsp;&nbsp;&nbsp;&nbsp;is the formula you want to record.
 For example, if the user clicks a command named Run Reports in Macro 1,
 the record\_text argument would be "=Macro1\!RunReports()", where
 RunReports is the name of the macro called by the Run Reports command.
@@ -31,7 +31,7 @@ RunReports is the name of the macro called by the Run Reports command.
   - > If you are not recording a macro, record\_text is ignored.
 
 
-**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Place CUSTOM.REPEAT at the end of the macro you
+**Tip**&nbsp;&nbsp;&nbsp;Place CUSTOM.REPEAT at the end of the macro you
 will want to repeat. If you place it before the end, then the macro
 formulas that follow CUSTOM.REPEAT may interfere with the desired
 effects of CUSTOM.REPEAT. The Repeat tool and the Repeat command
@@ -48,7 +48,7 @@ CUSTOM.REPEAT("MenuMacros\!RepeatReport", "Repeat Report")
 
 **Related Function**
 
-[CUSTOM.UNDO](CUSTOM.UNDO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies a macro to run to undo a custom
+[CUSTOM.UNDO](CUSTOM.UNDO.md)&nbsp;&nbsp;&nbsp;Specifies a macro to run to undo a custom
 command
 
 

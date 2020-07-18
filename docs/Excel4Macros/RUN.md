@@ -10,7 +10,7 @@ Tools menu. Runs a macro.
 
 **RUN**?(reference, step)
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the macro you want to
+Reference&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the macro you want to
 run or a number from 1 to 4 specifying an Auto macro to run.
 
 <table>
@@ -73,7 +73,7 @@ run or a number from 1 to 4 specifying an Auto macro to run.
     > carried out, and macro execution continues down that column.
 
 
-Step**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying that the macro
+Step&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying that the macro
 is to be run in single-step mode. If step is TRUE, Microsoft Excel runs
 the macro in single-step mode; if FALSE or omitted, Microsoft Excel runs
 the macro normally.
@@ -93,7 +93,7 @@ the macro normally.
 
 **Related Function**
 
-[GOTO](GOTO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Directs macro execution to another cell
+[GOTO](GOTO.md)&nbsp;&nbsp;&nbsp;Directs macro execution to another cell
 
 
 

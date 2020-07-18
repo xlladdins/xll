@@ -8,7 +8,7 @@ install the Microsoft ODBC add-in (XLODBC.XLA).
 
 **SQL.BIND**(**connection\_num**, column, reference)
 
-Connection\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the unique connection ID of
+Connection\_num&nbsp;&nbsp;&nbsp;&nbsp;is the unique connection ID of
 the data source for which you want to define storage.
 
   - > Connection\_num was returned by a previously executed SQL.OPEN
@@ -18,14 +18,14 @@ the data source for which you want to define storage.
     > \#VALUE\! error value.
 
 
-Column**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number of the result column that is
+Column&nbsp;&nbsp;&nbsp;&nbsp;is the number of the result column that is
 to be bound. Result columns are numbered from left to right starting
 with 1. If column is omitted then all bindings for connection\_num are
 removed. Column number 0 contains row numbers for the result set. If
 column number 0 is bound then SQL.RETRIEVE will return row numbers in
 the bound location.
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp; is a single cell reference on the
+Reference&nbsp;&nbsp;&nbsp;&nbsp; is a single cell reference on the
 worksheet where the results should be placed. If reference is omitted,
 the binding is removed for the column.
 
@@ -65,21 +65,21 @@ column1.
 
 **Related Functions**
 
-[SQL.OPEN](SQL.OPEN.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Establishes a connection with a data source
+[SQL.OPEN](SQL.OPEN.md)&nbsp;&nbsp;&nbsp;Establishes a connection with a data source
 
-[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends a query to a data source
+[SQL.EXEC.QUERY](SQL.EXEC.QUERY.md)&nbsp;&nbsp;&nbsp;Sends a query to a data source
 
-[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results and places
+[SQL.RETRIEVE.TO.FILE](SQL.RETRIEVE.TO.FILE.md)&nbsp;&nbsp;&nbsp;Retrieves query results and places
 them in a file
 
-[SQL.RETRIEVE](SQL.RETRIEVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Retrieves query results
+[SQL.RETRIEVE](SQL.RETRIEVE.md)&nbsp;&nbsp;&nbsp;Retrieves query results
 
-[SQL.GET.SCHEMA](SQL.GET.SCHEMA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Gets information about a connected data
+[SQL.GET.SCHEMA](SQL.GET.SCHEMA.md)&nbsp;&nbsp;&nbsp;Gets information about a connected data
 source.
 
-[SQL.CLOSE](SQL.CLOSE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a connection to a data source.
+[SQL.CLOSE](SQL.CLOSE.md)&nbsp;&nbsp;&nbsp;Closes a connection to a data source.
 
-[SQL.ERROR](SQL.ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns detailed error information
+[SQL.ERROR](SQL.ERROR.md)&nbsp;&nbsp;&nbsp;Returns detailed error information
 
 
 

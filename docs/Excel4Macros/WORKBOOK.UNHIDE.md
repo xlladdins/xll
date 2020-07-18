@@ -19,7 +19,7 @@ If the workbook is protected, you cannot unhide any sheets in the book.
 
 **Related Function**
 
-[WORKBOOK.HIDE](WORKBOOK.HIDE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Hides sheets in the active workbook
+[WORKBOOK.HIDE](WORKBOOK.HIDE.md)&nbsp;&nbsp;&nbsp;Hides sheets in the active workbook
 
 
 

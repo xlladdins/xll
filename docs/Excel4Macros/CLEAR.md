@@ -10,7 +10,7 @@ macro sheet. Clears series or formats from the active chart.
 
 **CLEAR**?(type\_num)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 specifying what
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 specifying what
 to clear. Only values 1, 2, and 3 are valid if the selected item is a
 chart.
 
@@ -47,7 +47,7 @@ following table.
 
 **Related Function**
 
-[EDIT.DELETE](EDIT.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes cells from a sheet
+[EDIT.DELETE](EDIT.DELETE.md)&nbsp;&nbsp;&nbsp;Removes cells from a sheet
 
 
 

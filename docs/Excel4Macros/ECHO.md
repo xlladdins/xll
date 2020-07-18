@@ -8,7 +8,7 @@ faster.
 
 **ECHO**(logical)
 
-Logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value specifying whether
+Logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value specifying whether
 screen updating is on or off.
 
   - > If logical is TRUE, Microsoft Excel selects screen updating.
@@ -29,7 +29,7 @@ screen updating is on or off.
 
 **Related Function**
 
-[GET.WORKSPACE](GET.WORKSPACE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the workspace
+[GET.WORKSPACE](GET.WORKSPACE.md)&nbsp;&nbsp;&nbsp;Returns information about the workspace
 
 
 

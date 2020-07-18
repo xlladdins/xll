@@ -12,15 +12,15 @@ earlier version toolbar.
 **SHOW.TOOLBAR**(**bar\_id, visible**, dock, x\_pos, y\_pos, width,
 protect, tool\_tips, large\_buttons, color\_buttons)
 
-Bar\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number or name of a toolbar
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;is a number or name of a toolbar
 corresponding to the toolbars you want to display. For detailed
 information about bar\_id, see ADD.TOOL.
 
-Visible**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that, if TRUE,
+Visible&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that, if TRUE,
 specifies that the toolbar is visible or, if FALSE, specifies that the
 toolbar is hidden.
 
-Dock**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the docking location of the
+Dock&nbsp;&nbsp;&nbsp;&nbsp;specifies the docking location of the
 toolbar.
 
 <table>
@@ -76,7 +76,7 @@ toolbar.
 </tbody>
 </table>
 
-X\_pos**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the horizontal position of the
+X\_pos&nbsp;&nbsp;&nbsp;&nbsp;specifies the horizontal position of the
 toolbar.
 
   - > If the toolbar is docked (not floating), x\_pos is measured
@@ -89,7 +89,7 @@ toolbar.
 
   - > X\_pos is measured in points. A point is 1/72nd of an inch.
 
-Y\_pos**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the vertical position of the
+Y\_pos&nbsp;&nbsp;&nbsp;&nbsp;specifies the vertical position of the
 toolbar.
 
   - > If the toolbar is docked, y\_pos is measured vertically from the
@@ -103,11 +103,11 @@ toolbar.
   - > Y\_pos is measured in points.
 
 
-Width**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the width of the toolbar and is
+Width&nbsp;&nbsp;&nbsp;&nbsp;specifies the width of the toolbar and is
 measured in points. If you omit width, Microsoft Excel uses the existing
 width setting.
 
-Protect**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying the degree to
+Protect&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying the degree to
 which you can modify a toolbar and its buttons. Each succeeding protect
 number retains the protection status of its previous numbers. For
 example, a protect status of 3 (a toolbar cannot become docked if it is
@@ -166,16 +166,16 @@ floating) assumes the protection status of 0, 1, and 2 as well.
 </tbody>
 </table>
 
-Tool\_tips**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds to
+Tool\_tips&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds to
 the Show Screentips On Toolbars check box on the Options tab. If TRUE,
 ScreenTips will be displayed. If FALSE, ScreenTips will not be
 displayed.
 
-Large Buttons**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that corresponds
+Large Buttons&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that corresponds
 to the Large Icons check box on the Options tab. If TRUE, large icons
 will be displayed. If FALSE, large icons will not be displayed.
 
-Color\_buttons**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that
+Color\_buttons&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that
 corresponds to the Color Toolbars check box. If TRUE, the toolbar
 buttons will be displayed in color. If FALSE, the toolbar buttons will
 not be displayed in color. This argument is for compatibility with
@@ -183,9 +183,9 @@ Microsoft Excel version 5.0.
 
 **Related Functions**
 
-[ADD.BAR](ADD.BAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a menu bar
+[ADD.BAR](ADD.BAR.md)&nbsp;&nbsp;&nbsp;Adds a menu bar
 
-[ADD.TOOLBAR](ADD.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a new toolbar with the specified
+[ADD.TOOLBAR](ADD.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Creates a new toolbar with the specified
 tools
 
 

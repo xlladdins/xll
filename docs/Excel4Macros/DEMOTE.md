@@ -10,7 +10,7 @@ an outline by grouping rows or columns of information.
 
 **DEMOTE**?(row\_col)
 
-Row\_col**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether to group rows or
+Row\_col&nbsp;&nbsp;&nbsp;&nbsp;specifies whether to group rows or
 columns.
 
 |              |             |
@@ -31,12 +31,12 @@ columns.
 
 **Related Functions**
 
-[PROMOTE](PROMOTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Promotes the selection in an outline
+[PROMOTE](PROMOTE.md)&nbsp;&nbsp;&nbsp;Promotes the selection in an outline
 
-[SHOW.DETAIL](SHOW.DETAIL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Expands or collapses a portion of an
+[SHOW.DETAIL](SHOW.DETAIL.md)&nbsp;&nbsp;&nbsp;Expands or collapses a portion of an
 outline
 
-[SHOW.LEVELS](SHOW.LEVELS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a specific number of levels of an
+[SHOW.LEVELS](SHOW.LEVELS.md)&nbsp;&nbsp;&nbsp;Displays a specific number of levels of an
 outline
 
 

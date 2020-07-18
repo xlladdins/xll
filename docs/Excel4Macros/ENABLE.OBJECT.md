@@ -8,10 +8,10 @@ controls will be grayed out.
 
 **ENABLE.OBJECT**(object\_id\_text, **enable\_logical**)
 
-Object\_id\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the object(s) as
+Object\_id\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the object(s) as
 text. If omitted, the selected object(s) are assumed.
 
-Enable\_logical**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies
+Enable\_logical&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies
 whether the object is to be enabled. If TRUE, the object is enabled. If
 FALSE, the object is disabled.
 
@@ -22,7 +22,7 @@ Button 2 on the dialog box.
 
 **Related Function**
 
-[SET.CONTROL.VALUE](SET.CONTROL.VALUE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the value of the active
+[SET.CONTROL.VALUE](SET.CONTROL.VALUE.md)&nbsp;&nbsp;&nbsp;Changes the value of the active
 control
 
 

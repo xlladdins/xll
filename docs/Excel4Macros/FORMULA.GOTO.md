@@ -11,7 +11,7 @@ select a range on the active workbook.
 
 **FORMULA.GOTO**?(reference, corner)
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies where to scroll and what to
+Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies where to scroll and what to
 select.
 
   - > Reference should be either an external reference to a workbook, an
@@ -25,13 +25,13 @@ select.
     > feature distinguishes FORMULA.GOTO from SELECT.
 
 
-Corner**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a logical value that specifies whether
+Corner&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that specifies whether
 to scroll through the window so that the upper-left cell in reference is
 in the upper-left corner of the active window. If corner is TRUE,
 Microsoft Excel places reference in the upper-left corner of the window;
 if FALSE or omitted, Microsoft Excel scrolls through normally.
 
-**Tip****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Microsoft Excel keeps a list of the cells
+**Tip**&nbsp;&nbsp;&nbsp;Microsoft Excel keeps a list of the cells
 you've selected with previous FORMULA.GOTO functions or Go To commands.
 When you use FORMULA.GOTO with GET.WORKSPACE(41), which returns a
 horizontal array of previous Go To selections, you can backtrack through
@@ -71,14 +71,14 @@ FORMULA.GOTO(INDEX(GET.WORKSPACE(41), 1, 3))
 
 **Related Functions**
 
-[GOTO](GOTO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Directs macro execution to another cell
+[GOTO](GOTO.md)&nbsp;&nbsp;&nbsp;Directs macro execution to another cell
 
-[HSCROLL](HSCROLL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Horizontally scrolls through a sheet by
+[HSCROLL](HSCROLL.md)&nbsp;&nbsp;&nbsp;Horizontally scrolls through a sheet by
 percentage or by column or row number
 
-[SELECT](SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects a cell, worksheet object, or chart item
+[SELECT](SELECT.md)&nbsp;&nbsp;&nbsp;Selects a cell, worksheet object, or chart item
 
-[VSCROLL](VSCROLL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Vertically scrolls through a sheet by
+[VSCROLL](VSCROLL.md)&nbsp;&nbsp;&nbsp;Vertically scrolls through a sheet by
 percentage or by column or row number
 
 

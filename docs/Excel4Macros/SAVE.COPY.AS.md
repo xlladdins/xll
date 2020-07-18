@@ -10,7 +10,7 @@ electronic mail message.
 
 **SAVE.COPY.AS**(document\_text)
 
-Document\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name you want to give the
+Document\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name you want to give the
 copy of the workbook.
 
 **Example**

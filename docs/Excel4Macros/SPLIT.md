@@ -9,10 +9,10 @@ parts of the active sheet at the same time.
 
 **SPLIT**(col\_split, row\_split)
 
-Col\_split**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies where to split the window
+Col\_split&nbsp;&nbsp;&nbsp;&nbsp;specifies where to split the window
 vertically and is measured in columns from the left of the window.
 
-Row\_split**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies where to split the window
+Row\_split&nbsp;&nbsp;&nbsp;&nbsp;specifies where to split the window
 horizontally and is measured in rows from the top of the window.
 
 If an argument is 0 and there is a split in that direction, the split is
@@ -21,7 +21,7 @@ changed.
 
 **Related Function**
 
-[FREEZE.PANES](FREEZE.PANES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Freezes or unfreezes the panes of a window
+[FREEZE.PANES](FREEZE.PANES.md)&nbsp;&nbsp;&nbsp;Freezes or unfreezes the panes of a window
 
 
 

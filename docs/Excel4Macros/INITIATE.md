@@ -9,19 +9,19 @@ INITIATE is successful, it returns the number of the open channel. All
 the subsequent DDE macro functions use this number to specify the
 channel. If INITIATE is unsuccessful, FALSE is returned.
 
-**Important****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Microsoft Excel for the Macintosh
+**Important**&nbsp;&nbsp;&nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this function.
 
 **Syntax**
 
 **INITIATE**(**app\_text, topic\_text**)
 
-App\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the DDE name of the application with
+App\_text&nbsp;&nbsp;&nbsp;&nbsp;is the DDE name of the application with
 which you want to begin a DDE session, in text form. The form of
 app\_text depends on the application you are accessing. The DDE name of
 Microsoft Excel, for example, is "Excel".
 
-Topic\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;describes something, such as a
+Topic\_text&nbsp;&nbsp;&nbsp;&nbsp;describes something, such as a
 document or a record in a database, in the application that you are
 accessing; the form of topic\_text depends on the application you are
 accessing. Microsoft Excel accepts the names of the current documents as
@@ -50,15 +50,15 @@ INITIATE("WORD", "MEMO")
 
 **Related Functions**
 
-[POKE](POKE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sends data to another application
+[POKE](POKE.md)&nbsp;&nbsp;&nbsp;Sends data to another application
 
-[REQUEST](REQUEST.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns data from another application
+[REQUEST](REQUEST.md)&nbsp;&nbsp;&nbsp;Returns data from another application
 
-[TERMINATE](TERMINATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Closes a channel to another application
+[TERMINATE](TERMINATE.md)&nbsp;&nbsp;&nbsp;Closes a channel to another application
 
-[EXECUTE](EXECUTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Carries out a command in another application
+[EXECUTE](EXECUTE.md)&nbsp;&nbsp;&nbsp;Carries out a command in another application
 
-[EXEC](EXEC.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Starts a separate program
+[EXEC](EXEC.md)&nbsp;&nbsp;&nbsp;Starts a separate program
 
 
 

@@ -12,7 +12,7 @@ width)
 **FORMAT.AUTO**?(format\_num, number, font, alignment, border, pattern,
 width)
 
-Format\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 17
+Format\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 17
 corresponding to the formats in the Table Format list box in the
 AutoFormat dialog box.
 
@@ -44,30 +44,30 @@ To Apply check boxes in the AutoFormat dialog box. If an argument is
 TRUE or omitted, Microsoft Excel selects the check box; if FALSE,
 Microsoft Excel clears the check box.
 
-Number**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Number check box.
+Number&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Number check box.
 
-Font**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Font check box.
+Font&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Font check box.
 
-Alignment**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Alignment check box.
+Alignment&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Alignment check box.
 
-Border**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Border check box.
+Border&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Border check box.
 
-Pattern**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Pattern check box.
+Pattern&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Pattern check box.
 
-Width**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;corresponds to the Column Width/Row Height
+Width&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Column Width/Row Height
 check box.
 
 **Related Functions**
 
-[ALIGNMENT](ALIGNMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Aligns or wraps text in cells
+[ALIGNMENT](ALIGNMENT.md)&nbsp;&nbsp;&nbsp;Aligns or wraps text in cells
 
-[BORDER](BORDER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds a border to the selected cell or object
+[BORDER](BORDER.md)&nbsp;&nbsp;&nbsp;Adds a border to the selected cell or object
 
-[FONT.PROPERTIES](FONT.PROPERTIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a font to the selection
+[FONT.PROPERTIES](FONT.PROPERTIES.md)&nbsp;&nbsp;&nbsp;Applies a font to the selection
 
-[FORMAT.NUMBER](FORMAT.NUMBER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a number format to the selection
+[FORMAT.NUMBER](FORMAT.NUMBER.md)&nbsp;&nbsp;&nbsp;Applies a number format to the selection
 
-[PATTERNS](PATTERNS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the appearance of the selected object
+[PATTERNS](PATTERNS.md)&nbsp;&nbsp;&nbsp;Changes the appearance of the selected object
 
 
 

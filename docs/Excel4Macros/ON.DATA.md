@@ -9,10 +9,10 @@ called remote references.
 
 **ON.DATA**(document\_text, macro\_text)
 
-**Important****&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Microsoft Excel for the Macintosh
+**Important**&nbsp;&nbsp;&nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this function.
 
-Document\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the sheet to which
+Document\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the sheet to which
 remote data will be sent or the name of the source of the remote data.
 
   - > If document\_text is the name of the remote data source, it must
@@ -30,7 +30,7 @@ remote data will be sent or the name of the source of the remote data.
     > current folder, document\_text must include the complete path.
 
 
-Macro\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of, or an R1C1-style
+Macro\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of, or an R1C1-style
 reference to, a macro that you want to run when data comes into the
 workbook or from the source specified by document\_text. The name or
 reference must be in text form.
@@ -68,14 +68,14 @@ ON.DATA("\[SALES DATABASE\]North", "R2C3")
 
 **Related Functions**
 
-[ERROR](ERROR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies what action to take if an error is
+[ERROR](ERROR.md)&nbsp;&nbsp;&nbsp;Specifies what action to take if an error is
 encountered while a macro is running
 
-[INITIATE](INITIATE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens a channel to another application
+[INITIATE](INITIATE.md)&nbsp;&nbsp;&nbsp;Opens a channel to another application
 
-[ON.ENTRY](ON.ENTRY.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when data is entered
+[ON.ENTRY](ON.ENTRY.md)&nbsp;&nbsp;&nbsp;Runs a macro when data is entered
 
-[ON.RECALC](ON.RECALC.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Runs a macro when a workbook is recalculated
+[ON.RECALC](ON.RECALC.md)&nbsp;&nbsp;&nbsp;Runs a macro when a workbook is recalculated
 
 
 

@@ -9,11 +9,11 @@ Saves the currently opened workbook or workbooks as a workspace.
 
 **SAVE.WORKSPACE**?(name\_text)
 
-Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the workspace to save.
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the workspace to save.
 
 **Related Function**
 
-[SAVE.AS](SAVE.AS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Specifies a new filename.
+[SAVE.AS](SAVE.AS.md)&nbsp;&nbsp;&nbsp;Specifies a new filename.
 
 
 

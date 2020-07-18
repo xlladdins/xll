@@ -12,7 +12,7 @@ returns the \#VALUE\! error value and interrupts the macro.
 
 **Related Function**
 
-[BRING.TO.FRONT](BRING.TO.FRONT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Brings selected objects to the front
+[BRING.TO.FRONT](BRING.TO.FRONT.md)&nbsp;&nbsp;&nbsp;Brings selected objects to the front
 
 
 

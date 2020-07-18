@@ -14,7 +14,7 @@ breaks.
 
 **Related Function**
 
-[SET.PAGE.BREAK](SET.PAGE.BREAK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Sets manual page breaks
+[SET.PAGE.BREAK](SET.PAGE.BREAK.md)&nbsp;&nbsp;&nbsp;Sets manual page breaks
 
 
 

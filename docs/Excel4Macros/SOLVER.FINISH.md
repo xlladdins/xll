@@ -14,13 +14,13 @@ If this function is not available, you must install the Solver add-in.
 
 **SOLVER.FINISH**?(keep\_final, report\_array)
 
-Keep\_final**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the number 1 or 2 and specifies
+Keep\_final&nbsp;&nbsp;&nbsp;&nbsp;is the number 1 or 2 and specifies
 whether to keep the final solution. If keep\_final is 1 or omitted, the
 final solution values are kept in the changing cells. If keep\_final is
 2, the final solution values are discarded and the former values of the
 changing cells are restored.
 
-Report\_array**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an array argument specifying
+Report\_array&nbsp;&nbsp;&nbsp;&nbsp;is an array argument specifying
 what reports to create when Solver is finished.
 
 <table>
@@ -66,7 +66,7 @@ sensitivity report.
 
 **Related Function**
 
-[SOLVER.SOLVE](SOLVER.SOLVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Equivalent to clicking the Solver command
+[SOLVER.SOLVE](SOLVER.SOLVE.md)&nbsp;&nbsp;&nbsp;Equivalent to clicking the Solver command
 on the Tools menu and clicking the Solve button in the Solver Parameters
 dialog box
 

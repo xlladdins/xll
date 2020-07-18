@@ -10,7 +10,7 @@ File menu.
 
 **SET.PRINT.AREA**(range)
 
-Range**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the reference to the range that you want
+Range&nbsp;&nbsp;&nbsp;&nbsp;is the reference to the range that you want
 to be printed. If you specify no range by using a set of empty quotation
 marks (""), deletes the print area.
 
@@ -27,9 +27,9 @@ marks (""), deletes the print area.
 
 **Related Functions**
 
-[PRINT](PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints the active sheet
+[PRINT](PRINT.md)&nbsp;&nbsp;&nbsp;Prints the active sheet
 
-[SET.PRINT.TITLES](SET.PRINT.TITLES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Identifies text to print as titles
+[SET.PRINT.TITLES](SET.PRINT.TITLES.md)&nbsp;&nbsp;&nbsp;Identifies text to print as titles
 
 
 

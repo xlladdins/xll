@@ -9,7 +9,7 @@ compatibility with Microsoft Excel versions earlier than Microsoft Excel
 
 **SERIES.AXES**(axis)
 
-Axis**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number specifying on which axis to plot
+Axis&nbsp;&nbsp;&nbsp;&nbsp;is a number specifying on which axis to plot
 the data series: use 1 for primary axis, 2 for secondary axis.
 
 

@@ -10,7 +10,7 @@ before printing.
 
 **Related Function**
 
-[PRINT](PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints the active workbook
+[PRINT](PRINT.md)&nbsp;&nbsp;&nbsp;Prints the active workbook
 
 
 

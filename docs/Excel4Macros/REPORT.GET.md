@@ -11,7 +11,7 @@ add-in.
 
 **REPORT.GET**(**type\_num**, report\_name)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying the
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying the
 type of information to return, as shown in the following table.
 
 <table>
@@ -51,7 +51,7 @@ type of information to return, as shown in the following table.
 </tbody>
 </table>
 
-Report\_name**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the name of a report in
+Report\_name&nbsp;&nbsp;&nbsp;&nbsp;specifies the name of a report in
 the active workbook.
 
 **Remarks**
@@ -67,11 +67,11 @@ REPORT.GET(1)
 
 **Related Functions**
 
-[REPORT.DEFINE](REPORT.DEFINE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a report
+[REPORT.DEFINE](REPORT.DEFINE.md)&nbsp;&nbsp;&nbsp;Creates a report
 
-[REPORT.DELETE](REPORT.DELETE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Removes a report from the active workbook
+[REPORT.DELETE](REPORT.DELETE.md)&nbsp;&nbsp;&nbsp;Removes a report from the active workbook
 
-[REPORT.PRINT](REPORT.PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints a report
+[REPORT.PRINT](REPORT.PRINT.md)&nbsp;&nbsp;&nbsp;Prints a report
 
 
 

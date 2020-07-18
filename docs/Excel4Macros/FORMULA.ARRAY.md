@@ -9,11 +9,11 @@ COMMAND+ENTER in Microsoft Excel for the Macintosh.
 
 **FORMULA.ARRAY**(**formula\_text**, reference)
 
-Formula\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the text you want to enter in
+Formula\_text&nbsp;&nbsp;&nbsp;&nbsp;is the text you want to enter in
 the array. For more information on formula\_text, see the first form of
 FORMULA.
 
-Reference**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies where formula\_text is
+Reference&nbsp;&nbsp;&nbsp;&nbsp;specifies where formula\_text is
 entered. It can be a reference to a cell on the active worksheet or an
 external reference to a named workbook. Reference must be a R1C1-style
 reference in text form. If reference is omitted, formula\_text is
@@ -42,10 +42,10 @@ the same cells in the worksheet named SALES.
 
 **Related Functions**
 
-[FORMULA](FORMULA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters values into a cell or range or onto a
+[FORMULA](FORMULA.md)&nbsp;&nbsp;&nbsp;Enters values into a cell or range or onto a
 chart
 
-[FORMULA.FILL](FORMULA.FILL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Enters a formula in the specified range
+[FORMULA.FILL](FORMULA.FILL.md)&nbsp;&nbsp;&nbsp;Enters a formula in the specified range
 
 
 

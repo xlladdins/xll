@@ -12,7 +12,7 @@ resource regardless of the use count.
 
 **UNREGISTER**(**register\_id**)
 
-Register\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the register ID returned by the
+Register\_id&nbsp;&nbsp;&nbsp;&nbsp;is the register ID returned by the
 REGISTER or REGISTER.ID function, which corresponds to the function or
 code resource to be removed from memory.
 
@@ -24,7 +24,7 @@ memory. Therefore, if you register a function or code resource more than
 once, you must use a corresponding number of UNREGISTER functions to
 ensure that it is completely unregistered.
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**Because Microsoft Excel for Windows and
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Because Microsoft Excel for Windows and
 Microsoft Excel for the Macintosh use different types of code resources,
 UNREGISTER has a slightly different syntax form when used in each
 operating environment.
@@ -41,7 +41,7 @@ For Microsoft Excel for the Macintosh
 
 **UNREGISTER**(**file\_text**)
 
-Module\_text or file\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is text specifying the
+Module\_text or file\_text&nbsp;&nbsp;&nbsp;&nbsp;is text specifying the
 name of the dynamic link library (DLL) that contains the function (in
 Microsoft Excel for Windows) or the name of the file that contains the
 code resource (in Microsoft Excel for the Macintosh).
@@ -69,7 +69,7 @@ unregisters all functions in that DLL:
 
 UNREGISTER("User")
 
-**Tip**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**If you register a function or code resource,
+**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;If you register a function or code resource,
 and use the optional function\_text argument to specify a custom name
 that will appear in the Paste Function dialog box, this custom name will
 not be removed by the UNREGISTER function. To remove the custom name,
@@ -77,7 +77,7 @@ use the SET.NAME function without its second argument.
 
 **Related Function**
 
-[REGISTER](REGISTER.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Registers a code resource
+[REGISTER](REGISTER.md)&nbsp;&nbsp;&nbsp;Registers a code resource
 
 
 

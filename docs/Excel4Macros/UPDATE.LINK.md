@@ -9,12 +9,12 @@ information from a supporting document.
 
 **UPDATE.LINK**(link\_text, type\_of\_link)
 
-Link\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a text string describing the full
+Link\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text string describing the full
 path of the link as displayed in the Links dialog box. If link\_text is
 omitted, only links from the active workbook to other Microsoft Excel
 workbooks are updated.
 
-Type\_of\_link**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 4 that
+Type\_of\_link&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 4 that
 specifies the type of link to update.
 
 |                    |                        |
@@ -27,11 +27,11 @@ specifies the type of link to update.
 
 **Related Functions**
 
-[CHANGE.LINK](CHANGE.LINK.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes supporting links
+[CHANGE.LINK](CHANGE.LINK.md)&nbsp;&nbsp;&nbsp;Changes supporting links
 
-[GET.LINK.INFO](GET.LINK.INFO.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a link
+[GET.LINK.INFO](GET.LINK.INFO.md)&nbsp;&nbsp;&nbsp;Returns information about a link
 
-[OPEN.LINKS](OPEN.LINKS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Opens specified supporting documents
+[OPEN.LINKS](OPEN.LINKS.md)&nbsp;&nbsp;&nbsp;Opens specified supporting documents
 
 
 

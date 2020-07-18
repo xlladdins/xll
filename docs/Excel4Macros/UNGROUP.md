@@ -12,7 +12,7 @@ If the selection is not a grouped object, UNGROUP returns FALSE.
 
 **Related Function**
 
-[GROUP](GROUP.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Groups selected objects
+[GROUP](GROUP.md)&nbsp;&nbsp;&nbsp;Groups selected objects
 
 
 

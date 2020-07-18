@@ -6,7 +6,7 @@ Returns information about a workbook.
 
 **GET.WORKBOOK**(**type\_num**, name\_text)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies what type of
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies what type of
 workbook information you want.
 
 <table>
@@ -173,7 +173,7 @@ workbook information you want.
 </tbody>
 </table>
 
-Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of an open workbook. If
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of an open workbook. If
 name\_text is omitted, it is assumed to be the active workbook.
 
 **Example**
@@ -185,9 +185,9 @@ GET.WORKBOOK(38, "SALES.XLS")
 
 **Related Functions**
 
-[GET.DOCUMENT](GET.DOCUMENT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a workbook
+[GET.DOCUMENT](GET.DOCUMENT.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook
 
-[WORKBOOK.SELECT](WORKBOOK.SELECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Selects the specified documents in a
+[WORKBOOK.SELECT](WORKBOOK.SELECT.md)&nbsp;&nbsp;&nbsp;Selects the specified documents in a
 workbook
 
 

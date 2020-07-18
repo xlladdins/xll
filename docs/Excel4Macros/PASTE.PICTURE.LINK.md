@@ -12,16 +12,16 @@ the picture.
 
 **Related Functions**
 
-[COPY.PICTURE](COPY.PICTURE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Copies and pastes data or object
+[COPY.PICTURE](COPY.PICTURE.md)&nbsp;&nbsp;&nbsp;Copies and pastes data or object
 
-[COPY.PICTURE](COPY.PICTURE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates a picture of the current selection
+[COPY.PICTURE](COPY.PICTURE.md)&nbsp;&nbsp;&nbsp;Creates a picture of the current selection
 for use in another program
 
-[CREATE.OBJECT](CREATE.OBJECT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates an object
+[CREATE.OBJECT](CREATE.OBJECT.md)&nbsp;&nbsp;&nbsp;Creates an object
 
-[PASTE](PASTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes cut or copied data
+[PASTE](PASTE.md)&nbsp;&nbsp;&nbsp;Pastes cut or copied data
 
-[PASTE.PICTURE](PASTE.PICTURE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes a picture of the currently copied
+[PASTE.PICTURE](PASTE.PICTURE.md)&nbsp;&nbsp;&nbsp;Pastes a picture of the currently copied
 area
 
 

@@ -6,7 +6,7 @@ Returns information about a sheet in a workbook.
 
 **GET.DOCUMENT**(**type\_num**, name\_text)
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number that specifies what type of
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number that specifies what type of
 information you want. The following lists show the possible values of
 type\_num and the corresponding results.
 
@@ -355,7 +355,7 @@ The next values of type\_num correspond to printing and page settings.
 </tbody>
 </table>
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**GET.DOCUMENT(62) and GET.DOCUMENT(63) are
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;GET.DOCUMENT(62) and GET.DOCUMENT(63) are
 mutually exclusive. If one returns a value, then the other returns the
 \#N/A error value.
 
@@ -469,7 +469,7 @@ The next values of type\_num correspond to various workbook settings.
 </tbody>
 </table>
 
-Name\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of an open workbook. If
+Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of an open workbook. If
 name\_text is omitted, it is assumed to be the active workbook.
 
 **Examples**
@@ -497,11 +497,11 @@ GET.DOCUMENT({6, 7, 8}, "SHEET1")
 
 **Related Functions**
 
-[GET.CELL](GET.CELL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the specified cell
+[GET.CELL](GET.CELL.md)&nbsp;&nbsp;&nbsp;Returns information about the specified cell
 
-[GET.WINDOW](GET.WINDOW.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about a window
+[GET.WINDOW](GET.WINDOW.md)&nbsp;&nbsp;&nbsp;Returns information about a window
 
-[GET.WORKSPACE](GET.WORKSPACE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Returns information about the workspace
+[GET.WORKSPACE](GET.WORKSPACE.md)&nbsp;&nbsp;&nbsp;Returns information about the workspace
 
 
 

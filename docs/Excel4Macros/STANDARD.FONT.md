@@ -14,11 +14,11 @@ The arguments for this function are the same as those for FORMAT.FONT.
 
 **Related Functions**
 
-[APPLY.STYLE](APPLY.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a style to the selection
+[APPLY.STYLE](APPLY.STYLE.md)&nbsp;&nbsp;&nbsp;Applies a style to the selection
 
-[DEFINE.STYLE](DEFINE.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a cell style
+[DEFINE.STYLE](DEFINE.STYLE.md)&nbsp;&nbsp;&nbsp;Defines a cell style
 
-[FORMAT.FONT](FORMAT.FONT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Applies a font to the selection
+[FORMAT.FONT](FORMAT.FONT.md)&nbsp;&nbsp;&nbsp;Applies a font to the selection
 
 
 

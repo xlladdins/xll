@@ -11,7 +11,7 @@ information.
 
 **PROMOTE**?(rowcol)
 
-Rowcol**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies whether to promote rows or
+Rowcol&nbsp;&nbsp;&nbsp;&nbsp;specifies whether to promote rows or
 columns.
 
 |              |             |
@@ -32,12 +32,12 @@ columns.
 
 **Related Functions**
 
-[DEMOTE](DEMOTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Demotes the selection in an outline
+[DEMOTE](DEMOTE.md)&nbsp;&nbsp;&nbsp;Demotes the selection in an outline
 
-[SHOW.DETAIL](SHOW.DETAIL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Expands or collapses a portion of an
+[SHOW.DETAIL](SHOW.DETAIL.md)&nbsp;&nbsp;&nbsp;Expands or collapses a portion of an
 outline
 
-[SHOW.LEVELS](SHOW.LEVELS.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a specific number of levels of an
+[SHOW.LEVELS](SHOW.LEVELS.md)&nbsp;&nbsp;&nbsp;Displays a specific number of levels of an
 outline
 
 

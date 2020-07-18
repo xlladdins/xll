@@ -8,7 +8,7 @@ can be used just like the built-in Microsoft Excel Help.
 
 **HELP**(help\_ref)
 
-Help\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to a topic in a Help
+Help\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a topic in a Help
 file, in the form "filename\!topic\_number".
 
   - > Help\_ref must be given as text.

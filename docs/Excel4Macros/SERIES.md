@@ -14,12 +14,12 @@ typing the changes.
 
 **SERIES**(name\_ref, categories, **values, plot\_order**)
 
-Name\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the name of the data series. It can
+Name\_ref&nbsp;&nbsp;&nbsp;&nbsp;is the name of the data series. It can
 be an external reference to a single cell or a name defined as a single
 cell. Name\_ref can also be text enclosed in quotation marks (for
 example, "Projected Sales").
 
-Categories**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an external reference to the name
+Categories&nbsp;&nbsp;&nbsp;&nbsp;is an external reference to the name
 of the workbook and to the cells that contain one of the following sets
 of data:
 
@@ -28,11 +28,11 @@ of data:
   - > X-coordinate data for xy (scatter) charts
 
 
-Values**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an external reference to the name of
+Values&nbsp;&nbsp;&nbsp;&nbsp;is an external reference to the name of
 the workbook and to the cells that contain values (or y-coordinate data
 in scatter charts).
 
-Plot\_order**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is an integer specifying whether the
+Plot\_order&nbsp;&nbsp;&nbsp;&nbsp;is an integer specifying whether the
 series is plotted first, second, or third, and so on, in the chart. No
 two series can have the same plot\_order.
 
@@ -52,9 +52,9 @@ two series can have the same plot\_order.
 
 **Related Functions**
 
-[CHART.WIZARD](CHART.WIZARD.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates and formats a chart
+[CHART.WIZARD](CHART.WIZARD.md)&nbsp;&nbsp;&nbsp;Creates and formats a chart
 
-[EDIT.SERIES](EDIT.SERIES.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or changes a chart series
+[EDIT.SERIES](EDIT.SERIES.md)&nbsp;&nbsp;&nbsp;Creates or changes a chart series
 
 
 

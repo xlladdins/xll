@@ -12,12 +12,12 @@ ARRANGE.ALL functions to size and position the new window.
 
 **Related Functions**
 
-[ARRANGE.ALL](ARRANGE.ALL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Arranges all displayed windows to fill the
+[ARRANGE.ALL](ARRANGE.ALL.md)&nbsp;&nbsp;&nbsp;Arranges all displayed windows to fill the
 workspace and synchronizes windows for scrolling
 
-[WINDOW.MOVE](WINDOW.MOVE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Moves a window
+[WINDOW.MOVE](WINDOW.MOVE.md)&nbsp;&nbsp;&nbsp;Moves a window
 
-[WINDOW.SIZE](WINDOW.SIZE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Changes the size of a window
+[WINDOW.SIZE](WINDOW.SIZE.md)&nbsp;&nbsp;&nbsp;Changes the size of a window
 
 
 

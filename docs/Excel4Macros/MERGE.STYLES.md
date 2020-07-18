@@ -29,9 +29,9 @@ to merge styles into the active workbook.
 
 **Related Functions**
 
-[DEFINE.STYLE](DEFINE.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Creates or changes a cell style
+[DEFINE.STYLE](DEFINE.STYLE.md)&nbsp;&nbsp;&nbsp;Creates or changes a cell style
 
-[DELETE.STYLE](DELETE.STYLE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes a cell style
+[DELETE.STYLE](DELETE.STYLE.md)&nbsp;&nbsp;&nbsp;Deletes a cell style
 
 
 

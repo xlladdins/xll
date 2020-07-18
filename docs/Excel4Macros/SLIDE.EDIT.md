@@ -31,7 +31,7 @@ For a description of the arguments, see SLIDE.PASTE.
 
 **Related Function**
 
-[SLIDE.PASTE](SLIDE.PASTE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Pastes the contents of the Clipboard onto a
+[SLIDE.PASTE](SLIDE.PASTE.md)&nbsp;&nbsp;&nbsp;Pastes the contents of the Clipboard onto a
 slide
 
 

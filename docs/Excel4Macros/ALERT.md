@@ -9,10 +9,10 @@ message.
 
 **ALERT**(message\_text, type\_num, help\_ref)
 
-Message\_text**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is the message displayed in the
+Message\_text&nbsp;&nbsp;&nbsp;&nbsp;is the message displayed in the
 dialog box.
 
-Type\_num**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a number from 1 to 3 specifying
+Type\_num&nbsp;&nbsp;&nbsp;&nbsp;is a number from 1 to 3 specifying
 which type of dialog box to display. If you omit type\_num, it is
 assumed to be 2.
 
@@ -30,7 +30,7 @@ assumed to be 2.
     > warnings.
 
 
-Help\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to a custom online Help
+Help\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to a custom online Help
 topic, in the form "filename\! topic\_number".
 
   - > If help\_ref is present, a Help button appears in the lower-right
@@ -42,7 +42,7 @@ topic, in the form "filename\! topic\_number".
   - > Help\_ref must be given in text form.
 
 
-**Note**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;**In Microsoft Excel for the Macintosh, the
+**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;In Microsoft Excel for the Macintosh, the
 ALERT dialog box is not a movable window.
 
 **Examples**
@@ -93,9 +93,9 @@ A1.R1C1(ALERT("Click OK for A1 style; Cancel for R1C1", 1))
 
 **Related Functions**
 
-[INPUT](INPUT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a dialog box for user input
+[INPUT](INPUT.md)&nbsp;&nbsp;&nbsp;Displays a dialog box for user input
 
-[MESSAGE](MESSAGE.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Displays a message in the status bar
+[MESSAGE](MESSAGE.md)&nbsp;&nbsp;&nbsp;Displays a message in the status bar
 
 
 

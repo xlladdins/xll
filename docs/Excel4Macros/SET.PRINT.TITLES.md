@@ -12,7 +12,7 @@ above or to the left of that cell.
 
 **SET.PRINT.TITLES**?(titles\_for\_cols\_ref, titles\_for\_rows\_ref)
 
-Titles\_for\_cols\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the row
+Titles\_for\_cols\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the row
 to be used as a title for columns.
 
   - > If you specify part of a row, Microsoft Excel expands the title to
@@ -25,7 +25,7 @@ to be used as a title for columns.
     > from the print titles definition.
 
 
-Titles\_for\_rows\_ref**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;is a reference to the
+Titles\_for\_rows\_ref&nbsp;&nbsp;&nbsp;&nbsp;is a reference to the
 column to be used as a title for rows.
 
   - > If you specify part of a column, Microsoft Excel expands the title
@@ -51,12 +51,12 @@ column to be used as a title for rows.
 
 **Related Functions**
 
-[DEFINE.NAME](DEFINE.NAME.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines a name on the active worksheet or
+[DEFINE.NAME](DEFINE.NAME.md)&nbsp;&nbsp;&nbsp;Defines a name on the active worksheet or
 macro sheet
 
-[PRINT](PRINT.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Prints the active sheet
+[PRINT](PRINT.md)&nbsp;&nbsp;&nbsp;Prints the active sheet
 
-[SET.PRINT.AREA](SET.PRINT.AREA.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Defines the print area
+[SET.PRINT.AREA](SET.PRINT.AREA.md)&nbsp;&nbsp;&nbsp;Defines the print area
 
 
 

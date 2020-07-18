@@ -6,7 +6,7 @@ Resets built-in toolbars to the default Microsoft Excel set.
 
 **RESET.TOOLBAR**(bar\_id)
 
-Bar\_id**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;specifies the number or name of the
+Bar\_id&nbsp;&nbsp;&nbsp;&nbsp;specifies the number or name of the
 toolbar that you want to reset. For detailed information about bar\_id,
 see ADD.TOOL.
 
@@ -18,9 +18,9 @@ takes no other action.
 
 **Related Functions**
 
-[ADD.TOOL](ADD.TOOL.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Adds one or more tools to a toolbar
+[ADD.TOOL](ADD.TOOL.md)&nbsp;&nbsp;&nbsp;Adds one or more tools to a toolbar
 
-[DELETE.TOOLBAR](DELETE.TOOLBAR.md)**&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;nbsp;Deletes custom toolbars
+[DELETE.TOOLBAR](DELETE.TOOLBAR.md)&nbsp;&nbsp;&nbsp;Deletes custom toolbars
 
 
 
