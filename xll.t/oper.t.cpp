@@ -315,6 +315,26 @@ int test_fp = []()
 
 		a(1, 0) = 1.23;
 		ensure(a[3] == 1.23);
+		ensure(a == a);
+		ensure(a != b);
+
+		a.resize(3, 2);
+		ensure(a.rows() == 3);
+		ensure(a.columns() == 2);
+		ensure(a.size() == 6);
+		ensure(a[3] == 1.23);
+
+		a.resize(3, 3);
+		ensure(a.rows() == 3);
+		ensure(a.columns() == 3);
+		ensure(a.size() == 9);
+		ensure(a[3] == 1.23);
+
+		a.resize(2, 2);
+		ensure(a.rows() == 2);
+		ensure(a.columns() == 2);
+		ensure(a.size() == 4);
+		ensure(a[3] == 1.23);
 	}
 
 	return 0;

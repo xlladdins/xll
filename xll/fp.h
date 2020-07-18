@@ -10,10 +10,10 @@ namespace xll {
 	/// </summary>
 	template<class X>
 	class XFP {
-		void* fp;
-	public:
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xfp xfp;
+		void* fp;
+	public:
 		XFP(xint r = 0, xint c = 0)
 		{
 			fp_alloc(r, c);
@@ -39,21 +39,16 @@ namespace xll {
 			free(fp);
 		}
 
-		std::strong_ordering operator<=>(const XFP& a) const
+		bool operator==(const XFP& a) const
 		{
-			if (auto cmp = rows() <=> a.rows(); cmp != 0) {
-				return cmp;
+			if (rows() != a.rows()) {
+				return false;
 			}
-			if (auto cmp = columns() <=> a.columns(); cmp != 0) {
-				return cmp;
+			if (columns() != a.columns()) {
+				return false;
 			}
-			for (size_t i = 0; i < size(); ++i) {
-				if (auto cmp = operator[](i) <=> a.operator[](i); cmp != 0) {
-					return cmp;
-				}
-			}
-
-			return std::strong_ordering::equal;
+			
+			return std::equal(begin(), end(), a.begin());
 		}
 
 		operator xfp& ()
@@ -65,13 +60,26 @@ namespace xll {
 			return reinterpret_cast<const xfp&>(*(xfp*)fp);
 		}
 
+		XFP& resize(xint r, xint c)
+		{
+			if (size() != r * c) {
+				fp_realloc(r, c);
+			}
+			else {
+				reinterpret_cast<xfp*>(fp)->rows = r;
+				reinterpret_cast<xfp*>(fp)->columns = c;
+			}
+
+			return *this;
+		}
+
 		xint rows() const
 		{
-			return operator const xfp&().rows;
+			return reinterpret_cast<const xfp*>(fp)->rows;
 		}
 		xint columns() const
 		{
-			return operator const xfp&().columns;
+			return reinterpret_cast<const xfp*>(fp)->columns;
 		}
 		xint size() const
 		{
@@ -79,15 +87,15 @@ namespace xll {
 		}
 		bool is_empty() const
 		{
-			retrun rows() == 0 && columns() == 0;
+			return rows() == 0 && columns() == 0;
 		}
 		double* array()
 		{
-			return operator xfp&().array;
+			return reinterpret_cast<xfp*>(fp)->array;
 		}
 		const double* array() const
 		{
-			return operator const xfp&().array;
+			return reinterpret_cast<const xfp*>(fp)->array;
 		}
 		double& operator[](xint i)
 		{
