@@ -55,6 +55,7 @@ double WINAPI xll_jn(LONG n, double x)
 
 Auto<Open> xai_open([]() { 
 	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Open> called")));
+
 	return TRUE;  
 });
 
@@ -69,3 +70,39 @@ int WINAPI xll_onkey(void)
 
 On<Key> xon_key(ON_CTRL ON_ALT X_("a"), X_("XLL.ONKEY"));
 
+AddInX xai_onwindow(MacroX(X_("?xll_onwindow"), X_("XLL.ONWINDOW")));
+int WINAPI xll_onwindow(void)
+{
+#pragma XLLEXPORT
+	ExcelX(xlcAlert, OPERX(X_("ONWINDOW called")));
+
+	return TRUE;
+}
+On<Window> xon_window(X_(""), X_("XLL.ONWINDOW"));
+
+AddInX xai_onsheed(MacroX(X_("?xll_onsheet"), X_("XLL.ONSHEET")));
+int WINAPI xll_onsheet(void)
+{
+#pragma XLLEXPORT
+	ExcelX(xlcAlert, OPERX(X_("ONSHEET called")));
+
+	return TRUE;
+}
+On<Sheet> xon_sheet(X_(""), X_("XLL.ONSHEET"), true);
+
+AddInX xai_get_workspace(
+	FunctionX(XLL_LPOPERX, X_("?xll_get_workspace"), X_("GET_WORKSPACE"))
+	.Args({
+		ArgX(XLL_LONGX, X_("type_num"), X_("is a number specifying the type of workspace information you want."))
+	})
+	.Uncalced()
+);
+LPOPERX WINAPI xll_get_workspace(LONG type_num)
+{
+#pragma XLLEXPORT
+	static OPERX oResult;
+
+	oResult = ExcelX(xlfGetWorkspace, OPERX(type_num));
+
+	return &oResult;
+}

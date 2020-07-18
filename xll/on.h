@@ -93,8 +93,6 @@ namespace xll {
 		}
 		On(xcstr text, xcstr macro, bool activate)
 		{
-			ensure(Key::On == xlcOnSheet);
-
 			Auto<Open> xao([text, macro, activate]() {
 				return ExcelX(Key::On, OPERX(text), OPERX(macro), OPERX(activate)) == true;
 			});
@@ -104,8 +102,6 @@ namespace xll {
 		}
 		On(const OPERX& time, xcstr macro, const OPERX& tolerance, bool insert)
 		{
-			ensure(Key::On == xlcOnTime);
-
 			Auto<Open> xao([time, macro, tolerance, insert]() {
 				return ExcelX(Key::On, OPERX(time), OPERX(macro), OPERX(tolerance), OPERX(insert)) == true;
 			});
