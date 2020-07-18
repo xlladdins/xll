@@ -1,5 +1,6 @@
 // fp.h - Two-dimensional array of doubles
 #pragma once
+#include <compare>
 #include "traits.h"
 
 namespace xll {
@@ -38,6 +39,23 @@ namespace xll {
 			free(fp);
 		}
 
+		std::strong_ordering operator<=>(const XFP& a) const
+		{
+			if (auto cmp = rows() <=> a.rows(); cmp != 0) {
+				return cmp;
+			}
+			if (auto cmp = columns() <=> a.columns(); cmp != 0) {
+				return cmp;
+			}
+			for (size_t i = 0; i < size(); ++i) {
+				if (auto cmp = operator[](i) <=> a.operator[](i); cmp != 0) {
+					return cmp;
+				}
+			}
+
+			return std::strong_ordering::equal;
+		}
+
 		operator xfp& ()
 		{
 			return reinterpret_cast<xfp&>(*(xfp*)fp);
@@ -58,6 +76,10 @@ namespace xll {
 		xint size() const
 		{
 			return rows() * columns();
+		}
+		bool is_empty() const
+		{
+			retrun rows() == 0 && columns() == 0;
 		}
 		double* array()
 		{

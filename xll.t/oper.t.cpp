@@ -299,7 +299,11 @@ int test_fp = []()
 		FP a;
  		ensure(a.rows() == 0);
 		ensure(a.columns() == 0);
-		a[0] = 1.23;
+		a[0] = 1.23; // always allocates for one double
+
+		FP a2{ a };
+		a = a2;
+		ensure(a == a2);
 	}
 	{
 		FP a(2,3);

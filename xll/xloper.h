@@ -89,6 +89,8 @@ namespace { // doesn't hide xloper_cmp!!!
 
 // works for any compination of XLOPER and OPER.
 template<typename X, typename Y>
+requires (std::is_base_of_v<XLOPER, X>&& std::is_base_of_v<XLOPER, Y>)
+|| (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
 inline bool operator==(const X& x, const Y& y)
 {
 	return xloper_cmp(x, y) == 0;
