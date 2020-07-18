@@ -1,4 +1,4 @@
-WORKBOOK.SELECT
+# WORKBOOK.SELECT
 
 Equivalent to selecting a sheet or group of sheets in the active
 workbook. If you select a group of sheets, subsequent commands effect

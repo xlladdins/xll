@@ -1,4 +1,4 @@
-DELETE.CHART.AUTOFORMAT
+# DELETE.CHART.AUTOFORMAT
 
 Deletes a custom format from the list of formats shown in the Custom
 Types tab in the Chart Type dialog box.

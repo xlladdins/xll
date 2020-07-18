@@ -1,4 +1,4 @@
-FREADLN
+# FREADLN
 
 Reads characters from a file, starting at the current position in the
 file and continuing to the end of the line, placing the characters in

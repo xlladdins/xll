@@ -1,4 +1,4 @@
-ACTIVE.CELL
+# ACTIVE.CELL
 
 Returns the reference of the active cell in the selection as an external
 reference.

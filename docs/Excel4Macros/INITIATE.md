@@ -1,4 +1,4 @@
-INITIATE
+# INITIATE
 
 Opens a dynamic data exchange (DDE) channel to an application and
 returns the number of the open channel. Once you have opened a channel

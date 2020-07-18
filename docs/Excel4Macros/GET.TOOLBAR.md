@@ -1,4 +1,4 @@
-GET.TOOLBAR
+# GET.TOOLBAR
 
 Returns information about one toolbar or all toolbars. Use GET.TOOLBAR
 to get information about a toolbar to use with functions that add,

@@ -1,4 +1,4 @@
-EVALUATE
+# EVALUATE
 
 Evaluates a formula or expression that is in the form of text and
 returns the result. To run a macro or subroutine, use the RUN function.

@@ -1,4 +1,4 @@
-FOURIER
+# FOURIER
 
 Performs a Fourier transform.
 

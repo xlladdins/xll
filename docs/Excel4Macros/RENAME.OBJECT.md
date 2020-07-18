@@ -1,4 +1,4 @@
-RENAME.OBJECT
+# RENAME.OBJECT
 
 Renames the selected object or group. This is useful for giving objects
 names more relevant to their usage. This is also useful if it is

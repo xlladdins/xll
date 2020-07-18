@@ -1,4 +1,4 @@
-CUT
+# CUT
 
 Equivalent to choosing the Cut command from the Edit menu. Cuts or moves
 data or objects.

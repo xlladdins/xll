@@ -1,4 +1,4 @@
-SCENARIO.SHOW
+# SCENARIO.SHOW
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 selecting a scenario and clicking the Show button. Recalculates a model

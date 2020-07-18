@@ -1,4 +1,4 @@
-FUNCTION.WIZARD
+# FUNCTION.WIZARD
 
 Displays the Paste Function dialog box, which you can use to enter
 functions into cells.

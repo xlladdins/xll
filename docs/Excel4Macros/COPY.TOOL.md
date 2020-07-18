@@ -1,4 +1,4 @@
-COPY.TOOL
+# COPY.TOOL
 
 Copies a button face to the Clipboard.
 

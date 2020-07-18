@@ -1,4 +1,4 @@
-CALCULATION
+# CALCULATION
 
 Controls when and how formulas in open workbooks are calculated. This
 function is included for compatibility with Microsoft Excel version 4.0.

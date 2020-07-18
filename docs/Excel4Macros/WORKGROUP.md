@@ -1,4 +1,4 @@
-WORKGROUP
+# WORKGROUP
 
 Equivalent to clicking the Group Edit command on the Options menu in
 Microsoft Excel version 4.0. Creates a group. This function is provided

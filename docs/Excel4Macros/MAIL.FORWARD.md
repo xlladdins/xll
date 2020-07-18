@@ -1,4 +1,4 @@
-MAIL.FORWARD
+# MAIL.FORWARD
 
 Equivalent to clicking the Forward command on the Mail submenu of the
 File menu. Creates a new mailer to replace the previous version and

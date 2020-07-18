@@ -1,4 +1,4 @@
-PUSHBUTTON.PROPERTIES
+# PUSHBUTTON.PROPERTIES
 
 Sets the properties of the push button control on a worksheet or dialog
 sheet.

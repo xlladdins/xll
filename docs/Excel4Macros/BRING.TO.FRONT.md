@@ -1,4 +1,4 @@
-BRING.TO.FRONT
+# BRING.TO.FRONT
 
 Puts the selected object or objects on top of all other objects. For
 example, if some worksheet objects are covering part of an embedded

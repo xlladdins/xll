@@ -1,4 +1,4 @@
-CLOSE.ALL
+# CLOSE.ALL
 
 Equivalent to clicking the Close All command on the File menu. The Close
 All command appears when you hold down SHIFT while selecting the File

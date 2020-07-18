@@ -1,4 +1,4 @@
-WORKBOOK.DELETE
+# WORKBOOK.DELETE
 
 Equivalent to clicking the Delete Sheet command on the Edit menu.
 Deletes a sheet or group of sheets from the current workbook.

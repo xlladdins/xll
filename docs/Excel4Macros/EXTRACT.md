@@ -1,4 +1,4 @@
-EXTRACT
+# EXTRACT
 
 Equivalent to choosing the Extract command from the Data menu in
 Microsoft Excel version 4.0. Finds database records that match the

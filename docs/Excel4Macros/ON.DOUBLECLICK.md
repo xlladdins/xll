@@ -1,4 +1,4 @@
-ON.DOUBLECLICK
+# ON.DOUBLECLICK
 
 Runs a macro when you double-click any cell or object on the specified
 sheet or macro sheet or double-click any item on the specified chart.

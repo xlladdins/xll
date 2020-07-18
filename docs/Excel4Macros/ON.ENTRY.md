@@ -1,4 +1,4 @@
-ON.ENTRY
+# ON.ENTRY
 
 Runs a macro when you enter data into any cell on the specified sheet.
 

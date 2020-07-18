@@ -1,4 +1,4 @@
-PASTE.TOOL
+# PASTE.TOOL
 
 Pastes a button face from the Clipboard to a specified position on a
 toolbar.

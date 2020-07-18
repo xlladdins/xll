@@ -1,4 +1,4 @@
-ON.SHEET
+# ON.SHEET
 
 Starts a macro whenever the specified sheet is activated from another
 sheet.

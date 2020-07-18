@@ -1,4 +1,4 @@
-SELECTION
+# SELECTION
 
 Returns the reference or object identifier of the selection as an
 external reference. Use SELECTION to return information about the

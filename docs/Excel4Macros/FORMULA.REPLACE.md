@@ -1,4 +1,4 @@
-FORMULA.REPLACE
+# FORMULA.REPLACE
 
 Equivalent to clicking the Replace command on the Edit menu. Finds and
 replaces characters in cells on your worksheet.

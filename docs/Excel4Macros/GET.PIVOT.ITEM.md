@@ -1,4 +1,4 @@
-GET.PIVOT.ITEM
+# GET.PIVOT.ITEM
 
 Returns information about an item in a PivotTable report.
 

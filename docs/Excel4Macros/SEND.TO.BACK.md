@@ -1,4 +1,4 @@
-SEND.TO.BACK
+# SEND.TO.BACK
 
 Sends the selected object or objects to the back. Use SEND.TO.BACK to
 position selected objects behind other objects.

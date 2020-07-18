@@ -1,4 +1,4 @@
-SAVE.DIALOG
+# SAVE.DIALOG
 
 Displays the standard Microsoft Excel File Save As dialog box and gets a
 file name from the user. This function returns the path and file name of

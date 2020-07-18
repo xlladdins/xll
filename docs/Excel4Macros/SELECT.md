@@ -1,4 +1,4 @@
-SELECT
+# SELECT
 
 Equivalent to selecting cells or changing the active cell. There are
 three syntax forms of SELECT. Use syntax 1 to select a cell on a
@@ -15,7 +15,7 @@ Syntax 3&nbsp;&nbsp;&nbsp;Selects chart objects
 
 Return to [README](README.md)
 
-SELECT Syntax 1
+# SELECT Syntax 1
 
 Equivalent to selecting cells or changing the active cell. There are
 three syntax forms of SELECT. Use syntax 1 to select a cell on a
@@ -117,7 +117,7 @@ category
 
 Return to [README](README.md)
 
-SELECT Syntax 2
+# SELECT Syntax 2
 
 Equivalent to selecting objects on a chart, worksheet, or macro sheet.
 There are three syntax forms of SELECT. Use syntax 2 to select an object
@@ -182,7 +182,7 @@ SELECT("3, 1, 4, 2")
 
 Return to [README](README.md)
 
-SELECT Syntax 3
+# SELECT Syntax 3
 
 Selects a chart object as specified by the selection code item\_text.
 There are three syntax forms of SELECT. Use syntax 3 to select a chart

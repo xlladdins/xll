@@ -1,4 +1,4 @@
-FILES
+# FILES
 
 Returns a horizontal text array of the names of all files in the
 specified directory or folder. Use FILES to build a list of filenames

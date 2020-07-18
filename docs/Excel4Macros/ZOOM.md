@@ -1,4 +1,4 @@
-ZOOM
+# ZOOM
 
 Equivalent to choosing the Zoom command from the View menu. Enlarges or
 reduces a sheet in the active window. Use ZOOM when you need to view

@@ -1,4 +1,4 @@
-END.IF
+# END.IF
 
 Ends a block of functions associated with the preceding IF function. You
 must include one and only one END.IF function for each macro-sheets-only

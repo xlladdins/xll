@@ -1,4 +1,4 @@
-SET.PREFERRED
+# SET.PREFERRED
 
 Changes the default format that Microsoft Excel uses when you create a
 new chart or when you format a chart PREFERRED macro function. When you

@@ -1,4 +1,4 @@
-IF
+# IF
 
 Used with ELSE, ELSE.IF, and END.IF to control which formulas in a macro
 are executed. There are two syntax forms of the IF function. The

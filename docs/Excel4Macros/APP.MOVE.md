@@ -1,4 +1,4 @@
-APP.MOVE
+# APP.MOVE
 
 Equivalent to clicking the Move command on the Control menu for the
 application window. Moves the Microsoft Excel window. In Microsoft Excel

@@ -1,4 +1,4 @@
-PRESS.TOOL
+# PRESS.TOOL
 
 Formats a button so that it appears either normal or depressed into the
 screen.

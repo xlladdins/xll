@@ -1,4 +1,4 @@
-SOLVER.ADD
+# SOLVER.ADD
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Add button in the Solver Parameters dialog box. Adds a constraint to

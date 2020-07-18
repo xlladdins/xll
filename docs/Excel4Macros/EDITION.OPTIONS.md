@@ -1,4 +1,4 @@
-EDITION.OPTIONS
+# EDITION.OPTIONS
 
 Sets options in, or performs actions on, the specified publisher or
 subscriber. In Microsoft Excel for Windows, EDITION.OPTIONS also allows

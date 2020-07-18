@@ -1,4 +1,4 @@
-GALLERY.3D.LINE
+# GALLERY.3D.LINE
 
 Changes the format of the active chart to a 3-D line chart.
 

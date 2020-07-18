@@ -1,4 +1,4 @@
-DELETE.COMMAND
+# DELETE.COMMAND
 
 Deletes a command from a custom or built-in menu. Use DELETE.COMMAND to
 remove commands you don't want the user to have access to or to remove

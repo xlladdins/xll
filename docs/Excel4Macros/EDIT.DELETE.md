@@ -1,4 +1,4 @@
-EDIT.DELETE
+# EDIT.DELETE
 
 Equivalent to clicking the Delete command on the Edit menu. Removes the
 selected cells from the worksheet and shifts other cells to close up the

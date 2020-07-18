@@ -1,4 +1,4 @@
-NEW
+# NEW
 
 Equivalent to clicking the New command on the File menu. Creates a new
 Microsoft Excel workbook or opens a template.

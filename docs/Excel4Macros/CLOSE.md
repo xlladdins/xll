@@ -1,4 +1,4 @@
-CLOSE
+# CLOSE
 
 Closes the active window. In Microsoft Excel for Windows, CLOSE is
 equivalent to clicking the Close command on the Document Control menu.

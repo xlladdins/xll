@@ -1,4 +1,4 @@
-PAUSE
+# PAUSE
 
 Pauses a macro. Use the PAUSE function, instead of clicking the Pause
 button in the Single Step dialog box, as a debugging tool when you do

@@ -1,4 +1,4 @@
-MERGE.STYLES
+# MERGE.STYLES
 
 Equivalent to clicking the Merge button in the Style dialog box, which
 appears when you click the Style command on the Format menu. Merges all

@@ -1,4 +1,4 @@
-CLEAR.OUTLINE
+# CLEAR.OUTLINE
 
 Equivalent to clicking the Clear Outline command on the Group And
 Outline submenu of the Data menu. Clears the outline within the

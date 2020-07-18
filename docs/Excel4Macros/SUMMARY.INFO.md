@@ -1,4 +1,4 @@
-SUMMARY.INFO
+# SUMMARY.INFO
 
 Equivalent to clicking the Properties command on the File menu.
 Generates the summary information for the active workbook.

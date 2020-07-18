@@ -1,4 +1,4 @@
-MAIN.CHART.TYPE
+# MAIN.CHART.TYPE
 
 Equivalent to clicking the Main Chart Type command on the Chart menu in
 Microsoft Excel for the Macintosh version 1.5 or earlier. This function

@@ -1,4 +1,4 @@
-ADD.COMMAND
+# ADD.COMMAND
 
 Adds a command to a menu. ADD.COMMAND returns the position number on the
 menu of the added command. Use ADD.COMMAND to add one or more custom

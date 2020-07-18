@@ -1,4 +1,4 @@
-GALLERY.3D.SURFACE
+# GALLERY.3D.SURFACE
 
 Changes the active chart to a 3-D surface chart.
 

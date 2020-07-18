@@ -1,4 +1,4 @@
-TRACER.DISPLAY
+# TRACER.DISPLAY
 
 Equivalent to clicking the Trace Precedents or Trace Dependents buttons
 on the Auditing toolbar on a worksheet. Allows tracer arrow to be

@@ -1,4 +1,4 @@
-CREATE.PUBLISHER
+# CREATE.PUBLISHER
 
 Equivalent to clicking the Create Publisher command on the Publishing
 submenu of the Edit menu. Publishes the selected range or chart to an

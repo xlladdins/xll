@@ -1,4 +1,4 @@
-SOLVER.OPTIONS
+# SOLVER.OPTIONS
 
 Equivalent to clicking the Solver command on the Tools menu and then
 clicking the Options button in the Solver Parameters dialog box.

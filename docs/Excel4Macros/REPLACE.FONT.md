@@ -1,4 +1,4 @@
-REPLACE.FONT
+# REPLACE.FONT
 
 Replaces one of the four built-in fonts in Microsoft Excel for Windows
 version 2.1 or earlier with a new font and style. This function is

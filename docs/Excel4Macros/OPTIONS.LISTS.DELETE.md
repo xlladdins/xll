@@ -1,4 +1,4 @@
-OPTIONS.LISTS.DELETE
+# OPTIONS.LISTS.DELETE
 
 Equivalent to clicking the Options command on the Tools menu and then
 clicking the Delete button on the Custom Lists tab when a custom list is

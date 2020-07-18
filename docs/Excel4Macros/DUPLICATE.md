@@ -1,4 +1,4 @@
-DUPLICATE
+# DUPLICATE
 
 Duplicates the selected object. If an object is not selected, returns
 the \#VALUE\! error value and interrupts the macro.

@@ -1,4 +1,4 @@
-FULL.SCREEN
+# FULL.SCREEN
 
 Equivalent to clicking the Full Screen command on the View menu.
 

@@ -1,4 +1,4 @@
-PASTE.SPECIAL
+# PASTE.SPECIAL
 
 Equivalent to clicking the Paste Special command on the Edit menu.
 Pastes the specified components from the copy area into the current
@@ -16,7 +16,7 @@ Syntax 4&nbsp;&nbsp;&nbsp;Pasting information from another application.
 
 Return to [README](README.md)
 
-PASTE.SPECIAL Syntax 1
+# PASTE.SPECIAL Syntax 1
 
 Equivalent to clicking the Paste Special command on the Edit menu.
 Pastes the specified components from the copy area into the current
@@ -93,7 +93,7 @@ its source
 
 Return to [README](README.md)
 
-PASTE.SPECIAL Syntax 2
+# PASTE.SPECIAL Syntax 2
 
 Equivalent to clicking the Paste Special command on the Edit menu on the
 Chart menu bar. Pastes the specified components from the copy area into
@@ -167,7 +167,7 @@ to a chart.
 
 Return to [README](README.md)
 
-PASTE.SPECIAL Syntax 3
+# PASTE.SPECIAL Syntax 3
 
 Equivalent to clicking the Paste Special command on the Edit menu on the
 Chart menu bar. Pastes the specified components from the copy area into
@@ -202,7 +202,7 @@ what to paste.
 
 Return to [README](README.md)
 
-PASTE.SPECIAL Syntax 4
+# PASTE.SPECIAL Syntax 4
 
 Equivalent to clicking the Paste Special command on the Edit menu when
 pasting data from another application into Microsoft Excel. Use syntax 4

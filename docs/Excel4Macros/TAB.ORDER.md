@@ -1,4 +1,4 @@
-TAB.ORDER
+# TAB.ORDER
 
 This function determines the order in which dialog controls will be
 selected when the user presses the TAB key.

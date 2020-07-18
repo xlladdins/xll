@@ -1,4 +1,4 @@
-VBA.MAKE.ADDIN
+# VBA.MAKE.ADDIN
 
 Converts a workbook containing Visual Basic procedures into an add-in.
 

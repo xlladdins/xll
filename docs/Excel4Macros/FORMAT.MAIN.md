@@ -1,4 +1,4 @@
-FORMAT.MAIN
+# FORMAT.MAIN
 
 Equivalent to clicking the Main Chart command on the Format menu in
 Microsoft Excel version 4.0. Formats a chart according to the arguments

@@ -1,4 +1,4 @@
-CANCEL.COPY
+# CANCEL.COPY
 
 Equivalent to pressing ESC in Microsoft Excel for Windows or ESC or
 COMMAND+PERIOD in Microsoft Excel for the Macintosh to cancel the

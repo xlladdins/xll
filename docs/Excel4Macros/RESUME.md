@@ -1,4 +1,4 @@
-RESUME
+# RESUME
 
 Equivalent to choosing the Resume button on the toolbar. Resumes a
 paused macro. Returns TRUE if successful or the \#VALUE\! error value if

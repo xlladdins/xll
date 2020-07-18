@@ -1,4 +1,4 @@
-FORMULA.CONVERT
+# FORMULA.CONVERT
 
 Changes the style and type of references in a formula between A1 and
 R1C1 and between relative and absolute. Use FORMULA.CONVERT to convert

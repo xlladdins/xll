@@ -1,4 +1,4 @@
-RUN
+# RUN
 
 Equivalent to choosing the Run button in the Macro dialog box, which
 appears when you choose the Macros command on the Macro submenu of the

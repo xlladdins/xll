@@ -1,4 +1,4 @@
-SOUND.NOTE
+# SOUND.NOTE
 
 This function should not be used in Microsoft Excel 97 or later because
 sound notes are available only in Microsoft Excel 95 or earlier

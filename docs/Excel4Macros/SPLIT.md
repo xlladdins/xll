@@ -1,4 +1,4 @@
-SPLIT
+# SPLIT
 
 Equivalent to choosing the Split command from the Window menu or to
 dragging the split bar in the active window's scroll bar. Splits the

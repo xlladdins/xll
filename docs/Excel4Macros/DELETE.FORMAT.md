@@ -1,4 +1,4 @@
-DELETE.FORMAT
+# DELETE.FORMAT
 
 Equivalent to deleting the specified format in the Number tab in the
 Format Cells dialog box, which appears when you click the Cells command

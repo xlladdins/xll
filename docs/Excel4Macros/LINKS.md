@@ -1,4 +1,4 @@
-LINKS
+# LINKS
 
 Returns, as a horizontal array of text values, the names of all
 workbooks referred to by external references in the workbook specified.

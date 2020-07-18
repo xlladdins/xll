@@ -1,4 +1,4 @@
-AXES
+# AXES
 
 Controls whether the axes on a chart are visible. There are two syntax
 forms of this function. Syntax 1 is for 2-D charts; syntax 2 is for 3-D

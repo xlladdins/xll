@@ -1,4 +1,4 @@
-COPY.CHART
+# COPY.CHART
 
 Equivalent to choosing the Copy Chart command from the Edit menu in
 Microsoft Excel for the Macintosh version 1.5 or earlier. This function

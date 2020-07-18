@@ -1,4 +1,4 @@
-DATA.SERIES
+# DATA.SERIES
 
 Equivalent to clicking the Series command on the Fill submenu of the
 Edit menu. Use DATA.SERIES to enter an interpolated or incrementally

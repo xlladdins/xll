@@ -1,4 +1,4 @@
-GALLERY.3D.PIE
+# GALLERY.3D.PIE
 
 Changes the format of the active chart to a 3-D pie chart.
 

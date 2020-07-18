@@ -1,4 +1,4 @@
-APP.TITLE
+# APP.TITLE
 
 Changes the title of the Microsoft Excel application workspace to the
 title you specify. The title appears at the top of the application

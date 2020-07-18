@@ -1,4 +1,4 @@
-INSERT.OBJECT
+# INSERT.OBJECT
 
 Equivalent to choosing the Object command from the Insert menu, and then
 selecting an object type and choosing the OK button. Creates an embedded

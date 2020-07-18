@@ -1,4 +1,4 @@
-STANDARD.WIDTH
+# STANDARD.WIDTH
 
 Sets the default width used for all columns that you have not previously
 adjusted on the active worksheet.

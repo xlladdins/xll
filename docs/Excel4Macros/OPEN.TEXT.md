@@ -1,4 +1,4 @@
-OPEN.TEXT
+# OPEN.TEXT
 
 Equivalent to using the Text Import Wizard to open a text file in
 Microsoft Excel.

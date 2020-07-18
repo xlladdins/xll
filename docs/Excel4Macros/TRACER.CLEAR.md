@@ -1,4 +1,4 @@
-TRACER.CLEAR
+# TRACER.CLEAR
 
 Equivalent to clicking the Remove All Arrows button on the Auditing
 toolbar on a worksheet. Clears all tracer arrows on the worksheet.

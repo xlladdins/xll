@@ -1,4 +1,4 @@
-FILL.AUTO
+# FILL.AUTO
 
 Equivalent to copying cells or automatically filling a selection by
 dragging the fill selection handle with the mouse (the AutoFill

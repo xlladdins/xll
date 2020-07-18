@@ -1,4 +1,4 @@
-GALLERY.3D.COLUMN
+# GALLERY.3D.COLUMN
 
 Changes the format of the active chart to a 3-D column chart.
 

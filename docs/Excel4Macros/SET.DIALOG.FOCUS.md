@@ -1,4 +1,4 @@
-SET.DIALOG.FOCUS
+# SET.DIALOG.FOCUS
 
 Sets the focus of a dialog box. This function is used only with a dialog
 sheet active.

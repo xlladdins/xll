@@ -1,4 +1,4 @@
-SET.DATABASE
+# SET.DATABASE
 
 Equivalent to clicking the Set Database command on the Data menu in
 Microsoft Excel version 4.0. Defines the name Database for the selected

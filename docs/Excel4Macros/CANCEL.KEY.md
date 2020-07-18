@@ -1,4 +1,4 @@
-CANCEL.KEY
+# CANCEL.KEY
 
 Disables macro interruption, or specifies a macro to run when a macro is
 interrupted. Use CANCEL.KEY to control what happens when a macro is

@@ -1,4 +1,4 @@
-REPORT.DELETE
+# REPORT.DELETE
 
 Equivalent to clicking the Report Manager command on the View menu and
 then selecting a report in the Report Manager dialog box and clicking

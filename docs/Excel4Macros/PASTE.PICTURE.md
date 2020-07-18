@@ -1,4 +1,4 @@
-PASTE.PICTURE
+# PASTE.PICTURE
 
 Equivalent to clicking the Paste Picture command on the Edit menu while
 holding down the SHIFT key in Microsoft Excel version 4.0. Pastes a

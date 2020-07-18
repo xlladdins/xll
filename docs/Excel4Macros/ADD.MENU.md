@@ -1,4 +1,4 @@
-ADD.MENU
+# ADD.MENU
 
 Adds a menu to a menu bar. Use ADD.MENU to add a custom menu to a
 built-in or custom menu bar. You can also use ADD.MENU to restore

@@ -1,4 +1,4 @@
-REPORT.DEFINE
+# REPORT.DEFINE
 
 Equivalent to clicking the Report Manager command on the View menu and
 then clicking the Add option in the Report Manager dialog box. Creates

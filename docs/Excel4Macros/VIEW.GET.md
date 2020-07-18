@@ -1,4 +1,4 @@
-VIEW.GET
+# VIEW.GET
 
 Equivalent to displaying a list of views in the Custom Views dialog box,
 which appears when you click the Custom Views command on the View menu.

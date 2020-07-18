@@ -1,4 +1,4 @@
-TTESTM
+# TTESTM
 
 Performs a two-sample Student's t-Test for means, assuming equal
 variances.

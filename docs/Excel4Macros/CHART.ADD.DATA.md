@@ -1,4 +1,4 @@
-CHART.ADD.DATA
+# CHART.ADD.DATA
 
 Equivalent to dragging data from a worksheet onto a chart. Adds data to
 an existing chart.

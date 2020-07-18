@@ -1,4 +1,4 @@
-OPEN
+# OPEN
 
 Equivalent to clicking the Open command on the File menu. Opens an
 existing workbook.

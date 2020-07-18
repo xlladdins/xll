@@ -1,4 +1,4 @@
-DOCUMENTS
+# DOCUMENTS
 
 Returns, as a horizontal array in text form, the names of the specified
 open workbooks. Use DOCUMENTS to retrieve the names of open workbooks to

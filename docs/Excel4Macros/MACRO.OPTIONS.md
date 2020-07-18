@@ -1,4 +1,4 @@
-MACRO.OPTIONS
+# MACRO.OPTIONS
 
 Equivalent to clicking the Options button in the Macro dialog box, which
 appears when you click the Macros command (Tools menu, Macro submenu).

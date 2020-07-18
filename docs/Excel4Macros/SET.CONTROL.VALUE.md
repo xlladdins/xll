@@ -1,4 +1,4 @@
-SET.CONTROL.VALUE
+# SET.CONTROL.VALUE
 
 Changes the value for the active control, such as a list box, drop-down
 box, check box, option button, scroll bar, and spinner button.

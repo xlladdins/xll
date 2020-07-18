@@ -1,4 +1,4 @@
-SET.PAGE.BREAK
+# SET.PAGE.BREAK
 
 Equivalent to clicking the Page Break command on the Insert menu. Sets
 manual page breaks. Use SET.PAGE.BREAK to override the automatic page

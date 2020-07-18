@@ -1,4 +1,4 @@
-COLOR.PALETTE
+# COLOR.PALETTE
 
 Copies a color palette from an open workbook to the active workbook. Use
 COLOR.PALETTE to share color palettes between workbooks.

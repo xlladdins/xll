@@ -1,4 +1,4 @@
-FORMAT.NUMBER
+# FORMAT.NUMBER
 
 Equivalent to choosing the Number tab in the Format Cells dialog box,
 which appears when you choose Cells from the Format menu. Formats

@@ -1,4 +1,4 @@
-OVERLAY
+# OVERLAY
 
 Equivalent to choosing the Overlay command from the Format menu in
 Microsoft Excel version 2.2 or earlier. This function is included only

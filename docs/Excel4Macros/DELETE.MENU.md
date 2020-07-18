@@ -1,4 +1,4 @@
-DELETE.MENU
+# DELETE.MENU
 
 Deletes a menu or submenu. Use DELETE.MENU to delete menus you have
 added to menu bars when the supporting macro sheet is closed (using an

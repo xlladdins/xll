@@ -1,4 +1,4 @@
-HSCROLL
+# HSCROLL
 
 Horizontally scrolls through the active sheet by percentage or by column
 number.

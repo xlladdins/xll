@@ -1,4 +1,4 @@
-MOVE.TOOL
+# MOVE.TOOL
 
 Moves or copies a button from one toolbar to another.
 

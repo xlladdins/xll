@@ -1,4 +1,4 @@
-GET.CELL
+# GET.CELL
 
 Returns information about the formatting, location, or contents of a
 cell. Use GET.CELL in a macro whose behavior is determined by the status

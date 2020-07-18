@@ -1,4 +1,4 @@
-LEGEND
+# LEGEND
 
 Adds a legend to or removes a legend from a chart. This is also
 equivalent to clicking the Legend button on the Chart toolbar when a

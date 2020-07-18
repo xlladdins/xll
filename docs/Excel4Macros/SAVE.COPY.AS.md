@@ -1,4 +1,4 @@
-SAVE.COPY.AS
+# SAVE.COPY.AS
 
 Saves a copy of the current workbook using a different name but all the
 current workbook settings, such as passwords and file protection. Does

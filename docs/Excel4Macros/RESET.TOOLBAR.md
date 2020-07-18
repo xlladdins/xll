@@ -1,4 +1,4 @@
-RESET.TOOLBAR
+# RESET.TOOLBAR
 
 Resets built-in toolbars to the default Microsoft Excel set.
 

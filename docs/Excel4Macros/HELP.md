@@ -1,4 +1,4 @@
-HELP
+# HELP
 
 Starts or switches to Help and displays the specified custom Help topic.
 Use HELP with custom Help files to create your own Help system, which

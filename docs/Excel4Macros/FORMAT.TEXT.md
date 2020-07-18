@@ -1,4 +1,4 @@
-FORMAT.TEXT
+# FORMAT.TEXT
 
 Formats the selected worksheet text box or button or any text item on a
 chart.

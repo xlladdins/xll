@@ -1,4 +1,4 @@
-GALLERY.3D.AREA
+# GALLERY.3D.AREA
 
 Changes the format of the active chart to a 3-D area chart.
 

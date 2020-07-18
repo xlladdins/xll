@@ -1,4 +1,4 @@
-ON.KEY
+# ON.KEY
 
 Runs a specified macro when a particular key or key combination is
 pressed.

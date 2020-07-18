@@ -1,4 +1,4 @@
-APP.RESTORE
+# APP.RESTORE
 
 Equivalent to clicking the Restore command on the Control menu for the
 application window. Restores the Microsoft Excel window to its previous

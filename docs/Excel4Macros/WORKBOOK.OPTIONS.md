@@ -1,4 +1,4 @@
-WORKBOOK.OPTIONS
+# WORKBOOK.OPTIONS
 
 Equivalent to selecting the Options button in a workbook contents window
 in Microsoft Excel version 4.0. This function is for compatibility with

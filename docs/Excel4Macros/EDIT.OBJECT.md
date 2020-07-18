@@ -1,4 +1,4 @@
-EDIT.OBJECT
+# EDIT.OBJECT
 
 Equivalent to clicking the Edit command on the (selected object) Object
 submenu of the Edit menu. Starts the application associated with the

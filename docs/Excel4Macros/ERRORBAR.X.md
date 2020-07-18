@@ -1,4 +1,4 @@
-ERRORBAR.X, ERRORBAR.Y
+# ERRORBAR.X, ERRORBAR.Y
 
 Adds error bars to the selected series in a chart. ERRORBAR.X adds bars
 showing the error factor for the X (category) axis and works for XY

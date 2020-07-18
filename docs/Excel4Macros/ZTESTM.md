@@ -1,4 +1,4 @@
-ZTESTM
+# ZTESTM
 
 Performs a two-sample z-test for means, assuming the two samples have
 known variances.

@@ -1,4 +1,4 @@
-WAIT
+# WAIT
 
 Pauses the macro until the time specified by the serial number.
 

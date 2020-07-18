@@ -1,4 +1,4 @@
-SHOW.TOOLBAR
+# SHOW.TOOLBAR
 
 Equivalent to selecting the check box corresponding to a toolbar on the
 Toolbars tab in the Customize dialog box, which appears when you select

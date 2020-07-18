@@ -1,4 +1,4 @@
-RESULT
+# RESULT
 
 Specifies the type of data a macro or custom function returns. Use
 RESULT to make sure your macros, custom functions, or subroutines return

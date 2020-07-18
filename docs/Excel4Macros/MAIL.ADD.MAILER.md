@@ -1,4 +1,4 @@
-MAIL.ADD.MAILER
+# MAIL.ADD.MAILER
 
 Equivalent to clicking the Add Mailer command on the Mail submenu of the
 File menu. Adds a new PowerTalk mailer to the active workbook. Use this

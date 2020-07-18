@@ -1,4 +1,4 @@
-ADD.OVERLAY
+# ADD.OVERLAY
 
 Equivalent to clicking the Add Overlay command on the Chart menu in
 Microsoft Excel version 4.0. Adds an overlay to a 2-D chart. If the

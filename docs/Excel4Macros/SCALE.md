@@ -1,4 +1,4 @@
-SCALE
+# SCALE
 
 Changes the position, formatting, and scaling of axes in a chart. There
 are five syntax forms of this function.
@@ -22,7 +22,7 @@ of the value axis in 3-D charts
 
 Return to [README](README.md)
 
-SCALE Syntax 1
+# SCALE Syntax 1
 
 Equivalent to clicking the Selected Axis command on the Format menu when
 a chart's category (x) axis is selected, and then clicking the Scale
@@ -86,7 +86,7 @@ of the value axis in 3-D charts
 
 Return to [README](README.md)
 
-SCALE Syntax 2
+# SCALE Syntax 2
 
 Equivalent to clicking the Selected Axes command on the Format menu when
 a chart's value (y) axis is selected, and then clicking the Scale tab.
@@ -161,7 +161,7 @@ of the value axis in 3-D charts
 
 Return to [README](README.md)
 
-SCALE Syntax 3
+# SCALE Syntax 3
 
 Equivalent to clicking the Selected Axes command on the Format menu when
 a chart's category (x) axis is selected, and then click the Scale tab.
@@ -213,7 +213,7 @@ of the value axis in 3-D charts
 
 Return to [README](README.md)
 
-SCALE Syntax 4
+# SCALE Syntax 4
 
 Equivalent to clicking the Selected Axes command on the Format menu when
 a chart's value (y) axis is selected, and then clicking the Scale tab.
@@ -263,7 +263,7 @@ of the value axis in 3-D charts
 
 Return to [README](README.md)
 
-SCALE Syntax 5
+# SCALE Syntax 5
 
 Equivalent to clicking the Selected Axes command on the Format menu when
 a chart's value (z) axis is selected, and then clicking the Scale tab.

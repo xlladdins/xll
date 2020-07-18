@@ -1,4 +1,4 @@
-GET.LINK.INFO
+# GET.LINK.INFO
 
 Returns information about the specified link. Use GET.LINK.INFO to get
 information about the update settings of a link.

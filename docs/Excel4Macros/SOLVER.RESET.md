@@ -1,4 +1,4 @@
-SOLVER.RESET
+# SOLVER.RESET
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Reset All button in the Solver Parameters dialog box. Erases all

@@ -1,4 +1,4 @@
-CLEAR
+# CLEAR
 
 Equivalent to clicking the Clear command on the Edit menu. Clears
 contents, formats, notes, or all of these from the active worksheet or

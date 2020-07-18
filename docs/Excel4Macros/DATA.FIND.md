@@ -1,4 +1,4 @@
-DATA.FIND
+# DATA.FIND
 
 Equivalent to clicking the Find and Exit Find commands on the Data menu
 in Microsoft Excel version 4.0. Selects records in the database range

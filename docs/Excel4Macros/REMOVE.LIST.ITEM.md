@@ -1,4 +1,4 @@
-REMOVE.LIST.ITEM
+# REMOVE.LIST.ITEM
 
 Removes an item in a list box or drop-down box.
 

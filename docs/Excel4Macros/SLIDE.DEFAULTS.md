@@ -1,4 +1,4 @@
-SLIDE.DEFAULTS
+# SLIDE.DEFAULTS
 
 This function should not be used in Microsoft Excel 95 or later because
 the Slide Show add-in is available only in Microsoft Excel version 5.0

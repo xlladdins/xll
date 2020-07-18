@@ -1,4 +1,4 @@
-MOVEAVG
+# MOVEAVG
 
 Projects values in a forecast period, based on the average value of the
 variable over a specific number of preceding periods.

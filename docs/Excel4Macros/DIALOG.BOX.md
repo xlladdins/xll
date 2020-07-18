@@ -1,4 +1,4 @@
-DIALOG.BOX
+# DIALOG.BOX
 
 Displays the dialog box described in a dialog box definition table.
 

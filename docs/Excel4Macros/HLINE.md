@@ -1,4 +1,4 @@
-HLINE
+# HLINE
 
 Scrolls through the active window by a specific number of columns.
 Returns the \#VALUE\! error value if the active sheet is a chart.

@@ -1,4 +1,4 @@
-GET.WINDOW
+# GET.WINDOW
 
 Returns information about a window. Use GET.WINDOW in a macro that
 requires the status of a window, such as its name, size, position, and

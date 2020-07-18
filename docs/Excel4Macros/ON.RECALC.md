@@ -1,4 +1,4 @@
-ON.RECALC
+# ON.RECALC
 
 Runs a macro when a specific sheet is recalculated. Use ON.RECALC to
 perform an operation on a sheet each time the sheet is recalculated,

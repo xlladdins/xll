@@ -1,4 +1,4 @@
-EDITBOX.PROPERTIES
+# EDITBOX.PROPERTIES
 
 Sets the properties of an edit box on a dialog sheet.
 

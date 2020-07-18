@@ -1,4 +1,4 @@
-ERROR
+# ERROR
 
 Specifies what action to take if an error is encountered while a macro
 is running. Use ERROR to control whether Microsoft Excel error messages

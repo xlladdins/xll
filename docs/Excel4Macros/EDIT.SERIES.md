@@ -1,4 +1,4 @@
-EDIT.SERIES
+# EDIT.SERIES
 
 Equivalent to clicking the Edit Series command on the Chart menu in
 Microsoft Excel version 4.0. Creates or changes chart series by adding a

@@ -1,4 +1,4 @@
-EXPON
+# EXPON
 
 Predicts a value based on the forecast for the prior period, adjusted
 for the error in that prior forecast.

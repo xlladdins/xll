@@ -1,4 +1,4 @@
-ON.WINDOW
+# ON.WINDOW
 
 Runs a specified macro when you switch to a particular window.
 

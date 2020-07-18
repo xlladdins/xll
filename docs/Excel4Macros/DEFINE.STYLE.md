@@ -1,4 +1,4 @@
-DEFINE.STYLE
+# DEFINE.STYLE
 
 Equivalent to clicking the Define button in the Style dialog box, which
 appears when you click the Style command on the Format menu. Creates and
@@ -15,7 +15,7 @@ Syntaxes 2-7
 
 Return to [README](README.md)
 
-DEFINE.STYLE Syntax 1
+# DEFINE.STYLE Syntax 1
 
 Equivalent to clicking the Define button in the Style dialog box, which
 appears when you click the Style command on the Format menu. Creates and
@@ -71,7 +71,7 @@ the active workbook
 
 Return to [README](README.md)
 
-DEFINE.STYLE Syntaxes 2 - 7
+# DEFINE.STYLE Syntaxes 2 - 7
 
 Equivalent to clicking the Define button in the Style dialog box, which
 appears when you click the Style command on the Format menu. Creates and

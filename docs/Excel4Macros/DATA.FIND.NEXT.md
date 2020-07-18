@@ -1,4 +1,4 @@
-DATA.FIND.NEXT, DATA.FIND.PREV
+# DATA.FIND.NEXT, DATA.FIND.PREV
 
 Equivalent to pressing the DOWN ARROW or UP ARROW key after the Find
 command has been chosen from the Data menu in Microsoft Excel version

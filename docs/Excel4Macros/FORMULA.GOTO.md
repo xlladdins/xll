@@ -1,4 +1,4 @@
-FORMULA.GOTO
+# FORMULA.GOTO
 
 Equivalent to clicking the Go To command on the Edit menu or to pressing
 F5. Scrolls through the worksheet and selects a named area or reference.

@@ -1,4 +1,4 @@
-GOAL.SEEK
+# GOAL.SEEK
 
 Equivalent to clicking the Goal Seek command on the Tools menu.
 Calculates the values necessary to achieve a specific goal. If the goal

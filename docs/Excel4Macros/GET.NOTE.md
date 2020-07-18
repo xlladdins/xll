@@ -1,4 +1,4 @@
-GET.NOTE
+# GET.NOTE
 
 Returns characters from a comment.
 

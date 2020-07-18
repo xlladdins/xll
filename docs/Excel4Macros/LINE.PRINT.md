@@ -1,4 +1,4 @@
-LINE.PRINT
+# LINE.PRINT
 
 Prints the active worksheet using methods compatible with those of Lotus
 1-2-3. LINE.PRINT does not use the Microsoft Windows printer drivers.

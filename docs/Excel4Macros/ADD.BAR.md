@@ -1,4 +1,4 @@
-ADD.BAR
+# ADD.BAR
 
 Creates a new menu bar and returns the bar ID number. Use the bar ID
 number to identify the menu in functions that display and add menus and

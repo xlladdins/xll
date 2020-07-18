@@ -1,4 +1,4 @@
-SQL.BIND
+# SQL.BIND
 
 Specifies where results from a SQL query are placed when they are
 retrieved with SQL.RETRIEVE. If this function is not available, you must

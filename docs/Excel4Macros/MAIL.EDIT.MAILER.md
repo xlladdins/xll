@@ -1,4 +1,4 @@
-MAIL.EDIT.MAILER
+# MAIL.EDIT.MAILER
 
 Equivalent to clicking the Mailer button when mailer is attached to the
 current workbook. Allows you to edit a PowerTalk mailer attached to the

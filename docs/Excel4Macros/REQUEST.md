@@ -1,4 +1,4 @@
-REQUEST
+# REQUEST
 
 Requests an array of a specific type of information from an application
 with which you have a dynamic data exchange (DDE) link. Use REQUEST with

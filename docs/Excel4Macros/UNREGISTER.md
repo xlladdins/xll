@@ -1,4 +1,4 @@
-UNREGISTER
+# UNREGISTER
 
 Unregisters a previously registered dynamic link library (DLL) or code
 resource. You can use UNREGISTER to free memory that was allocated to a

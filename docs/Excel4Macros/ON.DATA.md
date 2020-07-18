@@ -1,4 +1,4 @@
-ON.DATA
+# ON.DATA
 
 Runs a specified macro when another application sends data to a
 particular workbook via dynamic data exchange (DDE) or via Publish and

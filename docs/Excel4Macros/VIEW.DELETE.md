@@ -1,4 +1,4 @@
-VIEW.DELETE
+# VIEW.DELETE
 
 Equivalent to selecting a view and clicking the Delete button in the
 Custom Views dialog box, which appears when you click the Custom Views

@@ -1,4 +1,4 @@
-SEND.MAIL
+# SEND.MAIL
 
 Equivalent to clicking the Send Mail command on the File menu. Sends the
 active workbook using email.

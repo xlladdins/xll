@@ -1,4 +1,4 @@
-CHART.TREND
+# CHART.TREND
 
 A trendline can be added to only to the these chart types: bar, column,
 stacked column, scatter, line, and area.

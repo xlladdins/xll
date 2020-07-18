@@ -1,4 +1,4 @@
-ENABLE.OBJECT
+# ENABLE.OBJECT
 
 Enables or disables a drawing object or the selected drawing object. A
 disabled object will not run any macro events assigned to it, and the

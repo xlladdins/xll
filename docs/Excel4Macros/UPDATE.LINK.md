@@ -1,4 +1,4 @@
-UPDATE.LINK
+# UPDATE.LINK
 
 Equivalent to clicking the Links command on the Edit menu and clicking
 the Update Now button with a link selected in the Links dialog box.

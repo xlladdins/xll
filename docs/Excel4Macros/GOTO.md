@@ -1,4 +1,4 @@
-GOTO
+# GOTO
 
 Directs a macro to continue running at the upper-left cell of reference.
 Use GOTO to direct macro execution to another cell or a named range.

@@ -1,4 +1,4 @@
-SCENARIO.MERGE
+# SCENARIO.MERGE
 
 Equivalent to choosing the Scenarios command from the Tools menu and
 then selecting Merge. This function merges scenarios from other sheets

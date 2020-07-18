@@ -1,4 +1,4 @@
-PRINTER.SETUP
+# PRINTER.SETUP
 
 Use PRINTER.SETUP to change the printer you are using.
 

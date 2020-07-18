@@ -1,4 +1,4 @@
-DESCR
+# DESCR
 
 Generates descriptive statistics for data in the input range.
 

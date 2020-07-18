@@ -1,4 +1,4 @@
-HIDE
+# HIDE
 
 Equivalent to clicking the Hide command on the Window menu. Hides the
 active window.

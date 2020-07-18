@@ -1,4 +1,4 @@
-APP.SIZE
+# APP.SIZE
 
 Equivalent to choosing the Size command from the Control menu for the
 application window. Changes the size of the Microsoft Excel window.

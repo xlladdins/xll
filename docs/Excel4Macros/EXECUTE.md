@@ -1,4 +1,4 @@
-EXECUTE
+# EXECUTE
 
 Carries out commands in another program with which you have a dynamic
 data exchange (DDE) link. Use with EXEC, INITIATE, and SEND.KEYS to run

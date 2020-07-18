@@ -1,4 +1,4 @@
-CUSTOM.UNDO
+# CUSTOM.UNDO
 
 Creates a customized Undo tool and Undo or Redo command on the Edit menu
 for custom commands.

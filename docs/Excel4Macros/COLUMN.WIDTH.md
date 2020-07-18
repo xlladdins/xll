@@ -1,4 +1,4 @@
-COLUMN.WIDTH
+# COLUMN.WIDTH
 
 Equivalent to choosing the Width command on the Column submenu of the
 Format menu. Changes the width of the columns in the specified

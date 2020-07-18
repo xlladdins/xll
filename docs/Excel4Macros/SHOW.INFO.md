@@ -1,4 +1,4 @@
-SHOW.INFO
+# SHOW.INFO
 
 This function should not be used. The Info Window has been removed from
 Microsoft Excel 97 or later.

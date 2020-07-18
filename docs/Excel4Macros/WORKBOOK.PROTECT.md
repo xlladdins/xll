@@ -1,4 +1,4 @@
-WORKBOOK.PROTECT
+# WORKBOOK.PROTECT
 
 Equivalent to clicking the Protect Workbook command on the Protection
 submenu of the Tools menu. Controls protection of workbooks.

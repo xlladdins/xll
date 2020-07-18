@@ -1,4 +1,4 @@
-GALLERY.RADAR
+# GALLERY.RADAR
 
 Changes the format of the active chart to a radar chart.
 

@@ -1,4 +1,4 @@
-SIZE
+# SIZE
 
 Equivalent to clicking the Size command on the Control menu in Microsoft
 Excel for Windows version 3.0 or earlier or to changing the size of a

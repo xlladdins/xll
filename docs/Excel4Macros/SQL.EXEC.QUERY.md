@@ -1,4 +1,4 @@
-SQL.EXEC.QUERY
+# SQL.EXEC.QUERY
 
 Sends a query to a data source using an existing connection. If this
 function is not available, you must install the Microsoft ODBC add-in

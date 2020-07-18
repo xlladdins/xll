@@ -1,4 +1,4 @@
-DELETE.NAME
+# DELETE.NAME
 
 Equivalent to clicking the Delete button in the Define Name dialog box,
 which appears when you click the Define command on the Name submenu of

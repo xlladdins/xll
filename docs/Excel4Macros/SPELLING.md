@@ -1,4 +1,4 @@
-SPELLING
+# SPELLING
 
 Equivalent to clicking the Spelling command on the Tools menu. Checks
 the spelling of words in the current selection.

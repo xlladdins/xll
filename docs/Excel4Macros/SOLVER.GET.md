@@ -1,4 +1,4 @@
-SOLVER.GET
+# SOLVER.GET
 
 Returns information about current settings for Solver. The settings are
 specified in the Solver Parameters and Solver Options dialog boxes.

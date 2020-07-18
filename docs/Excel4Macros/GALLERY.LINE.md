@@ -1,4 +1,4 @@
-GALLERY.LINE
+# GALLERY.LINE
 
 Changes the format of the active chart to a line chart.
 

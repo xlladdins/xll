@@ -1,4 +1,4 @@
-SQL.OPEN
+# SQL.OPEN
 
 Establishes a connection with a data source. If the connection is
 successfully established SQL.OPEN will return a connection ID number.

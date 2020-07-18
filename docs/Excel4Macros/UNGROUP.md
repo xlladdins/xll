@@ -1,4 +1,4 @@
-UNGROUP
+# UNGROUP
 
 Separates a grouped object into individual objects. Use UNGROUP to
 separate a group of objects so that you can format, move, or size one of

@@ -1,4 +1,4 @@
-FPOS
+# FPOS
 
 Sets the position of a file. The position of a file is where a character
 is read from or written to by an FREAD, FREADLN, FWRITE, or FWRITELN

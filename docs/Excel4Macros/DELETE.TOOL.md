@@ -1,4 +1,4 @@
-DELETE.TOOL
+# DELETE.TOOL
 
 Equivalent to selecting a button and dragging it to an area other than a
 toolbar. Deletes a button from a toolbar.

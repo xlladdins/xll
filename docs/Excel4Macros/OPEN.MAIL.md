@@ -1,4 +1,4 @@
-OPEN.MAIL
+# OPEN.MAIL
 
 Equivalent to clicking the Open Mail command on the Mail submenu on File
 menu.

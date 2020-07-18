@@ -1,4 +1,4 @@
-MAIL.SEND.MAILER
+# MAIL.SEND.MAILER
 
 Equivalent to clicking the Send Mailer command on the Mail submenu of
 the File menu. Sends a PowerTalk mailer.

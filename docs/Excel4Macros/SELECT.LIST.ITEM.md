@@ -1,4 +1,4 @@
-SELECT.LIST.ITEM
+# SELECT.LIST.ITEM
 
 Selects an item in a list box or in a group box.
 

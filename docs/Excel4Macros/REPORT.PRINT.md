@@ -1,4 +1,4 @@
-REPORT.PRINT
+# REPORT.PRINT
 
 Equivalent to clicking the Print button in the Report Manager dialog
 box. Prints a report.

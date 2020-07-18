@@ -1,4 +1,4 @@
-COMBINATION
+# COMBINATION
 
 Changes the format of the active chart to one of six built-in
 combination chart types.

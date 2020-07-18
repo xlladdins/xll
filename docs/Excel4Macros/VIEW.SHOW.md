@@ -1,4 +1,4 @@
-VIEW.SHOW
+# VIEW.SHOW
 
 Equivalent to selecting a view and clicking the Show button in the
 Custom Views dialog box, which appears when you click the Custom Views

@@ -1,4 +1,4 @@
-TEXT.TO.COLUMNS
+# TEXT.TO.COLUMNS
 
 Equivalent to clicking the Text To Columns command on the Data menu when
 a column of data is to be separated into multiple columns. Parses text

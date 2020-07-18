@@ -1,4 +1,4 @@
-SCENARIO.SUMMARY
+# SCENARIO.SUMMARY
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 clicking the Summary button. Generates a table summarizing the results

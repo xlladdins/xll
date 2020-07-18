@@ -1,4 +1,4 @@
-GET.CHART.ITEM
+# GET.CHART.ITEM
 
 Returns the vertical or horizontal position of a point on a chart item.
 Use these position numbers with FORMAT.MOVE and FORMAT.SIZE to change

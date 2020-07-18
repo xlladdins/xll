@@ -1,4 +1,4 @@
-MCORREL
+# MCORREL
 
 Returns a correlation matrix that measures the correlation between two
 or more data sets that are scaled to be independent of the unit of

@@ -1,4 +1,4 @@
-SHOW.CLIPBOARD
+# SHOW.CLIPBOARD
 
 Displays the contents of the Clipboard in a new window.
 

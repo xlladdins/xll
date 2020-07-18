@@ -1,4 +1,4 @@
-GALLERY.COLUMN
+# GALLERY.COLUMN
 
 Changes the format of the active chart to a column chart.
 

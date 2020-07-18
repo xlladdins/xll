@@ -1,4 +1,4 @@
-PLACEMENT
+# PLACEMENT
 
 Equivalent to choosing the Object Placement command from the Format menu
 in Microsoft Excel version 3.0. Determines how the selected object or

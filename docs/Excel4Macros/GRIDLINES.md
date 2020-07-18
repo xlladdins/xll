@@ -1,4 +1,4 @@
-GRIDLINES
+# GRIDLINES
 
 Allows you to turn chart gridlines on and off.
 

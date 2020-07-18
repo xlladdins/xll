@@ -1,4 +1,4 @@
-SAVE.TOOLBAR
+# SAVE.TOOLBAR
 
 Saves one or more toolbar definitions to a specified file.
 

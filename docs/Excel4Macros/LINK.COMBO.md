@@ -1,4 +1,4 @@
-LINK.COMBO
+# LINK.COMBO
 
 Links an edit box and a list box control into a linked combination box
 group. The resulting linked controls track each other's selection and

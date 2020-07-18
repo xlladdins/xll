@@ -1,4 +1,4 @@
-MAIL.LOGON
+# MAIL.LOGON
 
 Starts a mail session.
 

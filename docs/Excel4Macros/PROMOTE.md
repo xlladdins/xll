@@ -1,4 +1,4 @@
-PROMOTE
+# PROMOTE
 
 Equivalent to clicking the Ungroup button. Promotes, or ungroups, the
 currently selected rows or columns in an outline. Use PROMOTE to change

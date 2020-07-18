@@ -1,4 +1,4 @@
-FWRITELN
+# FWRITELN
 
 Writes text, followed by a carriage return and linefeed, to a file,
 starting at the current position in that file. (For more information

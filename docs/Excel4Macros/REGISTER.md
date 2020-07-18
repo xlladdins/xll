@@ -1,4 +1,4 @@
-REGISTER
+# REGISTER
 
 Registers the specified dynamic link library (DLL) or code resource and
 returns the register ID. You can also specify a custom function name and

@@ -1,4 +1,4 @@
-PIVOT.SHOW.PAGES
+# PIVOT.SHOW.PAGES
 
 Creates new sheets in the workbook containing the active cell. The
 function will iterate through each item in page\_field and create a new

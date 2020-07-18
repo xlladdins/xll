@@ -1,4 +1,4 @@
-SCENARIO.GET
+# SCENARIO.GET
 
 Returns the specified information about the scenarios defined on your
 worksheet.

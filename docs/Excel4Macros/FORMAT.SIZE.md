@@ -1,4 +1,4 @@
-FORMAT.SIZE
+# FORMAT.SIZE
 
 Equivalent to sizing an object with the mouse. Sizes the selected object
 and returns TRUE. If the selected chart object cannot be sized,
@@ -17,7 +17,7 @@ range
 
 Return to [README](README.md)
 
-FORMAT.SIZE Syntax 1
+# FORMAT.SIZE Syntax 1
 
 Equivalent to sizing an object with the mouse. Sizes the selected object
 and returns TRUE. If the selected chart object cannot be sized,
@@ -63,7 +63,7 @@ range
 
 Return to [README](README.md)
 
-FORMAT.SIZE Syntax 2
+# FORMAT.SIZE Syntax 2
 
 Equivalent to sizing an object with the mouse. Sizes the selected
 worksheet object and returns TRUE. If the selected object cannot be

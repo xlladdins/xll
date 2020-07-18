@@ -1,4 +1,4 @@
-NEW.WINDOW
+# NEW.WINDOW
 
 Equivalent to clicking the New Window command on the Window menu.
 Creates a new window for the active workbook.

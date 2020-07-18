@@ -1,4 +1,4 @@
-OPTIONS.CALCULATION
+# OPTIONS.CALCULATION
 
 Equivalent to clicking the Options command on the Tools menu, and
 clicking the Calculation tab in the Options dialog box. Sets various

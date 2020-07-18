@@ -1,4 +1,4 @@
-CLEAR.ROUTING.SLIP
+# CLEAR.ROUTING.SLIP
 
 Equivalent to the Clear button in the Routing Slip dialog box. Clears
 the routing slip.

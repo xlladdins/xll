@@ -1,4 +1,4 @@
-RESTART
+# RESTART
 
 Removes a number of RETURN statements from the stack. When one macro
 calls another, the RETURN statement at the end of the second macro

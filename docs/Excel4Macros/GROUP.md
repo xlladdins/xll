@@ -1,4 +1,4 @@
-GROUP
+# GROUP
 
 Creates a single object from several selected objects and returns the
 object identifier of the group (for example, "Group 5"). Use GROUP to

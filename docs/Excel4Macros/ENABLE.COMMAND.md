@@ -1,4 +1,4 @@
-ENABLE.COMMAND
+# ENABLE.COMMAND
 
 Enables or disables a custom command or menu. Disabled commands appear
 dimmed and can't be chosen. Use ENABLE.COMMAND to control which commands

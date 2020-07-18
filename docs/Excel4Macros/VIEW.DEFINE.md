@@ -1,4 +1,4 @@
-VIEW.DEFINE
+# VIEW.DEFINE
 
 Equivalent to clicking the Add button in the Custom Views dialog box in
 Microsoft Excel 97 or later, which appears when you click the Custom

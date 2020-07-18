@@ -1,4 +1,4 @@
-PIVOT.TABLE.WIZARD
+# PIVOT.TABLE.WIZARD
 
 Creates an empty PivotTable report.
 

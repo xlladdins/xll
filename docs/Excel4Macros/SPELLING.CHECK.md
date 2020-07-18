@@ -1,4 +1,4 @@
-SPELLING.CHECK
+# SPELLING.CHECK
 
 Checks the spelling of a word. Returns TRUE if the word is spelled
 correctly; FALSE otherwise.

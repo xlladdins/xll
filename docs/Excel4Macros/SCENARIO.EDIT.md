@@ -1,4 +1,4 @@
-SCENARIO.EDIT
+# SCENARIO.EDIT
 
 Equivalent to clicking the Scenarios command from the Tools menu and
 then clicking the Edit button.

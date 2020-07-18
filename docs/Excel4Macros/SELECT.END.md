@@ -1,4 +1,4 @@
-SELECT.END
+# SELECT.END
 
 Selects the cell at the edge of the range or the first cell of the next
 range in the direction specified. Equivalent to pressing CTRL+ARROW in

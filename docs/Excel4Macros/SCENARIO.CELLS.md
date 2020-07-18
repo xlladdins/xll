@@ -1,4 +1,4 @@
-SCENARIO.CELLS
+# SCENARIO.CELLS
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 editing the Changing Cells box. Defines the changing cells for a model

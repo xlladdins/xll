@@ -1,4 +1,4 @@
-SCENARIO.SHOW.NEXT
+# SCENARIO.SHOW.NEXT
 
 Equivalent to clicking the Scenarios command on the Tools menu,
 selecting the next scenario from the Scenarios list, and clicking the

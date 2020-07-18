@@ -1,4 +1,4 @@
-GALLERY.AREA
+# GALLERY.AREA
 
 Changes the format of the active chart to an area chart.
 

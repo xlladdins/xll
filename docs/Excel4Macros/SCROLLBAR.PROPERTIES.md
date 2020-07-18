@@ -1,4 +1,4 @@
-SCROLLBAR.PROPERTIES
+# SCROLLBAR.PROPERTIES
 
 Sets the properties of the scroll bar and spinner button on a worksheet
 or dialog sheet.

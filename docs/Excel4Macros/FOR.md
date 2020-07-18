@@ -1,4 +1,4 @@
-FOR
+# FOR
 
 Starts a FOR-NEXT loop. The instructions between FOR and NEXT are
 repeated until the loop counter reaches a specified value. Use FOR when

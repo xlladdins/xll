@@ -1,4 +1,4 @@
-PASTE.LINK
+# PASTE.LINK
 
 Equivalent to clicking the Paste Special command on the Edit menu, and
 then clicking the Paste Link button in the Paste Special dialog box.

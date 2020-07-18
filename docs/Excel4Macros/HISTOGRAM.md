@@ -1,4 +1,4 @@
-HISTOGRAM
+# HISTOGRAM
 
 Calculates individual and cumulative percentages for a range of data and
 a corresponding range of data bins.

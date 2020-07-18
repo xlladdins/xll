@@ -1,4 +1,4 @@
-PRINT
+# PRINT
 
 Equivalent to clicking the Print command on the File menu. Prints the
 active workbook.

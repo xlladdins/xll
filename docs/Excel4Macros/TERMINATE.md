@@ -1,4 +1,4 @@
-TERMINATE
+# TERMINATE
 
 Closes a dynamic data exchange (DDE) channel previously opened with the
 INITIATE function. Use TERMINATE to close a channel after you have

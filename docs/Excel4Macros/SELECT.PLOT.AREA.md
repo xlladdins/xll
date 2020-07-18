@@ -1,4 +1,4 @@
-SELECT.PLOT.AREA
+# SELECT.PLOT.AREA
 
 Equivalent to clicking the Select Plot Area command on the Chart menu in
 Microsoft Excel version 4.0. Selects the plot area of the active chart.

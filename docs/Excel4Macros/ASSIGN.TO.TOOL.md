@@ -1,4 +1,4 @@
-ASSIGN.TO.TOOL
+# ASSIGN.TO.TOOL
 
 Assigns a macro to be run when a button is clicked with the mouse.
 

@@ -1,4 +1,4 @@
-FORMULA
+# FORMULA
 
 Enters a formula in the active cell or in a reference. There are two
 syntax forms of this function. Use syntax 1 to enter numbers, text,
@@ -17,7 +17,7 @@ Syntax 2&nbsp;&nbsp;&nbsp;Enters formulas in a chart
 
 Return to [README](README.md)
 
-FORMULA Syntax 1
+# FORMULA Syntax 1
 
 Enters a formula in the active cell or in a reference. If the active
 sheet is a worksheet, using FORMULA is equivalent to entering
@@ -122,7 +122,7 @@ FORMULA("Year to Date", 'SALES 1993'\!B4)
 
 Return to [README](README.md)
 
-FORMULA Syntax 2
+# FORMULA Syntax 2
 
 Enters a text label or SERIES formula in a chart. To enter formulas on a
 worksheet or macro sheet, use syntax 1 of this function.

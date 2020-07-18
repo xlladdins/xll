@@ -1,4 +1,4 @@
-OPTIONS.VIEW
+# OPTIONS.VIEW
 
 Equivalent to clicking the Options command on the Tools menu and then
 clicking the View tab in the Options dialog box. Sets various view

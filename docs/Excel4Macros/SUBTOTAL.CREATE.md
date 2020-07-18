@@ -1,4 +1,4 @@
-SUBTOTAL.CREATE
+# SUBTOTAL.CREATE
 
 Equivalent to clicking the Subtotals command on the Data menu. Generates
 a subtotal in a list or database.

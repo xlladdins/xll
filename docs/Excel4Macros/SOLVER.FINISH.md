@@ -1,4 +1,4 @@
-SOLVER.FINISH
+# SOLVER.FINISH
 
 Equivalent to clicking OK in the Solver Results dialog box that appears
 when the solution process is complete. The dialog-box form displays the

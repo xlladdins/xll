@@ -1,4 +1,4 @@
-SAVE
+# SAVE
 
 Equivalent to choosing the Save command from the File menu. Saves the
 active workbook.

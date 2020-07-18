@@ -1,4 +1,4 @@
-EDIT.TOOL
+# EDIT.TOOL
 
 Displays the Button Editor dialog box, which you use to change the
 appearance of a button on a toolbar.

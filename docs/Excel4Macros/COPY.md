@@ -1,4 +1,4 @@
-COPY
+# COPY
 
 Equivalent to clicking the Copy command on the Edit menu. Copies and
 pastes data or objects.

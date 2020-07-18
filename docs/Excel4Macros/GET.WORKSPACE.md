@@ -1,4 +1,4 @@
-GET.WORKSPACE
+# GET.WORKSPACE
 
 Returns information about the workspace. Use GET.WORKSPACE in a macro
 that depends on the status of the workspace, such as the environment,

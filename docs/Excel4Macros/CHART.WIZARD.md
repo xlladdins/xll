@@ -1,4 +1,4 @@
-CHART.WIZARD
+# CHART.WIZARD
 
 Equivalent to clicking the ChartWizard button on the standard or chart
 toolbar. Creates a chart. It is generally easier to use the macro

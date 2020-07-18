@@ -1,4 +1,4 @@
-FORMULA.FIND
+# FORMULA.FIND
 
 Equivalent to clicking the Find command on the Edit menu. Selects the
 next or previous cell containing the specified text and returns TRUE. If

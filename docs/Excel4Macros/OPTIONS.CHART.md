@@ -1,4 +1,4 @@
-OPTIONS.CHART
+# OPTIONS.CHART
 
 Equivalent to clicking the Options command on the Tools menu and then
 clicking the Chart Tab in the Options dialog box when a chart is

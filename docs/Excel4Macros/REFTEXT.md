@@ -1,4 +1,4 @@
-REFTEXT
+# REFTEXT
 
 Converts a reference to an absolute reference in the form of text. Use
 REFTEXT when you need to manipulate references with text functions.

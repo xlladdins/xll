@@ -1,4 +1,4 @@
-MAIL.REPLY
+# MAIL.REPLY
 
 Equivalent to clicking the Reply command on the Mail submenu of the File
 menu. Replies to the sender of the current letter.

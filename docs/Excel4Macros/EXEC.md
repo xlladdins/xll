@@ -1,4 +1,4 @@
-EXEC
+# EXEC
 
 Starts a separate program. Use EXEC to start other programs with which
 you want to communicate. Use EXEC with Microsoft Excel's other DDE

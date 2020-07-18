@@ -1,4 +1,4 @@
-DISPLAY
+# DISPLAY
 
 Controls whether the screen displays formulas, gridlines, row and column
 headings, and other screen attributes. There are two syntax forms of
@@ -13,7 +13,7 @@ Syntax 2&nbsp;&nbsp;&nbsp;Controls display of Info Window
 
 Return to [README](README.md)
 
-DISPLAY Syntax 1
+# DISPLAY Syntax 1
 
 Controls whether the screen displays formulas, gridlines, row and column
 headings, and other screen attributes. There are two syntax forms of
@@ -85,7 +85,7 @@ to the display options in the Object box.
 
 Return to [README](README.md)
 
-DISPLAY Syntax 2
+# DISPLAY Syntax 2
 
 Equivalent to clicking the commands on the Info menu when the Info
 Window is active. Controls which commands on the Info Window are in

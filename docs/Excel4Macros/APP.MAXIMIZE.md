@@ -1,4 +1,4 @@
-APP.MAXIMIZE
+# APP.MAXIMIZE
 
 Equivalent to clicking the Maximize command on the Control menu for the
 application window. Maximizes the Microsoft Excel window.

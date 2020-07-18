@@ -1,4 +1,4 @@
-REGRESS
+# REGRESS
 
 Performs multiple linear regression analysis.
 

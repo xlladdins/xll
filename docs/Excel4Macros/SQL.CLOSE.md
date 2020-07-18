@@ -1,4 +1,4 @@
-SQL.CLOSE
+# SQL.CLOSE
 
 Terminates a connection to an external data source. If this function is
 not available, you must install the Microsoft ODBC add-in (XLODBC.XLA).

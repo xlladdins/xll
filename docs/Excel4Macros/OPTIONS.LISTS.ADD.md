@@ -1,4 +1,4 @@
-OPTIONS.LISTS.ADD
+# OPTIONS.LISTS.ADD
 
 This is the equivalent to clicking the Options command on the Tools menu
 and then clicking the Custom Lists tab in the Options diralog box. Used

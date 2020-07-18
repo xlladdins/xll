@@ -1,4 +1,4 @@
-WORKBOOK.UNHIDE
+# WORKBOOK.UNHIDE
 
 Equivalent to clicking the Unhide command on the sheet submenu of the
 Format menu. Unhides one or more sheets in the current workbook.

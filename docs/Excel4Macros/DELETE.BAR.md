@@ -1,4 +1,4 @@
-DELETE.BAR
+# DELETE.BAR
 
 Deletes a custom menu bar.
 

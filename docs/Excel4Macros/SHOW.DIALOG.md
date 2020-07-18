@@ -1,4 +1,4 @@
-SHOW.DIALOG
+# SHOW.DIALOG
 
 Runs a dialog on a dialog sheet.
 

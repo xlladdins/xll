@@ -1,4 +1,4 @@
-DISABLE.INPUT
+# DISABLE.INPUT
 
 Blocks all input from the keyboard and mouse to Microsoft Excel (except
 input to displayed dialog boxes). Use DISABLE.INPUT to prevent input

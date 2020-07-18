@@ -1,4 +1,4 @@
-OBJECT.PROPERTIES
+# OBJECT.PROPERTIES
 
 Determines how the selected object or objects are attached to the cells
 beneath them and whether they are printed. The way an object is attached

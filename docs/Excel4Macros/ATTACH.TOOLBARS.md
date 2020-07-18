@@ -1,4 +1,4 @@
-ATTACH.TOOLBARS
+# ATTACH.TOOLBARS
 
 Displays the Attach Toolbars dialog box, which you use to attach or
 associate toolbars with documents. The Attach Toolbars dialog box is

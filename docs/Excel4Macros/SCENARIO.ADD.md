@@ -1,4 +1,4 @@
-SCENARIO.ADD
+# SCENARIO.ADD
 
 Equivalent to clicking the Scenarios command on the Tools menu and then
 clicking the Add button. Defines the specified values as a scenario. A

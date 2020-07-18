@@ -1,4 +1,4 @@
-SELECT.ALL
+# SELECT.ALL
 
 Equivalent to selecting all the sheets in a workbook.
 

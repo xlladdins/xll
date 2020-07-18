@@ -1,4 +1,4 @@
-SHOW.ACTIVE.CELL
+# SHOW.ACTIVE.CELL
 
 Scrolls the active window so the active cell becomes visible. If an
 object is selected, SHOW.ACTIVE.CELL returns the \#VALUE\! error value

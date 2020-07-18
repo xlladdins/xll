@@ -1,4 +1,4 @@
-PROTECT.DOCUMENT
+# PROTECT.DOCUMENT
 
 Adds protection to or removes protection from the active sheet, macro
 sheet, chart, dialog sheet, module, or scenario. Use PROTECT.DOCUMENT to

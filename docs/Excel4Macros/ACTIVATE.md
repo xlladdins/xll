@@ -1,4 +1,4 @@
-ACTIVATE
+# ACTIVATE
 
 Switches to a window if more than one window is open, or a pane of a
 window if the window is split and its panes are not frozen. Switching to

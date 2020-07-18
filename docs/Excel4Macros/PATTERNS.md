@@ -1,4 +1,4 @@
-PATTERNS
+# PATTERNS
 
 Equivalent to clicking the Patterns tab in the Format Cells dialog box,
 which appears when you click the Cells command on the Format menu.

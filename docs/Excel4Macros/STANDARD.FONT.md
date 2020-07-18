@@ -1,4 +1,4 @@
-STANDARD.FONT
+# STANDARD.FONT
 
 Sets the attributes of the standard font in Microsoft Excel version 2.2
 and earlier. This function is included only for macro compatibility. To

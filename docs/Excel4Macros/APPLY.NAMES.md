@@ -1,4 +1,4 @@
-APPLY.NAMES
+# APPLY.NAMES
 
 Equivalent to clicking the Apply command on the Name submenu on the
 Insert menu. Replaces definitions with their respective names. If no

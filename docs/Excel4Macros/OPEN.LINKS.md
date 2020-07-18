@@ -1,4 +1,4 @@
-OPEN.LINKS
+# OPEN.LINKS
 
 Equivalent to clicking the Links command on the Edit menu. Use
 OPEN.LINKS with the LINKS function to open workbooks linked to a

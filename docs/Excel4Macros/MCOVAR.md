@@ -1,4 +1,4 @@
-MCOVAR
+# MCOVAR
 
 Returns a covariance matrix that measures the covariance between two or
 more data sets.

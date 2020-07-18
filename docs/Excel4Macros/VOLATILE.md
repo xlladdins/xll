@@ -1,4 +1,4 @@
-VOLATILE
+# VOLATILE
 
 Specifies whether a custom worksheet function is volatile or
 nonvolatile. A volatile custom function is recalculated every time a

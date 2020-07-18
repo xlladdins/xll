@@ -1,4 +1,4 @@
-FOR.CELL
+# FOR.CELL
 
 Starts a FOR.CELL-NEXT loop. This function is similar to FOR, except
 that the instructions between FOR.CELL and NEXT are repeated over a

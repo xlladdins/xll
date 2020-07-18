@@ -1,4 +1,4 @@
-FORMAT.FONT
+# FORMAT.FONT
 
 Equivalent to choosing the Cells command from the Format menu, and then
 selecting Font tab from the Format Cells dialog box. This function is

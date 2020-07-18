@@ -1,4 +1,4 @@
-APPLY.STYLE
+# APPLY.STYLE
 
 Equivalent to clicking the Style command on the Format menu, selecting a
 style, and clicking the OK button. Applies a previously defined style to

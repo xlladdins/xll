@@ -1,4 +1,4 @@
-ASSIGN.TO.OBJECT
+# ASSIGN.TO.OBJECT
 
 Assigns a macro to the currently select object.
 

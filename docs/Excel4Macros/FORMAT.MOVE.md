@@ -1,4 +1,4 @@
-FORMAT.MOVE
+# FORMAT.MOVE
 
 Equivalent to moving an object with the mouse. Moves the selected object
 to the specified position and, if successful, returns TRUE. If the
@@ -18,7 +18,7 @@ Syntax 3&nbsp;&nbsp;&nbsp;Moves pie-chart and doughnut-chart items
 
 Return to [README](README.md)
 
-FORMAT.MOVE Syntax 1
+# FORMAT.MOVE Syntax 1
 
 Equivalent to moving an object with the mouse. Moves the selected object
 to the specified position and, if successful, returns TRUE. If the
@@ -83,7 +83,7 @@ FORMAT.MOVE(10, 15, \!$D$4)
 
 Return to [README](README.md)
 
-FORMAT.MOVE Syntax 2
+# FORMAT.MOVE Syntax 2
 
 Equivalent to moving an object with the mouse. Moves the base of the
 selected object to the specified position and, if successful, returns
@@ -140,7 +140,7 @@ FORMAT.MOVE(10, 20)
 
 Return to [README](README.md)
 
-FORMAT.MOVE Syntax 3
+# FORMAT.MOVE Syntax 3
 
 Equivalent to exploding by moving a pie-chart or doughnut-chart slice
 with the mouse. Sets the percentage of pie-chart or doughnut-chart slice

@@ -1,4 +1,4 @@
-SOLVER.LOAD
+# SOLVER.LOAD
 
 Equivalent to clicking the Solver command on the Tools menu, clicking
 the Options button in the Solver Parameters dialog box, and clicking the

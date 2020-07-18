@@ -1,4 +1,4 @@
-MAIN.CHART
+# MAIN.CHART
 
 Equivalent to clicking the Main Chart command on the Format menu when a
 chart sheet is active in Microsoft Excel version 2.2 or earlier. This

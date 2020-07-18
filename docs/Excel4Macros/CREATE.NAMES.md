@@ -1,4 +1,4 @@
-CREATE.NAMES
+# CREATE.NAMES
 
 Equivalent to clicking the Create command on the Name submenu of the
 Insert menu. Use CREATE.NAMES to quickly create names from text labels

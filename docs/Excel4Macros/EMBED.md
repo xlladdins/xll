@@ -1,4 +1,4 @@
-EMBED
+# EMBED
 
 Displayed in the formula bar when an embedded object is selected. EMBED
 cannot be entered on a sheet or used in a macro.

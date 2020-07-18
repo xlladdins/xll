@@ -1,4 +1,4 @@
-ACTIVE.CELL.FONT
+# ACTIVE.CELL.FONT
 
 Equivalent to formatting individual characters in a cell.
 

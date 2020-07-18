@@ -1,4 +1,4 @@
-QUIT
+# QUIT
 
 Equivalent to clicking the Exit command on the File menu in Microsoft
 Excel for Windows. Equivalent to clicking the Quit command on the File

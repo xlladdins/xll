@@ -1,4 +1,4 @@
-ALIGNMENT
+# ALIGNMENT
 
 Equivalent to clicking the Alignment tab in the Format Cells dialog box,
 which is displayed when you click the Cells command on the Format menu.

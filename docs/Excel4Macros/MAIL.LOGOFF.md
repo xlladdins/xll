@@ -1,4 +1,4 @@
-MAIL.LOGOFF
+# MAIL.LOGOFF
 
 Ends the current mail session.
 

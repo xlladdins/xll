@@ -1,4 +1,4 @@
-WINDOW.MAXIMIZE
+# WINDOW.MAXIMIZE
 
 Changes the active window from its normal size to full size. In
 Microsoft Excel for Windows, using WINDOW.MAXIMIZE is equivalent to

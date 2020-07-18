@@ -1,4 +1,4 @@
-FSIZE
+# FSIZE
 
 Returns the number of bytes in a file. Use FSIZE to determine the size
 of the file, which is the same as the position of the last byte in the

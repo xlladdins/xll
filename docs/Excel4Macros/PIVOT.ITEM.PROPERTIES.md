@@ -1,4 +1,4 @@
-PIVOT.ITEM.PROPERTIES
+# PIVOT.ITEM.PROPERTIES
 
 Changes the properties of an item within a header field.
 

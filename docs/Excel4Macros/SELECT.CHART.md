@@ -1,4 +1,4 @@
-SELECT.CHART
+# SELECT.CHART
 
 Equivalent to the Select Chart command on the Chart menu in Microsoft
 Excel version 4.0. This function is equivalent to using the third form

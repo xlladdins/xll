@@ -1,4 +1,4 @@
-PASTE
+# PASTE
 
 Equivalent to clicking the Paste command on the Edit menu. Pastes a
 selection or object that you copied or cut using the COPY or CUT

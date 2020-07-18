@@ -1,4 +1,4 @@
-SOLVER.DELETE
+# SOLVER.DELETE
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Delete button in the Solver Parameters dialog box. Deletes an

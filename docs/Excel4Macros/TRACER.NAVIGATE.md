@@ -1,4 +1,4 @@
-TRACER.NAVIGATE
+# TRACER.NAVIGATE
 
 Equivalent to double-clicking on a displayed tracer arrow. Moves the
 selection from one end of a tracer arrow to the other. If it is an error

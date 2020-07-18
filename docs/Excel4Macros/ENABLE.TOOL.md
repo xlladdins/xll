@@ -1,4 +1,4 @@
-ENABLE.TOOL
+# ENABLE.TOOL
 
 Enables or disables a button on a toolbar. An enabled button can be
 accessed by the user. Disabled buttons may still be visible but cannot

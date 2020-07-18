@@ -1,4 +1,4 @@
-WORKBOOK.ACTIVATE
+# WORKBOOK.ACTIVATE
 
 Equivalent to activating a worksheet by clicking on its tab.
 

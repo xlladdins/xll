@@ -1,4 +1,4 @@
-FILL.DOWN, FILL.LEFT, FILL.RIGHT, FILL.UP
+# FILL.DOWN, FILL.LEFT, FILL.RIGHT, FILL.UP
 
 Equivalent to clicking the Down, Left, Right, and Up commands,
 respectively, on the Fill submenu of the Edit menu.

@@ -1,4 +1,4 @@
-STEP
+# STEP
 
 Stops the normal flow of a macro and calculates it one cell at a time.
 Running a macro one cell at a time is called single-stepping and is very

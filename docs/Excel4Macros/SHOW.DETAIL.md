@@ -1,4 +1,4 @@
-SHOW.DETAIL
+# SHOW.DETAIL
 
 Expands or collapses the detail under the specified expand or collapse
 button.

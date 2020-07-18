@@ -1,4 +1,4 @@
-FORMAT.CHARTTYPE
+# FORMAT.CHARTTYPE
 
 Changes the chart type for a selected data series, a group of data
 series, or an entire chart.

@@ -1,4 +1,4 @@
-ENTER.DATA
+# ENTER.DATA
 
 Turns on Data Entry mode and allows you to select and to enter data into
 the unlocked cells in the current selection only (the data entry area).

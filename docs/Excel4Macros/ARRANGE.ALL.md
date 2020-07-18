@@ -1,4 +1,4 @@
-ARRANGE.ALL
+# ARRANGE.ALL
 
 Equivalent to clicking the Arrange command on the Window menu.
 Rearranges open windows and icons and resizes open windows. Also can be

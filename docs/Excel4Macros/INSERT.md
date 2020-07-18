@@ -1,4 +1,4 @@
-INSERT
+# INSERT
 
 Inserts a blank cell or range of cells or pastes cells from the
 Clipboard into a sheet. Shifts the selected cells to accommodate the new

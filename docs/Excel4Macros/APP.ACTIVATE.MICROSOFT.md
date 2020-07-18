@@ -1,4 +1,4 @@
-APP.ACTIVATE.MICROSOFT
+# APP.ACTIVATE.MICROSOFT
 
 Activates a Microsoft application. If the application is not already
 activated, this function will load the application into memory.

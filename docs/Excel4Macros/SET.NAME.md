@@ -1,4 +1,4 @@
-SET.NAME
+# SET.NAME
 
 Defines a name on a macro sheet to refer to a value. The defined name
 exists only on the macro sheet's list of names and does not appear in

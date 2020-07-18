@@ -1,4 +1,4 @@
-ELSE
+# ELSE
 
 Used with IF, ELSE.IF, and END.IF to control which functions are carried
 out in a macro. ELSE signals the beginning of a group of formulas in a

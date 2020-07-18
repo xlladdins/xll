@@ -1,4 +1,4 @@
-ADD.CHART.AUTOFORMAT
+# ADD.CHART.AUTOFORMAT
 
 Adds the format of the currently active chart in the current window to
 the list of custom formats in the Custom Types tab in the Chart Type

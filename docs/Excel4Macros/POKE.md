@@ -1,4 +1,4 @@
-POKE
+# POKE
 
 Sends data to another application. Use POKE to send data to documents in
 other applications you are communicating with through dynamic data

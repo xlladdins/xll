@@ -1,4 +1,4 @@
-GALLERY.DOUGHNUT
+# GALLERY.DOUGHNUT
 
 Changes the format of the active chart to a doughnut chart.
 

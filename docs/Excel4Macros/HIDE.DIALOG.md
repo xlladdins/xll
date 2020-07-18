@@ -1,4 +1,4 @@
-HIDE.DIALOG
+# HIDE.DIALOG
 
 Closes the dialog box that has the current focus.
 

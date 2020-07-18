@@ -1,4 +1,4 @@
-MESSAGE
+# MESSAGE
 
 Displays and removes messages in the message area of the status bar.
 MESSAGE is useful for displaying text that doesn't need a response, such

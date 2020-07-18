@@ -1,4 +1,4 @@
-OPTIONS.EDIT
+# OPTIONS.EDIT
 
 Equivalent to clicking the Options command on the tools menu and then
 clicking the Edit tab in the Options dialog box. Sets various worksheet

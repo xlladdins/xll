@@ -1,4 +1,4 @@
-ADDIN.MANAGER
+# ADDIN.MANAGER
 
 Equivalent to clicking the Add-Ins command on the Tools menu. Adds or
 removes an installed add-in from the working set. The add-in file must

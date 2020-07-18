@@ -1,4 +1,4 @@
-ATTACH.TEXT
+# ATTACH.TEXT
 
 Attaches text to certain parts of the selected chart. Use ATTACH.TEXT to
 attach text as a title or as a label for an axis or data point.

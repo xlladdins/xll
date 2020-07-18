@@ -1,4 +1,4 @@
-SERIES.X
+# SERIES.X
 
 Equivalent to the X Values tab in the Format Data Series dialog box.
 Specifies the category labels (x values) for a data series. This

@@ -1,4 +1,4 @@
-TEXT.BOX
+# TEXT.BOX
 
 Replaces characters in a text box or button with the text you specify.
 

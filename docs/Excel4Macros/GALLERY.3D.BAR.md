@@ -1,4 +1,4 @@
-GALLERY.3D.BAR
+# GALLERY.3D.BAR
 
 Changes the active chart to a 3-D bar chart.
 

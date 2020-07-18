@@ -1,4 +1,4 @@
-WINDOW.TITLE
+# WINDOW.TITLE
 
 Changes the title of the active window to the title you specify. The
 title appears at the top of the workbook window. Use WINDOW.TITLE to

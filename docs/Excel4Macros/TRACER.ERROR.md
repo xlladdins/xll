@@ -1,4 +1,4 @@
-TRACER.ERROR
+# TRACER.ERROR
 
 Equivalent to clicking the Trace Error button on the Auditing toolbar on
 a worksheet. Allow tracer arrows to be graphically displayed showing

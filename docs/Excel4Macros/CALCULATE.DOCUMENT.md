@@ -1,4 +1,4 @@
-CALCULATE.DOCUMENT
+# CALCULATE.DOCUMENT
 
 Equivalent to choosing the Calc Sheet button in the Calculation tab on
 the Options dialog, which appears when you choose the Options command

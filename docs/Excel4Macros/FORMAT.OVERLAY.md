@@ -1,4 +1,4 @@
-FORMAT.OVERLAY
+# FORMAT.OVERLAY
 
 Equivalent to clicking the Overlay command on the Format menu in
 Microsoft Excel version 4.0. Formats the overlay chart according to the

@@ -1,4 +1,4 @@
-BORDER
+# BORDER
 
 Equivalent to clicking the Border tab in the Format Cells dialog box,
 which appears when you click the Cells command on the Format menu. Adds

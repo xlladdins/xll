@@ -1,4 +1,4 @@
-QUERY.REFRESH
+# QUERY.REFRESH
 
 Refreshes the data in a data range returned to a worksheet from
 Microsoft Query. This function is equivalent to the Refresh button on

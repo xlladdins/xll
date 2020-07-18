@@ -1,4 +1,4 @@
-GET.NAME
+# GET.NAME
 
 Returns the definition of a name as it appears in the Refers To box of
 the Define Name dialog box, which appears when you choose the Define

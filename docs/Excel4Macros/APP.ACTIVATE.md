@@ -1,4 +1,4 @@
-APP.ACTIVATE
+# APP.ACTIVATE
 
 Switches to an application. Use APP.ACTIVATE to switch to another
 application that is already running or that you have started by using

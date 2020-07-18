@@ -1,4 +1,4 @@
-UNHIDE
+# UNHIDE
 
 Equivalent to clicking the Unhide command on the Window menu. Use UNHIDE
 to display hidden windows.

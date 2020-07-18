@@ -1,4 +1,4 @@
-GET.FORMULA
+# GET.FORMULA
 
 Returns the contents of a cell as they would appear in the formula bar.
 The contents are given as text, for example, "=2\*PI()/360". If the

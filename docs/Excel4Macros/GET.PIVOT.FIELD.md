@@ -1,4 +1,4 @@
-GET.PIVOT.FIELD
+# GET.PIVOT.FIELD
 
 Returns information about a field in a PivotTable report.
 

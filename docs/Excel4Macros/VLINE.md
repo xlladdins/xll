@@ -1,4 +1,4 @@
-VLINE
+# VLINE
 
 Scrolls through the active window vertically by the number of rows you
 specify.

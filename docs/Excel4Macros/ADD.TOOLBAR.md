@@ -1,4 +1,4 @@
-ADD.TOOLBAR
+# ADD.TOOLBAR
 
 Creates a new toolbar with the specified buttons.
 

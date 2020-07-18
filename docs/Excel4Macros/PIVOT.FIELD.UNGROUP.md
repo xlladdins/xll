@@ -1,4 +1,4 @@
-PIVOT.FIELD.UNGROUP
+# PIVOT.FIELD.UNGROUP
 
 Ungroups all selected groups within a PivotTable report.
 

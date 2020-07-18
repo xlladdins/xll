@@ -1,4 +1,4 @@
-FORMAT.CHART
+# FORMAT.CHART
 
 Equivalent to choosing the Options button in the Chart Type dialog box,
 which is available when you choose the Chart Type command from the

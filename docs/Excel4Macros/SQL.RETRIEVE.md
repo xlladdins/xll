@@ -1,4 +1,4 @@
-SQL.RETRIEVE
+# SQL.RETRIEVE
 
 Retrieves all or part of the results from a previously executed query.
 The connection used must have already been established using the macro

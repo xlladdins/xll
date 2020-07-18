@@ -1,4 +1,4 @@
-FORMAT.AUTO
+# FORMAT.AUTO
 
 Equivalent to clicking the AutoFormat command on the Format menu when a
 worksheet is active or clicking the AutoFormat button. Formats the

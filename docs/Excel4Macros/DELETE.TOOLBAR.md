@@ -1,4 +1,4 @@
-DELETE.TOOLBAR
+# DELETE.TOOLBAR
 
 Equivalent to clicking the Delete button in the Toolbars dialog box,
 which appears when you click the Customize command (View menu, Toolbars

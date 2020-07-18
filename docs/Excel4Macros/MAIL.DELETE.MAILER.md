@@ -1,4 +1,4 @@
-MAIL.DELETE.MAILER
+# MAIL.DELETE.MAILER
 
 Equivalent to clicking the Delete Mailer command on the Mail submenu of
 the File menu. Deletes an existing mailer from the active workbook.

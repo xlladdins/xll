@@ -1,4 +1,4 @@
-SCENARIO.DELETE
+# SCENARIO.DELETE
 
 Equivalent to clicking the Scenarios command on the Tools menu, clicking
 a scenario, and then clicking the Delete button. Deletes the specified

@@ -1,4 +1,4 @@
-SET.UPDATE.STATUS
+# SET.UPDATE.STATUS
 
 Sets the update status of a link to automatic or manual. Use
 SET.UPDATE.STATUS to change the way a link is updated.

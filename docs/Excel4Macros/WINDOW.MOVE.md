@@ -1,4 +1,4 @@
-WINDOW.MOVE
+# WINDOW.MOVE
 
 Equivalent to clicking the Move command on the Control menu in Microsoft
 Excel for Windows or moving a window by dragging its title bar or its

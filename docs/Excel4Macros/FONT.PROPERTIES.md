@@ -1,4 +1,4 @@
-FONT.PROPERTIES
+# FONT.PROPERTIES
 
 Equivalent to choosing the Cells command from the Format menu. Applies a
 font and other attributes to the selection. Applies to cells, charts,

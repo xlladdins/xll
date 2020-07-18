@@ -1,4 +1,4 @@
-SUBSCRIBE.TO
+# SUBSCRIBE.TO
 
 Inserts the contents of the edition into the active sheet at the point
 of the current selection. Use SUBSCRIBE.TO to incorporate editions

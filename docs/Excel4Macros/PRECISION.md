@@ -1,4 +1,4 @@
-PRECISION
+# PRECISION
 
 Equivalent to selecting or clearing the Precision As Displayed check box
 in the Calculation tab of the Options dialog box, which appears when you

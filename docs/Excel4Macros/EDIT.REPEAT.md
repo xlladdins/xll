@@ -1,4 +1,4 @@
-EDIT.REPEAT
+# EDIT.REPEAT
 
 Equivalent to clicking the Repeat command on the Edit menu. Repeats
 certain actions and commands. EDIT.REPEAT is available in the same

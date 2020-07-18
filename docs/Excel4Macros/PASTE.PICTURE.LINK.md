@@ -1,4 +1,4 @@
-PASTE.PICTURE.LINK
+# PASTE.PICTURE.LINK
 
 Equivalent to holding down the SHIFT key and clicking the Paste Picture
 Link command on the Edit menu in Microsoft Excel version 4.0 or to using

@@ -1,4 +1,4 @@
-LAST.ERROR
+# LAST.ERROR
 
 Returns the reference to the cell where the last macro sheet error
 occurred. If no error has occurred, LAST.ERROR returns the \#N/A error

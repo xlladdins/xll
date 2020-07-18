@@ -1,4 +1,4 @@
-ALERT
+# ALERT
 
 Displays a dialog box and message and waits for you to click a button.
 Use ALERT instead of MESSAGE if you want to interrupt the flow of a

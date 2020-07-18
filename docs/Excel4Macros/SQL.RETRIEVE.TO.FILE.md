@@ -1,4 +1,4 @@
-SQL.RETRIEVE.TO.FILE
+# SQL.RETRIEVE.TO.FILE
 
 Retrieves all of the results from a previously executed query and places
 them in a file. The connection used must have already been established

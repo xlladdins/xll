@@ -1,4 +1,4 @@
-DATA.DELETE
+# DATA.DELETE
 
 Equivalent to clicking the Delete command on the Data menu in Microsoft
 Excel version 4.0. Deletes data that matches the current criteria in the

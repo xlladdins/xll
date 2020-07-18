@@ -1,4 +1,4 @@
-SQL.GET.SCHEMA
+# SQL.GET.SCHEMA
 
 Returns information about the structure of the data source on a
 particular connection. The return value from a successful call to

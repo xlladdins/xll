@@ -1,4 +1,4 @@
-SQL.ERROR
+# SQL.ERROR
 
 Returns detailed error information when it is called after a previous
 XLODBC.XLA function call has failed. If this function is not available,

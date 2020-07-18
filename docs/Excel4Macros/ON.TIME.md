@@ -1,4 +1,4 @@
-ON.TIME
+# ON.TIME
 
 Runs a macro at a specified time. Use ON.TIME to run a macro at a
 specific time of day or after a specified period has passed.

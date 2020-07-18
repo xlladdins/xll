@@ -1,4 +1,4 @@
-MOVE
+# MOVE
 
 Equivalent to moving a window by dragging its title bar in Microsoft
 Excel version 3.0 or earlier. MOVE is also equivalent to choosing the

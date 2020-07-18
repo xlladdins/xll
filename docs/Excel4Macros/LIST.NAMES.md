@@ -1,4 +1,4 @@
-LIST.NAMES
+# LIST.NAMES
 
 Equivalent to clicking the Paste command on the Name submenu of the
 Insert menu and selecting the Paste List option button. Lists all names

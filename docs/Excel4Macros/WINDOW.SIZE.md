@@ -1,4 +1,4 @@
-WINDOW.SIZE
+# WINDOW.SIZE
 
 Equivalent to clicking the Size command on the Control menu or to
 adjusting the sizing borders (in Microsoft Excel for Windows) or the

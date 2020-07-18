@@ -1,4 +1,4 @@
-WINDOWS
+# WINDOWS
 
 Returns the names of the specified open Microsoft Excel windows,
 including hidden windows. Use WINDOWS to get a list of active windows

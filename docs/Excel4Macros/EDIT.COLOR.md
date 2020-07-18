@@ -1,4 +1,4 @@
-EDIT.COLOR
+# EDIT.COLOR
 
 Equivalent to clicking the Modify button on the Color tab, which appears
 when you click the Options command on the Tools menu. Defines the color

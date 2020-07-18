@@ -1,4 +1,4 @@
-DIRECTORY
+# DIRECTORY
 
 Sets the current drive and directory or folder to the specified path and
 returns the name of the new directory or folder as text. Use DIRECTORY

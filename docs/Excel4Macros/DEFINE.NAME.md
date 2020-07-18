@@ -1,4 +1,4 @@
-DEFINE.NAME
+# DEFINE.NAME
 
 Equivalent to clicking the Define command on the Name submenu of the
 Insert menu. Defines a name on the active sheet or macro sheet. Use

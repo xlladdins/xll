@@ -1,4 +1,4 @@
-QUERY.GET.DATA
+# QUERY.GET.DATA
 
 Builds a new query using the supplied information. The application
 Microsoft Query nor any dialog boxes are displayed.

@@ -1,4 +1,4 @@
-WINDOW.MINIMIZE
+# WINDOW.MINIMIZE
 
 Shrinks a window to an icon. In Microsoft Excel for Windows, using
 WINDOW.MINIMIZE is equivalent to clicking the minimize button on a

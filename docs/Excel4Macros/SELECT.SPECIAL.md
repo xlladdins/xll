@@ -1,4 +1,4 @@
-SELECT.SPECIAL
+# SELECT.SPECIAL
 
 Equivalent to clicking the Go To command on the Edit menu and then
 selecting the Special button. Use SELECT.SPECIAL to select groups of

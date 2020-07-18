@@ -1,4 +1,4 @@
-SERIES.AXES
+# SERIES.AXES
 
 Equivalent to the Axis Tab in the Format Data Series dialog box. Changes
 the axis on which a series is plotted. This function is for

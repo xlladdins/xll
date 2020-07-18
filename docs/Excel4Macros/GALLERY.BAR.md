@@ -1,4 +1,4 @@
-GALLERY.BAR
+# GALLERY.BAR
 
 Changes the format of the active chart to a bar chart.
 

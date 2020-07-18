@@ -1,4 +1,4 @@
-SOLVER.SOLVE
+# SOLVER.SOLVE
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Solve button in the Solver Parameters dialog box. If successful,

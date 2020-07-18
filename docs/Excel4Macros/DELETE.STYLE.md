@@ -1,4 +1,4 @@
-DELETE.STYLE
+# DELETE.STYLE
 
 Equivalent to choosing the Delete button from the Style dialog box,
 which appears when you choose the Style command from the Format menu.

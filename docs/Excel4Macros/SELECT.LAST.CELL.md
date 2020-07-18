@@ -1,4 +1,4 @@
-SELECT.LAST.CELL
+# SELECT.LAST.CELL
 
 Equivalent to choosing the Special button from the Go To dialog box and
 selecting the Last Cell option. The Go To dialog box appears when you

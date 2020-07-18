@@ -1,4 +1,4 @@
-DEMOTE
+# DEMOTE
 
 Equivalent to clicking the Group tool. Demotes, or groups, the selected
 rows or columns in an outline. Use DEMOTE to change the configuration of

@@ -1,4 +1,4 @@
-AUTO.OUTLINE
+# AUTO.OUTLINE
 
 Equivalent to clicking the Auto Outline command on the Group And Outline
 submenu of the Data menu. Creates an outline within the selection. If a

@@ -1,4 +1,4 @@
-OBJECT.PROTECTION
+# OBJECT.PROTECTION
 
 Changes the protection status of the selected object.
 

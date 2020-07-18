@@ -1,4 +1,4 @@
-SUBTOTAL.REMOVE
+# SUBTOTAL.REMOVE
 
 Equivalent to clicking the Subtotal command on the Data menu, and then
 clicking the Remove All button in the Subtotal dialog box. Removes all

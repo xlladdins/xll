@@ -1,4 +1,4 @@
-FCLOSE
+# FCLOSE
 
 Closes the specified file.
 

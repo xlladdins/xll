@@ -1,4 +1,4 @@
-EXTEND.POLYGON
+# EXTEND.POLYGON
 
 Adds vertices to a polygon. This function must immediately follow a
 CREATE.OBJECT function or another EXTEND.POLYGON function. Use multiple

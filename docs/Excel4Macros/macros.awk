@@ -29,8 +29,9 @@ BEGIN {
                 okey = key
                 bull = ""
             }
-            sub(/^# /, "")
-            print bull"["$0"]("file".md)" >> "README.md"
+            link = $0
+            sub(/^# /, "", link)
+            print bull"["link"]("file".md)" >> "README.md"
             bull = " &bull; "
         }
     }

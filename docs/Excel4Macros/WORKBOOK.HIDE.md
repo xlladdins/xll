@@ -1,4 +1,4 @@
-WORKBOOK.HIDE
+# WORKBOOK.HIDE
 
 Equivalent to clicking the Sheet command on the Format menu, and then
 clicking Hide on the Sheet submenu. Hides sheets in the active workbook.

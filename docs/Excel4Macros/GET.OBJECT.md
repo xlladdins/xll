@@ -1,4 +1,4 @@
-GET.OBJECT
+# GET.OBJECT
 
 Returns information about the specified object. Use GET.OBJECT to return
 information you can use in other macro formulas that manipulate objects.

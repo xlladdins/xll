@@ -1,4 +1,4 @@
-OPTIONS.GENERAL
+# OPTIONS.GENERAL
 
 Equivalent to clicking the Options command on the Tools menu and then
 clicking the General tab from the Options dialog box. Sets various

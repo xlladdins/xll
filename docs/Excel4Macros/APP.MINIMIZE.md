@@ -1,4 +1,4 @@
-APP.MINIMIZE
+# APP.MINIMIZE
 
 Equivalent to clicking the Minimize command on the Control menu for the
 application window. Minimizes the Microsoft Excel window.

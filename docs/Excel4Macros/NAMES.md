@@ -1,4 +1,4 @@
-NAMES
+# NAMES
 
 Returns, as a horizontal array of text, the specified names defined in
 the specified workbook. The returned array lists the names in alphabetic

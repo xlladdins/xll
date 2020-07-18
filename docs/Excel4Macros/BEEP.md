@@ -1,4 +1,4 @@
-BEEP
+# BEEP
 
 Sounds a tone. Use BEEP to signal a message, a dialog box, or the end of
 a macro, or whenever you need to get the user's attention.

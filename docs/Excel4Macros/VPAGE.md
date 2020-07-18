@@ -1,4 +1,4 @@
-VPAGE
+# VPAGE
 
 Vertically scrolls through the active window one window at a time. Use
 VPAGE to change the displayed area of a worksheet or macro sheet.

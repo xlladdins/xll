@@ -1,4 +1,4 @@
-INPUT
+# INPUT
 
 Displays a dialog box for user input. Returns the information entered in
 the dialog box. Use INPUT to display a simple dialog box for the user to

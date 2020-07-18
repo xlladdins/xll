@@ -1,4 +1,4 @@
-REPORT.GET
+# REPORT.GET
 
 Returns information about reports defined for the active workbook. Use
 REPORT.GET to return information you can use in other macro commands

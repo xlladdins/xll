@@ -1,4 +1,4 @@
-SOLVER.CHANGE
+# SOLVER.CHANGE
 
 Equivalent to clicking the Solver command on the Tools menu and clicking
 the Change button in the Solver Parameters dialog box. Changes the right

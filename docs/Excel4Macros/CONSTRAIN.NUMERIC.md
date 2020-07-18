@@ -1,4 +1,4 @@
-CONSTRAIN.NUMERIC
+# CONSTRAIN.NUMERIC
 
 Equivalent to pressing the Constrain Numeric button. The Constrain
 Numeric button can be found in the Insert category on the Commands tab

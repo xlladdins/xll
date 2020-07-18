@@ -1,4 +1,4 @@
-SORT
+# SORT
 
 Equivalent to clicking the Sort command on the Data menu. Sorts the rows
 or columns of the selection according to the contents of a key row or

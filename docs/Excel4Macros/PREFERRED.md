@@ -1,4 +1,4 @@
-PREFERRED
+# PREFERRED
 
 Equivalent to clicking the Preferred command on the Gallery menu in
 Microsoft Excel version 4.0. Changes the format of the active chart to

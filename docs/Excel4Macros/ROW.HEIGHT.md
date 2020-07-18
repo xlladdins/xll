@@ -1,4 +1,4 @@
-ROW.HEIGHT
+# ROW.HEIGHT
 
 Equivalent to choosing the Height command on the Row submenu of the
 Format menu. Changes the height of the rows in a reference.

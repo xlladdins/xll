@@ -1,4 +1,4 @@
-FORMULA.FIND.NEXT, FORMULA.FIND.PREV
+# FORMULA.FIND.NEXT, FORMULA.FIND.PREV
 
 Finds the next and previous cells on the worksheet, as specified in the
 Find dialog box, and returns TRUE. (To see the Find dialog box, click

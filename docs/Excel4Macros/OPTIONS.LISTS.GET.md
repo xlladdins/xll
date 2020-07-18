@@ -1,4 +1,4 @@
-OPTIONS.LISTS.GET
+# OPTIONS.LISTS.GET
 
 Returns contents of custom AutoFill lists as an array of text strings.
 

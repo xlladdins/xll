@@ -1,4 +1,4 @@
-GALLERY.PIE
+# GALLERY.PIE
 
 Changes the format of the active chart to a pie chart.
 

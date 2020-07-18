@@ -1,4 +1,4 @@
-CELL.PROTECTION
+# CELL.PROTECTION
 
 Equivalent to choosing the Protection tab in the Format Cells dialog
 box, which appears when you choose the Cells command from the Format

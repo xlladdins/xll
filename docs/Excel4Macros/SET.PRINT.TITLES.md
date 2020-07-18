@@ -1,4 +1,4 @@
-SET.PRINT.TITLES
+# SET.PRINT.TITLES
 
 Defines the print titles for the sheet. Use SET.PRINT.TITLES if you want
 Microsoft Excel to print the titles whenever it prints any cells in a

@@ -1,4 +1,4 @@
-WINDOW.RESTORE
+# WINDOW.RESTORE
 
 Changes the active window from maximized or minimized size to its
 previous size. In Microsoft Excel for Windows, using WINDOW.RESTORE is

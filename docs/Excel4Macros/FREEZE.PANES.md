@@ -1,4 +1,4 @@
-FREEZE.PANES
+# FREEZE.PANES
 
 Equivalent to clicking the Freeze Panes or Unfreeze Panes command on the
 Window menu. Splits the active window into panes, creates frozen panes,

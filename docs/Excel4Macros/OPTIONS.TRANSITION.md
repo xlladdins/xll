@@ -1,4 +1,4 @@
-OPTIONS.TRANSITION
+# OPTIONS.TRANSITION
 
 Equivalent to clicking the Options command on the Tools menu and then
 clicking the Transition tab in the Options dialog box. Sets options

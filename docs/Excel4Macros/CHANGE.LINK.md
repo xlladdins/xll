@@ -1,4 +1,4 @@
-CHANGE.LINK
+# CHANGE.LINK
 
 Equivalent to clicking the Change Source button in the Links dialog box,
 which appears when you click the Links command on the Edit menu. Changes

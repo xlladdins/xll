@@ -1,4 +1,4 @@
-FOPEN
+# FOPEN
 
 Opens a file with the type of permission specified. Unlike OPEN, FOPEN
 does not load the file into memory and display it; instead, FOPEN

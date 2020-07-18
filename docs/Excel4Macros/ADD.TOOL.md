@@ -1,4 +1,4 @@
-ADD.TOOL
+# ADD.TOOL
 
 Adds one or more buttons to a toolbar.
 

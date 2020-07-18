@@ -1,4 +1,4 @@
-ARGUMENT
+# ARGUMENT
 
 Describes the arguments used in a custom function, which is a type of
 macro, or in a subroutine. A custom function or subroutine must contain

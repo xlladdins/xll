@@ -1,4 +1,4 @@
-SET.DIALOG.DEFAULT
+# SET.DIALOG.DEFAULT
 
 Sets which button is automatically pressed (the default button) when the
 user presses ENTER. While running, this default button is visually

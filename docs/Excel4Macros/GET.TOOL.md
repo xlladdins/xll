@@ -1,4 +1,4 @@
-GET.TOOL
+# GET.TOOL
 
 Returns information about a button or buttons on a toolbar. Use GET.TOOL
 to get information about a button to use with functions that add,

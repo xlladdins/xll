@@ -1,4 +1,4 @@
-FILTER
+# FILTER
 
 Filters lists of data one column at a time. Only one list can be
 filtered on any one sheet at a time.

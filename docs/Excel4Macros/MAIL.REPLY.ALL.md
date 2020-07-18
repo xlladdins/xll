@@ -1,4 +1,4 @@
-MAIL.REPLY.ALL
+# MAIL.REPLY.ALL
 
 Equivalent to clicking the Reply All command on the Mail submenu of the
 File menu. Replies to the sender and all recipients of the current

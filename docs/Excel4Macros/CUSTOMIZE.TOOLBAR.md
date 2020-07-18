@@ -1,4 +1,4 @@
-CUSTOMIZE.TOOLBAR
+# CUSTOMIZE.TOOLBAR
 
 Equivalent to choosing the Toolbars command from the View menu and
 choosing the Customize button in Microsoft Excel 95. Displays the

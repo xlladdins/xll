@@ -1,4 +1,4 @@
-SHOW.LEVELS
+# SHOW.LEVELS
 
 Displays the specified number of row and column levels of an outline.
 

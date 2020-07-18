@@ -1,4 +1,4 @@
-SET.PRINT.AREA
+# SET.PRINT.AREA
 
 Defines the print area for the workbook&mdash;the area that prints when
 you click the Print command on the File menu. Equivalent to entering a

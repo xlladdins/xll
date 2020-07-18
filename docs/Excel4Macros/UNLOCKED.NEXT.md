@@ -1,4 +1,4 @@
-UNLOCKED.NEXT, UNLOCKED.PREV
+# UNLOCKED.NEXT, UNLOCKED.PREV
 
 Equivalent to pressing TAB or SHIFT+TAB to move to the next or previous
 unlocked cell in a protected worksheet. Use these functions when you

@@ -1,4 +1,4 @@
-CHECKBOX.PROPERTIES
+# CHECKBOX.PROPERTIES
 
 Sets various properties of check box and option box controls on a
 worksheet or dialog sheet.

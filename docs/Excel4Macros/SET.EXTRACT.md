@@ -1,4 +1,4 @@
-SET.EXTRACT
+# SET.EXTRACT
 
 Equivalent to clicking the Set Extract command on the Data menu in
 Microsoft Excel version 4.0. Defines the name Extract for the selected

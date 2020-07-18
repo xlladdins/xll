@@ -1,4 +1,4 @@
-SHOW.BAR
+# SHOW.BAR
 
 Displays the specified menu bar. Use SHOW.BAR to display a menu bar you
 have created with the ADD.BAR function or to display a built-in

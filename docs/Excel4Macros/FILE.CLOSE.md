@@ -1,4 +1,4 @@
-FILE.CLOSE
+# FILE.CLOSE
 
 Equivalent to clicking the Close command on the File menu. Closes the
 active workbook.

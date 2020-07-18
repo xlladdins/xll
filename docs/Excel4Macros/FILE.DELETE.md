@@ -1,4 +1,4 @@
-FILE.DELETE
+# FILE.DELETE
 
 Deletes a file from the disk. Although you will normally delete files
 manually, you can, for example, use FILE.DELETE in a macro to delete

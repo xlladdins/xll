@@ -1,4 +1,4 @@
-CREATE.OBJECT
+# CREATE.OBJECT
 
 Draws an object on a sheet or macro sheet and returns a value
 identifying the object created. It is generally easier to use the macro

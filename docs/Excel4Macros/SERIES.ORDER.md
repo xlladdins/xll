@@ -1,4 +1,4 @@
-SERIES.ORDER
+# SERIES.ORDER
 
 Changes the order of series in a chart.
 

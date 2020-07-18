@@ -1,4 +1,4 @@
-LISTBOX.PROPERTIES
+# LISTBOX.PROPERTIES
 
 Sets the properties of a list box and drop-down controls on a worksheet
 or dialog sheet.

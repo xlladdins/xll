@@ -1,4 +1,4 @@
-INSERT.PICTURE
+# INSERT.PICTURE
 
 Equivalent to clicking the Picture command on the Insert menu. This
 function is available for Microsoft Excel for Windows only .

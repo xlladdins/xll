@@ -1,4 +1,4 @@
-RANKPERC
+# RANKPERC
 
 Returns a table that contains the ordinal and percent rank of each value
 in a data set.

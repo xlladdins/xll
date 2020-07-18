@@ -1,4 +1,4 @@
-NOTE
+# NOTE
 
 Equivalent to choosing the Comment command from the Insert menu. Creates
 a comment or replaces text characters in a comment.

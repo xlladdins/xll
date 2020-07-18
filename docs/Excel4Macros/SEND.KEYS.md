@@ -1,4 +1,4 @@
-SEND.KEYS
+# SEND.KEYS
 
 Sends keystrokes to the active application just as if they were typed at
 the keyboard. Use SEND.KEYS to send keystrokes that perform actions and

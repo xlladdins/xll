@@ -1,4 +1,4 @@
-CHECK.COMMAND
+# CHECK.COMMAND
 
 Adds or removes a check mark to or from a command name on a menu. A
 check mark beside a command indicates that the command has been chosen.

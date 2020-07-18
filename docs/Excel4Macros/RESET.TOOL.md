@@ -1,4 +1,4 @@
-RESET.TOOL
+# RESET.TOOL
 
 Resets a button to its original button face.
 

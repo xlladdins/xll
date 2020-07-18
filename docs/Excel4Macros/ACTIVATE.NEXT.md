@@ -1,4 +1,4 @@
-ACTIVATE.NEXT, ACTIVATE.PREV
+# ACTIVATE.NEXT, ACTIVATE.PREV
 
 Switches to the next or previous window, respectively, or switches to
 the next or previous sheet in a workbook.

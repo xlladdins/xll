@@ -1,4 +1,4 @@
-HALT
+# HALT
 
 Stops all macros from running. Use HALT instead of RETURN to prevent a
 macro from returning to the macro that called it.

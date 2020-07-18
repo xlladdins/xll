@@ -1,4 +1,4 @@
-WORKBOOK.TAB.SPLIT
+# WORKBOOK.TAB.SPLIT
 
 Sets the ratio of the tabs to the horizontal scrollbar.
 

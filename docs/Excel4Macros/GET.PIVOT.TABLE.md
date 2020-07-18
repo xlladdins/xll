@@ -1,4 +1,4 @@
-GET.PIVOT.TABLE
+# GET.PIVOT.TABLE
 
 Returns information about a PivotTable report.
 

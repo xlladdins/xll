@@ -1,4 +1,4 @@
-FORMULA.ARRAY
+# FORMULA.ARRAY
 
 Enters a formula as an array formula in the range specified or in the
 current selection. Equivalent to entering an array formula while

@@ -1,4 +1,4 @@
-OUTLINE
+# OUTLINE
 
 Creates an outline and defines settings for automatically creating
 outlines.

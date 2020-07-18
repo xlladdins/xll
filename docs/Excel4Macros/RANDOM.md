@@ -1,4 +1,4 @@
-RANDOM
+# RANDOM
 
 Fills a range with independent random or patterned numbers drawn from
 one of several distributions.

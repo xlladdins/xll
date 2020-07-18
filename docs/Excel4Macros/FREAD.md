@@ -1,4 +1,4 @@
-FREAD
+# FREAD
 
 Reads characters from a file, starting at the current position in the
 file. (For more information about a file's position, see FPOS.) If FREAD

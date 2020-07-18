@@ -1,4 +1,4 @@
-HIDE.OBJECT
+# HIDE.OBJECT
 
 Hides or displays the specified object.
 

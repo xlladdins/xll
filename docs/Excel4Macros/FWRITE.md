@@ -1,4 +1,4 @@
-FWRITE
+# FWRITE
 
 Writes text to a file, starting at the current position in that file.
 (For more information about a file's position, see FPOS.) If FWRITE

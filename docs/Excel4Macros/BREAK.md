@@ -1,4 +1,4 @@
-BREAK
+# BREAK
 
 Interrupts a FOR-NEXT, a FOR.CELL-NEXT, or a WHILE-NEXT loop. If BREAK
 is encountered within a loop, that loop is terminated and the macro

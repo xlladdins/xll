@@ -1,4 +1,4 @@
-FIND.FILE
+# FIND.FILE
 
 Equivalent to choosing the Find File command from the File menu in
 Microsoft Excel version 5.0. Lets you search for files based on criteria

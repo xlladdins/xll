@@ -1,4 +1,4 @@
-FORMAT.LEGEND
+# FORMAT.LEGEND
 
 Equivalent to clicking the Selected Legend command on the Format menu
 when a chart is active. Determines the position and orientation of the

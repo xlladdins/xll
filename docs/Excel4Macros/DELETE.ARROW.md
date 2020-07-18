@@ -1,4 +1,4 @@
-DELETE.ARROW
+# DELETE.ARROW
 
 Deletes the selected arrow, either drawn as an arrow with the arrow tool
 or as a line that is later formatted as an arrow. In Microsoft Excel

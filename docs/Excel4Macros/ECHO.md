@@ -1,4 +1,4 @@
-ECHO
+# ECHO
 
 Controls screen updating while a macro is running. If a large macro uses
 many commands that update the screen, use ECHO to make the macro run

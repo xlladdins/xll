@@ -1,4 +1,4 @@
-TEXTREF
+# TEXTREF
 
 Converts text to an absolute reference in either A1- or R1C1-style. Use
 TEXTREF to convert references stored as text to references so that you

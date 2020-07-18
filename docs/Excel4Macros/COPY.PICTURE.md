@@ -1,4 +1,4 @@
-COPY.PICTURE
+# COPY.PICTURE
 
 Equivalent to choosing the Copy Picture command from the Edit menu. The
 Copy Picture command appears if you hold down SHIFT while choosing the

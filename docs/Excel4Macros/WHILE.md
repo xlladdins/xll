@@ -1,4 +1,4 @@
-WHILE
+# WHILE
 
 Carries out the statements between the WHILE function and the next NEXT
 function until logical\_test is FALSE. Use WHILE-NEXT loops to carry out

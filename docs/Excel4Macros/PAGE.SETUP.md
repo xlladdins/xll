@@ -1,4 +1,4 @@
-PAGE.SETUP
+# PAGE.SETUP
 
 Equivalent to clicking the Page Setup command on the File menu. Use
 PAGE.SETUP to control the printed appearance of your sheets.

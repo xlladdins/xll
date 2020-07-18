@@ -1,4 +1,4 @@
-RETURN
+# RETURN
 
 Ends the currently running macro. If the currently running macro is a
 subroutine macro that was called by another macro, control is returned

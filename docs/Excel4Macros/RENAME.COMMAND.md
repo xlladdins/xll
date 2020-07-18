@@ -1,4 +1,4 @@
-RENAME.COMMAND
+# RENAME.COMMAND
 
 Changes the name of a built-in or custom menu command or the name of a
 menu. Use RENAME.COMMAND to change the name of a command on a menu, for

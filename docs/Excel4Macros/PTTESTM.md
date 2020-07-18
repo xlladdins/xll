@@ -1,4 +1,4 @@
-PTTESTM
+# PTTESTM
 
 Performs a paired two-sample Student's t-Test for means.
 

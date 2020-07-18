@@ -1,4 +1,4 @@
-GALLERY.CUSTOM
+# GALLERY.CUSTOM
 
 Changes the format of the active chart to the custom format.
 

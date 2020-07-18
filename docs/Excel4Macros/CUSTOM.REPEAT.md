@@ -1,4 +1,4 @@
-CUSTOM.REPEAT
+# CUSTOM.REPEAT
 
 Allows custom commands to be repeated using the Repeat tool or the
 Repeat command on the Edit menu. Also allows custom commands to be

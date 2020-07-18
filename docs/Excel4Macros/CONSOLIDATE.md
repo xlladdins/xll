@@ -1,4 +1,4 @@
-CONSOLIDATE
+# CONSOLIDATE
 
 Equivalent to clicking the Consolidate command on the Data menu.
 Consolidates data from multiple ranges on multiple worksheets into a

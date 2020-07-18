@@ -1,4 +1,4 @@
-OPEN.DIALOG
+# OPEN.DIALOG
 
 Displays the standard Microsoft Excel File Open dialog box with the
 specified file filters. When the user presses the button specified by

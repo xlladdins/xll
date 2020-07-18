@@ -1,4 +1,4 @@
-TABLE
+# TABLE
 
 Equivalent to clicking the Table command on the Data menu. Creates a
 table based on the input values and formulas you define on a worksheet.

@@ -1,4 +1,4 @@
-FORMAT.SHAPE
+# FORMAT.SHAPE
 
 Equivalent to clicking the reshape button on the Drawing toolbar and
 then inserting, moving, or deleting vertices of the selected polygon. A

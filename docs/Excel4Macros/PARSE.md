@@ -1,4 +1,4 @@
-PARSE
+# PARSE
 
 Distributes the contents of the current selection to fill several
 adjacent columns; the selection can be no more than one column wide. Use

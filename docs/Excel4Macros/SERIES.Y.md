@@ -1,4 +1,4 @@
-SERIES.Y
+# SERIES.Y
 
 Equivalent to the Name and Values tab in the Format Data Series dialog
 box. Specifies the name and values for a data series. This function is

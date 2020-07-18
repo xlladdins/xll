@@ -1,4 +1,4 @@
-VBA.INSERT.FILE
+# VBA.INSERT.FILE
 
 Inserts a text file containing code directly into your Visual Basic
 module.
