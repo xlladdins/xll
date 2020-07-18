@@ -47,4 +47,3 @@ skip == 0 {
     }
     print >> file".md"
 }
-# TODO - fix up tables
