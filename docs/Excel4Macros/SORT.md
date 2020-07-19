@@ -171,7 +171,7 @@ Case&nbsp;&nbsp;&nbsp;&nbsp;is a logical value that determines whether
 the sort is case sensitive. If TRUE, the sort is case sensitive. If
 FALSE or omitted, the sort will not be case sensitive.
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;If you want to sort using more than three keys,
+**Tip**&nbsp;&nbsp;&nbsp;If you want to sort using more than three keys,
 then sort the data three keys at a time, starting with the least
 important group of keys and progressing to the most important group, but
 listing the most important key first within each group.

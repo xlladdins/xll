@@ -26,7 +26,7 @@ reference.
     > Microsoft Excel does not convert the reference to a value.
 
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;You can convert a reference to text with
+**Tip**&nbsp;&nbsp;&nbsp;You can convert a reference to text with
 REFTEXT, manipulate it with the REPLACE and MID functions, and convert
 it back to a reference with TEXTREF.
 

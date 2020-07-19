@@ -39,7 +39,7 @@ menu key, and corresponds to the Alternate Menu Or Help Key box.
 Remote&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Ignore Remote Requests
 check box.
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Microsoft Excel for the Macintosh
+**Important**&nbsp;&nbsp;&nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this argument.
 
 Entermove&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Move Selection After
@@ -48,7 +48,7 @@ Enter/Return check box.
 Underlines&nbsp;&nbsp;&nbsp;&nbsp;is a number corresponding to the
 Command Underline options as shown in the following table.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This argument is only available in Microsoft
+**Note**&nbsp;&nbsp;&nbsp;This argument is only available in Microsoft
 Excel for the Macintosh.
 
 |                      |                            |

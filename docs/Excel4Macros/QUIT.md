@@ -12,7 +12,7 @@ when a particular workbook is closed.
 
 **QUIT**( )
 
-**Caution**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;If you have cleared error-checking with an
+**Caution**&nbsp;&nbsp;&nbsp;If you have cleared error-checking with an
 ERROR(FALSE) function, QUIT will not ask whether you want to save
 changes.
 

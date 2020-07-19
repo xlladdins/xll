@@ -408,7 +408,7 @@ the item in the list box or drop-down box that you want information
 about, ranging from 1 to the number of items in the list box or
 drop-down box.
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Use GET.OBJECT(45) - GET.OBJECT(43) to
+**Tip**&nbsp;&nbsp;&nbsp;Use GET.OBJECT(45) - GET.OBJECT(43) to
 determine the height of an object and GET.OBJECT(44) - GET.OBJECT(42) to
 determine the width.
 

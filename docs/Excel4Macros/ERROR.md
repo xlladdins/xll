@@ -42,7 +42,7 @@ enable\_logical is TRUE, 1, or 2 and an error is encountered. It can be
 either the name of the macro or a cell reference. If enable\_logical is
 FALSE or 0, macro\_ref is ignored.
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Both ERROR(FALSE) and ERROR(TRUE,
+**Important**&nbsp;&nbsp;&nbsp;Both ERROR(FALSE) and ERROR(TRUE,
 macro\_ref ) keep Microsoft Excel from displaying any messages at all,
 including the message asking whether to save changes when you close an
 unsaved workbook. If you want alert messages but not error messages to

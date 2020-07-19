@@ -53,7 +53,7 @@ before saving when in manual calculation mode. The default is TRUE.
 Save\_values&nbsp;&nbsp;&nbsp;&nbsp;corresponds to the Save External
 Link Values check box. The default is TRUE.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Microsoft Excel for Windows and Microsoft
+**Note**&nbsp;&nbsp;&nbsp;Microsoft Excel for Windows and Microsoft
 Excel for the Macintosh use different date systems as their default. For
 more information, see NOW.
 

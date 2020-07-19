@@ -4,7 +4,7 @@ Equivalent to clicking the Forward command on the Mail submenu of the
 File menu. Creates a new mailer to replace the previous version and
 brings up the mailer dialog.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is available on Macintosh
+**Note**&nbsp;&nbsp;&nbsp;This function is available on Macintosh
 computers with Microsoft Excel and Apple PowerTalk only.
 
 **Syntax**

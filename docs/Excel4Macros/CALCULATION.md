@@ -78,7 +78,7 @@ Entry check box in the Transition tab of the Options dialog box.
     > formulas entered in Microsoft Excel style.
 
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Microsoft Excel for Windows and Microsoft
+**Note**&nbsp;&nbsp;&nbsp;Microsoft Excel for Windows and Microsoft
 Excel for the Macintosh use different date systems as their default.
 Excel for Windows uses the 1900 date system, in which serial numbers
 correspond to the dates January 1, 1900, through December 31, 9999.

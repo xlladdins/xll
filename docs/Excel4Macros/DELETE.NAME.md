@@ -11,7 +11,7 @@ the Insert menu. Deletes the specified name.
 Name\_text&nbsp;&nbsp;&nbsp;&nbsp;is a text value specifying the name
 that you want to delete.
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Formulas that use names in their
+**Important**&nbsp;&nbsp;&nbsp;Formulas that use names in their
 arguments may return incorrect or error values when a name used in the
 formula is deleted.
 

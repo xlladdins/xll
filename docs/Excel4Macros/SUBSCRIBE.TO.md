@@ -9,7 +9,7 @@ macro sheets. SUBSCRIBE.TO returns TRUE if successful.
 
 **SUBSCRIBE.TO**(**file\_text, format\_num**)
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is only available if you
+**Important**&nbsp;&nbsp;&nbsp;This function is only available if you
 are using Microsoft Excel for the Macintosh with system software version
 7.0 or later.
 

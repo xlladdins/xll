@@ -254,7 +254,7 @@ MACRO1.XLS, the following formula calls the function from another sheet:
 
 MACRO1.XLS\!GetTicks()
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;You can use functions in a DLL or code resource
+**Tip**&nbsp;&nbsp;&nbsp;You can use functions in a DLL or code resource
 directly on a sheet without first registering them from a macro sheet.
 Use syntax 2a or 2b of the CALL function. For more information, see
 CALL.

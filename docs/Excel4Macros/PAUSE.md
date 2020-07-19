@@ -47,7 +47,7 @@ close box on the toolbar.
     > all macros and prevents resuming or returning to any macro. For
     > more information, see RESUME.
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Since the automatic Resume Macro button can be
+**Tip**&nbsp;&nbsp;&nbsp;Since the automatic Resume Macro button can be
 customized, you can create a custom toolbar that will appear whenever a
 macro pauses.
 

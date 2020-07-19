@@ -13,7 +13,7 @@ NOW()+"00:00:04", instead of as a number. The text or formula is
 automatically converted to a serial number. For more information about
 serial\_number, see NOW.
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;WAIT suspends all Microsoft Excel
+**Important**&nbsp;&nbsp;&nbsp;WAIT suspends all Microsoft Excel
 activity and may prevent you from performing other operations on your
 computer. Background processes, such as printing and recalculation, are
 continued.

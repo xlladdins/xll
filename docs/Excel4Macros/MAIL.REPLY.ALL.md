@@ -4,7 +4,7 @@ Equivalent to clicking the Reply All command on the Mail submenu of the
 File menu. Replies to the sender and all recipients of the current
 letter.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is available on Macintosh
+**Note**&nbsp;&nbsp;&nbsp;This function is available on Macintosh
 computers with Microsoft Excel and Apple PowerTalk only.
 
 **Syntax**

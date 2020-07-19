@@ -15,7 +15,7 @@ version of a built-in menu bar after you have made changes to the menu
 bar's menus and commands. See ADD.COMMAND for a list of ID numbers for
 built-in menu bars.
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Restoring a built-in menu bar will remove
+**Important**&nbsp;&nbsp;&nbsp;Restoring a built-in menu bar will remove
 menus and commands added by other macros. Use ADD.COMMAND and ADD.MENU
 to restore individual commands and menus.
 

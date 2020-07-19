@@ -37,7 +37,7 @@ of sheets, their order, and so on, then a message will be displayed
 reminding you that there are unsaved changes, regardless of the
 save\_logical value.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;When you use the FILE.CLOSE function,
+**Note**&nbsp;&nbsp;&nbsp;When you use the FILE.CLOSE function,
 Microsoft Excel does not run any Auto\_Close macros before closing the
 workbook.
 

@@ -31,7 +31,7 @@ Excel displays a message asking if you want to update links.
 | 2                       | Updates remote references only                 |
 | 3                       | Updates external and remote references         |
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;When you are opening a file in WKS, WK1, or
+**Note**&nbsp;&nbsp;&nbsp;When you are opening a file in WKS, WK1, or
 WK3 format, the update\_links argument specifies whether Microsoft Excel
 generates charts from any graphs attached to the WKS, WK1, or WK3 file.
 

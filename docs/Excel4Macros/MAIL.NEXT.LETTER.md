@@ -4,7 +4,7 @@ Equivalent to clicking the Next Letter command on the Mail submenu of
 the File menu. Opens the oldest unread Microsoft Excel workbook from the
 In Tray as a new window.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is available on Macintosh
+**Note**&nbsp;&nbsp;&nbsp;This function is available on Macintosh
 computers with Microsoft Excel and Apple PowerTalk only.
 
 **Syntax**
