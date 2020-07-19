@@ -12,7 +12,7 @@ in the source.
 
 **PASTE.LINK**( )
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;To work properly, the application you are
+**Note**&nbsp;&nbsp;&nbsp;To work properly, the application you are
 linking to must support dynamic data exchange (DDE) or object linking
 and embedding (OLE).
 

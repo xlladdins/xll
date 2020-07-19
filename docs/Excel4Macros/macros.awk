@@ -38,11 +38,11 @@ BEGIN {
 }
 /Related Function/ {
     related = 1
-    print >> file".md"
-    next
+}
+/&nbsp;&nbsp;&nbsp;\*\*(\*\*)?/ {
+    sub(/&nbsp;&nbsp;&nbsp;\*\*(\*\*)?/, "**\\&nbsp;\\&nbsp;\\&nbsp;")
 }
 skip == 0 {
-    sub(/&nbsp;&nbsp;&nbsp;\*\*(\*\*)?/, "**\&nbsp;\&nbsp;\&nbsp;")
     if (related) {
         sub(/^[A-Z\.]+/, "[&](&.md)")
     }

@@ -5,7 +5,7 @@ Prints the active worksheet using methods compatible with those of Lotus
 Unless you have a specific need for the LINE.PRINT function, use the
 PRINT function instead.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is only available in Microsoft
+**Note**&nbsp;&nbsp;&nbsp;This function is only available in Microsoft
 Excel for Windows.
 
 **Syntax 1**

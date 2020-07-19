@@ -59,6 +59,13 @@ Auto<Open> xai_open([]() {
 	return TRUE;  
 });
 
+//!!!not being called!!!
+Auto<Close> xai_close([]() {
+	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Close> called")));
+
+	return TRUE;
+});
+
 AddInX xai_onkey(MacroX(X_("?xll_onkey"), X_("XLL.ONKEY")));
 int WINAPI xll_onkey(void)
 {
@@ -80,7 +87,18 @@ int WINAPI xll_onwindow(void)
 }
 On<Window> xon_window(X_(""), X_("XLL.ONWINDOW"));
 
-AddInX xai_onsheed(MacroX(X_("?xll_onsheet"), X_("XLL.ONSHEET")));
+AddInX xai_onwindow2(MacroX(X_("?xll_onwindow2"), X_("XLL.ONWINDOW2")));
+int WINAPI xll_onwindow2(void)
+{
+#pragma XLLEXPORT
+	ExcelX(xlcAlert, OPERX(X_("ONWINDOW2 called")));
+	ExcelX(xlcDefineName, OPERX(X_("foo")), OPERX(1.23));
+
+	return TRUE;
+}
+On<Window> xon_window2(X_(""), X_("XLL.ONWINDOW2"));
+
+AddInX xai_onsheet(MacroX(X_("?xll_onsheet"), X_("XLL.ONSHEET")));
 int WINAPI xll_onsheet(void)
 {
 #pragma XLLEXPORT

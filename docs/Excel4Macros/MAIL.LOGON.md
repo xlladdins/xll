@@ -2,7 +2,7 @@
 
 Starts a mail session.
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;To use MAIL.LOGON in Microsoft Excel for
+**Important**&nbsp;&nbsp;&nbsp;To use MAIL.LOGON in Microsoft Excel for
 Windows, you must be using a mail client that supports the Messaging
 Applications Programming Interface (MAPI) or Vendor-Independent
 Messaging (VIM). The function is available for only Microsoft Excel for

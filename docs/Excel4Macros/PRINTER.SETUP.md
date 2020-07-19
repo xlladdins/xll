@@ -12,7 +12,7 @@ Printer\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of the printer you want
 to switch to. Enter printer\_text exactly as it appears in the Setup
 dialog box.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is only available in Microsoft
+**Note**&nbsp;&nbsp;&nbsp;This function is only available in Microsoft
 Excel for Windows.
 
 **Related Functions**

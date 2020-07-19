@@ -12,7 +12,7 @@ defined as a reference. Reference can be an external reference to
 another macro sheet. If that macro sheet is not open, GOTO displays a
 message.
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;It's often preferable to use IF, ELSE, ELSE.IF,
+**Tip**&nbsp;&nbsp;&nbsp;It's often preferable to use IF, ELSE, ELSE.IF,
 and END.IF instead of GOTO when you want to perform multiple actions
 based on a condition because the IF method makes your macros more
 structured.

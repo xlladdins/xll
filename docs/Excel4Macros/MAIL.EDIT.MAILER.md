@@ -4,7 +4,7 @@ Equivalent to clicking the Mailer button when mailer is attached to the
 current workbook. Allows you to edit a PowerTalk mailer attached to the
 active workbook
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is available on Macintosh
+**Note**&nbsp;&nbsp;&nbsp;This function is available on Macintosh
 computers with Microsoft Excel and Apple PowerTalk only.
 
 **Syntax**

@@ -24,7 +24,7 @@ memory. Therefore, if you register a function or code resource more than
 once, you must use a corresponding number of UNREGISTER functions to
 ensure that it is completely unregistered.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Because Microsoft Excel for Windows and
+**Note**&nbsp;&nbsp;&nbsp;Because Microsoft Excel for Windows and
 Microsoft Excel for the Macintosh use different types of code resources,
 UNREGISTER has a slightly different syntax form when used in each
 operating environment.
@@ -69,7 +69,7 @@ unregisters all functions in that DLL:
 
 UNREGISTER("User")
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;If you register a function or code resource,
+**Tip**&nbsp;&nbsp;&nbsp;If you register a function or code resource,
 and use the optional function\_text argument to specify a custom name
 that will appear in the Paste Function dialog box, this custom name will
 not be removed by the UNREGISTER function. To remove the custom name,

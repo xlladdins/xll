@@ -355,7 +355,7 @@ The next values of type\_num correspond to printing and page settings.
 </tbody>
 </table>
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;GET.DOCUMENT(62) and GET.DOCUMENT(63) are
+**Note**&nbsp;&nbsp;&nbsp;GET.DOCUMENT(62) and GET.DOCUMENT(63) are
 mutually exclusive. If one returns a value, then the other returns the
 \#N/A error value.
 

@@ -8,7 +8,7 @@ finished communicating with another application.
 
 **TERMINATE**(**channel\_num**)
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Microsoft Excel for the Macintosh
+**Important**&nbsp;&nbsp;&nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this function.
 
 Channel\_num&nbsp;&nbsp;&nbsp;&nbsp;is the number returned by a

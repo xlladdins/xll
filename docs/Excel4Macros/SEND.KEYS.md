@@ -9,7 +9,7 @@ other dynamic data exchange (DDE) functions.
 
 **SEND.KEYS**(**key\_text**, wait\_logical)
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is available only in Microsoft
+**Note**&nbsp;&nbsp;&nbsp;This function is available only in Microsoft
 Excel for Windows.
 
 Key\_text&nbsp;&nbsp;&nbsp;&nbsp;is the key or key combination you want

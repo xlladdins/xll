@@ -8,7 +8,7 @@ EXEC.
 
 **APP.ACTIVATE**(title\_text, wait\_logical)
 
-**Important**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Microsoft Excel for the Macintosh
+**Important**&nbsp;&nbsp;&nbsp;Microsoft Excel for the Macintosh
 requires system software version 7.0 or later for this function.
 
 Title\_text&nbsp;&nbsp;&nbsp;&nbsp;is the name of an application as

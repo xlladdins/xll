@@ -20,7 +20,7 @@ Precision As Displayed check box in the Calculation tab.
     > exactly as they are displayed.
 
 
-**Caution**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;The PRECISION function may permanently
+**Caution**&nbsp;&nbsp;&nbsp;The PRECISION function may permanently
 alter your data. PRECISION(FALSE) causes Microsoft Excel to change
 values on your worksheet or macro sheet to match displayed values.
 PRECISION(TRUE) causes Microsoft Excel to store future values at full

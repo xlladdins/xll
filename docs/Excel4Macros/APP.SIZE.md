@@ -9,7 +9,7 @@ application window. Changes the size of the Microsoft Excel window.
 
 **APP.SIZE**?(x\_num, y\_num)
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is only for Microsoft Excel for
+**Note**&nbsp;&nbsp;&nbsp;This function is only for Microsoft Excel for
 Windows. You can use this function in macros created with Microsoft
 Excel for the Macintosh, but it will return the \#N/A error value.
 

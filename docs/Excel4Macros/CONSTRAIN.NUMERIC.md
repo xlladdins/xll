@@ -9,7 +9,7 @@ only. Use this function in a macro to improve the accuracy of
 handwriting recognition when the user is entering a series of numbers or
 formulas.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is only available if you are
+**Note**&nbsp;&nbsp;&nbsp;This function is only available if you are
 using Microsoft Windows for Pen Computing.
 
 **Syntax**

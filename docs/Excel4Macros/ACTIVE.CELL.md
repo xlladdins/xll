@@ -28,7 +28,7 @@ reference.
     > can then store or manipulate (or convert back to a reference with
     > TEXTREF). See the second example following.
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Use the following macro formula to verify that
+**Tip**&nbsp;&nbsp;&nbsp;Use the following macro formula to verify that
 the current selection is a cell or range of cells:
 
 \=ISREF(ACTIVE.CELL( ))

@@ -335,7 +335,7 @@ which you want information.
   - > If reference is omitted, the active cell is assumed.
 
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Use GET.CELL(17) to determine the height of a
+**Tip**&nbsp;&nbsp;&nbsp;Use GET.CELL(17) to determine the height of a
 cell and GET.CELL(44) - GET.CELL(42) to determine the width.
 
 **Examples**

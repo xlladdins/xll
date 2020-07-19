@@ -12,7 +12,7 @@ If window\_text is not the name of an open workbook, an error value is
 returned and the macro is interrupted. You cannot unhide a window of an
 add-in workbook.
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;You can use UNHIDE to activate an embedded
+**Tip**&nbsp;&nbsp;&nbsp;You can use UNHIDE to activate an embedded
 chart in order to edit and format it. Use the HIDE function to
 de-activate the chart window.
 

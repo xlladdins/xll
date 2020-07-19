@@ -75,7 +75,7 @@ Shadow fonts are available in Microsoft Excel for the Macintosh. For
 macro compatibility, this argument is ignored by Microsoft Excel for
 Windows.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;For macro compatibility with Microsoft Excel
+**Note**&nbsp;&nbsp;&nbsp;For macro compatibility with Microsoft Excel
 for the Macintosh, the presence of the outline and shadow arguments do
 not prevent the macro from working on Microsoft Excel for Windows, nor
 does their absence prevent it from working on the Macintosh.

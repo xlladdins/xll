@@ -42,7 +42,7 @@ topic, in the form "filename\! topic\_number".
   - > Help\_ref must be given in text form.
 
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;In Microsoft Excel for the Macintosh, the
+**Note**&nbsp;&nbsp;&nbsp;In Microsoft Excel for the Macintosh, the
 ALERT dialog box is not a movable window.
 
 **Examples**

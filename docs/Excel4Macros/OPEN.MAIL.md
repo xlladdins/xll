@@ -3,7 +3,7 @@
 Equivalent to clicking the Open Mail command on the Mail submenu on File
 menu.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is available for only Microsoft
+**Note**&nbsp;&nbsp;&nbsp;This function is available for only Microsoft
 Excel for the Macintosh and Microsoft Mail version 2.0 or later.
 
 **Syntax**

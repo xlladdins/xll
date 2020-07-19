@@ -5,7 +5,7 @@ File menu. Adds a new PowerTalk mailer to the active workbook. Use this
 command to add addressing or subject information to a workbook that you
 want to send to another user.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;This function is available on Macintosh
+**Note**&nbsp;&nbsp;&nbsp;This function is available on Macintosh
 computers with Microsoft Excel and Apple PowerTalk only.
 
 **Syntax**

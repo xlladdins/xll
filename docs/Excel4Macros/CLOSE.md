@@ -36,7 +36,7 @@ Users of Microsoft Excel versions earlier than 4.0 should note that if
 the macro sheet containing the function is the active sheet, CLOSE now
 closes the workbook.
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;When you use the CLOSE function, Microsoft
+**Note**&nbsp;&nbsp;&nbsp;When you use the CLOSE function, Microsoft
 Excel does not run any Auto\_Close macros before closing the workbook.
 
 **Related Functions**

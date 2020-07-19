@@ -49,7 +49,7 @@ you can press ESC to interrupt the slide show and display the dialog
 box; if FALSE, pressing ESC stops the slide show but does not display
 the dialog box.
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;If you want to display the last slide in a show
+**Tip**&nbsp;&nbsp;&nbsp;If you want to display the last slide in a show
 but don't know its number, use SLIDE.GET(1) as the initialslide\_num
 argument.
 

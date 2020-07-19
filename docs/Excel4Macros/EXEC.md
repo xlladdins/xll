@@ -39,7 +39,7 @@ that is associated with an executable file.
     > loads the specified file.
 
 
-**Note**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;In Microsoft Excel for the Macintosh, you must
+**Note**&nbsp;&nbsp;&nbsp;In Microsoft Excel for the Macintosh, you must
 use an extra comma after the program\_text argument. This skips the
 window\_num argument that does not apply to the Macintosh.
 

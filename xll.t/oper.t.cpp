@@ -335,6 +335,8 @@ int test_fp = []()
 		ensure(a.columns() == 2);
 		ensure(a.size() == 4);
 		ensure(a[3] == 1.23);
+
+		a.resize(0, 0);
 	}
 
 	return 0;

@@ -77,7 +77,7 @@ If REQUEST is not successful, it returns the following error values.
 </tbody>
 </table>
 
-**Tip**&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;&nbsp;&nbsp;&nbsp;**nbsp;Use the ERROR.TYPE function to distinguish
+**Tip**&nbsp;&nbsp;&nbsp;Use the ERROR.TYPE function to distinguish
 between the different error values.
 
 **Example**
