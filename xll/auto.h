@@ -21,7 +21,7 @@ namespace xll {
 		using macro = std::function<int(void)>;
 		inline static std::vector<macro> macros;
 	public:
-		Auto(const macro& m)
+		Auto(macro&& m)
 		{
 			macros.emplace_back(m); // run in the order they are constructed
 		}

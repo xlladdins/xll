@@ -59,6 +59,13 @@ Auto<Open> xai_open([]() {
 	return TRUE;  
 });
 
+//!!!not being called!!!
+Auto<Close> xai_close([]() {
+	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Close> called")));
+
+	return TRUE;
+});
+
 AddInX xai_onkey(MacroX(X_("?xll_onkey"), X_("XLL.ONKEY")));
 int WINAPI xll_onkey(void)
 {
