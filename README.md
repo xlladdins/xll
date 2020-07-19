@@ -64,7 +64,7 @@ an `AddIn` object that has information Excel requires.
 using namespace xll;
 
 AddInX xai_tgamma(
-    FunctionX(XLL_DOUBLEX, X_("xll_tgamma"), X_("TGAMMA"))
+    FunctionX(XLL_DOUBLEX, X_("?xll_tgamma"), X_("TGAMMA"))
     .Args({
         ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
     })
