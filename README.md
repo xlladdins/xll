@@ -25,10 +25,17 @@ Windows 10
 
 ## Get Started
 
-Fork the [xll](https://github.com/xlladdins/xll) repository and
-[clone](https://docs.microsoft.com/en-us/visualstudio/get-started/tutorial-open-project-from-repo)
-it in Visual Studio.
-Run the `setup.bat` script in the top level `xll` folder.
+Run the [installer](https://github.com/xlladdins/xll/xll.msi). This places
+the xll project template in your `Documents\Visual Studio 2019` folder.
+
+Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
+select `XLL Project`. You will need to
+add a git submodule for `xll`. Run `Tools ► Command Line ► Developer Command Prompt`
+from the Visual Studio menu and type
+
+> git submodule add https://github.com/xlladdins/xll.git
+
+
 
 Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
 select `XLL Project`. At this point you can compile and run the add-in
