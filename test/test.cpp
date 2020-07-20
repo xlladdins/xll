@@ -111,11 +111,11 @@ On<Sheet> xon_sheet(X_(""), X_("XLL.ONSHEET"), true);
 AddInX xai_get_workspace(
 	FunctionX(XLL_LPOPERX, X_("?xll_get_workspace"), X_("GET_WORKSPACE"))
 	.Args({
-		ArgX(XLL_LONGX, X_("type_num"), X_("is a number specifying the type of workspace information you want."))
+		ArgX(XLL_SHORTX, X_("type_num"), X_("is a number specifying the type of workspace information you want."))
 	})
 	.Uncalced()
 );
-LPOPERX WINAPI xll_get_workspace(LONG type_num)
+LPOPERX WINAPI xll_get_workspace(SHORT type_num)
 {
 #pragma XLLEXPORT
 	static OPERX oResult;
