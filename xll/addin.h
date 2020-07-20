@@ -7,7 +7,7 @@
 namespace xll {
 
     /// <summary>
-    /// Store add-in data for xlAutoOpen/Close
+    /// Store add-in data for xlfRegister
     /// </summary>
     template<class X>
 	struct XAddIn {
@@ -16,7 +16,7 @@ namespace xll {
         {
             Map[args.FunctionText()] = args;
         }
-        // Get arguments using Excel function name.
+        // Get arguments using Excel function text name.
         static XArgs<X>& Args(typename traits<X>::xcstr name)
         {
             return Map[XOPER<X>(name)];

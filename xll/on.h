@@ -4,7 +4,7 @@
 #include "auto.h"
 #include "excel.h"
 
-// used with On<Key>
+// For use with On<Key>
 #define ON_SHIFT       L"+"
 #define ON_CTRL        L"^"
 #define ON_ALT         L"%"
@@ -93,6 +93,8 @@ namespace xll {
 		}
 		On(xcstr text, xcstr macro, bool activate)
 		{
+			static_assert(std::is_same_v<Key, Sheet>);
+
 			Auto<Open> xao([text, macro, activate]() {
 				return ExcelX(Key::On, OPERX(text), OPERX(macro), OPERX(activate)) == true;
 			});
@@ -102,6 +104,8 @@ namespace xll {
 		}
 		On(const OPERX& time, xcstr macro, const OPERX& tolerance, bool insert)
 		{
+			static_assert(std::is_same_v<Key, Time>);
+
 			Auto<Open> xao([time, macro, tolerance, insert]() {
 				return ExcelX(Key::On, OPERX(time), OPERX(macro), OPERX(tolerance), OPERX(insert)) == true;
 			});

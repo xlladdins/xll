@@ -3,6 +3,7 @@
 #pragma once
 #include "defines.h"
 
+// Don't export for xll.t project
 #ifndef _CONSOLE
 
 // Used to export undecorated function name from a dll.

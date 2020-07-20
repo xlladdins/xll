@@ -19,6 +19,7 @@ namespace xll {
 	/// It is a variant type that can be either a number, string, boolean,
 	/// error, range, single reference, or integer. 
 	template<class X>  
+		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	class XOPER final : public X {
 		typedef typename traits<X>::xchar xchar;
 		typedef typename traits<X>::xcstr xcstr;

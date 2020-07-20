@@ -9,7 +9,6 @@ namespace xll {
 
 	/// <summary>
 	/// Individual argument for add-in function.
-	/// Use ArgX({type, name, help}) to construct.
 	/// </summary>
 	template<class X>
 	struct XArg {
@@ -36,6 +35,9 @@ namespace xll {
 
 	template<class X>
 	class XArgs {
+		using xchar = typename traits<X>::xchar;
+		using xcstr = typename traits<X>::xcstr;
+
 		XOPER<X> moduleText;   // from xlGetName
 		XOPER<X> procedure;    // C function
 		XOPER<X> typeText;     // return type and arg codes 
@@ -49,9 +51,6 @@ namespace xll {
 		std::vector<XOPER<X>> argumentHelp;
 		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
 	public:
-		using xchar = typename traits<X>::xchar;
-		using xcstr = typename traits<X>::xcstr;
-
 		XArgs()
 		{ }
 		XArgs(xcstr type, xcstr procedure, xcstr functionText)
@@ -102,7 +101,7 @@ namespace xll {
 		}
 		XArgs& Uncalced()
 		{
-			typeText &= XLL_UNCALCEDX; //!!! traits
+			typeText &= XLL_UNCALCEDX; //!!! use traits
 
 			return *this;
 		}

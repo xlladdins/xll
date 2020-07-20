@@ -5,7 +5,6 @@
 #include <string>
 #include "traits.h"
 
-
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \
 	X(Nil,     "empty cell")
@@ -58,7 +57,5 @@ XLL_ARG_TYPE(X)
 inline std::set<std::basic_string<xll::traits<XLOPERX>::xchar>> xll_arg_types {
 	XLL_ARG_TYPE(X)
 };
-
 #undef X
-
 #undef T_

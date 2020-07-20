@@ -42,6 +42,7 @@ namespace xll {
 
 	// XLOPER/XLOPER12 traits
 	template<class X>
+		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	struct traits {
 	};
 	template<>
