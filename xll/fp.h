@@ -1,6 +1,5 @@
 // fp.h - Two-dimensional array of doubles
 #pragma once
-#include <compare>
 #include "traits.h"
 
 namespace xll {
@@ -51,24 +50,9 @@ namespace xll {
 			return std::equal(begin(), end(), a.begin());
 		}
 
-		operator xfp& ()
-		{
-			return reinterpret_cast<xfp&>(*(xfp*)fp);
-		}
-		operator const xfp& () const
-		{
-			return reinterpret_cast<const xfp&>(*(xfp*)fp);
-		}
-
 		XFP& resize(xint r, xint c)
 		{
-			if (size() != r * c) {
-				fp_realloc(r, c);
-			}
-			else {
-				reinterpret_cast<xfp*>(fp)->rows = r;
-				reinterpret_cast<xfp*>(fp)->columns = c;
-			}
+			fp_realloc(r, c);
 
 			return *this;
 		}
@@ -135,19 +119,21 @@ namespace xll {
 			size_t n = r * c;
 			fp = malloc(sizeof(xfp) + n * sizeof(double));
 			if (fp) {
-				auto& pfx = operator xfp&();
-				pfx.rows = r;
-				pfx.columns = c;
+				xfp* pfx = reinterpret_cast<xfp*>(fp);
+				pfx->rows = r;
+				pfx->columns = c;
 			}
 		}
 		void fp_realloc(xint r, xint c)
 		{
-			size_t n = r * c;
-			fp = realloc(fp, sizeof(xfp) + n * sizeof(double));
+			xint n = r * c;
+			if (n != size()) {
+				fp = realloc(fp, sizeof(xfp) + n * sizeof(double));
+			}
 			if (fp) {
-				auto& pfx = operator xfp&();
-				pfx.rows = r;
-				pfx.columns = c;
+				xfp* pfx = reinterpret_cast<xfp*>(fp);
+				pfx->rows = r;
+				pfx->columns = c;
 			}
 		}
 		void fp_free()
