@@ -23,10 +23,16 @@ BEGIN {
         if (key != okey) {
             okey = key
             bull = ""
-            keys[key] = "\n## "key"\n\n"
+            keys[key] = "\n## "key"\n"
         }
         link = $0
         sub(/^# /, "", link)
+        key2 = substr(link, 2, 1)
+        if (key2 != okey2) {
+            bull = ""
+            okey2 = key2
+            keys[key] = keys[key]"  \n"
+        }
         keys[key] = keys[key]""bull"["link"]("file".md)"
         bull = " &bull; "
     }
