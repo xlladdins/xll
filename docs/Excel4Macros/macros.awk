@@ -35,7 +35,7 @@ BEGIN {
             keys[key] = keys[key]"  \n"
         }
         keys[key] = keys[key]""bull"["link"]("file".md)"
-        bull = " &bull; "
+        bull = " &nbsp; "
     }
 }
 /Related Function/ {
