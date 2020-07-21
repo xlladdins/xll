@@ -28,7 +28,8 @@ BEGIN {
         }
         link = $0
         sub(/^# /, "", link)
-        key2 = substr(link, 2, 1)
+        split(link, links, ".")
+        key2 = links[1]
         if (key2 != okey2) {
             bull = "&ndash; "
             okey2 = key2
