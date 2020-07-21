@@ -23,14 +23,14 @@ BEGIN {
         key = substr(file, 1, 1)
         if (key != okey) {
             okey = key
-            bull = "&rsaquo; "
+            bull = "&ndash; "
             keys[key] = "\n## "key"\n"
         }
         link = $0
         sub(/^# /, "", link)
         key2 = substr(link, 2, 1)
         if (key2 != okey2) {
-            bull = "&rsaquo; "
+            bull = "&ndash; "
             okey2 = key2
             keys[key] = keys[key]"  \n"
         }
