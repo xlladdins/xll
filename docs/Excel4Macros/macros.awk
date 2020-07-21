@@ -1,39 +1,34 @@
 #!/usr/bin/awk -f
 
 BEGIN {
-    FS = "[ \t]+"
     okey = ""
     skip = 1
     related = 0
-	print "# Index of Excel 4 Macro Functions" > "README.md"
-	print >> "README.md"
 }
 
 /^Return to/ { next }
 /^> \&nbsp;$/ { next }
+/^# Tips/ { $0 = "**Tips**" } # fix up bogus pandoc parse
 /^# / {
     related = 0
     if (length($2) > 1) {
-        if ($2 == "Tips") { # bogus pandoc parse
-            print "**Tips**" >> file".md"
-            next
+        print "\nReturn to [README](README.md)\n" >> file".md"
+        close(file".md")
+        skip = 0
+        file = $2
+        # split on "," and store all fields instead
+        # file[file] = $i
+        gsub(/,/, "", file)
+        key = substr(file, 1, 1)
+        if (key != okey) {
+            okey = key
+            bull = ""
+            keys[key] = "\n## "key"\n\n"
         }
-        else {
-            print "\nReturn to [README](README.md)\n" >> file".md"
-            skip = 0
-            file = $2
-            gsub(/,/, "", file)
-            key = substr(file, 1, 1)
-            if (key != okey) {
-                print "\n## "key"\n" >> "README.md"
-                okey = key
-                bull = ""
-            }
-            link = $0
-            sub(/^# /, "", link)
-            print bull"["link"]("file".md)" >> "README.md"
-            bull = " &bull; "
-        }
+        link = $0
+        sub(/^# /, "", link)
+        keys[key] = keys[key]""bull"["link"]("file".md)"
+        bull = " &bull; "
     }
 }
 /Related Function/ {
@@ -47,4 +42,16 @@ skip == 0 {
         sub(/^[A-Z\.]+/, "[&](&.md)")
     }
     print >> file".md"
+}
+
+END {
+    print "# Index of Excel 4 Macro Functions\n" > "README.md"
+
+    n = asorti(keys, keyi)
+    for (i = 1; i <= n; ++i) {
+        print " ["keyi[i]"](#"keyi[i]")" >> "README.md"
+    }
+    for (i = 1; i <= n; ++i) {
+        print keys[keyi[i]] >> "README.md"
+    }
 }
