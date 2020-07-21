@@ -19,5 +19,5 @@ Microsoft Excel for the Macintosh version 1.5 or earlier.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

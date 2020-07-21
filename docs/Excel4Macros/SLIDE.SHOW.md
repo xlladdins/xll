@@ -104,5 +104,5 @@ SLIDE.SHOW returns the values shown in the following table:
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

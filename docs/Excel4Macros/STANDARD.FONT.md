@@ -22,5 +22,5 @@ The arguments for this function are the same as those for FORMAT.FONT.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

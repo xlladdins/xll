@@ -16,7 +16,7 @@ Syntax 3&nbsp;&nbsp;&nbsp;Moves pie-chart and doughnut-chart items
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 
 # FORMAT.MOVE Syntax 1
 
@@ -81,7 +81,7 @@ FORMAT.MOVE(10, 15, \!$D$4)
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 
 # FORMAT.MOVE Syntax 2
 
@@ -138,7 +138,7 @@ FORMAT.MOVE(10, 20)
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 
 # FORMAT.MOVE Syntax 3
 
@@ -171,5 +171,5 @@ in the center of the pie).
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 

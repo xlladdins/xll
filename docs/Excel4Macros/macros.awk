@@ -12,7 +12,7 @@ BEGIN {
 /^# / {
     related = 0
     if (length($2) > 1) {
-        print "\nReturn to [README](README.md)\n" >> file".md"
+        print "\nReturn to [README](README.md#"key")\n" >> file".md"
         close(file".md")
         skip = 0
         file = $2

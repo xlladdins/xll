@@ -32,5 +32,5 @@ and drop-down controls on worksheet and dialog sheets
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#R)
 

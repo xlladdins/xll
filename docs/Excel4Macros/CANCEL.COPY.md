@@ -15,5 +15,5 @@ Render\_logical is available only in Microsoft Excel for the Macintosh.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#C)
 

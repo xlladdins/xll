@@ -13,7 +13,7 @@ specified command on a menu or of a specified menu on a menu bar
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 
 # GET.BAR Syntax 1
 
@@ -45,7 +45,7 @@ a specified command on a menu or of a specified menu on a menu bar
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 
 # GET.BAR Syntax 2
 
@@ -124,5 +124,5 @@ bar
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

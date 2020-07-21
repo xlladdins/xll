@@ -41,5 +41,5 @@ Gridlines check box (3-D only).
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

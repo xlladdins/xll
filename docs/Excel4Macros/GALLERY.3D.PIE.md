@@ -13,5 +13,5 @@ that you want to apply to the chart.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

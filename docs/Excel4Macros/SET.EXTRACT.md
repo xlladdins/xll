@@ -18,5 +18,5 @@ command on the Data menu in Microsoft Excel version 4.0
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

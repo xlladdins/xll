@@ -13,7 +13,7 @@ Syntax 3&nbsp;&nbsp;&nbsp;Selects chart objects
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
 # SELECT Syntax 1
 
@@ -115,7 +115,7 @@ category
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
 # SELECT Syntax 2
 
@@ -180,7 +180,7 @@ SELECT("3, 1, 4, 2")
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
 # SELECT Syntax 3
 
@@ -567,5 +567,5 @@ an area chart.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

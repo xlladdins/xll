@@ -436,5 +436,5 @@ to the Read-Only Recommended check box in the Save Options dialog box.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

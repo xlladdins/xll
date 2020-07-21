@@ -32,5 +32,5 @@ if the application is not activated successfully.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#A)
 

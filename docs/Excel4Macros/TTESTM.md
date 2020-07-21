@@ -49,5 +49,5 @@ assuming unequal variances
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#T)
 

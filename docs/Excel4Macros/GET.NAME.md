@@ -59,5 +59,5 @@ GET.NAME("\!Database") equals "=R1C1:R500C6"
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

@@ -15,7 +15,7 @@ Syntax 2&nbsp;&nbsp;&nbsp;Enters formulas in a chart
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 
 # FORMULA Syntax 1
 
@@ -120,7 +120,7 @@ FORMULA("Year to Date", 'SALES 1993'\!B4)
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 
 # FORMULA Syntax 2
 
@@ -163,5 +163,5 @@ formulas in a worksheet
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 

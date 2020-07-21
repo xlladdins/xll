@@ -58,5 +58,5 @@ range. If confid is omitted, the confidence interval is 95%.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 

@@ -108,5 +108,5 @@ information on the following Excel macro functions:
 [PUSHBUTTON.PROPERTIES](#pushbutton.properties)
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

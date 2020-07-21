@@ -142,5 +142,5 @@ information on the following Excel macro functions:
 [SUBTOTAL.REMOVE](#subtotal.remove), [SUMMARY.INFO](#summary.info)
 
 
-Return to [README](README.md)
+Return to [README](README.md#P)
 

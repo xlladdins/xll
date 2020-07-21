@@ -42,5 +42,5 @@ dialog box. Zero corresponds to automatic color.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#B)
 

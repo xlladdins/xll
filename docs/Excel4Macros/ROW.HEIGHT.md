@@ -100,5 +100,5 @@ to selecting the Hide, Unhide, or AutoFit commands from the Row submenu.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#R)
 

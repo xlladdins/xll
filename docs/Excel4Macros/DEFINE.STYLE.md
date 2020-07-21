@@ -13,7 +13,7 @@ Syntaxes 2-7
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 
 # DEFINE.STYLE Syntax 1
 
@@ -69,7 +69,7 @@ the active workbook
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 
 # DEFINE.STYLE Syntaxes 2 - 7
 
@@ -180,5 +180,5 @@ the active workbook
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 

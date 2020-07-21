@@ -33,5 +33,5 @@ running Microsoft Windows for Pen Computing.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#C)
 

@@ -11,7 +11,7 @@ Syntax 2&nbsp;&nbsp;&nbsp;Controls display of Info Window
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 
 # DISPLAY Syntax 1
 
@@ -83,7 +83,7 @@ to the display options in the Object box.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 
 # DISPLAY Syntax 2
 
@@ -174,5 +174,5 @@ information will not be displayed.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 

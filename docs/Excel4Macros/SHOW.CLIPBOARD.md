@@ -21,5 +21,5 @@ Displays the contents of the Clipboard in a new window.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

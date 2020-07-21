@@ -16,5 +16,5 @@ delete from the list of custom templates.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 

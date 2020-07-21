@@ -14,7 +14,7 @@ Syntax 4&nbsp;&nbsp;&nbsp;Pasting information from another application.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#P)
 
 # PASTE.SPECIAL Syntax 1
 
@@ -91,7 +91,7 @@ its source
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#P)
 
 # PASTE.SPECIAL Syntax 2
 
@@ -165,7 +165,7 @@ to a chart.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#P)
 
 # PASTE.SPECIAL Syntax 3
 
@@ -200,7 +200,7 @@ what to paste.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#P)
 
 # PASTE.SPECIAL Syntax 4
 
@@ -274,5 +274,5 @@ FALSE, this argument is ignored.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#P)
 

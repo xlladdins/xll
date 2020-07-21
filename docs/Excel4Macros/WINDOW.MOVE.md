@@ -69,5 +69,5 @@ Window\_text&nbsp;&nbsp;&nbsp;&nbsp;specifies which window to restore.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#W)
 

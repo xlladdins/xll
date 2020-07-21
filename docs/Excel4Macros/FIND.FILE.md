@@ -14,5 +14,5 @@ This function has a dialog-box form only.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 

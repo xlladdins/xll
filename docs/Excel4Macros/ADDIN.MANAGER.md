@@ -32,5 +32,5 @@ user will be asked if they want to copy it to removable media.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#A)
 

@@ -15,7 +15,7 @@ range
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 
 # FORMAT.SIZE Syntax 1
 
@@ -61,7 +61,7 @@ range
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 
 # FORMAT.SIZE Syntax 2
 
@@ -105,5 +105,5 @@ of cells, only the upper-left cell in the range is used.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 

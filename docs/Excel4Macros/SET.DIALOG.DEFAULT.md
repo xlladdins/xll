@@ -18,5 +18,5 @@ control to set as the default button, as in "Button 5".
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

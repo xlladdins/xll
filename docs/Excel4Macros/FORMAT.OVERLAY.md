@@ -113,5 +113,5 @@ box. Labels is available only for radar charts.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 

@@ -9,5 +9,5 @@ the Chart menu in Microsoft Excel version 3.0 or earlier.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

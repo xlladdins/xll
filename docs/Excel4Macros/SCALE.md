@@ -20,7 +20,7 @@ of the value axis in 3-D charts
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
 # SCALE Syntax 1
 
@@ -84,7 +84,7 @@ of the value axis in 3-D charts
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
 # SCALE Syntax 2
 
@@ -159,7 +159,7 @@ of the value axis in 3-D charts
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
 # SCALE Syntax 3
 
@@ -211,7 +211,7 @@ of the value axis in 3-D charts
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
 # SCALE Syntax 4
 
@@ -261,7 +261,7 @@ of the value axis in 3-D charts
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
 # SCALE Syntax 5
 
@@ -332,5 +332,5 @@ of the series axis in 3-D charts
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 
