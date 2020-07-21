@@ -6,6 +6,7 @@ BEGIN {
     related = 0
 }
 
+/^<span id=/ { skip = 1 }
 /^Return to/ { next }
 /^> \&nbsp;$/ { next }
 /^# Tips/ { $0 = "**Tips**" } # fix up bogus pandoc parse
