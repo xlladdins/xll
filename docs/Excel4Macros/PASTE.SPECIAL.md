@@ -13,9 +13,6 @@ Syntax 3&nbsp;&nbsp;&nbsp;Copying and pasting between charts
 Syntax 4&nbsp;&nbsp;&nbsp;Pasting information from another application.
 
 
-
-Return to [README](README.md#P)
-
 # PASTE.SPECIAL Syntax 1
 
 Equivalent to clicking the Paste Special command on the Edit menu.
@@ -90,9 +87,6 @@ its source
 [S](S.md)yntax 4&nbsp;&nbsp;&nbsp;Pasting information from another application.
 
 
-
-Return to [README](README.md#P)
-
 # PASTE.SPECIAL Syntax 2
 
 Equivalent to clicking the Paste Special command on the Edit menu on the
@@ -164,9 +158,6 @@ to a chart.
 [S](S.md)yntax 4&nbsp;&nbsp;&nbsp;Pasting information from another application
 
 
-
-Return to [README](README.md#P)
-
 # PASTE.SPECIAL Syntax 3
 
 Equivalent to clicking the Paste Special command on the Edit menu on the
@@ -198,9 +189,6 @@ what to paste.
 
 [S](S.md)yntax 4&nbsp;&nbsp;&nbsp;Pasting information from another application
 
-
-
-Return to [README](README.md#P)
 
 # PASTE.SPECIAL Syntax 4
 

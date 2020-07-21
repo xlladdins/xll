@@ -14,9 +14,6 @@ Syntax 2&nbsp;&nbsp;&nbsp;Sizes worksheet objects relative to a cell or
 range
 
 
-
-Return to [README](README.md#F)
-
 # FORMAT.SIZE Syntax 1
 
 Equivalent to sizing an object with the mouse. Sizes the selected object
@@ -59,9 +56,6 @@ specify height and not width, the height changes but the width does not.
 [S](S.md)yntax 2&nbsp;&nbsp;&nbsp;Sizes worksheet objects relative to a cell or
 range
 
-
-
-Return to [README](README.md#F)
 
 # FORMAT.SIZE Syntax 2
 

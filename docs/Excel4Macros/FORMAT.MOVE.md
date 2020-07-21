@@ -15,9 +15,6 @@ Syntax 2&nbsp;&nbsp;&nbsp;Moves chart items
 Syntax 3&nbsp;&nbsp;&nbsp;Moves pie-chart and doughnut-chart items
 
 
-
-Return to [README](README.md#F)
-
 # FORMAT.MOVE Syntax 1
 
 Equivalent to moving an object with the mouse. Moves the selected object
@@ -80,9 +77,6 @@ FORMAT.MOVE(10, 15, \!$D$4)
 [S](S.md)yntax 3&nbsp;&nbsp;&nbsp;Moves pie-chart and doughnut-chart items
 
 
-
-Return to [README](README.md#F)
-
 # FORMAT.MOVE Syntax 2
 
 Equivalent to moving an object with the mouse. Moves the base of the
@@ -136,9 +130,6 @@ FORMAT.MOVE(10, 20)
 
 [S](S.md)yntax 3&nbsp;&nbsp;&nbsp;Moves pie-chart and doughnut-chart items
 
-
-
-Return to [README](README.md#F)
 
 # FORMAT.MOVE Syntax 3
 

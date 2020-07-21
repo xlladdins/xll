@@ -1,5 +1,5 @@
 all:
-	./macros.awk ../*md
+	./macros.awk ../Excel4Macro*md
 	cp -r ../media  .
 
 clean:

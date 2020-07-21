@@ -10,9 +10,6 @@ Syntax 1&nbsp;&nbsp;&nbsp;Controls screen display
 Syntax 2&nbsp;&nbsp;&nbsp;Controls display of Info Window
 
 
-
-Return to [README](README.md#D)
-
 # DISPLAY Syntax 1
 
 Controls whether the screen displays formulas, gridlines, row and column
@@ -81,9 +78,6 @@ to the display options in the Object box.
 
 [S](S.md)yntax 2&nbsp;&nbsp;&nbsp;Controls display of Info Window
 
-
-
-Return to [README](README.md#D)
 
 # DISPLAY Syntax 2
 

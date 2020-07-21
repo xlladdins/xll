@@ -12,7 +12,7 @@ BEGIN {
 /^# Tips/ { $0 = "**Tips**" } # fix up bogus pandoc parse
 /^# / {
     related = 0
-    if (length($2) > 1) {
+    if (length($2) > 1 && $0 !~ /Syntax/) {
         print "\nReturn to [README](README.md#"key")\n" >> file".md"
         close(file".md")
         skip = 0
