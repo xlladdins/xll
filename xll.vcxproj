@@ -24,12 +24,14 @@
     <ClInclude Include="xll\auto.h" />
     <ClInclude Include="xll\defines.h" />
     <ClInclude Include="xll\ensure.h" />
+    <ClInclude Include="xll\error.h" />
     <ClInclude Include="xll\excel.h" />
     <ClInclude Include="xll\exports.h" />
     <ClInclude Include="xll\fp.h" />
     <ClInclude Include="xll\handle.h" />
     <ClInclude Include="xll\on.h" />
     <ClInclude Include="xll\oper.h" />
+    <ClInclude Include="xll\registry.h" />
     <ClInclude Include="xll\traits.h" />
     <ClInclude Include="xll\XLCALL.H" />
     <ClInclude Include="xll\xll.h" />
@@ -39,6 +41,7 @@
     <ClCompile Include="xll\auto.cpp" />
     <ClCompile Include="xll\debug.cpp" />
     <ClCompile Include="xll\dllmain.cpp" />
+    <ClCompile Include="xll\error.cpp" />
     <ClCompile Include="xll\XLCALL.CPP" />
   </ItemGroup>
   <ItemGroup>
