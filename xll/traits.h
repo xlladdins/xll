@@ -5,8 +5,6 @@
 #ifndef XLOPERX
 	#define XLOPERX XLOPER12
 	#define LPXLOPERX LPXLOPER12
-	#define XR__(x) LR ## x
-	#define XR_(x) XR__(x)
 
 	#undef _MBCS
 
@@ -20,8 +18,6 @@
 #else
 	#define XLOPERX XLOPER
 	#define LPXLOPERX LPXLOPER
-	#define XR__(x) R ## x
-	#define XR_(x) XR__(x)
 
 	#ifndef _MBCS
 	#define _MBCS
