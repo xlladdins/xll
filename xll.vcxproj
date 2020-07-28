@@ -128,11 +128,14 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>XLCALL32.LIB</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
       <ForceSymbolReferences>
       </ForceSymbolReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)xll</AdditionalLibraryDirectories>
-      <ExportNamedFunctions>Excel4v</ExportNamedFunctions>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <ExportNamedFunctions>
+      </ExportNamedFunctions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -157,9 +160,12 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>XLCALL32.LIB</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)xll</AdditionalLibraryDirectories>
-      <ExportNamedFunctions>Excel4v</ExportNamedFunctions>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <ExportNamedFunctions>
+      </ExportNamedFunctions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -182,13 +188,16 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>XLCALL32.LIB</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)xll\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
       <ForceSymbolReferences>
       </ForceSymbolReferences>
-      <ExportNamedFunctions>Excel4v</ExportNamedFunctions>
+      <ExportNamedFunctions>
+      </ExportNamedFunctions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -213,11 +222,14 @@
     </Link>
     <Lib />
     <Lib>
-      <AdditionalDependencies>XLCALL32.LIB</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)xll\x64</AdditionalLibraryDirectories>
-      <ExportNamedFunctions>Excel4v</ExportNamedFunctions>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <ExportNamedFunctions>
+      </ExportNamedFunctions>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
