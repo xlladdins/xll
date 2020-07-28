@@ -1,9 +1,15 @@
 // oper.t.cpp - test OPER type
 #include <cassert>
 #include <functional>
+//#define XLOPERX XLOPER12
 #include "../xll/xll.h"
 
 using namespace xll;
+
+int test_defines = []()
+{
+	return 0;
+}();
 
 int test_oper_adt = []()
 {
