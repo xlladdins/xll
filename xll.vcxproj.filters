@@ -75,4 +75,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="xll\XLCALL32.LIB" />
+  </ItemGroup>
 </Project>

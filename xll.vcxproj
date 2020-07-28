@@ -41,6 +41,9 @@
     <ClCompile Include="xll\dllmain.cpp" />
     <ClCompile Include="xll\XLCALL.CPP" />
   </ItemGroup>
+  <ItemGroup>
+    <Library Include="xll\XLCALL32.LIB" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
