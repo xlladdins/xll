@@ -21,6 +21,10 @@ namespace xll {
         {
             return Map[XOPER<X>(name)];
         }
+        static XArgs<X>& Args(const XOPER<X>& name)
+        {
+            return Map[name];
+        }
     };
 
 	using AddIn = XAddIn<XLOPER>;
