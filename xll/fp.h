@@ -52,7 +52,7 @@ namespace xll {
 	/// C++ wrapper for FP and FP12 data types
 	/// </summary>
 	template<class X>
-	// requires!!!
+		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	class XFP {
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xfp xfp;

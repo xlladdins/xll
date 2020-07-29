@@ -26,6 +26,7 @@ namespace xll {
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xrw xrw;
 		typedef typename traits<X>::xcol xcol;
+		//!!!typedef typename traits<X>::xint xint;
 
 	public:
 		using X::xltype;
@@ -202,7 +203,7 @@ namespace xll {
 		{
 			return static_cast<xcol>(xltype == xltypeMulti ? val.array.columns : 1);
 		}
-		size_t size() const
+		auto size() const
 		{
 			return xltype == xltypeMulti ? rows() * columns() : 1;
 		}
@@ -223,7 +224,7 @@ namespace xll {
 			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray + size()) : this + 1;
 		}
 		// one-dimensional index
-		const XOPER& operator[](size_t i) const
+		const XOPER& operator[](xint i) const
 		{
 			ensure(i < size());
 
@@ -235,7 +236,7 @@ namespace xll {
 				return *this;
 			}
 		}
-		XOPER& operator[](size_t i)
+		XOPER& operator[](xint i)
 		{
 			ensure(i < size());
 
@@ -248,11 +249,11 @@ namespace xll {
 			}
 		}
 		// two-dimensional index
-		const XOPER& operator()(RW rw, COL col) const
+		const XOPER& operator()(xrw rw, xcol col) const
 		{
 			return operator[](columns() * rw + col);
 		}
-		XOPER& operator()(RW rw, COL col)
+		XOPER& operator()(xrw rw, xcol col)
 		{
 			return operator[](columns() * rw + col);
 		}
@@ -368,7 +369,7 @@ namespace xll {
 			ensure(xltype == xltypeMulti);
 	
 			// current size
-			size_t n = size();
+			auto n = size();
 			val.array.rows = r;
 			val.array.columns = c;
 			if (n > size()) {
