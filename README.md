@@ -146,6 +146,8 @@ typedef struct _FP12
 
 The classes `xll::FP` and `xll::FP12` make these into well-behaved
 [C++ value types](https://docs.microsoft.com/en-us/cpp/cpp/value-types-modern-cpp).
+Use `_FPX` to get the appropriate raw Excel type to use for arguments and
+return type. Excel doesn't know about anything in the `xll` namespace.'
 
 Use `xll::FPX a(2,3)` to create a 2 by 3 array of `OPERX` and `a(1,0)` access
 the second row, first column (indexing is 0-based) of `a`. The same element
