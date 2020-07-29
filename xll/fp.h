@@ -88,6 +88,16 @@ namespace xll {
 			free(fp);
 		}
 
+		// Convert to native Excel FP type.
+		xfp& get()
+		{
+			return *reinterpret_cast<xfp*>(fp);
+		}
+		const xfp& get() const
+		{
+			return *reinterpret_cast<const xfp*>(fp);
+		}
+
 		bool operator==(const XFP& a) const
 		{
 			if (rows() != a.rows()) {
@@ -109,11 +119,11 @@ namespace xll {
 
 		xint rows() const
 		{
-			return reinterpret_cast<const xfp*>(fp)->rows;
+			return get().rows;
 		}
 		xint columns() const
 		{
-			return reinterpret_cast<const xfp*>(fp)->columns;
+			return get().columns;
 		}
 		xint size() const
 		{
@@ -125,11 +135,11 @@ namespace xll {
 		}
 		double* array()
 		{
-			return reinterpret_cast<xfp*>(fp)->array;
+			return get().array;
 		}
 		const double* array() const
 		{
-			return reinterpret_cast<const xfp*>(fp)->array;
+			return get().array;
 		}
 		double& operator[](xint i)
 		{
@@ -169,7 +179,7 @@ namespace xll {
 			size_t n = r * c;
 			fp = malloc(sizeof(xfp) + n * sizeof(double));
 			if (fp) {
-				xfp* pfx = reinterpret_cast<xfp*>(fp);
+				xfp* pfx = &get();
 				pfx->rows = r;
 				pfx->columns = c;
 			}
@@ -181,7 +191,7 @@ namespace xll {
 				fp = realloc(fp, sizeof(xfp) + n * sizeof(double));
 			}
 			if (fp) {
-				xfp* pfx = reinterpret_cast<xfp*>(fp);
+				xfp* pfx = &get();
 				pfx->rows = r;
 				pfx->columns = c;
 			}
