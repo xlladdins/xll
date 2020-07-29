@@ -2,12 +2,57 @@
 #pragma once
 #include "traits.h"
 
+inline auto size(const _FP& a)
+{
+	return a.rows * a.columns;
+}
+
+inline double* begin(_FP& a)
+{
+	return a.array;
+}
+inline const double* begin(const _FP& a)
+{
+	return a.array;
+}
+inline double* end(_FP& a)
+{
+	return a.array + size(a);
+}
+inline const double* end(const _FP& a)
+{
+	return a.array + size(a);
+}
+
+inline auto size(const _FP12& a)
+{
+	return a.rows * a.columns;
+}
+
+inline double* begin(_FP12& a)
+{
+	return a.array;
+}
+inline const double* begin(const _FP12& a)
+{
+	return a.array;
+}
+inline double* end(_FP12& a)
+{
+	return a.array + size(a);
+}
+inline const double* end(const _FP12& a)
+{
+	return a.array + size(a);
+}
+
 namespace xll {
 
 	/// <summary>
 	/// C++ wrapper for FP and FP12 data types
 	/// </summary>
 	template<class X>
+	// requires!!!
 	class XFP {
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xfp xfp;
@@ -16,6 +61,11 @@ namespace xll {
 		XFP(xint r = 0, xint c = 0)
 		{
 			fp_alloc(r, c);
+		}
+		XFP(const xfp& a)
+			: XFP(a.rows, a.columns)
+		{
+			std::copy(::begin(a), ::end(a), begin());
 		}
 		XFP(const XFP& a)
 		{

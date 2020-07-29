@@ -52,7 +52,7 @@ namespace xll {
 		typedef WORD xcol; // BYTE???
 		typedef short int xint;
 		typedef WORD xbool;
-		typedef FP xfp;
+		typedef _FP xfp;
 		static int Excelv(int xlfn, LPXLOPER operRes, int count, LPXLOPER opers[])
 		{
 			return ::Excel4v(xlfn, operRes, count, opers);
@@ -77,7 +77,7 @@ namespace xll {
 		typedef INT32 xint;
 		typedef RW xrw;
 		typedef COL xcol;
-		typedef FP12 xfp;
+		typedef _FP12 xfp;
 		typedef INT32 xbool;
 		static int Excelv(int xlfn, LPXLOPER12 operRes, int count, LPXLOPER12 opers[])
 		{

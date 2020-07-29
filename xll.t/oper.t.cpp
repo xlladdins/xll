@@ -300,6 +300,28 @@ int test_compare = []()
 int test_fp = []()
 {
 	using xll::FP;
+	using xll::FP12;
+	using xll::FPX;
+
+	{
+		_FPX a = { 1, 1 };
+		ensure(size(a) == 1);
+		a.array[0] = 1.23;
+		FPX ax(a);
+		ensure(ax.size() == 1);
+		ensure(ax[0] == 1.23);
+		ensure(ax(0,0) == 1.23);
+		double s = 0;
+		for (const auto& i : a) {
+			s += i;
+		}
+		ensure(s == 1.23);
+		s = 0;
+		for (const auto& i : ax) {
+			s += i;
+		}
+		ensure(s == 1.23);
+	}
 
 	{
 		FP a;
