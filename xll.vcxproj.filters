@@ -86,5 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Library Include="xll\XLCALL32.LIB" />
+    <Library Include="xll\x64\XLCALL32.LIB" />
   </ItemGroup>
 </Project>
