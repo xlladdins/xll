@@ -5,7 +5,7 @@
 #ifndef XLOPERX
 	#define XLOPERX XLOPER12
 	#define LPXLOPERX LPXLOPER12
-
+	typedef struct _FP12 _FPX;
 	#undef _MBCS
 
 	#ifndef _UNICODE
@@ -18,6 +18,7 @@
 #else
 	#define XLOPERX XLOPER
 	#define LPXLOPERX LPXLOPER
+	typedef struct _FP _FPX;
 
 	#ifndef _MBCS
 	#define _MBCS
