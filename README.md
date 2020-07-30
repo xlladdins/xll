@@ -26,7 +26,8 @@ Windows 10
 ## Get Started
 
 Run the [installer](https://github.com/xlladdins/xll/xll.msi). This places
-the xll project template in your `Documents\Visual Studio 2019` folder.
+the xll project template in your `Documents\Visual Studio 2019` folder
+and include visualizers for debugging.
 
 Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
 select `XLL Project`. You will need to

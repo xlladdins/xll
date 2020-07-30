@@ -78,14 +78,14 @@ namespace xll {
 		{
 			return p != nullptr;
 		}
-		T* ptr()
-		{
-			return p;
-		}
 		// return value for Excel
 		HANDLEX get()
 		{
 			return to_handle(p);
+		}
+		T* ptr()
+		{
+			return p;
 		}
 		T* operator->()
 		{

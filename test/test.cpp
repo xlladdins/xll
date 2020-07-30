@@ -1,11 +1,15 @@
 #include <cmath>
+// Uncomment to use Excel4 API.
 //#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
 
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
+// See https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md
+// for documentation of ExcelX arguments.
 AddInX xai_macro(MacroX(X_("?xll_macro"), X_("XLL.MACRO")));
+// All functions called from Excel must be declared with WINAPI.
 int WINAPI xll_macro(void)
 {
 #pragma XLLEXPORT
@@ -16,9 +20,15 @@ int WINAPI xll_macro(void)
 	//Excel<XLOPERX>(xlcAlert, xMsg);
 
 	// same as above
-	Excel<XLOPERX>(xlcAlert, 
-		OPERX(X_("XLL.MACRO called with active cell: ")) 
-			& Excel<XLOPERX>(xlfReftext, Excel<XLOPERX>(xlfActiveCell), OPERX(true)));
+	ExcelX(xlcAlert, 
+		ExcelX(xlfConcatenate,
+			OPERX(X_("XLL.MACRO called with active cell: ")),
+			ExcelX(xlfReftext, ExcelX(xlfActiveCell), OPERX(true))
+		),
+		OPERX(2), // general information
+		OPERX(X_("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0"))
+		// Optional help file link. Note the '!0' appended to the URL.
+	);
 	
 	return TRUE;
 }
@@ -49,8 +59,17 @@ AddInX xai_jn(
 double WINAPI xll_jn(LONG n, double x)
 {
 #pragma XLLEXPORT
+	// This results in #NUM! if returned to Excel.
+	double result = std::numeric_limits<double>::quiet_NaN();
 
-	return _jn(n, x);
+	try {
+		result = _jn(n, x);
+	}
+	catch (const std::excetion& ex) {
+		XLL_ERROR(ex.what());
+	}
+
+	return result;
 }
 
 Auto<Open> xai_open([]() { 
@@ -59,7 +78,6 @@ Auto<Open> xai_open([]() {
 	return TRUE;  
 });
 
-//!!!not being called!!!
 Auto<Close> xai_close([]() {
 	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Close> called")));
 
@@ -86,17 +104,6 @@ int WINAPI xll_onwindow(void)
 	return TRUE;
 }
 On<Window> xon_window(X_(""), X_("XLL.ONWINDOW"));
-
-AddInX xai_onwindow2(MacroX(X_("?xll_onwindow2"), X_("XLL.ONWINDOW2")));
-int WINAPI xll_onwindow2(void)
-{
-#pragma XLLEXPORT
-	ExcelX(xlcAlert, OPERX(X_("ONWINDOW2 called")));
-	ExcelX(xlcDefineName, OPERX(X_("foo")), OPERX(1.23));
-
-	return TRUE;
-}
-On<Window> xon_window2(X_(""), X_("XLL.ONWINDOW2"));
 
 AddInX xai_onsheet(MacroX(X_("?xll_onsheet"), X_("XLL.ONSHEET")));
 int WINAPI xll_onsheet(void)
