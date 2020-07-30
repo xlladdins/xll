@@ -40,6 +40,7 @@ AddInX xai_tgamma(
 		})
 	.FunctionHelp(X_("Return the Gamma function value."))
 	.Category(X_("Cmath"))
+	.HelpTopic(X_("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0"))
 );
 double WINAPI xll_tgamma(double x)
 {
@@ -65,7 +66,7 @@ double WINAPI xll_jn(LONG n, double x)
 	try {
 		result = _jn(n, x);
 	}
-	catch (const std::excetion& ex) {
+	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 	}
 
@@ -92,7 +93,6 @@ int WINAPI xll_onkey(void)
 
 	return TRUE;
 }
-
 On<Key> xon_key(ON_CTRL ON_ALT X_("a"), X_("XLL.ONKEY"));
 
 AddInX xai_onwindow(MacroX(X_("?xll_onwindow"), X_("XLL.ONWINDOW")));
