@@ -10,5 +10,5 @@ chart has no overlay, DELETE.OVERLAY takes no action and returns TRUE.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 

@@ -12,9 +12,6 @@ Syntax 1
 Syntaxes 2-7
 
 
-
-Return to [README](README.md)
-
 # DEFINE.STYLE Syntax 1
 
 Equivalent to clicking the Define button in the Style dialog box, which
@@ -67,9 +64,6 @@ box.
 [MERGE.STYLES](MERGE.STYLES.md)&nbsp;&nbsp;&nbsp;Imports styles from another workbook into
 the active workbook
 
-
-
-Return to [README](README.md)
 
 # DEFINE.STYLE Syntaxes 2 - 7
 
@@ -180,5 +174,5 @@ the active workbook
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#D)
 

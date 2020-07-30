@@ -20,5 +20,5 @@ functions. For more information, see FONT.PROPERTIES and DEFINE.STYLE.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 

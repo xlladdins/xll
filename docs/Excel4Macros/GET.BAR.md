@@ -12,9 +12,6 @@ Syntax 2&nbsp;&nbsp;&nbsp;Returns the name or position number of a
 specified command on a menu or of a specified menu on a menu bar
 
 
-
-Return to [README](README.md)
-
 # GET.BAR Syntax 1
 
 Returns the number of the active menu bar. There are two syntax forms of
@@ -43,9 +40,6 @@ SET.NAME("OldBar", GET.BAR())
 [GET.BAR](GET.BAR.md) Syntax 2&nbsp;&nbsp;&nbsp;Returns the name or position number of
 a specified command on a menu or of a specified menu on a menu bar
 
-
-
-Return to [README](README.md)
 
 # GET.BAR Syntax 2
 
@@ -124,5 +118,5 @@ bar
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

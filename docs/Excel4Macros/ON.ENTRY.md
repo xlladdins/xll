@@ -33,5 +33,5 @@ and any macros assigned by previous ON.ENTRY functions are turned off.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#O)
 

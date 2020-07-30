@@ -60,6 +60,12 @@
     <ClInclude Include="xll\on.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="xll\error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xll\registry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">
@@ -74,5 +80,12 @@
     <ClCompile Include="xll\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="xll\error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="xll\XLCALL32.LIB" />
+    <Library Include="xll\x64\XLCALL32.LIB" />
   </ItemGroup>
 </Project>

@@ -40,54 +40,6 @@ such as author or creation date
 
 [GET.WORKBOOK](GET.WORKBOOK.md)&nbsp;&nbsp;&nbsp;Returns information about a workbook sheet
 
-<span id="T" class="anchor"></span>This document contains reference
-information on the following Excel macro functions:
 
-# T
-
-[TABLE](#table), [TAB.ORDER](#tab.order), [TERMINATE](#terminate),
-[TEXT.BOX](#text.box), [TEXTREF](#textref),
-[TEXT.TO.COLUMNS](#text.to.columns), [TRACER.CLEAR](#tracer.clear),
-[TRACER.DISPLAY](#tracer.display), [TRACER.ERROR](#tracer.error),
-[TRACER.NAVIGATE](#tracer.navigate), [TTESTM](#ttestm)
-
-# U
-
-[UNDO](#undo), [UNGROUP](#ungroup), [UNHIDE](#unhide), [UNLOCKED.NEXT,
-UNLOCKED.PREV](#unlocked.next-unlocked.prev), [UNREGISTER](#unregister),
-[UPDATE.LINK](#update.link)
-
-# V
-
-[VBA.INSERT.FILE](#vba.insert.file), [VBA.MAKE.ADDIN](#vba.make.addin),
-[VIEW.3D](#view.3d), [VIEW.DEFINE](#view.define),
-[VIEW.DELETE](#view.delete), [VIEW.GET](#view.get),
-[VIEW.SHOW](#view.show), [VLINE](#vline), [VOLATILE](#volatile),
-[VPAGE](#vpage), [VSCROLL](#vscroll)
-
-# W
-
-[WAIT](#wait), [WHILE](#while), [WINDOW.MAXIMIZE](#window.maximize),
-[WINDOW.MINIMIZE](#window.minimize), [WINDOW.MOVE](#window.move),
-[WINDOW.RESTORE](#window.restore), [WINDOWS](#windows),
-[WINDOW.SIZE](#window.size), [WINDOW.TITLE](#window.title),
-[WORKBOOK.ACTIVATE](#workbook.activate), [WORKBOOK.ADD](#workbook.add),
-[WORKBOOK.COPY](#workbook.copy), [WORKBOOK.DELETE](#workbook.delete),
-[WORKBOOK.HIDE](#workbook.hide), [WORKBOOK.INSERT](#workbook.insert),
-[WORKBOOK.MOVE](#workbook.move), [WORKBOOK.NAME](#workbook.name),
-[WORKBOOK.NEW](#workbook.new), [WORKBOOK.NEXT](#workbook.next),
-[WORKBOOK.OPTIONS](#workbook.options), [WORKBOOK.PREV](#workbook.prev),
-[WORKBOOK.PROTECT](#workbook.protect),
-[WORKBOOK.SCROLL](#workbook.scroll),
-[WORKBOOK.SELECT](#workbook.select),
-[WORKBOOK.TAB.SPLIT](#workbook.tab.split),
-[WORKBOOK.UNHIDE](#workbook.unhide), [WORKGROUP](#workgroup),
-[WORKSPACE](#workspace)
-
-# Z
-
-[ZOOM](#zoom), [ZTESTM](#ztestm)
-
-
-Return to [README](README.md)
+Return to [README](README.md#S)
 

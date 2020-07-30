@@ -14,9 +14,6 @@ in a worksheet
 Syntax 2&nbsp;&nbsp;&nbsp;Enters formulas in a chart
 
 
-
-Return to [README](README.md)
-
 # FORMULA Syntax 1
 
 Enters a formula in the active cell or in a reference. If the active
@@ -119,9 +116,6 @@ FORMULA("Year to Date", 'SALES 1993'\!B4)
 [FORMULA](FORMULA.md) Syntax 2&nbsp;&nbsp;&nbsp;Enters formulas in a chart
 
 
-
-Return to [README](README.md)
-
 # FORMULA Syntax 2
 
 Enters a text label or SERIES formula in a chart. To enter formulas on a
@@ -163,5 +157,5 @@ formulas in a worksheet
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#F)
 

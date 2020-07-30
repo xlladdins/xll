@@ -8,5 +8,5 @@ Equivalent to selecting all the sheets in a workbook.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

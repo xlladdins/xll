@@ -34,5 +34,5 @@ IF(ALERT("Are you sure you want to quit Microsoft Excel?",1), QUIT(),)
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#Q)
 

@@ -105,5 +105,5 @@ SET.UPDATE.STATUS("WordDocument|'C:\\MEMO.DOC'\!DDE.LINK1", 2, 2)
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

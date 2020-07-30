@@ -21,5 +21,5 @@ text (""), then COLOR.PALETTE sets colors to the default values.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#C)
 

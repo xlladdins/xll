@@ -50,6 +50,7 @@ namespace xll {
 		XOPER<X> functionHelp; // for function wizard
 		std::vector<XOPER<X>> argumentHelp;
 		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
+		std::basic_string<xchar> documentation;
 	public:
 		XArgs()
 		{ }
@@ -108,6 +109,19 @@ namespace xll {
 		XArgs& Volatile()
 		{
 			typeText &= XLL_VOLATILEX;
+
+			return *this;
+		}
+
+		XArgs& Documentation(xcstr doc)
+		{
+			documentation = doc;
+
+			return *this;
+		}
+		XArgs& Documentation(std::basic_string<xchar>&& doc)
+		{
+			documentation = doc;
 
 			return *this;
 		}

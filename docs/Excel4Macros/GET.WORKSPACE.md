@@ -423,5 +423,5 @@ where currency is any number and the $ represents the current currency symbol.<b
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

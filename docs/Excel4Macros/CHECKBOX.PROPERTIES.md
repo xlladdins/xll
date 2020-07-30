@@ -66,5 +66,5 @@ and drop-down box controls on a worksheet or dialog sheet
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#C)
 

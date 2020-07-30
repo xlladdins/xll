@@ -57,5 +57,5 @@ GET.FORMULA(ACTIVE.CELL())
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

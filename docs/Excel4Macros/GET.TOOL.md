@@ -54,5 +54,5 @@ GET.TOOL(6, "Toolbar2", 3)
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

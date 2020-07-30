@@ -19,5 +19,5 @@ change a font to bold or italic, use the FONT.PROPERTIES function.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

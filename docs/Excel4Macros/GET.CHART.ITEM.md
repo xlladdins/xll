@@ -115,5 +115,5 @@ position returned by these two formulas.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

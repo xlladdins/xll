@@ -5,7 +5,7 @@
 #ifndef XLOPERX
 	#define XLOPERX XLOPER12
 	#define LPXLOPERX LPXLOPER12
-
+	typedef struct _FP12 _FPX;
 	#undef _MBCS
 
 	#ifndef _UNICODE
@@ -18,6 +18,7 @@
 #else
 	#define XLOPERX XLOPER
 	#define LPXLOPERX LPXLOPER
+	typedef struct _FP _FPX;
 
 	#ifndef _MBCS
 	#define _MBCS
@@ -26,8 +27,6 @@
 	#undef _UNICODE
 	#undef UNICODE
 #endif
-
-#define X_ _T
 
 #define NOMINMAX
 #include <Windows.h>
@@ -53,7 +52,7 @@ namespace xll {
 		typedef WORD xcol; // BYTE???
 		typedef short int xint;
 		typedef WORD xbool;
-		typedef FP xfp;
+		typedef _FP xfp;
 		static int Excelv(int xlfn, LPXLOPER operRes, int count, LPXLOPER opers[])
 		{
 			return ::Excel4v(xlfn, operRes, count, opers);
@@ -78,7 +77,7 @@ namespace xll {
 		typedef INT32 xint;
 		typedef RW xrw;
 		typedef COL xcol;
-		typedef FP12 xfp;
+		typedef _FP12 xfp;
 		typedef INT32 xbool;
 		static int Excelv(int xlfn, LPXLOPER12 operRes, int count, LPXLOPER12 opers[])
 		{

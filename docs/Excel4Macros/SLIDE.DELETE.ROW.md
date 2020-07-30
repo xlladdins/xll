@@ -22,5 +22,5 @@ them onto the Clipboard
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

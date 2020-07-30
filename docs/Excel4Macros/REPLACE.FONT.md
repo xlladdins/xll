@@ -17,5 +17,5 @@ underline, strike, color, outline, shadow)
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#R)
 

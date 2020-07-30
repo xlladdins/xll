@@ -43,5 +43,5 @@ solve your math equations for optimal values.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#G)
 

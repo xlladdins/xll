@@ -12,9 +12,6 @@ Syntax 2&nbsp;&nbsp;&nbsp;Selects objects on worksheets
 Syntax 3&nbsp;&nbsp;&nbsp;Selects chart objects
 
 
-
-Return to [README](README.md)
-
 # SELECT Syntax 1
 
 Equivalent to selecting cells or changing the active cell. There are
@@ -114,9 +111,6 @@ category
 [SELECT](SELECT.md) Syntax 3&nbsp;&nbsp;&nbsp;Selects chart objects
 
 
-
-Return to [README](README.md)
-
 # SELECT Syntax 2
 
 Equivalent to selecting objects on a chart, worksheet, or macro sheet.
@@ -178,9 +172,6 @@ SELECT("3, 1, 4, 2")
 
 [SELECT](SELECT.md) Syntax 3&nbsp;&nbsp;&nbsp;Selects chart objects
 
-
-
-Return to [README](README.md)
 
 # SELECT Syntax 3
 
@@ -567,5 +558,5 @@ an area chart.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

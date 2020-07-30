@@ -49,5 +49,5 @@ Excel does not run any Auto\_Close macros before closing the workbook.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#C)
 

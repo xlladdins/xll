@@ -33,5 +33,5 @@ examples of these functions, see form 2 of the IF function.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#E)
 

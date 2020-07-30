@@ -14,5 +14,5 @@ the data series: use 1 for primary axis, 2 for secondary axis.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

@@ -28,5 +28,5 @@ name, file type, password, backup file, and location of the workbook
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#S)
 

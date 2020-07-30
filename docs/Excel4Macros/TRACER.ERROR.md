@@ -27,5 +27,5 @@ error occurred. Returns FALSE if an error is not found.
 
 
 
-Return to [README](README.md)
+Return to [README](README.md#T)
 
