@@ -100,6 +100,12 @@ namespace xll {
 
 			return *this;
 		}
+		XArgs& HelpTopic(xcstr _helpTopic)
+		{
+			helpTopic = _helpTopic;
+
+			return *this;
+		}
 		XArgs& Uncalced()
 		{
 			typeText &= XLL_UNCALCEDX; //!!! use traits

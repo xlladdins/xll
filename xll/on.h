@@ -5,50 +5,50 @@
 #include "excel.h"
 
 // For use with On<Key>
-#define ON_SHIFT       L"+"
-#define ON_CTRL        L"^"
-#define ON_ALT         L"%"
-#define ON_COMMAND     L"*"
-#define ON_ENTER       L"~"
-#define ON_BACKSPACE   L"{BACKSPACE}" 
-#define ON_BS          L"{BS}" 
-#define ON_BREAK       L"{BREAK}" 
-#define ON_CAPS_LOCK   L"{CAPSLOCK}" 
-#define ON_CLEAR       L"{CLEAR}" 
-#define ON_DELETE      L"{DELETE}" 
-#define ON_DEL         L"{DEL}" 
-#define ON_DOWN_ARROW  L"{DOWN}" 
-#define ON_END         L"{END}" 
-#define ON_ENTER_NUM   L"{ENTER}" 
-#define ON_ESCAPE      L"{ESCAPE}" 
-#define ON_ESC         L"{ESC}" 
-#define ON_F1          L"{F1}" 
-#define ON_F2          L"{F2}" 
-#define ON_F3          L"{F3}" 
-#define ON_F4          L"{F4}" 
-#define ON_F5          L"{F5}" 
-#define ON_F6          L"{F6}" 
-#define ON_F7          L"{F7}" 
-#define ON_F8          L"{F8}" 
-#define ON_F9          L"{F9}" 
-#define ON_F10         L"{F10}" 
-#define ON_F11         L"{F11}" 
-#define ON_F12         L"{F12}" 
-#define ON_F13         L"{F13}" 
-#define ON_F14         L"{F14}" 
-#define ON_F15         L"{F15}" 
-#define ON_HELP        L"{HELP}" 
-#define ON_HOME        L"{HOME}" 
-#define ON_INSERT      L"{INSERT}" 
-#define ON_LEFT_ARROW  L"{LEFT}" 
-#define ON_NUM_LOCK    L"{NUMLOCK}" 
-#define ON_PAGE_DOWN   L"{PGDN}" 
-#define ON_PAGE_UP     L"{PGUP}" 
-#define ON_RETURN      L"{RETURN}" 
-#define ON_RIGHT_ARROW L"{RIGHT}" 
-#define ON_SCROLL_LOCK L"{SCROLLLOCK}" 
-#define ON_TAB         L"{TAB}" 
-#define ON_UP_ARROW    L"{UP}" 
+#define ON_SHIFT       X_("+")
+#define ON_CTRL        X_("^")
+#define ON_ALT         X_("%")
+#define ON_COMMAND     X_("*")
+#define ON_ENTER       X_("~")
+#define ON_BACKSPACE   X_("{BACKSPACE}") 
+#define ON_BS          X_("{BS}") 
+#define ON_BREAK       X_("{BREAK}") 
+#define ON_CAPS_LOCK   X_("{CAPSLOCK}") 
+#define ON_CLEAR       X_("{CLEAR}") 
+#define ON_DELETE      X_("{DELETE}") 
+#define ON_DEL         X_("{DEL}") 
+#define ON_DOWN_ARROW  X_("{DOWN}") 
+#define ON_END         X_("{END}") 
+#define ON_ENTER_NUM   X_("{ENTER}") 
+#define ON_ESCAPE      X_("{ESCAPE}") 
+#define ON_ESC         X_("{ESC}") 
+#define ON_F1          X_("{F1}") 
+#define ON_F2          X_("{F2}") 
+#define ON_F3          X_("{F3}") 
+#define ON_F4          X_("{F4}") 
+#define ON_F5          X_("{F5}") 
+#define ON_F6          X_("{F6}") 
+#define ON_F7          X_("{F7}") 
+#define ON_F8          X_("{F8}") 
+#define ON_F9          X_("{F9}") 
+#define ON_F10         X_("{F10}") 
+#define ON_F11         X_("{F11}") 
+#define ON_F12         X_("{F12}") 
+#define ON_F13         X_("{F13}") 
+#define ON_F14         X_("{F14}") 
+#define ON_F15         X_("{F15}") 
+#define ON_HELP        X_("{HELP}") 
+#define ON_HOME        X_("{HOME}") 
+#define ON_INSERT      X_("{INSERT}") 
+#define ON_LEFT_ARROW  X_("{LEFT}") 
+#define ON_NUM_LOCK    X_("{NUMLOCK}") 
+#define ON_PAGE_DOWN   X_("{PGDN}") 
+#define ON_PAGE_UP     X_("{PGUP}") 
+#define ON_RETURN      X_("{RETURN}") 
+#define ON_RIGHT_ARROW X_("{RIGHT}") 
+#define ON_SCROLL_LOCK X_("{SCROLLLOCK}") 
+#define ON_TAB         X_("{TAB}") 
+#define ON_UP_ARROW    X_("{UP}") 
 
 namespace xll {
 
@@ -80,7 +80,7 @@ namespace xll {
 	// static On<Key> ok("shortcut", "MACRO");
 	template<class Key>
 	class On {
-		using xcstr = const XCHAR*;
+		using xcstr = traits<XLOPERX>::xcstr;
 	public:
 		On(xcstr text, xcstr macro)
 		{

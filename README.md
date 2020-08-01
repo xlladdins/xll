@@ -26,7 +26,8 @@ Windows 10
 ## Get Started
 
 Run the [installer](https://github.com/xlladdins/xll/xll.msi). This places
-the xll project template in your `Documents\Visual Studio 2019` folder.
+the xll project template in your `Documents\Visual Studio 2019` folder
+and include visualizers for debugging.
 
 Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
 select `XLL Project`. You will need to
@@ -93,7 +94,8 @@ the built-in Excel functon
 [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
 All functions called from Excel must be declared
-with [`WINAPI`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
+with `WINAPI` which is defined to be [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
+This is an artifact of the original versions of Excel being written in Pascal.
 The line `#pragma XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel.
 
@@ -228,4 +230,16 @@ That file also has examples illustrating how single inheritance can be used in E
 
 ## [Excel 4 Macro Functions](docs/Excel4Macros/README.md)
 
-Excel features are available from xlls via the `Excel` function.
+Any Excel function can be called with `ExcelX` by using _function numbers_. The
+function numbers are defined in `XLCALL.H` and correspond to Excel built-in
+functions or macros (command equivalents).
+Function numbers starting with `xlf` are functions and can be called from any add-in function.
+Function numbers starting with `xlc` are macros and cannot be called from add-in functions.
+
+## Remarks
+
+This section contains miscellaneous remarks.
+
+### Uncalced
+
+Functions that are declared `.Uncalced()` have a limited ability to call command equivalents.
