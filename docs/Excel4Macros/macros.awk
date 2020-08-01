@@ -23,7 +23,7 @@ BEGIN {
         key = substr(file, 1, 1)
         if (key != okey) {
             okey = key
-            bull = "&ndash; "
+            bull = ""
             keys[key] = "\n## "key"\n"
         }
         link = $0
@@ -56,8 +56,10 @@ END {
     print "# Index of Excel 4 Macro Functions\n" > "README.md"
 
     n = asorti(keys, keyi)
+    sep = ""
     for (i = 1; i <= n; ++i) {
-        print " ["keyi[i]"](#"keyi[i]")" >> "README.md"
+        print sep"["keyi[i]"](#"keyi[i]")" >> "README.md"
+        sep = "|"
     }
     for (i = 1; i <= n; ++i) {
         print keys[keyi[i]] >> "README.md"
