@@ -31,7 +31,7 @@ BEGIN {
         split(link, links, ".")
         key2 = links[1]
         if (key2 != okey2) {
-            bull = "&ndash; "
+            bull = ""
             okey2 = key2
             keys[key] = keys[key]"  \n"
         }
@@ -59,7 +59,7 @@ END {
     sep = ""
     for (i = 1; i <= n; ++i) {
         print sep"["keyi[i]"](#"keyi[i]")" >> "README.md"
-        sep = "|"
+        sep = "| "
     }
     for (i = 1; i <= n; ++i) {
         print keys[keyi[i]] >> "README.md"
