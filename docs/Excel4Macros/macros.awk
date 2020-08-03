@@ -55,11 +55,11 @@ skip == 0 {
 END {
     print "# Index of Excel 4 Macro Functions\n" > "README.md"
 
-    n = asorti(keys, keyi)
+    n = asorti(keys, key)
     for (i = 1; i <= n; ++i) {
-        print " ["keyi[i]"](#"keyi[i]")" >> "README.md"
+        print " ["key[i]"](#"key[i]")" >> "README.md"
     }
     for (i = 1; i <= n; ++i) {
-        print keys[keyi[i]] >> "README.md"
+        print keys[key[i]] >> "README.md"
     }
 }
