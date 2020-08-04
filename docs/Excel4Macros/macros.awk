@@ -56,12 +56,10 @@ END {
     print "# Index of Excel 4 Macro Functions\n" > "README.md"
 
     n = asorti(keys, keyi)
-    sep = ""
     for (i = 1; i <= n; ++i) {
-        print sep"["keyi[i]"](#"keyi[i]")" >> "README.md"
-        sep = "| "
+        print " ["key[i]"](#"key[i]")" >> "README.md"
     }
     for (i = 1; i <= n; ++i) {
-        print keys[keyi[i]] >> "README.md"
+        print keys[key[i]] >> "README.md"
     }
 }

@@ -210,6 +210,12 @@ int test_oper_multi = []()
 		ensure(m.size() == 9);
 		ensure(m[3] == "foo");
 		ensure(m(1, 0) == "foo");
+
+		m(1, 2) = OPER("bar");
+		ensure(m(1, 2) == "bar");
+
+		m(2, 1) = m;
+		ensure(m(2, 1)(1, 2) == "bar");
 	}
 
 	return 0;

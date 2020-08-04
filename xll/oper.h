@@ -32,6 +32,14 @@ namespace xll {
 		using X::xltype;
 		using X::val;
 
+		friend void swap(XOPER& a, XOPER& b) noexcept
+		{
+			using std::swap;
+
+			swap(a.xltype, b.xltype);
+			swap(a.val, b.val);
+		}
+
 		XOPER()
 		{
 			xltype = xltypeNil;
@@ -42,7 +50,8 @@ namespace xll {
 		XOPER(const X& x)
 		{
 			if (x.xltype == xltypeStr) {
-				str_cpy(x.val.str + 1, x.val.str[0]);
+				str_alloc(x.val.str[0]);
+				std::copy(x.val.str + 1, x.val.str + 1 + x.val.str[0], val.str + 1);
 			}
 			else if (x.xltype == xltypeMulti) {
 				multi_alloc(x.val.array.rows, x.val.array.columns);
@@ -54,31 +63,20 @@ namespace xll {
 			}
 		}
 		XOPER(XOPER&& o) noexcept
+			: XOPER()
 		{
-			xltype = o.xltype;
-			val = o.val;
-			o.xltype = xltypeMissing;
+			swap(*this, o);
 		}
-		XOPER& operator=(const XOPER& o)
+		XOPER& operator=(XOPER o)
 		{
-			return operator=(static_cast<const X&>(o));
+			swap(*this, o);
+
+			return *this;
 		}
+		/*
 		XOPER& operator=(const X& x)
 		{
-			if (this != &x) {
-				oper_free();
-				if (x.xltype == xltypeStr) {
-					str_cpy(x.val.str + 1, x.val.str[0]);
-				}
-				else if (x.xltype == xltypeMulti) {
-					multi_alloc(x.val.array.rows, x.val.array.columns);
-					std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
-				}
-				else {
-					xltype = x.xltype;
-					val = x.val;
-				}
-			}
+			swap(*this, OPERX(x));
 
 			return *this;
 		}
@@ -92,6 +90,7 @@ namespace xll {
 
 			return *this;
 		}
+		*/
 		~XOPER()
 		{
 			oper_free();
@@ -115,16 +114,22 @@ namespace xll {
 			return xltype == xltypeNum && val.num == num;
 		}
 
+		// xltypeStr given length
+		XOPER(xcstr str, size_t n)
+		{
+			str_alloc(n);
+			std::copy(str, str + n, val.str + 1);
+		}
 		// xltypeStr from NULL terminated string
 		explicit XOPER(xcstr str)
+			: XOPER(str, traits<X>::len(str))
 		{
-			str_cpy(str, 0);
 		}
 		// Construct from string literal
 		template<size_t N>
 		XOPER(const xchar (&str)[N])
+			: XOPER(str, N)
 		{
-			str_cpy(str, N - 1);
 		}
 		bool operator==(xcstr str) const
 		{
@@ -138,7 +143,7 @@ namespace xll {
 			if (val.str[0] != static_cast<xchar>(n))
 				return false;
 
-			return traits<X>::cmp(str, val.str + 1, val.str[0]) == 0;
+			return 0 == traits<X>::cmp(str, val.str + 1, val.str[0]);
 		}
 		XOPER operator=(xcstr str)
 		{
@@ -304,6 +309,8 @@ namespace xll {
 			
 			xltype = xltypeNil;
 		}
+
+		// xltypeStr
 		void str_alloc(size_t n)
 		{
 			xltype = xltypeStr;
@@ -311,16 +318,6 @@ namespace xll {
 			// first character is count
 			if (val.str) {
 				val.str[0] = static_cast<xchar>(n);
-			}
-		}
-		void str_cpy(xcstr str, size_t n)
-		{
-			if (n == 0) {
-				n = traits<X>::len(str);
-			}
-			str_alloc(n);
-			if (val.str) {
-				traits<X>::cpy(val.str + 1, str, n);
 			}
 		}
 		void str_realloc(size_t n)
@@ -334,8 +331,10 @@ namespace xll {
 		}
 		void str_append(xcstr str, size_t n)
 		{
+			ensure(xltype == xltypeNil || xltype == xltypeStr);
+
 			if (xltype == xltypeNil) {
-				str_cpy(str, n);
+				operator=(XOPER(str, n));
 			}
 			else {
 				if (n == 0) {
@@ -344,7 +343,7 @@ namespace xll {
 				xchar len = val.str[0];
 				str_realloc(len + n);
 				if (val.str) {
-					traits<X>::cpy(val.str + len + 1, str, n);
+					std::copy(str, str + n, val.str + 1 + len);
 				}
 			}
 		}
@@ -354,6 +353,8 @@ namespace xll {
 			free(val.str);
 			xltype = xltypeNil;
 		}
+		
+		// xltypeMulti
 		void multi_alloc(xrw r, xcol c)
 		{
 			xltype = xltypeMulti;
