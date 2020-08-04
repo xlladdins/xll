@@ -4,9 +4,8 @@ This library makes it simple to call C and C++ functions from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 
-It also provides high performance access to numeric arrays 
-([`FPX`](#the-fp-data-type))
-and a way ([`xll::handle`](#handles)) to embed C++ objects that repects 
+It also provides high performance access to [numeric arrays](#the-fp-data-type) and
+[handles](#handles) for embedding C++ objects that can be used for
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance).
 
 ## Prerequisites
