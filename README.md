@@ -5,8 +5,8 @@ It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 
 It also provides high performance access to numeric arrays 
-(the [`FP`](#the-fp-data-type) data type)
-and a way (`xll::handle`)[#handles]) to embed C++ objects that repects 
+([`FPX`](#the-fp-data-type))
+and a way ([`xll::handle`](#handles)) to embed C++ objects that repects 
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance).
 
 ## Prerequisites
@@ -124,7 +124,9 @@ E.g., `X_("foo")` is either `"foo"` or `L"foo"` depending on the type of `XLOPER
 ## The FP Data Type
 
 The `FP` data type is a two dimensional array of floating point numbers. It is
-the fastest way of interacting with numerical data in Excel. It is
+the fastest way of interacting with numerical data in Excel. All other APIs
+require the data to be copied.
+It is
 defined in [`XLCALL.H`](xll/XLCALL.H)
 for versions of Excel prior to 2007 as
 ```C
@@ -233,8 +235,11 @@ That file also has examples illustrating how single inheritance can be used in E
 Any Excel function can be called with `ExcelX` by using _function numbers_. The
 function numbers are defined in `XLCALL.H` and correspond to Excel built-in
 functions or macros (command equivalents).
-Function numbers starting with `xlf` are functions and can be called from any add-in function.
-Function numbers starting with `xlc` are macros and cannot be called from add-in functions.
+Function numbers starting with `xlf` are functions and can only be called from add-in functions.
+Function numbers starting with `xlc` are macros and can only be called from add-in macros.
+[Some](https://docs.microsoft.com/en-us/office/client-developer/excel/c-api-functions-that-can-be-called-only-from-a-dll-or-xll)
+function numbers are special to the C API. For example, [`xlUDF`](https://docs.microsoft.com/en-us/office/client-developer/excel/xludf)
+can be used to call VBA user-defined functions.
 
 ## Remarks
 
