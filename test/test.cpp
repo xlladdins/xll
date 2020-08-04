@@ -131,3 +131,21 @@ LPOPERX WINAPI xll_get_workspace(SHORT type_num)
 
 	return &oResult;
 }
+
+AddInX xai_get_formula(
+	FunctionX(XLL_HANDLEX, X_("?xll_get_formula"), X_("GET_FORMULA"))
+	.Args({
+		ArgX(XLL_LPXLOPERX, X_("cell"), X_("is a reference to a cell containing a formula."))
+	})
+	.FunctionHelp(X_("Get formula from cell."))
+	.Category(X_("XLL"))
+	.Uncalced()
+);
+HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
+{
+#pragma XLLEXPORT
+	// if pCall->xltype == xltypeMissing use active cell
+	OPERX xFormula = ExcelX(xlfGetFormula, *pCell); // formula references are R1C1
+
+	return 0;
+}

@@ -92,9 +92,9 @@ is also a `double` and will show up in the Excel function wizard under the
 `Cmath` category with the specified function help.
 When 
 [Help on this function](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal)
-is clicked it will open the help topic for the Microsoft documentation of `tgamma`.
+is clicked it will open the help topic for the Microsoft C runtime library reference for `tgamma`.
 
-![tgamma](images/tgamma.png =917x492)
+![tgamma](images/tgamma.png)
 
 Compare this to
 the built-in Excel functon 
