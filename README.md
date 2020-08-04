@@ -86,15 +86,15 @@ double WINAPI xll_tgamma(double x)
 }
 ```
 
-The add-in registers the function `TGAMMA` with Excel so it will call the C++ function
-`xll_tgamma` that returns a floating point `double`. It has one argument that
-is also a `double` and is added to the Excel function wizard under the
+The add-in registers the function `TGAMMA` with Excel to call the C++ function
+`xll_tgamma` that returns a `double`. It has one argument that
+is also a `double` and will show up in the Excel function wizard under the
 `Cmath` category with the specified function help.
-The function help will show up in the Function Wizard and when 
+When 
 [Help on this function](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal)
 is clicked it will open the help topic for the Microsoft documentation of `tgamma`.
 
-![tgamma](images/tgamma.png)
+![tgamma](images/tgamma.png){:height="492px" width: "917px"}
 
 Compare this to
 the built-in Excel functon 
