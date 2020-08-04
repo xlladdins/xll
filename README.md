@@ -94,13 +94,13 @@ When
 [Help on this function](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal)
 is clicked it will open the help topic for the Microsoft documentation of `tgamma`.
 
-![tgamma](images/tgamma.png){:height="492px" width: "917px"}
+![tgamma](images/tgamma.png =917x492)
 
 Compare this to
 the built-in Excel functon 
 [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
-![gamma](images/gamma.png)
+![gamma](images/gamma.png =922x489)
 
 All functions called from Excel must be declared
 with `WINAPI` which is defined to be [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
