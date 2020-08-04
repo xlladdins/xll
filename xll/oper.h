@@ -162,7 +162,7 @@ namespace xll {
 		}
 		XOPER& operator&=(xcstr str)
 		{
-			str_append(str, 0);
+			str_append(str, traits<X>::len(str));
 
 			return *this;
 		}

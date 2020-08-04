@@ -36,8 +36,8 @@ int WINAPI xll_macro(void)
 AddInX xai_tgamma(
 	FunctionX(XLL_DOUBLEX, X_("?xll_tgamma"), X_("TGAMMA"))
 	.Args({
-		ArgX({ XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma.") })
-		})
+		ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
+	})
 	.FunctionHelp(X_("Return the Gamma function value."))
 	.Category(X_("Cmath"))
 	.HelpTopic(X_("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0"))

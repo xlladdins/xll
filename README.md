@@ -86,7 +86,7 @@ double WINAPI xll_tgamma(double x)
 }
 ```
 
-This add-in registers the function `TGAMMA` with Excel to call the C++ function
+The add-in registers the function `TGAMMA` with Excel so it will call the C++ function
 `xll_tgamma` that returns a floating point `double`. It has one argument that
 is also a `double` and is added to the Excel function wizard under the
 `Cmath` category with the specified function help.
@@ -100,11 +100,14 @@ Compare this to
 the built-in Excel functon 
 [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
+![gamma](images/gamma.png)
+
 All functions called from Excel must be declared
 with `WINAPI` which is defined to be [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 This is an artifact of the original versions of Excel being written in Pascal.
 The line `#pragma XLLEXPORT` causes the function to be exported
-from the dll so it will be visible to Excel. No need for `.DEF` files.
+from the dll so it will be visible to Excel. 
+No need for old-fashioned `.DEF` files.
 
 The function `xll_tgamma` calls the `tgamma` function declared in 
 the `<cmath>` library. 
