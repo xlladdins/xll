@@ -77,6 +77,7 @@ AddInX xai_tgamma(
     })
     .FunctionHelp(X_("Return the Gamma function value."))
     .Category(X_("Cmath"))
+    .HelpTopic(X_("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0"))
 );
 double WINAPI xll_tgamma(double x)
 {
@@ -88,7 +89,14 @@ double WINAPI xll_tgamma(double x)
 This add-in registers the function `TGAMMA` with Excel to call the C++ function
 `xll_tgamma` that returns a floating point `double`. It has one argument that
 is also a `double` and is added to the Excel function wizard under the
-`Cmath` category with the specified function help. Compare this to
+`Cmath` category with the specified function help.
+The function help will show up in the Function Wizard and when 
+[Help on this function](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal)
+is clicked it will open the help topic for the Microsoft documentation of `tgamma`.
+
+![tgamma](images/tgamma.png)
+
+Compare this to
 the built-in Excel functon 
 [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
@@ -96,7 +104,7 @@ All functions called from Excel must be declared
 with `WINAPI` which is defined to be [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 This is an artifact of the original versions of Excel being written in Pascal.
 The line `#pragma XLLEXPORT` causes the function to be exported
-from the dll so it will be visible to Excel.
+from the dll so it will be visible to Excel. No need for `.DEF` files.
 
 The function `xll_tgamma` calls the `tgamma` function declared in 
 the `<cmath>` library. 
