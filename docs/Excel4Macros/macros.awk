@@ -57,9 +57,9 @@ END {
 
     n = asorti(keys, keyi)
     for (i = 1; i <= n; ++i) {
-        print " ["key[i]"](#"key[i]")" >> "README.md"
+        print " ["keyi[i]"](#"keyi[i]")" >> "README.md"
     }
     for (i = 1; i <= n; ++i) {
-        print keys[key[i]] >> "README.md"
+        print keys[keyi[i]] >> "README.md"
     }
 }

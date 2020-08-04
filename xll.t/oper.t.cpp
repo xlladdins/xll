@@ -100,6 +100,37 @@ int test_oper_num = []()
 		ensure(o.xltype == xltypeNum);
 		ensure(o.val.num == 1.23);
 	}
+	{
+		OPERX o;
+		o = 1;
+		ensure(o.xltype == xltypeInt);
+		ensure(o.val.w == 1);
+		ensure(o == 1);
+	}
+	{
+		OPERX o;
+		o = 2.;
+		ensure(o.xltype == xltypeNum);
+		ensure(o.val.num == 2);
+		ensure(o.val.w != 2);
+		ensure(o.val.xbool != 2);
+		ensure(o == 2.);
+		ensure(o == 2);
+	}
+	{
+		OPERX x(1.2), y(2.3);
+		ensure(x);
+		double z = x + y;
+		ensure(z == 1.2 + 2.3);
+		x = true;
+		ensure(x.xltype == xltypeBool);
+		z = x + y;
+		ensure(z == 1 + 2.3);
+		y = 4;
+		ensure(y.xltype == xltypeInt);
+		z = x + y;
+		ensure(z == 1 + 4);
+	}
 
 	return 0;
 }
@@ -167,6 +198,30 @@ int test_oper_str = []()
 		ensure(o.val.str[0] == (wchar_t)wcslen(abc));
 		ensure(0 == wcsncmp(abc, o.val.str + 1, o.val.str[0]));
 	}
+	{
+		OPER o;
+		o.append("abc");
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == (char)strlen("abc"));
+		ensure(0 == strncmp("abc", o.val.str + 1, o.val.str[0]));
+	}
+	{
+		OPER12 o;
+		const XCHAR abc[] = L"abc";
+		o.append(abc);
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == (wchar_t)wcslen(abc));
+		ensure(0 == wcsncmp(abc, o.val.str + 1, o.val.str[0]));
+	}
+	{
+		const char* abc = "\03abc";
+		const XLOPER o2 = { .val = { .str = (LPSTR)abc }, .xltype = xltypeStr };
+		OPER o;
+		o.append(o2);
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == (char)strlen("abc"));
+		ensure(0 == strncmp("abc", o.val.str + 1, o.val.str[0]));
+	}
 
 	return 0;
 }
@@ -214,7 +269,7 @@ int test_oper_multi = []()
 		m(1, 2) = OPER("bar");
 		ensure(m(1, 2) == "bar");
 
-		m(2, 1) = m;
+		m(2, 1) = m; // multis can nest
 		ensure(m(2, 1)(1, 2) == "bar");
 	}
 

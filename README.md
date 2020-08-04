@@ -92,15 +92,15 @@ is also a `double` and will show up in the Excel function wizard under the
 `Cmath` category with the specified function help.
 When 
 [Help on this function](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal)
-is clicked it will open the help topic for the Microsoft documentation of `tgamma`.
+is clicked it will open the help topic for the Microsoft C runtime library reference for `tgamma`.
 
-![tgamma](images/tgamma.png){:height="492px" width: "917px"}
+<img src="images/tgamma.png" width="450" height="250">
 
 Compare this to
 the built-in Excel functon 
 [`GAMMA`](https://support.microsoft.com/en-us/office/gamma-function-ce1702b1-cf55-471d-8307-f83be0fc5297).
 
-![gamma](images/gamma.png)
+<img src="images/gamma.png" width="450" height="250">
 
 All functions called from Excel must be declared
 with `WINAPI` which is defined to be [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).

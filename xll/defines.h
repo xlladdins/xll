@@ -11,14 +11,14 @@
 	X(Missing, "missing function argument") \
 	X(Nil,     "empty cell")
 
-#define XLL_ERROR_TYPE(X)                                          \
-	X(Null,    "intersection of two ranges that do not intersect") \
-	X(Div0,    "formula divides by zero")                          \
-	X(Value,   "variable in formula has wrong type")               \
-	X(Ref,     "formula contains an invalid cell reference")       \
-	X(Name,    "unrecognised formula name or text")                \
-	X(Num,     "invalid number")                                   \
-	X(NA,      "value not available to a formula.")                \
+#define XLL_ERROR_TYPE(X)                                                   \
+	X(Null,  "#NULL!",  "intersection of two ranges that do not intersect") \
+	X(Div0,  "#DIV/0!", "formula divides by zero")                          \
+	X(Value, "#VALUE!", "variable in formula has wrong type")               \
+	X(Ref,   "#REF!",   "formula contains an invalid cell reference")       \
+	X(Name,  "#NAME?",  "unrecognised formula name or text")                \
+	X(Num,   "#NUM!",   "invalid number")                                   \
+	X(NA,    "#N/A",    "value not available to a formula.")                \
 
 // Argument types for Excel Functions
 #define XLL_ARG_TYPE(X)                                                 \
@@ -47,9 +47,9 @@ X(ASYNCHRONOUS, "X", "declares function to be asynchronous")            \
 X(VOID,     ">",  "return type to use for asynchronous functions")      \
 
 #define T_(s) _T(s)
-#define X(a,b,c)                                                 \
-inline const xll::traits<XLOPER>::xchar*   XLL_##a     = b;      \
-inline const xll::traits<XLOPER12>::xchar* XLL_##a##12 = L##b;   \
+#define X(a,b,c)                                                \
+inline const xll::traits<XLOPER>::xchar*   XLL_##a     = b;     \
+inline const xll::traits<XLOPER12>::xchar* XLL_##a##12 = L##b;  \
 inline const xll::traits<XLOPERX>::xchar*  XLL_##a##X  = T_(b); \
 
 XLL_ARG_TYPE(X)

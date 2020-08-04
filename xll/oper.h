@@ -2,6 +2,7 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 #include <concepts>
+#include <iostream>
 #include <utility>
 #include "xloper.h"
 
@@ -44,9 +45,6 @@ namespace xll {
 		{
 			xltype = xltypeNil;
 		}
-		XOPER(const XOPER& o)
-			: XOPER(static_cast<const X&>(o))
-		{ }
 		XOPER(const X& x)
 		{
 			if (x.xltype == xltypeStr) {
@@ -62,6 +60,9 @@ namespace xll {
 				val = x.val;
 			}
 		}
+		explicit XOPER(const XOPER& o)
+			: XOPER(static_cast<const X&>(o))
+		{ }
 		XOPER(XOPER&& o) noexcept
 			: XOPER()
 		{
@@ -113,6 +114,14 @@ namespace xll {
 		{
 			return xltype == xltypeNum && val.num == num;
 		}
+		// handy for using OPERs in numerical expressions
+		operator double()
+		{
+			return xltype == xltypeNum ? val.num 
+				 : xltype == xltypeInt ? val.w 
+				 : xltype == xltypeBool ? val.xbool 
+				 : std::numeric_limits<double>::quiet_NaN();
+		}
 
 		// xltypeStr given length
 		XOPER(xcstr str, size_t n)
@@ -143,7 +152,7 @@ namespace xll {
 			if (val.str[0] != static_cast<xchar>(n))
 				return false;
 
-			return 0 == traits<X>::cmp(str, val.str + 1, val.str[0]);
+			return 0 == traits<X>::cmp(str, val.str + 1, n);
 		}
 		XOPER operator=(xcstr str)
 		{
@@ -152,19 +161,27 @@ namespace xll {
 
 			return *this;
 		}
-		// Like the Excel ampersand operator
-		XOPER& operator&=(const XOPER& str)
+		XOPER& append(const X& o)
 		{
-			ensure(str.xltype == xltypeStr);
-			str_append(str.val.str + 1, str.val.str[0]);
+			ensure(o.xltype == xltypeStr);
+			str_append(o.val.str + 1, o.val.str[0]);
+
+			return *this;
+		}
+		// Like the Excel ampersand operator
+		XOPER& operator&=(const X& o)
+		{
+			return append(o);
+		}
+		XOPER& append(xcstr str, size_t n = 0)
+		{
+			str_append(str, n);
 
 			return *this;
 		}
 		XOPER& operator&=(xcstr str)
 		{
-			str_append(str, traits<X>::len(str));
-
-			return *this;
+			return append(str);
 		}
 
 		// xltypeBool
@@ -194,6 +211,7 @@ namespace xll {
 		{
 			multi_alloc(rw, col);
 		}
+		//??? XOPER(std::initializer_list<XOPER> o)
 		XOPER& resize(xrw rw, xcol col)
 		{
 			multi_realloc(rw, col);
@@ -229,18 +247,6 @@ namespace xll {
 			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray + size()) : this + 1;
 		}
 		// one-dimensional index
-		const XOPER& operator[](xint i) const
-		{
-			ensure(i < size());
-
-			if (xltype == xltypeMulti) {
-				return static_cast<const XOPER&>(val.array.lparray[i]);
-			}
-			else {
-				ensure(i == 0);
-				return *this;
-			}
-		}
 		XOPER& operator[](xint i)
 		{
 			ensure(i < size());
@@ -253,18 +259,23 @@ namespace xll {
 				return *this;
 			}
 		}
-		// two-dimensional index
-		const XOPER& operator()(xrw rw, xcol col) const
+		const XOPER& operator[](xint i) const
 		{
-			return operator[](columns() * rw + col);
+			return operator[](i);
 		}
+		// two-dimensional index
 		XOPER& operator()(xrw rw, xcol col)
 		{
 			return operator[](columns() * rw + col);
 		}
+		const XOPER& operator()(xrw rw, xcol col) const
+		{
+			return operator()(rw, col);
+		}
 
 		// xltypeMissing
 		// xltypeNil
+
 		// xltypeSRef
 		XOPER(xrw row, xcol col, xrw height, xcol width)
 		{
@@ -333,13 +344,14 @@ namespace xll {
 		{
 			ensure(xltype == xltypeNil || xltype == xltypeStr);
 
+			if (n == 0) {
+				n = traits<X>::len(str);
+			}
+
 			if (xltype == xltypeNil) {
 				operator=(XOPER(str, n));
 			}
 			else {
-				if (n == 0) {
-					n = traits<X>::len(str);
-				}
 				xchar len = val.str[0];
 				str_realloc(len + n);
 				if (val.str) {
@@ -417,4 +429,25 @@ namespace xll {
 	{
 		return xll::OPER12(x) &= y;
 	}
+}
+
+inline auto& operator<<(std::basic_ostream<xll::traits<XLOPER>::xchar>& os, const XLOPER& x)
+{
+	switch (x.xltype) {
+	case xltypeNum:
+		os << x.val.num;
+		break;
+	case xltypeStr:
+		os.write(x.val.str + 1, x.val.str[0]);
+		break;
+	case xltypeBool:
+		os << static_cast<bool>(x.val.xbool);
+		break;
+	case xltypeErr:
+
+	default:
+		break;
+	}
+
+	return os;
 }
