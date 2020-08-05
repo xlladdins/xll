@@ -59,7 +59,7 @@ default directory so `Ctrl-O` opens to the project directory.
 
 ## Add-in Functions
 
-To register a C/C++ function that can be called from Excel create
+To register a new C/C++ function that can be called from Excel create
 an `AddInX` object that has information Excel needs to register your
 _function_: the return type, the C/C++ function name, the Excel name, and
 a list of _arguments_ with their type, name, and short description.
@@ -124,6 +124,8 @@ for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
 <math>&Gamma;(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.
 
+To register a new _macro_ call `AddInX` with a `MacroX` argument. ...
+
 ### The `X` Suffix
 
 The Excel SDK has two versions of most data types, one for pre 2007 Excel and one for post 2007 Excel.
@@ -167,8 +169,8 @@ Multis having two columns with the first column containg strings are quite simil
 
 The default constructer creates an object of type `xltypeNil`. Do not confuse this with
 the `"#NULL!"` error type that indicates an empty intersection of two ranges. The `OPERX`
-`MissingX` is predefined for this value. Use `Mising` for the
-`XLOPER` version and `Missing12` for a `XLOPER12`.
+`NilX` is predefined for this value. Use `Nil` for the
+`XLOPER` version and `Nil12` for a `XLOPER12`.
 
 All standard
 error types are predefined with names corresponding to the error. E.g., `ErrNullX` is
@@ -220,7 +222,7 @@ both `const` and non-const iterators over array elements.
 
 ## Handles
 
-Handles are used to access C++ objects in Excel. 
+Handles are used to embed C++ objects in Excel. 
 Call `xll::handle<T> h(new T(...))`
 to create a handle to an object of type `T` from any constructor.
 If the cell a function is being called from contains a handle from
@@ -285,6 +287,9 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 ```
 For a production quality version of this example see [handle.cpp](test/handle.cpp).
 That file also has examples illustrating how single inheritance can be used in Excel.
+
+When a spreadsheet containing handles is reopened you must 'refresh' the handles using
+`Ctrl-Alt-F9`. The old handles that were saved are stale.
 
 ## [Excel 4 Macro Functions](docs/Excel4Macros/README.md)
 
