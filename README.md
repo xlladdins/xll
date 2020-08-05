@@ -60,7 +60,12 @@ default directory so `Ctrl-O` opens to the project directory.
 ## Add-in Functions
 
 To register a C/C++ function that can be called from Excel create
-an `AddIn` object that has information Excel requires.
+an `AddInX` object that has information Excel needs to register your
+_function_: the return type, the C/C++ function name, the Excel name, and
+a list of _arguments_ with their type, name, and short description.
+You can optionally specify _function help_ for the Function Wizard and
+the _category_ Excel should use.
+You can also provide a link to a _help topic_ if you have that.
 
 ```C++
 #include <cmath>
@@ -76,7 +81,7 @@ AddInX xai_tgamma(
         ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
     })
     .FunctionHelp(X_("Return the Gamma function value."))
-    .Category(X_("Cmath"))
+    .Category(X_("CMATH"))
     .HelpTopic(X_("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0"))
 );
 double WINAPI xll_tgamma(double x)
@@ -89,7 +94,7 @@ double WINAPI xll_tgamma(double x)
 The add-in registers the function `TGAMMA` with Excel to call the C++ function
 `xll_tgamma` that returns a `double`. It has one argument that
 is also a `double` and will show up in the Excel function wizard under the
-`Cmath` category with the specified function help.
+`CMATH` category with the specified function help.
 When 
 [Help on this function](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal)
 is clicked it will open the help topic for the Microsoft C runtime library reference for `tgamma`.
@@ -112,14 +117,14 @@ No need for old-fashioned `.DEF` files.
 The function `xll_tgamma` calls the `tgamma` function declared in 
 the `<cmath>` library. 
 Recall the Gamma function is 
-<math><i>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
-t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</i></math>, <math>x > 0</math>. 
+<math>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
+t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</math>, <math>x > 0</math>. 
 It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
 for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
 <math>&Gamma;(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.
 
-## The `X` Suffix
+### The `X` Suffix
 
 The Excel SDK has two versions of most data types, one for pre 2007 Excel and one for post 2007 Excel.
 The post 2007 verions allow for large grids and wide character Unicode strings. The new data types
@@ -131,13 +136,54 @@ Define it to be `XLOPER` for pre 2007 Excel and `XLOPER12` for post 2007 Excel b
 By default it is defined to be `XLOPER12`. Use the macro `X_` to create strings of the appropriate type.
 E.g., `X_("foo")` is either `"foo"` or `L"foo"` depending on the type of `XLOPERX`. 
 
-## The FP Data Type
+### Excel Data Types
 
-The `FP` data type is a two dimensional array of floating point numbers. It is
+Excel knows about booleans, floating point doubles, various kinds of integers, and null terminated strings. 
+These are indicated by, `XLL_BOOLX`, `XLL_DOUBLEX`, `XLL_SHORTX`, ..., `XLL_LONGX`, and `XLL_CSTRINGX`. 
+Excel uses _counted strings_ (`XLL_PSTRINGX`) internally where the first character is the length of the following
+string characters.
+
+A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPERX` type. It is a _variant_
+type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
+nil, simple reference, or integer. The `xltype` member indicates the type and can be one of
+`xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
+`xltypeNil`, `xltypeSRef`, or `xltypeInt`. Although C++ is strongly typed the `OPERX` class is designed
+to behave much like a cell in a spreadsheet. E.g., `OPERX o = 1.23` results in `o.xltype == xltypeNum`
+and `o.val.num == 1.23`. Assigning a string `o = X_("foo")` results in a counted string with
+`o.xltype == xltypeStr` and `o.val.str == "\03foo" (== {3, 'f', 'o', 'o')})`. The C++ class for
+`OPERX` takes care of all memory managment so it acts like a built-in type. If it doesn't
+'do the right thing' when you use it let me know because that would be a design flaw on my part.
+
+The `OPERX` class publicly inherits from the `XLOPERX` struct defined the header file
+[`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H). More precisely,
+`OPER` inherits from `XLOPER` and `OPER12` inherits from `XLOPER12`. This permits an
+`OPERX` to be used anywhere a `XLOPERX` is required. 
+The Excel structs know nothing about memory management so the `OPERX` constructors make
+a copy of the data from a `XLOPERX`.
+
+It is permissable to have multis that contain other multis and can be nested to any depth. 
+Multis having two columns with the first column containg strings are quite similar to 
+[JSON objects](http://www.json.org/json-en.html).
+
+The default constructer creates an object of type `xltypeNil`. Do not confuse this with
+the `"#NULL!"` error type that indicates an empty intersection of two ranges. The `OPERX`
+`MissingX` is predefined for this value. Use `Mising` for the
+`XLOPER` version and `Missing12` for a `XLOPER12`.
+
+All standard
+error types are predefined with names corresponding to the error. E.g., `ErrNullX` is
+the `OPERX` with `xltype = xltypeErr` and `val.err == xltypeNull`. Both
+`ErrNull` and `ErrNull12` are also predefined.
+
+The missing type is used only for function arguments. It indicates no argument was provided
+by the calling Excel function. It is an error to return this type from a C/C++ function. 
+
+### The FPX Data Type
+
+The `FPX` data type is a two dimensional array of floating point numbers. It is
 the fastest way of interacting with numerical data in Excel. All other APIs
 require the data to be copied.
-It is
-defined in [`XLCALL.H`](xll/XLCALL.H)
+It is defined in [`XLCALL.H`](xll/XLCALL.H)
 for versions of Excel prior to 2007 as
 ```C
 typedef struct _FP
