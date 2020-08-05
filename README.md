@@ -59,8 +59,8 @@ default directory so `Ctrl-O` opens to the project directory.
 
 ## Add-in Functions
 
-To register a new C/C++ function that can be called from Excel create
-an `AddInX` object that has information Excel needs to register your
+To register a new C/C++ add-in function that can be called from Excel create
+an `AddInX` object with a `FunctionX` argument that has information Excel needs to register your
 _function_: the return type, the C/C++ function name, the Excel name, and
 a list of _arguments_ with their type, name, and short description.
 You can optionally specify _function help_ for the Function Wizard and
@@ -124,7 +124,7 @@ for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
 <math>&Gamma;(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.
 
-To register a new _macro_ call `AddInX` with a `MacroX` argument. ...
+To register a new add-in _macro_ call `AddInX` with a `MacroX` argument. ...
 
 ### The `X` Suffix
 
