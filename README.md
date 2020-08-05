@@ -35,8 +35,6 @@ from the Visual Studio menu and type
 
 > git submodule add https://github.com/xlladdins/xll.git
 
-
-
 Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
 select `XLL Project`. At this point you can compile and run the add-in
 using `Debug ► Start Debugging` (`F5`). This compiles the dll, (with
@@ -145,7 +143,8 @@ These are indicated by, `XLL_BOOLX`, `XLL_DOUBLEX`, `XLL_SHORTX`, ..., `XLL_LONG
 Excel uses _counted strings_ (`XLL_PSTRINGX`) internally where the first character is the length of the following
 string characters.
 
-A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPERX` type. It is a _variant_
+A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `xll::OPERX` type
+defined in the `xll` namespace. It is a _variant_
 type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
 nil, simple reference, or integer. The `xltype` member indicates the type and can be one of
 `xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
@@ -158,8 +157,9 @@ and `o.val.num == 1.23`. Assigning a string `o = X_("foo")` results in a counted
 
 The `OPERX` class publicly inherits from the `XLOPERX` struct defined the header file
 [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H). More precisely,
-`OPER` inherits from `XLOPER` and `OPER12` inherits from `XLOPER12`. This permits an
-`OPERX` to be used anywhere a `XLOPERX` is required. 
+`OPER` inherits from [`XLOPER`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118)
+and `OPER12` inherits from [`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180). 
+This permits an`OPERX` to be used anywhere a `XLOPERX` is required. 
 The Excel structs know nothing about memory management so the `OPERX` constructors make
 a copy of the data from a `XLOPERX`.
 
@@ -169,7 +169,7 @@ Multis having two columns with the first column containg strings are quite simil
 
 The default constructer creates an object of type `xltypeNil`. Do not confuse this with
 the `"#NULL!"` error type that indicates an empty intersection of two ranges. The `OPERX`
-`NilX` is predefined for this value. Use `Nil` for the
+`NilX` is predefined. Use `Nil` for the
 `XLOPER` version and `Nil12` for a `XLOPER12`.
 
 All standard
@@ -182,34 +182,26 @@ by the calling Excel function. It is an error to return this type from a C/C++ f
 
 ### The FPX Data Type
 
-The `FPX` data type is a two dimensional array of floating point numbers. It is
-the fastest way of interacting with numerical data in Excel. All other APIs
+The [`xll::FPX`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) data type is a two dimensional 
+array of floating point numbers. 
+It is the fastest way of interacting with numerical data in Excel. All other APIs
 require the data to be copied.
-It is defined in [`XLCALL.H`](xll/XLCALL.H)
-for versions of Excel prior to 2007 as
-```C
-typedef struct _FP
-{
-    unsigned short int rows;
-    unsigned short int columns;
-    double array[1];        /* Actually, array[rows][columns] */
-} FP;
-
-```
-and for versions after 2007 as
-```C
-typedef struct _FP12
-{
-    signed int rows;
-    signed int columns;
-    double array[1];        /* Actually, array[rows][columns] */
-} FP12;
-```
+There are structs defined in [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
+for versions of Excel prior to 2007 as [`struct _FP`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L96)
+and [`struct _FP12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L109) for later versions.
+These are typedefed as `FP` and `FP12` and reside in the global namespace.
 
 The classes `xll::FP` and `xll::FP12` make these into well-behaved
 [C++ value types](https://docs.microsoft.com/en-us/cpp/cpp/value-types-modern-cpp).
 Use `_FPX` to get the appropriate raw Excel type to use for arguments and
 return type. Excel doesn't know about anything in the `xll` namespace.'
+
+Since `FPX` does **not** inherit from the native `_FPX` structs you must use
+the `FPX::get()` member function to get a pointer to the underlying struct.
+This is used to return arrays to Excel where the return type is
+`XLL_FPX`. Since you are returning a pointer you must make sure the memory
+at which it points continues to exist after the function exits. Typically
+this is done by declaring a `static FPX` in the function body.
 
 Use `xll::FPX a(2,3)` to create a 2 by 3 array of `OPERX` and `a(1,0)` access
 the second row, first column (indexing is 0-based) of `a`. The same element
