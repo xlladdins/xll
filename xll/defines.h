@@ -1,6 +1,7 @@
 // defines.h
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+#include <map>
 #include <set>
 #include <string>
 #include "traits.h"
@@ -11,14 +12,17 @@
 	X(Missing, "missing function argument") \
 	X(Nil,     "empty cell")
 
-#define XLL_ERROR_TYPE(X)                                                   \
-	X(Null,  "#NULL!",  "intersection of two ranges that do not intersect") \
-	X(Div0,  "#DIV/0!", "formula divides by zero")                          \
-	X(Value, "#VALUE!", "variable in formula has wrong type")               \
-	X(Ref,   "#REF!",   "formula contains an invalid cell reference")       \
-	X(Name,  "#NAME?",  "unrecognised formula name or text")                \
-	X(Num,   "#NUM!",   "invalid number")                                   \
-	X(NA,    "#N/A",    "value not available to a formula.")                \
+// See defines.c for error types
+extern "C" LPCSTR xll_err_str[];
+extern "C" LPCSTR xll_err_str12[];
+/*
+#define X(a,b,c) std::make_pair(xlerr##a, T_(c)),
+inline std::map<int, std::basic_string<xll::traits<XLOPERX>::xchar>> xll_err_desc[] = {
+	XLL_ERR_TYPE(X)
+};
+#undef X
+#undef T_
+*/
 
 // Argument types for Excel Functions
 #define XLL_ARG_TYPE(X)                                                 \
