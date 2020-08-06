@@ -447,7 +447,7 @@ int test_handle = []()
 	return 0;
 }
 ();
-
+/*
 int test_xloper = []()
 {
 	{
@@ -466,3 +466,4 @@ int test_xloper = []()
 	return 0;
 }
 ();
+*/

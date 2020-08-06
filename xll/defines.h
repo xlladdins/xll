@@ -51,17 +51,18 @@ X(ASYNCHRONOUS, "X", "declares function to be asynchronous")            \
 X(VOID,     ">",  "return type to use for asynchronous functions")      \
 
 #define T_(s) _T(s)
-#define X(a,b,c)                                                \
-inline const xll::traits<XLOPER>::xchar*   XLL_##a     = b;     \
-inline const xll::traits<XLOPER12>::xchar* XLL_##a##12 = L##b;  \
-inline const xll::traits<XLOPERX>::xchar*  XLL_##a##X  = T_(b); \
+#define X(a,b,c)                          \
+inline const LPCSTR  XLL_##a     = b;     \
+inline const LPCWSTR XLL_##a##12 = L##b;  \
+inline const LPCTSTR XLL_##a##X  = T_(b); \
 
 XLL_ARG_TYPE(X)
 #undef X
-
+/*
 #define X(a,b,c) T_(b),
 inline std::set<std::basic_string<xll::traits<XLOPERX>::xchar>> xll_arg_types {
 	XLL_ARG_TYPE(X)
 };
 #undef X
+*/
 #undef T_

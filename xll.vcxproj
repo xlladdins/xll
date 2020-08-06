@@ -41,6 +41,7 @@
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp" />
     <ClCompile Include="xll\debug.cpp" />
+    <ClCompile Include="xll\defines.c" />
     <ClCompile Include="xll\dllmain.cpp" />
     <ClCompile Include="xll\error.cpp" />
     <ClCompile Include="xll\XLCALL.CPP" />

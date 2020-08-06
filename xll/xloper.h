@@ -18,7 +18,7 @@ namespace xll {
 
 	XLL_NULL_TYPE(X)
 #undef X
-
+/*
 // Error types xll::ErrNAX, ...
 #define X(a, b, c)                                            \
 	template<class T>                                         \
@@ -31,7 +31,7 @@ namespace xll {
 
 	XLL_ERR_TYPE(X)
 #undef X
-
+*/
 }
 
 namespace { // doesn't hide xloper_cmp!!!
