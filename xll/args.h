@@ -144,7 +144,7 @@ namespace xll {
 			size_t count = 10 + argumentHelp.size();
 			std::vector<X*> oper(count);
 
-			if (moduleText.xltype == xltypeNil) {
+			if (moduleText == XOPER<X>{}) {
 				moduleText = Excel<X>(xlGetName);
 			}
 
@@ -173,6 +173,16 @@ namespace xll {
 		XOPER<X> Unregister() const
 		{
 			return Excel<X>(xlfUnregister, registerId);
+		}
+
+		// full name of dll
+		const XOPER<X>& ModuleText() const
+		{
+			if (moduleText == XOPER<X>{}) {
+				moduleText = Excel<X>(xlGetName);
+			}
+			
+			return moduleText;
 		}
 	};
 

@@ -176,6 +176,7 @@
   <ItemGroup>
     <ClCompile Include="..\xll\debug.cpp" />
     <ClCompile Include="oper.t.cpp" />
+    <ClCompile Include="utf8.t.cpp" />
     <ClCompile Include="xll.t.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

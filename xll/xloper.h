@@ -37,8 +37,8 @@ namespace xll {
 namespace { // doesn't hide xloper_cmp!!!
 	// use std::strong_ordering!!!
 	template<typename X, typename Y>
-	requires (std::is_same_v<X, XLOPER> and std::is_same_v<Y, XLOPER>) 
-		  or (std::is_same_v<X, XLOPER12> and std::is_same_v<Y, XLOPER12>)
+	requires (std::is_same_v<X, XLOPER> && std::is_same_v<Y, XLOPER>) 
+		  || (std::is_same_v<X, XLOPER12> && std::is_same_v<Y, XLOPER12>)
 	inline std::strong_ordering xloper_cmpx(const X& x, const Y& y)
 	{
 		if (x.xltype != y.xltype) {
