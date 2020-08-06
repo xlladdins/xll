@@ -47,13 +47,15 @@ namespace { // doesn't hide xloper_cmp!!!
 
 		switch (x.xltype) {
 		case xltypeNum:
-			return std::strong_ordering(x.val.num, y.val.num);
+			return x.val.num == y.val.num ? std::strong_ordering::equal
+				: x.val.num < y.val.num ? std::strong_ordering::less
+				: std::strong_ordering::greater;
 		case xltypeStr:
 			return x.val.str[0] != y.val.str[0]
 				? x.val.str[0] <=> y.val.str[0]
 				: xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
 		case xltypeErr:
-			return std::partial_ordering::unordered;
+			return std::strong_ordering::less; // never equal
 		//case xltypeMulti:
 		//case xltypeSRef:
 		//case xltypeRef:
@@ -120,7 +122,9 @@ namespace { // doesn't hide xloper_cmp!!!
 }
 
 // works for any compination of XLOPER and OPER.
-#if 0
+#if 1
+//namespace xll {
+
 template<typename X, typename Y>
 requires (std::is_base_of_v<XLOPER, X> && std::is_base_of_v<XLOPER, Y>)
       || (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
@@ -133,8 +137,22 @@ inline auto operator<=>(const X& x, const Y& y)
 		return xloper_cmpx<XLOPER12, XLOPER12>(x, y);
 	}
 }
+template<typename X, typename Y>
+requires (std::is_base_of_v<XLOPER, X>&& std::is_base_of_v<XLOPER, Y>)
+|| (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
+inline auto operator==(const X & x, const Y & y)
+{
+	if constexpr (std::is_convertible_v<X, XLOPER>) {
+		return xloper_cmpx<XLOPER, XLOPER>(x, y) == 0;
+	}
+	else {
+		return xloper_cmpx<XLOPER12, XLOPER12>(x, y) == 0;
+	}
+}
+
+//}
 #endif
-#if 1
+#if 0
 template<typename X, typename Y>
 requires (std::is_base_of_v<XLOPER,X> && std::is_base_of_v<XLOPER,Y>)
 	  || (std::is_base_of_v<XLOPER12, X>&& std::is_base_of_v<XLOPER12, Y>)
