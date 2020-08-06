@@ -76,7 +76,7 @@ AddInX xai_tgamma(
         ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
     })
     .FunctionHelp(X_("Return the Gamma function value."))
-    .Category(X_("Cmath"))
+    .Category(X_("CMATH"))
     .HelpTopic(X_("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0"))
 );
 double WINAPI xll_tgamma(double x)
@@ -133,7 +133,7 @@ E.g., `X_("foo")` is either `"foo"` or `L"foo"` depending on the type of `XLOPER
 
 ## The FP Data Type
 
-The `FP` data type is a two dimensional array of floating point numbers. It is
+The `xll::FPX` data type is a two dimensional array of floating point numbers. It is
 the fastest way of interacting with numerical data in Excel. All other APIs
 require the data to be copied.
 It is
