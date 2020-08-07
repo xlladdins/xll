@@ -58,12 +58,13 @@ default directory so `Ctrl-O` opens to the project directory.
 ## Add-in Functions
 
 To register a new C/C++ add-in function that can be called from Excel create
-an `AddIn` object with a `FunctionX` argument that has information Excel needs to register your
+an `AddIn` object with a `Function` argument that has information Excel needs to register your
 _function_: the return type, the C/C++ function name, the Excel name, and
 a list of _arguments_ with their type, name, and short description.
 You can optionally specify _function help_ for the Function Wizard and
 the _category_ Excel should use.
-You can also provide a link to a _help topic_ if you have that.
+If you have documentation available at a URL then
+provide a link to a _help topic_.
 
 This library uses UTF-8 instead of old-fashioned multibyte character sets
 and Unicode (UTF-16). The Unicode wars are over, the dust has settled, and
