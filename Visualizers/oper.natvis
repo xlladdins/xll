@@ -2,6 +2,7 @@
 <!-- save into %USERPROFILE%\My Documents\Visual Studio 20xx\Visualizers\ -->
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
 	<Type Name="xlref">
+		<AlternativeType Name="xlref12"/>
 		<DisplayString>{{rwFirst = {rwFirst} colFirst = {colFirst}}}</DisplayString>
 		<Expand>
 			<Item Name="height">rwLast - rwFirst + 1</Item>
@@ -9,6 +10,7 @@
 		</Expand>
 	</Type>
 	<Type Name="xlmref">
+		<AlternativeType Name="xlmref12"/>
 		<DisplayString>{{count = {count} xlref = {*reftbl}}}</DisplayString>
 	</Type>
 	<Type Name="xloper">
