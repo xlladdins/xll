@@ -60,11 +60,13 @@ namespace xll {
 			: typeText(type), procedure(procedure), functionText(functionText)
 		{
 			macroType = 1; // Function
+			//!!! if procedure does not start with '?' add it.
 		}
 		XArgs(xcstr procedure, xcstr functionText)
 			: procedure(procedure), functionText(functionText)
 		{
 			macroType = 2; // Macro
+			//!!! if procedure does not start with '?' add it.
 		}
 
 		// Used as key in add-in map.
@@ -104,6 +106,7 @@ namespace xll {
 		}
 		XArgs& HelpTopic(xcstr _helpTopic)
 		{
+			// !!! If it does not end with '!.+` add a '!0'.
 			helpTopic = _helpTopic;
 
 			return *this;

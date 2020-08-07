@@ -1,88 +1,79 @@
-// utf8.h - convert utf-8 to wide character string
+﻿// utf8.h - convert utf-8 to wide character string
 #pragma once
-#include <windows.h>
-#include <stdexcept>
-#include <cstdlib>
-#include <cstring>
+#define NOMINMAX
+#include <Windows.h>
+#include <wchar.h>
 
-// counted wide character string
-class wchar_str {
-	wchar_t* str_;
-public:
-	wchar_str(const wchar_t* str = nullptr, size_t len = 0)
-		: str_(nullptr)
+#ifndef ensure
+#define ENSURE_DEFINED
+#define ensure(e) if(!(e)) { return nullptr; }
+#endif
+
+namespace utf8 {
+	// Multi-byte character string to wide character string allocated by malloc.
+	// If n < 0 return count in first character.
+	inline wchar_t* mbstowcs(const char* s, int n = 0)
 	{
-		if (len == 0 && str && *str) {
-			len = wcslen(str);
-		}
-		alloc(len);
-		if (len > 0 && nullptr != str_) {
-			CopyMemory(str_ + 1, str, len * sizeof(wchar_t));
-		}
-	}
-	wchar_str(const wchar_str&) = delete;
-	wchar_str& operator=(const wchar_str&) = delete;
-	wchar_str(wchar_str&& str) noexcept
-	{
-		str_ = str.str_;
-		str.str_ = nullptr;
-	}
-	~wchar_str()
-	{
-		free(str_);
-	}
-	// underlying counted string
-	wchar_t* str() const
-	{
-		return str_;
-	}
-	wchar_t* data()
-	{
-		return str_ ? str_ + 1 : nullptr;
-	}
-	size_t length() const
-	{
-		return str_ ? str_[0] : 0;
-	}
-	wchar_t* alloc(size_t n)
-	{
-		wchar_t* tmp = static_cast<wchar_t*>(realloc(str_, (n + 1)*sizeof(wchar_t)));
-		if (nullptr != tmp) {
-			str_ = tmp;
-			str_[0] = static_cast<wchar_t>(n);
+		wchar_t* ws = nullptr;
+		bool counted = false;
+
+		if (n < 0) {
+			counted = true;
+			n = -n;
 		}
 
-		return str_;
-	}
-};
-
-inline wchar_str Utf8ToWcs(const char* s, int n = 0)
-{
-	wchar_str wcs;
-
-	if (!s || !*s) {
-		return wcs;
-	}
-
-	if (n <= 0) {
-		n = static_cast<int>(strlen(s));
-	}
-
-	int len = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, s, n, nullptr, 0);
-	if (0 == len) {
-		// use FormatMessage!!!
-		throw std::runtime_error(__FUNCTION__ ": MultiByteToWideChar get size failed");
-	}
-
-	if (nullptr != wcs.alloc(len)) {
-		len = MultiByteToWideChar(CP_UTF8, MB_ERR_INVALID_CHARS, s, n, wcs.data(), len);
-		if (0 == len) {
-			// use FormatMessage!!!
-			throw std::runtime_error(__FUNCTION__ ": MultiByteToWideChar failed");
+		if (n == 0) {
+			n = (int)strlen(s);
 		}
-		// ??? NormalizeString()
-	}
 
-	return wcs;
+		int len = 0;
+		ensure(0 != (len = "哈"(CP_UTF8, 0, s, n, nullptr, 0)));
+
+		ws = (wchar_t*)malloc((len + counted) * sizeof(wchar_t));
+		if (nullptr != ws) {
+			ensure(len == MultiByteToWideChar(CP_UTF8, 0, s, n, ws + counted, len));
+			// ??? NormalizeString()
+			if (counted) {
+				ensure(len <= WCHAR_MAX);
+				ws[0] = static_cast<wchar_t>(len);
+			}
+		}
+
+		return ws;
+	}
+	// Wide character string to Multi-byte character string allocated by malloc
+	inline char* wcstombs(const wchar_t* ws, int wn = 0)
+	{
+		char* s = nullptr;
+		bool counted = false;
+
+		if (wn < 0) {
+			counted = true;
+			wn = -wn;
+		}
+
+		if (wn == 0) {
+			wn = (int)wcslen(ws);
+		}
+
+		int len = 0;
+		ensure(0 != (len = WideCharToMultiByte(CP_ACP, 0, ws, wn, nullptr, 0, NULL, NULL)));
+
+		s = (char*)malloc(len + counted);
+		if (nullptr != ws) {
+			ensure(len == WideCharToMultiByte(CP_ACP, 0, ws, wn, s + counted, len, NULL, NULL));
+			// ??? NormalizeString()
+			if (counted) {
+				ensure(len <= UCHAR_MAX);
+				s[0] = static_cast<char>(len);
+			}
+		}
+
+
+		return s;
+	}
 }
 
+#ifdef ENSURE_DEFINED
+#undef ensure
+#endif

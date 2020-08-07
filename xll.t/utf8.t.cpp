@@ -2,42 +2,42 @@
 #include <cassert>
 #include "../xll/utf8.h"
 
+using utf8::mbstowcs;
+using utf8::wcstombs;
+
 int test_utf8 = []() {
 	{
-		wchar_str s;
-		assert(0 == s.length());
-		wchar_str s2(std::move(s));
-		assert(0 == s2.length());
-		assert(nullptr != s2.data());
-		assert(0 == s.length());
-		assert(nullptr == s.data());
-	}
-	{
-		wchar_str s(L"abc");
-		assert(3 == s.length());
-		wchar_str s2(std::move(s));
-		assert(3 == s2.length());
-		assert(0 == s.length());
-		assert(nullptr == s.data());
+		char s[] = "abc";
+		auto ws = mbstowcs(s);
+		assert(0 == wcsncmp(ws, L"abc", 3));
+		free(ws);
 	}
 	{
 		char s[] = "abc";
-		auto ws = Utf8ToWcs(s);
-		assert(3 == ws.length());
-		assert(0 == wcsncmp(ws.data(), L"abc", 3));
-	}
-	{
-		char s[] = "abc";
-		auto ws = Utf8ToWcs(s);
-		assert(3 == ws.length());
-		assert(0 == wcsncmp(ws.data(), L"abc", 3));
+		auto ws = mbstowcs(s);
+		assert(0 == wcsncmp(ws, L"abc", 3));
+		free(ws);
 	}
 	{
 		char s[] = "哈"; // ha
 		assert(3 == strlen(s));
-		auto ws = Utf8ToWcs(s);
-		assert(1 == ws.length());
-		assert(0 == wcsncmp(ws.data(), L"哈", 1));
+		auto ws = mbstowcs(s);
+		assert(0 == wcsncmp(ws, L"哈", 1));
+		free(ws);
+	}
+	{
+		wchar_t ws[] = L"abc";
+		auto s = wcstombs(ws);
+		assert(0 == strncmp(s, "abc", 3));
+		free(s);
+	}
+	{
+		wchar_t ws[] = L"哈";
+		auto s = wcstombs(ws);
+		size_t n;
+		n = strlen(s);
+		assert(0 == strncmp(s, "哈", 3));
+		free(s);
 	}
 
 	return 0;

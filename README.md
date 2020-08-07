@@ -330,6 +330,15 @@ can be used to call VBA user-defined functions.
 
 This section contains miscellaneous remarks.
 
+### Bits, bits everywhere
+
+At the end of the day everything on a computer comes down to bits. Everything is just
+a collection of bits, it is just a matter of how to interpret them.
+The Windows 10 operating system comes in two flavors: 32-bit and 64-bit. The
+[abstract data model](https://docs.microsoft.com/en-us/windows/win32/winprog64/abstract-data-models),
+how the bits are interpreted, are nearly the same: all basic data types are 32-bit, only the
+pointer types differ. 
+
 ### Uncalced
 
 Functions that are declared `.Uncalced()` have a limited ability to call command equivalents/macros.
