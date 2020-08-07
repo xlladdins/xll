@@ -66,9 +66,13 @@ the _category_ Excel should use.
 If you have documentation available at a URL then
 provide a link to a _help topic_.
 
-This library uses UTF-8 instead of old-fashioned multibyte character sets
-and Unicode (UTF-16). The Unicode wars are over, the dust has settled, and
-UTF-8 is the clear winner.
+This library uses [UTF-8](http://www.utf-8.com/)instead of old-fashioned multibyte character sets
+and [Unicode](https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings#unicode-and-ansi-functions)
+(UTF-16, UCS-2). 
+The Unicode wars are over, the dust has settled, and
+UTF-8 is the clear winner. 
+[Joel](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+can get you up to speed with it.
 
 ```C++
 #include <cmath>
@@ -97,8 +101,7 @@ double WINAPI xll_tgamma(double x)
 The add-in registers the function `TGAMMA` with Excel to call the C++ function
 `xll_tgamma` that returns a `double`. It has one argument that
 is also a `double` and will show up in the Excel function wizard under the
-`CMATH` category with the specified function help.
-When 
+`CMATH` category with the specified function help. When 
 [Help on this function](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal)
 is clicked it will open the help topic for the Microsoft C runtime library reference for `tgamma`.
 
@@ -110,8 +113,8 @@ the built-in Excel functon
 
 <img src="images/gamma.png" width="450" height="250">
 
-All functions called from Excel must be declared
-with `WINAPI` which is defined to be [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
+All functions called from Excel must be declared with `WINAPI` which is defined to be 
+[`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 This is an artifact of the original versions of Excel being written in Pascal.
 The line `#pragma XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel. 
@@ -127,19 +130,43 @@ for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
 <math>&Gamma;(x + 1) = x!</math>
 if <math>x</math> is a non-negative integer.
 
-To register a new add-in _macro_ call `AddInX` with a `MacroX` argument. ...
+To register a new add-in _macro_ call `AddIn` with a `Macro` argument. It takes
+two string arguments: the name of the C/C++ function to be called and the name for Excel to use.
+The function returns an `int` that is non-zero if it succeeds or zero if it fails.
+Don't forget `#pragma XLLEXPORT' in the function body so Excel can load it.
 
-### The `X` Suffix
+### The `4` and `12` Suffixes
 
 The Excel SDK has two versions of most data types, one for pre 2007 Excel and one for post 2007 Excel.
 The post 2007 verions allow for large grids and wide character Unicode strings. The new data types
-have names with the suffix `12`. This library uses the suffix `X` to make it possible to
-write add-ins that work with all version of Excel. 
+have names with the suffix `12`. This library uses the suffix `4` to make it possible to
+write add-ins that work with all version of Excel. It uses a technique similar to the Windows
+[`TCHAR`](https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings)
+that uses the `W` suffix for wide character (Unicode) and the suffix `A` for char (ANSI)
+functions. 
 
 This is controlled by the macro `XLOPERX`.
 Define it to be `XLOPER` for pre 2007 Excel and `XLOPER12` for post 2007 Excel before including `xll/xll.h`.
-By default it is defined to be `XLOPER12`. Use the macro `X_` to create strings of the appropriate type.
-E.g., `X_("foo")` is either `"foo"` or `L"foo"` depending on the type of `XLOPERX`. 
+By default it is defined to be `XLOPER12`. These are data types defined in the Excel SDK header
+`XLCALL.H` that are used in [`traits.h`](https://github.com/xlladdins/xll/blob/master/xll/traits.h)
+for our implmentation using the [traits pattern](https://accu.org/index.php/journals/442).
+
+The SDK uses `Excel4` (or `Excel4v`) and `Excel12` (or `Excel12v`) to 
+[call Excel functions](https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll)
+from your add-in. We use `AddIn4` and and `AddIn12` to create add-ins for a particular version of Excel if needed.
+You should use `AddIn` and set `XLOPERX` to control the version. If you need to know the Excel
+version at runtime call 
+`[XLCallVer]`(https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll#xlcallver).
+It returns `0x0c00` for version 12 (hexidecimal `C`) and `0x500` (oddly enough) for version 4.
+
+You can get finer grained information by calling the 
+[`GET.WORKSPACE`](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/GET.WORKSPACE.md)
+function with argument `2` to get the exact version. The return value is a string, for example, `"5.0"`.
+Using the SDK the call would be `Excel4(xlfGetWorkspace, &version, 1, &two)` where `version` and `two`
+are `XLOPER`s with `two = {.val = {.int = 2}, .xltype = xltypeInt}`. You must call
+`Excel4(xlFree, 0, 1, &version)` to release the memory Excel allocated for the string.
+Using the xll add-in library the call would be `OPER version = Excel(xlfWorkspace, OPER(2))`.
+The destructor for `version` will release the memory when it goes out of scope.
 
 ### Excel Data Types
 
@@ -185,9 +212,9 @@ the `OPERX` with `xltype = xltypeErr` and `val.err == xltypeNull`. Both
 The missing type is used only for function arguments. It indicates no argument was provided
 by the calling Excel function. It is an error to return this type from a C/C++ function. 
 
-### The FPX Data Type
+### The FP Data Type
 
-The [`xll::FPX`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) data type is a two dimensional 
+The [`xll::FP`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) data type is a two dimensional 
 array of floating point numbers. 
 It is the fastest way of interacting with numerical data in Excel. All other APIs
 require the data to be copied.
@@ -196,9 +223,9 @@ for versions of Excel prior to 2007 as [`struct _FP`](https://github.com/xlladdi
 and [`struct _FP12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L109) for later versions.
 These are typedefed as `FP` and `FP12` and reside in the global namespace.
 
-The classes `xll::FP` and `xll::FP12` make these into well-behaved
+The classes `xll::FP4` and `xll::FP12` make these into well-behaved
 [C++ value types](https://docs.microsoft.com/en-us/cpp/cpp/value-types-modern-cpp).
-Use `_FPX` to get the appropriate raw Excel type to use for arguments and
+Use `_FPX` (!!! fix this !!!!) to get the appropriate raw Excel type to use for arguments and
 return type. Excel doesn't know about anything in the `xll` namespace.'
 
 Since `FPX` does **not** inherit from the native `_FPX` structs you must use
@@ -305,4 +332,9 @@ This section contains miscellaneous remarks.
 
 ### Uncalced
 
-Functions that are declared `.Uncalced()` have a limited ability to call command equivalents.
+Functions that are declared `.Uncalced()` have a limited ability to call command equivalents/macros.
+In general, add-in functions cannot have side-effects. 
+They can only call Excel with function numbers starting with `xlf` (_f_unctions) and are 
+forbidden to call Excel with function numbers starting with `xlc` (_c_ommand equivalents,
+also known as ma_c_ros). Excel was doing
+functional programming long before it became the latest rage.
