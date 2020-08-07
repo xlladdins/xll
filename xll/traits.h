@@ -48,6 +48,16 @@ namespace xll {
 		{
 			return strncmp(dest, src, n);
 		}
+		static wchar_t* cvt(const char* s, size_t n = 0)
+		{
+			wchar_t* ws = nullptr;
+
+			if (n == 0) {
+				n = strlen(s);
+			}
+
+			return ws;
+		}
 	};
 	template<>
 	struct traits<XLOPER12> {
@@ -78,6 +88,18 @@ namespace xll {
 		{
 			return wcsncmp(dest, src, n);
 		}
+		// allocate and copy to MBCS 
+		static char* cvt(const wchar_t* ws, size_t wn = 0)
+		{
+			char* s = nullptr;
+
+			if (wn == 0) {
+				wn = wcslen(ws);
+			}
+
+			return s;
+		}
+
 	};
 
 }

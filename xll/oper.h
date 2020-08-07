@@ -130,15 +130,28 @@ namespace xll {
 		{
 			str_alloc(str, n);
 		}
+		XOPER(cstrx str, size_t n)
+		{
+			str_alloc(traits<X>::cvt(str, n), COUNTED);
+		}
 		// xltypeStr from NULL terminated string
 		explicit XOPER(xcstr str)
 			: XOPER(str, traits<X>::len(str))
+		{
+		}
+		explicit XOPER(cstrx str)
+			: XOPER(traits<X>::cvt(str, traits<X_>::len(str)))
 		{
 		}
 		// Construct from string literal
 		template<size_t N>
 		XOPER(xcstr (&str)[N])
 			: XOPER(str, N)
+		{
+		}
+		template<size_t N>
+		XOPER(cstrx(&str)[N])
+			: XOPER(traits<X>::cvt(str, N), COUNTED)
 		{
 		}
 		bool operator==(xcstr str) const
@@ -162,6 +175,13 @@ namespace xll {
 
 			return *this;
 		}
+		XOPER operator=(cstrx str)
+		{
+			oper_free();
+			str_alloc(traits<X>::cvt(str, traits<X_>::len(str)), COUNTED);
+
+			return *this;
+		}
 		XOPER& append(const X& o)
 		{
 			ensure(o.xltype == xltypeStr);
@@ -169,8 +189,19 @@ namespace xll {
 
 			return *this;
 		}
+		XOPER& append(const X_& o)
+		{
+			ensure(o.xltype == xltypeStr);
+			str_append(traits<X>::cvt(o.val.str + 1, o.val.str[0]), COUNTED);
+
+			return *this;
+		}
 		// Like the Excel ampersand operator
 		XOPER& operator&=(const X& o)
+		{
+			return append(o);
+		}
+		XOPER& operator&=(const X_& o)
 		{
 			return append(o);
 		}
@@ -180,7 +211,17 @@ namespace xll {
 
 			return *this;
 		}
+		XOPER& append(cstrx str)
+		{
+			str_append(traits<X>::cvt(str, traits<X_>::len(str)), COUNTED);
+
+			return *this;
+		}
 		XOPER& operator&=(xcstr str)
+		{
+			return append(str);
+		}
+		XOPER& operator&=(cstrx str)
 		{
 			return append(str);
 		}

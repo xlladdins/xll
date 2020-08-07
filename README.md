@@ -4,8 +4,8 @@ This library makes it simple to call C and C++ functions from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 
-It also provides high performance access to [numeric arrays](#the-fp-data-type) and
-[handles](#handles) for embedding C++ objects that use only
+It also provides high performance access to [numeric arrays](#the-fp-data-type) and has
+[handles](#handles) for embedding C++ objects that use
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance).
 
 ## Prerequisites
@@ -58,12 +58,16 @@ default directory so `Ctrl-O` opens to the project directory.
 ## Add-in Functions
 
 To register a new C/C++ add-in function that can be called from Excel create
-an `AddInX` object with a `FunctionX` argument that has information Excel needs to register your
+an `AddIn` object with a `FunctionX` argument that has information Excel needs to register your
 _function_: the return type, the C/C++ function name, the Excel name, and
 a list of _arguments_ with their type, name, and short description.
 You can optionally specify _function help_ for the Function Wizard and
 the _category_ Excel should use.
 You can also provide a link to a _help topic_ if you have that.
+
+This library uses UTF-8 instead of old-fashioned multibyte character sets
+and Unicode (UTF-16). The Unicode wars are over, the dust has settled, and
+UTF-8 is the clear winner.
 
 ```C++
 #include <cmath>
@@ -73,14 +77,14 @@ You can also provide a link to a _help topic_ if you have that.
 
 using namespace xll;
 
-AddInX xai_tgamma(
-    FunctionX(XLL_DOUBLEX, X_("?xll_tgamma"), X_("TGAMMA"))
+AddIn xai_tgamma(
+    Function(XLL_DOUBLE, "?xll_tgamma", "TGAMMA")
     .Args({
-        ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
+        Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
     })
-    .FunctionHelp(X_("Return the Gamma function value."))
-    .Category(X_("CMATH"))
-    .HelpTopic(X_("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0"))
+    .FunctionHelp("Return the Gamma function value.")
+    .Category("CMATH")
+    .HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0")
 );
 double WINAPI xll_tgamma(double x)
 {
