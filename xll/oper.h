@@ -55,8 +55,7 @@ namespace xll {
 			}
 			else if (x.xltype == xltypeMulti) {
 				multi_alloc(x.val.array.rows, x.val.array.columns);
-				size_t n = size() * sizeof(double);
-				memcpy_s(val.array.lparray, n, x.val.array.lparray, n);
+				std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
 			}
 			else {
 				xltype = x.xltype;
@@ -220,21 +219,22 @@ namespace xll {
 
 			return *this;
 		}
-		xrw rows() const
+		size_t rows() const
 		{
-			return xltype == xltypeMulti ? val.array.rows : (xrw)1;
+			return xltype == xltypeMulti ? val.array.rows : 1;
 		}
-		xcol columns() const
+		size_t columns() const
 		{
-			return static_cast<xcol>(xltype == xltypeMulti ? val.array.columns : 1);
+			return xltype == xltypeMulti ? val.array.columns : 1;
 		}
-		auto size() const
+		size_t size() const
 		{
-			return xltype == xltypeMulti ? rows() * columns() : 1;
+			return rows()*columns();
 		}
+		// STL friendly
 		const XOPER* begin() const
 		{
-			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray) : this;
+			return xltype == xltypeMulti ? static_cast<const XOPER*>(val.array.lparray) : this;
 		}
 		XOPER* begin()
 		{
@@ -242,14 +242,15 @@ namespace xll {
 		}
 		const XOPER* end() const
 		{
-			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray + size()) : this + 1;
+			return xltype == xltypeMulti ? begin() + size() : this + 1;
 		}
 		XOPER* end()
 		{
-			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray + size()) : this + 1;
+			return xltype == xltypeMulti ? begin() + size() : this + 1;
 		}
+
 		// one-dimensional index
-		XOPER& operator[](xint i)
+		XOPER& operator[](size_t i)
 		{
 			ensure(i < size());
 
@@ -261,7 +262,7 @@ namespace xll {
 				return *this;
 			}
 		}
-		const XOPER& operator[](xint i) const
+		const XOPER& operator[](size_t i) const
 		{
 			return operator[](i);
 		}
@@ -447,7 +448,7 @@ inline xll::OPER12 operator&(const XLOPER12& x, const wchar_t* y)
 	return xll::OPER12(x).append(y);
 }
 
-
+/*
 inline auto& operator<<(std::basic_ostream<xll::traits<XLOPER>::xchar>& os, const XLOPER& x)
 {
 	switch (x.xltype) {
@@ -468,3 +469,4 @@ inline auto& operator<<(std::basic_ostream<xll::traits<XLOPER>::xchar>& os, cons
 
 	return os;
 }
+*/

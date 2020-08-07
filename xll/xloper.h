@@ -7,7 +7,7 @@
 
 namespace xll {
 
-// Missing and Nil
+	// Missing and Nil
 #define X(a, b)                                        \
 	template<class T>                                  \
 	requires (std::is_same_v<T, XLOPER> || std::is_same_v<T, XLOPER12>) \
@@ -19,7 +19,7 @@ namespace xll {
 	XLL_NULL_TYPE(X)
 #undef X
 
-// Error types xll::ErrNAX, ...
+		// Error types xll::ErrNAX, ...
 #define X(a, b, c)                                            \
 	template<class T>                                         \
 	requires (std::is_same_v<T, XLOPER> || std::is_same_v<T, XLOPER12>) \
@@ -29,11 +29,9 @@ namespace xll {
 	inline constexpr XLOPER12 Err##a##12 = XErr##a<XLOPER12>; \
 	inline constexpr XLOPERX Err##a##X = XErr##a<XLOPERX>;    \
 
-	XLL_ERR_TYPE(X)
+		XLL_ERR_TYPE(X)
 #undef X
-
 }
-
 namespace { // doesn't hide xloper_cmp!!!
 	// use std::strong_ordering!!!
 	template<typename X, typename Y>
