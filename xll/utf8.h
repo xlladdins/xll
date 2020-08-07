@@ -9,7 +9,7 @@
 class wchar_str {
 	wchar_t* str_;
 public:
-	wchar_str(wchar_t* str = nullptr, size_t len = 0)
+	wchar_str(const wchar_t* str = nullptr, size_t len = 0)
 		: str_(nullptr)
 	{
 		if (len == 0 && str && *str) {
@@ -17,7 +17,7 @@ public:
 		}
 		alloc(len);
 		if (len > 0 && nullptr != str_) {
-			wcsncpy_s(str_ + 1, len, str, len);
+			CopyMemory(str_ + 1, str, len * sizeof(wchar_t));
 		}
 	}
 	wchar_str(const wchar_str&) = delete;
@@ -31,13 +31,18 @@ public:
 	{
 		free(str_);
 	}
+	// underlying counted string
+	wchar_t* str() const
+	{
+		return str_;
+	}
 	wchar_t* data()
 	{
-		return str_ + 1;
+		return str_ ? str_ + 1 : nullptr;
 	}
 	size_t length() const
 	{
-		return str_[0];
+		return str_ ? str_[0] : 0;
 	}
 	wchar_t* alloc(size_t n)
 	{
@@ -75,6 +80,7 @@ inline wchar_str Utf8ToWcs(const char* s, int n = 0)
 			// use FormatMessage!!!
 			throw std::runtime_error(__FUNCTION__ ": MultiByteToWideChar failed");
 		}
+		// ??? NormalizeString()
 	}
 
 	return wcs;

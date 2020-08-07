@@ -1,44 +1,18 @@
-// traits.h - Top level include file to parameterized by XLOPER type
+// traits.h - parameterize by XLOPER type
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
-
-#ifndef XLOPERX
-	#define XLOPERX XLOPER12
-	#define LPXLOPERX LPXLOPER12
-	typedef struct _FP12 _FPX;
-	#undef _MBCS
-
-	#ifndef _UNICODE
-	#define _UNICODE
-	#endif
-
-	#ifndef UNICODE
-	#define UNICODE
-	#endif
-#else
-	#define XLOPERX XLOPER
-	#define LPXLOPERX LPXLOPER
-	typedef struct _FP _FPX;
-
-	#ifndef _MBCS
-	#define _MBCS
-	#endif
-
-	#undef _UNICODE
-	#undef UNICODE
-#endif
-
-#define WIN32_LEAN_AND_MEAN
-#define NOMINMAX
-#include <Windows.h>
-#include <tchar.h>
-#include "XLCALL.H"
+#include <type_traits>
+#include "defines.h"
 #include "ensure.h"
 
-#pragma warning(push)
-#pragma warning(disable: 4996)
-
 namespace xll {
+
+	/* ??? automate AddIn code
+	template<class T> struct type_traits { static constexpr LPCSTR type; };
+	template<> struct type_traits<double> { static constexpr LPCSTR type = XLL_DOUBLE; };
+	// ...
+	template<> struct type_traits<bool> { static constexpr LPCSTR type = XLL_BOOL; };
+	*/
 
 	// XLOPER/XLOPER12 traits
 	template<class X>
@@ -47,6 +21,8 @@ namespace xll {
 	};
 	template<>
 	struct traits<XLOPER> {
+		typedef XLOPER xtype;
+		typedef XLOPER12 typex;
 		typedef CHAR xchar;
 		typedef const CHAR* xcstr;
 		typedef WORD xrw;
@@ -64,7 +40,9 @@ namespace xll {
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
 		{
-			return strncpy(dest, src, n);
+			ensure (0 == strncpy_s(dest, n, src, n));
+
+			return dest;
 		}
 		static int cmp(const xchar* dest, const xchar* src, size_t n)
 		{
@@ -73,6 +51,8 @@ namespace xll {
 	};
 	template<>
 	struct traits<XLOPER12> {
+		typedef XLOPER12 xtype;
+		typedef XLOPER typex; // not XLOPER12
 		typedef XCHAR xchar;
 		typedef const XCHAR* xcstr;
 		typedef INT32 xint;
@@ -90,7 +70,9 @@ namespace xll {
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
 		{
-			return wcsncpy(dest, src, n);
+			ensure (0 == wcsncpy_s(dest, n, src, n));
+
+			return dest;
 		}
 		static int cmp(const xchar* dest, const xchar* src, size_t n)
 		{
@@ -100,4 +82,3 @@ namespace xll {
 
 }
 
-#pragma warning(pop)

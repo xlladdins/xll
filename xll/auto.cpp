@@ -145,7 +145,7 @@ LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
 		o.val.str = (XCHAR*)L"\06Add-In"; // use xlGetName!!!
 	}
 	else {
-		o = xll::ErrValue12;
+		o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
 	}
 
 	return &o;

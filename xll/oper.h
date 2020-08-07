@@ -4,6 +4,7 @@
 #include <concepts>
 #include <iostream>
 #include <utility>
+#include "utf8.h"
 #include "xloper.h"
 
 #pragma warning(disable: 4996)
@@ -22,12 +23,14 @@ namespace xll {
 	template<class X>  
 		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	class XOPER final : public X {
+		typedef typename traits<X>::typex X_; // the _other_ type
 		typedef typename traits<X>::xchar xchar;
 		typedef typename traits<X>::xcstr xcstr;
+		typedef typename traits<X_>::xcstr cstrx;
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xrw xrw;
 		typedef typename traits<X>::xcol xcol;
-		//!!!typedef typename traits<X>::xint xint;
+		typedef typename traits<X>::xint xint;
 
 	public:
 		using X::xltype;
@@ -48,12 +51,12 @@ namespace xll {
 		XOPER(const X& x)
 		{
 			if (x.xltype == xltypeStr) {
-				str_alloc(x.val.str[0]);
-				std::copy(x.val.str + 1, x.val.str + 1 + x.val.str[0], val.str + 1);
+				str_alloc(x.val.str + 1, x.val.str[0]);
 			}
 			else if (x.xltype == xltypeMulti) {
 				multi_alloc(x.val.array.rows, x.val.array.columns);
-				std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
+				size_t n = size() * sizeof(double);
+				memcpy_s(val.array.lparray, n, x.val.array.lparray, n);
 			}
 			else {
 				xltype = x.xltype;
@@ -126,8 +129,7 @@ namespace xll {
 		// xltypeStr given length
 		XOPER(xcstr str, size_t n)
 		{
-			str_alloc(n);
-			std::copy(str, str + n, val.str + 1);
+			str_alloc(str, n);
 		}
 		// xltypeStr from NULL terminated string
 		explicit XOPER(xcstr str)
@@ -136,7 +138,7 @@ namespace xll {
 		}
 		// Construct from string literal
 		template<size_t N>
-		XOPER(const xchar (&str)[N])
+		XOPER(xcstr (&str)[N])
 			: XOPER(str, N)
 		{
 		}
@@ -157,7 +159,7 @@ namespace xll {
 		XOPER operator=(xcstr str)
 		{
 			oper_free();
-			operator=(XOPER(str));
+			str_alloc(str, traits<X>::len(str));
 
 			return *this;
 		}
@@ -173,9 +175,9 @@ namespace xll {
 		{
 			return append(o);
 		}
-		XOPER& append(xcstr str, size_t n = 0)
+		XOPER& append(xcstr str)
 		{
-			str_append(str, n);
+			str_append(str, traits<X>::len(str));
 
 			return *this;
 		}
@@ -321,41 +323,44 @@ namespace xll {
 			xltype = xltypeNil;
 		}
 
-		// xltypeStr
-		void str_alloc(size_t n)
+		// indicate string is already counted and malloc'd
+		static constexpr size_t COUNTED = std::numeric_limits<size_t>::max();
+		
+		// allocate unless counted
+		void str_alloc(xcstr str, size_t n)
 		{
 			xltype = xltypeStr;
-			val.str = (xchar*)malloc((n + 1) * sizeof(xchar));
-			// first character is count
-			if (val.str) {
-				val.str[0] = static_cast<xchar>(n);
+			if (n == COUNTED) {
+				val.str = const_cast<xchar*>(str); // move
 			}
-		}
-		void str_realloc(size_t n)
-		{
-			ensure(xltype == xltypeStr);
-			
-			val.str = (xchar*)realloc(val.str, (n + 1) * sizeof(xchar));
-			if (val.str) {
-				val.str[0] = static_cast<xchar>(n);
+			else {
+				val.str = (xchar*)malloc((n + 1) * sizeof(xchar));
+				// first character is count
+				if (val.str) {
+					memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+					val.str[0] = static_cast<xchar>(n);
+				}
 			}
 		}
 		void str_append(xcstr str, size_t n)
 		{
-			ensure(xltype == xltypeNil || xltype == xltypeStr);
-
-			if (n == 0) {
-				n = traits<X>::len(str);
-			}
-
 			if (xltype == xltypeNil) {
-				operator=(XOPER(str, n));
+				str_alloc(str, n);
 			}
 			else {
-				xchar len = val.str[0];
-				str_realloc(len + n);
-				if (val.str) {
-					std::copy(str, str + n, val.str + 1 + len);
+				ensure(xltype == xltypeStr);
+				bool counted = (n == COUNTED);
+				if (counted) {
+					n = str[0];
+				}
+				xchar* tmp = (xchar*)realloc(val.str, (val.str[0] + 1 + n) * sizeof(xchar));
+				if (tmp) {
+					val.str = tmp;
+					memcpy_s(val.str + val.str[0] + 1, n, str + counted, n);
+					val.str[0] = static_cast<xchar>(val.str[0] + n);
+				}
+				if (counted) {
+					free(const_cast<xchar*>(str));
 				}
 			}
 		}
@@ -420,16 +425,28 @@ namespace xll {
 	typedef OPER12* LPOPER12;
 	typedef OPERX* LPOPERX;
 
-	// Just like Excel.
-	inline xll::OPER operator&(const XLOPER& x, const XLOPER& y)
-	{
-		return xll::OPER(x) &= y;
-	}
-	inline xll::OPER12 operator&(const XLOPER12& x, const XLOPER12& y)
-	{
-		return xll::OPER12(x) &= y;
-	}
 }
+
+// Just like Excel.
+inline xll::OPER operator&(const XLOPER& x, const XLOPER& y)
+{
+	return xll::OPER(x) &= y;
+}
+inline xll::OPER operator&(const XLOPER& x, const char* y)
+{
+	xll::OPER z(x);
+
+	return z.append(y);
+}
+inline xll::OPER12 operator&(const XLOPER12& x, const XLOPER12& y)
+{
+	return xll::OPER12(x) &= y;
+}
+inline xll::OPER12 operator&(const XLOPER12& x, const wchar_t* y)
+{
+	return xll::OPER12(x).append(y);
+}
+
 
 inline auto& operator<<(std::basic_ostream<xll::traits<XLOPER>::xchar>& os, const XLOPER& x)
 {

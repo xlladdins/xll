@@ -110,13 +110,13 @@ namespace xll {
 		}
 		XArgs& Uncalced()
 		{
-			typeText &= XLL_UNCALCEDX; //!!! use traits
+			typeText &= XLL_UNCALCED; //!!! use traits
 
 			return *this;
 		}
 		XArgs& Volatile()
 		{
-			typeText &= XLL_VOLATILEX;
+			typeText &= XLL_VOLATILE;
 
 			return *this;
 		}
