@@ -122,7 +122,7 @@ namespace { // doesn't hide xloper_cmp!!!
 }
 
 // works for any compination of XLOPER and OPER.
-#if 0
+#if 1
 //namespace xll {
 
 template<typename X, typename Y>
@@ -152,7 +152,7 @@ inline auto operator==(const X & x, const Y & y)
 
 //}
 #endif
-#if 1
+#if 0
 template<typename X, typename Y>
 requires (std::is_base_of_v<XLOPER,X> && std::is_base_of_v<XLOPER,Y>)
 	  || (std::is_base_of_v<XLOPER12, X>&& std::is_base_of_v<XLOPER12, Y>)
