@@ -332,8 +332,8 @@ This section contains miscellaneous remarks.
 
 ### Bits, bits everywhere
 
-At the end of the day everything on a computer comes down to bits. Everything is just
-a collection of bits, it is just a matter of how to interpret them.
+At the end of the day everything on a computer comes down to bits. Objects are
+a collection of bits, it is just a matter of how they are interpreted.
 The Windows 10 operating system comes in two flavors: 32-bit and 64-bit. The
 [abstract data model](https://docs.microsoft.com/en-us/windows/win32/winprog64/abstract-data-models),
 how the bits are interpreted, are nearly the same: all basic data types are 32-bit, only the

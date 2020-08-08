@@ -1,6 +1,7 @@
 // handle.h - handles to C++ objects
 #pragma once
 #include <algorithm>
+#include <memory>
 #include <set>
 #include "excel.h"
 
@@ -12,6 +13,13 @@ inline const auto XLL_HANDLE = XLL_DOUBLE;
 
 namespace xll {
 
+	/// <summary>
+	/// Convert a pointer to a handle.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="p">is a pointer</param>
+	/// <returns>Returns a handle encoding the pointer bits.</returns>
+	/// 
 	template<class T>
 	inline HANDLEX to_handle(T* p)
 	{
@@ -19,6 +27,13 @@ namespace xll {
 		// doubles exactly represent integers < 2^53
 		return (HANDLEX)((uint64_t)p);
 	}
+	/// <summary>
+	/// Convert a handle to a pointer.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="h">is a handle</param>
+	/// <returns>Returns the decoded handle bits.</returns>
+	/// 
 	template<class T>
 	inline T* to_pointer(HANDLEX h)
 	{
@@ -40,6 +55,7 @@ namespace xll {
 			}
 		};
 		inline static pointers ps;
+		inline static std::set<std::unique_ptr<T>> ps_;
 		T* p;
 	public:
 		/// <summary>
@@ -57,12 +73,18 @@ namespace xll {
 				T* px = to_pointer<T>(x.val.num);
 				auto pi = ps.find(px);
 				if (pi != ps.end()) {
-					delete* pi;
+					delete *pi;
 					ps.erase(pi);
+				}
+				auto pi_ = ps_.find(std::unique_ptr(px, nullptr));
+				if (pi_ != ps_.end) {
+					delete *pi_;
+					ps_.erase(pi_);
 				}
 			}
 
 			ps.insert(p);
+			ps_.insert(std::unique_ptr(p));
 		}
 		handle(HANDLEX h) noexcept
 			: p(to_pointer<T>(h))
