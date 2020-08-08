@@ -27,7 +27,7 @@ namespace utf8 {
 		}
 
 		int len = 0;
-		ensure(0 != (len = "哈"(CP_UTF8, 0, s, n, nullptr, 0)));
+		ensure(0 != (len = MultiByteToWideChar(CP_UTF8, 0, s, n, nullptr, 0)));
 
 		ws = (wchar_t*)malloc((len + counted) * sizeof(wchar_t));
 		if (nullptr != ws) {
@@ -56,19 +56,19 @@ namespace utf8 {
 			wn = (int)wcslen(ws);
 		}
 
-		int len = 0;
-		ensure(0 != (len = WideCharToMultiByte(CP_ACP, 0, ws, wn, nullptr, 0, NULL, NULL)));
+		size_t len = 0;
+		errno_t err;
+		err = wcstombs_s(&len, nullptr, 0, ws, wn);
+		ensure(0 == err);
 
 		s = (char*)malloc(len + counted);
-		if (nullptr != ws) {
-			ensure(len == WideCharToMultiByte(CP_ACP, 0, ws, wn, s + counted, len, NULL, NULL));
-			// ??? NormalizeString()
+		if (nullptr != s) {
+			err = wcstombs_s(&len, s + counted, len, ws, wn);
 			if (counted) {
 				ensure(len <= UCHAR_MAX);
 				s[0] = static_cast<char>(len);
 			}
 		}
-
 
 		return s;
 	}
