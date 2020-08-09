@@ -137,9 +137,11 @@ Don't forget `#pragma XLLEXPORT' in the function body so Excel can load it.
 
 ### The `4` and `12` Suffixes
 
-The Excel SDK has two versions of most data types, one for pre 2007 Excel and one for post 2007 Excel.
-The post 2007 verions allow for large grids and wide character Unicode strings. The new data types
-have names with the suffix `12`. This library uses the suffix `4` to make it possible to
+The Excel SDK has two versions of most data types, one for pre 2007 Excel and one 2007 Excel
+and after.
+The new verions allow for large grids and wide character Unicode strings. The new data types
+have names with the suffix `12`. This library uses the suffix `4` for pre 2007 Excel
+to make it possible to
 write add-ins that work with all version of Excel. It uses a technique similar to the Windows
 [`TCHAR`](https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings)
 that uses the `W` suffix for wide character (Unicode) and the suffix `A` for char (ANSI)
@@ -171,8 +173,8 @@ The destructor for `version` will release the memory when it goes out of scope.
 ### Excel Data Types
 
 Excel knows about booleans, floating point doubles, various kinds of integers, and null terminated strings. 
-These are indicated by, `XLL_BOOLX`, `XLL_DOUBLEX`, `XLL_SHORTX`, ..., `XLL_LONGX`, and `XLL_CSTRINGX`. 
-Excel uses _counted strings_ (`XLL_PSTRINGX`) internally where the first character is the length of the following
+These are indicated by, `XLL_BOOL`, `XLL_DOUBLE`, `XLL_SHORT`, ..., `XLL_LONG`, and `XLL_CSTRING`. 
+Excel uses _counted strings_ (`XLL_PSTRING`) internally where the first character is the length of the following
 string characters.
 
 A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `xll::OPER` type
@@ -180,18 +182,18 @@ defined in the `xll` namespace. It is a _variant_
 type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
 nil, simple reference, or integer. The `xltype` member indicates the type and can be one of
 `xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
-`xltypeNil`, `xltypeSRef`, or `xltypeInt`. Although C++ is strongly typed the `OPERX` class is designed
-to behave much like a cell in a spreadsheet. E.g., `OPERX o = 1.23` results in `o.xltype == xltypeNum`
-and `o.val.num == 1.23`. Assigning a string `o = X_("foo")` results in a counted string with
+`xltypeNil`, `xltypeSRef`, or `xltypeInt`. Although C++ is strongly typed the `OPER` class is designed
+to behave much like a cell in a spreadsheet. E.g., `OPER o = 1.23` results in `o.xltype == xltypeNum`
+and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted string with
 `o.xltype == xltypeStr` and `o.val.str == "\03foo" (== {3, 'f', 'o', 'o')})`. The C++ class for
-`OPERX` takes care of all memory managment so it acts like a built-in type. If it doesn't
+`OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
 'do the right thing' when you use it let me know because that would be a design flaw on my part.
 
-The `OPERX` class publicly inherits from the `XLOPERX` struct defined the header file
+The `XOPER` class publicly inherits from the `XLOPERX` struct defined the header file
 [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H). More precisely,
 `OPER` inherits from [`XLOPER`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118)
 and `OPER12` inherits from [`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180). 
-This permits an`OPERX` to be used anywhere a `XLOPERX` is required. 
+This permits an`OPER` to be used anywhere a `XLOPERX` is required. 
 The Excel structs know nothing about memory management so the `OPER` constructors make
 a copy of the data from a `XLOPERX`.
 
