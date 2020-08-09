@@ -2,6 +2,7 @@
 #pragma once
 #include <algorithm>
 #include <set>
+#include <memory>
 #include "excel.h"
 
 // handle data type
@@ -42,7 +43,10 @@ namespace xll {
 			}
 		};
 		inline static pointers ps;
+		inline static std::set<std::unique_ptr<T>> ps_;
 		T* p;
+		using ptr_ = std::unique_ptr<T, std::function<void(T*)>>;
+//		inline static constexpr del = [](T*) {};
 	public:
 		/// <summary>
 		/// Add a handle to the collection.
@@ -61,6 +65,11 @@ namespace xll {
 				if (pi != ps.end()) {
 					delete* pi;
 					ps.erase(pi);
+				}
+				auto pi_ = ps_.find(ptr_(px, [](T*) {}));
+				if (pi_ != ps_.end()) {
+					delete pi_->release();
+					ps_.erase(pi_);
 				}
 			}
 
