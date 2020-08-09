@@ -54,6 +54,7 @@ namespace xll {
 		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
 		std::basic_string<xchar> documentation;
 	public:
+		using cstr = const char*;
 		XArgs()
 		{ }
 		XArgs(xcstr type, xcstr procedure, xcstr functionText)

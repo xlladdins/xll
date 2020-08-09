@@ -131,10 +131,10 @@ namespace xll {
 		{
 			str_alloc(str, n);
 		}
-		XOPER(cstrx str, int n)
+		template<size_t N>
+		XOPER(xcstr(&str)[N])
+			: XOPER(str, N)
 		{
-			// if n >= 0 we don't know length of converted string
-			str_alloc(traits<X>::cvt(str, n), n >= 0 ? 0 : -1);
 		}
 		// xltypeStr from NULL terminated string
 		explicit XOPER(xcstr str)
@@ -143,18 +143,13 @@ namespace xll {
 		}
 		explicit XOPER(cstrx str)
 		{
-			str_alloc(traits<X>::cvt(str, -traits<X_>::len(str)), -1);
+			str_alloc(traits<X>::cvt(str), (size_t)-1);
 		}
 		// Construct from string literal
 		template<size_t N>
-		XOPER(xcstr (&str)[N])
-			: XOPER(str, N)
+		XOPER(cstrx (&str)[N])
 		{
-		}
-		template<size_t N>
-		XOPER(cstrx(&str)[N])
-			: XOPER(traits<X>::cvt(str, N), -1)
-		{
+			str_alloc(traits<X>::cvt(str), (size_t)-1);
 		}
 		bool operator==(xcstr str) const
 		{
@@ -180,32 +175,32 @@ namespace xll {
 		XOPER operator=(cstrx str)
 		{
 			oper_free();
-			str_alloc(traits<X>::cvt(str, traits<X_>::len(str)), -1);
+			str_alloc(traits<X>::cvt(str), (size_t)-1);
 
 			return *this;
 		}
-		XOPER& append(const X& o)
+		XOPER& append(const X& x)
 		{
-			ensure(o.xltype == xltypeStr);
-			str_append(o.val.str + 1, o.val.str[0]);
+			ensure(x.xltype == xltypeStr);
+			str_append(x.val.str + 1, x.val.str[0]);
 
 			return *this;
 		}
-		XOPER& append(const X_& o)
+		XOPER& append(const X_& x)
 		{
-			ensure(o.xltype == xltypeStr);
-			str_append(traits<X>::cvt(o.val.str + 1, o.val.str[0]), -1);
+			ensure(x.xltype == xltypeStr);
+			str_append(traits<X>::cvt(x.val.str + 1, x.val.str[0]), (size_t)-1);
 
 			return *this;
 		}
 		// Like the Excel ampersand operator
-		XOPER& operator&=(const X& o)
+		XOPER& operator&=(const X& x)
 		{
-			return append(o);
+			return append(x);
 		}
-		XOPER& operator&=(const X_& o)
+		XOPER& operator&=(const X_& x)
 		{
-			return append(o);
+			return append(x);
 		}
 		XOPER& append(xcstr str)
 		{
@@ -215,7 +210,7 @@ namespace xll {
 		}
 		XOPER& append(cstrx str)
 		{
-			str_append(traits<X>::cvt(str, traits<X_>::len(str)), -1);
+			str_append(traits<X>::cvt(str), -1);
 
 			return *this;
 		}
@@ -368,11 +363,11 @@ namespace xll {
 		}
 
 		// allocate unless counted
-		void str_alloc(xcstr str, int n)
+		void str_alloc(xcstr str, size_t n)
 		{
 			xltype = xltypeStr;
 
-			if (n < 0) {
+			if (n == (size_t)-1) {
 				val.str = const_cast<xchar*>(str); // move
 			}
 			else {
@@ -380,11 +375,12 @@ namespace xll {
 				// first character is count
 				if (val.str) {
 					memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+					// ensure (n <= ...MAX);
 					val.str[0] = static_cast<xchar>(n);
 				}
 			}
 		}
-		void str_append(xcstr str, int n)
+		void str_append(xcstr str, size_t n)
 		{
 			if (xltype == xltypeNil) {
 				str_alloc(str, n);
@@ -392,15 +388,14 @@ namespace xll {
 			else {
 				ensure(xltype == xltypeStr);
 				bool counted = false;
-				if (n < 0) {
+				if (n == (size_t)-1) {
 					counted = true;
-					n = -n;
+					n = str[0];
 				}
 				if (n == 0) {
 					n = static_cast<int>(traits<X>::len(str));
 				}
-				xchar* tmp = nullptr;
-				tmp = (xchar*)realloc(val.str, (val.str[0] + 1 + n) * sizeof(xchar));
+				xchar* tmp = (xchar*)realloc(val.str, (val.str[0] + 1 + n) * sizeof(xchar));
 				if (tmp != nullptr) {
 					val.str = tmp;
 					memcpy_s(val.str + val.str[0] + 1, n, str + counted, n);

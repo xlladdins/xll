@@ -11,12 +11,13 @@ int test_utf8 = []() {
 	{
 		char s[] = "abc";
 		unique_ptr<wchar_t> ws(mbstowcs(s));
-		assert(0 == wcsncmp(ws.get(), L"abc", 3));
+		assert(0 == wcsncmp(ws.get() + 1, L"abc", 3));
 	}
 	{
 		char s[] = "abc";
 		unique_ptr<wchar_t> ws(mbstowcs(s));
-		assert(0 == wcsncmp(ws.get(), L"abc", 3));
+		assert(ws.get()[0] == 3);
+		assert(0 == wcsncmp(ws.get() + 1, L"abc", 3));
 	}
 	/*
 	{
@@ -31,14 +32,13 @@ int test_utf8 = []() {
 	{
 		wchar_t ws[] = L"abc";
 		unique_ptr<char> s(wcstombs(ws));
-		assert(0 == strncmp(s.get(), "abc", 3));
+		assert(0 == strncmp(s.get() + 1, "abc", 3));
 	}
 	{
 		wchar_t ws[] = L"哈";
 		auto s = wcstombs(ws);
-		size_t n;
-		n = strlen(s);
-		assert(0 == strncmp(s, "哈", 3));
+		assert(3 == s[0]);
+		assert(0 == strncmp(s + 1, "哈", 3));
 		free(s);
 	}
 

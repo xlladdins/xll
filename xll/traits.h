@@ -49,9 +49,9 @@ namespace xll {
 		{
 			return strncmp(dest, src, n);
 		}
-		static char* cvt(const wchar_t* ws, int wn = 0)
+		static char* cvt(const wchar_t* ws)
 		{
-			return utf8::wcstombs(ws, wn);
+			return utf8::wcstombs(ws);
 		}
 	};
 	template<>
@@ -83,9 +83,9 @@ namespace xll {
 		{
 			return wcsncmp(dest, src, n);
 		}
-		static wchar_t* cvt(const char* s, int n = 0)
+		static wchar_t* cvt(const char* s)
 		{
-			return utf8::mbstowcs(s, n);
+			return utf8::mbstowcs(s);
 		}
 
 	};
