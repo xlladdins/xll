@@ -332,12 +332,37 @@ This section contains miscellaneous remarks.
 
 ### Bits, bits everywhere
 
-At the end of the day everything on a computer comes down to bits. Everything is just
+At the end of the day, computer programs come down to bits. Everything is
 a collection of bits, it is just a matter of how to interpret them.
 The Windows 10 operating system comes in two flavors: 32-bit and 64-bit. The
 [abstract data model](https://docs.microsoft.com/en-us/windows/win32/winprog64/abstract-data-models),
 how the bits are interpreted, are nearly the same: all basic data types are 32-bit, only the
-pointer types differ. 
+pointer types differ. You may have difficulty locating a 32-bit version of Window 10, which
+is good. All new developent is happening in the 
+[64-bit world](https://support.microsoft.com/en-us/help/15056/windows-32-64-bit-faq)
+so you should prefer that. 
+
+Excel also comes in 32-bit and 64-bit flavors. You can run either (but not both) on 64-bit
+Windows. You can only run 32-bit Excel on 32-bit Windows. Visual Studio can build both
+32-bit and 64-bit add-ins. You should build for the flavor of Excel you have installed.
+Install 64-bit Excel if you have that option. 
+
+Microsoft Office has a number of flavors. The latest version is 
+[Microsoft Office 2019](https://www.microsoft.com/en-US/microsoft-365)
+and only runs on Windows 10 or Mac OS X Sierra and later. 
+There is a free 
+[web based version](https://www.microsoft.com/en/microsoft-365/free-office-online-for-the-web) 
+that runs in all modern browsers. 
+
+There is also [Office 365](https://www.microsoft.com/en-US/microsoft-365),
+now called Microsoft 365, which should not be confused with Office 2019.
+It has features not available in Office 2019, in particular 
+[dynamic arrays](https://insider.office.com/en-us/blog/dynamic-arrays-and-new-functions-in-excel).
+
+Xll add-ins are not supported on Macs or the web based version. You can write 
+[custom functions](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-overview)
+using Javascript for Office on Windows, Mac, and online versions.  
+
 
 ### Uncalced
 

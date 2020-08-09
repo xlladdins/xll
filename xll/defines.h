@@ -91,6 +91,7 @@ X(ASYNCHRONOUS, "X", xltypeXxx, "declares function to be asynchronous")         
 #ifdef __cplusplus 
 extern "C" {
 #endif
+// Defined in defines.c
 #define X(a,b,c,d) extern LPCSTR  XLL_##a;
 XLL_ARG_TYPE(X)
 #undef X
