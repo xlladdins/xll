@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <cwchar>
+#include <Windows.h>
 
 #ifndef ensure
 #define ENSURE_DEFINED
@@ -26,12 +27,14 @@ namespace utf8 {
 			n = (int)strlen(s);
 		}
 
-		size_t wn = ::mbstowcs(0, s, n);
-		ensure(wn != (size_t)-1);
+		int wn;
+		wn = MultiByteToWideChar(CP_ACP, 0, s, n, nullptr, 0);
+		ensure(wn != 0);
 
 		ws = (wchar_t*)malloc((wn + counted) * sizeof(wchar_t));
 		if (nullptr != ws) {
-			size_t wn_ = ::mbstowcs(ws + counted, s, n);
+			int wn_;
+			wn_ = MultiByteToWideChar(CP_ACP, 0, s, n, ws + counted, wn);
 			// ??? NormalizeString()
 			if (counted) {
 				ensure(wn <= WCHAR_MAX);
@@ -56,12 +59,13 @@ namespace utf8 {
 			wn = (int)wcslen(ws);
 		}
 
-		size_t n = ::wcstombs(0, ws, wn);
+		int n = WideCharToMultiByte(CP_UTF8, 0, ws, wn, NULL, 0, NULL, NULL);
 		//ensure(n !== (size_t)-1));
 
 		s = (char*)malloc(n + counted);
 		if (nullptr != s) {
-			size_t n_ = ::wcstombs(s + counted, ws, wn);
+			int n_;
+			n_ = WideCharToMultiByte(CP_UTF8, 0, ws, wn, s, n, NULL, NULL);;
 			if (counted) {
 				ensure(n <= UCHAR_MAX);
 				s[0] = static_cast<char>(n);
