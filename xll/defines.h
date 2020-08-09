@@ -2,6 +2,8 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 
+#define X_(x) _T(x)
+
 #ifndef XLOPERX
 #define XLOPERX XLOPER12
 #define LPXLOPERX LPXLOPER12

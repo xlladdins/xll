@@ -1,8 +1,8 @@
 ﻿// utf8.h - convert utf-8 to wide character string
 #pragma once
-#define NOMINMAX
-#include <Windows.h>
-#include <wchar.h>
+#include <cstdlib>
+#include <cstring>
+#include <cwchar>
 
 #ifndef ensure
 #define ENSURE_DEFINED
@@ -26,16 +26,16 @@ namespace utf8 {
 			n = (int)strlen(s);
 		}
 
-		int len = 0;
-		ensure(0 != (len = MultiByteToWideChar(CP_UTF8, 0, s, n, nullptr, 0)));
+		size_t wn = ::mbstowcs(0, s, n);
+		ensure(wn != (size_t)-1);
 
-		ws = (wchar_t*)malloc((len + counted) * sizeof(wchar_t));
+		ws = (wchar_t*)malloc((wn + counted) * sizeof(wchar_t));
 		if (nullptr != ws) {
-			ensure(len == MultiByteToWideChar(CP_UTF8, 0, s, n, ws + counted, len));
+			size_t wn_ = ::mbstowcs(ws + counted, s, n);
 			// ??? NormalizeString()
 			if (counted) {
-				ensure(len <= WCHAR_MAX);
-				ws[0] = static_cast<wchar_t>(len);
+				ensure(wn <= WCHAR_MAX);
+				ws[0] = static_cast<wchar_t>(wn);
 			}
 		}
 
@@ -56,17 +56,15 @@ namespace utf8 {
 			wn = (int)wcslen(ws);
 		}
 
-		size_t len = 0;
-		errno_t err;
-		err = wcstombs_s(&len, nullptr, 0, ws, wn);
-		ensure(0 == err);
+		size_t n = ::wcstombs(0, ws, wn);
+		//ensure(n !== (size_t)-1));
 
-		s = (char*)malloc(len + counted);
+		s = (char*)malloc(n + counted);
 		if (nullptr != s) {
-			err = wcstombs_s(&len, s + counted, len, ws, wn);
+			size_t n_ = ::wcstombs(s + counted, ws, wn);
 			if (counted) {
-				ensure(len <= UCHAR_MAX);
-				s[0] = static_cast<char>(len);
+				ensure(n <= UCHAR_MAX);
+				s[0] = static_cast<char>(n);
 			}
 		}
 
