@@ -29,7 +29,7 @@ namespace xll {
 	inline constexpr XLOPER12 Err##a##12 = XErr##a<XLOPER12>; \
 	inline constexpr XLOPERX Err##a##X = XErr##a<XLOPERX>;    \
 
-		XLL_ERR_TYPE(X)
+	XLL_ERR_TYPE(X)
 #undef X
 }
 namespace { // doesn't hide xloper_cmp!!!
@@ -88,7 +88,7 @@ namespace { // doesn't hide xloper_cmp!!!
 		case xltypeBool:
 			return x.val.xbool - y.val.xbool;
 		default:
-			return 0;
+			return x.xltype - y.xltype;
 		}
 	}
 	inline int xloper_cmp(const XLOPER12& x, const XLOPER12& y)
@@ -114,7 +114,7 @@ namespace { // doesn't hide xloper_cmp!!!
 		case xltypeBool:
 			return x.val.xbool - y.val.xbool;
 		default:
-			return INT_MAX;
+			return x.xltype - y.xltype;
 		}
 	}
 }

@@ -65,7 +65,7 @@ namespace utf8 {
 		s = (char*)malloc(n + counted);
 		if (nullptr != s) {
 			int n_;
-			n_ = WideCharToMultiByte(CP_UTF8, 0, ws, wn, s, n, NULL, NULL);;
+			n_ = WideCharToMultiByte(CP_UTF8, 0, ws, wn, s + counted, n, NULL, NULL);
 			if (counted) {
 				ensure(n <= UCHAR_MAX);
 				s[0] = static_cast<char>(n);

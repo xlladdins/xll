@@ -13,20 +13,20 @@ AddInX xai_macro(MacroX(X_("?xll_macro"), X_("XLL.MACRO")));
 int WINAPI xll_macro(void)
 {
 #pragma XLLEXPORT
-	//OPERX xMsg(X_("XLL.MACRO called with active cell: "));
-	//OPERX xActive = Excel<XLOPERX>(xlfActiveCell);
-	//OPERX xReftext = Excel<XLOPERX>(xlfReftext, xActive, OPERX(true)); // A1 style
+	//OPER xMsg(X_("XLL.MACRO called with active cell: "));
+	//OPER xActive = Excel<XLOPERX>(xlfActiveCell);
+	//OPER xReftext = Excel<XLOPERX>(xlfReftext, xActive, OPER(true)); // A1 style
 	//xMsg &= xReftext;
 	//Excel<XLOPERX>(xlcAlert, xMsg);
 
 	// same as above
 	ExcelX(xlcAlert, 
 		ExcelX(xlfConcatenate,
-			OPERX(X_("XLL.MACRO called with active cell: ")),
-			ExcelX(xlfReftext, ExcelX(xlfActiveCell), OPERX(true))
+			OPER(X_("XLL.MACRO called with active cell: ")),
+			ExcelX(xlfReftext, ExcelX(xlfActiveCell), OPER(true))
 		),
-		OPERX(2), // general information
-		OPERX(X_("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0"))
+		OPER(2), // general information
+		OPER(X_("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0"))
 		// Optional help file link. Note the '!0' appended to the URL.
 	);
 	
@@ -74,13 +74,13 @@ double WINAPI xll_jn(LONG n, double x)
 }
 
 Auto<Open> xai_open([]() { 
-	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Open> called")));
+	Excel<XLOPERX>(xlcAlert, OPER(X_("Auto<Open> called")));
 
 	return TRUE;  
 });
 
 Auto<Close> xai_close([]() {
-	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Close> called")));
+	Excel<XLOPERX>(xlcAlert, OPER(X_("Auto<Close> called")));
 
 	return TRUE;
 });
@@ -89,7 +89,7 @@ AddInX xai_onkey(MacroX(X_("?xll_onkey"), X_("XLL.ONKEY")));
 int WINAPI xll_onkey(void)
 {
 #pragma XLLEXPORT
-	ExcelX(xlcAlert, OPERX(X_("You pressed Ctrl-Alt-a")));
+	ExcelX(xlcAlert, OPER(X_("You pressed Ctrl-Alt-a")));
 
 	return TRUE;
 }
@@ -99,7 +99,7 @@ AddInX xai_onwindow(MacroX(X_("?xll_onwindow"), X_("XLL.ONWINDOW")));
 int WINAPI xll_onwindow(void)
 {
 #pragma XLLEXPORT
-	ExcelX(xlcAlert, OPERX(X_("ONWINDOW called")));
+	ExcelX(xlcAlert, OPER(X_("ONWINDOW called")));
 
 	return TRUE;
 }
@@ -109,7 +109,7 @@ AddInX xai_onsheet(MacroX(X_("?xll_onsheet"), X_("XLL.ONSHEET")));
 int WINAPI xll_onsheet(void)
 {
 #pragma XLLEXPORT
-	ExcelX(xlcAlert, OPERX(X_("ONSHEET called")));
+	ExcelX(xlcAlert, OPER(X_("ONSHEET called")));
 
 	return TRUE;
 }
@@ -125,9 +125,9 @@ AddInX xai_get_workspace(
 LPOPERX WINAPI xll_get_workspace(SHORT type_num)
 {
 #pragma XLLEXPORT
-	static OPERX oResult;
+	static OPER oResult;
 
-	oResult = ExcelX(xlfGetWorkspace, OPERX(type_num));
+	oResult = ExcelX(xlfGetWorkspace, OPER(type_num));
 
 	return &oResult;
 }
@@ -145,7 +145,7 @@ HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
 {
 #pragma XLLEXPORT
 	// if pCall->xltype == xltypeMissing use active cell
-	OPERX xFormula = ExcelX(xlfGetFormula, *pCell); // formula references are R1C1
+	OPER xFormula = ExcelX(xlfGetFormula, *pCell); // formula references are R1C1
 
 	return 0;
 }

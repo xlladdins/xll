@@ -85,10 +85,10 @@ namespace xll {
 		On(xcstr text, xcstr macro)
 		{
 			Auto<Open> xao([text, macro]() {
-				return ExcelX(Key::On, OPERX(text), OPERX(macro)) == true;
+				return ExcelX(Key::On, OPER(text), OPER(macro)) == true;
 			});
 			Auto<Close> xac([text]() {
-				return ExcelX(Key::On, OPERX(text)) == true;
+				return ExcelX(Key::On, OPER(text)) == true;
 			});
 		}
 		On(xcstr text, xcstr macro, bool activate)
@@ -96,18 +96,18 @@ namespace xll {
 			static_assert(std::is_same_v<Key, Sheet>);
 
 			Auto<Open> xao([text, macro, activate]() {
-				return ExcelX(Key::On, OPERX(text), OPERX(macro), OPERX(activate)) == true;
+				return ExcelX(Key::On, OPER(text), OPER(macro), OPER(activate)) == true;
 			});
 			Auto<Close> xac([text]() {
-				return ExcelX(Key::On, OPERX(text)) == true;
+				return ExcelX(Key::On, OPER(text)) == true;
 			});
 		}
-		On(const OPERX& time, xcstr macro, const OPERX& tolerance, bool insert)
+		On(const OPER& time, xcstr macro, const OPER& tolerance, bool insert)
 		{
 			static_assert(std::is_same_v<Key, Time>);
 
 			Auto<Open> xao([time, macro, tolerance, insert]() {
-				return ExcelX(Key::On, OPERX(time), OPERX(macro), OPERX(tolerance), OPERX(insert)) == true;
+				return ExcelX(Key::On, OPER(time), OPER(macro), OPER(tolerance), OPER(insert)) == true;
 			});
 			Auto<Close> xac([]() {
 				return ExcelX(Key::On) == true;

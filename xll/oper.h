@@ -25,6 +25,7 @@ namespace xll {
 	class XOPER final : public X {
 		typedef typename traits<X>::typex X_; // the _other_ type
 		typedef typename traits<X>::xchar xchar;
+		typedef typename traits<X_>::xchar charx;
 		typedef typename traits<X>::xcstr xcstr;
 		typedef typename traits<X_>::xcstr cstrx;
 		typedef typename traits<X>::xint xint;
@@ -79,7 +80,7 @@ namespace xll {
 		/*
 		XOPER& operator=(const X& x)
 		{
-			swap(*this, OPERX(x));
+			swap(*this, XOPER(x));
 
 			return *this;
 		}
@@ -126,13 +127,14 @@ namespace xll {
 		}
 
 		// xltypeStr given length
-		XOPER(xcstr str, size_t n)
+		XOPER(xcstr str, int n)
 		{
 			str_alloc(str, n);
 		}
-		XOPER(cstrx str, size_t n)
+		XOPER(cstrx str, int n)
 		{
-			str_alloc(traits<X>::cvt(str, n), COUNTED);
+			// if n >= 0 we don't know length of converted string
+			str_alloc(traits<X>::cvt(str, n), n >= 0 ? 0 : -1);
 		}
 		// xltypeStr from NULL terminated string
 		explicit XOPER(xcstr str)
@@ -140,8 +142,8 @@ namespace xll {
 		{
 		}
 		explicit XOPER(cstrx str)
-			: XOPER(traits<X>::cvt(str, traits<X_>::len(str)))
 		{
+			str_alloc(traits<X>::cvt(str, -traits<X_>::len(str)), -1);
 		}
 		// Construct from string literal
 		template<size_t N>
@@ -151,7 +153,7 @@ namespace xll {
 		}
 		template<size_t N>
 		XOPER(cstrx(&str)[N])
-			: XOPER(traits<X>::cvt(str, N), COUNTED)
+			: XOPER(traits<X>::cvt(str, N), -1)
 		{
 		}
 		bool operator==(xcstr str) const
@@ -178,7 +180,7 @@ namespace xll {
 		XOPER operator=(cstrx str)
 		{
 			oper_free();
-			str_alloc(traits<X>::cvt(str, traits<X_>::len(str)), COUNTED);
+			str_alloc(traits<X>::cvt(str, traits<X_>::len(str)), -1);
 
 			return *this;
 		}
@@ -192,7 +194,7 @@ namespace xll {
 		XOPER& append(const X_& o)
 		{
 			ensure(o.xltype == xltypeStr);
-			str_append(traits<X>::cvt(o.val.str + 1, o.val.str[0]), COUNTED);
+			str_append(traits<X>::cvt(o.val.str + 1, o.val.str[0]), -1);
 
 			return *this;
 		}
@@ -213,7 +215,7 @@ namespace xll {
 		}
 		XOPER& append(cstrx str)
 		{
-			str_append(traits<X>::cvt(str, traits<X_>::len(str)), COUNTED);
+			str_append(traits<X>::cvt(str, traits<X_>::len(str)), -1);
 
 			return *this;
 		}
@@ -365,14 +367,12 @@ namespace xll {
 			xltype = xltypeNil;
 		}
 
-		// indicate string is already counted and malloc'd
-		static constexpr size_t COUNTED = std::numeric_limits<size_t>::max();
-		
 		// allocate unless counted
-		void str_alloc(xcstr str, size_t n)
+		void str_alloc(xcstr str, int n)
 		{
 			xltype = xltypeStr;
-			if (n == COUNTED) {
+
+			if (n < 0) {
 				val.str = const_cast<xchar*>(str); // move
 			}
 			else {
@@ -384,19 +384,24 @@ namespace xll {
 				}
 			}
 		}
-		void str_append(xcstr str, size_t n)
+		void str_append(xcstr str, int n)
 		{
 			if (xltype == xltypeNil) {
 				str_alloc(str, n);
 			}
 			else {
 				ensure(xltype == xltypeStr);
-				bool counted = (n == COUNTED);
-				if (counted) {
-					n = str[0];
+				bool counted = false;
+				if (n < 0) {
+					counted = true;
+					n = -n;
 				}
-				xchar* tmp = (xchar*)realloc(val.str, (val.str[0] + 1 + n) * sizeof(xchar));
-				if (tmp) {
+				if (n == 0) {
+					n = static_cast<int>(traits<X>::len(str));
+				}
+				xchar* tmp = nullptr;
+				tmp = (xchar*)realloc(val.str, (val.str[0] + 1 + n) * sizeof(xchar));
+				if (tmp != nullptr) {
 					val.str = tmp;
 					memcpy_s(val.str + val.str[0] + 1, n, str + counted, n);
 					val.str[0] = static_cast<xchar>(val.str[0] + n);
@@ -459,24 +464,24 @@ namespace xll {
 		}
 	};
 
-	using OPER = XOPER<XLOPER>;
-	using OPER12 = XOPER<XLOPER12>;
-	using OPERX = XOPER<XLOPERX>;
+	typedef XOPER<XLOPER> OPER4;
+	typedef XOPER<XLOPER12> OPER12;
+	typedef XOPER<XLOPERX> OPER;
 
-	typedef OPER* LPOPER;
+	typedef OPER4* LPOPER4;
 	typedef OPER12* LPOPER12;
-	typedef OPERX* LPOPERX;
+	typedef OPER* LPOPER;
 
 }
 
 // Just like Excel.
-inline xll::OPER operator&(const XLOPER& x, const XLOPER& y)
+inline xll::OPER4 operator&(const XLOPER& x, const XLOPER& y)
 {
-	return xll::OPER(x) &= y;
+	return xll::OPER4(x) &= y;
 }
-inline xll::OPER operator&(const XLOPER& x, const char* y)
+inline xll::OPER4 operator&(const XLOPER& x, const char* y)
 {
-	xll::OPER z(x);
+	xll::OPER4 z(x);
 
 	return z.append(y);
 }

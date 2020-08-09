@@ -175,7 +175,7 @@ These are indicated by, `XLL_BOOLX`, `XLL_DOUBLEX`, `XLL_SHORTX`, ..., `XLL_LONG
 Excel uses _counted strings_ (`XLL_PSTRINGX`) internally where the first character is the length of the following
 string characters.
 
-A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `xll::OPERX` type
+A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `xll::OPER` type
 defined in the `xll` namespace. It is a _variant_
 type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
 nil, simple reference, or integer. The `xltype` member indicates the type and can be one of
@@ -192,7 +192,7 @@ The `OPERX` class publicly inherits from the `XLOPERX` struct defined the header
 `OPER` inherits from [`XLOPER`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118)
 and `OPER12` inherits from [`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180). 
 This permits an`OPERX` to be used anywhere a `XLOPERX` is required. 
-The Excel structs know nothing about memory management so the `OPERX` constructors make
+The Excel structs know nothing about memory management so the `OPER` constructors make
 a copy of the data from a `XLOPERX`.
 
 It is permissable to have multis that contain other multis and can be nested to any depth. 
@@ -200,13 +200,13 @@ Multis having two columns with the first column containg strings are quite simil
 [JSON objects](http://www.json.org/json-en.html).
 
 The default constructer creates an object of type `xltypeNil`. Do not confuse this with
-the `"#NULL!"` error type that indicates an empty intersection of two ranges. The `OPERX`
+the `"#NULL!"` error type that indicates an empty intersection of two ranges. The `OPER`
 `NilX` is predefined. Use `Nil` for the
 `XLOPER` version and `Nil12` for a `XLOPER12`.
 
 All standard
 error types are predefined with names corresponding to the error. E.g., `ErrNullX` is
-the `OPERX` with `xltype = xltypeErr` and `val.err == xltypeNull`. Both
+the `OPER` with `xltype = xltypeErr` and `val.err == xltypeNull`. Both
 `ErrNull` and `ErrNull12` are also predefined.
 
 The missing type is used only for function arguments. It indicates no argument was provided
@@ -235,7 +235,7 @@ This is used to return arrays to Excel where the return type is
 at which it points continues to exist after the function exits. Typically
 this is done by declaring a `static FPX` in the function body.
 
-Use `xll::FPX a(2,3)` to create a 2 by 3 array of `OPERX` and `a(1,0)` access
+Use `xll::FPX a(2,3)` to create a 2 by 3 array of `OPER` and `a(1,0)` access
 the second row, first column (indexing is 0-based) of `a`. The same element
 can be accessed using one-dimesional indexing via `a[3]` since data are 
 stored in row-major order. Use the member function `resize` to resize the array.
@@ -268,10 +268,10 @@ The `xll::handle` class has a member function `operator->()` so
 For example if we have the class
 ```C++
 class base {
-    OPERX x;
+    OPER x;
 public:
-    base(const OPERX& x) : x(x) { }
-    OPERX& get() { return x; }
+    base(const OPER& x) : x(x) { }
+    OPER& get() { return x; }
 };
 ```
 then we can embed `base` objects in Excel using

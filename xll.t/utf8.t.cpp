@@ -15,9 +15,8 @@ int test_utf8 = []() {
 	}
 	{
 		char s[] = "abc";
-		auto ws = mbstowcs(s);
-		assert(0 == wcsncmp(ws, L"abc", 3));
-		free(ws);
+		unique_ptr<wchar_t> ws(mbstowcs(s));
+		assert(0 == wcsncmp(ws.get(), L"abc", 3));
 	}
 	/*
 	{
@@ -31,9 +30,8 @@ int test_utf8 = []() {
 	*/
 	{
 		wchar_t ws[] = L"abc";
-		auto s = wcstombs(ws);
-		assert(0 == strncmp(s, "abc", 3));
-		free(s);
+		unique_ptr<char> s(wcstombs(ws));
+		assert(0 == strncmp(s.get(), "abc", 3));
 	}
 	{
 		wchar_t ws[] = L"哈";
@@ -46,3 +44,4 @@ int test_utf8 = []() {
 
 	return 0;
 }();
+

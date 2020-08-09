@@ -4,6 +4,7 @@
 #include <type_traits>
 #include "defines.h"
 #include "ensure.h"
+#include "utf8.h"
 
 namespace xll {
 
@@ -34,9 +35,9 @@ namespace xll {
 		{
 			return ::Excel4v(xlfn, operRes, count, opers);
 		}
-		static size_t len(const xchar* s)
+		static int len(const xchar* s)
 		{
-			return strlen(s);
+			return static_cast<int>(strlen(s));
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
 		{
@@ -48,15 +49,9 @@ namespace xll {
 		{
 			return strncmp(dest, src, n);
 		}
-		static wchar_t* cvt(const char* s, size_t n = 0)
+		static char* cvt(const wchar_t* ws, int wn = 0)
 		{
-			wchar_t* ws = nullptr;
-
-			if (n == 0) {
-				n = strlen(s);
-			}
-
-			return ws;
+			return utf8::wcstombs(ws, wn);
 		}
 	};
 	template<>
@@ -74,9 +69,9 @@ namespace xll {
 		{
 			return ::Excel12v(xlfn, operRes, count, opers);
 		}
-		static size_t len(const xchar* s)
+		static int len(const xchar* s)
 		{
-			return wcslen(s);
+			return static_cast<int>(wcslen(s));
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
 		{
@@ -88,16 +83,9 @@ namespace xll {
 		{
 			return wcsncmp(dest, src, n);
 		}
-		// allocate and copy to MBCS 
-		static char* cvt(const wchar_t* ws, size_t wn = 0)
+		static wchar_t* cvt(const char* s, int n = 0)
 		{
-			char* s = nullptr;
-
-			if (wn == 0) {
-				wn = wcslen(ws);
-			}
-
-			return s;
+			return utf8::mbstowcs(s, n);
 		}
 
 	};

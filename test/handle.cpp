@@ -5,19 +5,19 @@
 using namespace xll;
 
 class base {
-	OPERX x;
+	OPER x;
 public:
 	base() { }
-	base(const OPERX& x) 
+	base(const OPER& x) 
 		: x(x) 
 	{ }
 	virtual ~base() 
 	{ }
-	OPERX& get() 
+	OPER& get() 
 	{ 
 		return x; 
 	}
-	base& set(const OPERX& _x)
+	base& set(const OPER& _x)
 	{
 		x = _x;
 
@@ -77,12 +77,12 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPERX px)
 }
 
 class derived : public base {
-	OPERX x2;
+	OPER x2;
 public:
-	derived(const OPERX x, const OPERX x2)
+	derived(const OPER x, const OPER x2)
 		: base(x), x2(x2)
 	{ }
-	OPERX& get2()
+	OPER& get2()
 	{
 		return x2;
 	}
