@@ -332,7 +332,7 @@ This section contains miscellaneous remarks.
 
 ### Bits, bits everywhere
 
-At the end of the day everything on a computer comes down to bits. Everything is just
+At the end of the day, computer programs come down to bits. Everything is
 a collection of bits, it is just a matter of how to interpret them.
 The Windows 10 operating system comes in two flavors: 32-bit and 64-bit. The
 [abstract data model](https://docs.microsoft.com/en-us/windows/win32/winprog64/abstract-data-models),
