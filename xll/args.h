@@ -3,7 +3,7 @@
 #pragma once
 #include <initializer_list>
 #include <vector>
-#include "excel.h"
+#include "oper.h"
 
 namespace xll {
 
@@ -50,16 +50,12 @@ namespace xll {
 		XArgs()
 		{ }
 		XArgs(cstr type, cstr procedure, cstr functionText)
-			: typeText(type), procedure(procedure), functionText(functionText)
+			: typeText(type), procedure(procedure), functionText(functionText), macroType(1)
 		{
-			macroType = 1; // Function
-			//!!! if procedure does not start with '?' add it.
 		}
 		XArgs(cstr procedure, cstr functionText)
-			: procedure(procedure), functionText(functionText)
+			: procedure(procedure), functionText(functionText), macroType(2)
 		{
-			macroType = 2; // Macro
-			//!!! if procedure does not start with '?' add it.
 		}
 
 		// Used as key in add-in map.
@@ -70,13 +66,10 @@ namespace xll {
 
 		XArgs& Args(std::initializer_list<Arg> args)
 		{
-			static traits<X>::xchar comma[3] = {2, ',', ' ' };
-			static X xComma = { .val = { .str = comma }, .xltype = xltypeStr };
-
 			for (const auto& arg : args) {
 				typeText &= arg.type;
 				if (argumentHelp.size() != 0) {
-					argumentText &= xComma;
+					argumentText &= ", ";
 				}
 				argumentText &= arg.name;
 				argumentHelp.push_back(XOPER<X>(arg.help));
@@ -157,7 +150,9 @@ namespace xll {
 		// Unregister add-in.
 		XOPER<X> Unregister() const
 		{
-			return Excel<X>(xlfUnregister, registerId);
+			X* px[1];
+			px[0] = &registerId;
+			return traits<X>::Excelv(xlfUnregister, 0, 1, px);
 		}
 
 		// full name of dll

@@ -36,10 +36,10 @@ xlAutoClose(void)
 
 	// No need to call xlfUnregister, just delete names.
 	for (const auto& [key, args] : xll::AddIn12::Map) {
-		Excel<XLOPER12>(xlfSetName, key);
+		::Excel12(xlfSetName, 0, 1, &key);
 	}
 	for (const auto& [key, args] : xll::AddIn4::Map) {
-		Excel<XLOPER>(xlfSetName, key);
+		::Excel4(xlfSetName, 0, 1, &key);
 	}
 
 	if (!xll::Auto<xll::Close>::Call()) {
@@ -130,7 +130,7 @@ LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
 	// return string indicating xll name
 	XLOPER12 xResult;
 	XLOPER12 xInt = { .val = { .w = xltypeInt }, .xltype = xltypeInt };
-	int ret = Excel12(xlCoerce, &xResult, 2, pxAction, &xInt);
+	int ret = ::Excel12(xlCoerce, &xResult, 2, pxAction, &xInt);
 	if (ret == xlretSuccess && xResult.xltype == xltypeInt && xResult.val.w == 1) {
 		o.xltype = xltypeStr;
 		o.val.str = (XCHAR*)L"\06Add-In"; // use xlGetName!!!
