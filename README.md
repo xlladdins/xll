@@ -10,7 +10,7 @@ It also provides high performance access to [numeric arrays](#the-fp-data-type) 
 
 ## Prerequisites
 
-Windows 10  
+[Windows 10](https://www.microsoft.com/en-us/software-download/windows10)  
   The Excel SDK is not supported on MacOS.
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)  
@@ -19,18 +19,15 @@ Windows 10
 [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)  
   Install the 64-bit version of Office 365 for the best experience.
 
-[Sandcastle Help File Builder](https://github.com/EWSoftware/SHFB)  
-  This is optional if you want to create help files integrated into Excel.
-
 ## Get Started
 
-Run the [installer](https://github.com/xlladdins/xll/xll.msi). This places
-the xll project template in your `Documents\Visual Studio 2019` folder
-and include visualizers for debugging.
+Run the [installer](https://github.com/xlladdins/xll/xll.msi). 
+This places the xll project template in your `Documents\Visual Studio 2019` folder and include visualizers for debugging.
 
 Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
-select `XLL Project`. You will need to
-add a git submodule for `xll`. Run `Tools ► Command Line ► Developer Command Prompt`
+select `XLL Project`. 
+You will need to add a git submodule for `xll`. 
+Run `Tools ► Command Line ► Developer Command Prompt`
 from the Visual Studio menu and type
 
 > git submodule add https://github.com/xlladdins/xll.git
@@ -55,7 +52,7 @@ full path to the xll that was built and is opened by Excel.
 The `/p` flag to Excel sets the
 default directory so `Ctrl-O` opens to the project directory.
 
-## Add-in Functions
+## AddIn
 
 To register a new C/C++ add-in function that can be called from Excel create
 an `AddIn` object with a `Function` argument that has information Excel needs to register your
@@ -66,8 +63,8 @@ the _category_ Excel should use.
 If you have documentation available at a URL then
 provide a link to a _help topic_.
 
-This library uses [UTF-8](http://www.utf-8.com/)instead of old-fashioned multibyte character sets
-and [Unicode](https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings#unicode-and-ansi-functions)
+This library uses [UTF-8](http://www.utf-8.com/) instead of multibyte character sets and 
+[Unicode](https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings#unicode-and-ansi-functions)
 (UTF-16, UCS-2). 
 The Unicode wars are over, the dust has settled, and
 UTF-8 is the clear winner. 
@@ -135,31 +132,43 @@ two string arguments: the name of the C/C++ function to be called and the name f
 The function returns an `int` that is non-zero if it succeeds or zero if it fails.
 Don't forget `#pragma XLLEXPORT' in the function body so Excel can load it.
 
+The name of the `AddIn` object is arbitrary. I use the `xai_` prefix for all
+e`X`cel `AddIn` objects as a convention. Since it is a global object it will be [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
+when the xll is loaded. The constructor simply stores
+the infomation for use when Excel calls 
+[`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).  The xll library 
+[implements](https://github.com/xlladdins/xll/blob/master/xll/auto.cpp#L8)
+this for you.
+
 ### The `4` and `12` Suffixes
 
-The Excel SDK has two versions of most data types, one for pre 2007 Excel and one 2007 Excel
-and after.
+The Excel SDK has two versions of most data types, ones for pre 2007 Excel and ones for 2007 Excel and after.
 The new verions allow for large grids and wide character Unicode strings. The new data types
-have names with the suffix `12`. This library uses the suffix `4` for pre 2007 Excel
-to make it possible to
-write add-ins that work with all version of Excel. It uses a technique similar to the Windows
-[`TCHAR`](https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings)
-that uses the `W` suffix for wide character (Unicode) and the suffix `A` for char (ANSI)
-functions. 
+have names with the suffix `12`. This library makes it possible to
+write add-ins that work with all version of Excel. It uses a technique similar to  the Windows
+[`TCHAR`](https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings) technique.
+That uses the suffix `A` for char (ANSI) functions and the `W` suffix for wide character (Unicode) functions. When the suffix is omitted the appropriate
+function will be called based on macros set before including `<tchar.h>`.
 
-This is controlled by the macro `XLOPERX`.
-Define it to be `XLOPER` for pre 2007 Excel and `XLOPER12` for post 2007 Excel before including `xll/xll.h`.
-By default it is defined to be `XLOPER12`. These are data types defined in the Excel SDK header
-`XLCALL.H` that are used in [`traits.h`](https://github.com/xlladdins/xll/blob/master/xll/traits.h)
-for our implmentation using the [traits pattern](https://accu.org/index.php/journals/442).
+The xll library controls this by the macro `XLOPERX`.
+Define it to be 
+[`XLOPER`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118) 
+for pre 2007 Excel and 
+[`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180) 
+for Excel 2007 and later before including `xll/xll.h`.
+By default it is defined to be `XLOPER12`. 
+The file
+[`traits.h`](https://github.com/xlladdins/xll/blob/master/xll/traits.h)
+uses the [traits pattern](https://accu.org/index.php/journals/442)
+to parameterize by these two types.
 
 The SDK uses `Excel4` (or `Excel4v`) and `Excel12` (or `Excel12v`) to 
 [call Excel functions](https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll)
 from your add-in. We use `AddIn4` and and `AddIn12` to create add-ins for a particular version of Excel if needed.
-You should use `AddIn` and set `XLOPERX` to control the version. If you need to know the Excel
+You can use `AddIn` and let `XLOPERX` control the version. If you need to know the Excel
 version at runtime call 
 `[XLCallVer]`(https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll#xlcallver).
-It returns `0x0c00` for version 12 (hexidecimal `C`) and `0x500` (oddly enough) for version 4.
+It returns `0x500` (oddly enough) for version 4 and `0x0c00` for version 12 (hexidecimal `C`).
 
 You can get finer grained information by calling the 
 [`GET.WORKSPACE`](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/GET.WORKSPACE.md)
@@ -177,7 +186,7 @@ These are indicated by, `XLL_BOOL`, `XLL_DOUBLE`, `XLL_SHORT`, ..., `XLL_LONG`, 
 Excel uses _counted strings_ (`XLL_PSTRING`) internally where the first character is the length of the following
 string characters.
 
-A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `xll::OPER` type
+A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPER` type
 defined in the `xll` namespace. It is a _variant_
 type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
 nil, simple reference, or integer. The `xltype` member indicates the type and can be one of
@@ -189,30 +198,35 @@ and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted str
 `OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
 'do the right thing' when you use it let me know because that would be a design flaw on my part.
 
-The `XOPER` class publicly inherits from the `XLOPERX` struct defined the header file
+`OPER`s are specializations of the [`XOPER`](???ref) class which publicly inherits from the `XLOPERX` struct defined the header file
 [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H). More precisely,
-`OPER` inherits from [`XLOPER`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118)
-and `OPER12` inherits from [`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180). 
-This permits an`OPER` to be used anywhere a `XLOPERX` is required. 
-The Excel structs know nothing about memory management so the `OPER` constructors make
+`OPER4` inherits from [`XLOPER`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118)
+and `OPER12` inherits from [`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180). These are shorthand for
+`XOPER<XLOPER>` and `XOPER<XLOPER12>`.
+This permits an`OPER` to be used anywhere a `const XLOPERX&` can be used. 
+The Excel SDK structs know nothing about memory management so the `OPER` constructors make
 a copy of the data from a `XLOPERX`.
 
 It is permissable to have multis that contain other multis and can be nested to any depth. 
 Multis having two columns with the first column containg strings are quite similar to 
-[JSON objects](http://www.json.org/json-en.html).
+[JSON objects](http://www.json.org/json-en.html). You can use the Excel
+built-in function 
+[`DGET`](https://support.microsoft.com/en-us/office/dget-function-455568bf-4eef-45f7-90f0-ec250d00892e) to access value
+via `DGET(multi, 2, key)` to obtain the value (in columns 2) of the `multi` corresponding
+to `key`.
 
-The default constructer creates an object of type `xltypeNil`. Do not confuse this with
-the `"#NULL!"` error type that indicates an empty intersection of two ranges. The `OPER`
-`NilX` is predefined. Use `Nil` for the
+The default constructer of `OPER` creates an object of type `xltypeNil`. 
+Do not confuse this with the `"#NULL!"` error type that indicates an empty intersection of two ranges. The `OPER`
+`Nil` is predefined. Use `Nil4` for the
 `XLOPER` version and `Nil12` for a `XLOPER12`.
 
-All standard
-error types are predefined with names corresponding to the error. E.g., `ErrNullX` is
+All standard error types are predefined with names corresponding to the error. 
+For example, `ErrNull` is
 the `OPER` with `xltype = xltypeErr` and `val.err == xltypeNull`. Both
-`ErrNull` and `ErrNull12` are also predefined.
+`ErrNull4` and `ErrNull12` are also predefined.
 
-The missing type is used only for function arguments. It indicates no argument was provided
-by the calling Excel function. It is an error to return this type from a C/C++ function. 
+The missing type is used only for function arguments. 
+It indicates no argument was provided by the calling Excel function. It is an error to return this type from a C/C++ function. 
 
 ### The FP Data Type
 
@@ -237,7 +251,7 @@ This is used to return arrays to Excel where the return type is
 at which it points continues to exist after the function exits. Typically
 this is done by declaring a `static FPX` in the function body.
 
-Use `xll::FPX a(2,3)` to create a 2 by 3 array of `OPER` and `a(1,0)` access
+Use `xll::FPX a(2,3)` to create a 2 by 3 array of doubles and `a(1,0)` to access
 the second row, first column (indexing is 0-based) of `a`. The same element
 can be accessed using one-dimesional indexing via `a[3]` since data are 
 stored in row-major order. Use the member function `resize` to resize the array.
@@ -314,8 +328,7 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 For a production quality version of this example see [handle.cpp](test/handle.cpp).
 That file also has examples illustrating how single inheritance can be used in Excel.
 
-When a spreadsheet containing handles is reopened you must 'refresh' the handles using
-`Ctrl-Alt-F9`. The old handles that were saved are stale.
+When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. The old handles that were previously saved are stale.
 
 ## [Excel 4 Macro Functions](docs/Excel4Macros/README.md)
 
@@ -338,8 +351,8 @@ At the end of the day, computer programs come down to bits. Everything is
 a collection of bits, it is just a matter of how to interpret them.
 The Windows 10 operating system comes in two flavors: 32-bit and 64-bit. The
 [abstract data model](https://docs.microsoft.com/en-us/windows/win32/winprog64/abstract-data-models),
-how the bits are interpreted, are nearly the same: all basic data types are 32-bit, only the
-pointer types differ. You may have difficulty locating a 32-bit version of Window 10, which
+how the bits are interpreted, are nearly the same: all basic data types are 32-bit, only the pointer types differ. 
+You may have difficulty locating a 32-bit version of Window 10, which
 is good. All new developent is happening in the 
 [64-bit world](https://support.microsoft.com/en-us/help/15056/windows-32-64-bit-faq)
 so you should prefer that. 
@@ -359,18 +372,18 @@ that runs in all modern browsers.
 There is also [Office 365](https://www.microsoft.com/en-US/microsoft-365),
 now called Microsoft 365, which should not be confused with Office 2019.
 It has features not available in Office 2019, in particular 
-[dynamic arrays](https://insider.office.com/en-us/blog/dynamic-arrays-and-new-functions-in-excel).
+[dynamic arrays](https://insider.office.com/en-us/blog/dynamic-arrays-and-new-functions-in-excel). 
 
 Xll add-ins are not supported on Macs or the web based version. You can write 
 [custom functions](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-overview)
-using Javascript for Office on Windows, Mac, and online versions.  
+using [JavaScript](https://www.javascript.com/) (or, even better, [TypeScript](https://www.typescriptlang.org/)) for Office on Windows, Mac, and online versions.  
 
 
 ### Uncalced
 
 Functions that are declared `.Uncalced()` have a limited ability to call command equivalents/macros.
 In general, add-in functions cannot have side-effects. 
-They can only call Excel with function numbers starting with `xlf` (_f_unctions) and are 
-forbidden to call Excel with function numbers starting with `xlc` (_c_ommand equivalents,
-also known as ma_c_ros). Excel was doing
+They can only call Excel with function numbers starting with `xlf` (__f__&zwnj;​unctions) and are 
+forbidden to call Excel with function numbers starting with `xlc` (__c__&zwnj;​ommand equivalents,
+also known as ma&zwnj;__c__&zwnj;ros). Excel was doing
 functional programming long before it became the latest rage.
