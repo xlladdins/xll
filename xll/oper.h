@@ -210,7 +210,7 @@ namespace xll {
 		}
 		XOPER& append(cstrx str)
 		{
-			str_append(traits<X>::cvt(str), -1);
+			str_append(traits<X>::cvt(str), (size_t)-1);
 
 			return *this;
 		}
@@ -393,12 +393,12 @@ namespace xll {
 					n = str[0];
 				}
 				if (n == 0) {
-					n = static_cast<int>(traits<X>::len(str));
+					n = traits<X>::len(str);
 				}
-				xchar* tmp = (xchar*)realloc(val.str, (val.str[0] + 1 + n) * sizeof(xchar));
+				xchar* tmp = (xchar*)realloc(val.str, (val.str[0] + n + 1) * sizeof(xchar));
 				if (tmp != nullptr) {
 					val.str = tmp;
-					memcpy_s(val.str + val.str[0] + 1, n, str + counted, n);
+					memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
 					val.str[0] = static_cast<xchar>(val.str[0] + n);
 				}
 				if (counted) {

@@ -10,16 +10,14 @@ namespace xll {
 	/// <summary>
 	/// Individual argument for add-in function.
 	/// </summary>
-	template<class X>
-	struct XArg {
-		using xchar = typename traits<X>::xchar;
-		using xcstr = typename traits<X>::xcstr;
+	struct Arg {
+		typedef typename const char* cstr;
 
-		xcstr type;
-		xcstr name;
-		xcstr help;
-		//xcstr init;
-		XArg(xcstr type, xcstr name, xcstr help)
+		cstr type;
+		cstr name;
+		cstr help;
+		//cstr init;
+		Arg(cstr type, cstr name, cstr help)
 			: type(type), name(name), help(help)
 		{
 			/*
@@ -31,14 +29,10 @@ namespace xll {
 			*/
 		}
 	};
-	using Arg = XArg<XLOPER>;
-	using Arg12 = XArg<XLOPER12>;
-	using ArgX = XArg<XLOPERX>;
 
 	template<class X>
 	class XArgs {
-		using xchar = typename traits<X>::xchar;
-		using xcstr = typename traits<X>::xcstr;
+		using cstr = const char*;
 
 		XOPER<X> moduleText;   // from xlGetName
 		XOPER<X> procedure;    // C function
@@ -52,18 +46,16 @@ namespace xll {
 		XOPER<X> functionHelp; // for function wizard
 		std::vector<XOPER<X>> argumentHelp;
 		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
-		std::basic_string<xchar> documentation;
 	public:
-		using cstr = const char*;
 		XArgs()
 		{ }
-		XArgs(xcstr type, xcstr procedure, xcstr functionText)
+		XArgs(cstr type, cstr procedure, cstr functionText)
 			: typeText(type), procedure(procedure), functionText(functionText)
 		{
 			macroType = 1; // Function
 			//!!! if procedure does not start with '?' add it.
 		}
-		XArgs(xcstr procedure, xcstr functionText)
+		XArgs(cstr procedure, cstr functionText)
 			: procedure(procedure), functionText(functionText)
 		{
 			macroType = 2; // Macro
@@ -76,9 +68,9 @@ namespace xll {
 			return functionText;
 		}
 
-		XArgs& Args(std::initializer_list<XArg<X>> args)
+		XArgs& Args(std::initializer_list<Arg> args)
 		{
-			static xchar comma[3] = {2, ',', ' ' };
+			static traits<X>::xchar comma[3] = {2, ',', ' ' };
 			static X xComma = { .val = { .str = comma }, .xltype = xltypeStr };
 
 			for (const auto& arg : args) {
@@ -93,19 +85,19 @@ namespace xll {
 			return *this;
 		}
 		
-		XArgs& Category(xcstr _category)
+		XArgs& Category(cstr _category)
 		{
 			category = _category;
 
 			return *this;
 		}
-		XArgs& FunctionHelp(xcstr _functionHelp)
+		XArgs& FunctionHelp(cstr _functionHelp)
 		{
 			functionHelp = _functionHelp;
 
 			return *this;
 		}
-		XArgs& HelpTopic(xcstr _helpTopic)
+		XArgs& HelpTopic(cstr _helpTopic)
 		{
 			// !!! If it does not end with '!.+` add a '!0'.
 			helpTopic = _helpTopic;
@@ -121,19 +113,6 @@ namespace xll {
 		XArgs& Volatile()
 		{
 			typeText &= XLL_VOLATILE;
-
-			return *this;
-		}
-
-		XArgs& Documentation(xcstr doc)
-		{
-			documentation = doc;
-
-			return *this;
-		}
-		XArgs& Documentation(std::basic_string<xchar>&& doc)
-		{
-			documentation = doc;
 
 			return *this;
 		}
@@ -192,13 +171,13 @@ namespace xll {
 		}
 	};
 
-	using Function = XArgs<XLOPER>;
+	using Function4 = XArgs<XLOPER>;
 	using Function12 = XArgs<XLOPER12>;
-	using FunctionX = XArgs<XLOPERX>;
+	using Function = XArgs<XLOPERX>;
 
-	using Macro = XArgs<XLOPER>;
+	using Macro4 = XArgs<XLOPER>;
 	using Macro12 = XArgs<XLOPER12>;
-	using MacroX = XArgs<XLOPERX>;
+	using Macro = XArgs<XLOPERX>;
 
 	/*
 	template<typename X>

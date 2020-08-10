@@ -448,26 +448,17 @@ int test_handle = []()
 }
 ();
 
-/*
+
 int test_xloper = []()
 {
 	{
 		ensure(0 == strcmp(XLL_DOUBLE, "B"));
 	}
-	{
-		ensure(0 == wcscmp(XLL_DOUBLE12, L"B"));
-	}
-	{
-		ensure(0 == _tcscmp(XLL_DOUBLEX, _T("B")));
-	}
-	{
-		ensure(0 == _tcscmp(XLL_DOUBLEX, X_("B")));
-	}
 
 	return 0;
 }
 ();
-*/
+
 
 int test_oper_cvt = []() {
 	{
@@ -490,6 +481,19 @@ int test_oper_cvt = []() {
 		OPER o(L"abc");
 		ensure(o == OPER(L"abc"));
 	}
+
+	return 0;
+}();
+
+int test_oper_err = []() {
+	ensure(ErrValue4.xltype == xltypeErr);
+	ensure(ErrValue4.val.err == xlerrValue);
+
+	ensure(ErrValue12.xltype == xltypeErr);
+	ensure(ErrValue12.val.err == xlerrValue);
+
+	ensure(ErrValue.xltype == xltypeErr);
+	ensure(ErrValue.val.err == xlerrValue);
 
 	return 0;
 }();

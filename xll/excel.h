@@ -12,7 +12,6 @@ namespace xll {
 	{
 		XOPER<X> o;
 		X x;
-		X* px[1] = { &x };
 		std::vector<const X*> xargs { &args... };
 
 		int ret = traits<X>::Excelv(xlf, &x, sizeof...(args), (X**)xargs.data());
@@ -20,6 +19,7 @@ namespace xll {
 			throw ret;
 		}
 		o = x;
+		X* px[1] = { &x };
 		traits<X>::Excelv(xlFree, NULL, 1, px);
 
 		return o;

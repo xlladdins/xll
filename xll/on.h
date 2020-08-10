@@ -80,9 +80,9 @@ namespace xll {
 	// static On<Key> ok("shortcut", "MACRO");
 	template<class Key>
 	class On {
-		using xcstr = traits<XLOPERX>::xcstr;
+		using cstr = const char*;
 	public:
-		On(xcstr text, xcstr macro)
+		On(cstr text, cstr macro)
 		{
 			Auto<Open> xao([text, macro]() {
 				return ExcelX(Key::On, OPER(text), OPER(macro)) == true;
@@ -91,7 +91,7 @@ namespace xll {
 				return ExcelX(Key::On, OPER(text)) == true;
 			});
 		}
-		On(xcstr text, xcstr macro, bool activate)
+		On(cstr text, cstr macro, bool activate)
 		{
 			static_assert(std::is_same_v<Key, Sheet>);
 
@@ -102,7 +102,7 @@ namespace xll {
 				return ExcelX(Key::On, OPER(text)) == true;
 			});
 		}
-		On(const OPER& time, xcstr macro, const OPER& tolerance, bool insert)
+		On(const OPER& time, cstr macro, const OPER& tolerance, bool insert)
 		{
 			static_assert(std::is_same_v<Key, Time>);
 

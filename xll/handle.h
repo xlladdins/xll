@@ -55,7 +55,7 @@ namespace xll {
 			}
 		};
 		inline static pointers ps;
-		inline static std::set<std::unique_ptr<T>> ps_;
+		//inline static std::set<std::unique_ptr<T>> ps_;
 		T* p;
 	public:
 		/// <summary>
@@ -76,15 +76,17 @@ namespace xll {
 					delete *pi;
 					ps.erase(pi);
 				}
+				/*
 				auto pi_ = ps_.find(std::unique_ptr(px, nullptr));
-				if (pi_ != ps_.end) {
+				if (pi_ != ps_.end()) {
 					delete *pi_;
 					ps_.erase(pi_);
 				}
+				*/
 			}
 
 			ps.insert(p);
-			ps_.insert(std::unique_ptr(p));
+			//ps_.insert(std::unique_ptr(p));
 		}
 		handle(HANDLEX h) noexcept
 			: p(to_pointer<T>(h))

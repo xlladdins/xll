@@ -10,3 +10,7 @@ https://docs.microsoft.com/en-us/office/dev/add-ins/excel/make-custom-functions-
 Adds formula auto complete.
 
 Generate JS from AddIn?
+
+Use function tests instead of lambdas.
+Get names from nm | grep '^test'
+Allow wildcards.
