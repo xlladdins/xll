@@ -335,8 +335,8 @@ When a spreadsheet containing handles is reopened you must 'refresh' the handles
 Any Excel function can be called with `ExcelX` by using _function numbers_. The
 function numbers are defined in `XLCALL.H` and correspond to Excel built-in
 functions or macros (command equivalents).
-Function numbers starting with `xlf` are functions and can only be called from add-in functions.
-Function numbers starting with `xlc` are macros and can only be called from add-in macros.
+Function numbers starting with `xlf` are __f__&zwnj;unctions and can only be called from add-in functions.
+Function numbers starting with `xlc` are ma&zwnj;__c__&zwnj;ros and can only be called from add-in macros.
 [Some](https://docs.microsoft.com/en-us/office/client-developer/excel/c-api-functions-that-can-be-called-only-from-a-dll-or-xll)
 function numbers are special to the C API. For example, [`xlUDF`](https://docs.microsoft.com/en-us/office/client-developer/excel/xludf)
 can be used to call VBA user-defined functions.
