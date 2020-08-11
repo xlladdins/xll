@@ -1,6 +1,7 @@
 // excel.h - Wrapper functions for Excel
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+#include <utility>
 #include "oper.h"
 
 namespace xll {
@@ -23,21 +24,22 @@ namespace xll {
 		return o;
 	}
 
+	/*
 	template<typename... Args>
-	inline OPER4 Excel4(Args&&... args)
+	inline OPER4 Excel4(int fn, Args&&... args)
 	{
-		return XExcel<XLOPER>(std::forward<Args...>(args...));
+		return XExcel<XLOPER, Args...>(fn, std::forward<Args...>(args...));
 	}
 	template<typename... Args>
-	inline OPER12 Excel4(Args&&... args)
+	inline OPER12 Excel4(int fn, Args&&... args)
 	{
 		return XExcel<XLOPER12>(std::forward<Args...>(args...));
 	}
-	// Avoid collision with global Excel function.
+	*/
 	template<typename... Args>
-	inline OPER ExcelX(Args&&... args)
+	inline OPER Excel(int fn, Args&&... args)
 	{
-		return XExcel<XLOPERX>(std::forward<Args...>(args...));
+		return XExcel<XLOPERX, Args...>(fn, args...);
 	}
 
 } // namespace xll

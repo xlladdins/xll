@@ -21,8 +21,11 @@ namespace utf8 {
 			n = strlen(s);
 		}
 
-		int wn = MultiByteToWideChar(CP_ACP, 0, s, (int)n, nullptr, 0);
-		ensure(wn != 0);
+		int wn = 0;
+		if (n != 0) {
+			wn = MultiByteToWideChar(CP_ACP, 0, s, (int)n, nullptr, 0);
+			ensure(wn != 0);
+		}
 
 		ws = (wchar_t*)malloc((wn + 1) * sizeof(wchar_t));
 		if (nullptr != ws) {
@@ -43,8 +46,11 @@ namespace utf8 {
 			wn = wcslen(ws);
 		}
 
-		int n = WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, NULL, 0, NULL, NULL);
-		//ensure(n !== (size_t)-1));
+		int n = 0;
+		if (wn != 0) {
+			n = WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, NULL, 0, NULL, NULL);
+			//ensure(n !== (size_t)-1));
+		}
 
 		s = (char*)malloc(n + 1);
 		if (nullptr != s) {

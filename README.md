@@ -292,10 +292,10 @@ public:
 ```
 then we can embed `base` objects in Excel using
 ```C++
-AddInX xai_base(
-    FunctionX(XLL_HANDLEX, "?xll_base", "XLL.BASE")
+AddIn xai_base(
+    Function(XLL_HANDLEX, "?xll_base", "XLL.BASE")
     .Args({
-        ArgX({ XLL_LPOPERX, "x", "is a cell or range of cells" })
+        Arg({ XLL_LPOPER, "x", "is a cell or range of cells" })
     })
     .FunctionHelp("Return a handle to a base object.")
     .Uncalced() // Required for functions creating handles!!!
@@ -310,10 +310,10 @@ HANDLEX WINAPI xll_base(LPOPERX px)
 ```
 and access them with
 ```C++
-AddInX xai_base_get(
-    FunctionX(XLL_LPOPERX, "?xll_base_get", "XLL.BASE.GET")
+AddIn xai_base_get(
+    Function(XLL_LPOPER, "?xll_base_get", "XLL.BASE.GET")
     .Args({
-        ArgX({ XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE" })
+        Arg({ XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE" })
     })
     .FunctionHelp("Return the value stored in base.")
 );
@@ -332,7 +332,7 @@ When a spreadsheet containing handles is reopened you must 'refresh' the handles
 
 ## [Excel 4 Macro Functions](docs/Excel4Macros/README.md)
 
-Any Excel function can be called with `ExcelX` by using _function numbers_. The
+Any Excel function can be called with `Excel` by using _function numbers_. The
 function numbers are defined in `XLCALL.H` and correspond to Excel built-in
 functions or macros (command equivalents).
 Function numbers starting with `xlf` are __f__&zwnj;unctions and can only be called from add-in functions.

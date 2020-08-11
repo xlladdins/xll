@@ -10,6 +10,7 @@ using HANDLEX = double;
 
 // handle argument types for add-ins
 inline const auto XLL_HANDLE = XLL_DOUBLE;
+inline const auto XLL_HANDLEX = XLL_DOUBLE;
 
 namespace xll {
 
