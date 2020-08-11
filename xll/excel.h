@@ -24,18 +24,16 @@ namespace xll {
 		return o;
 	}
 
-	/*
 	template<typename... Args>
 	inline OPER4 Excel4(int fn, Args&&... args)
 	{
-		return XExcel<XLOPER, Args...>(fn, std::forward<Args...>(args...));
+		return XExcel<XLOPER, Args...>(fn, args...);
 	}
 	template<typename... Args>
-	inline OPER12 Excel4(int fn, Args&&... args)
+	inline OPER12 Excel12(int fn, Args&&... args)
 	{
-		return XExcel<XLOPER12>(std::forward<Args...>(args...));
+		return XExcel<XLOPER12, Args...>(fn, args...);
 	}
-	*/
 	template<typename... Args>
 	inline OPER Excel(int fn, Args&&... args)
 	{
