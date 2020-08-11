@@ -287,58 +287,50 @@ namespace xll {
 		}
 		size_t rows() const
 		{
-			return xltype == xltypeMulti ? val.array.rows : 1;
+			return xll::rows(*this);
 		}
 		size_t columns() const
 		{
-			return xltype == xltypeMulti ? val.array.columns : 1;
+			return xll::columns(*this);
 		}
 		size_t size() const
 		{
-			return rows()*columns();
+			return xll::size(*this);
 		}
 		// STL friendly
-		const XOPER* begin() const
-		{
-			return xltype == xltypeMulti ? static_cast<const XOPER*>(val.array.lparray) : this;
-		}
 		XOPER* begin()
 		{
-			return xltype == xltypeMulti ? static_cast<XOPER*>(val.array.lparray) : this;
+			return xll::begin(*this);
 		}
-		const XOPER* end() const
+		const XOPER* begin() const
 		{
-			return xltype == xltypeMulti ? begin() + size() : this + 1;
+			return xll::begin(*this);
 		}
 		XOPER* end()
 		{
-			return xltype == xltypeMulti ? begin() + size() : this + 1;
+			return xll::end(*this);
+		}
+		const XOPER* end() const
+		{
+			return xll::end(*this);
 		}
 		// one-dimensional index
 		XOPER& operator[](size_t i)
 		{
-			ensure(i < size());
-
-			if (xltype == xltypeMulti) {
-				return static_cast<XOPER&>(val.array.lparray[i]);
-			}
-			else {
-				ensure(i == 0);
-				return *this;
-			}
+			return xll::index(*this, i);
 		}
 		const XOPER& operator[](size_t i) const
 		{
-			return operator[](i);
+			return xll::index(*this, i);
 		}
 		// two-dimensional index
 		XOPER& operator()(xrw rw, xcol col)
 		{
-			return operator[](columns() * rw + col);
+			return xll::index(*this, rw, col);
 		}
 		const XOPER& operator()(xrw rw, xcol col) const
 		{
-			return operator()(rw, col);
+			return xll::index(*this, rw, col);
 		}
 
 		// xltypeMissing - predefined as Missing

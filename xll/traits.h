@@ -1,4 +1,4 @@
-// traits.h - parameterize by XLOPER type
+// traits.h - parameterize by XLOPER/XLOPER12 types
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 #include <type_traits>

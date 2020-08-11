@@ -239,6 +239,19 @@ int test_oper_multi = []()
 		ensure(m.size() == 6);
 		ensure(m[1] == OPER{});
 
+		for (auto i : m) {
+			ensure(i.xltype == xltypeNil);
+			ensure(i == Nil);
+		}
+		for (auto& i : m) {
+			ensure(i.xltype == xltypeNil);
+			ensure(i == Nil);
+		}
+		for (const auto& i : m) {
+			ensure(i.xltype == xltypeNil);
+			ensure(i == Nil);
+		}
+
 		m(1,0) = "foo";
 		ensure(m(1,0).xltype == xltypeStr);
 		ensure(m(1,0) == "foo");

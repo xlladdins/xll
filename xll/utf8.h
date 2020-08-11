@@ -1,14 +1,10 @@
-﻿// utf8.h - convert utf-8 to counted, allocated string
+﻿// utf8.h - convert utf-8 to counted, allocated string and vice versa
 #pragma once
 #include <cstdlib>
 #include <cstring>
 #include <cwchar>
 #include <Windows.h>
-
-#ifndef ensure
-#define ENSURE_DEFINED
-#define ensure(e) if(!(e)) { return nullptr; }
-#endif
+#include "ensure.h"
 
 namespace utf8 {
 	// Multi-byte character string to wide character string allocated by malloc.
@@ -63,7 +59,3 @@ namespace utf8 {
 		return s;
 	}
 }
-
-#ifdef ENSURE_DEFINED
-#undef ensure
-#endif

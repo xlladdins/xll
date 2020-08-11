@@ -8,7 +8,7 @@
 namespace xll {
 
 	template<class X>
-		requires (std::is_same_v<X, XLOPER> || std::is_same_v<X, XLOPER12>) \
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
 	inline size_t rows(const X& x)
 	{
 		// ref type???
@@ -16,18 +16,75 @@ namespace xll {
 	}
 
 	template<class X>
-		requires (std::is_same_v<X, XLOPER> || std::is_same_v<X, XLOPER12>)
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
 	inline size_t columns(const X& x)
 	{
 		return x.xltype == xltypeMulti ? x.val.array.columns : 1;
 	}
 	template<class X>
-		requires (std::is_same_v<X, XLOPER> || std::is_same_v<X, XLOPER12>)
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
 	inline size_t size(const X& x)
 	{
 		return rows(x) * columns(x);
 	}
-	// index ...
+	template<class X>
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
+	inline X* begin(X& x)
+	{
+		return x.xltype == xltypeMulti ? static_cast<X*>(x.val.array.lparray) : &x;
+	}
+	template<class X>
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
+	inline const X* begin(const X& x)
+	{
+		return x.xltype == xltypeMulti ? static_cast<const X*>(x.val.array.lparray) : &x;
+	}
+	template<class X>
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
+	inline X * end(X & x)
+	{
+		return x.xltype == xltypeMulti ? static_cast<X*>(x.val.array.lparray + size(x)) : &x + 1;
+	}
+	template<class X>
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
+	inline const X* end(const X & x)
+	{
+		return x.xltype == xltypeMulti ? static_cast<const X*>(x.val.array.lparray + size(x)) : &x + 1;
+	}
+	// one-dimensional index
+	template<class X>
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
+	X& index(X& x, size_t i)
+	{
+		ensure(i < size(x));
+
+		if (x.xltype == xltypeMulti) {
+			return static_cast<X&>(x.val.array.lparray[i]);
+		}
+		else {
+			ensure(i == 0);
+			return x;
+		}
+	}
+	template<class X>
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
+	const X& index(const X& x, size_t i)
+	{
+		return index(x,i);
+	}
+	// two-dimensional index
+	template<class X>
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
+	X& index(X& x, size_t rw, size_t col)
+	{
+		return index(x, columns(x)* rw + col);
+	}
+	template<class X>
+		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
+	const X& index(const X& x, size_t rw, size_t col)
+	{
+		return index(x, rw, col);
+	}
 
 	// Missing and Nil
 #define X(a, b)                                        \
