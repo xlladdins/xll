@@ -113,7 +113,7 @@ namespace xll {
 		// slice okay since it is xltypeNum/Err
 		X RegisterId() const
 		{
-			return Excel<X>(xlfEvaluate, functionText);
+			return XExcel<X>(xlfEvaluate, functionText);
 		}
 
 		// Register add-in with Excel
@@ -123,7 +123,7 @@ namespace xll {
 			std::vector<X*> oper(count);
 
 			if (moduleText == XOPER<X>{}) {
-				moduleText = Excel<X>(xlGetName);
+				moduleText = XExcel<X>(xlGetName);
 			}
 
 			oper[0] = &moduleText;
@@ -142,7 +142,7 @@ namespace xll {
 
 			int ret = traits<X>::Excelv(xlfRegister, &registerId, static_cast<int>(count), const_cast<X**>(&oper[0]));
 			if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
-				Excel<X>(xlcAlert, functionText, XOPER<X>(2));
+				XExcel<X>(xlcAlert, functionText, XOPER<X>(2));
 			}
 
 			return &registerId;
@@ -159,7 +159,7 @@ namespace xll {
 		const XOPER<X>& ModuleText() const
 		{
 			if (moduleText == XOPER<X>{}) {
-				moduleText = Excel<X>(xlGetName);
+				moduleText = XExcel<X>(xlGetName);
 			}
 			
 			return moduleText;

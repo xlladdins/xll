@@ -293,11 +293,11 @@ public:
 then we can embed `base` objects in Excel using
 ```C++
 AddInX xai_base(
-    FunctionX(XLL_HANDLEX, X_("?xll_base"), X_("XLL.BASE"))
+    FunctionX(XLL_HANDLEX, "?xll_base", "XLL.BASE")
     .Args({
-        ArgX({ XLL_LPOPERX, X_("x"), X_("is a cell or range of cells") })
+        ArgX({ XLL_LPOPERX, "x", "is a cell or range of cells" })
     })
-    .FunctionHelp(X_("Return a handle to a base object."))
+    .FunctionHelp("Return a handle to a base object.")
     .Uncalced() // Required for functions creating handles!!!
 );
 HANDLEX WINAPI xll_base(LPOPERX px)
@@ -311,11 +311,11 @@ HANDLEX WINAPI xll_base(LPOPERX px)
 and access them with
 ```C++
 AddInX xai_base_get(
-    FunctionX(XLL_LPOPERX, X_("?xll_base_get"), X_("XLL.BASE.GET"))
+    FunctionX(XLL_LPOPERX, "?xll_base_get", "XLL.BASE.GET")
     .Args({
-        ArgX({ XLL_HANDLEX, X_("handle"), X_("is a handle returned by XLL.BASE") })
+        ArgX({ XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE" })
     })
-    .FunctionHelp(X_("Return the value stored in base."))
+    .FunctionHelp("Return the value stored in base.")
 );
 LPOPERX WINAPI xll_base_get(HANDLEX _h)
 {

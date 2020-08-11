@@ -67,7 +67,7 @@ namespace xll {
 			: p(p)
 		{
 			// value in calling cell
-			OPER x = Excel<XLOPERX>(xlCoerce, Excel<XLOPERX>(xlfCaller));
+			OPER x = XExcel<XLOPERX>(xlCoerce, XExcel<XLOPERX>(xlfCaller));
 			if (x.xltype == xltypeNum && x.val.num != 0) {
 				// looks like a handle
 				T* px = to_pointer<T>(x.val.num);
