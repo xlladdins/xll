@@ -3,23 +3,21 @@
 #pragma once
 #include <initializer_list>
 #include <vector>
-#include "excel.h"
+#include "oper.h"
 
 namespace xll {
 
 	/// <summary>
 	/// Individual argument for add-in function.
 	/// </summary>
-	template<class X>
-	struct XArg {
-		using xchar = typename traits<X>::xchar;
-		using xcstr = typename traits<X>::xcstr;
+	struct Arg {
+		typedef typename const char* cstr;
 
-		xcstr type;
-		xcstr name;
-		xcstr help;
-		//xcstr init;
-		XArg(xcstr type, xcstr name, xcstr help)
+		cstr type;
+		cstr name;
+		cstr help;
+		//cstr init;
+		Arg(cstr type, cstr name, cstr help)
 			: type(type), name(name), help(help)
 		{
 			/*
@@ -31,14 +29,10 @@ namespace xll {
 			*/
 		}
 	};
-	using Arg = XArg<XLOPER>;
-	using Arg12 = XArg<XLOPER12>;
-	using ArgX = XArg<XLOPERX>;
 
 	template<class X>
 	class XArgs {
-		using xchar = typename traits<X>::xchar;
-		using xcstr = typename traits<X>::xcstr;
+		using cstr = const char*;
 
 		XOPER<X> moduleText;   // from xlGetName
 		XOPER<X> procedure;    // C function
@@ -52,19 +46,16 @@ namespace xll {
 		XOPER<X> functionHelp; // for function wizard
 		std::vector<XOPER<X>> argumentHelp;
 		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
-		std::basic_string<xchar> documentation;
 	public:
 		XArgs()
 		{ }
-		XArgs(xcstr type, xcstr procedure, xcstr functionText)
-			: typeText(type), procedure(procedure), functionText(functionText)
+		XArgs(cstr type, cstr procedure, cstr functionText)
+			: typeText(type), procedure(procedure), functionText(functionText), macroType(1)
 		{
-			macroType = 1; // Function
 		}
-		XArgs(xcstr procedure, xcstr functionText)
-			: procedure(procedure), functionText(functionText)
+		XArgs(cstr procedure, cstr functionText)
+			: procedure(procedure), functionText(functionText), macroType(2)
 		{
-			macroType = 2; // Macro
 		}
 
 		// Used as key in add-in map.
@@ -73,15 +64,12 @@ namespace xll {
 			return functionText;
 		}
 
-		XArgs& Args(std::initializer_list<XArg<X>> args)
+		XArgs& Args(std::initializer_list<Arg> args)
 		{
-			static xchar comma[3] = {2, ',', ' ' };
-			static X xComma = { .val = { .str = comma }, .xltype = xltypeStr };
-
 			for (const auto& arg : args) {
 				typeText &= arg.type;
 				if (argumentHelp.size() != 0) {
-					argumentText &= xComma;
+					argumentText &= ", ";
 				}
 				argumentText &= arg.name;
 				argumentHelp.push_back(XOPER<X>(arg.help));
@@ -90,46 +78,34 @@ namespace xll {
 			return *this;
 		}
 		
-		XArgs& Category(xcstr _category)
+		XArgs& Category(cstr _category)
 		{
 			category = _category;
 
 			return *this;
 		}
-		XArgs& FunctionHelp(xcstr _functionHelp)
+		XArgs& FunctionHelp(cstr _functionHelp)
 		{
 			functionHelp = _functionHelp;
 
 			return *this;
 		}
-		XArgs& HelpTopic(xcstr _helpTopic)
+		XArgs& HelpTopic(cstr _helpTopic)
 		{
+			// !!! If it does not end with '!.+` add a '!0'.
 			helpTopic = _helpTopic;
 
 			return *this;
 		}
 		XArgs& Uncalced()
 		{
-			typeText &= XLL_UNCALCEDX; //!!! use traits
+			typeText &= XLL_UNCALCED; //!!! use traits
 
 			return *this;
 		}
 		XArgs& Volatile()
 		{
-			typeText &= XLL_VOLATILEX;
-
-			return *this;
-		}
-
-		XArgs& Documentation(xcstr doc)
-		{
-			documentation = doc;
-
-			return *this;
-		}
-		XArgs& Documentation(std::basic_string<xchar>&& doc)
-		{
-			documentation = doc;
+			typeText &= XLL_VOLATILE;
 
 			return *this;
 		}
@@ -137,7 +113,7 @@ namespace xll {
 		// slice okay since it is xltypeNum/Err
 		X RegisterId() const
 		{
-			return Excel<X>(xlfEvaluate, functionText);
+			return XExcel<X>(xlfEvaluate, functionText);
 		}
 
 		// Register add-in with Excel
@@ -147,7 +123,7 @@ namespace xll {
 			std::vector<X*> oper(count);
 
 			if (moduleText == XOPER<X>{}) {
-				moduleText = Excel<X>(xlGetName);
+				moduleText = XExcel<X>(xlGetName);
 			}
 
 			oper[0] = &moduleText;
@@ -166,7 +142,7 @@ namespace xll {
 
 			int ret = traits<X>::Excelv(xlfRegister, &registerId, static_cast<int>(count), const_cast<X**>(&oper[0]));
 			if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
-				Excel<X>(xlcAlert, functionText, XOPER<X>(2));
+				XExcel<X>(xlcAlert, functionText, XOPER<X>(2));
 			}
 
 			return &registerId;
@@ -174,27 +150,29 @@ namespace xll {
 		// Unregister add-in.
 		XOPER<X> Unregister() const
 		{
-			return Excel<X>(xlfUnregister, registerId);
+			X* px[1];
+			px[0] = &registerId;
+			return traits<X>::Excelv(xlfUnregister, 0, 1, px);
 		}
 
 		// full name of dll
 		const XOPER<X>& ModuleText() const
 		{
 			if (moduleText == XOPER<X>{}) {
-				moduleText = Excel<X>(xlGetName);
+				moduleText = XExcel<X>(xlGetName);
 			}
 			
 			return moduleText;
 		}
 	};
 
-	using Function = XArgs<XLOPER>;
+	using Function4 = XArgs<XLOPER>;
 	using Function12 = XArgs<XLOPER12>;
-	using FunctionX = XArgs<XLOPERX>;
+	using Function = XArgs<XLOPERX>;
 
-	using Macro = XArgs<XLOPER>;
+	using Macro4 = XArgs<XLOPER>;
 	using Macro12 = XArgs<XLOPER12>;
-	using MacroX = XArgs<XLOPERX>;
+	using Macro = XArgs<XLOPERX>;
 
 	/*
 	template<typename X>

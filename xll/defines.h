@@ -1,68 +1,103 @@
-// defines.h
+// defines.h - top level include
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
-#include <map>
-#include <set>
-#include <string>
-#include "traits.h"
 
-#define X_ _T
+#define X_(x) _T(x)
+
+#ifndef XLOPERX
+#define XLOPERX XLOPER12
+#define LPXLOPERX LPXLOPER12
+typedef struct _FP12 _FPX;
+
+#undef _MBCS
+
+#ifndef _UNICODE
+#define _UNICODE
+#endif
+
+#ifndef UNICODE
+#define UNICODE
+#endif
+
+#else
+
+#define XLOPERX XLOPER
+#define LPXLOPERX LPXLOPER
+typedef struct _FP _FPX;
+
+#ifndef _MBCS
+#define _MBCS
+#endif
+
+#undef _UNICODE
+#undef UNICODE
+#endif
+
+#define NOMINMAX
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+#include <tchar.h> // !!! get rid of this
+#include "XLCALL.H"
 
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \
 	X(Nil,     "empty cell")
 
-// See defines.c for error types
-extern "C" LPCSTR xll_err_str[];
-extern "C" LPCSTR xll_err_str12[];
-/*
-#define X(a,b,c) std::make_pair(xlerr##a, T_(c)),
-inline std::map<int, std::basic_string<xll::traits<XLOPERX>::xchar>> xll_err_desc[] = {
-	XLL_ERR_TYPE(X)
-};
-#undef X
-#undef T_
-*/
+// xlerrXXX, Excel error string, error description
+#define XLL_ERR_TYPE(X)                                                     \
+	X(Null,  "#NULL!",  "intersection of two ranges that do not intersect") \
+	X(Div0,  "#DIV/0!", "formula divides by zero")                          \
+	X(Value, "#VALUE!", "variable in formula has wrong type")               \
+	X(Ref,   "#REF!",   "formula contains an invalid cell reference")       \
+	X(Name,  "#NAME?",  "unrecognised formula name or text")                \
+	X(Num,   "#NUM!",   "invalid number")                                   \
+	X(NA,    "#N/A",    "value not available to a formula.")                \
+
+// Defined in defines.c
+#ifdef __cplusplus 
+extern "C" {
+#endif
+extern const LPCSTR xll_err_str[];
+extern const LPCSTR xll_err_desc[];
+#ifdef __cplusplus
+}
+#endif
+
+#define xltypeXxx 0 // phony type that is never used
 
 // Argument types for Excel Functions
-#define XLL_ARG_TYPE(X)                                                 \
-X(BOOL,     "A",  "short int used as logical")                          \
-X(DOUBLE,   "B",  "double")                                             \
-X(CSTRING,  "C%", "XCHAR* to C style NULL terminated unicode string")   \
-X(PSTRING,  "D%", "XCHAR* to Pascal style byte counted unicode string") \
-X(DOUBLE_,  "E",  "pointer to double")                                  \
-X(CSTRING_, "F%", "reference to a null terminated unicode string")      \
-X(PSTRING_, "G%", "reference to a byte counted unicode string")         \
-X(USHORT,   "H",  "unsigned 2 byte int")                                \
-X(WORD,     "H",  "unsigned 2 byte int")                                \
-X(SHORT,    "I",  "signed 2 byte int")                                  \
-X(LONG,     "J",  "signed 4 byte int")                                  \
-X(FP,       "K%", "pointer to struct FP")                               \
-X(BOOL_,    "L",  "reference to a boolean")                             \
-X(SHORT_,   "M",  "reference to signed 2 byte int")                     \
-X(LONG_,    "N",  "reference to signed 4 byte int")                     \
-X(LPOPER,   "Q",  "pointer to OPER struct (never a reference type)")    \
-X(LPXLOPER, "U",  "pointer to XLOPER struct")                           \
-X(VOLATILE, "!",  "called every time sheet is recalced")                \
-X(UNCALCED, "#",  "dereferencing uncalced cells returns old value")     \
-X(THREAD_SAFE,  "$",  "declares function to be thread safe")            \
-X(CLUSTER_SAFE, "&", "declares function to be cluster safe")            \
-X(ASYNCHRONOUS, "X", "declares function to be asynchronous")            \
-X(VOID,     ">",  "return type to use for asynchronous functions")      \
+#define XLL_ARG_TYPE(X)                                                              \
+X(BOOL,     "A",  xltypeBool,  "short int used as logical")                          \
+X(DOUBLE,   "B",  xltypeNum,   "double")                                             \
+X(CSTRING,  "C%", xltypeStr,   "XCHAR* to C style NULL terminated unicode string")   \
+X(PSTRING,  "D%", xltypeStr,   "XCHAR* to Pascal style byte counted unicode string") \
+X(DOUBLE_,  "E",  xltypeXxx,   "pointer to double")                                  \
+X(CSTRING_, "F%", xltypeXxx,   "reference to a null terminated unicode string")      \
+X(PSTRING_, "G%", xltypeXxx,   "reference to a byte counted unicode string")         \
+X(USHORT,   "H",  xltypeNum,   "unsigned 2 byte int")                                \
+X(WORD,     "H",  xltypeNum,   "unsigned 2 byte int")                                \
+X(SHORT,    "I",  xltypeInt,   "signed 2 byte int")                                  \
+X(LONG,     "J",  xltypeNum,   "signed 4 byte int")                                  \
+X(FP,       "K%", xltypeXxx,   "pointer to struct FP")                               \
+X(BOOL_,    "L",  xltypeXxx,   "reference to a boolean")                             \
+X(SHORT_,   "M",  xltypeXxx,   "reference to signed 2 byte int")                     \
+X(LONG_,    "N",  xltypeXxx,   "reference to signed 4 byte int")                     \
+X(LPOPER,   "Q",  xltypeMulti, "pointer to OPER struct (never a reference type)")    \
+X(LPXLOPER, "U",  xltypeMulti, "pointer to XLOPER struct")                           \
+X(VOLATILE, "!",  xltypeXxx,   "called every time sheet is recalced")                \
+X(UNCALCED, "#",  xltypeXxx,   "dereferencing uncalced cells returns old value")     \
+X(VOID,     ">",  xltypeXxx,   "return type to use for asynchronous functions")      \
+X(THREAD_SAFE,  "$", xltypeXxx, "declares function to be thread safe")               \
+X(CLUSTER_SAFE, "&", xltypeXxx, "declares function to be cluster safe")              \
+X(ASYNCHRONOUS, "X", xltypeXxx, "declares function to be asynchronous")              \
 
-#define T_(s) _T(s)
-#define X(a,b,c)                          \
-inline const LPCSTR  XLL_##a     = b;     \
-inline const LPCWSTR XLL_##a##12 = L##b;  \
-inline const LPCTSTR XLL_##a##X  = T_(b); \
-
+#ifdef __cplusplus 
+extern "C" {
+#endif
+// Defined in defines.c
+#define X(a,b,c,d) extern LPCSTR  XLL_##a;
 XLL_ARG_TYPE(X)
 #undef X
-/*
-#define X(a,b,c) T_(b),
-inline std::set<std::basic_string<xll::traits<XLOPERX>::xchar>> xll_arg_types {
-	XLL_ARG_TYPE(X)
-};
-#undef X
-*/
-#undef T_
+#ifdef __cplusplus
+}
+#endif

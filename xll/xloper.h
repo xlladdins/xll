@@ -3,37 +3,35 @@
 #pragma once
 #include <compare>
 #include <concepts>
-#include "defines.h"
+#include "traits.h"
 
 namespace xll {
 
-// Missing and Nil
+	// Missing and Nil
 #define X(a, b)                                        \
 	template<class T>                                  \
 	requires (std::is_same_v<T, XLOPER> || std::is_same_v<T, XLOPER12>) \
 	inline constexpr T X##a = { .xltype = xltype##a }; \
-	inline constexpr XLOPER a = X##a<XLOPER>;          \
+	inline constexpr XLOPER a##4 = X##a<XLOPER>;          \
 	inline constexpr XLOPER12 a##12 = X##a<XLOPER12>;  \
-	inline constexpr XLOPERX a##X = X##a<XLOPERX>;     \
+	inline constexpr XLOPERX a = X##a<XLOPERX>;     \
 
 	XLL_NULL_TYPE(X)
 #undef X
-/*
-// Error types xll::ErrNAX, ...
+
+		// Error types xll::ErrNAX, ...
 #define X(a, b, c)                                            \
 	template<class T>                                         \
 	requires (std::is_same_v<T, XLOPER> || std::is_same_v<T, XLOPER12>) \
 	inline constexpr T XErr##a =                              \
 		{ .val = { .err = xlerr##a }, .xltype = xltypeErr };  \
-	inline constexpr XLOPER Err##a = XErr##a<XLOPER>;         \
+	inline constexpr XLOPER Err##a##4 = XErr##a<XLOPER>;         \
 	inline constexpr XLOPER12 Err##a##12 = XErr##a<XLOPER12>; \
-	inline constexpr XLOPERX Err##a##X = XErr##a<XLOPERX>;    \
+	inline constexpr XLOPERX Err##a = XErr##a<XLOPERX>;    \
 
 	XLL_ERR_TYPE(X)
 #undef X
-*/
 }
-
 namespace { // doesn't hide xloper_cmp!!!
 	// use std::strong_ordering!!!
 	template<typename X, typename Y>
@@ -90,7 +88,7 @@ namespace { // doesn't hide xloper_cmp!!!
 		case xltypeBool:
 			return x.val.xbool - y.val.xbool;
 		default:
-			return 0;
+			return x.xltype - y.xltype;
 		}
 	}
 	inline int xloper_cmp(const XLOPER12& x, const XLOPER12& y)
@@ -116,7 +114,7 @@ namespace { // doesn't hide xloper_cmp!!!
 		case xltypeBool:
 			return x.val.xbool - y.val.xbool;
 		default:
-			return INT_MAX;
+			return x.xltype - y.xltype;
 		}
 	}
 }

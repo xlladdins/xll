@@ -1,7 +1,7 @@
 // oper.t.cpp - test OPER type
 #include <cassert>
 #include <functional>
-//#define XLOPERX XLOPER12
+#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
@@ -14,8 +14,8 @@ int test_defines = []()
 int test_oper_adt = []()
 {
 	{
-		OPER o("abc");
-		OPER o2(o);
+		OPER4 o("abc");
+		OPER4 o2(o);
 		o = o2;
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == 3);
@@ -23,7 +23,7 @@ int test_oper_adt = []()
 	}
 	{
 		const char* abc = "abc";
-		OPER o(abc);
+		OPER4 o(abc);
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == 3);
 		ensure(o.val.str[3] == 'c');
@@ -61,7 +61,7 @@ int test_oper_adt = []()
 int test_oper_default = []()
 {
 	{
-		OPER o;
+		OPER4 o;
 		ensure(o.xltype == xltypeNil);
 	}
 	{
@@ -76,7 +76,7 @@ int test_oper_default = []()
 int test_oper_num = []()
 {
 	{
-		OPER o(1.23);
+		OPER4 o(1.23);
 		ensure(o.xltype == xltypeNum);
 		ensure(o.val.num == 1.23);
 		ensure(o == 1.23);
@@ -89,7 +89,7 @@ int test_oper_num = []()
 		ensure(o.val.num == 1.23);
 	}
 	{
-		OPER o;
+		OPER4 o;
 		o = 1.23;
 		ensure(o.xltype == xltypeNum);
 		ensure(o.val.num == 1.23);
@@ -101,14 +101,14 @@ int test_oper_num = []()
 		ensure(o.val.num == 1.23);
 	}
 	{
-		OPERX o;
+		OPER4 o;
 		o = 1;
 		ensure(o.xltype == xltypeInt);
 		ensure(o.val.w == 1);
 		ensure(o == 1);
 	}
 	{
-		OPERX o;
+		OPER4 o;
 		o = 2.;
 		ensure(o.xltype == xltypeNum);
 		ensure(o.val.num == 2);
@@ -118,7 +118,7 @@ int test_oper_num = []()
 		ensure(o == 2);
 	}
 	{
-		OPERX x(1.2), y(2.3);
+		OPER x(1.2), y(2.3);
 		ensure(x);
 		double z = x + y;
 		ensure(z == 1.2 + 2.3);
@@ -139,7 +139,7 @@ int test_oper_num = []()
 int test_oper_str = []()
 {
 	{
-		OPER o("abc");
+		OPER4 o("abc");
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == (char)strlen("abc"));
 		ensure(0 == strncmp("abc", o.val.str + 1, o.val.str[0]));
@@ -151,14 +151,14 @@ int test_oper_str = []()
 	}
 	{
 		const char* abc = "abc";
-		OPER o(abc);
+		OPER4 o(abc);
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == (char)strlen("abc"));
 		ensure(0 == strncmp("abc", o.val.str + 1, o.val.str[0]));
 	}
 	{
 		auto abc = "abc";
-		OPER o(abc);
+		OPER4 o(abc);
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == (char)strlen("abc"));
 		ensure(0 == strncmp("abc", o.val.str + 1, o.val.str[0]));
@@ -184,7 +184,7 @@ int test_oper_str = []()
 		ensure(0 == wcsncmp(L"abc", o.val.str + 1, o.val.str[0]));
 	}
 	{
-		OPER o;
+		OPER4 o;
 		o = "abc";
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == (char)strlen("abc"));
@@ -199,7 +199,7 @@ int test_oper_str = []()
 		ensure(0 == wcsncmp(abc, o.val.str + 1, o.val.str[0]));
 	}
 	{
-		OPER o;
+		OPER4 o;
 		o.append("abc");
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == (char)strlen("abc"));
@@ -216,7 +216,7 @@ int test_oper_str = []()
 	{
 		const char* abc = "\03abc";
 		const XLOPER o2 = { .val = { .str = (LPSTR)abc }, .xltype = xltypeStr };
-		OPER o;
+		OPER4 o;
 		o.append(o2);
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == (char)strlen("abc"));
@@ -237,40 +237,40 @@ int test_oper_multi = []()
 		ensure(m.size() == 6);
 		ensure(m[1] == OPER{});
 
-		m(1,0) = "foo";
+		m(1,0) = _T("foo");
 		ensure(m(1,0).xltype == xltypeStr);
-		ensure(m(1,0) == "foo");
-		ensure(m[3] == "foo");
+		ensure(m(1,0) == _T("foo"));
+		ensure(m[3] == _T("foo"));
 
 		m.resize(3, 2);
 		ensure(m.xltype == xltypeMulti);
 		ensure(m.rows() == 3);
 		ensure(m.columns() == 2);
 		ensure(m.size() == 6);
-		ensure(m[3] == "foo");
-		ensure(m(1, 1) == "foo");
+		ensure(m[3] == _T("foo"));
+		ensure(m(1, 1) == _T("foo"));
 
 		m.resize(2, 2);
 		ensure(m.xltype == xltypeMulti);
 		ensure(m.rows() == 2);
 		ensure(m.columns() == 2);
 		ensure(m.size() == 4);
-		ensure(m[3] == "foo");
-		ensure(m(1, 1) == "foo");
+		ensure(m[3] == _T("foo"));
+		ensure(m(1, 1) == _T("foo"));
 
 		m.resize(3, 3);
 		ensure(m.xltype == xltypeMulti);
 		ensure(m.rows() == 3);
 		ensure(m.columns() == 3);
 		ensure(m.size() == 9);
-		ensure(m[3] == "foo");
-		ensure(m(1, 0) == "foo");
+		ensure(m[3] == _T("foo"));
+		ensure(m(1, 0) == _T("foo"));
 
-		m(1, 2) = OPER("bar");
-		ensure(m(1, 2) == "bar");
+		m(1, 2) = OPER(_T("bar"));
+		ensure(m(1, 2) == _T("bar"));
 
 		m(2, 1) = m; // multis can nest
-		ensure(m(2, 1)(1, 2) == "bar");
+		ensure(m(2, 1)(1, 2) == _T("bar"));
 	}
 
 	return 0;
@@ -328,7 +328,7 @@ int test_compare = []()
 {
 	{
 		OPER o1(1.23);
-		XLOPER o1_ = { .val = { .num = 2.34 }, .xltype = xltypeNum };
+		XLOPERX o1_ = { .val = { .num = 2.34 }, .xltype = xltypeNum };
 		ensure(o1 == o1);
 		ensure(o1_ == o1_);
 		ensure(o1 < o1_);
@@ -346,7 +346,7 @@ int test_compare = []()
 		ensure(o1_ >= o1);
 	}
 	{
-		OPER s1("abc"), s1_("def");
+		OPER s1(_T("abc")), s1_(_T("def"));
 		ensure(xloper_cmp(s1, s1_) < 0);
 		ensure(s1 == s1);
 		ensure(s1 < s1_);
@@ -447,23 +447,53 @@ int test_handle = []()
 	return 0;
 }
 ();
-/*
+
+
 int test_xloper = []()
 {
 	{
 		ensure(0 == strcmp(XLL_DOUBLE, "B"));
 	}
-	{
-		ensure(0 == wcscmp(XLL_DOUBLE12, L"B"));
-	}
-	{
-		ensure(0 == _tcscmp(XLL_DOUBLEX, _T("B")));
-	}
-	{
-		ensure(0 == _tcscmp(XLL_DOUBLEX, X_("B")));
-	}
 
 	return 0;
 }
 ();
-*/
+
+
+int test_oper_cvt = []() {
+	{
+		OPER4 o(L"abc");
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(0 == strncmp(o.val.str + 1, "abc", 3));
+	}
+	{
+		OPER12 o("abc");
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(0 == wcsncmp(o.val.str + 1, L"abc", 3));
+	}
+	{
+		OPER o(L"abc");
+		ensure(o == OPER("abc"));
+	}
+	{
+		OPER o(L"abc");
+		ensure(o == OPER(L"abc"));
+	}
+
+	return 0;
+}();
+
+int test_oper_err = []() {
+	ensure(ErrValue4.xltype == xltypeErr);
+	ensure(ErrValue4.val.err == xlerrValue);
+
+	ensure(ErrValue12.xltype == xltypeErr);
+	ensure(ErrValue12.val.err == xlerrValue);
+
+	ensure(ErrValue.xltype == xltypeErr);
+	ensure(ErrValue.val.err == xlerrValue);
+
+	return 0;
+}();

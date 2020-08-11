@@ -17,7 +17,7 @@ namespace xll {
             Map[args.FunctionText()] = args;
         }
         // Get arguments using Excel function text name.
-        static XArgs<X>& Args(typename traits<X>::xcstr name)
+        static XArgs<X>& Args(const char* name)
         {
             return Map[XOPER<X>(name)];
         }
@@ -25,11 +25,27 @@ namespace xll {
         {
             return Map[name];
         }
+        /*
+        static XArgs<X>& get(const XOPER<X>& key)
+        {
+            auto i = Map.find(key);
+            ensure(i != Map.end());
+
+            return *i;
+        }
+        static const XArgs<X>& get(const XOPER<X>& key)
+        {
+            auto i = Map.find(key);
+            ensure(i != Map.end());
+
+            return *i;
+        }
+        */
     };
 
-	using AddIn = XAddIn<XLOPER>;
+	using AddIn4 = XAddIn<XLOPER>;
     using AddIn12 = XAddIn<XLOPER12>;
-    using AddInX = XAddIn<XLOPERX>;
+    using AddIn = XAddIn<XLOPERX>;
 
 } // xll namespace
 

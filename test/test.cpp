@@ -7,40 +7,40 @@ using namespace xll;
 
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
 // See https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md
-// for documentation of ExcelX arguments.
-AddInX xai_macro(MacroX(X_("?xll_macro"), X_("XLL.MACRO")));
+// for documentation of Excel arguments.
+AddIn xai_macro(Macro("?xll_macro", "XLL.MACRO"));
 // All functions called from Excel must be declared with WINAPI.
 int WINAPI xll_macro(void)
 {
 #pragma XLLEXPORT
-	//OPERX xMsg(X_("XLL.MACRO called with active cell: "));
-	//OPERX xActive = Excel<XLOPERX>(xlfActiveCell);
-	//OPERX xReftext = Excel<XLOPERX>(xlfReftext, xActive, OPERX(true)); // A1 style
+	//OPER xMsg("XLL.MACRO called with active cell: ");
+	//OPER xActive = Excel(xlfActiveCell);
+	//OPER xReftext = Excel(xlfReftext, xActive, OPER(true)); // A1 style
 	//xMsg &= xReftext;
-	//Excel<XLOPERX>(xlcAlert, xMsg);
+	//Excel(xlcAlert, xMsg);
 
 	// same as above
-	ExcelX(xlcAlert, 
-		ExcelX(xlfConcatenate,
-			OPERX(X_("XLL.MACRO called with active cell: ")),
-			ExcelX(xlfReftext, ExcelX(xlfActiveCell), OPERX(true))
+	Excel(xlcAlert, 
+		Excel(xlfConcatenate,
+			OPER("XLL.MACRO called with active cell: "),
+			Excel(xlfReftext, Excel(xlfActiveCell), OPER(true))
 		),
-		OPERX(2), // general information
-		OPERX(X_("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0"))
+		OPER(2), // general information
+		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
 		// Optional help file link. Note the '!0' appended to the URL.
 	);
 	
 	return TRUE;
 }
 
-AddInX xai_tgamma(
-	FunctionX(XLL_DOUBLEX, X_("?xll_tgamma"), X_("TGAMMA"))
+AddIn xai_tgamma(
+	Function(XLL_DOUBLE, "?xll_tgamma", "TGAMMA")
 	.Args({
-		ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate Gamma."))
+		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
 	})
-	.FunctionHelp(X_("Return the Gamma function value."))
-	.Category(X_("Cmath"))
-	.HelpTopic(X_("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0"))
+	.FunctionHelp("Return the Gamma function value.")
+	.Category("Cmath")
+	.HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0")
 );
 double WINAPI xll_tgamma(double x)
 {
@@ -48,14 +48,14 @@ double WINAPI xll_tgamma(double x)
 	return tgamma(x);
 }
 
-AddInX xai_jn(
-	FunctionX(XLL_DOUBLEX, X_("?xll_jn"), X_("JN"))
+AddIn xai_jn(
+	Function(XLL_DOUBLE, "?xll_jn", "JN")
 	.Args({
-		ArgX(XLL_LONGX, X_("n"), X_("is the order of the Bessel function.")),
-		ArgX(XLL_DOUBLEX, X_("x"), X_("is the value for which you want to calculate the Bessel function."))
+		Arg(XLL_LONG, "n", "is the order of the Bessel function."),
+		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate the Bessel function.")
 		})
-	.FunctionHelp(X_("Return the value of the n-th order Bessel function of the first kind."))
-	.Category(X_("Cmath"))
+	.FunctionHelp("Return the value of the n-th order Bessel function of the first kind.")
+	.Category("Cmath")
 );
 double WINAPI xll_jn(LONG n, double x)
 {
@@ -74,78 +74,78 @@ double WINAPI xll_jn(LONG n, double x)
 }
 
 Auto<Open> xai_open([]() { 
-	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Open> called")));
+	Excel(xlcAlert, OPER("Auto<Open> called"));
 
 	return TRUE;  
 });
 
 Auto<Close> xai_close([]() {
-	Excel<XLOPERX>(xlcAlert, OPERX(X_("Auto<Close> called")));
+	Excel(xlcAlert, OPER("Auto<Close> called"));
 
 	return TRUE;
 });
 
-AddInX xai_onkey(MacroX(X_("?xll_onkey"), X_("XLL.ONKEY")));
+AddIn xai_onkey(Macro("?xll_onkey", "XLL.ONKEY"));
 int WINAPI xll_onkey(void)
 {
 #pragma XLLEXPORT
-	ExcelX(xlcAlert, OPERX(X_("You pressed Ctrl-Alt-a")));
+	Excel(xlcAlert, OPER("You pressed Ctrl-Alt-a"));
 
 	return TRUE;
 }
-On<Key> xon_key(ON_CTRL ON_ALT X_("a"), X_("XLL.ONKEY"));
+On<Key> xon_key(ON_CTRL ON_ALT "a", "XLL.ONKEY");
 
-AddInX xai_onwindow(MacroX(X_("?xll_onwindow"), X_("XLL.ONWINDOW")));
+AddIn xai_onwindow(Macro("?xll_onwindow", "XLL.ONWINDOW"));
 int WINAPI xll_onwindow(void)
 {
 #pragma XLLEXPORT
-	ExcelX(xlcAlert, OPERX(X_("ONWINDOW called")));
+	Excel(xlcAlert, OPER("ONWINDOW called"));
 
 	return TRUE;
 }
-On<Window> xon_window(X_(""), X_("XLL.ONWINDOW"));
+On<Window> xon_window("", "XLL.ONWINDOW");
 
-AddInX xai_onsheet(MacroX(X_("?xll_onsheet"), X_("XLL.ONSHEET")));
+AddIn xai_onsheet(Macro("?xll_onsheet", "XLL.ONSHEET"));
 int WINAPI xll_onsheet(void)
 {
 #pragma XLLEXPORT
-	ExcelX(xlcAlert, OPERX(X_("ONSHEET called")));
+	Excel(xlcAlert, OPER("ONSHEET called"));
 
 	return TRUE;
 }
-On<Sheet> xon_sheet(X_(""), X_("XLL.ONSHEET"), true);
+On<Sheet> xon_sheet("", "XLL.ONSHEET", true);
 
-AddInX xai_get_workspace(
-	FunctionX(XLL_LPOPERX, X_("?xll_get_workspace"), X_("GET_WORKSPACE"))
+AddIn xai_get_workspace(
+	Function(XLL_LPOPER, "?xll_get_workspace", "GET_WORKSPACE")
 	.Args({
-		ArgX(XLL_SHORTX, X_("type_num"), X_("is a number specifying the type of workspace information you want."))
+		Arg(XLL_SHORT, "type_num", "is a number specifying the type of workspace information you want.")
 	})
 	.Uncalced()
 );
-LPOPERX WINAPI xll_get_workspace(SHORT type_num)
+LPOPER WINAPI xll_get_workspace(SHORT type_num)
 {
 #pragma XLLEXPORT
-	static OPERX oResult;
+	static OPER oResult;
 
-	oResult = ExcelX(xlfGetWorkspace, OPERX(type_num));
+	oResult = Excel(xlfGetWorkspace, OPER(type_num));
 
 	return &oResult;
 }
 
-AddInX xai_get_formula(
-	FunctionX(XLL_HANDLEX, X_("?xll_get_formula"), X_("GET_FORMULA"))
+AddIn xai_get_formula(
+	Function(XLL_HANDLEX, "?xll_get_formula", "GET_FORMULA")
 	.Args({
-		ArgX(XLL_LPXLOPERX, X_("cell"), X_("is a reference to a cell containing a formula."))
+		Arg(XLL_LPXLOPER, "cell", "is a reference to a cell containing a formula.")
 	})
-	.FunctionHelp(X_("Get formula from cell."))
-	.Category(X_("XLL"))
+	.FunctionHelp("Get formula from cell.")
+	.Category("XLL")
 	.Uncalced()
 );
 HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
 {
 #pragma XLLEXPORT
 	// if pCall->xltype == xltypeMissing use active cell
-	OPERX xFormula = ExcelX(xlfGetFormula, *pCell); // formula references are R1C1
+	OPER xFormula = Excel(xlfGetFormula, *pCell); // formula references are R1C1
 
 	return 0;
 }

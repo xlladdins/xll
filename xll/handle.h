@@ -1,6 +1,7 @@
 // handle.h - handles to C++ objects
 #pragma once
 #include <algorithm>
+#include <memory>
 #include <set>
 #include <memory>
 #include "excel.h"
@@ -9,12 +10,18 @@
 using HANDLEX = double;
 
 // handle argument types for add-ins
-inline const auto XLL_HANDLE= XLL_DOUBLE;
-inline const auto XLL_HANDLE12 = XLL_DOUBLE12;
-inline const auto XLL_HANDLEX = XLL_DOUBLEX;
+inline const auto XLL_HANDLE = XLL_DOUBLE;
+inline const auto XLL_HANDLEX = XLL_DOUBLE;
 
 namespace xll {
 
+	/// <summary>
+	/// Convert a pointer to a handle.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="p">is a pointer</param>
+	/// <returns>Returns a handle encoding the pointer bits.</returns>
+	/// 
 	template<class T>
 	inline HANDLEX to_handle(T* p)
 	{
@@ -22,6 +29,13 @@ namespace xll {
 		// doubles exactly represent integers < 2^53
 		return (HANDLEX)((uint64_t)p);
 	}
+	/// <summary>
+	/// Convert a handle to a pointer.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	/// <param name="h">is a handle</param>
+	/// <returns>Returns the decoded handle bits.</returns>
+	/// 
 	template<class T>
 	inline T* to_pointer(HANDLEX h)
 	{
@@ -43,7 +57,6 @@ namespace xll {
 			}
 		};
 		inline static pointers ps;
-		inline static std::set<std::unique_ptr<T>> ps_;
 		T* p;
 		using ptr_ = std::unique_ptr<T, std::function<void(T*)>>;
 //		inline static constexpr del = [](T*) {};
@@ -57,23 +70,19 @@ namespace xll {
 			: p(p)
 		{
 			// value in calling cell
-			OPERX x = Excel<XLOPERX>(xlCoerce, Excel<XLOPERX>(xlfCaller));
+			OPER x = XExcel<XLOPERX>(xlCoerce, XExcel<XLOPERX>(xlfCaller));
 			if (x.xltype == xltypeNum && x.val.num != 0) {
 				// looks like a handle
 				T* px = to_pointer<T>(x.val.num);
 				auto pi = ps.find(px);
 				if (pi != ps.end()) {
-					delete* pi;
+					delete *pi;
 					ps.erase(pi);
-				}
-				auto pi_ = ps_.find(ptr_(px, [](T*) {}));
-				if (pi_ != ps_.end()) {
-					delete pi_->release();
-					ps_.erase(pi_);
 				}
 			}
 
 			ps.insert(p);
+			//ps_.insert(std::unique_ptr(p));
 		}
 		handle(HANDLEX h) noexcept
 			: p(to_pointer<T>(h))

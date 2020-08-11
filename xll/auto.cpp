@@ -11,7 +11,7 @@ xlAutoOpen(void)
 		return FALSE;
 	}
 
-	for (auto& [key, arg] : xll::AddIn::Map) {
+	for (auto& [key, arg] : xll::AddIn4::Map) {
 		arg.Register();
 	}
 	for (auto& [key, arg] : xll::AddIn12::Map) {
@@ -36,10 +36,10 @@ xlAutoClose(void)
 
 	// No need to call xlfUnregister, just delete names.
 	for (const auto& [key, args] : xll::AddIn12::Map) {
-		Excel<XLOPER12>(xlfSetName, key);
+		::Excel12(xlfSetName, 0, 1, &key);
 	}
-	for (const auto& [key, args] : xll::AddIn::Map) {
-		Excel<XLOPER>(xlfSetName, key);
+	for (const auto& [key, args] : xll::AddIn4::Map) {
+		::Excel4(xlfSetName, 0, 1, &key);
 	}
 
 	if (!xll::Auto<xll::Close>::Call()) {
@@ -108,7 +108,7 @@ extern "C"
 LPXLOPER __declspec(dllexport) WINAPI
 xlAutoRegister(LPXLOPER pxName)
 {
-	return xll::AddIn::Map[*pxName].Register();
+	return xll::AddIn4::Map[*pxName].Register();
 }
 
 // Look up name and register.
@@ -117,15 +117,6 @@ LPXLOPER12 __declspec(dllexport) WINAPI
 xlAutoRegister12(LPXLOPER12 pxName)
 {
 	return xll::AddIn12::Map[*pxName].Register();
-}
-
-// Name of dll with suffix stripped off.
-template<class X>
-xll::XOPER<X> DllName()
-{
-	xll::XOPER<X> xName = Excel<X>(xlfGetName);
-
-	return xName;
 }
 
 
@@ -139,13 +130,13 @@ LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
 	// return string indicating xll name
 	XLOPER12 xResult;
 	XLOPER12 xInt = { .val = { .w = xltypeInt }, .xltype = xltypeInt };
-	int ret = Excel12(xlCoerce, &xResult, 2, pxAction, &xInt);
+	int ret = ::Excel12(xlCoerce, &xResult, 2, pxAction, &xInt);
 	if (ret == xlretSuccess && xResult.xltype == xltypeInt && xResult.val.w == 1) {
 		o.xltype = xltypeStr;
 		o.val.str = (XCHAR*)L"\06Add-In"; // use xlGetName!!!
 	}
 	else {
-		o = xll::ErrValue12;
+		o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
 	}
 
 	return &o;
