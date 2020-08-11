@@ -202,7 +202,7 @@ namespace xll {
 		}
 	};
 
-	using FP = XFP<XLOPER>;
+	using FP4 = XFP<XLOPER>;
 	using FP12 = XFP<XLOPER12>;
 	using FPX = XFP<XLOPERX>;
 }

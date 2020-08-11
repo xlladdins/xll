@@ -1,6 +1,7 @@
 // oper.h - Wrapper for XLOPER
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+#include <algorithm>
 #include <concepts>
 #include <iostream>
 #include <utility>
@@ -99,7 +100,29 @@ namespace xll {
 		{
 			oper_free();
 		}
+		/*
+		operator bool() const
+		{
+			switch (xltype) {
+			case xltypeNum:
+				return val.num != 0;
+				break;
+			case xltypeStr:
+				return val.str[0] != 0;
+				break;
+			case xltypeBool:
+				return val.xbool != 0;
+				break;
+			case xltypeMulti:
+				return std::any_of(begin(), end(), [](const auto& x) { return x; });
+				break;
+			case xltypeInt:
+				return val.w != 0;
+			}
 
+			return false; // xltypeErr, xltypeMissig, xltypeNil
+		}
+		*/
 		// floating point number
 		explicit XOPER(double num)
 		{
@@ -117,6 +140,7 @@ namespace xll {
 		{
 			return xltype == xltypeNum && val.num == num;
 		}
+		/* not working !!!
 		// handy for using OPERs in numerical expressions
 		operator double()
 		{
@@ -125,22 +149,25 @@ namespace xll {
 				 : xltype == xltypeBool ? val.xbool 
 				 : std::numeric_limits<double>::quiet_NaN();
 		}
+		*/
 
 		// xltypeStr given length
 		XOPER(xcstr str, int n)
 		{
 			str_alloc(str, n);
 		}
-		template<size_t N>
-		XOPER(xcstr(&str)[N])
-			: XOPER(str, N)
-		{
-		}
 		// xltypeStr from NULL terminated string
 		explicit XOPER(xcstr str)
 			: XOPER(str, traits<X>::len(str))
 		{
 		}
+		// xltypeStr from string literal
+		template<size_t N>
+		XOPER(xcstr(&str)[N])
+			: XOPER(str, N)
+		{
+		}
+		// convert to type appropriate for X
 		explicit XOPER(cstrx str)
 		{
 			str_alloc(traits<X>::cvt(str), (size_t)-1);
@@ -165,6 +192,7 @@ namespace xll {
 
 			return 0 == traits<X>::cmp(str, val.str + 1, n);
 		}
+		// no operator== for cstrx
 		XOPER operator=(xcstr str)
 		{
 			oper_free();
@@ -242,10 +270,10 @@ namespace xll {
 		}
 
 		// xltypeRef
-		// xltypeErr
-		// xltypeFlow
+		// xltypeErr - predifined as ErrXXX
+		// xltypeFlow - not used
+
 		// xltypeMulti
-		
 		XOPER(xrw rw, xcol col)
 		{
 			multi_alloc(rw, col);
@@ -286,7 +314,6 @@ namespace xll {
 		{
 			return xltype == xltypeMulti ? begin() + size() : this + 1;
 		}
-
 		// one-dimensional index
 		XOPER& operator[](size_t i)
 		{
@@ -314,10 +341,10 @@ namespace xll {
 			return operator()(rw, col);
 		}
 
-		// xltypeMissing
-		// xltypeNil
+		// xltypeMissing - predefined as Missing
+		// xltypeNil - predefined as Nil
 
-		// xltypeSRef
+		// xltypeSRef - reference to a single range
 		XOPER(xrw row, xcol col, xrw height, xcol width)
 		{
 			xltype = xltypeSRef;
@@ -489,7 +516,6 @@ inline xll::OPER12 operator&(const XLOPER12& x, const wchar_t* y)
 	return xll::OPER12(x).append(y);
 }
 
-/*
 inline auto& operator<<(std::basic_ostream<xll::traits<XLOPER>::xchar>& os, const XLOPER& x)
 {
 	switch (x.xltype) {
@@ -503,11 +529,18 @@ inline auto& operator<<(std::basic_ostream<xll::traits<XLOPER>::xchar>& os, cons
 		os << static_cast<bool>(x.val.xbool);
 		break;
 	case xltypeErr:
-
+		os << xll_err_str[x.val.err];
+		break;
+	case xltypeMulti:
+		os << "{";
+		for (size_t r = 0; r < xll::rows(x); ++r) {
+			os << ":";
+		}
+		os << "}";
+		break;
 	default:
 		break;
 	}
 
 	return os;
 }
-*/

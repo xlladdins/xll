@@ -1,4 +1,4 @@
-// Assert::IsTrue - Error reporting functions
+// error.h - Error reporting functions
 // Copyright (c) KALX, LLC. All rights reserved.
 #pragma once
 //#include <Windows.h>

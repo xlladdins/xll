@@ -7,7 +7,7 @@
 namespace xll {
 
     /// <summary>
-    /// Store add-in data for xlfRegister
+    /// Store argument add-in data for xlfRegister
     /// </summary>
     template<class X>
 	struct XAddIn {
@@ -25,14 +25,6 @@ namespace xll {
         {
             return Map[name];
         }
-        /*
-        static XArgs<X>& get(const XOPER<X>& key)
-        {
-            auto i = Map.find(key);
-            ensure(i != Map.end());
-
-            return *i;
-        }
         static const XArgs<X>& get(const XOPER<X>& key)
         {
             auto i = Map.find(key);
@@ -40,7 +32,6 @@ namespace xll {
 
             return *i;
         }
-        */
     };
 
 	using AddIn4 = XAddIn<XLOPER>;

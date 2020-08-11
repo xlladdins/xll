@@ -7,14 +7,36 @@
 
 namespace xll {
 
+	template<class X>
+		requires (std::is_same_v<X, XLOPER> || std::is_same_v<X, XLOPER12>) \
+	inline size_t rows(const X& x)
+	{
+		// ref type???
+		return x.xltype == xltypeMulti ? x.val.array.rows : 1;
+	}
+
+	template<class X>
+		requires (std::is_same_v<X, XLOPER> || std::is_same_v<X, XLOPER12>)
+	inline size_t columns(const X& x)
+	{
+		return x.xltype == xltypeMulti ? x.val.array.columns : 1;
+	}
+	template<class X>
+		requires (std::is_same_v<X, XLOPER> || std::is_same_v<X, XLOPER12>)
+	inline size_t size(const X& x)
+	{
+		return rows(x) * columns(x);
+	}
+	// index ...
+
 	// Missing and Nil
 #define X(a, b)                                        \
 	template<class T>                                  \
 	requires (std::is_same_v<T, XLOPER> || std::is_same_v<T, XLOPER12>) \
 	inline constexpr T X##a = { .xltype = xltype##a }; \
-	inline constexpr XLOPER a##4 = X##a<XLOPER>;          \
+	inline constexpr XLOPER a##4 = X##a<XLOPER>;       \
 	inline constexpr XLOPER12 a##12 = X##a<XLOPER12>;  \
-	inline constexpr XLOPERX a = X##a<XLOPERX>;     \
+	inline constexpr XLOPERX a = X##a<XLOPERX>;        \
 
 	XLL_NULL_TYPE(X)
 #undef X

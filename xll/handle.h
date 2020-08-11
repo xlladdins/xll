@@ -42,6 +42,8 @@ namespace xll {
 
 	/// <summary>
 	/// Collection of handles parameterized by type.
+	/// Use <c>handle<T> h(new T(...))</c> to create a handle.
+	/// Use <c>handle<T> h_(h)</c> to lookup h returned by <c>get()</c>.
 	/// </summary>
 	template<class T>
 	class handle {
@@ -62,8 +64,9 @@ namespace xll {
 				// looks like a handle
 				std::unique_ptr<T> px(to_pointer<T>(x.val.num));
 				auto pi = ps.find(px);
+				// garbage collect
 				if (pi != ps.end()) {
-					ps.erase(pi);
+					ps.erase(pi); // calls delete
 				}
 				px.release();
 			}
@@ -73,9 +76,9 @@ namespace xll {
 		handle(HANDLEX h) noexcept
 			: p(to_pointer<T>(h))
 		{
-			// unknown handle
 			std::unique_ptr<T> px(p);
 			if (ps.find(px) == ps.end()) {
+				// unknown handle
 				p = nullptr;
 			}
 			px.release();
@@ -85,7 +88,7 @@ namespace xll {
 			return p != nullptr;
 		}
 		// return value for Excel
-		HANDLEX get()
+		HANDLEX get() const
 		{
 			return to_handle(p);
 		}
@@ -93,6 +96,7 @@ namespace xll {
 		{
 			return p;
 		}
+		// act like a pointer
 		T* operator->()
 		{
 			return p;

@@ -2,8 +2,6 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 
-#define X_(x) _T(x)
-
 #ifndef XLOPERX
 #define XLOPERX XLOPER12
 #define LPXLOPERX LPXLOPER12
@@ -36,7 +34,6 @@ typedef struct _FP _FPX;
 #define NOMINMAX
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
-#include <tchar.h> // !!! get rid of this
 #include "XLCALL.H"
 
 #define XLL_NULL_TYPE(X)                    \

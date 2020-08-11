@@ -1,4 +1,4 @@
-// excel.h - Wrapper functions for Excel
+// excel.h - Wrapper functions for Excelv
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 #include <utility>
@@ -15,11 +15,16 @@ namespace xll {
 
 		int ret = traits<X>::Excelv(xlf, &x, sizeof...(args), (X**)xargs.data());
 		if (ret != xlretSuccess) {
-			throw ret;
+			throw ret; // !!! do something smarter
 		}
+
 		o = x;
+
 		X* px[1] = { &x };
-		traits<X>::Excelv(xlFree, NULL, 1, px);
+		ret = traits<X>::Excelv(xlFree, NULL, 1, px);
+		if (ret != xlretSuccess) {
+			throw ret; // !!! do something smarter
+		}
 
 		return o;
 	}

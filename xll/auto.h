@@ -5,7 +5,7 @@
 #include <functional>
 #include <vector>
 
-// Use Auto<XXX> xao_foo(xll_foo) to run xll_foo on event XXX
+// Use Auto<XXX> xao_foo(xll_foo) to run xll_foo when xlAutoXXX is called.
 namespace xll {
 
 	class Open {};

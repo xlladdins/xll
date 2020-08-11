@@ -32,8 +32,6 @@ namespace xll {
 
 	template<class X>
 	class XArgs {
-		using cstr = const char*;
-
 		XOPER<X> moduleText;   // from xlGetName
 		XOPER<X> procedure;    // C function
 		XOPER<X> typeText;     // return type and arg codes 
@@ -46,6 +44,8 @@ namespace xll {
 		XOPER<X> functionHelp; // for function wizard
 		std::vector<XOPER<X>> argumentHelp;
 		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
+
+		using cstr = const char*;
 	public:
 		XArgs()
 		{ }
@@ -99,7 +99,7 @@ namespace xll {
 		}
 		XArgs& Uncalced()
 		{
-			typeText &= XLL_UNCALCED; //!!! use traits
+			typeText &= XLL_UNCALCED;
 
 			return *this;
 		}
@@ -119,7 +119,7 @@ namespace xll {
 		// Register add-in with Excel
 		X* Register()
 		{
-			size_t count = 10 + argumentHelp.size();
+			int count = 10 + static_cast<int>(argumentHelp.size());
 			std::vector<X*> oper(count);
 
 			if (moduleText == XOPER<X>{}) {
@@ -140,29 +140,19 @@ namespace xll {
 				oper[10 + i] = &argumentHelp[i];
 			}
 
-			int ret = traits<X>::Excelv(xlfRegister, &registerId, static_cast<int>(count), const_cast<X**>(&oper[0]));
+			int ret = traits<X>::Excelv(xlfRegister, &registerId, count, &oper[0]);
 			if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
-				XExcel<X>(xlcAlert, functionText, XOPER<X>(2));
+				XOPER<X> xMsg("Failed to register: ");
+				XExcel<X>(xlcAlert, xMsg & functionText, XOPER<X>(2));
 			}
 
 			return &registerId;
 		}
-		// Unregister add-in.
 		XOPER<X> Unregister() const
 		{
 			X* px[1];
 			px[0] = &registerId;
 			return traits<X>::Excelv(xlfUnregister, 0, 1, px);
-		}
-
-		// full name of dll
-		const XOPER<X>& ModuleText() const
-		{
-			if (moduleText == XOPER<X>{}) {
-				moduleText = XExcel<X>(xlGetName);
-			}
-			
-			return moduleText;
 		}
 	};
 
