@@ -133,7 +133,7 @@ The function returns an `int` that is non-zero if it succeeds or zero if it fail
 Don't forget `#pragma XLLEXPORT' in the function body so Excel can load it.
 
 The name of the `AddIn` object is arbitrary. I use the `xai_` prefix for all
-e__X__cel __A__dd__I__n objects as a convention. Since it is a global object it will be [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
+E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. Since it is a global object it will be [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
 when the xll is loaded. The constructor simply stores
 the infomation for use when Excel calls 
 [`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).  The xll library 
