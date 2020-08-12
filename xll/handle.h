@@ -47,8 +47,24 @@ namespace xll {
 	/// </summary>
 	template<class T>
 	class handle {
+		// all active pointers of type T*
 		inline static std::set<std::unique_ptr<T>> ps;
 		T* p;
+		// if calling cell has a handle then delete its object
+		void gc(void) {
+			// value in calling cell
+			OPER x = XExcel<XLOPERX>(xlCoerce, XExcel<XLOPERX>(xlfCaller));
+			if (x.xltype == xltypeNum && x.val.num != 0) {
+				// looks like a handle
+				std::unique_ptr<T> px(to_pointer<T>(x.val.num));
+				auto pi = ps.find(px);
+				px.release(); // do not call delete
+				// garbage collect
+				if (pi != ps.end()) {
+					ps.erase(pi); // calls delete
+				}
+			}
+		}
 	public:
 		/// <summary>
 		/// Add a handle to the collection.
@@ -58,30 +74,19 @@ namespace xll {
 		handle(T* p) noexcept
 			: p(p)
 		{
-			// value in calling cell
-			OPER x = XExcel<XLOPERX>(xlCoerce, XExcel<XLOPERX>(xlfCaller));
-			if (x.xltype == xltypeNum && x.val.num != 0) {
-				// looks like a handle
-				std::unique_ptr<T> px(to_pointer<T>(x.val.num));
-				auto pi = ps.find(px);
-				// garbage collect
-				if (pi != ps.end()) {
-					ps.erase(pi); // calls delete
-				}
-				px.release();
-			}
+			gc();
 
-			ps.insert(std::unique_ptr<T>(p));
+			ps.emplace(p);
 		}
 		handle(HANDLEX h) noexcept
 			: p(to_pointer<T>(h))
 		{
-			std::unique_ptr<T> px(p);
-			if (ps.find(px) == ps.end()) {
+			std::unique_ptr<T> up(p);
+			if (ps.find(up) == ps.end()) {
 				// unknown handle
 				p = nullptr;
 			}
-			px.release();
+			up.release();
 		}
 		operator bool() const
 		{
