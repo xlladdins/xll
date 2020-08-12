@@ -133,7 +133,7 @@ The function returns an `int` that is non-zero if it succeeds or zero if it fail
 Don't forget `#pragma XLLEXPORT' in the function body so Excel can load it.
 
 The name of the `AddIn` object is arbitrary. I use the `xai_` prefix for all
-e`X`cel `AddIn` objects as a convention. Since it is a global object it will be [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
+e__X__cel __A__dd__I__n objects as a convention. Since it is a global object it will be [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
 when the xll is loaded. The constructor simply stores
 the infomation for use when Excel calls 
 [`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).  The xll library 
@@ -172,10 +172,10 @@ It returns `0x500` (oddly enough) for version 4 and `0x0c00` for version 12 (hex
 
 You can get finer grained information by calling the 
 [`GET.WORKSPACE`](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/GET.WORKSPACE.md)
-function with argument `2` to get the exact version. The return value is a string, for example, `"5.0"`.
+function with argument `2`. The return value is a string, for example `"5.0"`, with the exact version of Excel.
 Using the SDK the call would be `Excel4(xlfGetWorkspace, &version, 1, &two)` where `version` and `two`
 are `XLOPER`s with `two = {.val = {.int = 2}, .xltype = xltypeInt}`. You must call
-`Excel4(xlFree, 0, 1, &version)` to release the memory Excel allocated for the string.
+`Excel4(xlFree, 0, 1, &version)` to release the memory Excel allocated for the version string.
 Using the xll add-in library the call would be `OPER version = Excel(xlfWorkspace, OPER(2))`.
 The destructor for `version` will release the memory when it goes out of scope.
 
