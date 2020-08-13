@@ -508,27 +508,37 @@ inline xll::OPER12 operator&(const XLOPER12& x, const wchar_t* y)
 	return xll::OPER12(x).append(y);
 }
 
-inline auto& operator<<(std::basic_ostream<xll::traits<XLOPER>::xchar>& os, const XLOPER& x)
+// use xlfEvaluate???
+inline auto& operator<<(std::ostream& os, const xll::OPER& o)
 {
 	switch (x.xltype) {
 	case xltypeNum:
-		os << x.val.num;
+		os << o.val.num;
 		break;
 	case xltypeStr:
-		os.write(x.val.str + 1, x.val.str[0]);
+		os.write(o.val.str + 1, o.val.str[0]);
 		break;
 	case xltypeBool:
-		os << static_cast<bool>(x.val.xbool);
+		os << static_cast<bool>(o.val.xbool);
 		break;
 	case xltypeErr:
-		os << xll_err_str[x.val.err];
+		os << xll_err_str[o.val.err];
 		break;
-	case xltypeMulti:
+	case xltypeMulti: // "{a,b...;c,d,...}"
 		os << "{";
-		for (size_t r = 0; r < xll::rows(x); ++r) {
-			os << ":";
+		for (size_t r = 0; r < xll::rows(o); ++r) {
+			for (size_t c = 0; c < xll::columns(o)) {
+				if (c > 0)
+					os << ",";
+				else if (r > 0)
+					os << ";";
+				os << o(r, c);
+			}
 		}
 		os << "}";
+		break;
+	case xltypeInt:
+		os << o.val.w;
 		break;
 	default:
 		break;

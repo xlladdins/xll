@@ -133,7 +133,7 @@ The function returns an `int` that is non-zero if it succeeds or zero if it fail
 Don't forget `#pragma XLLEXPORT' in the function body so Excel can load it.
 
 The name of the `AddIn` object is arbitrary. I use the `xai_` prefix for all
-e`X`cel `AddIn` objects as a convention. Since it is a global object it will be [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
+E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. Since it is a global object it will be [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
 when the xll is loaded. The constructor simply stores
 the infomation for use when Excel calls 
 [`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).  The xll library 
@@ -172,10 +172,10 @@ It returns `0x500` (oddly enough) for version 4 and `0x0c00` for version 12 (hex
 
 You can get finer grained information by calling the 
 [`GET.WORKSPACE`](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/GET.WORKSPACE.md)
-function with argument `2` to get the exact version. The return value is a string, for example, `"5.0"`.
+function with argument `2`. The return value is a string, for example `"5.0"`, with the exact version of Excel.
 Using the SDK the call would be `Excel4(xlfGetWorkspace, &version, 1, &two)` where `version` and `two`
 are `XLOPER`s with `two = {.val = {.int = 2}, .xltype = xltypeInt}`. You must call
-`Excel4(xlFree, 0, 1, &version)` to release the memory Excel allocated for the string.
+`Excel4(xlFree, 0, 1, &version)` to release the memory Excel allocated for the version string.
 Using the xll add-in library the call would be `OPER version = Excel(xlfWorkspace, OPER(2))`.
 The destructor for `version` will release the memory when it goes out of scope.
 
@@ -211,7 +211,7 @@ It is permissable to have multis that contain other multis and can be nested to 
 Multis having two columns with the first column containg strings are quite similar to 
 [JSON objects](http://www.json.org/json-en.html). You can use the Excel
 built-in function 
-[`DGET`](https://support.microsoft.com/en-us/office/dget-function-455568bf-4eef-45f7-90f0-ec250d00892e) to access value
+[`DGET`](https://support.microsoft.com/en-us/office/dget-function-455568bf-4eef-45f7-90f0-ec250d00892e) to access values
 via `DGET(multi, 2, key)` to obtain the value (in columns 2) of the `multi` corresponding
 to `key`.
 
@@ -226,14 +226,22 @@ the `OPER` with `xltype = xltypeErr` and `val.err == xltypeNull`. Both
 `ErrNull4` and `ErrNull12` are also predefined.
 
 The missing type is used only for function arguments. 
-It indicates no argument was provided by the calling Excel function. It is an error to return this type from a C/C++ function. 
+It indicates no argument was provided by the calling Excel function. This is predefined as `Missing`,
+`Missing4` and `Missing12`.
+It is an error to return this type from a function. 
 
 ### The FP Data Type
 
 The [`xll::FP`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) data type is a two dimensional 
 array of floating point numbers. 
 It is the fastest way of interacting with numerical data in Excel. All other APIs
-require the data to be copied.
+require the data to be copied out of Excel then back again. 
+See [potrf.cpp](https://github.com/keithalewis/xlllapack/blob/master/potrf.cpp)
+for an example of how to use this. It calls the FORTRAN function `DPOTRF` from
+the [LAPACK](http://performance.netlib.org/lapack/) library to perform a Cholesky decomposition.
+(Yes, you can easily call FORTRAN from C). A 1000 x 1000 matrix takes about 0.3 seconds on
+my old Surface Pro 4 laptop.
+
 There are structs defined in [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
 for versions of Excel prior to 2007 as [`struct _FP`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L96)
 and [`struct _FP12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L109) for later versions.
@@ -241,13 +249,13 @@ These are typedefed as `FP` and `FP12` and reside in the global namespace.
 
 The classes `xll::FP4` and `xll::FP12` make these into well-behaved
 [C++ value types](https://docs.microsoft.com/en-us/cpp/cpp/value-types-modern-cpp).
-Use `_FPX` (!!! fix this !!!!) to get the appropriate raw Excel type to use for arguments and
+Use `_FPX` (or `_FP4`/`_FP12`) to get the appropriate raw Excel type to use for arguments and
 return type. Excel doesn't know about anything in the `xll` namespace.'
 
 Since `FPX` does **not** inherit from the native `_FPX` structs you must use
 the `FPX::get()` member function to get a pointer to the underlying struct.
 This is used to return arrays to Excel where the return type is
-`XLL_FPX`. Since you are returning a pointer you must make sure the memory
+`XLL_FP`. Since you are returning a pointer you must make sure the memory
 at which it points continues to exist after the function exits. Typically
 this is done by declaring a `static FPX` in the function body.
 
@@ -274,8 +282,8 @@ the handle to be returned to Excel. This has type `HANDLEX` and
 is specified in add-in arguments as `XLL_HANDLEX`.
 
 To access a handle use `xll::handle<T> h(handle);`.
-This converts  `HANDLEX handle` to a pointer an ensures it
-was created as described above.
+This converts  `HANDLEX handle` to a pointer and ensures it
+was previously created as described above.
 If the handle is not found the pointer is set to `nullptr`.
 
 The `xll::handle` class has a member function `operator->()` so
@@ -387,3 +395,24 @@ They can only call Excel with function numbers starting with `xlf` (__f__&zwnj;â
 forbidden to call Excel with function numbers starting with `xlc` (__c__&zwnj;â€‹ommand equivalents,
 also known as ma&zwnj;__c__&zwnj;ros). Excel was doing
 functional programming long before it became the latest rage.
+
+### Volatile
+
+Functions that are declared `.Volatile()` are called on every recalculation. For example,
+the built-in `RAND()` function is volatile. It is always recalculated even though it has no dependencies.
+
+### [Recalculation](https://docs.microsoft.com/en-us/office/client-developer/excel/excel-recalculation)
+
+In Excel `F9` (`xlcCalculateNow`) recalculates all 'dirty' cells. 
+Use `Shift-F9` (`xlcCalculateDocument`) to recalculate only the dirty cells in the active worksheet.
+There is no command equivalent in the C API for `Ctrl-Alt-F9`. Use this when you want
+Excel to recalculate everything, no kidding, I really mean it, just do it because `F9`
+is too damn lazy.
+
+You should be aware of the 'replace equal by equal' idiom. The key sequence is
+`Ctrl-H, =, <tab>, =, a`. This replaces all occurences of the `=` character in every formula by `=`
+and causes every formula to be recalculated without changing the formula.
+
+My quest in life is to convince everyone to run Excel in automatic recalc mode. Manual
+recalc is only for people with slow spreadsheets. The xll library can make your spreadsheets
+_fast_.
