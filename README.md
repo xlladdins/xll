@@ -362,7 +362,7 @@ Windows. You can only run 32-bit Excel on 32-bit Windows. Visual Studio can buil
 32-bit and 64-bit add-ins. You should build for the flavor of Excel you have installed.
 Install 64-bit Excel if you have that option. 
 
-Microsoft Office has a number of flavors. The latest version is 
+Microsoft Office has several flavors. The latest version is 
 [Microsoft Office 2019](https://www.microsoft.com/en-US/microsoft-365)
 and only runs on Windows 10 or Mac OS X Sierra and later. 
 There is a free 
