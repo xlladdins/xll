@@ -156,6 +156,10 @@ namespace xll {
 		}
 	};
 
+	using Args4 = XArgs<XLOPER>;
+	using Args12 = XArgs<XLOPER12>;
+	using Args = XArgs<XLOPERX>;
+
 	using Function4 = XArgs<XLOPER>;
 	using Function12 = XArgs<XLOPER12>;
 	using Function = XArgs<XLOPERX>;

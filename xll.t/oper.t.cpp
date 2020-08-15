@@ -287,6 +287,71 @@ int test_oper_multi = []()
 		m(2, 1) = m; // multis can nest
 		ensure(m(2, 1)(1, 2) == "bar");
 	}
+	{
+		OPER o({});
+		ensure(o.xltype == xltypeNil);
+		ensure(o.size() == 0);
+		o.append_bottom(o);
+		ensure(o.xltype == xltypeNil);
+	}
+	{
+		OPER o({ OPER(1.23) } );
+		ensure(o.xltype == xltypeNum);
+		ensure(o.rows() == 1);
+		ensure(o.columns() == 1);
+		ensure(o[0] == 1.23);
+		ensure(o == 1.23);
+		o.append_bottom(o);
+		ensure(o.rows() == 2);
+		ensure(o.columns() == 1);
+		ensure(o[0] == 1.23);
+		ensure(o[1] == 1.23);
+	}
+	{
+		OPER o{ { OPER(1.23) } };
+		ensure(o.xltype == xltypeMulti);
+		ensure(o.rows() == 1);
+		ensure(o.columns() == 1);
+		ensure(o[0] == 1.23);
+	}
+	{
+		OPER o({ OPER(1.23), OPER("foo") } );
+		ensure(o.xltype == xltypeMulti);
+		ensure(o.rows() == 1);
+		ensure(o.columns() == 2);
+		ensure(o[0] == 1.23);
+		ensure(o[1] == "foo");
+		o.append_bottom(o);
+		ensure(o.rows() == 2);
+		ensure(o.columns() == 2);
+		ensure(o[0] == 1.23);
+		ensure(o[1] == "foo");
+		ensure(o[2] == 1.23);
+		ensure(o[3] == "foo");
+	}
+	{
+		OPER o({ OPER(1.23), OPER("foo") });
+		ensure(o.xltype == xltypeMulti);
+		ensure(o.rows() == 1);
+		ensure(o.columns() == 2);
+		ensure(o[0] == 1.23);
+		ensure(o[1] == "foo");
+		XLOPERX x;
+		XLOPERX x2[2];
+		x2[0].xltype = xltypeMissing;
+		x2[1].xltype = xltypeErr;
+		x.xltype = xltypeMulti;
+		x.val.array.rows = 1;
+		x.val.array.columns = 2;
+		x.val.array.lparray = x2;
+		o.append_bottom(x);
+		ensure(o.rows() == 2);
+		ensure(o.columns() == 2);
+		ensure(o[0] == 1.23);
+		ensure(o[1] == "foo");
+		ensure(o[2].xltype == xltypeMissing);
+		ensure(o[3].xltype == xltypeErr);
+	}
 
 	return 0;
 }

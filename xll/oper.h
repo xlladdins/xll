@@ -278,8 +278,14 @@ namespace xll {
 		{
 			multi_alloc(rw, col);
 		}
-		//??? XOPER(std::initializer_list<XOPER> o)
-		XOPER& resize(xrw rw, xcol col)
+		explicit XOPER(std::initializer_list<XOPER> x)
+		{
+			ensure(x.size() <= std::numeric_limits<xcol>::max());
+
+			multi_alloc(1, static_cast<xcol>(x.size()));
+			std::copy(x.begin(), x.end(), begin());
+		}
+		XOPER& resize(size_t rw, size_t col)
 		{
 			multi_realloc(rw, col);
 
@@ -324,14 +330,43 @@ namespace xll {
 			return xll::index(*this, i);
 		}
 		// two-dimensional index
-		XOPER& operator()(xrw rw, xcol col)
+		XOPER& operator()(size_t rw, size_t col)
 		{
 			return xll::index(*this, rw, col);
 		}
-		const XOPER& operator()(xrw rw, xcol col) const
+		const XOPER& operator()(size_t rw, size_t col) const
 		{
 			return xll::index(*this, rw, col);
 		}
+		const XOPER& append_bottom(const X& x)
+		{
+			if (xltype == xltypeNil) {
+				operator=(x);
+
+				return *this;
+			}
+			// make a copy if memory overlap
+			const XOPER& o = (begin() < xll::end(x) || end() > xll::begin(x)) ? XOPER(x) : x;
+			if (xltype == xltypeMulti) {
+				ensure(columns() == xll::columns(x));
+				multi_realloc(rows() + xll::rows(x), columns());
+				std::copy(o.begin(), o.end(), end() - o.size());
+			}
+			else {
+				auto tmp = *this;
+				// make a copy if o.append_bottom(o)
+				oper_free();
+				multi_alloc(1, 1);
+				operator[](0) = tmp;
+
+				return append_bottom(o);
+			}
+
+			return *this;
+		}
+		// append_top
+		// append_right
+		// append_left
 
 		// xltypeMissing - predefined as Missing
 		// xltypeNil - predefined as Nil
@@ -433,24 +468,43 @@ namespace xll {
 		}
 		
 		// xltypeMulti
-		void multi_alloc(xrw r, xcol c)
+		void multi_alloc(size_t r, size_t c)
 		{
+			ensure(r <= (size_t)std::numeric_limits<xrw>::max());
+			ensure(c <= (size_t)std::numeric_limits<xcol>::max());
+
+			if (r * c == 0) {
+				xltype = xltypeNil;
+
+				return;
+			}
+
 			xltype = xltypeMulti;
-			val.array.rows = r;
-			val.array.columns = c;
+			val.array.rows = static_cast<xrw>(r);
+			val.array.columns = static_cast<xcol>(c);
 			val.array.lparray = (X*)malloc(size() * sizeof(X));
 			if (val.array.lparray) {
 				std::fill(begin(), end(), XOPER{});
 			}
 		}
-		void multi_realloc(xrw r, xcol c)
+		void multi_realloc(size_t r, size_t c)
 		{
+			ensure(r <= (size_t)std::numeric_limits<xrw>::max());
+			ensure(c <= (size_t)std::numeric_limits<xcol>::max());
+
 			ensure(xltype == xltypeMulti);
+
+			if (r * c == 0) {
+				multi_free();
+				xltype = xltypeNil;
+
+				return;
+			}
 	
 			// current size
 			auto n = size();
-			val.array.rows = r;
-			val.array.columns = c;
+			val.array.rows = static_cast<xrw>(r);
+			val.array.columns = static_cast<xcol>(c);
 			if (n > size()) {
 				for (XOPER* po = begin() + size(); po != begin() + n; ++po) {
 					po->oper_free();
@@ -508,10 +562,11 @@ inline xll::OPER12 operator&(const XLOPER12& x, const wchar_t* y)
 	return xll::OPER12(x).append(y);
 }
 
+/*
 // use xlfEvaluate???
 inline auto& operator<<(std::ostream& os, const xll::OPER& o)
 {
-	switch (x.xltype) {
+	switch (o.xltype) {
 	case xltypeNum:
 		os << o.val.num;
 		break;
@@ -546,3 +601,4 @@ inline auto& operator<<(std::ostream& os, const xll::OPER& o)
 
 	return os;
 }
+*/

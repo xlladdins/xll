@@ -12,14 +12,18 @@ namespace xll {
 	inline size_t rows(const X& x)
 	{
 		// ref type???
-		return x.xltype == xltypeMulti ? x.val.array.rows : 1;
+		return x.xltype == xltypeMulti ? x.val.array.rows 
+			 : x.xltype == xltypeNil ? 0
+			 : 1;
 	}
 
 	template<class X>
 		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>
 	inline size_t columns(const X& x)
 	{
-		return x.xltype == xltypeMulti ? x.val.array.columns : 1;
+		return x.xltype == xltypeMulti ? x.val.array.columns 
+			 : x.xltype == xltypeNil ? 0
+			 : 1;
 	}
 	template<class X>
 		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>

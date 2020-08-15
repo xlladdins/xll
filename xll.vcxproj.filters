@@ -69,6 +69,9 @@
     <ClInclude Include="xll\utf8.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="xll\cdecl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">

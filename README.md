@@ -381,6 +381,10 @@ There is also [Office 365](https://www.microsoft.com/en-US/microsoft-365),
 now called Microsoft 365, which should not be confused with Office 2019.
 It has features not available in Office 2019, in particular 
 [dynamic arrays](https://insider.office.com/en-us/blog/dynamic-arrays-and-new-functions-in-excel). 
+No need for `Ctrl-Alt=Enter` and trying to guess the size of ranges returned by functions.
+The entire range gets plopped into the spreadsheet and you will see a 
+[`#SPILL!`](https://support.microsoft.com/en-us/office/-spill-errors-in-excel-ffe0f555-b479-4a17-a6e2-ef9cc9ad4023)
+error if that would clobber existing cells.
 
 Xll add-ins are not supported on Macs or the web based version. You can write 
 [custom functions](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-overview)
@@ -390,11 +394,11 @@ using [JavaScript](https://www.javascript.com/) (or, even better, [TypeScript](h
 ### Uncalced
 
 Functions that are declared `.Uncalced()` have a limited ability to call command equivalents/macros.
+You must use this when writing an add-in that creates a handle.
 In general, add-in functions cannot have side-effects. 
 They can only call Excel with function numbers starting with `xlf` (__f__&zwnj;​unctions) and are 
 forbidden to call Excel with function numbers starting with `xlc` (__c__&zwnj;​ommand equivalents,
-also known as ma&zwnj;__c__&zwnj;ros). Excel was doing
-functional programming long before it became the latest rage.
+also known as ma&zwnj;__c__&zwnj;ros). 
 
 ### Volatile
 
