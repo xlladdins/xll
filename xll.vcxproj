@@ -33,6 +33,7 @@
     <ClInclude Include="xll\on.h" />
     <ClInclude Include="xll\oper.h" />
     <ClInclude Include="xll\registry.h" />
+    <ClInclude Include="xll\sref.h" />
     <ClInclude Include="xll\traits.h" />
     <ClInclude Include="xll\utf8.h" />
     <ClInclude Include="xll\XLCALL.H" />

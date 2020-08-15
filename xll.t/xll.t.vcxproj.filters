@@ -6,5 +6,6 @@
     <ClCompile Include="oper.t.cpp" />
     <ClCompile Include="utf8.t.cpp" />
     <ClCompile Include="xll.t.cpp" />
+    <ClCompile Include="sref.t.cpp" />
   </ItemGroup>
 </Project>

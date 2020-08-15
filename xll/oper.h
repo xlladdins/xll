@@ -7,6 +7,7 @@
 #include <utility>
 #include "utf8.h"
 #include "xloper.h"
+#include "sref.h"
 
 #pragma warning(disable: 4996)
 
@@ -33,6 +34,7 @@ namespace xll {
 		typedef typename traits<X>::xrw xrw;
 		typedef typename traits<X>::xcol xcol;
 		typedef typename traits<X>::xint xint;
+		typedef typename traits<X>::xref xref;
 
 	public:
 		using X::xltype;
@@ -274,7 +276,7 @@ namespace xll {
 		// xltypeFlow - not used
 
 		// xltypeMulti
-		XOPER(xrw rw, xcol col)
+		XOPER(size_t rw, size_t col)
 		{
 			multi_alloc(rw, col);
 		}
@@ -354,7 +356,6 @@ namespace xll {
 			}
 			else {
 				auto tmp = *this;
-				// make a copy if o.append_bottom(o)
 				oper_free();
 				multi_alloc(1, 1);
 				operator[](0) = tmp;
@@ -373,13 +374,8 @@ namespace xll {
 
 		// xltypeSRef - reference to a single range
 		XOPER(xrw row, xcol col, xrw height, xcol width)
+			: xltype(xltypeSRef), val({.sref = {.count = 1, .ref = XREF<X>(row, col, height, width) }})
 		{
-			xltype = xltypeSRef;
-			val.sref.count = 1;
-			val.sref.rwFirst = row;
-			val.sref.rwLast = row + height;
-			val.sref.colFirst = col;
-			val.sref.colLast = col + width;
 		}
 
 		// xltypeInt. Excel usually converts this to num.

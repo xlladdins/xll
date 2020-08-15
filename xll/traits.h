@@ -22,15 +22,16 @@ namespace xll {
 	};
 	template<>
 	struct traits<XLOPER> {
-		typedef XLOPER xtype;
-		typedef XLOPER12 typex;
-		typedef CHAR xchar;
-		typedef const CHAR* xcstr;
-		typedef WORD xrw;
-		typedef WORD xcol; // BYTE???
-		typedef short int xint;
-		typedef WORD xbool;
-		typedef _FP xfp;
+		typedef typename XLOPER xtype;
+		typedef typename XLOPER12 typex;
+		typedef typename XLREF xref;
+		typedef typename CHAR xchar;
+		typedef typename const CHAR* xcstr;
+		typedef typename short int xint;
+		typedef typename WORD xrw;
+		typedef typename WORD xcol; // BYTE???
+		typedef typename WORD xbool;
+		typedef typename _FP xfp;
 		static int Excelv(int xlfn, LPXLOPER operRes, int count, LPXLOPER opers[])
 		{
 			return ::Excel4v(xlfn, operRes, count, opers);
@@ -56,15 +57,16 @@ namespace xll {
 	};
 	template<>
 	struct traits<XLOPER12> {
-		typedef XLOPER12 xtype;
-		typedef XLOPER typex; // not XLOPER12
-		typedef XCHAR xchar;
-		typedef const XCHAR* xcstr;
-		typedef INT32 xint;
-		typedef RW xrw;
-		typedef COL xcol;
-		typedef _FP12 xfp;
-		typedef INT32 xbool;
+		typedef typename XLOPER12 xtype;
+		typedef typename XLOPER typex; // not XLOPER12
+		typedef typename XLREF12 xref;
+		typedef typename XCHAR xchar;
+		typedef typename const XCHAR* xcstr;
+		typedef typename INT32 xint;
+		typedef typename RW xrw;
+		typedef typename COL xcol;
+		typedef typename _FP12 xfp;
+		typedef typename INT32 xbool;
 		static int Excelv(int xlfn, LPXLOPER12 operRes, int count, LPXLOPER12 opers[])
 		{
 			return ::Excel12v(xlfn, operRes, count, opers);

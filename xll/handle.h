@@ -50,15 +50,22 @@ namespace xll {
 		// all active pointers of type T*
 		inline static std::set<std::unique_ptr<T>> ps;
 		T* p;
+
+		// Convert handle in caller to pointer.
+		static T* caller_handle()
+		{
+			OPER x = Excel(xlCoerce, Excel(xlfCaller));
+
+			return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
+		}
+
 		// if calling cell has a handle then delete its object
-		void gc(void) {
-			// value in calling cell
-			OPER x = XExcel<XLOPERX>(xlCoerce, XExcel<XLOPERX>(xlfCaller));
-			if (x.xltype == xltypeNum && x.val.num != 0) {
-				// looks like a handle
-				std::unique_ptr<T> px(to_pointer<T>(x.val.num));
+		void gc(void) 
+		{
+			if (T* p_ = caller_handle()) {
+				std::unique_ptr<T> px(p_);
 				auto pi = ps.find(px);
-				px.release(); // do not call delete
+				px.release(); // do not call delete on p_!
 				// garbage collect
 				if (pi != ps.end()) {
 					ps.erase(pi); // calls delete
@@ -81,12 +88,12 @@ namespace xll {
 		handle(HANDLEX h) noexcept
 			: p(to_pointer<T>(h))
 		{
-			std::unique_ptr<T> up(p);
-			if (ps.find(up) == ps.end()) {
+			std::unique_ptr<T> p_(p);
+			if (ps.find(p_) == ps.end()) {
 				// unknown handle
 				p = nullptr;
 			}
-			up.release();
+			p_.release();
 		}
 		operator bool() const
 		{

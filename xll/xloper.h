@@ -55,6 +55,7 @@ namespace xll {
 	{
 		return x.xltype == xltypeMulti ? static_cast<const X*>(x.val.array.lparray + size(x)) : &x + 1;
 	}
+
 	// one-dimensional index
 	template<class X>
 		requires std::is_base_of_v<XLOPER, X> || std::is_base_of_v<XLOPER12, X>

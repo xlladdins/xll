@@ -177,6 +177,7 @@
     <ClCompile Include="..\xll\debug.cpp" />
     <ClCompile Include="..\xll\defines.c" />
     <ClCompile Include="oper.t.cpp" />
+    <ClCompile Include="sref.t.cpp" />
     <ClCompile Include="utf8.t.cpp">
       <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level4</WarningLevel>
       <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</TreatWarningAsError>
