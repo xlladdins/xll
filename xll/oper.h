@@ -506,26 +506,20 @@ namespace xll {
 			val.array.rows = static_cast<xrw>(r);
 			val.array.columns = static_cast<xcol>(c);
 			if (n > size()) {
-				for (XOPER* po = begin() + size(); po != begin() + n; ++po) {
-					po->oper_free();
-				}
+				std::for_each(end(), begin() + n, [](auto& o) { o.oper_free(); });
 				val.array.lparray = (X*)realloc(val.array.lparray, size() * sizeof(X));
 				ensure(val.array.lparray);
 			}
 			else if (n < size()) {
 				val.array.lparray = (X*)realloc(val.array.lparray, size() * sizeof(X));
 				ensure(val.array.lparray);
-				for (XOPER* po = begin() + n; po != begin() + size(); ++po) {
-					*po = XOPER{};
-				}
+				std::fill(begin() + n, end(), XOPER{});
 			}
 		}
 		void multi_free()
 		{
 			ensure(xltype == xltypeMulti);
-			for (XOPER* po = begin(); po != end(); ++po) {
-				po->oper_free();
-			}
+			std::for_each(begin(), end(), [](auto& o) { o.oper_free(); });
 			free(val.array.lparray);
 
 			xltype = xltypeNil;
