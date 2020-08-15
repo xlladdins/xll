@@ -303,7 +303,7 @@ then we can embed `base` objects in Excel using
 AddIn xai_base(
     Function(XLL_HANDLEX, "?xll_base", "XLL.BASE")
     .Args({
-        Arg({ XLL_LPOPER, "x", "is a cell or range of cells" })
+        Arg(XLL_LPOPER, "x", "is a cell or range of cells")
     })
     .FunctionHelp("Return a handle to a base object.")
     .Uncalced() // Required for functions creating handles!!!
@@ -321,7 +321,7 @@ and access them with
 AddIn xai_base_get(
     Function(XLL_LPOPER, "?xll_base_get", "XLL.BASE.GET")
     .Args({
-        Arg({ XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE" })
+        Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE")
     })
     .FunctionHelp("Return the value stored in base.")
 );
