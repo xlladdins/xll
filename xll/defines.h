@@ -98,3 +98,8 @@ XLL_ARG_TYPE(X)
 #ifdef __cplusplus
 }
 #endif
+
+// move to concepts.h
+// B is base all Ds
+//template<class B, class Ds>
+//concept all_base_of = (std::is_base_of_v<B, Ds>);

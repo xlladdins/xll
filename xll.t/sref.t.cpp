@@ -13,10 +13,12 @@ int test_sref = [] {
 		r12 = r12;
 	}
 	{
-		XLREF r;
+		XLREF r{ 1, 1, 1, 1 };
 		//ensure(rows(r) == 1);
 		//ensure(columns(r) == 1);
 		ensure(r == r);
+		ensure(!(r < r));
+		ensure(!(r > r));
 	}
 	
 	{
