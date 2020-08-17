@@ -4,28 +4,24 @@
 #include "traits.h"
 #include "concepts.h"
 
-template<class X>
-	requires either_base_of_v<XLREF,XLREF12,X>
+template<class X> requires either_base_of_v<XLREF,XLREF12,X>
 inline size_t height(const X& x)
 {
 	return x.rwLast - x.rwFirst + 1;
 }
-template<class X>
-requires either_base_of_v<XLREF, XLREF12, X>
+template<class X> requires either_base_of_v<XLREF, XLREF12, X>
 inline size_t width(const X& x)
 {
 	return x.colLast - x.colFirst + 1;
 }
-template<class X>
-requires either_base_of_v<XLREF, XLREF12, X>
+template<class X> requires either_base_of_v<XLREF, XLREF12, X>
 inline size_t size(const X& x) // extent???
 {
 	return height(x) * width(x);
 }
 
 //!!! should be a partial order
-template<class X>
-	requires std::is_same_v<XLREF, X> || std::is_same_v<XLREF12,X>
+template<class X> requires std::is_same_v<XLREF, X> || std::is_same_v<XLREF12,X>
 inline auto operator<=>(const X & x, const X & y)
 {
 	if (auto cmp = x.rwFirst <=> y.rwFirst; cmp != 0)
@@ -41,10 +37,8 @@ inline auto operator<=>(const X & x, const X & y)
 // operator<=> only generates two way comparisons for C++ classes
 // inheriting from extern "C" XLREF subverts auto genereration
 #define REF_CTW(op) \
-	inline bool operator ## op(const XLREF& x, const XLREF& y) \
-	{ return x <=> y op 0; } \
-	inline bool operator ## op(const XLREF12& x, const XLREF12& y) \
-	{ return x <=> y op 0; } \
+	inline bool operator ## op(const XLREF& x, const XLREF& y) { return x <=> y op 0; } \
+	inline bool operator ## op(const XLREF12& x, const XLREF12& y) { return x <=> y op 0; } \
 
 REF_CTW(==)
 REF_CTW(!=)
@@ -57,8 +51,7 @@ REF_CTW(<=)
 
 namespace xll {
 
-	template<class X>
-		requires either_base_of_v<XLOPER, XLOPER12, X>
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	class XREF : public traits<X>::xref {
 		using xrw = typename traits<X>::xrw;
 		using xcol = typename traits<X>::xcol;

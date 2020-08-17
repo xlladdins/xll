@@ -8,8 +8,7 @@
 
 namespace xll {
 
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline size_t rows(const X& x)
 	{
 		// ref type???
@@ -18,49 +17,42 @@ namespace xll {
 			 : 1;
 	}
 
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		inline size_t columns(const X& x)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline size_t columns(const X& x)
 	{
 		return x.xltype == xltypeMulti ? x.val.array.columns 
 			 : x.xltype == xltypeNil ? 0
 			 : 1;
 	}
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		inline size_t size(const X& x)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline size_t size(const X& x)
 	{
 		return rows(x) * columns(x);
 	}
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		inline X* begin(X& x)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline X* begin(X& x)
 	{
 		return x.xltype == xltypeMulti ? static_cast<X*>(x.val.array.lparray) : &x;
 	}
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		inline const X* begin(const X& x)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline const X* begin(const X& x)
 	{
 		return x.xltype == xltypeMulti ? static_cast<const X*>(x.val.array.lparray) : &x;
 	}
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		inline X * end(X & x)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline X * end(X & x)
 	{
 		return x.xltype == xltypeMulti ? static_cast<X*>(x.val.array.lparray + size(x)) : &x + 1;
 	}
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		inline const X* end(const X & x)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline const X* end(const X & x)
 	{
 		return x.xltype == xltypeMulti ? static_cast<const X*>(x.val.array.lparray + size(x)) : &x + 1;
 	}
 
 	// one-dimensional index
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		X& index(X& x, size_t i)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	X& index(X& x, size_t i)
 	{
 		ensure(i < size(x));
 
@@ -72,22 +64,19 @@ namespace xll {
 			return x;
 		}
 	}
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		const X& index(const X& x, size_t i)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	const X& index(const X& x, size_t i)
 	{
 		return index(x,i);
 	}
 	// two-dimensional index
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		X& index(X& x, size_t rw, size_t col)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	X& index(X& x, size_t rw, size_t col)
 	{
 		return index(x, columns(x)* rw + col);
 	}
-	template<class X>
-	requires either_base_of_v<XLOPER, XLOPER12, X>
-		const X& index(const X& x, size_t rw, size_t col)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	const X& index(const X& x, size_t rw, size_t col)
 	{
 		return index(x, rw, col);
 	}
@@ -119,8 +108,7 @@ namespace xll {
 }
 
 // use std::strong_ordering!!!
-template<typename X>
-requires std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>
+template<typename X> requires std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>
 inline auto operator<=>(const X& x, const X& y)
 {
 	if (x.xltype != y.xltype) {
@@ -128,7 +116,7 @@ inline auto operator<=>(const X& x, const X& y)
 	}
 
 	switch (x.xltype) {
-	case xltypeNum:
+	case xltypeNum: // operator<=> is only a partial ordering on doubles
 		return x.val.num == y.val.num ? std::strong_ordering::equal
 			: x.val.num < y.val.num ? std::strong_ordering::less
 			: std::strong_ordering::greater;
@@ -153,10 +141,8 @@ inline auto operator<=>(const X& x, const X& y)
 }
 
 #define XLOPER_CMP(op) \
-	inline bool operator##op(const XLOPER& x, const XLOPER& y) \
-	{ return x <=> y op 0; } \
-	inline bool operator##op(const XLOPER12& x, const XLOPER12& y) \
-	{ return x <=> y op 0; } \
+	inline bool operator##op(const XLOPER& x, const XLOPER& y) { return x <=> y op 0; } \
+	inline bool operator##op(const XLOPER12& x, const XLOPER12& y) { return x <=> y op 0; } \
 
 XLOPER_CMP(==)
 XLOPER_CMP(!=)
