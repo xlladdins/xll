@@ -280,6 +280,7 @@ namespace xll {
 		{
 			multi_alloc(rw, col);
 		}
+		// XOPER({XOPER(a), ...}). Use resize if needed.
 		explicit XOPER(std::initializer_list<XOPER> x)
 		{
 			ensure(x.size() <= std::numeric_limits<xcol>::max());
@@ -348,7 +349,7 @@ namespace xll {
 				return *this;
 			}
 			// make a copy if memory overlap
-			const XOPER& o = (begin() < xll::end(x) || end() > xll::begin(x)) ? XOPER(x) : x;
+			const XOPER& o = overlap(x) ? XOPER(x) : x;
 			if (xltype == xltypeMulti) {
 				ensure(columns() == xll::columns(x));
 				multi_realloc(rows() + xll::rows(x), columns());
@@ -400,6 +401,12 @@ namespace xll {
 		}
 
 	private:
+		// true if memory overlaps with x
+		bool overlap(const X& x) const
+		{
+			return (begin() <= xll::begin(x) && xll::begin(x) < end()) 
+				|| (begin() < xll::end(x) && xll::end(x) <= end());
+		}
 		void oper_free()
 		{
 			if (xltype == xltypeStr) {
