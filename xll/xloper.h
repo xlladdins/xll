@@ -127,7 +127,15 @@ inline auto operator<=>(const X& x, const X& y)
 			: xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
 	case xltypeErr:
 		return std::strong_ordering::less; // never equal
-	//case xltypeMulti:
+	case xltypeMulti:
+		if (x.val.array.rows != y.val.array.rows)
+			return x.val.array.rows <=> y.val.array.rows;
+		if (x.val.array.columns != y.val.array.columns)
+			return x.val.array.columns <=> y.val.array.columns;
+		for (size_t i = 0; i < xll::size(x); ++i)
+			if (x.val.array.lparray[i] != y.val.array.lparray[i])
+				return x.val.array.lparray[i] <=> y.val.array.lparray[i];
+		return std::strong_ordering::equal;
 	case xltypeSRef:
 		return x.val.sref.ref <=> y.val.sref.ref;
 	//case xltypeRef:
