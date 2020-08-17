@@ -5,7 +5,6 @@
 #include "concepts.h"
 
 template<class X>
-	//requires std::is_base_of_v<XLREF, X> || std::is_base_of_v<XLREF12, X>
 	requires either_base_of_v<XLREF,XLREF12,X>
 inline size_t height(const X& x)
 {
@@ -25,9 +24,9 @@ inline size_t size(const X& x) // extent???
 }
 
 //!!! should be a partial order
-template<class X, class Y>
-	requires both_derived_from_v<XLREF, X, Y> || both_derived_from_v<XLREF12,X,Y>
-inline auto compare_three_way(const X & x, const Y & y)
+template<class X>
+	requires std::is_same_v<XLREF, X> || std::is_same_v<XLREF12,X>
+inline auto operator<=>(const X & x, const X & y)
 {
 	if (auto cmp = x.rwFirst <=> y.rwFirst; cmp != 0)
 		return cmp;
@@ -39,19 +38,20 @@ inline auto compare_three_way(const X & x, const Y & y)
 	return x.colLast <=> y.colLast;
 }
 
-// operator<=> only generates two way comparisons for classes
-// inheriting from extern "C" XREF subverts auto genereration
-#define REF_CTW(op)  template<class X, class Y> \
-requires both_derived_from_v<XLREF, X, Y> || both_derived_from_v<XLREF12, X, Y> \
-	inline bool operator ## op(const X& x, const Y& y) \
-	{ return compare_three_way(x, y) op 0; }
+// operator<=> only generates two way comparisons for C++ classes
+// inheriting from extern "C" XLREF subverts auto genereration
+#define REF_CTW(op) \
+	inline bool operator ## op(const XLREF& x, const XLREF& y) \
+	{ return x <=> y op 0; } \
+	inline bool operator ## op(const XLREF12& x, const XLREF12& y) \
+	{ return x <=> y op 0; } \
 
 REF_CTW(==)
 REF_CTW(!=)
 REF_CTW(> )
 REF_CTW(>=)
 REF_CTW(< )
-REF_CTW(<= )
+REF_CTW(<=)
 
 #undef REF_CTW
 
@@ -73,12 +73,6 @@ namespace xll {
 		explicit XREF(const xref& r)
 			: xref{ r }
 		{ }
-		/*
-		auto operator<=>(const XREF& r) const
-		{
-			return static_cast<const xref&>(*this) <=> static_cast<const xref&>(r);
-		}
-		*/
 	};
 
 	using REF4 = XREF<XLOPER>;

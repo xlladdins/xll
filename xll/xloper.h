@@ -4,7 +4,7 @@
 #include <compare>
 #include <concepts>
 #include "traits.h"
-#include "concepts.h"
+#include "sref.h"
 
 namespace xll {
 
@@ -104,7 +104,7 @@ namespace xll {
 	XLL_NULL_TYPE(X)
 #undef X
 
-// Error types xll::ErrNAX, ...
+// Error types xll::ErrNA/4/12, ...
 #define X(a, b, c)                                            \
 	template<class T>                                         \
 		requires either_base_of_v<XLOPER, XLOPER12, T>        \
@@ -117,196 +117,52 @@ namespace xll {
 	XLL_ERR_TYPE(X)
 #undef X
 }
-namespace { // doesn't hide xloper_cmp!!!
-	// use std::strong_ordering!!!
-	template<typename X, typename Y>
-	requires both_derived_from_v<X, Y, XLOPER> 
-		  || both_derived_from_v<X, Y, XLOPER12>
-	inline std::strong_ordering xloper_cmpx(const X& x, const Y& y)
-	{
-		if (x.xltype != y.xltype) {
-			return x.xltype <=> y.xltype;
-		}
 
-		switch (x.xltype) {
-		case xltypeNum:
-			return x.val.num == y.val.num ? std::strong_ordering::equal
-				: x.val.num < y.val.num ? std::strong_ordering::less
-				: std::strong_ordering::greater;
-		case xltypeStr:
-			//if (x.val.str[0] != y.val.str[0]) return x.val.str[0] <=> y.val.str[0];
-			return x.val.str[0] != y.val.str[0]
-				? x.val.str[0] <=> y.val.str[0]
-				: xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
-		case xltypeErr:
-			return std::strong_ordering::less; // never equal
-		//case xltypeMulti:
-		//case xltypeSRef:
-		//case xltypeRef:
-		case xltypeInt:
-			return x.val.w <=> y.val.w;
-		case xltypeBool:
-			return x.val.xbool <=> y.val.xbool;
-		default:
-			return x.xltype <=> y.xltype;
-		}
-	}
-
-	inline int xloper_cmp(const XLOPER& x, const XLOPER& y)
-	{
-		if (x.xltype != y.xltype) {
-			return x.xltype - y.xltype;
-		}
-
-		switch (x.xltype) {
-		case xltypeNum:
-			return x.val.num < y.val.num ? -1 : x.val.num > y.val.num ? 1 : 0;
-		case xltypeStr:
-			return x.val.str[0] != y.val.str[0]
-				? x.val.str[0] - y.val.str[0]
-				: xll::traits<XLOPER>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]);
-		case xltypeErr:
-			return INT_MIN; // never equal, like NaN
-		//case xltypeMulti:
-		//case xltypeSRef:
-		//case xltypeRef:
-		case xltypeInt:
-			return x.val.w - y.val.w;
-		case xltypeBool:
-			return x.val.xbool - y.val.xbool;
-		default:
-			return x.xltype - y.xltype;
-		}
-	}
-	inline int xloper_cmp(const XLOPER12& x, const XLOPER12& y)
-	{
-		if (x.xltype != y.xltype) {
-			return x.xltype - y.xltype;
-		}
-
-		switch (x.xltype) {
-		case xltypeNum:
-			return x.val.num < y.val.num ? -1 : x.val.num > y.val.num ? 1 : 0;
-		case xltypeStr:
-			return x.val.str[0] != y.val.str[0]
-				? x.val.str[0] - y.val.str[0]
-				: xll::traits<XLOPER12>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]);
-		case xltypeErr:
-			return INT_MIN; // never equal, like NaN
-		//case xltypeMulti:
-		//case xltypeSRef:
-		//case xltypeRef:
-		case xltypeInt:
-			return x.val.w - y.val.w;
-		case xltypeBool:
-			return x.val.xbool - y.val.xbool;
-		default:
-			return x.xltype - y.xltype;
-		}
-	}
-}
-
-// works for any compatible combination of XLOPER and OPER.
-/*
-template<class X, class Y>
-requires both_derived_from_v<X, Y, XLOPER> || both_derived_from_v<X, Y, XLOPER12>
-inline bool operator==(const X & x, const Y & y)
+// use std::strong_ordering!!!
+template<typename X>
+requires std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>
+inline auto operator<=>(const X& x, const X& y)
 {
-	return xloper_cmpx<X,Y>(x, y) == 0;
-}
-*/
-#define XLOPER_CMP(X, op) inline bool operator##op(const X& x, const X& y) \
-	{ return xloper_cmpx<X,X>(x, y) op 0; }
+	if (x.xltype != y.xltype) {
+		return x.xltype <=> y.xltype;
+	}
 
-XLOPER_CMP(XLOPER, ==)
-XLOPER_CMP(XLOPER12, ==)
+	switch (x.xltype) {
+	case xltypeNum:
+		return x.val.num == y.val.num ? std::strong_ordering::equal
+			: x.val.num < y.val.num ? std::strong_ordering::less
+			: std::strong_ordering::greater;
+	case xltypeStr:
+		//if (x.val.str[0] != y.val.str[0]) return x.val.str[0] <=> y.val.str[0];
+		return x.val.str[0] != y.val.str[0]
+			? x.val.str[0] <=> y.val.str[0]
+			: xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
+	case xltypeErr:
+		return std::strong_ordering::less; // never equal
+	//case xltypeMulti:
+	case xltypeSRef:
+		return x.val.sref.ref <=> y.val.sref.ref;
+	//case xltypeRef:
+	case xltypeInt:
+		return x.val.w <=> y.val.w;
+	case xltypeBool:
+		return x.val.xbool <=> y.val.xbool;
+	default:
+		return x.xltype <=> y.xltype;
+	}
+}
+
+#define XLOPER_CMP(op) \
+	inline bool operator##op(const XLOPER& x, const XLOPER& y) \
+	{ return x <=> y op 0; } \
+	inline bool operator##op(const XLOPER12& x, const XLOPER12& y) \
+	{ return x <=> y op 0; } \
+
+XLOPER_CMP(==)
+XLOPER_CMP(!=)
+XLOPER_CMP(< )
+XLOPER_CMP(<=)
+XLOPER_CMP(> )
+XLOPER_CMP(>=)
 
 #undef XLOPER_CMP
-
-/*
-inline bool operator==(const XLOPER & x, const XLOPER & y)
-{
-	return xloper_cmpx<XLOPER, XLOPER>(x, y) == 0;
-}
-inline bool operator==(const XLOPER12& x, const XLOPER12& y)
-{
-	return xloper_cmpx<XLOPER12, XLOPER12>(x, y) == 0;
-}
-*/
-#if 0
-//namespace xll {
-
-template<typename X, typename Y>
-requires (std::is_base_of_v<XLOPER, X> && std::is_base_of_v<XLOPER, Y>)
-      || (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
-inline auto operator<=>(const X& x, const Y& y)
-{
-	if constexpr (std::is_convertible_v<X, XLOPER>) {
-		return xloper_cmpx<XLOPER, XLOPER>(x, y);
-	}
-	else {
-		return xloper_cmpx<XLOPER12, XLOPER12>(x, y);
-	}
-}
-template<typename X, typename Y>
-requires (std::is_base_of_v<XLOPER, X>&& std::is_base_of_v<XLOPER, Y>)
-|| (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
-inline auto operator==(const X & x, const Y & y)
-{
-	if constexpr (std::is_convertible_v<X, XLOPER>) {
-		return xloper_cmpx<XLOPER, XLOPER>(x, y) == 0;
-	}
-	else {
-		return xloper_cmpx<XLOPER12, XLOPER12>(x, y) == 0;
-	}
-}
-
-//}
-#endif
-// #if 0
-/*
-template<typename X, typename Y>
-requires (std::is_base_of_v<XLOPER,X> && std::is_base_of_v<XLOPER,Y>)
-	  || (std::is_base_of_v<XLOPER12, X>&& std::is_base_of_v<XLOPER12, Y>)
-inline bool operator==(const X& x, const Y& y)
-{
-	return xloper_cmp(x, y) == 0;
-}
-*/
-template<typename X, typename Y>
-requires (std::is_base_of_v<XLOPER,X> && std::is_base_of_v<XLOPER,Y>)
-      || (std::is_base_of_v<XLOPER12, X>&& std::is_base_of_v<XLOPER12, Y>)
-inline bool operator!=(const X& x, const Y& y)
-{
-	return xloper_cmp(x, y) != 0;
-}
-template<typename X, typename Y>
-requires (std::is_base_of_v<XLOPER, X>&& std::is_base_of_v<XLOPER, Y>)
-      || (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
-inline bool operator<(const X& x, const Y& y)
-{
-	return xloper_cmp(x, y) < 0;
-}
-template<typename X, typename Y>
-requires (std::is_base_of_v<XLOPER, X>&& std::is_base_of_v<XLOPER, Y>)
-      || (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
-inline bool operator>=(const X& x, const Y& y)
-{
-	return xloper_cmp(x, y) >= 0;
-}
-template<typename X, typename Y>
-requires (std::is_base_of_v<XLOPER, X>&& std::is_base_of_v<XLOPER, Y>)
-      || (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
-inline bool operator>(const X& x, const Y& y)
-{
-	return xloper_cmp(x, y) > 0;
-}
-template<typename X, typename Y>
-requires (std::is_base_of_v<XLOPER, X>&& std::is_base_of_v<XLOPER, Y>)
-      || (std::is_base_of_v<XLOPER12, X> && std::is_base_of_v<XLOPER12, Y>)
-inline bool operator<=(const X& x, const Y& y)
-{
-	return xloper_cmp(x, y) <= 0;
-}
-// #endif
-

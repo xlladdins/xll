@@ -427,7 +427,7 @@ int test_compare = []()
 	}
 	{
 		OPER s1("abc"), s1_("def");
-		ensure(xloper_cmp(s1, s1_) < 0);
+		ensure(s1 < s1_);
 		ensure(s1 == s1);
 		ensure(s1 < s1_);
 		ensure(s1 <= s1_);
