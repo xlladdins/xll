@@ -38,7 +38,7 @@ typedef struct _FP _FPX;
 
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \
-	X(Nil,     "empty cell")
+	X(Nil,     "empty cell")                \
 
 // xlerrXXX, Excel error string, error description
 #define XLL_ERR_TYPE(X)                                                     \
@@ -51,16 +51,18 @@ typedef struct _FP _FPX;
 	X(NA,    "#N/A",    "value not available to a formula.")                \
 
 // Defined in defines.c
+// Arrays indexed by xlerrXXX
 #ifdef __cplusplus 
 extern "C" {
 #endif
-extern const LPCSTR xll_err_str[];
-extern const LPCSTR xll_err_desc[];
+extern const LPCSTR xll_err_str[];  // Excel string
+extern const LPCSTR xll_err_desc[]; // Human readable description
 #ifdef __cplusplus
 }
 #endif
 
 #define xltypeXxx 0 // phony type that is never used
+#define xltypePtr -1 // void* pointer
 
 // Argument types for Excel Functions
 #define XLL_ARG_TYPE(X)                                                              \
@@ -68,7 +70,7 @@ X(BOOL,     "A",  xltypeBool,  "short int used as logical")                     
 X(DOUBLE,   "B",  xltypeNum,   "double")                                             \
 X(CSTRING,  "C%", xltypeStr,   "XCHAR* to C style NULL terminated unicode string")   \
 X(PSTRING,  "D%", xltypeStr,   "XCHAR* to Pascal style byte counted unicode string") \
-X(DOUBLE_,  "E",  xltypeXxx,   "pointer to double")                                  \
+X(DOUBLE_,  "E",  xltypePtr,   "pointer to double")                                  \
 X(CSTRING_, "F%", xltypeXxx,   "reference to a null terminated unicode string")      \
 X(PSTRING_, "G%", xltypeXxx,   "reference to a byte counted unicode string")         \
 X(USHORT,   "H",  xltypeNum,   "unsigned 2 byte int")                                \
@@ -99,7 +101,3 @@ XLL_ARG_TYPE(X)
 }
 #endif
 
-// move to concepts.h
-// B is base all Ds
-//template<class B, class Ds>
-//concept all_base_of = (std::is_base_of_v<B, Ds>);

@@ -8,18 +8,10 @@
 
 namespace xll {
 
-	/* ??? automate AddIn code
-	template<class T> struct type_traits { static constexpr LPCSTR type; };
-	template<> struct type_traits<double> { static constexpr LPCSTR type = XLL_DOUBLE; };
-	// ...
-	template<> struct type_traits<bool> { static constexpr LPCSTR type = XLL_BOOL; };
-	*/
-
 	// XLOPER/XLOPER12 traits
-	template<class X>
-		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
-	struct traits {
-	};
+	template<class X> requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
+	struct traits { };
+	
 	template<>
 	struct traits<XLOPER> {
 		typedef typename XLOPER xtype;
@@ -50,11 +42,13 @@ namespace xll {
 		{
 			return strncmp(dest, src, n);
 		}
+		// return counted string that must be free'd
 		static char* cvt(const wchar_t* ws)
 		{
 			return utf8::wcstombs(ws);
 		}
 	};
+	
 	template<>
 	struct traits<XLOPER12> {
 		typedef typename XLOPER12 xtype;
@@ -85,11 +79,11 @@ namespace xll {
 		{
 			return wcsncmp(dest, src, n);
 		}
+		// return counted string that must be free'd
 		static wchar_t* cvt(const char* s)
 		{
 			return utf8::mbstowcs(s);
 		}
-
 	};
 
 }

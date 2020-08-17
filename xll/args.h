@@ -64,6 +64,7 @@ namespace xll {
 			return functionText;
 		}
 
+		// list of function arguments
 		XArgs& Args(std::initializer_list<Arg> args)
 		{
 			for (const auto& arg : args) {
@@ -106,6 +107,24 @@ namespace xll {
 		XArgs& Volatile()
 		{
 			typeText &= XLL_VOLATILE;
+
+			return *this;
+		}
+		XArgs& ThreadSafe()
+		{
+			typeText &= XLL_THREAD_SAFE;
+
+			return *this;
+		}
+		XArgs& ClusterSafe()
+		{
+			typeText &= XLL_CLUSTER_SAFE;
+
+			return *this;
+		}
+		XArgs& Asynchronous()
+		{
+			typeText &= XLL_ASYNCHRONOUS;
 
 			return *this;
 		}

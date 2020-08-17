@@ -407,6 +407,7 @@ namespace xll {
 			return (begin() <= xll::begin(x) && xll::begin(x) < end()) 
 				|| (begin() < xll::end(x) && xll::end(x) <= end());
 		}
+
 		void oper_free()
 		{
 			if (xltype == xltypeStr) {

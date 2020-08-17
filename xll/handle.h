@@ -44,25 +44,27 @@ namespace xll {
 	/// Collection of handles parameterized by type.
 	/// Use <c>handle<T> h(new T(...))</c> to create a handle.
 	/// Use <c>handle<T> h_(h)</c> to lookup h returned by <c>get()</c>.
+	/// Unknown handles return null pointers.
 	/// </summary>
 	template<class T>
 	class handle {
 		// all active pointers of type T*
 		inline static std::set<std::unique_ptr<T>> ps;
+		// underlying pointer
 		T* p;
 
 		// Convert handle in caller to pointer.
-		static T* caller_handle()
+		static T* caller()
 		{
 			OPER x = Excel(xlCoerce, Excel(xlfCaller));
 
 			return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
 		}
 
-		// if calling cell has a handle then delete its object
-		void gc(void) 
+		/// If calling cell has a known handle then delete its object
+		void gc(void)
 		{
-			if (T* p_ = caller_handle()) {
+			if (T* p_ = caller()) {
 				std::unique_ptr<T> px(p_);
 				auto pi = ps.find(px);
 				px.release(); // do not call delete on p_!
@@ -75,8 +77,6 @@ namespace xll {
 	public:
 		/// <summary>
 		/// Add a handle to the collection.
-		/// If the calling cell has a known handle then
-		/// delete the object and erase pointer.
 		/// </summary>
 		handle(T* p) noexcept
 			: p(p)
@@ -93,7 +93,7 @@ namespace xll {
 				// unknown handle
 				p = nullptr;
 			}
-			p_.release();
+			p_.release(); // do not call delete on p!
 		}
 		operator bool() const
 		{
@@ -104,6 +104,7 @@ namespace xll {
 		{
 			return to_handle(p);
 		}
+		// underlying pointer
 		T* ptr()
 		{
 			return p;

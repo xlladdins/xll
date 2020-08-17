@@ -2,6 +2,7 @@
 #include "defines.h"
 
 // array designators not allowed in C++
+#undef X
 #define X(a,b,c) [xlerr##a] = b,
 const LPCSTR xll_err_str[] = {
 	XLL_ERR_TYPE(X)

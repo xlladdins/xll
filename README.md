@@ -390,6 +390,21 @@ Xll add-ins are not supported on Macs or the web based version. You can write
 [custom functions](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-overview)
 using [JavaScript](https://www.javascript.com/) (or, even better, [TypeScript](https://www.typescriptlang.org/)) for Office on Windows, Mac, and online versions.  
 
+### Memory Leaks
+
+When you build in debug mode the add-in library will check for memory leaks. It uses the functions
+in [`<crtdbg.h>`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/debug-routines?view=vs-2019)
+to turn on (memory debugging)[https://github.com/xlladdins/xll/blob/master/xll/debug.cpp].
+After you run your add-in the `Output` window will have information about the location of memory leaks.
+It will also have a lot of other things such as all the dlls that were loaded and unloaded, and a list
+of exceptions that were thrown. You can ignore those. 
+Use `Ctrl-F` and search for the string `leak` to find output
+from the memory debugging routines. Those will tell you the values to set for `_crtBreakAlloc`
+so the next time you run the add-in the debugger will stop where the bad allocation was detected.
+Use the call stack to zero in on the offending allocation.
+
+The cool kids use [AddressSanitizer](https://devblogs.microsoft.com/cppblog/addresssanitizer-asan-for-windows-with-msvc/)
+these days. 
 
 ### Uncalced
 
