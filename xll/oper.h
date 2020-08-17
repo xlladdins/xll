@@ -142,7 +142,7 @@ namespace xll {
 		{
 			return xltype == xltypeNum && val.num == num;
 		}
-		// /* not working !!!
+		/* not working !!!
 		// handy for using OPERs in numerical expressions
 		operator double()
 		{
@@ -151,7 +151,7 @@ namespace xll {
 				 : xltype == xltypeBool ? val.xbool 
 				 : std::numeric_limits<double>::quiet_NaN();
 		}
-		// */
+		*/
 
 		// xltypeStr given length
 		XOPER(xcstr str, int n)

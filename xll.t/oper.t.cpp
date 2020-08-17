@@ -117,7 +117,7 @@ int test_oper_num = []()
 		ensure(o == 2.);
 		ensure(o == 2);
 	}
-	// /* !!! operator double() not working
+	/* !!! operator double() not working
 	{
 		OPER x(1.2), y(2.3);
 		ensure(x);
@@ -132,7 +132,7 @@ int test_oper_num = []()
 		z = x + y;
 		ensure(z == 1 + 4);
 	}
-	// */
+	*/
 
 	return 0;
 }

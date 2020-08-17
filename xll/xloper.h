@@ -207,12 +207,32 @@ namespace { // doesn't hide xloper_cmp!!!
 }
 
 // works for any compatible combination of XLOPER and OPER.
+/*
 template<class X, class Y>
 requires both_derived_from_v<X, Y, XLOPER> || both_derived_from_v<X, Y, XLOPER12>
 inline bool operator==(const X & x, const Y & y)
 {
-	return xloper_cmpx(x, y) == 0;
+	return xloper_cmpx<X,Y>(x, y) == 0;
 }
+*/
+#define XLOPER_CMP(X, op) inline bool operator##op(const X& x, const X& y) \
+	{ return xloper_cmpx<X,X>(x, y) op 0; }
+
+XLOPER_CMP(XLOPER, ==)
+XLOPER_CMP(XLOPER12, ==)
+
+#undef XLOPER_CMP
+
+/*
+inline bool operator==(const XLOPER & x, const XLOPER & y)
+{
+	return xloper_cmpx<XLOPER, XLOPER>(x, y) == 0;
+}
+inline bool operator==(const XLOPER12& x, const XLOPER12& y)
+{
+	return xloper_cmpx<XLOPER12, XLOPER12>(x, y) == 0;
+}
+*/
 #if 0
 //namespace xll {
 

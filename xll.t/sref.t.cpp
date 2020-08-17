@@ -25,6 +25,10 @@ int test_sref = [] {
 		REF r(2, 3);
 		ensure(height(r) == 1);
 		ensure(width(r) == 1);
+		REF r2(r);
+		ensure(r2 == r);
+		r = r2;
+		ensure(r2 == r);
 	}
 	
 
