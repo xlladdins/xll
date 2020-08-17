@@ -120,13 +120,16 @@ inline auto operator<=>(const X& x, const X& y)
 		return x.val.num == y.val.num ? std::strong_ordering::equal
 			: x.val.num < y.val.num ? std::strong_ordering::less
 			: std::strong_ordering::greater;
+
 	case xltypeStr:
 		//if (x.val.str[0] != y.val.str[0]) return x.val.str[0] <=> y.val.str[0];
 		return x.val.str[0] != y.val.str[0]
 			? x.val.str[0] <=> y.val.str[0]
 			: xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
+
 	case xltypeErr:
 		return std::strong_ordering::less; // never equal
+
 	case xltypeMulti:
 		if (x.val.array.rows != y.val.array.rows)
 			return x.val.array.rows <=> y.val.array.rows;
@@ -136,16 +139,19 @@ inline auto operator<=>(const X& x, const X& y)
 			if (x.val.array.lparray[i] != y.val.array.lparray[i])
 				return x.val.array.lparray[i] <=> y.val.array.lparray[i];
 		return std::strong_ordering::equal;
+
 	case xltypeSRef:
 		return x.val.sref.ref <=> y.val.sref.ref;
-	//case xltypeRef:
+
+		//case xltypeRef:
 	case xltypeInt:
 		return x.val.w <=> y.val.w;
+
 	case xltypeBool:
 		return x.val.xbool <=> y.val.xbool;
-	default:
-		return x.xltype <=> y.xltype;
 	}
+
+	return x.xltype <=> y.xltype;
 }
 
 #define XLOPER_CMP(op) \
