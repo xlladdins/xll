@@ -49,16 +49,18 @@ namespace xll {
 	public:
 		XArgs()
 		{ }
+		// Function
 		XArgs(cstr type, cstr procedure, cstr functionText)
 			: typeText(type), procedure(procedure), functionText(functionText), macroType(1)
 		{
 		}
+		// Macro
 		XArgs(cstr procedure, cstr functionText)
 			: procedure(procedure), functionText(functionText), macroType(2)
 		{
 		}
 
-		// Used as key in add-in map.
+		// Excel function name used as key for add-in map.
 		const XOPER<X>& FunctionText() const
 		{
 			return functionText;

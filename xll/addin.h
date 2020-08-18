@@ -16,18 +16,15 @@ namespace xll {
         {
             Map[args.FunctionText()] = args;
         }
+
         // Get arguments using Excel function text name.
         static XArgs<X>& Args(const char* name)
         {
-            return Map[XOPER<X>(name)];
+            return Args(XOPER<X>(name));
         }
         static XArgs<X>& Args(const XOPER<X>& name)
         {
-            return Map[name];
-        }
-        static const XArgs<X>& get(const XOPER<X>& key)
-        {
-            auto i = Map.find(key);
+            auto i = Map.find(name);
             ensure(i != Map.end());
 
             return *i;

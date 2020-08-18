@@ -11,7 +11,7 @@ public:
 	base(const OPER& x) 
 		: x(x) 
 	{ }
-	virtual ~base() 
+	virtual ~base()
 	{ }
 	OPER& get() 
 	{ 
@@ -79,7 +79,7 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 class derived : public base {
 	OPER x2;
 public:
-	derived(const OPER x, const OPER x2)
+	derived(const OPER& x, const OPER& x2)
 		: base(x), x2(x2)
 	{ }
 	OPER& get2()

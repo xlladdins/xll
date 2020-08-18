@@ -1,6 +1,6 @@
 #include <cmath>
 // Uncomment to use Excel4 API.
-//#define XLOPERX XLOPER
+#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
