@@ -3,8 +3,7 @@
 #include "xll.h"
 
 // Called by Excel when the xll is opened.
-extern "C" 
-int __declspec(dllexport) WINAPI
+extern "C" int __declspec(dllexport) WINAPI
 xlAutoOpen(void)
 {
 	try {
@@ -38,8 +37,7 @@ xlAutoOpen(void)
 }
 
 // Called by Microsoft Excel when the xll is deactivated.
-extern "C"
-int __declspec(dllexport) WINAPI
+extern "C" int __declspec(dllexport) WINAPI
 xlAutoClose(void)
 {
 	try {
@@ -75,8 +73,7 @@ xlAutoClose(void)
 
 // Called when the user activates the xll using the Add-In Manager. 
 // This function is *not* called when Excel starts up.
-extern "C"
-int __declspec(dllexport) WINAPI
+extern "C" int __declspec(dllexport) WINAPI
 xlAutoAdd(void)
 {
 	try {
@@ -100,8 +97,7 @@ xlAutoAdd(void)
 
 // Called when user deactivates the xll using the Add-In Manager. 
 // This function is *not* called when an Excel session closes.
-extern "C"
-int __declspec(dllexport) WINAPI
+extern "C" int __declspec(dllexport) WINAPI
 xlAutoRemove(void)
 {
 	try {
@@ -123,9 +119,8 @@ xlAutoRemove(void)
 	return TRUE;
 }
 
-// Called just after a worksheet function returns an XLOPER/XLOPER12 with xltype&xlbitDLLFree set.
-extern "C"
-void __declspec(dllexport) WINAPI
+// Called just after a worksheet function returns an XLOPER with xltype&xlbitDLLFree set.
+extern "C" void __declspec(dllexport) WINAPI
 xlAutoFree(LPXLOPER px)
 {
 	try {
@@ -145,8 +140,8 @@ xlAutoFree(LPXLOPER px)
 		XLL_ERROR("Unknown exception in xlAutoFree");
 	}
 }
-extern "C"
-void __declspec(dllexport) WINAPI
+// Called just after a worksheet function returns an XLOPER12 with xltype&xlbitDLLFree set.
+extern "C" void __declspec(dllexport) WINAPI
 xlAutoFree12(LPXLOPER12 px)
 {
 	try {
@@ -168,48 +163,48 @@ xlAutoFree12(LPXLOPER12 px)
 }
 
 // Look up name and register.
-extern "C"
-LPXLOPER __declspec(dllexport) WINAPI
+extern "C" LPXLOPER __declspec(dllexport) WINAPI
 xlAutoRegister(LPXLOPER pxName)
 {
 	static XLOPER o;
 
 	try {
+		// returns an xltypeNum or xltypeErr
 		o = *xll::AddIn4::Map[*pxName].Register();
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
+		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 	}
 	catch (...) {
 		XLL_ERROR("Unknown exception in xlAutoRegister");
 
-		o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
+		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 	}
 
 	return &o;
 }
 
 // Look up name and register.
-extern "C"
-LPXLOPER12 __declspec(dllexport) WINAPI 
+extern "C" LPXLOPER12 __declspec(dllexport) WINAPI 
 xlAutoRegister12(LPXLOPER12 pxName)
 {
 	static XLOPER12 o;
 	
 	try {
+		// returns an xltypeNum or xltypeErr
 		o = *xll::AddIn12::Map[*pxName].Register();
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
+		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 	}
 	catch (...) {
 		XLL_ERROR("Unknown exception in xlAutoRegister12");
 
-		o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
+		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 	}
 
 	return &o;
@@ -218,7 +213,7 @@ xlAutoRegister12(LPXLOPER12 pxName)
 
 // Called by Microsoft Excel when the Add-in Manager is invoked for the first time.
 // This function is used to provide the Add-In Manager with information about your add-in.
-LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
+extern "C" LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
 {
 	static XLOPER12 o;
 
@@ -233,18 +228,18 @@ LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
 			o.val.str = (XCHAR*)L"\06Add-In"; // use xlGetName!!!
 		}
 		else {
-			o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
+			o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 		}
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
+		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 	}
 	catch (...) {
 		XLL_ERROR("Unknown exception in xlAddInManagerInfo12");
 
-		o = { .val = { .err = xlerrValue }, .xltype = xltypeErr };
+		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
 	}
 
 	return &o;

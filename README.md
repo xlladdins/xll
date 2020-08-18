@@ -29,6 +29,7 @@ You will need to add a git submodule for `xll` because Visual Studio doesn't kno
 Run `Tools ► Command Line ► Developer Command Prompt`
 from the Visual Studio menu and type
 
+> git init
 > git submodule add https://github.com/xlladdins/xll.git
 
 Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
