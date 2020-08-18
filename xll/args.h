@@ -141,10 +141,24 @@ namespace xll {
 		X* Register()
 		{
 			int count = 10 + static_cast<int>(argumentHelp.size());
-			std::vector<X*> oper(count);
+			std::vector<X*> oper(count + 1);
 
 			if (moduleText == XOPER<X>{}) {
 				moduleText = XExcel<X>(xlGetName);
+			}
+
+			// C++ mangled name must start with '?'
+			ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
+			if (procedure.val.str[1] != '?' && procedure.val.str[1] != '_') {
+				procedure = XOPER<X>("?") & procedure;
+			}
+
+			// Help URLs must end with "!0"
+			if (helpTopic.xltype == xltypeStr) {
+				XOPER xFind = XExcel<X>(xlfFind, XOPER<X>("!"), helpTopic);
+				if (xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
+					helpTopic &= XOPER<X>("!0");
+				}
 			}
 
 			oper[0] = &moduleText;
@@ -160,8 +174,11 @@ namespace xll {
 			for (size_t i = 0; i < argumentHelp.size(); ++i) {
 				oper[10 + i] = &argumentHelp[i];
 			}
+			// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#argument-description-string-truncation-in-the-function-wizard
+			XOPER<X> xEmpty("");
+			oper[count] = &xEmpty;
 
-			int ret = traits<X>::Excelv(xlfRegister, &registerId, count, &oper[0]);
+			int ret = traits<X>::Excelv(xlfRegister, &registerId, count + 1, &oper[0]);
 			if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
 				XOPER<X> xMsg("Failed to register: ");
 				XExcel<X>(xlcAlert, xMsg & functionText, XOPER<X>(2));

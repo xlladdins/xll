@@ -1,5 +1,6 @@
 // auto.cpp - Implement well known Excel interfaces.
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
+// https://docs.microsoft.com/en-us/office/client-developer/excel/creating-xlls
 #include "xll.h"
 
 // Called by Excel when the xll is opened.
