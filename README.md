@@ -17,7 +17,7 @@ It also provides high performance access to [numeric arrays](#the-fp-data-type) 
   Use the Community Edition and install the `Desktop development with C++` workload.
 
 [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)  
-  Install the 64-bit version of Office 365 for the best experience.
+  Install the 64-bit version of ~~Office~~ Microsoft 365 for the best experience.
 
 ## Get Started
 
