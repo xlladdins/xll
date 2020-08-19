@@ -4,8 +4,7 @@
 #include "../xll/utf8.h"
 
 using std::unique_ptr;
-using utf8::mbstowcs;
-using utf8::wcstombs;
+using namespace utf8;
 
 int test_utf8 = []() {
 	{
@@ -18,6 +17,7 @@ int test_utf8 = []() {
 		unique_ptr<wchar_t> ws(mbstowcs(s));
 		assert(ws.get()[0] == 3);
 		assert(0 == wcsncmp(ws.get() + 1, L"abc", 3));
+		assert(mbstowstring(s) == L"abc");
 	}
 	/*
 	{
@@ -40,6 +40,7 @@ int test_utf8 = []() {
 		assert(3 == s[0]);
 		assert(0 == strncmp(s + 1, "哈", 3));
 		free(s);
+		assert(wcstostring(ws) == "哈");
 	}
 
 	return 0;
