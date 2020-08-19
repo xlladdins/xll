@@ -1,23 +1,20 @@
 <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
-  <TemplateData>
-    <Name>XLL Project</Name>
-
-    <Description>Create high performance xll add-ins for Excel</Description>
-    <ProjectType>VC</ProjectType>
-    <LocationField>Enabled</LocationField>
-    <SortOrder>1000</SortOrder>
-    <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>xllproject</DefaultName>
-    <ProvideDefaultName>true</ProvideDefaultName>
-    <Icon>__TemplateIcon.ico</Icon>
-    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
-	<ProjectType>VC</ProjectType>
-  </TemplateData>
-  <TemplateContent>
-    <Project TargetFileName="$projectname$.vcxproj" File="xllproject.vcxproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="false" TargetFileName="$projectname$.vcxproj.filters">xllproject.vcxproj.filters</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.cpp">xllproject.cpp</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="setup.bat">setup.bat</ProjectItem>
-    </Project>
-  </TemplateContent>
+	<TemplateData>
+		<Name>xllproject</Name>
+		<LocationField>Enabled</LocationField>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>xllproject</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<Icon>__TemplateIcon.ico</Icon>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<ProjectType>VC</ProjectType>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="$projectname$.vcxproj" File="xllproject.vcxproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="false" TargetFileName="$projectname$.vcxproj.filters">xllproject.vcxproj.filters</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.cpp">xllproject.cpp</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="setup.bat">setup.bat</ProjectItem>
+		</Project>
+	</TemplateContent>
 </VSTemplate>
