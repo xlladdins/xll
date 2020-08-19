@@ -38,9 +38,10 @@ Copy the debugger setup from `xll\test`.
 
 > copy xll\test\test.vcxproj.user %projectname%.vcxproj.user
 
-Where `%projectname% is the name of the project you created.
+Where `%projectname%` is the name of the project you created.
 These steps can be perfomed by running the `setup.bat` in your project folder.
-Type `type setup.bat` from the command prompt to see what will be executed.
+Type `type setup.bat` from the command prompt to see what will be executed
+and `.\setup.bat` to run them.
 
 In Solution Explorer right click on the Solution and add `xll.vcxproj` from the `xll` subfolder
 of your project folder using Add ► Existing Project...
