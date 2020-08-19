@@ -31,12 +31,24 @@ Run `Tools ► Command Line ► Developer Command Prompt`
 from the Visual Studio menu and add a [submodule](https://github.blog/2016-02-01-working-with-submodules/).
 
 > git init
+
 > git submodule add https://github.com/xlladdins/xll.git
 
-In Solution Explorer right click on the Solution and `xll.vcxproj` using Add ► Existing Project...
-At this point you can compile and run the add-in
+Copy the debugger setup from `xll\test`.
+
+> copy xll\test\test.vcxproj.user %projectname%.vcxproj.user
+
+Where `%projectname% is the name of the project you created.
+These steps can be perfomed by running the `setup.bat` in your project folder.
+Type `type setup.bat` from the command prompt to see what will be executed.
+
+In Solution Explorer right click on the Solution and add `xll.vcxproj` from the `xll` subfolder
+of your project folder using Add ► Existing Project...
+At this point you can compile and run the add-in[1]
 using `Debug ► Start Debugging` (`F5`). This compiles the dll, (with
 file extension `.xll`), and starts Excel with the add-in loaded.
+
+[1] You may have to restart Visual Studio to have it recognize the `.user` file.
 
 The program that the debugger starts and the arguments to use are specified in _project properties_.
 Right click on a project and select `Properties` (`Alt-Enter`) at the bottom of the popup menu.
