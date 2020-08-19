@@ -3,12 +3,12 @@
 #include <cstdlib>
 #include <cstring>
 #include <cwchar>
+#include <string>
 #include <Windows.h>
 #include "ensure.h"
 
 namespace utf8 {
-	// Multi-byte character string to wide character string allocated by malloc.
-	// If n < 0 return count in first character.
+	// Multi-byte character string to counted wide character string allocated by malloc.
 	inline wchar_t* mbstowcs(const char* s, size_t n = 0)
 	{
 		wchar_t* ws = nullptr;
@@ -19,21 +19,29 @@ namespace utf8 {
 
 		int wn = 0;
 		if (n != 0) {
-			wn = MultiByteToWideChar(CP_ACP, 0, s, (int)n, nullptr, 0);
-			ensure(wn != 0);
+			ensure (0 != (wn = MultiByteToWideChar(CP_ACP, 0, s, (int)n, nullptr, 0)));
 		}
 
 		ws = (wchar_t*)malloc((wn + 1) * sizeof(wchar_t));
 		if (nullptr != ws) {
 			ensure(wn == MultiByteToWideChar(CP_ACP, 0, s, (int)n, ws + 1, wn));
-			// ??? NormalizeString()
 			ensure(wn <= WCHAR_MAX);
 			ws[0] = static_cast<wchar_t>(wn);
 		}
 
 		return ws;
 	}
-	// Wide character string to Multi-byte character string allocated by malloc
+	inline std::wstring mbstowstring(const char* s, size_t n = 0)
+	{
+		wchar_t* pws = mbstowcs(s, n);
+		ensure(pws);
+		std::wstring ws(pws + 1, pws[0]);
+		free(pws);
+
+		return ws;
+	}
+
+	// Wide character string to counted multi-byte character string allocated by malloc
 	inline char* wcstombs(const wchar_t* ws, size_t wn = 0)
 	{
 		char* s = nullptr;
@@ -44,17 +52,25 @@ namespace utf8 {
 
 		int n = 0;
 		if (wn != 0) {
-			n = WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, NULL, 0, NULL, NULL);
-			//ensure(n !== (size_t)-1));
+			ensure (0 != (n = WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, NULL, 0, NULL, NULL)));
 		}
 
 		s = (char*)malloc(n + 1);
 		if (nullptr != s) {
-			int n_;
-			n_ = WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, s + 1, n, NULL, NULL);
+			ensure (n == WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, s + 1, n, NULL, NULL));
+			// ???NormalizeString
 			ensure(n <= UCHAR_MAX);
 			s[0] = static_cast<char>(n);
 		}
+
+		return s;
+	}
+	inline std::string wcstostring(const wchar_t* ws, size_t wn = 0)
+	{
+		char* ps = wcstombs(ws, wn);
+		ensure(ps);
+		std::string s(ps + 1, ps[0]);
+		free(ps);
 
 		return s;
 	}

@@ -26,7 +26,7 @@ int WINAPI xll_macro(void)
 			Excel(xlfReftext, Excel(xlfActiveCell), OPER(true))
 		),
 		OPER(2), // general information
-		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
+		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md")
 		// Optional help file link. Note the '!0' appended to the URL.
 	);
 	
