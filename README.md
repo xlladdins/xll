@@ -22,18 +22,19 @@ It also provides high performance access to [numeric arrays](#the-fp-data-type) 
 ## Get Started
 
 Run the [installer](https://github.com/xlladdins/xll/xll.msi). 
-This places the xll project template in your `Documents\Visual Studio 2019` folder and include visualizers for debugging.
+This places the xll project template in your `Documents\Visual Studio 2019` folder 
+and include visualizers for debugging.
 
 Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and select `XLL Project`. 
 You will need to add a git submodule for `xll` because Visual Studio doesn't know about submodules.
 Run `Tools ► Command Line ► Developer Command Prompt`
-from the Visual Studio menu and type
+from the Visual Studio menu and add a [submodule](https://github.blog/2016-02-01-working-with-submodules/).
 
 > git init
 > git submodule add https://github.com/xlladdins/xll.git
 
-Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and
-select `XLL Project`. At this point you can compile and run the add-in
+In Solution Explorer right click on the Solution and `xll.vcxproj` using Add ► Existing Project...
+At this point you can compile and run the add-in
 using `Debug ► Start Debugging` (`F5`). This compiles the dll, (with
 file extension `.xll`), and starts Excel with the add-in loaded.
 

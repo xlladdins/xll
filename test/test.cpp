@@ -26,7 +26,7 @@ int WINAPI xll_macro(void)
 			Excel(xlfReftext, Excel(xlfActiveCell), OPER(true))
 		),
 		OPER(2), // general information
-		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md")
+		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
 		// Optional help file link. Note the '!0' appended to the URL.
 	);
 	
@@ -63,11 +63,15 @@ double WINAPI xll_jn(LONG n, double x)
 	// This results in #NUM! if returned to Excel.
 	double result = std::numeric_limits<double>::quiet_NaN();
 
+	// Catch exeptions.
 	try {
 		result = _jn(n, x);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
+	}
+	catch (...) {
+		XLL_ERROR("Unknown exception thrown in: " __FUNCTION__);
 	}
 
 	return result;
