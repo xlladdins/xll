@@ -384,8 +384,8 @@ a collection of bits, it is just a matter of how to interpret them.
 The Windows 10 operating system comes in two flavors: 32-bit and 64-bit. The
 [abstract data model](https://docs.microsoft.com/en-us/windows/win32/winprog64/abstract-data-models),
 how the bits are interpreted, are nearly the same: all basic data types are 32-bit, only the pointer types differ. 
-You may have difficulty locating a 32-bit version of Window 10, which
-is good. All new developent is happening in the 
+You may have difficulty locating a 32-bit version of Window 10, which is good. 
+All new developent is happening in the 
 [64-bit world](https://support.microsoft.com/en-us/help/15056/windows-32-64-bit-faq)
 so you should prefer that. 
 
@@ -412,7 +412,8 @@ error if that would clobber existing cells.
 
 Xll add-ins are not supported on Macs or the web based version. You can write 
 [custom functions](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-overview)
-using [JavaScript](https://www.javascript.com/) (or, even better, [TypeScript](https://www.typescriptlang.org/)) for Office on Windows, Mac, and online versions.  
+using [JavaScript](https://www.javascript.com/) 
+(or, even better, [TypeScript](https://www.typescriptlang.org/)) for Office on Windows, Mac, and online versions.  
 
 ### Memory Leaks
 
