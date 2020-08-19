@@ -16,9 +16,9 @@ namespace xll {
 		cstr type;
 		cstr name;
 		cstr help;
-		//cstr init;
-		Arg(cstr type, cstr name, cstr help)
-			: type(type), name(name), help(help)
+		cstr init;
+		Arg(cstr type, cstr name, cstr help, cstr init = nullptr)
+			: type(type), name(name), help(help), init(init)
 		{
 			/*
 			if (!xll_arg_types.contains(type)) {
@@ -43,6 +43,7 @@ namespace xll {
 		XOPER<X> helpTopic;    // filepath!HelpContextID or http://host/path!0
 		XOPER<X> functionHelp; // for function wizard
 		std::vector<XOPER<X>> argumentHelp;
+		std::vector<XOPER<X>> argumentDefault;
 		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
 
 		using cstr = const char*;
@@ -76,6 +77,7 @@ namespace xll {
 				}
 				argumentText &= arg.name;
 				argumentHelp.push_back(XOPER<X>(arg.help));
+				argumentDefault.push_back(XOPER<X>(arg.init));
 			}
 			
 			return *this;

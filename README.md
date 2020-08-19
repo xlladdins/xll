@@ -428,13 +428,14 @@ from the memory debugging routines. Those will tell you the values to set for `_
 so the next time you run the add-in the debugger will stop where the bad allocation was detected.
 Use the call stack to zero in on the offending allocation.
 
-The cool kids use [AddressSanitizer](https://devblogs.microsoft.com/cppblog/addresssanitizer-asan-for-windows-with-msvc/)
+The cool kids use 
+[AddressSanitizer](https://devblogs.microsoft.com/cppblog/addresssanitizer-asan-for-windows-with-msvc/)
 these days. 
 
 ### Uncalced
 
 Functions that are declared `.Uncalced()` have a limited ability to call command equivalents/macros.
-You must use this when writing an add-in that creates a handle.
+You specify this when writing an add-in that creates a handle.
 In general, add-in functions cannot have side-effects. 
 They can only call Excel with function numbers starting with `xlf` (__f__&zwnj;​unctions) and are 
 forbidden to call Excel with function numbers starting with `xlc` (__c__&zwnj;​ommand equivalents,
@@ -442,21 +443,18 @@ also known as ma&zwnj;__c__&zwnj;ros).
 
 ### Volatile
 
-Functions that are declared `.Volatile()` are called on every recalculation. For example,
-the built-in `RAND()` function is volatile. It is always recalculated even though it has no dependencies.
+Functions that are declared `.Volatile()` are called on every recalculation. 
+For example, the built-in `RAND()` function is volatile. 
+It is always recalculated even though it has no dependencies.
 
 ### [Recalculation](https://docs.microsoft.com/en-us/office/client-developer/excel/excel-recalculation)
 
 In Excel `F9` (`xlcCalculateNow`) recalculates all 'dirty' cells. 
 Use `Shift-F9` (`xlcCalculateDocument`) to recalculate only the dirty cells in the active worksheet.
-There is no command equivalent in the C API for `Ctrl-Alt-F9`. Use this when you want
-Excel to recalculate everything, no kidding, I really mean it, just do it because `F9`
-is too damn lazy.
+There is no command equivalent in the C API for `Ctrl-Alt-F9`. 
+Use this when you want Excel to recalculate everything. 
 
-You should be aware of the 'replace equal by equal' idiom. The key sequence is
-`Ctrl-H, =, <tab>, =, a`. This replaces all occurences of the `=` character in every formula by `=`
+You should be aware of the 'replace equal by equal' idiom. 
+The key sequence is `Ctrl-H, =, <tab>, =, a`. 
+This replaces all occurences of the `=` character in every formula by `=`
 and causes every formula to be recalculated without changing the formula.
-
-My quest in life is to convince everyone to run Excel in automatic recalc mode. Manual
-recalc is only for people with slow spreadsheets. The xll library can make your spreadsheets
-_fast_.
