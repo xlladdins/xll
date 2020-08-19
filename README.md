@@ -30,13 +30,13 @@ You will need to add a git submodule for `xll` because Visual Studio doesn't kno
 Run `Tools ► Command Line ► Developer Command Prompt`
 from the Visual Studio menu and add a [submodule](https://github.blog/2016-02-01-working-with-submodules/).
 
-> git init
+> `git init`
 
-> git submodule add https://github.com/xlladdins/xll.git
+> `git submodule add https://github.com/xlladdins/xll.git`
 
 Copy the debugger setup from `xll\test`.
 
-> copy xll\test\test.vcxproj.user %projectname%.vcxproj.user
+> `copy xll\test\test.vcxproj.user %projectname%.vcxproj.user`
 
 Where `%projectname%` is the name of the project you created.
 These steps can be perfomed by running the `setup.bat` in your project folder.
