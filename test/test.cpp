@@ -151,5 +151,5 @@ HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
 	// if pCall->xltype == xltypeMissing use active cell
 	OPER xFormula = Excel(xlfGetFormula, *pCell); // formula references are R1C1
 
-	return 0;
+	return HANDLEX{};
 }

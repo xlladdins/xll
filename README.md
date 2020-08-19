@@ -93,13 +93,13 @@ can get you up to speed with it.
 using namespace xll;
 
 AddIn xai_tgamma(
-    Function(XLL_DOUBLE, "?xll_tgamma", "TGAMMA")
+    Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
     .Args({
         Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
     })
     .FunctionHelp("Return the Gamma function value.")
     .Category("CMATH")
-    .HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal!0")
+    .HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal")
 );
 double WINAPI xll_tgamma(double x)
 {
@@ -123,22 +123,23 @@ the built-in Excel functon
 
 <img src="images/gamma.png" width="450" height="250">
 
-All functions called from Excel must be declared with `WINAPI` which is defined to be 
+_All functions called from Excel must be declared with_ `WINAPI` which is defined to be 
 [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 This is an artifact of the original versions of Excel being written in Pascal.
 The line `#pragma XLLEXPORT` causes the function to be exported
 from the dll so it will be visible to Excel. 
 No need for old-fashioned `.DEF` files.
 
-The function `xll_tgamma` calls the `tgamma` function declared in 
-the `<cmath>` library. 
-Recall the Gamma function is 
-<math>&Gamma;(x) = &int;<sub>0</sub><sup>&infin;</sup> 
-t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</math>, <math>x > 0</math>. 
-It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math>
-for <math>x > 0</math>. Since <math>&Gamma;(1) = 1</math> we have
-<math>&Gamma;(x + 1) = x!</math>
-if <math>x</math> is a non-negative integer.
+The function `xll_tgamma` calls the `tgamma` function declared in the `<cmath>` library. 
+Recall the Gamma function is <math>&Gamma;(x) 
+= &int;<sub>0</sub><sup>&infin;</sup> t<sup>x - 1</sup> e<sup>-t</sup>&nbsp;dt</math>,
+<math>x > 0</math>. 
+It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math> for <math>x > 0</math>. 
+Since <math>&Gamma;(1) = 1</math> we have <math>&Gamma;(x + 1) = x!</math> if <math>x</math> is a non-negative integer.
+For applications you may want to use the 
+[lgamma](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/lgamma-lgammaf-lgammal?view=vs-2019)
+function that returns the natual logarithm of <math>&Gamma;</math>. For <math>x &ge; 171.62</math>
+`&Gamma;(x)` is greater than the largest IEEE 64-bit double value. 
 
 To register a new add-in _macro_ call `AddIn` with a `Macro` argument. It takes
 two string arguments: the name of the C/C++ function to be called and the name for Excel to use.
@@ -146,10 +147,13 @@ The function returns an `int` that is non-zero if it succeeds or zero if it fail
 Don't forget `#pragma XLLEXPORT' in the function body so Excel can load it.
 
 The name of the `AddIn` object is arbitrary. I use the `xai_` prefix for all
-E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. Since it is a global object it will be [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
-when the xll is loaded. The constructor simply stores
-the infomation for use when Excel calls 
-[`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).  The xll library 
+E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. 
+Since it is a global object it will be 
+[constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
+when the xll is loaded. 
+The constructor simply stores the infomation for use when Excel calls 
+[`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).  
+The xll library 
 [implements](https://github.com/xlladdins/xll/blob/master/xll/auto.cpp#L8)
 this for you.
 
@@ -222,38 +226,38 @@ a copy of the data from a `XLOPERX`.
 
 It is permissable to have multis that contain other multis and can be nested to any depth. 
 Multis having two columns with the first column containg strings are quite similar to 
-[JSON objects](http://www.json.org/json-en.html). You can use the Excel
-built-in function 
-[`DGET`](https://support.microsoft.com/en-us/office/dget-function-455568bf-4eef-45f7-90f0-ec250d00892e) to access values
-via `DGET(multi, 2, key)` to obtain the value (in columns 2) of the `multi` corresponding
+[JSON objects](http://www.json.org/json-en.html). 
+You can use the Excel built-in function 
+[`DGET`](https://support.microsoft.com/en-us/office/dget-function-455568bf-4eef-45f7-90f0-ec250d00892e) 
+to access values via `DGET(multi, 2, key)` to obtain the value (in columns 2) of the `multi` corresponding
 to `key`.
 
 The default constructer of `OPER` creates an object of type `xltypeNil`. 
-Do not confuse this with the `"#NULL!"` error type that indicates an empty intersection of two ranges. The `OPER`
-`Nil` is predefined. Use `Nil4` for the
-`XLOPER` version and `Nil12` for a `XLOPER12`.
+Do not confuse this with the `"#NULL!"` error type that indicates an empty intersection of two ranges. 
+The `OPER` `Nil` is predefined. 
+Use `Nil4` for the `XLOPER` version and `Nil12` for a `XLOPER12`.
 
 All standard error types are predefined with names corresponding to the error. 
-For example, `ErrNull` is
-the `OPER` with `xltype = xltypeErr` and `val.err == xltypeNull`. Both
-`ErrNull4` and `ErrNull12` are also predefined.
+For example, `ErrNull` is the `OPER` with `xltype = xltypeErr` and `val.err == xltypeNull`. 
+Both `ErrNull4` and `ErrNull12` are also predefined.
 
 The missing type is used only for function arguments. 
-It indicates no argument was provided by the calling Excel function. This is predefined as `Missing`,
-`Missing4` and `Missing12`.
+It indicates no argument was provided by the calling Excel function. 
+This is predefined as `Missing`,`Missing4` and `Missing12`.
 It is an error to return this type from a function. 
 
 ### The FP Data Type
 
-The [`xll::FP`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) data type is a two dimensional 
-array of floating point numbers. 
-It is the fastest way of interacting with numerical data in Excel. All other APIs
-require the data to be copied out of Excel then back again. 
+The [`xll::FP`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) 
+data type is a two dimensional array of floating point numbers. 
+It is the fastest way of interacting with numerical data in Excel. 
+All other APIs require the data to be copied out of Excel then back again. 
 See [potrf.cpp](https://github.com/keithalewis/xlllapack/blob/master/potrf.cpp)
-for an example of how to use this. It calls the FORTRAN function `DPOTRF` from
-the [LAPACK](http://performance.netlib.org/lapack/) library to perform a Cholesky decomposition.
-(Yes, you can easily call FORTRAN from C). A 1000 x 1000 matrix takes about 0.3 seconds on
-my old Surface Pro 4 laptop.
+for an example of how to use this. 
+It calls the FORTRAN function `DPOTRF` from the 
+[LAPACK](http://performance.netlib.org/lapack/) 
+library to perform a Cholesky decomposition.(Yes, you can easily call FORTRAN from C). 
+A 1000 x 1000 matrix takes about 0.3 seconds on my old Surface Pro 4 laptop.
 
 There are structs defined in [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
 for versions of Excel prior to 2007 as [`struct _FP`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L96)
@@ -286,17 +290,15 @@ both `const` and non-const iterators over array elements.
 Handles are used to embed C++ objects in Excel. 
 Call `xll::handle<T> h(new T(...))`
 to create a handle to an object of type `T` from any constructor.
-If the cell a function is being called from contains a handle from
-a previous call
+If the cell a function is being called from contains a handle from a previous call
 then `delete` is called on the corresponding C++ object.
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
-the handle to be returned to Excel. This has type `HANDLEX` and
-is specified in add-in arguments as `XLL_HANDLEX`.
+the handle to be returned to Excel. 
+This has type `HANDLEX` and is specified in add-in arguments as `XLL_HANDLEX`.
 
 To access a handle use `xll::handle<T> h(handle);`.
-This converts  `HANDLEX handle` to a pointer and ensures it
-was previously created as described above.
+This converts  `HANDLEX handle` to a pointer and ensures it was previously created as described above.
 If the handle is not found the pointer is set to `nullptr`.
 
 The `xll::handle` class has a member function `operator->()` so
@@ -346,21 +348,30 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
     return &h->get();
 }
 ```
-For a production quality version of this example see [handle.cpp](test/handle.cpp).
-That file also has examples illustrating how single inheritance can be used in Excel.
+For a production quality version of this example see 
+[handle.cpp](https://github.com/xlladdins/xll/blob/master/test/handle.cpp).
+That file also illustrates how single inheritance can be used in Excel.
 
-When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. The old handles that were previously saved are stale.
+When a spreadsheet containing handles is reopened _you must 'refresh' the handles_ using `Ctrl-Alt-F9`. 
+The old handles that were previously saved are stale.
 
-## [Excel 4 Macro Functions](docs/Excel4Macros/README.md)
+## [Excel 4 Macro Functions](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md)
 
-Any Excel function can be called with `Excel` by using _function numbers_. The
-function numbers are defined in `XLCALL.H` and correspond to Excel built-in
-functions or macros (command equivalents).
+Add-ins can call any Excel function using `xll::Excel` and the appropriate _function number_. 
+The function numbers are defined in 
+[`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H) 
+and correspond to Excel built-in functions or macros (command equivalents).
+To determine the approriate arguments for a function number see the
+[Excel 4 Macro documentaton](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md)
+
 Function numbers starting with `xlf` are __f__&zwnj;unctions and can only be called from add-in functions.
 Function numbers starting with `xlc` are ma&zwnj;__c__&zwnj;ros and can only be called from add-in macros.
+The following characters, converted to uppercase, are the names used in the documentation.
+
 [Some](https://docs.microsoft.com/en-us/office/client-developer/excel/c-api-functions-that-can-be-called-only-from-a-dll-or-xll)
-function numbers are special to the C API. For example, [`xlUDF`](https://docs.microsoft.com/en-us/office/client-developer/excel/xludf)
-can be used to call VBA user-defined functions.
+function numbers are special to the C API. 
+For example, [`xlUDF`](https://docs.microsoft.com/en-us/office/client-developer/excel/xludf)
+can be used to call User-Defined Functions.
 
 ## Remarks
 
