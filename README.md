@@ -258,7 +258,7 @@ See [potrf.cpp](https://github.com/keithalewis/xlllapack/blob/master/potrf.cpp)
 for an example of how to use this. 
 It calls the FORTRAN function `DPOTRF` from the 
 [LAPACK](http://performance.netlib.org/lapack/) 
-library to perform a Cholesky decomposition.(Yes, you can easily call FORTRAN from C). 
+library to perform a Cholesky decomposition.(Yes, you can easily call FORTRAN, and C of course, from C++). 
 A 1000 x 1000 matrix takes about 0.3 seconds on my old Surface Pro 4 laptop.
 
 There are structs defined in [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
@@ -275,7 +275,7 @@ Since `FPX` does **not** inherit from the native `_FPX` structs you must use
 the `FPX::get()` member function to get a pointer to the underlying struct.
 This is used to return arrays to Excel where the return type is
 `XLL_FP`. Since you are returning a pointer you must make sure the memory
-at which it points continues to exist after the function exits. Typically
+at which it points continues to exist after the function returns. Typically
 this is done by declaring a `static FPX` in the function body.
 
 Use `xll::FPX a(2,3)` to create a 2 by 3 array of doubles and `a(1,0)` to access
