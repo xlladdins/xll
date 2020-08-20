@@ -139,12 +139,12 @@ Since <math>&Gamma;(1) = 1</math> we have <math>&Gamma;(x + 1) = x!</math> if <m
 For applications you may want to use the 
 [lgamma](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/lgamma-lgammaf-lgammal?view=vs-2019)
 function that returns the natual logarithm of <math>&Gamma;</math>. For <math>x &ge; 171.62</math>
-`&Gamma;(x)` is greater than the largest IEEE 64-bit double value. 
+<math>&Gamma;(x)</math> is greater than the largest IEEE 64-bit double value. 
 
 To register a new add-in _macro_ call `AddIn` with a `Macro` argument. It takes
 two string arguments: the name of the C/C++ function to be called and the name for Excel to use.
 The function returns an `int` that is non-zero if it succeeds or zero if it fails.
-Don't forget `#pragma XLLEXPORT' in the function body so Excel can load it.
+Don't forget `#pragma XLLEXPORT` in the function body so Excel can load it.
 
 The name of the `AddIn` object is arbitrary. I use the `xai_` prefix for all
 E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. 
@@ -152,7 +152,7 @@ Since it is a global object it will be
 [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
 when the xll is loaded. 
 The constructor simply stores the infomation for use when Excel calls 
-[`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).  
+[`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).
 The xll library 
 [implements](https://github.com/xlladdins/xll/blob/master/xll/auto.cpp#L8)
 this for you.
@@ -364,9 +364,11 @@ and correspond to Excel built-in functions or macros (command equivalents).
 To determine the approriate arguments for a function number see the
 [Excel 4 Macro documentaton](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md)
 
-Function numbers starting with `xlf` are __f__&zwnj;unctions and can only be called from add-in functions.
+Function numbers starting with `xlf` are __f__&zwnj;unctions and can be called from add-in functions.
 Function numbers starting with `xlc` are ma&zwnj;__c__&zwnj;ros and can only be called from add-in macros.
-The following characters, converted to uppercase, are the names used in the documentation.
+Functions are not allowed to have side-effects, they must be purely functional. Macros can only
+have side-effects, they take no arguments and return `TRUE` if they run successfully and
+`FALSE` if not.
 
 [Some](https://docs.microsoft.com/en-us/office/client-developer/excel/c-api-functions-that-can-be-called-only-from-a-dll-or-xll)
 function numbers are special to the C API. 

@@ -242,7 +242,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:xll"
         "ProductCode" = "8:{A9C6F45D-5E06-4CD7-BE93-D7BA6A758819}"
-        "PackageCode" = "8:{9E67709D-0FE6-4118-8378-2554462BF9D2}"
+        "PackageCode" = "8:{9E234828-84C8-4555-9AAE-77C458ABBCFD}"
         "UpgradeCode" = "8:{EAE0AC48-376E-43A1-B1AB-75CA8D27E333}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -265,7 +265,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:powershell.exe compress-archive -Force -Path \"xllproject\\*\" -DestinationPath \"xllproject.zip\""
-        "PostBuildEvent" = "8:"
+        "PostBuildEvent" = "8:\"C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.18362.0\\x86\\signtool.exe\" sign /tr http://timestamp.comodoca.com/authenticode /fd sha256 /td sha256 /as /v /f ..\\..\\KALX.p12 /p K1mos@be $(BuiltOuputPath)"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"

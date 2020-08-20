@@ -139,6 +139,12 @@ namespace xll {
 			return XExcel<X>(xlfEvaluate, functionText);
 		}
 
+		// Default value for argument.
+		const X& ArgumentDefault(size_t i) const
+		{
+			return argumentDefault[i];
+		}
+
 		// Register add-in with Excel
 		X* Register()
 		{
