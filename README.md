@@ -140,15 +140,40 @@ It satisfies <math>&Gamma;(x + 1) = x &Gamma;(x)</math> for <math>x > 0</math>.
 Since <math>&Gamma;(1) = 1</math> we have <math>&Gamma;(x + 1) = x!</math> if <math>x</math> is a non-negative integer.
 For applications you may want to use the 
 [lgamma](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/lgamma-lgammaf-lgammal?view=vs-2019)
-function that returns the natual logarithm of <math>&Gamma;</math>. For <math>x &ge; 171.62</math>
+function that returns the natual logarithm of <math>&Gamma;</math>. For <math>x &ge; 171.62</math>,
 <math>&Gamma;(x)</math> is greater than the largest IEEE 64-bit double value. 
 
 To register a new add-in _macro_ call `AddIn` with a `Macro` argument. It takes
 two string arguments: the name of the C++ function to be called and the name for Excel to use.
-The function returns an `int` that is non-zero if it succeeds or zero if it fails.
-Don't forget `#pragma XLLEXPORT` in the function body so Excel can load it.
+Macro functions take no arguments and return an `int` that is non-zero if it succeeds or zero if it fails.
+Don't forget `WINAPI` in the function definition 
+and `#pragma XLLEXPORT` in the function body so Excel can load it.
 
-The name of the `AddIn` object is arbitrary. I use the `xai_` prefix for all
+```C++
+AddIn xai_macro(Macro("xll_macro", "XLL.MACRO"));
+int WINAPI xll_macro(void)
+{
+#pragma XLLEXPORT
+	Excel(xlcAlert, 
+		Excel(xlfConcatenate,
+			OPER("XLL.MACRO called with active cell: "),
+			Excel(xlfReftext, 
+                Excel(xlfActiveCell), 
+                OPER(true) // A1 style instead of R1C1
+            )
+		),
+		OPER(2), // general information
+		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md")
+	);
+	
+	return TRUE;
+}
+```
+
+The `Help` button in the alert dialog will take you to documentation for the 
+[`ALERT`](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md) macro.
+
+The name of the `AddIn` object is arbitrary. I use `xai_` as a prefix for all
 E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. 
 Since it is a global object it will be 
 [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
@@ -161,13 +186,15 @@ this for you.
 
 ### The `4` and `12` Suffixes
 
-The Excel SDK has two versions of most data types, ones for pre 2007 Excel and ones for 2007 Excel and after.
+The Excel SDK has two versions of most data types, ones for pre 2007 Excel and ones for 2007 Excel and later.
 The new verions allow for large grids and wide character Unicode strings. The new data types
 have names with the suffix `12`. This library makes it possible to
 write add-ins that work with all version of Excel. It uses a technique similar to  the Windows
 [`TCHAR`](https://docs.microsoft.com/en-us/windows/win32/learnwin32/working-with-strings) technique.
-That uses the suffix `A` for char (ANSI) functions and the `W` suffix for wide character (Unicode) functions. When the suffix is omitted the appropriate
-function will be called based on macros set before including `<tchar.h>`.
+That uses the suffix `A` for char (ANSI) functions and the `W` suffix for wide character (Unicode) functions. 
+When the suffix is omitted the appropriate function will be called based on macros set before including `<tchar.h>`.
+The major difference is that the generic functions always take UTF-8 strings.
+The xll library converts these to the appropriate string types for Excel.
 
 The xll library controls this by the macro `XLOPERX`.
 Define it to be 
