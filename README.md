@@ -319,11 +319,11 @@ both `const` and non-const iterators over array elements.
 Handles are used to embed C++ objects in Excel. 
 Call `xll::handle<T> h(new T(...))`
 to create a handle to an object of type `T` from any constructor.
-If the cell a function is being called from contains a handle from a previous call
+If the cell contains a handle from a previous call
 then `delete` is called on the corresponding C++ object.
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
-the handle to be returned to Excel. 
+the handle to return to Excel. 
 This has type `HANDLEX` and is specified in add-in arguments as `XLL_HANDLEX`.
 
 To access a handle use `xll::handle<T> h(handle);`.
@@ -463,6 +463,27 @@ Use the call stack to zero in on the offending allocation.
 The cool kids use 
 [AddressSanitizer](https://devblogs.microsoft.com/cppblog/addresssanitizer-asan-for-windows-with-msvc/)
 these days. 
+
+### Handles
+
+Some add-in libraries use thousands of lines of code to implment 'handle' objects.
+The xll add-in library uses [one hundred](https://github.com/xlladdins/xll/blob/master/xll/handle.h).
+A `HANDLEX` is a `double` that holds the pointer to the underlying C++ object. There is no lookup
+involved when using a handle, it is just a cast to convert `void*` bits to `double` bits.
+The constructor that converts the `double` to the pointer ensures the pointer is valid,
+but this can be turned off if performance is an issue.
+
+You might be worried that the 64-bits in a pointer might not represent a valid `double`.
+On 64-bit Windows 10 the first 16-bits of the pointer are zero. This means we only have to concern
+ourselves with the remaining 48-bits. Doubles can exactly represent integers less than 2<sup>53</sub>
+so we have plenty of room to spare.
+
+It is possible to leak memory using handles. One way is to call a function returning a handle
+then delete the cell containing the handle. Another way is to call a function returning a handle
+as an argument to another function. Don't do that and you won't have leaks. 
+
+If you don't like seeing raw pointer values then roll your own encoder/decoder to display
+whatever suits your fancy.
 
 ### Uncalced
 

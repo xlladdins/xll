@@ -85,15 +85,21 @@ namespace xll {
 
 			ps.emplace(p);
 		}
-		handle(HANDLEX h) noexcept
+		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
 		{
-			std::unique_ptr<T> p_(p);
-			if (ps.find(p_) == ps.end()) {
-				// unknown handle
-				p = nullptr;
+			if (check) {
+				std::unique_ptr<T> p_(p);
+				if (ps.find(p_) == ps.end()) {
+					// unknown handle
+					p = nullptr;
+				}
+				p_.release(); // do not call delete on p!
 			}
-			p_.release(); // do not call delete on p!
+		}
+		~handle()
+		{
+			// do nothing
 		}
 		operator bool() const
 		{
@@ -119,5 +125,7 @@ namespace xll {
 			return p;
 		}
 	};
+
+	// endode/decode???
 
 }
