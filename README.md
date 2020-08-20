@@ -21,7 +21,7 @@ It also provides high performance access to [numeric arrays](#the-fp-data-type) 
 
 ## Get Started
 
-Run the [installer](https://github.com/xlladdins/xll/xll.msi). 
+Run the [installer](https://xladdins.com/xll.msi). 
 This places the xll project template in your `Documents\Visual Studio 2019` folder 
 and include visualizers for debugging.
 
