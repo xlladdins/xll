@@ -1,6 +1,6 @@
 ﻿# xll - a library for creating Excel add-ins
 
-This library makes it simple to call C and C++ functions from Excel.
+This library makes it simple to call C++ functions from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 
@@ -25,7 +25,7 @@ Run the [installer](https://xladdins.com/xll.msi).
 This places the xll project template in your `Documents\Visual Studio 2019` folder 
 and include visualizers for debugging.
 
-Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and select `XLL Project`. 
+Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and select `xllproject`. 
 You will need to add a git submodule for `xll` because Visual Studio doesn't know about submodules.
 Run `Tools ► Command Line ► Developer Command Prompt`
 from the Visual Studio menu and add a [submodule](https://github.blog/2016-02-01-working-with-submodules/).
@@ -51,6 +51,7 @@ file extension `.xll`), and starts Excel with the add-in loaded.
 
 [1] You may have to restart Visual Studio to have it recognize the `.user` file.
 
+<!--
 The program that the debugger starts and the arguments to use are specified in _project properties_.
 Right click on a project and select `Properties` (`Alt-Enter`) at the bottom of the popup menu.
 Navigate to `Debugging` in `Configuration Properties`.
@@ -64,12 +65,13 @@ Excel when the debugger starts. The variable `$(TargetPath)` is the
 full path to the xll that was built and is opened by Excel. 
 The `/p` flag to Excel sets the
 default directory so `Ctrl-O` opens to the project directory.
+-->
 
 ## AddIn
 
-To register a new C/C++ add-in function that can be called from Excel create
+To register a new C++ add-in function that can be called from Excel create
 an `AddIn` object with a `Function` argument that has information Excel needs to register your
-_function_: the return type, the C/C++ function name, the Excel name, and
+_function_: the return type, the C++ function name, the Excel name, and
 a list of _arguments_ with their type, name, and short description.
 You can optionally specify _function help_ for the Function Wizard and
 the _category_ Excel should use.
@@ -142,7 +144,7 @@ function that returns the natual logarithm of <math>&Gamma;</math>. For <math>x 
 <math>&Gamma;(x)</math> is greater than the largest IEEE 64-bit double value. 
 
 To register a new add-in _macro_ call `AddIn` with a `Macro` argument. It takes
-two string arguments: the name of the C/C++ function to be called and the name for Excel to use.
+two string arguments: the name of the C++ function to be called and the name for Excel to use.
 The function returns an `int` that is non-zero if it succeeds or zero if it fails.
 Don't forget `#pragma XLLEXPORT` in the function body so Excel can load it.
 
@@ -184,7 +186,7 @@ The SDK uses `Excel4` (or `Excel4v`) and `Excel12` (or `Excel12v`) to
 from your add-in. We use `AddIn4` and and `AddIn12` to create add-ins for a particular version of Excel if needed.
 You can use `AddIn` and let `XLOPERX` control the version. If you need to know the Excel
 version at runtime call 
-`[XLCallVer]`(https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll#xlcallver).
+[`XLCallVer`](https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll#xlcallver).
 It returns `0x500` (oddly enough) for version 4 and `0x0c00` for version 12 (hexidecimal `C`).
 
 You can get finer grained information by calling the 
