@@ -100,8 +100,6 @@ UTF-8 is the clear winner.
 [Joel](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
 can get you up to speed.
 
-### Function
-
 ```C++
 #include <cmath>
 // Uncomment to build for versions of Excel prior to 2007.
