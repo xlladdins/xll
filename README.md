@@ -170,14 +170,14 @@ AddIn xai_macro(Macro("xll_macro", "XLL.MACRO"));
 int WINAPI xll_macro(void)
 {
 #pragma XLLEXPORT
-	Excel(xlcAlert, 
+    Excel(xlcAlert, 
 		Excel(xlfConcatenate,
-			OPER("XLL.MACRO called with active cell: "),
-			Excel(xlfReftext, 
+            OPER("XLL.MACRO called with active cell: "),
+            Excel(xlfReftext, 
                 Excel(xlfActiveCell), 
                 OPER(true) // A1 style instead of R1C1
             )
-		),
+        ),
 		OPER(2), // general information
 		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md")
 	);
