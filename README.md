@@ -484,7 +484,7 @@ but this can be turned off if performance is an issue.
 
 You might be worried that the 64-bits in a pointer might not represent a valid `double`.
 On 64-bit Windows 10 the first 16-bits of the pointer are zero. This means we only have to concern
-ourselves with the remaining 48-bits. Doubles can exactly represent integers less than 2<sup>53</sub>
+ourselves with the remaining 48-bits. Doubles can exactly represent integers less than 2<sup>53</sup>
 so we have plenty of room to spare.
 
 It is possible to leak memory using handles. One way is to call a function returning a handle
