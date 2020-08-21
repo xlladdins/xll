@@ -69,6 +69,20 @@ default directory so `Ctrl-O` opens to the project directory.
 
 ## AddIn
 
+The `xll::AddIn` class is used register Excel functions and macros.
+`AddIn` objects should be defined at the 
+[global scope](https://docs.microsoft.com/en-us/cpp/cpp/scope-visual-cpp)
+so they will be 
+[constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
+when the xll is loaded. The contructors store information Excel needs when
+[`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen)
+is called. 
+The xll library 
+[implements](https://github.com/xlladdins/xll/blob/master/xll/auto.cpp#L8)
+this for you.
+
+### Function
+
 To register a new C++ add-in function that can be called from Excel create
 an `AddIn` object with a `Function` argument that has information Excel needs to register your
 _function_: the return type, the C++ function name, the Excel name, and
@@ -84,7 +98,9 @@ This library uses [UTF-8](http://www.utf-8.com/) instead of multibyte character 
 The Unicode wars are over, the dust has settled, and
 UTF-8 is the clear winner. 
 [Joel](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
-can get you up to speed with it.
+can get you up to speed.
+
+### Function
 
 ```C++
 #include <cmath>
@@ -143,6 +159,8 @@ For applications you may want to use the
 function that returns the natual logarithm of <math>&Gamma;</math>. For <math>x &ge; 171.62</math>,
 <math>&Gamma;(x)</math> is greater than the largest IEEE 64-bit double value. 
 
+### Macro
+
 To register a new add-in _macro_ call `AddIn` with a `Macro` argument. It takes
 two string arguments: the name of the C++ function to be called and the name for Excel to use.
 Macro functions take no arguments and return an `int` that is non-zero if it succeeds or zero if it fails.
@@ -175,14 +193,7 @@ The `Help` button in the alert dialog will take you to documentation for the
 
 The name of the `AddIn` object is arbitrary. I use `xai_` as a prefix for all
 E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. 
-Since it is a global object it will be 
-[constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
-when the xll is loaded. 
-The constructor simply stores the infomation for use when Excel calls 
-[`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen).
-The xll library 
-[implements](https://github.com/xlladdins/xll/blob/master/xll/auto.cpp#L8)
-this for you.
+
 
 ### The `4` and `12` Suffixes
 
