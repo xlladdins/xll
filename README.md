@@ -270,20 +270,23 @@ both `const` and non-const iterators over array elements.
 ## Handles
 
 Handles are used to embed C++ objects in Excel. 
-Call `xll::handle<T> h(new T(...))`
-to create a handle to an object of type `T` from any constructor.
-If the cell a function is being called from contains a handle from
-a previous call
-then `delete` is called on the corresponding C++ object.
+Call `xll::handle<T>(T*)` using `new` to create an object of type `T`.
+The call `xll::handle<T> h(new T(...))` creates a handle `h` to 
+an object of type `T` using any constructor for `T`.
+If the cell a function is being called from contains a handle returned by
+a previous call, then the correspoding C++ object is `delete`d 
+and the new handle is returned to the cell. If you call a function returning a
+handle be sure it has its own cell for the result to avoid
+[memory leaks](#memory-leaks).
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
-the handle to be returned to Excel. This has type `HANDLEX` and
+the handle to be returned to Excel. The latter has type `HANDLEX` and
 is specified in add-in arguments as `XLL_HANDLEX`.
 
-To access a handle use `xll::handle<T> h(handle);`.
-This converts  `HANDLEX handle` to a pointer and ensures it
-was previously created as described above.
-If the handle is not found the pointer is set to `nullptr`.
+To access a handle that has been created use `xll::handle<T>(HANDLEX);`
+to converts a handle to a pointer. If the pointer was not created by
+a call to `handle<T>(T*)` then it is set to `nullptr` and the value of `h.get()` is the
+double 0.
 
 The `xll::handle` class has a member function `operator->()` so
 `h->member(...)` works as if `h` were a `T*`.
@@ -332,10 +335,13 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
     return &h->get();
 }
 ```
-For a production quality version of this example see [handle.cpp](test/handle.cpp).
-That file also has examples illustrating how single inheritance can be used in Excel.
+For a production quality version of this example see 
+[handle.cpp](https://github.com/xlladdins/xll/blob/master/test/handle.cpp).
+That file also has examples illustrating how single inheritance can be used in Excel
+using `dynamic_cast`.
 
-When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. The old handles that were previously saved are stale.
+When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
+The old handles that were previously saved are stale.
 
 ## [Excel 4 Macro Functions](docs/Excel4Macros/README.md)
 
