@@ -26,7 +26,7 @@ public:
 };
 
 AddIn xai_base(
-	Function(XLL_DOUBLE, "?xll_base", "XLL.BASE")
+	Function(XLL_HANDLEX, "?xll_base", "XLL.BASE")
 	.Args({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
 	})
@@ -44,7 +44,7 @@ HANDLEX WINAPI xll_base(LPOPER px)
 AddIn xai_base_get(
 	Function(XLL_LPOPER, "?xll_base_get", "XLL.BASE.GET")
 	.Args({
-		Arg(XLL_HANDLE, "handle", "is a handle returned by XLL.BASE")
+		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE")
 	})
 	.FunctionHelp("Return the value stored in base.")
 );
@@ -57,9 +57,9 @@ LPOPER WINAPI xll_base_get(HANDLEX _h)
 }
 
 AddIn xai_base_set(
-	Function(XLL_HANDLE, "?xll_base_set", "XLL.BASE.SET")
+	Function(XLL_HANDLEX, "?xll_base_set", "XLL.BASE.SET")
 	.Args({
-		Arg(XLL_HANDLE, "handle", "is a handle returned by XLL.BASE"),
+		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE"),
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
 	})
 	.FunctionHelp("Set the value of base to cell.")
@@ -89,7 +89,7 @@ public:
 };
 
 AddIn xai_derived(
-	Function(XLL_HANDLE, "?xll_derived", "XLL.DERIVED")
+	Function(XLL_HANDLEX, "?xll_derived", "XLL.DERIVED")
 	.Args({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells"),
 		Arg(XLL_LPOPER, "cell2", "is a cell or range of cells")
@@ -110,7 +110,7 @@ HANDLEX WINAPI xll_derived(LPOPER px, LPOPER px2)
 AddIn xai_derived_get(
 	Function(XLL_LPOPER, "?xll_derived_get", "XLL.DERIVED.GET")
 	.Args({
-		Arg(XLL_HANDLE, "handle", "is a handle returned by XLL.DERIVED")
+		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.DERIVED")
 	})
 	.FunctionHelp("Return the second value stored in derived.")
 );

@@ -3,23 +3,25 @@
 // https://docs.microsoft.com/en-us/office/client-developer/excel/creating-xlls
 #include "xll.h"
 
+using namespace xll;
+
 // Called by Excel when the xll is opened.
 extern "C" int __declspec(dllexport) WINAPI
 xlAutoOpen(void)
 {
 	try {
-		if (!xll::Auto<xll::Open>::Call()) {
+		if (!Auto<Open>::Call()) {
 			return FALSE;
 		}
 
-		for (auto& [key, arg] : xll::AddIn4::Map) {
+		for (auto& [key, arg] : AddIn4::Map) {
 			arg.Register();
 		}
-		for (auto& [key, arg] : xll::AddIn12::Map) {
+		for (auto& [key, arg] : AddIn12::Map) {
 			arg.Register();
 		}
 
-		if (!xll::Auto<xll::OpenAfter>::Call()) {
+		if (!Auto<OpenAfter>::Call()) {
 			return FALSE;
 		}
 	}
@@ -42,19 +44,19 @@ extern "C" int __declspec(dllexport) WINAPI
 xlAutoClose(void)
 {
 	try {
-		if (!xll::Auto<xll::CloseBefore>::Call()) {
+		if (!Auto<CloseBefore>::Call()) {
 			return FALSE;
 		}
 
 		// No need to call xlfUnregister, just delete names.
-		for (const auto& [key, args] : xll::AddIn12::Map) {
-			::Excel12(xlfSetName, 0, 1, &key);
+		for (const auto& [key, args] : AddIn12::Map) {
+			Excel12(xlfSetName, key);
 		}
-		for (const auto& [key, args] : xll::AddIn4::Map) {
-			::Excel4(xlfSetName, 0, 1, &key);
+		for (const auto& [key, args] : AddIn4::Map) {
+			Excel4(xlfSetName, key);
 		}
 
-		if (!xll::Auto<xll::Close>::Call()) {
+		if (!Auto<Close>::Call()) {
 			return FALSE;
 		}
 	}
@@ -78,7 +80,7 @@ extern "C" int __declspec(dllexport) WINAPI
 xlAutoAdd(void)
 {
 	try {
-		if (!xll::Auto<xll::Add>::Call()) {
+		if (!Auto<Add>::Call()) {
 			return FALSE;
 		}
 	}
@@ -102,7 +104,7 @@ extern "C" int __declspec(dllexport) WINAPI
 xlAutoRemove(void)
 {
 	try {
-		if (!xll::Auto<xll::Remove>::Call()) {
+		if (!Auto<Remove>::Call()) {
 			return FALSE;
 		}
 	}
@@ -170,18 +172,20 @@ xlAutoRegister(LPXLOPER pxName)
 	static XLOPER o;
 
 	try {
+		auto px = AddIn4::Map.find(*pxName);
+		ensure(px != AddIn4::Map.end());
 		// returns an xltypeNum or xltypeErr
-		o = *xll::AddIn4::Map[*pxName].Register();
+		o = *px->second.Register();
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
+		o = ErrNA4;
 	}
 	catch (...) {
 		XLL_ERROR("Unknown exception in xlAutoRegister");
 
-		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
+		o = ErrNA4;
 	}
 
 	return &o;
@@ -194,18 +198,20 @@ xlAutoRegister12(LPXLOPER12 pxName)
 	static XLOPER12 o;
 	
 	try {
+		auto px = AddIn12::Map.find(*pxName);
+		ensure(px != AddIn12::Map.end());
 		// returns an xltypeNum or xltypeErr
-		o = *xll::AddIn12::Map[*pxName].Register();
+		o = *px->second.Register();
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
+		o = ErrNA12;
 	}
 	catch (...) {
 		XLL_ERROR("Unknown exception in xlAutoRegister12");
 
-		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
+		o = ErrNA12;
 	}
 
 	return &o;
@@ -220,27 +226,36 @@ extern "C" LPXLOPER12 WINAPI xlAddInManagerInfo12(LPXLOPER12 pxAction)
 
 	try {
 		// coerce to int and check if action is 1
-		// return string indicating xll name
-		XLOPER12 xResult;
-		XLOPER12 xInt = { .val = { .w = xltypeInt }, .xltype = xltypeInt };
-		int ret = ::Excel12(xlCoerce, &xResult, 2, pxAction, &xInt);
-		if (ret == xlretSuccess && xResult.xltype == xltypeInt && xResult.val.w == 1) {
-			o.xltype = xltypeStr;
-			o.val.str = (XCHAR*)L"\06Add-In"; // use xlGetName!!!
+		OPER12 xResult_ = Excel12(xlCoerce, *pxAction, OPER12(xltypeInt));
+		if (xResult_ == 1) {
+			o = Excel12(xlGetName);
+			// return string to use
+			int b = 1;
+			int e = 1;
+			for (int i = 1; i <= o.val.str[0]; ++i) {
+				if (o.val.str[i] == '\\') {
+					b = i + 1;
+				}
+				else if (o.val.str[i] == '.') {
+					e = i;
+				}
+			}
+			ensure(b < e);
+			o = Excel12(xlfMid, o, OPER12(b), OPER12(e - b));
 		}
 		else {
-			o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
+			o = ErrNA12;
 		}
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
+		o = ErrNA12;
 	}
 	catch (...) {
 		XLL_ERROR("Unknown exception in xlAddInManagerInfo12");
 
-		o = { .val = { .err = xlerrNA }, .xltype = xltypeErr };
+		o = ErrNA12;
 	}
 
 	return &o;

@@ -53,6 +53,12 @@ int test_oper_adt = []()
 		ensure(o.val.str[0] == 2);
 		ensure(o.val.str[2] == 'e');
 	}
+	{
+		const char* s = nullptr;
+		OPER o(s);
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 0);
+	}
 
 	return 0;
 }

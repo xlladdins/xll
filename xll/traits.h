@@ -30,7 +30,7 @@ namespace xll {
 		}
 		static int len(const xchar* s)
 		{
-			return static_cast<int>(strlen(s));
+			return s ? static_cast<int>(strlen(s)) : 0;
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
 		{
@@ -67,7 +67,7 @@ namespace xll {
 		}
 		static int len(const xchar* s)
 		{
-			return static_cast<int>(wcslen(s));
+			return s ? static_cast<int>(wcslen(s)) : 0;
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
 		{

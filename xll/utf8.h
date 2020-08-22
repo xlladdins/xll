@@ -14,7 +14,7 @@ namespace utf8 {
 		wchar_t* ws = nullptr;
 		
 		if (n == 0) {
-			n = strlen(s);
+			n = s ? strlen(s) : 0;
 		}
 
 		int wn = 0;
@@ -47,7 +47,7 @@ namespace utf8 {
 		char* s = nullptr;
 
 		if (wn == 0) {
-			wn = wcslen(ws);
+			wn = ws ? wcslen(ws) : 0;
 		}
 
 		int n = 0;

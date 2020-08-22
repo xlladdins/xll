@@ -21,6 +21,7 @@
 #define XLL_X32(x) x
 #endif
 
+// xlAuto functions required by Excel
 #pragma comment(linker, "/include:" XLL_DECORATE("DllMain", 12))
 #pragma comment(linker, "/export:" XLL_DECORATE("XLCallVer", 0))
 #pragma comment(linker, "/export:xlAutoOpen" XLL_X32("@0=xlAutoOpen"))
@@ -33,6 +34,11 @@
 #pragma comment(linker, "/export:xlAutoRegister12" XLL_X32("@4=xlAutoRegister12"))
 //#pragma comment(linker, "/export:xlAddInManagerInfo" XLL_X32("@4=xlAddInManagerInfo"))
 //#pragma comment(linker, "/export:xlAddInManagerInfo12" XLL_X32("@4=xlAddInManagerInfo12"))
+
+
+#ifndef _LIB
+#pragma comment(linker, "/include:" XLL_DECORATE("_xll_replace_eq_by_eq", 0))
+#endif // _LIB
 
 #endif // CONSOLE
 
