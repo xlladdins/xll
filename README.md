@@ -326,7 +326,6 @@ both `const` and non-const iterators over array elements.
 ## Handles
 
 Handles are used to embed C++ objects in Excel. 
-<<<<<<< HEAD
 Call `xll::handle<T>(T*)` using `new` to create an object of type `T`.
 The call `xll::handle<T> h(new T(...))` creates a handle `h` to 
 an object of type `T` using any constructor for `T`.
@@ -344,20 +343,6 @@ To access a handle that has been created use `xll::handle<T>(HANDLEX);`
 to converts a handle to a pointer. If the pointer was not created by
 a call to `handle<T>(T*)` then it is set to `nullptr` and the value of `h.get()` is the
 double 0.
-=======
-Call `xll::handle<T> h(new T(...))`
-to create a handle to an object of type `T` from any constructor.
-If the cell contains a handle from a previous call
-then `delete` is called on the corresponding C++ object.
-
-Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
-the handle to return to Excel. 
-This has type `HANDLEX` and is specified in add-in arguments as `XLL_HANDLEX`.
-
-To access a handle use `xll::handle<T> h(handle);`.
-This converts  `HANDLEX handle` to a pointer and ensures it was previously created as described above.
-If the handle is not found the pointer is set to `nullptr`.
->>>>>>> 0e13b6025fd6a38b6567dbfbe0eac66e198f4e2e
 
 The `xll::handle` class has a member function `operator->()` so
 `h->member(...)` works as if `h` were a `T*`.
