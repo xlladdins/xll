@@ -286,7 +286,7 @@ It is an error to return this type from a function.
 
 ### FP Data Type
 
-The [`xll::FP`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) 
+The [`xll::FPX`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) 
 data type is a two dimensional array of floating point numbers. 
 It is the fastest way of interacting with numerical data in Excel. 
 All other APIs require the data to be copied out of Excel then back again. 
@@ -300,19 +300,20 @@ A 1000 x 1000 matrix takes about 0.3 seconds on my old Surface Pro 4 laptop.
 There are structs defined in [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
 for versions of Excel prior to 2007 as [`struct _FP`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L96)
 and [`struct _FP12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L109) for later versions.
-These are typedefed as `FP` and `FP12` and reside in the global namespace.
+These are typedef'd as `FP` and `FP12` and reside in the global namespace.
 
 The classes `xll::FP4` and `xll::FP12` make these into well-behaved
 [C++ value types](https://docs.microsoft.com/en-us/cpp/cpp/value-types-modern-cpp).
-Use `_FPX` (or `_FP4`/`_FP12`) to get the appropriate raw Excel type to use for arguments and
-return type. Excel doesn't know about anything in the `xll` namespace.'
+Use `_FPX` (or `_FP4`/`_FP12`) to get the appropriate C Excel type in the global
+namespace to use for arguments and
+return types. Excel doesn't know about anything in the `xll` namespace.
 
-Since `FPX` does **not** inherit from the native `_FPX` structs you must use
+Since `FPX` does **not** inherit from the C structs you must use
 the `FPX::get()` member function to get a pointer to the underlying struct.
 This is used to return arrays to Excel where the return type is
-`XLL_FP`. Since you are returning a pointer you must make sure the memory
+`XLL_FPX`. Since you are returning a pointer you must make sure the memory
 at which it points continues to exist after the function returns. Typically
-this is done by declaring a `static FPX` in the function body.
+this is done by declaring a `static xll::FPX` in the function body.
 
 Use `xll::FPX a(2,3)` to create a 2 by 3 array of doubles and `a(1,0)` to access
 the second row, first column (indexing is 0-based) of `a`. The same element
