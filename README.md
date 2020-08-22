@@ -284,7 +284,7 @@ It indicates no argument was provided by the calling Excel function.
 This is predefined as `Missing`,`Missing4` and `Missing12`.
 It is an error to return this type from a function. 
 
-### The FP Data Type
+### FP Data Type
 
 The [`xll::FP`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) 
 data type is a two dimensional array of floating point numbers. 
@@ -323,7 +323,7 @@ The `FPX` data type also has member functions for `rows`, `columns`, and `size`.
 To be STL friendly the member functions `begin` and `end` are provided for
 both `const` and non-const iterators over array elements.
 
-## Handles
+## Handle
 
 Handles are used to embed C++ objects in Excel. 
 Call `xll::handle<T>(T*)` using `new` to create an object of type `T`.
@@ -398,6 +398,8 @@ using `dynamic_cast`.
 
 When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
 The old handles that were previously saved are stale.
+
+## [Excel4 Macro Function](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md)
 
 Add-ins can call any Excel function using `xll::Excel` and the appropriate _function number_. 
 The function numbers are defined in 
