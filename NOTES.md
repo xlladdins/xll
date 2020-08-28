@@ -14,3 +14,5 @@ Generate JS from AddIn?
 Use function tests instead of lambdas.
 Get names from nm | grep '^test'
 Allow wildcards.
+
+Use xlfRegister("file.xll") to require add-in. Versions?
