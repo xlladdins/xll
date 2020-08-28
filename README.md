@@ -1,6 +1,6 @@
 ﻿# xll - a library for creating Excel add-ins
 
-This library makes it simple to call C++ functions from Excel.
+This library makes it simple to call C++ functions and macros from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 
@@ -21,7 +21,12 @@ It also provides high performance access to [numeric arrays](#the-fp-data-type) 
 
 ## Get Started
 
-Run the [installer](https://xladdins.com/xll.msi). 
+Run the [installer](https://xladdins.com/xll.msi). Save the `xll.msi` file and open it.
+You will see a popup claiming 
+<span title="Where by 'protect' Microsoft means they now require an Extended Validation certificate to extract more money out of software providers.">
+'Windows protected your PC'</span> and a link to 'More info'.
+That link should show you `xll.msi` was signed by Publisher KALX, LLC. Run anyway.
+
 This places the xll project template in your `Documents\Visual Studio 2019` folder 
 and include visualizers for debugging.
 
