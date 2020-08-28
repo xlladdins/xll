@@ -284,7 +284,7 @@ It indicates no argument was provided by the calling Excel function.
 This is predefined as `Missing`,`Missing4` and `Missing12`.
 It is an error to return this type from a function. 
 
-### The FP Data Type
+### FP Data Type
 
 The [`xll::FP`](https://github.com/xlladdins/xll/blob/master/xll/fp.h) 
 data type is a two dimensional array of floating point numbers. 
@@ -323,21 +323,26 @@ The `FPX` data type also has member functions for `rows`, `columns`, and `size`.
 To be STL friendly the member functions `begin` and `end` are provided for
 both `const` and non-const iterators over array elements.
 
-## Handles
+## Handle
 
 Handles are used to embed C++ objects in Excel. 
-Call `xll::handle<T> h(new T(...))`
-to create a handle to an object of type `T` from any constructor.
-If the cell contains a handle from a previous call
-then `delete` is called on the corresponding C++ object.
+Call `xll::handle<T>(T*)` using `new` to create an object of type `T`.
+The call `xll::handle<T> h(new T(...))` creates a handle `h` to 
+an object of type `T` using any constructor for `T`.
+If the cell a function is being called from contains a handle returned by
+a previous call, then the correspoding C++ object is `delete`d 
+and the new handle is returned to the cell. If you call a function returning a
+handle be sure it has its own cell for the result to avoid
+[memory leaks](#memory-leaks).
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
-the handle to return to Excel. 
-This has type `HANDLEX` and is specified in add-in arguments as `XLL_HANDLEX`.
+the handle to be returned to Excel. The latter has type `HANDLEX` and
+is specified in add-in arguments as `XLL_HANDLEX`.
 
-To access a handle use `xll::handle<T> h(handle);`.
-This converts  `HANDLEX handle` to a pointer and ensures it was previously created as described above.
-If the handle is not found the pointer is set to `nullptr`.
+To access a handle that has been created use `xll::handle<T>(HANDLEX);`
+to converts a handle to a pointer. If the pointer was not created by
+a call to `handle<T>(T*)` then it is set to `nullptr` and the value of `h.get()` is the
+double 0.
 
 The `xll::handle` class has a member function `operator->()` so
 `h->member(...)` works as if `h` were a `T*`.
@@ -388,12 +393,13 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 ```
 For a production quality version of this example see 
 [handle.cpp](https://github.com/xlladdins/xll/blob/master/test/handle.cpp).
-That file also illustrates how single inheritance can be used in Excel.
+That file also has examples illustrating how single inheritance can be used in Excel
+using `dynamic_cast`.
 
-When a spreadsheet containing handles is reopened _you must 'refresh' the handles_ using `Ctrl-Alt-F9`. 
+When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
 The old handles that were previously saved are stale.
 
-## [Excel 4 Macro Functions](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md)
+## [Excel4 Macro Function](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md)
 
 Add-ins can call any Excel function using `xll::Excel` and the appropriate _function number_. 
 The function numbers are defined in 
