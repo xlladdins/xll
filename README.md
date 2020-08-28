@@ -30,9 +30,8 @@ You will need to add a git submodule for `xll` because Visual Studio doesn't kno
 Run `Tools ► Command Line ► Developer Command Prompt`
 from the Visual Studio menu and add a [submodule](https://github.blog/2016-02-01-working-with-submodules/).
 
-> `git init`
-
-> `git submodule add https://github.com/xlladdins/xll.git`
+> `git init`  
+> `git submodule add https://github.com/xlladdins/xll.git`  
 
 Copy the debugger setup from `xll\test`.
 
@@ -48,6 +47,13 @@ of your project folder using Add ► Existing Project...
 At this point you can compile and run the add-in[1]
 using `Debug ► Start Debugging` (`F5`). This compiles the dll, (with
 file extension `.xll`), and starts Excel with the add-in loaded.
+
+The git repository you created has a snapshot of the xll library at the time you add it as a submodule.
+Your copy of the xll submodule will not change if the original xll repository changes.
+To get the latest copy start a Developer Command Prompt and pull.
+
+> `cd xll`  
+> `git pull`  
 
 [1] You may have to restart Visual Studio to have it recognize the `.user` file.
 
