@@ -20,7 +20,7 @@ int WINAPI xll_macro(void)
 	//Excel(xlcAlert, xMsg);
 
 	// same as above
-	Excel(xlcAlert, 
+	Excel(xlcAlert,
 		Excel(xlfConcatenate,
 			OPER("XLL.MACRO called with active cell: "),
 			Excel(xlfReftext, Excel(xlfActiveCell), OPER(true))
@@ -29,7 +29,7 @@ int WINAPI xll_macro(void)
 		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
 		// Optional help file link. Note the '!0' appended to the URL.
 	);
-	
+
 	return TRUE;
 }
 
@@ -37,7 +37,7 @@ AddIn xai_tgamma(
 	Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
 	.Args({
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
-	})
+		})
 	.FunctionHelp("Return the Gamma function value.")
 	.Category("CMATH")
 	.HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal")
@@ -77,17 +77,17 @@ double WINAPI xll_jn(LONG n, double x)
 	return result;
 }
 
-Auto<Open> xai_open([]() { 
+Auto<Open> xai_open([]() {
 	Excel(xlcAlert, OPER("Auto<Open> called"));
 
-	return TRUE;  
-});
+	return TRUE;
+	});
 
 Auto<Close> xai_close([]() {
 	Excel(xlcAlert, OPER("Auto<Close> called"));
 
 	return TRUE;
-});
+	});
 
 AddIn xai_onkey(Macro("xll_onkey", "XLL.ONKEY"));
 int WINAPI xll_onkey(void)
@@ -123,7 +123,7 @@ AddIn xai_get_workspace(
 	Function(XLL_LPOPER, "xll_get_workspace", "GET_WORKSPACE")
 	.Args({
 		Arg(XLL_SHORT, "type_num", "is a number specifying the type of workspace information you want.")
-	})
+		})
 	.Uncalced()
 );
 LPOPER WINAPI xll_get_workspace(SHORT type_num)
@@ -140,7 +140,7 @@ AddIn xai_get_formula(
 	Function(XLL_HANDLEX, "xll_get_formula", "GET_FORMULA")
 	.Args({
 		Arg(XLL_LPXLOPER, "cell", "is a reference to a cell containing a formula.")
-	})
+		})
 	.FunctionHelp("Get formula from cell.")
 	.Category("XLL")
 	.Uncalced()
@@ -153,3 +153,4 @@ HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
 
 	return HANDLEX{};
 }
+

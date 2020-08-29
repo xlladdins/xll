@@ -19,7 +19,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "test\test.vcxproj",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{CAF60559-7CD4-4152-B028-5885C2CF6B59}"
 	ProjectSection(SolutionItems) = preProject
-		images\debug.png = images\debug.png
 		images\gamma.png = images\gamma.png
 		images\tgamma.png = images\tgamma.png
 	EndProjectSection

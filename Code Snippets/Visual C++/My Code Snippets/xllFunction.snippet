@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>addin</Title>
+			<Shortcut>addin</Shortcut>
+			<Description>Code snippet for xll::AddIn class</Description>
+			<Author>KALX, LLC</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>Function name</ToolTip>
+					<Default>foo</Default>
+				</Literal>
+				<Literal>
+					<ID>return</ID>
+					<ToolTip>Return type of function</ToolTip>
+					<Default>void</Default>
+				</Literal>
+				<Literal>
+					<ID>functionHelp</ID>
+					<ToolTip>Brief description of function</ToolTip>
+					<Default>void</Default>
+				</Literal>
+				<Literal>
+					<ID>category</ID>
+					<ToolTip>Excel category for function</ToolTip>
+					<Default>User defined</Default>
+				</Literal>
+				<Literal>
+					<ID>helpTopic</ID>
+					<ToolTip>URL of help for function</ToolTip>
+					<Default>https://google.com/search?q=name</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="cpp">
+				<![CDATA[xll::AddIn xai_$name$(
+	xll::Function(XLL_$return$, "xll_$name$", "XLL.$name$")
+	.Args({
+		// Arg(...), goes here
+	})
+	.FunctionHelp("$functionHelp$")
+	.Category("$category$")
+	.HelpTopic("$helpTopic")
+	};]]>
+				$return$ WINAPI xll_$name$(...)
+				{
+				#pragma XLLEXPORT
+				try {
+				//...
+				}
+				catch (const std::exception&amp; ex) {
+				XLL_ERROR(ex.what());
+				}
+				catch (...) {
+				XLL_ERROR("unknown error in: " __FUNCTION__);
+				}
+
+				return // ...
+				}
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
