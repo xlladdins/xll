@@ -190,7 +190,7 @@ int WINAPI xll_macro(void)
             )
         ),
         OPER(2), // general information
-        OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md")
+        OPER("https://github.com/xlladdins/Excel4Macros/blob/master/docs/ALERT.md")
     );
 	
     return TRUE;
@@ -198,7 +198,7 @@ int WINAPI xll_macro(void)
 ```
 
 The `Help` button in the alert dialog will take you to documentation for the 
-[`ALERT`](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md) macro.
+[`ALERT`](https://github.com/xlladdins/Excel4Macros/blob/master/docs/ALERT.md) macro.
 
 The name of the `AddIn` object is arbitrary. I use `xai_` as a prefix for all
 E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. 
@@ -237,7 +237,7 @@ version at runtime call
 It returns `0x500` (oddly enough) for version 4 and `0x0c00` for version 12 (hexidecimal `C`).
 
 You can get finer grained information by calling the 
-[`GET.WORKSPACE`](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/GET.WORKSPACE.md)
+[`GET.WORKSPACE`](https://github.com/xlladdins/Excel4Macros/blob/master/docs/GET.WORKSPACE.md)
 function with argument `2`. The return value is a string, for example `"5.0"`, with the exact version of Excel.
 Using the SDK the call would be `Excel4(xlfGetWorkspace, &version, 1, &two)` where `version` and `two`
 are `XLOPER`s with `two = {.val = {.int = 2}, .xltype = xltypeInt}`. You must call
@@ -411,14 +411,14 @@ using `dynamic_cast`.
 When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
 The old handles that were previously saved are stale.
 
-## [Excel4 Macro Function](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md)
+## [Excel4 Macro Function](https://github.com/xlladdins/Excel4Macros/blob/master/docs/README.md)
 
 Add-ins can call any Excel function using `xll::Excel` and the appropriate _function number_. 
 The function numbers are defined in 
 [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H) 
 and correspond to Excel built-in functions or macros (command equivalents).
 To determine the approriate arguments for a function number see the
-[Excel 4 Macro documentaton](https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md)
+[Excel 4 Macro documentaton](https://github.com/xlladdins/Excel4Macros/blob/master/docs/README.md)
 
 Function numbers starting with `xlf` are __f__&zwnj;unctions and can be called from add-in functions.
 Function numbers starting with `xlc` are ma&zwnj;__c__&zwnj;ros and can only be called from add-in macros.
