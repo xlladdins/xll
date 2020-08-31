@@ -14,11 +14,10 @@ namespace utf8 {
 		wchar_t* ws = nullptr;
 
 		if (nullptr == s) {
-			return ws;
+			n = 0;
 		}
-
-		if (n == 0) {
-			n = s ? strlen(s) : 0;
+		else if (n == 0) {
+			n = strlen(s);
 		}
 
 		int wn = 0;
@@ -54,11 +53,10 @@ namespace utf8 {
 		char* s = nullptr;
 
 		if (nullptr == ws) {
-			return s;
+			wn = 0;
 		}
-
-		if (wn == 0) {
-			wn = ws ? wcslen(ws) : 0;
+		else if (wn == 0) {
+			wn = wcslen(ws);
 		}
 
 		int n = 0;

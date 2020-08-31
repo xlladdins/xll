@@ -48,8 +48,12 @@ namespace xll {
 
 		using cstr = const char*;
 	public:
-		XArgs()
+		XArgs() // ??? remove
 		{ }
+		XArgs(const XArgs&) = default;
+		XArgs& operator=(const XArgs&) = default;
+		XArgs(XArgs&&) = default;
+		XArgs& operator=(XArgs&&) = default;
 		~XArgs()
 		{ }
 		// Function

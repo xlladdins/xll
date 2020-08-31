@@ -14,8 +14,9 @@ namespace xll {
         static inline std::map<XOPER<X>, XArgs<X>> Map;
         XAddIn(const XArgs<X>& args)
         {
+            Map[args.FunctionText()] = args;
             //auto [_, inserted] = Map.try_emplace(args.FunctionText(), args);
-            
+            //inserted = inserted; // !!!
         }
 
         // Get arguments using Excel function text name.

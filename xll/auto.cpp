@@ -175,7 +175,7 @@ xlAutoRegister(LPXLOPER pxName)
 		auto px = AddIn4::Map.find(*pxName);
 		ensure(px != AddIn4::Map.end());
 		// returns an xltypeNum or xltypeErr
-		o = *px->second.Register();
+		o = px->second.Register();
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
@@ -201,7 +201,7 @@ xlAutoRegister12(LPXLOPER12 pxName)
 		auto px = AddIn12::Map.find(*pxName);
 		ensure(px != AddIn12::Map.end());
 		// returns an xltypeNum or xltypeErr
-		o = *px->second.Register();
+		o = px->second.Register();
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
