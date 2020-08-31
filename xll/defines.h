@@ -34,6 +34,7 @@ typedef struct _FP _FPX;
 #define NOMINMAX
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
+#include <tchar.h>
 #include "XLCALL.H"
 
 #define XLL_NULL_TYPE(X)                    \

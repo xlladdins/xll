@@ -48,7 +48,7 @@ double WINAPI xll_tgamma(double x)
 	return tgamma(x);
 }
 
-/* AddIn previously defined: TGAMMA 
+/* AddIn previously defined: TGAMMA
 AddIn xai_tgamma2(
 	Function(XLL_DOUBLE, "xll_tgamma2", "TGAMMA")
 	.Args({
