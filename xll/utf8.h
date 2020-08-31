@@ -4,12 +4,13 @@
 #include <cstring>
 #include <cwchar>
 #include <string>
+#include <sal.h>
 #include <Windows.h>
 #include "ensure.h"
 
 namespace utf8 {
 	// Multi-byte character string to counted wide character string allocated by malloc.
-	inline wchar_t* mbstowcs(const char* s, size_t n = 0)
+	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, size_t n = 0)
 	{
 		wchar_t* ws = nullptr;
 
@@ -48,7 +49,7 @@ namespace utf8 {
 	}
 
 	// Wide character string to counted multi-byte character string allocated by malloc
-	inline char* wcstombs(const wchar_t* ws, size_t wn = 0)
+	inline /*_Post_ _Notnull_*/ char* wcstombs(const wchar_t* ws, size_t wn = 0)
 	{
 		char* s = nullptr;
 

@@ -48,6 +48,23 @@ double WINAPI xll_tgamma(double x)
 	return tgamma(x);
 }
 
+/* AddIn previously defined: TGAMMA 
+AddIn xai_tgamma2(
+	Function(XLL_DOUBLE, "xll_tgamma2", "TGAMMA")
+	.Args({
+		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
+		})
+	.FunctionHelp("Return the Gamma function value.")
+	.Category("CMATH")
+	.HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal")
+);
+double WINAPI xll_tgamma2(double x)
+{
+#pragma XLLEXPORT
+	return tgamma(x);
+}
+*/
+
 AddIn xai_jn(
 	Function(XLL_DOUBLE, "xll_jn", "JN")
 	.Args({

@@ -25,13 +25,14 @@ public:
 	}
 };
 
-AddIn xai_base(
+AddIn xai_base(std::move(
 	Function(XLL_HANDLEX, "?xll_base", "XLL.BASE")
 	.Args({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
 	})
 	.FunctionHelp("Return a handle to a base object.")
 	.Uncalced() // required for functions creating handles
+)
 );
 HANDLEX WINAPI xll_base(LPOPER px)
 {
