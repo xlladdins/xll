@@ -44,11 +44,13 @@ namespace xll {
 		XOPER<X> functionHelp; // for function wizard
 		std::vector<XOPER<X>> argumentHelp;
 		std::vector<XOPER<X>> argumentDefault;
-		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
+//		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
 
 		using cstr = const char*;
 	public:
 		XArgs()
+		{ }
+		~XArgs()
 		{ }
 		// Function
 		XArgs(cstr type, cstr procedure, cstr functionText)
@@ -146,7 +148,7 @@ namespace xll {
 		}
 
 		// Register add-in with Excel
-		X* Register()
+		X Register()
 		{
 			int count = 10 + static_cast<int>(argumentHelp.size());
 			std::vector<X*> oper(count + 1);
@@ -186,20 +188,23 @@ namespace xll {
 			XOPER<X> xEmpty("");
 			oper[count] = &xEmpty;
 
+			X registerId;
 			int ret = traits<X>::Excelv(xlfRegister, &registerId, count + 1, &oper[0]);
 			if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
 				XOPER<X> xMsg("Failed to register: ");
 				XExcel<X>(xlcAlert, xMsg & functionText, XOPER<X>(2));
 			}
 
-			return &registerId;
+			return registerId;
 		}
+		/*
 		XOPER<X> Unregister() const
 		{
 			X* px[1];
 			px[0] = &registerId;
 			return traits<X>::Excelv(xlfUnregister, 0, 1, px);
 		}
+		*/
 	};
 
 	using Args4 = XArgs<XLOPER>;
