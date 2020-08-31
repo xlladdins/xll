@@ -61,7 +61,7 @@ namespace xll {
 			return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
 		}
 
-		/// If calling cell has a known handle then delete its object
+		/// If calling cell has a known handle then delete corresponding object
 		void gc(void)
 		{
 			if (T* p_ = caller()) {
@@ -81,6 +81,8 @@ namespace xll {
 		handle(T* p) noexcept
 			: p(p)
 		{
+			ensure(nullptr != p);
+
 			gc();
 
 			ps.emplace(p);
@@ -88,6 +90,8 @@ namespace xll {
 		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
 		{
+			ensure(0 != h);
+
 			if (check) {
 				std::unique_ptr<T> p_(p);
 				if (ps.find(p_) == ps.end()) {
