@@ -1,11 +1,13 @@
 // handle.h - handles to C++ objects
 #pragma once
+#include <limits>
 #include <memory>
 #include <set>
 #include "excel.h"
 
 // handle data type
 using HANDLEX = double;
+inline constexpr HANDLEX INVALID_HANDLEX = std::numeric_limits<HANDLEX>::quiet_NaN();
 
 // handle argument types for add-ins
 inline const auto XLL_HANDLE = XLL_DOUBLE;
@@ -130,6 +132,6 @@ namespace xll {
 		}
 	};
 
-	// endode/decode???
+	// encode/decode???
 
 }
