@@ -1,6 +1,6 @@
 #include <cmath>
 // Uncomment to use Excel4 API.
-#define XLOPERX XLOPER
+//#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
@@ -48,7 +48,8 @@ double WINAPI xll_tgamma(double x)
 	return tgamma(x);
 }
 
-/* AddIn previously defined: TGAMMA 
+#if 1
+// AddIn previously defined: TGAMMA 
 AddIn xai_tgamma2(
 	Function(XLL_DOUBLE, "xll_tgamma2", "TGAMMA")
 	.Args({
@@ -63,7 +64,7 @@ double WINAPI xll_tgamma2(double x)
 #pragma XLLEXPORT
 	return tgamma(x);
 }
-*/
+#endif 
 
 AddIn xai_jn(
 	Function(XLL_DOUBLE, "xll_jn", "JN")

@@ -232,9 +232,15 @@ namespace xll {
 		{
 			return append(x);
 		}
-		XOPER& append(xcstr str)
+		XOPER& append(xcstr str = nullptr)
 		{
-			str_append(str, traits<X>::len(str));
+			if (!str) {
+				xchar null[1] = { 0 };
+				str_append(null, 1);
+			}
+			else {
+				str_append(str, traits<X>::len(str));
+			}
 
 			return *this;
 		}
