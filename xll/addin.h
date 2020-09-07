@@ -21,7 +21,7 @@ namespace xll {
                 XOPER<X> msg("AddIn previously defined: ");
                 msg.append(key);
                 msg.append(); // null terminate
-                MessageBox(GetForegroundWindow(), msg.val.str + 1, 0, MB_OK);
+                traits<X>::MessageBoX(GetForegroundWindow(), msg.val.str + 1, 0, MB_OK);
             }
         }
 
