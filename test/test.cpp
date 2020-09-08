@@ -48,7 +48,7 @@ double WINAPI xll_tgamma(double x)
 	return tgamma(x);
 }
 
-#if 1
+#if 0 // change to 1 to test duplicate function names
 // AddIn previously defined: TGAMMA 
 AddIn xai_tgamma2(
 	Function(XLL_DOUBLE, "xll_tgamma2", "TGAMMA")

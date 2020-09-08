@@ -61,8 +61,9 @@ extern const LPCSTR xll_err_desc[]; // Human readable description
 }
 #endif
 
-#define xltypeXxx 0 // phony type that is never used
-#define xltypePtr -1 // void* pointer
+#define xltypeXxx 0x0000 // phony type that is never used
+#define xltypePtr 0x0200 // void* pointer
+#define xltypeUnsigned 0x8000
 
 // Argument types for Excel Functions
 #define XLL_ARG_TYPE(X)                                                              \
@@ -71,16 +72,16 @@ X(DOUBLE,   "B",  xltypeNum,   "double")                                        
 X(CSTRING,  "C%", xltypeStr,   "XCHAR* to C style NULL terminated unicode string")   \
 X(PSTRING,  "D%", xltypeStr,   "XCHAR* to Pascal style byte counted unicode string") \
 X(DOUBLE_,  "E",  xltypePtr,   "pointer to double")                                  \
-X(CSTRING_, "F%", xltypeXxx,   "reference to a null terminated unicode string")      \
-X(PSTRING_, "G%", xltypeXxx,   "reference to a byte counted unicode string")         \
+X(CSTRING_, "F%", xltypePtr,   "reference to a null terminated unicode string")      \
+X(PSTRING_, "G%", xltypePtr,   "reference to a byte counted unicode string")         \
 X(USHORT,   "H",  xltypeNum,   "unsigned 2 byte int")                                \
 X(WORD,     "H",  xltypeNum,   "unsigned 2 byte int")                                \
 X(SHORT,    "I",  xltypeInt,   "signed 2 byte int")                                  \
 X(LONG,     "J",  xltypeNum,   "signed 4 byte int")                                  \
-X(FP,       "K%", xltypeXxx,   "pointer to struct FP")                               \
-X(BOOL_,    "L",  xltypeXxx,   "reference to a boolean")                             \
-X(SHORT_,   "M",  xltypeXxx,   "reference to signed 2 byte int")                     \
-X(LONG_,    "N",  xltypeXxx,   "reference to signed 4 byte int")                     \
+X(FP,       "K%", xltypePtr,   "pointer to struct FP")                               \
+X(BOOL_,    "L",  xltypePtr,   "reference to a boolean")                             \
+X(SHORT_,   "M",  xltypePtr,   "reference to signed 2 byte int")                     \
+X(LONG_,    "N",  xltypePtr,   "reference to signed 4 byte int")                     \
 X(LPOPER,   "Q",  xltypeMulti, "pointer to OPER struct (never a reference type)")    \
 X(LPXLOPER, "U",  xltypeMulti, "pointer to XLOPER struct")                           \
 X(VOLATILE, "!",  xltypeXxx,   "called every time sheet is recalced")                \
@@ -94,7 +95,7 @@ X(ASYNCHRONOUS, "X", xltypeXxx, "declares function to be asynchronous")         
 extern "C" {
 #endif
 // Defined in defines.c
-#define X(a,b,c,d) extern LPCSTR  XLL_##a;
+#define X(a,b,c,d) extern LPCSTR XLL_##a;
 XLL_ARG_TYPE(X)
 #undef X
 #ifdef __cplusplus
