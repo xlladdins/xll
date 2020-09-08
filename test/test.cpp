@@ -1,6 +1,6 @@
 #include <cmath>
 // Uncomment to use Excel4 API.
-#define XLOPERX XLOPER
+//#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
@@ -166,6 +166,8 @@ HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
 {
 #pragma XLLEXPORT
 	// if pCall->xltype == xltypeMissing use active cell
+	OPER xSS = Excel(xlcSelectSpecial, OPER(9));
+
 	OPER xFormula = Excel(xlfGetFormula, *pCell); // formula references are R1C1
 
 	return HANDLEX{};
