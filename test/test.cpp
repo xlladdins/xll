@@ -172,3 +172,32 @@ HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
 	return HANDLEX{};
 }
 
+AddIn4 xai_set_range(
+	Function4(XLL_HANDLEX, "xll_set_range", "SET.RANGE")
+	.Args({
+		Arg(XLL_LPOPER, "range", "is a range")
+		})
+	.FunctionHelp("Return a handle to a range.")
+	.Category("XLL")
+	.Uncalced()
+);
+HANDLEX WINAPI xll_set_range(LPOPER4 po) {
+#pragma XLLEXPORT
+	handle<OPER4> h(new OPER4(*po));
+
+	return h.get();
+}
+AddIn4 xai_get_range(
+	Function4(XLL_LPOPER, "xll_get_range", "GET.RANGE")
+	.Args({
+		Arg(XLL_HANDLEX, "handle", "is a handle to a range")
+		})
+	.FunctionHelp("Return a range corresponding to handle.")
+	.Category("XLL")
+);
+LPOPER4 WINAPI xll_get_range(HANDLEX _h) {
+#pragma XLLEXPORT
+	handle<OPER4> h(_h);
+
+	return h.ptr();
+}
