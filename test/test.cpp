@@ -175,7 +175,7 @@ HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
 AddIn4 xai_set_range(
 	Function4(XLL_HANDLEX, "xll_set_range", "SET.RANGE")
 	.Args({
-		Arg(XLL_LPOPER, "range", "is a range")
+		Arg(XLL_LPOPER4, "range", "is a range")
 		})
 	.FunctionHelp("Return a handle to a range.")
 	.Category("XLL")
@@ -188,7 +188,7 @@ HANDLEX WINAPI xll_set_range(LPOPER4 po) {
 	return h.get();
 }
 AddIn4 xai_get_range(
-	Function4(XLL_LPOPER, "xll_get_range", "GET.RANGE")
+	Function4(XLL_LPOPER4, "xll_get_range", "GET.RANGE")
 	.Args({
 		Arg(XLL_HANDLEX, "handle", "is a handle to a range")
 		})
