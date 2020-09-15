@@ -1,5 +1,6 @@
 // handle.h - handles to C++ objects
 #pragma once
+#include <any>
 #include <limits>
 #include <memory>
 #include <set>
@@ -42,6 +43,18 @@ namespace xll {
 		return (T*)((uint64_t)h);
 	}
 
+	// compare underlying raw pointers
+	template<class T>
+	bool operator<(const std::unique_ptr<T>& a, const T* b)
+	{
+		return std::less<const T*>()(a.get(), b);
+	}
+	template<class T>
+	bool operator<(const T* a, const std::unique_ptr<T>& b)
+	{
+		return std::less<const T*>()(a, b.get());
+	}
+
 	/// <summary>
 	/// Collection of handles parameterized by type.
 	/// Use <c>handle<T> h(new T(...))</c> to create a handle.
@@ -51,7 +64,7 @@ namespace xll {
 	template<class T>
 	class handle {
 		// all active pointers of type T*
-		inline static std::set<std::unique_ptr<T>> ps;
+		inline static std::set<std::unique_ptr<T>, std::less<>> ps;
 		// underlying pointer
 		T* p;
 
@@ -67,9 +80,9 @@ namespace xll {
 		void gc(void)
 		{
 			if (T* p_ = caller()) {
-				std::unique_ptr<T> px(p_);
-				auto pi = ps.find(px);
-				px.release(); // do not call delete on p_!
+				//std::unique_ptr<T> px(p_);
+				auto pi = ps.find(p_);
+				//px.release(); // do not call delete on p_!
 				// garbage collect
 				if (pi != ps.end()) {
 					ps.erase(pi); // calls delete
@@ -95,12 +108,12 @@ namespace xll {
 			ensure(0 != h);
 
 			if (check) {
-				std::unique_ptr<T> p_(p);
-				if (ps.find(p_) == ps.end()) {
+				//std::unique_ptr<T> p_(p);
+				if (ps.find(p) == ps.end()) {
 					// unknown handle
 					p = nullptr;
 				}
-				p_.release(); // do not call delete on p!
+				//p_.release(); // do not call delete on p!
 			}
 		}
 		~handle()
