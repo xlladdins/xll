@@ -4,6 +4,7 @@
 #include <limits>
 #include <memory>
 #include <set>
+#include <utility>
 #include "excel.h"
 
 // handle data type
@@ -47,12 +48,17 @@ namespace xll {
 	template<class T>
 	bool operator<(const std::unique_ptr<T>& a, const T* b)
 	{
-		return std::less<const T*>()(a.get(), b);
+		return a.get() < b;
 	}
 	template<class T>
 	bool operator<(const T* a, const std::unique_ptr<T>& b)
 	{
-		return std::less<const T*>()(a, b.get());
+		return a < b.get();
+	}
+	template<class T>
+	bool operator<(const std::unique_ptr<T>& a, const std::unique_ptr<T>& b)
+	{
+		return a.get() < b.get();
 	}
 
 	/// <summary>
@@ -64,7 +70,7 @@ namespace xll {
 	template<class T>
 	class handle {
 		// all active pointers of type T*
-		inline static std::set<std::unique_ptr<T>, std::less<>> ps;
+		inline static std::set<std::unique_ptr<T>> ps;
 		// underlying pointer
 		T* p;
 
@@ -80,9 +86,9 @@ namespace xll {
 		void gc(void)
 		{
 			if (T* p_ = caller()) {
-				//std::unique_ptr<T> px(p_);
-				auto pi = ps.find(p_);
-				//px.release(); // do not call delete on p_!
+				std::unique_ptr<T> px(p_);
+				auto pi = ps.find(px);
+				px.release(); // do not call delete on p_!
 				// garbage collect
 				if (pi != ps.end()) {
 					ps.erase(pi); // calls delete
@@ -93,29 +99,27 @@ namespace xll {
 		/// <summary>
 		/// Add a handle to the collection.
 		/// </summary>
-		handle(T* p) noexcept
-			: p(p)
+		handle(T* p) //noexcept
+			: p{ ps.emplace(std::unique_ptr<T>(p)).first->get() }
 		{
-			ensure(nullptr != p);
-
 			gc();
-
-			ps.emplace(p);
 		}
-		handle(HANDLEX h, bool check = true) noexcept
+		handle(HANDLEX h, bool check = true)
 			: p(to_pointer<T>(h))
 		{
 			ensure(0 != h);
 
 			if (check) {
-				//std::unique_ptr<T> p_(p);
-				if (ps.find(p) == ps.end()) {
+				std::unique_ptr<T> p_(p);
+				if (ps.find(p_) == ps.end()) {
 					// unknown handle
 					p = nullptr;
 				}
-				//p_.release(); // do not call delete on p!
+				p_.release(); // do not call delete on p!
 			}
 		}
+		//handle(const handle&) = delete;
+		//handle& operator=(const handle&) = delete;
 		~handle()
 		{
 			// do nothing

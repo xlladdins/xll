@@ -199,5 +199,7 @@ LPOPER4 WINAPI xll_get_range(HANDLEX _h) {
 #pragma XLLEXPORT
 	handle<OPER4> h(_h);
 
+	h->operator()(0, 0) = "";
+
 	return h.ptr();
 }
