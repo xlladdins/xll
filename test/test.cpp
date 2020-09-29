@@ -26,8 +26,8 @@ int WINAPI xll_macro(void)
 			Excel(xlfReftext, Excel(xlfActiveCell), OPER(true))
 		),
 		OPER(2), // general information
-		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
-		// Optional help file link. Note the '!0' appended to the URL.
+		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md")
+		// Optional help file link.
 	);
 
 	return TRUE;
@@ -48,7 +48,8 @@ double WINAPI xll_tgamma(double x)
 	return tgamma(x);
 }
 
-/* AddIn previously defined: TGAMMA 
+#if 0
+/* AddIn previously defined: TGAMMA */
 AddIn xai_tgamma2(
 	Function(XLL_DOUBLE, "xll_tgamma2", "TGAMMA")
 	.Args({
@@ -63,7 +64,7 @@ double WINAPI xll_tgamma2(double x)
 #pragma XLLEXPORT
 	return tgamma(x);
 }
-#endif 
+#endif // 0 
 
 AddIn xai_jn(
 	Function(XLL_DOUBLE, "xll_jn", "JN")
