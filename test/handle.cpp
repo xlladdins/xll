@@ -11,6 +11,8 @@ public:
 	base(const OPER& x) 
 		: x(x) 
 	{ }
+	base(const base&) = default;
+	base& operator=(const base&) = default;
 	virtual ~base()
 	{ }
 	OPER& get() 
@@ -25,16 +27,15 @@ public:
 	}
 };
 
-AddIn xai_base(std::move(
+AddIn xai_base(
 	Function(XLL_HANDLEX, "?xll_base", "XLL.BASE")
 	.Args({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
 	})
 	.FunctionHelp("Return a handle to a base object.")
 	.Uncalced() // required for functions creating handles
-)
 );
-HANDLEX WINAPI xll_base(LPOPER px)
+HANDLEX WINAPI xll_base(const LPOPER px)
 {
 #pragma XLLEXPORT
 	xll::handle<base> h(new base(*px));
@@ -80,9 +81,13 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 class derived : public base {
 	OPER x2;
 public:
+	derived()
+	{ }
 	derived(const OPER& x, const OPER& x2)
 		: base(x), x2(x2)
 	{ }
+	derived(const derived&) = default;
+	derived& operator=(const derived&) = default;
 	OPER& get2()
 	{
 		return x2;
@@ -123,5 +128,5 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 	// cast to derived
 	derived* pd = dynamic_cast<derived*>(h.ptr());
 
-	return pd ? &pd->get2() : (LPOPER)&ErrNA;
+	return pd != nullptr ? &pd->get2() : (LPOPER)&ErrNA;
 }

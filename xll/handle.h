@@ -1,17 +1,19 @@
 // handle.h - handles to C++ objects
 #pragma once
+#include <any>
 #include <limits>
 #include <memory>
 #include <set>
+#include <utility>
 #include "excel.h"
 
 // handle data type
 using HANDLEX = double;
-inline constexpr HANDLEX INVALID_HANDLEX = std::numeric_limits<HANDLEX>::quiet_NaN();
+#define INVALID_HANDLEX std::numeric_limits<HANDLEX>::quiet_NaN()
 
 // handle argument types for add-ins
-inline const auto XLL_HANDLE = XLL_DOUBLE;
-inline const auto XLL_HANDLEX = XLL_DOUBLE;
+#define XLL_HANDLE XLL_DOUBLE
+#define XLL_HANDLEX XLL_DOUBLE
 
 namespace xll {
 
@@ -40,6 +42,23 @@ namespace xll {
 	inline T* to_pointer(HANDLEX h)
 	{
 		return (T*)((uint64_t)h);
+	}
+
+	// compare underlying raw pointers
+	template<class T>
+	bool operator<(const std::unique_ptr<T>& a, const T* b)
+	{
+		return a.get() < b;
+	}
+	template<class T>
+	bool operator<(const T* a, const std::unique_ptr<T>& b)
+	{
+		return a < b.get();
+	}
+	template<class T>
+	bool operator<(const std::unique_ptr<T>& a, const std::unique_ptr<T>& b)
+	{
+		return a.get() < b.get();
 	}
 
 	/// <summary>
@@ -80,16 +99,12 @@ namespace xll {
 		/// <summary>
 		/// Add a handle to the collection.
 		/// </summary>
-		handle(T* p) noexcept
-			: p(p)
+		handle(T* p) //noexcept
+			: p{ ps.emplace(std::unique_ptr<T>(p)).first->get() }
 		{
-			ensure(nullptr != p);
-
 			gc();
-
-			ps.emplace(p);
 		}
-		handle(HANDLEX h, bool check = true) noexcept
+		handle(HANDLEX h, bool check = true)
 			: p(to_pointer<T>(h))
 		{
 			ensure(0 != h);
@@ -103,6 +118,8 @@ namespace xll {
 				p_.release(); // do not call delete on p!
 			}
 		}
+		//handle(const handle&) = delete;
+		//handle& operator=(const handle&) = delete;
 		~handle()
 		{
 			// do nothing

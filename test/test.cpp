@@ -26,8 +26,8 @@ int WINAPI xll_macro(void)
 			Excel(xlfReftext, Excel(xlfActiveCell), OPER(true))
 		),
 		OPER(2), // general information
-		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md")
-		// Optional help file link.
+		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
+		// Optional help file link. Note the '!0' appended to the URL.
 	);
 
 	return TRUE;
@@ -48,8 +48,8 @@ double WINAPI xll_tgamma(double x)
 	return tgamma(x);
 }
 
-#if 0
-/* AddIn previously defined: TGAMMA */
+#if 0 // change to 1 to test duplicate function names
+// AddIn previously defined: TGAMMA 
 AddIn xai_tgamma2(
 	Function(XLL_DOUBLE, "xll_tgamma2", "TGAMMA")
 	.Args({
@@ -64,7 +64,7 @@ double WINAPI xll_tgamma2(double x)
 #pragma XLLEXPORT
 	return tgamma(x);
 }
-#endif // 0 
+#endif 
 
 AddIn xai_jn(
 	Function(XLL_DOUBLE, "xll_jn", "JN")
@@ -167,10 +167,39 @@ HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
 {
 #pragma XLLEXPORT
 	// if pCall->xltype == xltypeMissing use active cell
-	OPER xSS = Excel(xlcSelectSpecial, OPER(9));
-
 	OPER xFormula = Excel(xlfGetFormula, *pCell); // formula references are R1C1
 
 	return HANDLEX{};
 }
 
+AddIn4 xai_set_range(
+	Function4(XLL_HANDLEX, "xll_set_range", "SET.RANGE")
+	.Args({
+		Arg(XLL_LPOPER4, "range", "is a range")
+		})
+	.FunctionHelp("Return a handle to a range.")
+	.Category("XLL")
+	.Uncalced()
+);
+HANDLEX WINAPI xll_set_range(LPOPER4 po) {
+#pragma XLLEXPORT
+	handle<OPER4> h(new OPER4(*po));
+
+	return h.get();
+}
+AddIn4 xai_get_range(
+	Function4(XLL_LPOPER4, "xll_get_range", "GET.RANGE")
+	.Args({
+		Arg(XLL_HANDLEX, "handle", "is a handle to a range")
+		})
+	.FunctionHelp("Return a range corresponding to handle.")
+	.Category("XLL")
+);
+LPOPER4 WINAPI xll_get_range(HANDLEX _h) {
+#pragma XLLEXPORT
+	handle<OPER4> h(_h);
+
+	h->operator()(0, 0) = "";
+
+	return h.ptr();
+}
