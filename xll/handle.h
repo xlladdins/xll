@@ -44,23 +44,22 @@ namespace xll {
 		return (T*)((uint64_t)h);
 	}
 
-	// compare underlying raw pointers
-	template<class T>
-	bool operator<(const std::unique_ptr<T>& a, const T* b)
-	{
-		return a.get() < b;
-	}
-	template<class T>
-	bool operator<(const T* a, const std::unique_ptr<T>& b)
-	{
-		return a < b.get();
-	}
-	template<class T>
-	bool operator<(const std::unique_ptr<T>& a, const std::unique_ptr<T>& b)
-	{
-		return a.get() < b.get();
-	}
+}
 
+// compare underlying raw pointers
+template<class T>
+bool operator<(const std::unique_ptr<T>& a, const T* b)
+{
+	return a.get() < b;
+}
+
+template<class T>
+bool operator<(const T* a, const std::unique_ptr<T>& b)
+{
+	return a < b.get();
+}
+
+namespace xll {
 	/// <summary>
 	/// Collection of handles parameterized by type.
 	/// Use <c>handle<T> h(new T(...))</c> to create a handle.
@@ -85,10 +84,8 @@ namespace xll {
 		/// If calling cell has a known handle then delete corresponding object
 		void gc(void)
 		{
-			if (T* p_ = caller()) {
-				std::unique_ptr<T> px(p_);
-				auto pi = ps.find(p); // ps.find(px);
-				px.release(); // do not call delete on p_!
+			if (T* _p = caller()) {
+				auto pi = ps.find(_p);
 				// garbage collect
 				if (pi != ps.end()) {
 					ps.erase(pi); // calls delete
@@ -110,12 +107,10 @@ namespace xll {
 			ensure(0 != h);
 
 			if (check) {
-				std::unique_ptr<T> p_(p);
-				if (ps.find(p_) == ps.end()) {
+				if (ps.find(p) == ps.end()) {
 					// unknown handle
 					p = nullptr;
 				}
-				p_.release(); // do not call delete on p!
 			}
 		}
 		//handle(const handle&) = delete;
