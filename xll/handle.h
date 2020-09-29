@@ -96,25 +96,23 @@ namespace xll {
 		/// <summary>
 		/// Add a handle to the collection.
 		/// </summary>
-		handle(T* p) //noexcept
+		handle(T* p) noexcept
 			: p{ ps.emplace(std::unique_ptr<T>(p)).first->get() }
 		{
 			gc();
 		}
-		handle(HANDLEX h, bool check = true)
+		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
 		{
-			ensure(0 != h);
-
-			if (check) {
+			if (h and check) {
 				if (ps.find(p) == ps.end()) {
 					// unknown handle
 					p = nullptr;
 				}
 			}
 		}
-		//handle(const handle&) = delete;
-		//handle& operator=(const handle&) = delete;
+		handle(const handle&) = default;
+		handle& operator=(const handle&) = default;
 		~handle()
 		{
 			// do nothing
