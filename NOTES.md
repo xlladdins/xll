@@ -16,3 +16,5 @@ Get names from nm | grep '^test'
 Allow wildcards.
 
 Use xlfRegister("file.xll") to require add-in. Versions?
+
+Create zip file for visualizers and project template to replace msi.

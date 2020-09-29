@@ -26,9 +26,9 @@ namespace utf8 {
 			ensure(0 != (wn = MultiByteToWideChar(CP_ACP, 0, s, (int)n, nullptr, 0)));
 		}
 
-		ws = (wchar_t*)malloc((wn + 1) * sizeof(wchar_t));
+		ws = (wchar_t*)malloc((static_cast<size_t>(wn) + 1) * sizeof(wchar_t));
 		if (ws) {
-			ensure(wn == MultiByteToWideChar(CP_ACP, 0, s, (int)n, ws + 1, wn));
+			ensure(wn == MultiByteToWideChar(CP_ACP, 0, s ? s : "", (int)n, ws + 1, wn));
 			ensure(wn <= WCHAR_MAX);
 			ws[0] = static_cast<wchar_t>(wn);
 		}
@@ -65,9 +65,9 @@ namespace utf8 {
 			ensure(0 != (n = WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, NULL, 0, NULL, NULL)));
 		}
 
-		s = (char*)malloc(n + 1);
+		s = (char*)malloc(static_cast<size_t>(n) + 1);
 		if (nullptr != s) {
-			ensure(n == WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, s + 1, n, NULL, NULL));
+			ensure(n == WideCharToMultiByte(CP_UTF8, 0, ws ? ws : L"", (int)wn, s + 1, n, NULL, NULL));
 			// ???NormalizeString
 			ensure(n <= UCHAR_MAX);
 			s[0] = static_cast<char>(n);

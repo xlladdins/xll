@@ -1,6 +1,7 @@
 // traits.h - parameterize by XLOPER/XLOPER12 types
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+#include <WinUser.h>
 #include <type_traits>
 #include "defines.h"
 #include "ensure.h"
@@ -24,6 +25,11 @@ namespace xll {
 		typedef typename WORD xcol; // BYTE???
 		typedef typename WORD xbool;
 		typedef typename _FP xfp;
+		typedef typename std::basic_string<xchar> xstring;
+		static int WINAPI MessageBoX(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType)
+		{
+			return MessageBoxA(hWnd, lpText, lpCaption, uType);
+		}
 		static int Excelv(int xlfn, LPXLOPER operRes, int count, LPXLOPER opers[])
 		{
 			return ::Excel4v(xlfn, operRes, count, opers);
@@ -61,6 +67,11 @@ namespace xll {
 		typedef typename COL xcol;
 		typedef typename _FP12 xfp;
 		typedef typename INT32 xbool;
+		typedef typename std::basic_string<xchar> xstring;
+		static int WINAPI MessageBoX(HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
+		{
+			return MessageBoxW(hWnd, lpText, lpCaption, uType);
+		}
 		static int Excelv(int xlfn, LPXLOPER12 operRes, int count, LPXLOPER12 opers[])
 		{
 			return ::Excel12v(xlfn, operRes, count, opers);

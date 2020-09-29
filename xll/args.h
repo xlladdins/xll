@@ -69,6 +69,13 @@ namespace xll {
 			return functionText;
 		}
 
+		// Key used in AddIn::Map.
+		const XOPER<X>& Key() const
+		{
+			return functionText;
+		}
+
+
 		// list of function arguments
 		XArgs& Args(std::initializer_list<Arg> args)
 		{

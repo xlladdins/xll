@@ -12,15 +12,16 @@ namespace xll {
     template<class X>
 	struct XAddIn {
         static inline std::map<XOPER<X>, XArgs<X>> Map;
-        XAddIn(const XArgs<X>& args) noexcept
+        XAddIn(const XArgs<X>& args)
         {
             // warn if it already exists
             const auto& key = args.FunctionText();
             auto [_, inserted] = Map.try_emplace(key, std::move(args));
             if (!inserted) {
-                static TCHAR msg[1024] = TEXT("AddIn previously defined: ");
-                _tcsncat_s(msg, 1023, key.val.str + 1, key.val.str[0]);
-                MessageBox(GetForegroundWindow(), msg, TEXT("AddIn Warning"), MB_OK| MB_ICONWARNING);
+                XOPER<X> msg("AddIn previously defined: ");
+                msg.append(key);
+                msg.append(); // null terminate
+                traits<X>::MessageBoX(GetForegroundWindow(), msg.val.str + 1, 0, MB_OK);
             }
         }
 
