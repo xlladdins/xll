@@ -17,11 +17,13 @@ namespace xll {
             // warn if it already exists
             const auto& key = args.FunctionText();
             auto [_, inserted] = Map.try_emplace(key, std::move(args));
+            /*
             if (!inserted) {
                 std::basic_string<TCHAR> msg{ TEXT("AddIn previously defined: ") };
                 msg.append(key.val.str + 1, key.val.str[0]);
                 MessageBox(GetForegroundWindow(), msg.c_str(), 0, MB_OK);
             }
+            */
         }
 
         // Get arguments using Excel function text name.

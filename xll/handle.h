@@ -70,7 +70,7 @@ namespace xll {
 	template<class T>
 	class handle {
 		// all active pointers of type T*
-		inline static std::set<std::unique_ptr<T>> ps;
+		inline static std::set<std::unique_ptr<T>, std::less<>> ps;
 		// underlying pointer
 		T* p;
 
@@ -87,7 +87,7 @@ namespace xll {
 		{
 			if (T* p_ = caller()) {
 				std::unique_ptr<T> px(p_);
-				auto pi = ps.find(px);
+				auto pi = ps.find(p); // ps.find(px);
 				px.release(); // do not call delete on p_!
 				// garbage collect
 				if (pi != ps.end()) {
