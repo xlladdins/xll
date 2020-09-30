@@ -190,7 +190,7 @@ int WINAPI xll_macro(void)
             )
         ),
         OPER(2), // general information
-        OPER("https://github.com/xlladdins/Excel4Macros/blob/master/docs/ALERT.md")
+        OPER("https://xlladdins.github.io/Excel4Macros/alert.html")
     );
 	
     return TRUE;
@@ -198,7 +198,7 @@ int WINAPI xll_macro(void)
 ```
 
 The `Help` button in the alert dialog will take you to documentation for the 
-[`ALERT`](https://github.com/xlladdins/Excel4Macros/blob/master/docs/ALERT.md) macro.
+[`ALERT`](https://xlladdins.github.io/Excel4Macros/alert.html) macro.
 
 The name of the `AddIn` object is arbitrary. I use `xai_` as a prefix for all
 E&zwnj;__x__&zwnj;cel __a__&zwnj;dd-&zwnj;__i__&zwnj;n objects as a convention. 
@@ -237,7 +237,7 @@ version at runtime call
 It returns `0x500` (oddly enough) for version 4 and `0x0c00` for version 12 (hexidecimal `C`).
 
 You can get finer grained information by calling the 
-[`GET.WORKSPACE`](https://github.com/xlladdins/Excel4Macros/blob/master/docs/GET.WORKSPACE.md)
+[`GET.WORKSPACE`](https://xlladdins.github.io/Excel4Macros/get.workspace.html)
 function with argument `2`. The return value is a string, for example `"5.0"`, with the exact version of Excel.
 Using the SDK the call would be `Excel4(xlfGetWorkspace, &version, 1, &two)` where `version` and `two`
 are `XLOPER`s with `two = {.val = {.int = 2}, .xltype = xltypeInt}`. You must call
@@ -264,7 +264,8 @@ and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted str
 `OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
 'do the right thing' when you use it let me know because that would be a design flaw on my part.
 
-`OPER`s are specializations of the [`XOPER`](???ref) class which publicly inherits from the `XLOPERX` struct defined the header file
+`OPER`s are specializations of the [`XOPER`](https://github.com/xlladdins/xll/blob/master/xll/oper.h#L27) 
+class which publicly inherits from the `XLOPERX` struct defined the header file
 [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H). More precisely,
 `OPER4` inherits from [`XLOPER`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118)
 and `OPER12` inherits from [`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180). These are shorthand for
@@ -411,14 +412,14 @@ using `dynamic_cast`.
 When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
 The old handles that were previously saved are stale.
 
-## [Excel4 Macro Function](https://github.com/xlladdins/Excel4Macros/blob/master/docs/README.md)
+## [Excel4 Macro Function](https://xlladdins.github.io/Excel4Macros/)
 
 Add-ins can call any Excel function using `xll::Excel` and the appropriate _function number_. 
 The function numbers are defined in 
 [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H) 
 and correspond to Excel built-in functions or macros (command equivalents).
 To determine the approriate arguments for a function number see the
-[Excel 4 Macro documentaton](https://github.com/xlladdins/Excel4Macros/blob/master/docs/README.md)
+[Excel 4 Macro documentaton](https://xlladdins.github.io/Excel4Macros/)
 
 Function numbers starting with `xlf` are __f__&zwnj;unctions and can be called from add-in functions.
 Function numbers starting with `xlc` are ma&zwnj;__c__&zwnj;ros and can only be called from add-in macros.
