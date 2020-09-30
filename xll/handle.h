@@ -70,9 +70,7 @@ namespace xll {
 	class handle {
 		// all active pointers of type T*
 		inline static std::set<std::unique_ptr<T>, std::less<>> ps;
-		// underlying pointer
-		T* p;
-
+		
 		// Convert handle in caller to pointer.
 		static T* caller()
 		{
@@ -81,8 +79,8 @@ namespace xll {
 			return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
 		}
 
-		/// If calling cell has a known handle then delete corresponding object
-		void gc(void)
+		// If calling cell has a known handle then delete corresponding object
+		static void gc(void)
 		{
 			if (T* _p = caller()) {
 				auto pi = ps.find(_p);
@@ -92,13 +90,17 @@ namespace xll {
 				}
 			}
 		}
+
+		// underlying pointer
+		T* p;
 	public:
 		/// <summary>
 		/// Add a handle to the collection.
 		/// </summary>
 		handle(T* p) noexcept
-			: p{ ps.emplace(std::unique_ptr<T>(p)).first->get() }
+			: p{ p }
 		{
+			ps.emplace(std::unique_ptr<T>(p));
 			gc();
 		}
 		handle(HANDLEX h, bool check = true) noexcept
@@ -127,7 +129,7 @@ namespace xll {
 			return to_handle(p);
 		}
 		// underlying pointer
-		T* ptr()
+		T* ptr() const
 		{
 			return p;
 		}
