@@ -102,6 +102,11 @@ namespace xll {
 		{
 			oper_free();
 		}
+		// Does not involve memory needing to be freed.
+		bool is_scalar() const
+		{
+			return !((xltype & xltypeStr) || (xltype & xltypeMulti) || (xltype & xltypeRef));
+		}
 		/*
 		operator bool() const
 		{
@@ -411,16 +416,27 @@ namespace xll {
 		bool overlap(const X& x) const
 		{
 			return (begin() <= xll::begin(x) && xll::begin(x) < end()) 
-				|| (begin() < xll::end(x) && xll::end(x) <= end());
+				|| (begin() < xll::end(x)    && xll::end(x)  <= end());
 		}
 
 		void oper_free()
 		{
+#ifndef _CONSOLE
+			if (xltype & xlbitXLFree) {
+				X* px[1];
+				px[0] = this;
+				ensure (xlretSuccess ==  traits<X>::Excelv(xlFree, 0, 1, px));
+			}
+			else 
+#endif
 			if (xltype == xltypeStr) {
 				str_free();
 			}
 			else if (xltype == xltypeMulti) {
 				multi_free();
+			}
+			else if (xltype == xltypeRef) {
+				ensure(!"oper_free: xltypeRef not implemented");
 			}
 			
 			xltype = xltypeNil;

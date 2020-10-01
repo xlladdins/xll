@@ -1,7 +1,7 @@
 // traits.h - parameterize by XLOPER/XLOPER12 types
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
-#include <WinUser.h>
+#include <windows.h>
 #include <type_traits>
 #include "defines.h"
 #include "ensure.h"

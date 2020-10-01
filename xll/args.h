@@ -195,7 +195,7 @@ namespace xll {
 			XOPER<X> xEmpty("");
 			oper[count] = &xEmpty;
 
-			X registerId;
+			X registerId = { .xltype = xltypeNil };
 			int ret = traits<X>::Excelv(xlfRegister, &registerId, count + 1, &oper[0]);
 			if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
 				XOPER<X> xMsg("Failed to register: ");

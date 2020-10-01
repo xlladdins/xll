@@ -10,20 +10,12 @@ namespace xll {
 	inline XOPER<X> XExcel(int xlf, const Args&... args)
 	{
 		XOPER<X> o;
-		X x;
 		std::vector<const X*> xargs { &args... };
 
-		int ret = traits<X>::Excelv(xlf, &x, sizeof...(args), (X**)xargs.data());
-		if (ret != xlretSuccess) {
-			throw ret; // !!! do something smarter
-		}
-
-		o = x;
-
-		X* px[1] = { &x };
-		ret = traits<X>::Excelv(xlFree, NULL, 1, px);
-		if (ret != xlretSuccess) {
-			throw ret; // !!! do something smarter
+		int ret = traits<X>::Excelv(xlf, &o, sizeof...(args), (X**)xargs.data());
+		ensure(ret == xlretSuccess); // !!!indicate ref???
+		if (!o.is_scalar()) {
+			o.xltype |= xlbitXLFree;
 		}
 
 		return o;
