@@ -13,21 +13,14 @@ AddIn xai_macro(Macro("xll_macro", "XLL.MACRO"));
 int WINAPI xll_macro(void)
 {
 #pragma XLLEXPORT
-	//OPER xMsg("XLL.MACRO called with active cell: ");
-	//OPER xActive = Excel(xlfActiveCell);
-	//OPER xReftext = Excel(xlfReftext, xActive, OPER(true)); // A1 style
-	//xMsg &= xReftext;
-	//Excel(xlcAlert, xMsg);
 
-	// same as above
 	Excel(xlcAlert,
 		Excel(xlfConcatenate,
-			OPER("XLL.MACRO called with active cell: "),
+			OPER("XLL.MACRO called with активный cell: "),
 			Excel(xlfReftext, Excel(xlfActiveCell), OPER(true))
 		),
 		OPER(2), // general information
-		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
-		// Optional help file link. Note the '!0' appended to the URL.
+		OPER("https://xlladdins.github.io/Excel4Macros/alert.html!0") // help
 	);
 
 	return TRUE;

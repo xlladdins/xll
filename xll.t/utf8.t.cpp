@@ -19,16 +19,16 @@ int test_utf8 = []() {
 		assert(0 == wcsncmp(ws.get() + 1, L"abc", 3));
 		assert(mbstowstring(s) == L"abc");
 	}
-	/*
+	
 	{
 		char s[] = "哈"; // ha
 		wchar_t ha[] = L"哈";
 		assert(3 == strlen(s));
 		wchar_t* ws = mbstowcs(s); // unique_ptr!!!
-		assert(0 == wcsncmp(ws, ha, 1));
+		assert(0 == wcsncmp(ws + 1, ha, 1));
 		free(ws);
 	}
-	*/
+	
 	{
 		wchar_t ws[] = L"abc";
 		unique_ptr<char> s(wcstombs(ws));
