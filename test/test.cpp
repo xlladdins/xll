@@ -1,4 +1,4 @@
-#include <cmath>
+﻿#include <cmath>
 // Uncomment to use Excel4 API.
 //#define XLOPERX XLOPER
 #include "../xll/xll.h"
@@ -202,4 +202,17 @@ LPOPER4 WINAPI xll_get_range(HANDLEX _h) {
 	h->operator()(0, 0) = "";
 
 	return h.ptr();
+}
+
+AddIn xai_utf8(Macro("xll_utf8", "XLL.UTF8"));
+int WINAPI xll_utf8(void)
+{
+#pragma XLLEXPORT
+	Excel(xlcAlert,
+		OPER("отлично"),
+		OPER(2), // general information
+		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
+	);
+
+	return TRUE;
 }
