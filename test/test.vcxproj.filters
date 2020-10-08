@@ -21,5 +21,8 @@
     <ClCompile Include="handle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="wininet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -204,8 +204,28 @@ int WINAPI xll_utf8(void)
 	Excel(xlcAlert,
 		OPER("отлично"),
 		OPER(2), // general information
-		OPER("https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/ALERT.md!0")
+		OPER("https://translate.google.com/#view=home&op=translate&sl=auto&tl=en&text=%D0%BE%D1%82%D0%BB%D0%B8%D1%87%D0%BDo!0")
 	);
 
 	return TRUE;
+}
+
+
+AddIn xai_file(
+	Function(XLL_LPOPER, "xll_file", "XLL.FILE")
+	.Args({
+		Arg(XLL_LPOPER, "url", "is a URL to retrieve.")
+	})
+	.Category("XLL")
+	.FunctionHelp("Return contents of URL.")
+	//.Uncalced()
+);
+LPOPER WINAPI xll_file(const LPOPER po)
+{
+#pragma XLLEXPORT
+	static OPER f;
+
+	f = Excel(xlfWebservice, *po);
+
+	return &f;
 }
