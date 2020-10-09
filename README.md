@@ -382,7 +382,7 @@ AddIn xai_base(
 HANDLEX WINAPI xll_base(LPOPERX px)
 {
 #pragma XLLEXPORT
-    xll::handle h(new base(*px));
+    xll::handle<base> h(new base(*px));
 
     return h.get();
 }
