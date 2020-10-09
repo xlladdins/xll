@@ -190,7 +190,7 @@ int WINAPI xll_macro(void)
             )
         ),
         OPER(2), // general information
-        OPER("https://xlladdins.github.io/Excel4Macros/alert.html")
+        OPER("https://xlladdins.github.io/Excel4Macros/alert.html!0")
     );
 	
     return TRUE;
