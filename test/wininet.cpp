@@ -1,7 +1,7 @@
 // wininet.cpp -
 // https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-internetopena
-#define XLOPERX XLOPER
-//#include "../xll/xll.h"
+//#define XLOPERX XLOPER
+#include "../xll/xll.h"
 #include <WinInet.h>
 
 #pragma comment(lib, "wininet.lib")
