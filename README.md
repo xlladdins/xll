@@ -190,7 +190,7 @@ int WINAPI xll_macro(void)
             )
         ),
         OPER(2), // general information
-        OPER("https://xlladdins.github.io/Excel4Macros/alert.html")
+        OPER("https://xlladdins.github.io/Excel4Macros/alert.html!0")
     );
 	
     return TRUE;
@@ -382,7 +382,7 @@ AddIn xai_base(
 HANDLEX WINAPI xll_base(LPOPERX px)
 {
 #pragma XLLEXPORT
-    xll::handle h(new base(*px));
+    xll::handle<base> h(new base(*px));
 
     return h.get();
 }
