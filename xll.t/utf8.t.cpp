@@ -1,4 +1,5 @@
 ﻿// utf8.t.cpp test utf8.h
+#undef NDEBUG
 #include <cassert>
 #include <memory>
 #include "../xll/utf8.h"
