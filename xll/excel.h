@@ -11,8 +11,7 @@ namespace xll {
 	inline XOPER<X> XExcel(int xlf, const Args&... args)
 	{
 		XOPER<X> o;
-		std::vector<const X*> xargs { &args... };
-		//std::array<const X*,sizeof...(Args)> xargs = { &args... };
+		std::array<const X*,sizeof...(Args)> xargs = { &args... };
 
 		int ret = traits<X>::Excelv(xlf, &o, sizeof...(args), (X**)xargs.data());
 		ensure(ret == xlretSuccess); // !!!indicate ref???

@@ -1,4 +1,4 @@
-// handle.cpp - Illustrate the use of handles
+// handle.cpp - Illustrate the use of handles.
 //#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
@@ -28,7 +28,7 @@ public:
 };
 
 AddIn xai_base(
-	Function(XLL_HANDLEX, "?xll_base", "XLL.BASE")
+	Function(XLL_HANDLEX, "xll_base", "XLL.BASE")
 	.Args({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
 	})
@@ -44,7 +44,7 @@ HANDLEX WINAPI xll_base(const LPOPER px)
 }
 
 AddIn xai_base_get(
-	Function(XLL_LPOPER, "?xll_base_get", "XLL.BASE.GET")
+	Function(XLL_LPOPER, "xll_base_get", "XLL.BASE.GET")
 	.Args({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE")
 	})
@@ -59,7 +59,7 @@ LPOPER WINAPI xll_base_get(HANDLEX _h)
 }
 
 AddIn xai_base_set(
-	Function(XLL_HANDLEX, "?xll_base_set", "XLL.BASE.SET")
+	Function(XLL_HANDLEX, "xll_base_set", "XLL.BASE.SET")
 	.Args({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE"),
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
@@ -95,7 +95,7 @@ public:
 };
 
 AddIn xai_derived(
-	Function(XLL_HANDLEX, "?xll_derived", "XLL.DERIVED")
+	Function(XLL_HANDLEX, "xll_derived", "XLL.DERIVED")
 	.Args({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells"),
 		Arg(XLL_LPOPER, "cell2", "is a cell or range of cells")
@@ -114,7 +114,7 @@ HANDLEX WINAPI xll_derived(LPOPER px, LPOPER px2)
 
 // XLL.BASE.GET calls base::get for handles returned by XLL.DERIVED.
 AddIn xai_derived_get(
-	Function(XLL_LPOPER, "?xll_derived_get", "XLL.DERIVED.GET")
+	Function(XLL_LPOPER, "xll_derived_get", "XLL.DERIVED.GET")
 	.Args({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.DERIVED")
 	})
