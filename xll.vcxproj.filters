@@ -69,9 +69,6 @@
     <ClInclude Include="xll\utf8.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="xll\cdecl.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="xll\sref.h">
       <Filter>Header Files</Filter>
     </ClInclude>

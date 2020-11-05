@@ -106,7 +106,6 @@ namespace xll {
 		}
 		XArgs& HelpTopic(cstr _helpTopic)
 		{
-			// !!! If it does not end with '!.+` add a '!0'.
 			helpTopic = _helpTopic;
 
 			return *this;
@@ -214,17 +213,17 @@ namespace xll {
 		*/
 	};
 
-	using Args4 = XArgs<XLOPER>;
+	using Args4  = XArgs<XLOPER>;
 	using Args12 = XArgs<XLOPER12>;
-	using Args = XArgs<XLOPERX>;
+	using Args   = XArgs<XLOPERX>;
 
-	using Function4 = XArgs<XLOPER>;
+	using Function4  = XArgs<XLOPER>;
 	using Function12 = XArgs<XLOPER12>;
-	using Function = XArgs<XLOPERX>;
+	using Function   = XArgs<XLOPERX>;
 
-	using Macro4 = XArgs<XLOPER>;
+	using Macro4  = XArgs<XLOPER>;
 	using Macro12 = XArgs<XLOPER12>;
-	using Macro = XArgs<XLOPERX>;
+	using Macro   = XArgs<XLOPERX>;
 
 	/*
 	template<typename X>

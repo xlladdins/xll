@@ -20,8 +20,8 @@ namespace xll {
 	/// <summary>
 	/// Convert a pointer to a handle.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
-	/// <param name="p">is a pointer</param>
+	/// <typeparam name="T">Any type</typeparam>
+	/// <param name="p">A pointer to T</param>
 	/// <returns>Returns a handle encoding the pointer bits.</returns>
 	/// 
 	template<class T>
@@ -116,13 +116,13 @@ namespace xll {
 		handle(const handle&) = default;
 		handle& operator=(const handle&) = default;
 		~handle()
-		{
-			// do nothing
-		}
+		{ }
+
 		operator bool() const
 		{
 			return p != nullptr;
 		}
+
 		// return value for Excel
 		HANDLEX get() const
 		{

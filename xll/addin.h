@@ -14,10 +14,10 @@ namespace xll {
         static inline std::map<XOPER<X>, XArgs<X>> Map;
         XAddIn(const XArgs<X>& args) noexcept
         {
-            // warn if it already exists
             const auto& key = args.FunctionText();
             auto [_, inserted] = Map.try_emplace(key, std::move(args));
             /*
+            // warn if it already exists
             if (!inserted) {
                 std::basic_string<TCHAR> msg{ TEXT("AddIn previously defined: ") };
                 msg.append(key.val.str + 1, key.val.str[0]);
@@ -40,9 +40,9 @@ namespace xll {
         }
     };
 
-	using AddIn4 = XAddIn<XLOPER>;
+	using AddIn4  = XAddIn<XLOPER>;
     using AddIn12 = XAddIn<XLOPER12>;
-    using AddIn = XAddIn<XLOPERX>;
+    using AddIn   = XAddIn<XLOPERX>;
 
 } // xll namespace
 

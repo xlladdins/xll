@@ -64,12 +64,6 @@ extern const LPCSTR xll_err_desc[]; // Human readable description
 }
 #endif
 
-/*
-#define xltypeXxx 0x0000 // phony type that is never used
-#define xltypePtr 0x0200 // void* pointer
-#define xltypeUnsigned 0x8000
-*/
-
 // Argument types for Excel Functions
 // XLL_XXX, Excel4, Excel12, description
 #define XLL_ARG_TYPE(X)                                                              \
