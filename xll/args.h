@@ -30,7 +30,12 @@ namespace xll {
 		}
 	};
 
+	/// <summary>
+	/// Everything needed to register an add-in.
+	/// </summary>
+	/// <typeparam name="X">Must be either XLOPER or XLOPER12</typeparam>
 	template<class X>
+		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	class XArgs {
 		XOPER<X> moduleText;   // from xlGetName
 		XOPER<X> procedure;    // C function
@@ -74,7 +79,6 @@ namespace xll {
 		{
 			return functionText;
 		}
-
 
 		// list of function arguments
 		XArgs& Args(std::initializer_list<Arg> args)
@@ -203,14 +207,13 @@ namespace xll {
 
 			return registerId;
 		}
-		/*
+		// never needed
 		XOPER<X> Unregister() const
 		{
 			X* px[1];
-			px[0] = &registerId;
+			px[0] = RegisterId();
 			return traits<X>::Excelv(xlfUnregister, 0, 1, px);
 		}
-		*/
 	};
 
 	using Args4  = XArgs<XLOPER>;
@@ -225,12 +228,4 @@ namespace xll {
 	using Macro12 = XArgs<XLOPER12>;
 	using Macro   = XArgs<XLOPERX>;
 
-	/*
-	template<typename X>
-	struct Enum : public XArgs<X> {
-		using xcstr = typename traits<X>::xcstr;
-		Enum(xcstr name, xcstr value, xcstr category, xcstr description, xcstr doc = 0)
-			: ???
-	};
-	*/
 }

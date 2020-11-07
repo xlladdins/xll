@@ -14,7 +14,7 @@ namespace xll {
 		std::array<const X*,sizeof...(Args)> xargs = { &args... };
 
 		int ret = traits<X>::Excelv(xlf, &o, sizeof...(args), (X**)xargs.data());
-		ensure(ret == xlretSuccess); // !!!indicate ref???
+		ensure(ret == xlretSuccess); // !!!indicate ret???
 		if (!o.is_scalar()) {
 			o.xltype |= xlbitXLFree;
 		}

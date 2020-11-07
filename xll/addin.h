@@ -11,7 +11,9 @@ namespace xll {
     /// </summary>
     template<class X>
 	struct XAddIn {
+        // add-ins indexed by Excel name
         static inline std::map<XOPER<X>, XArgs<X>> Map;
+ 
         XAddIn(const XArgs<X>& args) noexcept
         {
             const auto& key = args.FunctionText();

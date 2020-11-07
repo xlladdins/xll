@@ -77,9 +77,8 @@ namespace xll {
 		static const int On = xlcOnWindow;
 	};
 	
-	// Calls on On overwrite existing macros.
+	// Calls on xlcOnXXX but overwrites existing macros.
 	// ???Keep a list of all On macros???
-	// static On<Key> ok("shortcut", "MACRO");
 	template<class Key>
 	class On {
 		using cstr = const char*;
@@ -116,4 +115,5 @@ namespace xll {
 			});
 		}
 	};
+
 } // namespace xll
