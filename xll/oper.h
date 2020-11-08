@@ -13,8 +13,6 @@
 
 namespace xll {
 
-	inline static const int xltypeScalar = (xltypeNum | xltypeBool | xltypeErr |  xltypeMissing | xltypeNil | xltypeSRef | xltypeInt);
-
 	/// <summary>
 	///  Wrapper for XLOPER/XLOPER12 structs.
 	/// </summary>
@@ -78,7 +76,8 @@ namespace xll {
 		XOPER(const XOPER& o)
 			: XOPER(static_cast<const X&>(o))
 		{ }
-		XOPER(XOPER&& o)
+
+		XOPER(XOPER&& o) noexcept
 			: XOPER()
 		{
 			xltype = std::exchange(o.xltype, xltype);

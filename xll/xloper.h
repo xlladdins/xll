@@ -8,6 +8,11 @@
 
 namespace xll {
 
+	// convertible to double
+	inline static const int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
+	// do not involve memory allocation
+	inline static const int xltypeScalar = (xltypeNumeric | xltypeErr | xltypeMissing | xltypeNil | xltypeSRef);
+
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline size_t rows(const X& x)
 	{
@@ -117,9 +122,15 @@ inline auto operator<=>(const X& x, const X& y)
 
 	switch (x.xltype) {
 	case xltypeNum: // operator<=> is only a partial ordering on doubles
-		return x.val.num == y.val.num ? std::strong_ordering::equal
-			: x.val.num < y.val.num ? std::strong_ordering::less
-			: std::strong_ordering::greater;
+		// IEEE bits agree with floating point order
+		union id {
+			int64_t i;
+			double d;
+		} xid, yid;
+		xid.d = x.val.num;
+		yid.d = y.val.num;
+
+		return xid.i <=> yid.i;
 
 	case xltypeStr:
 		//if (x.val.str[0] != y.val.str[0]) return x.val.str[0] <=> y.val.str[0];
