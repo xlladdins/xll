@@ -20,8 +20,8 @@ namespace xll {
 	/// <summary>
 	/// Convert a pointer to a handle.
 	/// </summary>
-	/// <typeparam name="T"></typeparam>
-	/// <param name="p">is a pointer</param>
+	/// <typeparam name="T">Any type</typeparam>
+	/// <param name="p">A pointer to T</param>
 	/// <returns>Returns a handle encoding the pointer bits.</returns>
 	/// 
 	template<class T>
@@ -63,7 +63,9 @@ namespace xll {
 	/// <summary>
 	/// Collection of handles parameterized by type.
 	/// Use <c>handle<T> h(new T(...))</c> to create a handle.
+	/// Functions that create handles must be uncalced.
 	/// Use <c>handle<T> h_(h)</c> to lookup h returned by <c>get()</c>.
+	/// Functions that use handles do not need to be uncalced.
 	/// Unknown handles return null pointers.
 	/// </summary>
 	template<class T>
@@ -74,6 +76,7 @@ namespace xll {
 		// Convert handle in caller to pointer.
 		static T* caller()
 		{
+			// value in cell a function is called from
 			OPER x = Excel(xlCoerce, Excel(xlfCaller));
 
 			return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
@@ -116,13 +119,13 @@ namespace xll {
 		handle(const handle&) = default;
 		handle& operator=(const handle&) = default;
 		~handle()
-		{
-			// do nothing
-		}
+		{ }
+
 		operator bool() const
 		{
 			return p != nullptr;
 		}
+
 		// return value for Excel
 		HANDLEX get() const
 		{

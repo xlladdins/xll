@@ -1,4 +1,5 @@
 // oper.t.cpp - test OPER type
+#undef NDEBUG
 #include <cassert>
 #include <functional>
 #define XLOPERX XLOPER

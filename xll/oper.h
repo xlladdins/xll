@@ -42,14 +42,17 @@ namespace xll {
 		using X::xltype;
 		using X::val;
 
-		friend void swap(XOPER& a, XOPER& b) noexcept
+		void swap(XOPER& x) noexcept
 		{
 			using std::swap;
 
-			swap(a.xltype, b.xltype);
-			swap(a.val, b.val);
+			swap(xltype, x.xltype);
+			swap(val, x.val);
 		}
 
+		//
+		// constructors
+		//
 		XOPER()
 		{
 			xltype = xltypeNil;
@@ -72,42 +75,33 @@ namespace xll {
 				val.err = xlerrValue;
 			}
 		}
-		explicit XOPER(const XOPER& o)
+		XOPER(const XOPER& o)
 			: XOPER(static_cast<const X&>(o))
 		{ }
-		XOPER(XOPER&& o) noexcept
+		XOPER(XOPER&& o)
 			: XOPER()
 		{
-			swap(*this, o);
+			xltype = std::exchange(o.xltype, xltype);
+			val = std::exchange(o.val, val);
 		}
-		XOPER& operator=(XOPER o)
+		//
+		// Assignment
+		//
+		XOPER& operator=(const XOPER& o)
 		{
-			swap(*this, o);
-
-			return *this;
-		}
-		/*
-		XOPER& operator=(const X& x)
-		{
-			swap(*this, XOPER(x));
-
-			return *this;
+			return *this = XOPER(o);
 		}
 		XOPER& operator=(XOPER&& o) noexcept
 		{
-			if (this != &o) {
-				xltype = o.xltype;
-				val = o.val;
-				o.xltype = xltypeMissing;
-			}
+			swap(o);
 
 			return *this;
 		}
-		*/
 		~XOPER()
 		{
 			oper_free();
 		}
+
 		// Does not involve memory needing to be freed.
 		bool is_scalar() const
 		{
@@ -373,9 +367,8 @@ namespace xll {
 				std::copy(o.begin(), o.end(), end() - o.size());
 			}
 			else {
-				auto tmp = *this;
-				oper_free();
-				multi_alloc(1, 1);
+				XOPER tmp(1, 1);
+				swap(tmp);
 				operator[](0) = tmp;
 
 				return append_bottom(o);
@@ -481,12 +474,13 @@ namespace xll {
 				if (n == 0) {
 					n = traits<X>::len(str);
 				}
+
 				xchar* tmp = (xchar*)realloc(val.str, (val.str[0] + n + 1) * sizeof(xchar));
-				if (tmp != nullptr) {
-					val.str = tmp;
-					memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
-					val.str[0] = static_cast<xchar>(val.str[0] + n);
-				}
+				ensure(tmp);
+				val.str = tmp;
+				memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
+				val.str[0] = static_cast<xchar>(val.str[0] + n);
+
 				if (counted) {
 					free(const_cast<xchar*>(str));
 				}
@@ -506,7 +500,7 @@ namespace xll {
 			ensure(c <= (size_t)std::numeric_limits<xcol>::max());
 
 			if (r * c == 0) {
-				xltype = xltypeNil;
+				xltype = XOPER().xltype;
 
 				return;
 			}
@@ -528,7 +522,7 @@ namespace xll {
 
 			if (r * c == 0) {
 				multi_free();
-				xltype = xltypeNil;
+				operator=(XOPER());
 
 				return;
 			}
@@ -539,12 +533,14 @@ namespace xll {
 			val.array.columns = static_cast<xcol>(c);
 			if (n > size()) {
 				std::for_each(end(), begin() + n, [](auto& o) { o.oper_free(); });
-				val.array.lparray = (X*)realloc(val.array.lparray, size() * sizeof(X));
-				ensure(val.array.lparray);
+				X* tmp = (X*)realloc(val.array.lparray, size() * sizeof(X));
+				ensure(tmp);
+				val.array.lparray = tmp;
 			}
 			else if (n < size()) {
-				val.array.lparray = (X*)realloc(val.array.lparray, size() * sizeof(X));
-				ensure(val.array.lparray);
+				X* tmp = (X*)realloc(val.array.lparray, size() * sizeof(X));
+				ensure(tmp);
+				val.array.lparray = tmp;
 				std::fill(begin() + n, end(), XOPER{});
 			}
 		}

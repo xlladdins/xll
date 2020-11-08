@@ -1,6 +1,7 @@
 // excel.h - Wrapper functions for Excelv
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+#include <array>
 #include <utility>
 #include "oper.h"
 
@@ -10,10 +11,10 @@ namespace xll {
 	inline XOPER<X> XExcel(int xlf, const Args&... args)
 	{
 		XOPER<X> o;
-		std::vector<const X*> xargs { &args... };
+		std::array<const X*,sizeof...(Args)> xargs = { &args... };
 
 		int ret = traits<X>::Excelv(xlf, &o, sizeof...(args), (X**)xargs.data());
-		ensure(ret == xlretSuccess); // !!!indicate ref???
+		ensure(ret == xlretSuccess); // !!!indicate ret???
 		if (!o.is_scalar()) {
 			o.xltype |= xlbitXLFree;
 		}

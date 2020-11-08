@@ -68,8 +68,8 @@ namespace xll {
 		{ }
 	};
 
-	using REF4 = XREF<XLOPER>;
+	using REF4  = XREF<XLOPER>;
 	using REF12 = XREF<XLOPER12>;
-	using REF = XREF<XLOPERX>;
+	using REF   = XREF<XLOPERX>;
 
 } // namespace xll

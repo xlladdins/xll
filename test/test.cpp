@@ -1,17 +1,18 @@
 ﻿#include <cmath>
-// Uncomment to use Excel4 API.
+// Uncomment to use Excel4 API. Default is XLOPER12.
 //#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
 
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
-// See https://github.com/xlladdins/xll/blob/master/docs/Excel4Macros/README.md
+// See https://xlladdins.github.io/Excel4Macros/
 // for documentation of Excel arguments.
 AddIn xai_macro(Macro("xll_macro", "XLL.MACRO"));
 // All functions called from Excel must be declared with WINAPI.
 int WINAPI xll_macro(void)
 {
+// And made available to Excel using a pragma.
 #pragma XLLEXPORT
 
 	Excel(xlcAlert,
@@ -27,10 +28,12 @@ int WINAPI xll_macro(void)
 }
 
 AddIn xai_tgamma(
+	// Return a double by calling xll_tgamma using TGAMMA in Excel.
 	Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
+	// Args are an array of one Arg that is a double. 
 	.Args({
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
-		})
+	})
 	.FunctionHelp("Return the Gamma function value.")
 	.Category("CMATH")
 	.HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal")
@@ -64,7 +67,7 @@ AddIn xai_jn(
 	.Args({
 		Arg(XLL_LONG, "n", "is the order of the Bessel function.", "=1"),
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate the Bessel function.", "=1+.1")
-		})
+	})
 	.FunctionHelp("Return the value of the n-th order Bessel function of the first kind.")
 	.Category("Cmath")
 );
@@ -88,17 +91,18 @@ double WINAPI xll_jn(LONG n, double x)
 	return result;
 }
 
+// lambda gets called on open
 Auto<Open> xai_open([]() {
 	Excel(xlcAlert, OPER("Auto<Open> called"));
 
 	return TRUE;
-	});
+});
 
 Auto<Close> xai_close([]() {
 	Excel(xlcAlert, OPER("Auto<Close> called"));
 
 	return TRUE;
-	});
+});
 
 AddIn xai_onkey(Macro("xll_onkey", "XLL.ONKEY"));
 int WINAPI xll_onkey(void)
@@ -134,42 +138,35 @@ AddIn xai_get_workspace(
 	Function(XLL_LPOPER, "xll_get_workspace", "GET_WORKSPACE")
 	.Args({
 		Arg(XLL_SHORT, "type_num", "is a number specifying the type of workspace information you want.")
-		})
+	})
 	.Uncalced()
+	.FunctionHelp("Return workspace information.")
+	.Category("XLL")
+	.HelpTopic("https://xlladdins.github.io/Excel4Macros/get.workspace.html")
 );
 LPOPER WINAPI xll_get_workspace(SHORT type_num)
 {
 #pragma XLLEXPORT
 	static OPER oResult;
 
-	oResult = Excel(xlfGetWorkspace, OPER(type_num));
+	try {
+		oResult = Excel(xlfGetWorkspace, OPER(type_num));
+	}
+	catch (const std::exception& ex) {
+		XLL_ERROR(ex.what());
+
+		oResult = ErrValue;
+	}
 
 	return &oResult;
 }
 
-AddIn xai_get_formula(
-	Function(XLL_HANDLEX, "xll_get_formula", "GET_FORMULA")
-	.Args({
-		Arg(XLL_LPXLOPER, "cell", "is a reference to a cell containing a formula.")
-		})
-	.FunctionHelp("Get formula from cell.")
-	.Category("XLL")
-	.Uncalced()
-);
-HANDLEX WINAPI xll_get_formula(LPXLOPERX pCell)
-{
-#pragma XLLEXPORT
-	// if pCall->xltype == xltypeMissing use active cell
-	OPER xFormula = Excel(xlfGetFormula, *pCell); // formula references are R1C1
-
-	return HANDLEX{};
-}
-
+// Force Excel to use the old API.
 AddIn4 xai_set_range(
 	Function4(XLL_HANDLEX, "xll_set_range", "SET.RANGE")
 	.Args({
 		Arg(XLL_LPOPER4, "range", "is a range")
-		})
+	})
 	.FunctionHelp("Return a handle to a range.")
 	.Category("XLL")
 	.Uncalced()
@@ -197,6 +194,7 @@ LPOPER4 WINAPI xll_get_range(HANDLEX _h) {
 	return h.ptr();
 }
 
+// UTF-8 test
 AddIn xai_utf8(Macro("xll_utf8", "XLL.UTF8"));
 int WINAPI xll_utf8(void)
 {
@@ -210,7 +208,6 @@ int WINAPI xll_utf8(void)
 	return TRUE;
 }
 
-
 AddIn xai_file(
 	Function(XLL_LPOPER, "xll_file", "XLL.FILE")
 	.Args({
@@ -218,7 +215,6 @@ AddIn xai_file(
 	})
 	.Category("XLL")
 	.FunctionHelp("Return contents of URL.")
-	//.Uncalced()
 );
 LPOPER WINAPI xll_file(const LPOPER po)
 {

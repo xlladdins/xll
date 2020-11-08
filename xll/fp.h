@@ -7,6 +7,7 @@ inline auto size(const _FP& a)
 	return a.rows * a.columns;
 }
 
+// Make FP STL friendly.
 inline double* begin(_FP& a)
 {
 	return a.array;
@@ -88,7 +89,7 @@ namespace xll {
 			free(fp);
 		}
 
-		// Convert to pointer to native Excel FP type.
+		// Convert to native Excel FP type pointer.
 		xfp* get()
 		{
 			return reinterpret_cast<xfp*>(fp);
