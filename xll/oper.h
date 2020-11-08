@@ -13,6 +13,8 @@
 
 namespace xll {
 
+	inline static const int xltypeScalar = (xltypeNum | xltypeBool | xltypeErr |  xltypeMissing | xltypeNil | xltypeSRef | xltypeInt);
+
 	/// <summary>
 	///  Wrapper for XLOPER/XLOPER12 structs.
 	/// </summary>
@@ -54,7 +56,11 @@ namespace xll {
 		}
 		XOPER(const X& x)
 		{
-			if (x.xltype == xltypeStr) {
+			if (x.xltype & xltypeScalar) {
+				xltype = x.xltype;
+				val = x.val;
+			}
+			else if (x.xltype == xltypeStr) {
 				str_alloc(x.val.str + 1, x.val.str[0]);
 			}
 			else if (x.xltype == xltypeMulti) {
@@ -62,8 +68,8 @@ namespace xll {
 				std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
 			}
 			else {
-				xltype = x.xltype;
-				val = x.val;
+				xltype = xltypeErr;
+				val.err = xlerrValue;
 			}
 		}
 		explicit XOPER(const XOPER& o)
@@ -105,7 +111,7 @@ namespace xll {
 		// Does not involve memory needing to be freed.
 		bool is_scalar() const
 		{
-			return !((xltype & xltypeStr) || (xltype & xltypeMulti) || (xltype & xltypeRef));
+			return xltype & xltypeScalar;
 		}
 		/*
 		operator bool() const
