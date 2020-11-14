@@ -4,22 +4,23 @@
 
 using namespace xll;
 
+template<class X = OPER>
 class base {
-	OPER x;
+	X x;
 public:
 	base() { }
-	base(const OPER& x) 
+	base(const X& x) 
 		: x(x) 
 	{ }
 	base(const base&) = default;
 	base& operator=(const base&) = default;
 	virtual ~base()
 	{ }
-	OPER& get() 
+	X& get() 
 	{ 
 		return x; 
 	}
-	base& set(const OPER& _x)
+	base& set(const X& _x)
 	{
 		x = _x;
 
@@ -38,7 +39,7 @@ AddIn xai_base(
 HANDLEX WINAPI xll_base(const LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base> h(new base(*px));
+	xll::handle<base<>> h(new base<>(*px));
 
 	return h.get();
 }
@@ -53,7 +54,7 @@ AddIn xai_base_get(
 LPOPER WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
-	xll::handle<base> h(_h);
+	xll::handle<base<>> h(_h);
 
 	return h ? &h->get() : (LPOPER)&ErrNA;
 }
@@ -69,7 +70,7 @@ AddIn xai_base_set(
 HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base> h(_h);
+	xll::handle<base<>> h(_h);
 
 	if (h) {
 		h->set(*px);
@@ -78,17 +79,18 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 	return _h;
 }
 
-class derived : public base {
-	OPER x2;
+template<class X = OPER>
+class derived : public base<X> {
+	X x2;
 public:
 	derived()
 	{ }
-	derived(const OPER& x, const OPER& x2)
-		: base(x), x2(x2)
+	derived(const X& x, const X& x2)
+		: base<X>(x), x2(x2)
 	{ }
 	derived(const derived&) = default;
 	derived& operator=(const derived&) = default;
-	OPER& get2()
+	X& get2()
 	{
 		return x2;
 	}
@@ -107,7 +109,7 @@ HANDLEX WINAPI xll_derived(LPOPER px, LPOPER px2)
 {
 #pragma XLLEXPORT
 	// derived isa base
-	xll::handle<base> h(new derived(*px, *px2));
+	xll::handle<base<>> h(new derived<>(*px, *px2));
 
 	return h.get();
 }
@@ -124,9 +126,9 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
 	// get handle to base class
-	xll::handle<base> h(_h);
+	xll::handle<base<>> h(_h);
 	// cast to derived
-	derived* pd = dynamic_cast<derived*>(h.ptr());
+	derived<>* pd = dynamic_cast<derived<>*>(h.ptr());
 
 	return pd != nullptr ? &pd->get2() : (LPOPER)&ErrNA;
 }
