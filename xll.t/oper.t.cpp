@@ -539,6 +539,7 @@ int test_xloper = []()
 {
 	{
 		ensure(0 == strcmp(XLL_DOUBLE, "B"));
+		ensure(0 == strcmp(XLL_FP12, "K%"));
 	}
 
 	return 0;

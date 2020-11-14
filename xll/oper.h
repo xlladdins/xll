@@ -57,7 +57,11 @@ namespace xll {
 		}
 		XOPER(const X& x)
 		{
-			if (x.xltype == xltypeStr) {
+			if (x.xltype & xltypeScalar) {
+				xltype = x.xltype;
+				val = x.val;
+			}
+			else if (x.xltype == xltypeStr) {
 				str_alloc(x.val.str + 1, x.val.str[0]);
 			}
 			else if (x.xltype == xltypeMulti) {
@@ -65,14 +69,15 @@ namespace xll {
 				std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
 			}
 			else {
-				xltype = x.xltype;
-				val = x.val;
+				xltype = xltypeErr;
+				val.err = xlerrValue;
 			}
 		}
 		XOPER(const XOPER& o)
 			: XOPER(static_cast<const X&>(o))
 		{ }
-		XOPER(XOPER&& o)
+
+		XOPER(XOPER&& o) noexcept
 			: XOPER()
 		{
 			xltype = std::exchange(o.xltype, xltype);
@@ -99,7 +104,7 @@ namespace xll {
 		// Does not involve memory needing to be freed.
 		bool is_scalar() const
 		{
-			return !((xltype & xltypeStr) || (xltype & xltypeMulti) || (xltype & xltypeRef));
+			return xltype & xltypeScalar;
 		}
 		/*
 		operator bool() const
