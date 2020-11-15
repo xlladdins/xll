@@ -9,7 +9,7 @@
 
 // handle data type
 using HANDLEX = double;
-#define INVALID_HANDLEX std::numeric_limits<HANDLEX>::quiet_NaN()
+inline constexpr HANDLEX INVALID_HANDLEX = std::numeric_limits<HANDLEX>::quiet_NaN();
 
 // handle argument types for add-ins
 #define XLL_HANDLE XLL_DOUBLE
@@ -44,22 +44,48 @@ namespace xll {
 		return (T*)((uint64_t)h);
 	}
 
-}
+	/// <summary>
+	/// HANDLEX defaulting to NaN. Shows up as #NUM! in Excel
+	/// </summary>
+	struct handlex {
+		HANDLEX h;
+		explicit handlex(double h = std::numeric_limits<double>::quiet_NaN())
+			: h(h)
+		{ }
+		operator HANDLEX&()
+		{
+			return h;
+		}
+		operator const HANDLEX() const
+		{
+			return h;
+		}
+	};
 
-// compare underlying raw pointers
-template<class T>
-bool operator<(const std::unique_ptr<T>& a, const T* b)
-{
-	return a.get() < b;
-}
+	// compare underlying raw pointers
+	template<class T>
+	struct unique_ptrcmp {
+		using is_transparent = void;
 
-template<class T>
-bool operator<(const T* a, const std::unique_ptr<T>& b)
-{
-	return a < b.get();
-}
+		template<class T>
+		bool operator()(const std::unique_ptr<T>& a, const T* b) const
+		{
+			return a.get() < b;
+		}
 
-namespace xll {
+		template<class T>
+		bool operator()(const T* a, const std::unique_ptr<T>& b) const
+		{
+			return a < b.get();
+		}
+
+		template<class T>
+		bool operator()(const std::unique_ptr<T>& a, const std::unique_ptr<T>& b) const
+		{
+			return a.get() < b.get();
+		}
+	};
+
 	/// <summary>
 	/// Collection of handles parameterized by type.
 	/// Use <c>handle<T> h(new T(...))</c> to create a handle.
@@ -71,7 +97,7 @@ namespace xll {
 	template<class T>
 	class handle {
 		// all active pointers of type T*
-		inline static std::set<std::unique_ptr<T>, std::less<>> ps;
+		inline static std::set<std::unique_ptr<T>, unique_ptrcmp<T>> ps;
 		
 		// Convert handle in caller to pointer.
 		static T* caller()
@@ -145,6 +171,21 @@ namespace xll {
 		{
 			return p;
 		}
+		// downcast to U
+		template<class U> requires std::is_base_of_v<T,U>
+		U* as()
+		{
+			return dynamic_cast<U*>(p);
+		}
+		// YAGNI???
+		/*
+		template<class U>
+			requires std::is_base_of_v<T, U>
+		const U* as() const
+		{
+			return dynamic_cast<U*>(p);
+		}
+		*/
 	};
 
 	// encode/decode???
