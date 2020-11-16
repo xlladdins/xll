@@ -494,23 +494,40 @@ these days.
 
 ### Handles
 
-Some add-in libraries use thousands of lines of code to implment 'handle' objects.
-The xll add-in library uses [one hundred](https://github.com/xlladdins/xll/blob/master/xll/handle.h).
-A `HANDLEX` is a `double` that holds the pointer to the underlying C++ object. There is no lookup
-involved when using a handle, it is just a cast to convert `void*` bits to `double` bits.
-The constructor that converts the `double` to the pointer ensures the pointer is valid,
-but this can be turned off if performance is an issue.
+Handles are handled by the `xll::handle<T>` class, parameterized by the handle type `T`.
+They are similar to `std::unique_ptr<T>`.
 
-You might be worried that the 64-bits in a pointer might not represent a valid `double`.
-On 64-bit Windows 10 the first 16-bits of the pointer are zero. This means we only have to concern
-ourselves with the remaining 48-bits. Doubles can exactly represent integers less than 2<sup>53</sup>
-so we have plenty of room to spare.
+A [_handle_](https://github.com/xlladdins/xll/blob/master/xll/handle.h) is a `double` used
+to represent a pointer.
+Excel doesn't know about pointers so we use a double to hold a pointer to a C++ object.
+Use `HANDLEX` instead of `double` to make clear when a double is representing a pointer.
+
+If you are worried that the 64-bits in a pointer might represent a `double` that is
+a NaN or denormalized value, you should be. Neither of those survive a round
+trip to Excel and back. Returning a NaN to Excel results in a `#NUM!`.
+
+On 64-bit Windows the first 16-bits of a pointer are zero so all we need are the remaining 48-bits. 
+Doubles can exactly represent integers up to 2<sup>53</sup>
+so we have plenty of room to spare. 
+Converting between `HANDLEX` and `void*` is just a 
+[cast](https://github.com/xlladdins/xll/blob/master/xll/handle.h#L20), so no lookup is involved.
+
+The `handle<T>(T *)` constructor takes a pointer returned by `new` and behaves like
+a `std::unique_ptr`. The member function `handle<T>::ptr()` returns the `T*` pointer.
+The member function `handle<T>::operator->()` provides syntactic sugar for this.
+Use `handle<T>::get()` to return the corresponding `HANDLEX` to Excel.
+
+When the `HANDLEX` is passed back from Excel as an add-in function argument the
+`handle<T>(HANDLEX)` constructor converts the `HANDLEX` back to a `T*` pointer.
+By default it checks to see if this has been constructed by a call to `handle<T>(T*)`,
+but this can be turned off. If the check fails a `nullptr` is returned.
+Use `handle<T>::operator bool() const` to chech for this.
 
 It is possible to leak memory using handles. One way is to call a function returning a handle
 then delete the cell containing the handle. Another way is to call a function returning a handle
 as an argument to another function. Don't do that and you won't have leaks. 
 
-If you don't like seeing raw pointer values then roll your own encoder/decoder to display
+If you don't like seeing raw pointer values as doubles then roll your own encoder/decoder to display
 whatever suits your fancy.
 
 ### Uncalced
