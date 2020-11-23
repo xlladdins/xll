@@ -4,9 +4,11 @@ This library makes it simple to call C++ functions and macros from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 
-It also provides high performance access to [numeric arrays](#the-fp-data-type) and has
-[handles](#handles) for embedding C++ objects that use
-[single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance).
+The major usability enhancement is strings are now UTF-8. They are a L"ot" nicer to use than wide character strings.
+We still provides high performance access to [numeric arrays](#the-fp-data-type) and have
+[handles](#handles) for embedding C++ objects that can use
+[single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
+to simplify interfaces.
 
 ## Prerequisites
 
