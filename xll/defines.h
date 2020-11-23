@@ -39,6 +39,14 @@ typedef struct _FP _FPX;
 #include <tchar.h>
 #include "XLCALL.H"
 
+// for index arithmetic
+inline INT32 xmod(INT32 x, INT32 y)
+{
+	INT32 z = x % y;
+
+	return z >= 0 ? z : z + y;
+}
+
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \
 	X(Nil,     "empty cell")                \

@@ -36,7 +36,7 @@
 //#pragma comment(linker, "/export:xlAddInManagerInfo12" XLL_X32("@4=xlAddInManagerInfo12"))
 
 #ifndef _LIB
-#pragma comment(linker, "/include:" XLL_DECORATE("_xll_replace_eq_by_eq", 0))
+//#pragma comment(linker, "/include:" XLL_DECORATE("_xll_replace_eq_by_eq", 0))
 #endif // _LIB
 
 #endif // CONSOLE

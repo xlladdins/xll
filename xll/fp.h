@@ -144,19 +144,19 @@ namespace xll {
 		}
 		double& operator[](xint i)
 		{
-			return array()[i];
+			return array()[xmod(i, size())];
 		}
 		const double& operator[](xint i) const
 		{
-			return array()[i];
+			return array()[xmod(i, size())];
 		}
 		double& operator()(xint i, xint j)
 		{
-			return operator[](i*columns() + j);
+			return operator[](xmod(i, rows())*columns() + xmod(j, columns()));
 		}
 		const double& operator()(xint i, xint j) const
 		{
-			return operator[](i* columns() + j);
+			return operator[](xmod(i, rows())* columns() + xmod(j, columns()));
 		}
 		double* begin()
 		{
