@@ -106,8 +106,8 @@ namespace xll {
 		{
 			return xltype & xltypeScalar;
 		}
-		/*
-		operator bool() const
+		/**/
+		explicit operator bool() const
 		{
 			switch (xltype) {
 			case xltypeNum:
@@ -128,8 +128,8 @@ namespace xll {
 
 			return false; // xltypeErr, xltypeMissig, xltypeNil
 		}
-		*/
-		// floating point number
+		/**/
+		// IEEE 64-bit floating point number
 		explicit XOPER(double num)
 		{
 			xltype = xltypeNum;

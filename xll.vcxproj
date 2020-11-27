@@ -38,6 +38,7 @@
     <ClInclude Include="xll\utf8.h" />
     <ClInclude Include="xll\XLCALL.H" />
     <ClInclude Include="xll\xll.h" />
+    <ClInclude Include="xll\xllio.h" />
     <ClInclude Include="xll\xloper.h" />
   </ItemGroup>
   <ItemGroup>
