@@ -45,10 +45,11 @@ namespace xll {
 		XOPER<X> macroType;    // function; 2 for macro; 0 for hidden
 		XOPER<X> category;     // for function wizard
 		XOPER<X> shortcutText; // single character for Ctrl-Shift-char shortcut
-		XOPER<X> helpTopic;    // filepath!HelpContextID or http://host/path!0
+		XOPER<X> helpTopic;    // filepath!HelpContextID or http://host/path!0, ???default to???
 		XOPER<X> functionHelp; // for function wizard
 		std::vector<XOPER<X>> argumentHelp;
 		std::vector<XOPER<X>> argumentDefault;
+		std::string documentation;
 //		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
 
 		using cstr = const char*;
@@ -155,6 +156,17 @@ namespace xll {
 		const X& ArgumentDefault(size_t i) const
 		{
 			return argumentDefault[i];
+		}
+
+		XArgs& Documentation(const std::string& s)
+		{
+			documentation = s;
+
+			return *this;
+		}
+		const std::string& Documentation() const
+		{
+			return documentation;
 		}
 
 		// Register add-in with Excel
