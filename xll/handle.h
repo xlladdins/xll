@@ -10,10 +10,11 @@
 // handle data type
 using HANDLEX = double;
 inline constexpr HANDLEX INVALID_HANDLEX = std::numeric_limits<HANDLEX>::quiet_NaN();
+inline constexpr HANDLEX XLL_NAN = std::numeric_limits<HANDLEX>::quiet_NaN();
 
 // handle argument types for add-ins
-#define XLL_HANDLE XLL_DOUBLE
-#define XLL_HANDLEX XLL_DOUBLE
+inline LPCSTR XLL_HANDLEX = XLL_DOUBLE;
+inline LPCSTR XLL_HANDLE = XLL_DOUBLE;
 
 namespace xll {
 
@@ -44,23 +45,14 @@ namespace xll {
 		return (T*)((uint64_t)h);
 	}
 
-	/// <summary>
-	/// HANDLEX defaulting to NaN. Shows up as #NUM! in Excel
-	/// </summary>
-	struct handlex {
-		HANDLEX h;
-		explicit handlex(double h = std::numeric_limits<double>::quiet_NaN())
-			: h(h)
-		{ }
-		operator HANDLEX&()
-		{
-			return h;
-		}
-		operator const HANDLEX() const
-		{
-			return h;
-		}
-	};
+	// Convert handle in caller to pointer.
+	template<class T>
+	inline T* caller()
+	{
+		OPER x = Excel(xlCoerce, Excel(xlfCaller));
+
+		return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
+	}
 
 	// compare underlying raw pointers
 	template<class T>
@@ -99,27 +91,6 @@ namespace xll {
 		// all active pointers of type T*
 		inline static std::set<std::unique_ptr<T>, unique_ptrcmp<T>> ps;
 		
-		// Convert handle in caller to pointer.
-		static T* caller()
-		{
-			// value in cell a function is called from
-			OPER x = Excel(xlCoerce, Excel(xlfCaller));
-
-			return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
-		}
-
-		// If calling cell has a known handle then delete corresponding object
-		static void gc(void)
-		{
-			if (T* _p = caller()) {
-				auto pi = ps.find(_p);
-				// garbage collect
-				if (pi != ps.end()) {
-					ps.erase(pi); // calls delete
-				}
-			}
-		}
-
 		// underlying pointer
 		T* p;
 	public:
@@ -129,8 +100,17 @@ namespace xll {
 		handle(T* p) noexcept
 			: p{ p }
 		{
+			T* p_ = caller<T>();
+
+			if (p_) { 
+				// garbage collect
+				auto pi = ps.find(p_);
+				if (pi != ps.end()) {
+					ps.erase(pi);
+				}
+			}
+
 			ps.emplace(std::unique_ptr<T>(p));
-			gc();
 		}
 		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
@@ -147,9 +127,24 @@ namespace xll {
 		~handle()
 		{ }
 
-		operator bool() const
+		explicit operator bool() const
 		{
 			return p != nullptr;
+		}
+
+		// release underlying unique pointer
+		// return nullptr if not found
+		T* release() noexcept
+		{
+			auto pi = ps.find(p);
+			if (pi != ps.end()) {
+				pi->release();
+			}
+			else {
+				p = nullptr;
+			}
+
+			return p;
 		}
 
 		// return value for Excel
@@ -162,7 +157,12 @@ namespace xll {
 		{
 			return p;
 		}
-		// act like a pointer
+
+		// act like a unique pointer
+		typename std::add_lvalue_reference<T>::type operator*() const
+		{
+			return *p;
+		}
 		T* operator->()
 		{
 			return p;
@@ -177,15 +177,6 @@ namespace xll {
 		{
 			return dynamic_cast<U*>(p);
 		}
-		// YAGNI???
-		/*
-		template<class U>
-			requires std::is_base_of_v<T, U>
-		const U* as() const
-		{
-			return dynamic_cast<U*>(p);
-		}
-		*/
 	};
 
 	// encode/decode???
