@@ -100,9 +100,7 @@ namespace xll {
 		handle(T* p) noexcept
 			: p{ p }
 		{
-			T* p_ = caller<T>();
-
-			if (p_) { 
+			if (T* p_ = caller<T>()) { 
 				// garbage collect
 				auto pi = ps.find(p_);
 				if (pi != ps.end()) {
@@ -115,33 +113,47 @@ namespace xll {
 		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
 		{
-			if (h and check) {
+			if (p and check) {
 				if (ps.find(p) == ps.end()) {
 					// unknown handle
 					p = nullptr;
 				}
 			}
 		}
-		handle(const handle&) = default;
-		handle& operator=(const handle&) = default;
+		handle(const handle&) = delete;
+		handle& operator=(const handle&) = delete;
+		handle(handle&& h)
+			: p(h.p)
+		{ }
+		handle& operator=(handle&& h)
+		{
+			if (p != h.p) {
+				swap(h);
+			}
+
+			return *this;
+		}
 		~handle()
 		{ }
+
+		void swap(handle& h)
+		{
+			using std::swap;
+
+			swap(p, h.p);
+			// ps unchanged
+		}
 
 		explicit operator bool() const
 		{
 			return p != nullptr;
 		}
 
-		// release underlying unique pointer
-		// return nullptr if not found
-		T* release() noexcept
+		// erase underlying unique pointer
+		T* erase() noexcept
 		{
-			auto pi = ps.find(p);
-			if (pi != ps.end()) {
-				pi->release();
-			}
-			else {
-				p = nullptr;
+			if (p != nullptr) {
+				ps.erase(ps.find(p));
 			}
 
 			return p;
@@ -178,6 +190,13 @@ namespace xll {
 			return dynamic_cast<U*>(p);
 		}
 	};
+
+	template<class T>
+	void swap(handle<T> &h, handle<T>& k)
+	{
+		h.swap(k);
+	}
+
 
 	// encode/decode???
 

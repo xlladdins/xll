@@ -474,7 +474,7 @@ int test_fp = []()
 		FPX a;
  		ensure(a.rows() == 0);
 		ensure(a.columns() == 0);
-		a[0] = 1.23; // always allocates for one double
+		ensure(a.size() == 0);
 
 		FPX a2{ a };
 		a = a2;
@@ -528,6 +528,9 @@ int test_handle = []()
 		ensure(p == pi);
 
 		delete pi;
+	}
+	{
+		//handle<int> h(new int(2));
 	}
 
 	return 0;

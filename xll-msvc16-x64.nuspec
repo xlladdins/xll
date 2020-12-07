@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>xll-msvc16-x64</id>
+        <version>0.0.0.1</version>
+        <authors>Keith A. Lewis</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>NuGet package for xll add-in library.</description>
+    </metadata>
+    <files>
+        <file src=".\README.md" target="README.md" />
+		<file src=".\build-nuget\**\*.*" target="build\native" />
+    </files>
+</package>

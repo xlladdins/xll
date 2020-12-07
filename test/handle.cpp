@@ -4,6 +4,36 @@
 
 using namespace xll;
 
+int xll_test_handle()
+{
+	try {
+		handle<int> h(new int(2));
+		ensure(*h.ptr() == 2);
+		ensure(*h == 2);
+		//handle<int> h2(h); // deleted
+		handle<int> h2(std::move(h));
+		ensure(*h == 2);
+		ensure(*h2 == 2);
+		//h = h2; // deleted
+		h = std::move(h2);
+		ensure(*h == 2);
+		ensure(*h2 == 2);
+		h2.swap(h);
+		ensure(*h == 2);
+		ensure(*h2 == 2);
+
+		handle<int> h3(new int(3));
+		ensure(*h == 2);
+		ensure(*h3 == 3);
+	}
+	catch (const std::exception& ex) {
+		XLL_ERROR(ex.what());
+	}
+
+	return 0;
+}
+Auto<OpenAfter> xao_test_handle(xll_test_handle);
+
 template<class X = OPER>
 class base {
 	X x;
@@ -20,11 +50,39 @@ public:
 	{ 
 		return x; 
 	}
+	const X& get() const
+	{
+		return x;
+	}
 	base& set(const X& _x)
 	{
 		x = _x;
 
 		return *this;
+	}
+};
+
+template<class X = OPER>
+class derived : public base<X> {
+	X x2;
+public:
+	derived()
+	{ }
+	derived(const X& x, const X& x2)
+		: base<X>(x), x2(x2)
+	{ }
+	derived(const derived&) = default;
+	derived& operator=(const derived&) = default;
+	~derived()
+	{ }
+
+	X& get2()
+	{
+		return x2;
+	}
+	const X& get2() const
+	{
+		return x2;
 	}
 };
 
@@ -44,6 +102,7 @@ HANDLEX WINAPI xll_base(const LPOPER px)
 	return h.get();
 }
 
+// also works for any derived class
 AddIn xai_base_get(
 	Function(XLL_LPOPER, "xll_base_get", "XLL.BASE.GET")
 	.Args({
@@ -78,24 +137,6 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 
 	return _h;
 }
-
-template<class X = OPER>
-class derived : public base<X> {
-	X x2;
-public:
-	derived()
-	{ }
-	derived(const X& x, const X& x2)
-		: base<X>(x), x2(x2)
-	{ }
-	derived(const derived&) = default;
-	derived& operator=(const derived&) = default;
-	X& get2()
-	{
-		return x2;
-	}
-};
-
 AddIn xai_derived(
 	Function(XLL_HANDLEX, "xll_derived", "XLL.DERIVED")
 	.Args({
@@ -128,7 +169,7 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 	// get handle to base class
 	xll::handle<base<>> h(_h);
 	// cast to derived
-	derived<>* pd = dynamic_cast<derived<>*>(h.ptr());
+	derived<>* pd = h.as<derived<>>();
 
 	return pd != nullptr ? &pd->get2() : (LPOPER)&ErrNA;
 }

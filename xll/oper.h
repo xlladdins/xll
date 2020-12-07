@@ -563,7 +563,7 @@ namespace xll {
 
 }
 
-// Just like Excel.
+// Just like Excel concatenation
 inline xll::OPER4 operator&(const XLOPER& x, const XLOPER& y)
 {
 	return xll::OPER4(x) &= y;

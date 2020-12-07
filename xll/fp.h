@@ -177,7 +177,7 @@ namespace xll {
 	private:
 		void fp_alloc(xint r, xint c)
 		{
-			size_t n = r * c;
+			auto n = r * c;
 			fp = malloc(sizeof(xfp) + n * sizeof(double));
 			if (fp) {
 				xfp* pfx = get();

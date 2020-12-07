@@ -106,4 +106,7 @@
     <Library Include="xll\XLCALL32.LIB" />
     <Library Include="xll\x64\XLCALL32.LIB" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="xll-msvc16-x64.nuspec" />
+  </ItemGroup>
 </Project>
