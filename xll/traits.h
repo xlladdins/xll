@@ -26,6 +26,7 @@ namespace xll {
 		typedef typename WORD xbool;
 		typedef typename _FP xfp;
 		typedef typename std::basic_string<xchar> xstring;
+		static const int argmax = 255;
 		static int WINAPI MessageBoX(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType)
 		{
 			return MessageBoxA(hWnd, lpText, lpCaption, uType);
@@ -65,9 +66,10 @@ namespace xll {
 		typedef typename INT32 xint;
 		typedef typename RW xrw;
 		typedef typename COL xcol;
-		typedef typename _FP12 xfp;
 		typedef typename INT32 xbool;
+		typedef typename _FP12 xfp;
 		typedef typename std::basic_string<xchar> xstring;
+		static const int argmax = 255;
 		static int WINAPI MessageBoX(HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
 		{
 			return MessageBoxW(hWnd, lpText, lpCaption, uType);

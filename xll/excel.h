@@ -7,13 +7,12 @@
 
 namespace xll {
 
-	template<typename X, typename... Args>
-	inline XOPER<X> XExcel(int xlf, const Args&... args)
+	template<typename X>
+	inline XOPER<X> XExcelv(int xlfn, size_t n, X* opers[])
 	{
 		XOPER<X> o;
-		std::array<const X*,sizeof...(Args)> xargs = { &args... };
 
-		int ret = traits<X>::Excelv(xlf, &o, sizeof...(args), (X**)xargs.data());
+		int ret = traits<X>::Excelv(xlfn, &o, static_cast<int>(n), &opers[0]);
 		ensure(ret == xlretSuccess); // !!!indicate ret???
 		if (!o.is_scalar()) {
 			o.xltype |= xlbitXLFree;
@@ -21,6 +20,29 @@ namespace xll {
 
 		return o;
 	}
+
+	template<typename X, typename... Args>
+	inline XOPER<X> XExcel(int xlfn, const Args&... args)
+	{
+		std::array<const X*,sizeof...(Args)> xargs = { &args... };
+
+		return XExcelv<X>(xlfn, sizeof...(args), (X**)xargs.data());
+	}
+
+	inline OPER4 Excelv(int xlfn, size_t n, XLOPER* opers[])
+	{
+		return XExcelv<XLOPER>(xlfn, n, opers);
+	}
+	inline OPER12 Excelv(int xlfn, size_t n, XLOPER12* opers[])
+	{
+		return XExcelv<XLOPER12>(xlfn, n, opers);
+	}
+	/*
+	inline OPER Excelv(int xlfn, size_t n, XLOPERX* opers[])
+	{
+		return XExcelv<XLOPERX>(xlfn, n, opers);
+	}
+	*/
 
 	template<typename... Args>
 	inline OPER4 Excel4(int fn, Args&&... args)
