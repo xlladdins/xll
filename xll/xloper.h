@@ -62,28 +62,18 @@ namespace xll {
 		ensure(i < size(x));
 
 		if (x.xltype == xltypeMulti) {
-			return static_cast<X&>(x.val.array.lparray[i]);
+			return static_cast<X&>(x.val.array.lparray[xmod(i, size(x))]);
 		}
 		else {
 			ensure(i == 0);
 			return x;
 		}
 	}
-	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	const X& index(const X& x, size_t i)
-	{
-		return index(x,i);
-	}
 	// two-dimensional index
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	X& index(X& x, size_t rw, size_t col)
 	{
-		return index(x, columns(x)* rw + col);
-	}
-	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	const X& index(const X& x, size_t rw, size_t col)
-	{
-		return index(x, rw, col);
+		return index(x, columns(x) * xmod(rw, rows(x)) + xmod(col, columns(x)));
 	}
 
 	// Missing and Nil

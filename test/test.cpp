@@ -225,21 +225,3 @@ LPOPER WINAPI xll_file(const LPOPER po)
 
 	return &f;
 }
-
-AddIn xai_eval(
-	Function(XLL_LPOPER, "xll_eval", "XLL.EVAL")
-	.Args({
-		Arg(XLL_LPOPER, "o", "is a cell or range of cells")
-		})
-	.Category("XLL")
-	.FunctionHelp("Evaluate a cell or range.")
-);
-LPOPER WINAPI xll_eval(LPOPER po)
-{
-#pragma XLLEXPORT
-	static OPER o;
-
-	o = Excel(xlfEvaluate, *po);
-
-	return &o;
-}

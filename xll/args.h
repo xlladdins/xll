@@ -82,7 +82,7 @@ namespace xll {
 		}
 
 		// list of function arguments
-		XArgs& Args(std::initializer_list<Arg> args)
+		XArgs& Args(const std::initializer_list<Arg>& args)
 		{
 			for (const auto& arg : args) {
 				typeText &= arg.type;
@@ -96,7 +96,23 @@ namespace xll {
 			
 			return *this;
 		}
-		
+		// list of typeText arguments
+		XArgs& Args(const std::vector<cstr>& args)
+		{
+			for (const auto& arg : args) {
+				typeText &= arg;
+				if (argumentHelp.size() != 0) {
+					argumentText &= ", ";
+				}
+				// generic text and help
+				argumentText &= "Arg";
+				argumentHelp.push_back(XOPER<X>("is an argument"));
+				argumentDefault.push_back(XOPER<X>());
+			}
+
+			return *this;
+		}
+
 		XArgs& Category(cstr _category)
 		{
 			category = _category;
