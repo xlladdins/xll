@@ -8,7 +8,7 @@
 namespace xll {
 
 	template<typename X>
-	inline XOPER<X> XExcelv(int xlfn, size_t n, X* opers[])
+	inline XOPER<X> Excelv(int xlfn, size_t n, X* opers[])
 	{
 		XOPER<X> o;
 
@@ -26,23 +26,8 @@ namespace xll {
 	{
 		std::array<const X*,sizeof...(Args)> xargs = { &args... };
 
-		return XExcelv<X>(xlfn, sizeof...(args), (X**)xargs.data());
+		return xll::Excelv(xlfn, sizeof...(args), (X**)xargs.data());
 	}
-
-	inline OPER4 Excelv(int xlfn, size_t n, XLOPER* opers[])
-	{
-		return XExcelv<XLOPER>(xlfn, n, opers);
-	}
-	inline OPER12 Excelv(int xlfn, size_t n, XLOPER12* opers[])
-	{
-		return XExcelv<XLOPER12>(xlfn, n, opers);
-	}
-	/*
-	inline OPER Excelv(int xlfn, size_t n, XLOPERX* opers[])
-	{
-		return XExcelv<XLOPERX>(xlfn, n, opers);
-	}
-	*/
 
 	template<typename... Args>
 	inline OPER4 Excel4(int fn, Args&&... args)

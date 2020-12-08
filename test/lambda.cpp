@@ -28,18 +28,17 @@ namespace xll {
 	template<class X>
 	inline size_t SetNames(X** ppa)
 	{
-		int i = 0;
-		int j = 1;
-		for (; i < ARGMAX; ++i) {
+		//int j = 1;
+		for (int i = 0, j = 1; i < ARGMAX; ++i) {
 			XOPER<X> ki, vi; // key, value
 			const XOPER<X>& ai = *ppa[i];
 
 			if (ai.xltype == xltypeMissing) {
-				break;
+				return i;
 			}
 
 			if (ai.size() == 1) {
-				ki = Excel<X>(xlfText, XOPER<X>(j), XOPER<X>("\"_\"0"));
+				ki = XExcel<X>(xlfText, XOPER<X>(j), XOPER<X>("\"_\"0"));
 				vi = ai;
 				++j;
 			}
@@ -56,18 +55,17 @@ namespace xll {
 			//ensure(XExcel<X>(xlfEvaluate, XExcel<X>(xlfGetName, ki)) == vi);
 		}
 
-		return i;
+		return (size_t)-1;
 	}
 	template<class X>
 	inline void UnsetNames(X** ppa, size_t len)
 	{
-		int j = 1;
-		for (int i = 0; i < len; ++i) {
+		for (int i = 0, j = 1; i < len; ++i) {
 			XOPER<X> ki, vi; // key, value
 			const XOPER<X>& ai = *ppa[i];
 
 			if (ai.size() == 1) {
-				ki = Excel<X>(xlfText, XOPER<X>(j), XOPER<X>("\"_\"0"));
+				ki = XExcel<X>(xlfText, XOPER<X>(j), XOPER<X>("\"_\"0"));
 				++j;
 			}
 			else if (ai.size() == 2) {
