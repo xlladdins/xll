@@ -24,7 +24,7 @@ LPOPERX WINAPI xll_udf(
 	LPOPERX, LPOPERX, LPOPERX, LPOPERX, // 20
 	LPOPERX, LPOPERX, LPOPERX, LPOPERX, // 24
 	LPOPERX, LPOPERX, LPOPERX, LPOPERX, // 28
-	LPOPERX, LPOPERX                  // 30
+	LPOPERX, LPOPERX                    // 30
 	)
 {
 #pragma XLLEXPORT
@@ -71,7 +71,7 @@ LPOPERX WINAPI xll_eval(
 	LPOPERX, LPOPERX, LPOPERX, LPOPERX, // 20
 	LPOPERX, LPOPERX, LPOPERX, LPOPERX, // 24
 	LPOPERX, LPOPERX, LPOPERX, LPOPERX, // 28
-	LPOPERX, LPOPERX                  // 30
+	LPOPERX, LPOPERX                    // 30
 )
 {
 #pragma XLLEXPORT
@@ -98,7 +98,7 @@ LPOPERX WINAPI xll_eval(
 				vi = pai[1];
 			}
 			else {
-				XLL_ERROR("XLL.EVAL: args must be 1 or 2 diminsional");
+				XLL_ERROR("XLL.EVAL: args must be 1 or 2 dimensional");
 
 				return &r;
 			}
