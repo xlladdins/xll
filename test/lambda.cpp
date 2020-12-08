@@ -1,6 +1,8 @@
 #include "../xll/xll.h"
 using namespace xll;
 
+#define ARGMAX 30
+
 // ,LPXLOPERX, LPXLOPERX, ...
 #define LPXLOPERX1 ,LPXLOPERX
 #define LPXLOPERX2 LPXLOPERX1 LPXLOPERX1
@@ -16,7 +18,7 @@ namespace xll {
 	inline size_t len(X** ppa)
 	{
 		auto missing = [](X* pa) { return pa->xltype == xltypeMissing; };
-		auto i = std::find_if(ppa, ppa + traits<X>::argmax - 1, missing);
+		auto i = std::find_if(ppa, ppa + ARGMAX, missing);
 
 		return i - ppa;
 	}
@@ -24,12 +26,17 @@ namespace xll {
 	// 1.2, {"foo", "bar"}, true, ...
 	// _1 = 1.2, foo = "bar", _2 = true, ...
 	template<class X>
-	inline void SetNames(X** ppa)
+	inline size_t SetNames(X** ppa)
 	{
+		int i = 0;
 		int j = 1;
-		for (int i = 0; i < len(ppa); ++i) {
+		for (; i < ARGMAX; ++i) {
 			XOPER<X> ki, vi; // key, value
 			const XOPER<X>& ai = *ppa[i];
+
+			if (ai.xltype == xltypeMissing) {
+				break;
+			}
 
 			if (ai.size() == 1) {
 				ki = Excel<X>(xlfText, XOPER<X>(j), XOPER<X>("\"_\"0"));
@@ -48,12 +55,14 @@ namespace xll {
 			ensure(XExcel<X>(xlfSetName, ki, vi));
 			//ensure(XExcel<X>(xlfEvaluate, XExcel<X>(xlfGetName, ki)) == vi);
 		}
+
+		return i;
 	}
 	template<class X>
-	inline void UnsetNames(X** ppa)
+	inline void UnsetNames(X** ppa, size_t len)
 	{
 		int j = 1;
-		for (int i = 0; i < len(ppa); ++i) {
+		for (int i = 0; i < len; ++i) {
 			XOPER<X> ki, vi; // key, value
 			const XOPER<X>& ai = *ppa[i];
 
@@ -74,11 +83,9 @@ namespace xll {
 	}
 } // namespace xll
 
-static std::vector<const char*> as(30, XLL_LPOPER); // use argmax?
-
 AddIn xai_udf(
 	Function(XLL_LPOPER, "xll_udf", "XLL.UDF")
-	.Args(as)
+	.Args(std::vector(ARGMAX, XLL_LPOPER))
 	.Uncalced()
 	.FunctionHelp("Call user defined function.")
 	.Category("XLL")
@@ -106,7 +113,7 @@ LPXLOPERX WINAPI xll_udf(LPXLOPERX pa LPXLOPERX32)
 
 AddIn xai_eval(
 	Function(XLL_LPOPER, "xll_eval", "XLL.EVAL")
-	.Args(as)
+	.Args(std::vector(ARGMAX, XLL_LPOPER))
 	.Uncalced()
 	.FunctionHelp("Evaluate a function.")
 	.Category("XLL")
@@ -125,9 +132,9 @@ LPXLOPERX WINAPI xll_eval(LPXLOPERX pa LPXLOPERX32)
 	try {
 		XLOPERX** ppa = &pa;
 
-		SetNames(ppa + 1);
+		size_t n = SetNames(ppa + 1);
 		r = Excelv(xlfEvaluate, 1, ppa);
-		UnsetNames(ppa + 1);
+		UnsetNames(ppa + 1, n);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
