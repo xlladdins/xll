@@ -80,11 +80,20 @@ namespace xll {
 
 	/// <summary>
 	/// Collection of handles parameterized by type.
-	/// Use <c>handle<T> h(new T(...))</c> to create a handle.
+	/// They behave very much like <c>std::unique_ptr</c>
+	/// but they are owned by the cell they are created in.
+	/// When a new handle is created in a cell the destructor
+	/// for the old handle is called.
+	/// 
+	/// Use <c>handle<T> h(new T(...))</c> to create a handle
+	/// and <c>get()</c> to return a <c>HANDLEX</c> to Excel.
 	/// Functions that create handles must be uncalced.
-	/// Use <c>handle<T> h_(h)</c> to lookup h returned by <c>get()</c>.
+	/// 
+	/// Use <c>handle<T> h_(h)</c> to lookup <c>h</c> returned by <c>get()</c>.
 	/// Functions that use handles do not need to be uncalced.
 	/// Unknown handles return null pointers.
+	/// This can be circumvented by using <c>handle<T> h_(h, false)</c>
+	/// to prevent the lookup.
 	/// </summary>
 	template<class T>
 	class handle {
@@ -101,7 +110,7 @@ namespace xll {
 			: p{ p }
 		{
 			if (T* p_ = caller<T>()) { 
-				// garbage collect
+				// garbage collect old handle
 				auto pi = ps.find(p_);
 				if (pi != ps.end()) {
 					ps.erase(pi);
@@ -140,8 +149,8 @@ namespace xll {
 		{
 			using std::swap;
 
-			swap(p, h.p);
 			// ps unchanged
+			swap(p, h.p);
 		}
 
 		explicit operator bool() const
@@ -183,6 +192,7 @@ namespace xll {
 		{
 			return p;
 		}
+
 		// downcast to U
 		template<class U> requires std::is_base_of_v<T,U>
 		U* as()
