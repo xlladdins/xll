@@ -49,7 +49,7 @@ namespace xll {
 					html.write(OPER("<P>\nThe "));
 					html.write(ft);
 					html.write(OPER(" function syntax has the following arguments:</P>\n<UL>\n"));
-					for (int i = 0; i < help.size(); ++i) {
+					for (size_t i = 0; i < help.size(); ++i) {
 						html.write(OPER("<LI><B>"));
 						html.write(name[i]);
 						html.write(OPER("</B> "));
