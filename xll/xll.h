@@ -7,3 +7,4 @@
 #include "fp.h"
 #include "handle.h"
 #include "on.h"
+#include "document.h"

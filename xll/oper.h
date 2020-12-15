@@ -61,10 +61,10 @@ namespace xll {
 				xltype = x.xltype;
 				val = x.val;
 			}
-			else if (x.xltype == xltypeStr) {
+			else if (x.xltype & xltypeStr) {
 				str_alloc(x.val.str + 1, x.val.str[0]);
 			}
-			else if (x.xltype == xltypeMulti) {
+			else if (x.xltype & xltypeMulti) {
 				multi_alloc(x.val.array.rows, x.val.array.columns);
 				std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
 			}
@@ -462,6 +462,9 @@ namespace xll {
 		{
 			if (xltype == xltypeNil) {
 				str_alloc(str, n);
+			}
+			else if (xltype == (xltypeStr & xlbitXLFree)) {
+				*this = XExcel<X>(xlfConcatenate, *this, XOPER<X>(str));
 			}
 			else {
 				ensure(xltype == xltypeStr);

@@ -47,6 +47,7 @@ namespace xll {
 		XOPER<X> shortcutText; // single character for Ctrl-Shift-char shortcut
 		XOPER<X> helpTopic;    // filepath!HelpContextID or http://host/path!0, ???default to???
 		XOPER<X> functionHelp; // for function wizard
+		std::vector<XOPER<X>> argumentName;
 		std::vector<XOPER<X>> argumentHelp;
 		std::vector<XOPER<X>> argumentDefault;
 		std::string documentation;
@@ -69,18 +70,6 @@ namespace xll {
 		{
 		}
 
-		// Excel function name used as key for add-in map.
-		const XOPER<X>& FunctionText() const
-		{
-			return functionText;
-		}
-
-		// Key used in AddIn::Map.
-		const XOPER<X>& Key() const
-		{
-			return functionText;
-		}
-
 		// list of function arguments
 		XArgs& Args(const std::initializer_list<Arg>& args)
 		{
@@ -90,12 +79,14 @@ namespace xll {
 					argumentText &= ", ";
 				}
 				argumentText &= arg.name;
+				argumentName.push_back(XOPER<X>(arg.name));
 				argumentHelp.push_back(XOPER<X>(arg.help));
 				argumentDefault.push_back(XOPER<X>(arg.init));
 			}
-			
+
 			return *this;
 		}
+
 		// list of typeText arguments
 		XArgs& Args(const std::vector<cstr>& args)
 		{
@@ -106,6 +97,7 @@ namespace xll {
 				}
 				// generic text and help
 				argumentText &= "Arg";
+				argumentName.push_back(XOPER<X>("Arg")); // Arg<n>???
 				argumentHelp.push_back(XOPER<X>("is an argument"));
 				argumentDefault.push_back(XOPER<X>());
 			}
@@ -113,24 +105,6 @@ namespace xll {
 			return *this;
 		}
 
-		XArgs& Category(cstr _category)
-		{
-			category = _category;
-
-			return *this;
-		}
-		XArgs& FunctionHelp(cstr _functionHelp)
-		{
-			functionHelp = _functionHelp;
-
-			return *this;
-		}
-		XArgs& HelpTopic(cstr _helpTopic)
-		{
-			helpTopic = _helpTopic;
-
-			return *this;
-		}
 		XArgs& Uncalced()
 		{
 			typeText &= XLL_UNCALCED;
@@ -166,6 +140,62 @@ namespace xll {
 		X RegisterId() const
 		{
 			return XExcel<X>(xlfEvaluate, functionText);
+		}
+
+		// Excel function name used as key for add-in map.
+		const XOPER<X>& FunctionText() const
+		{
+			return functionText;
+		}
+		// Key used in AddIn::Map.
+		const XOPER<X>& Key() const
+		{
+			return functionText;
+		}
+
+		// Type of add-in: 1 for function, 2 for macro
+		const XOPER<X>& MacroType() const
+		{
+			return macroType;
+		}
+
+		const XOPER<X>& FunctionHelp() const
+		{
+			return functionHelp;
+		}
+
+		const XOPER<X>& ArgumentText() const
+		{
+			return argumentText;
+		}
+
+		const std::vector<XOPER<X>>& ArgumentName() const
+		{
+			return argumentName;
+		}
+
+		const std::vector<XOPER<X>>& ArgumentHelp() const
+		{
+			return argumentHelp;
+		}
+
+		XArgs& Category(cstr _category)
+		{
+			category = _category;
+
+			return *this;
+		}
+		XArgs& FunctionHelp(cstr _functionHelp)
+		{
+			functionHelp = _functionHelp;
+
+			return *this;
+		}
+		XArgs& HelpTopic(cstr _helpTopic)
+		{
+			helpTopic = _helpTopic;
+
+			return *this;
 		}
 
 		// Default value for argument.

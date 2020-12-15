@@ -37,6 +37,9 @@ AddIn xai_tgamma(
 	.FunctionHelp("Return the Gamma function value.")
 	.Category("CMATH")
 	.HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal")
+	.Documentation(R"xyz(
+The Gamma function satisfies <math>&Gamma;(n + 1) = n!</math> if <math>n</math> is a natural number.
+)xyz")
 );
 double WINAPI xll_tgamma(double x)
 {
@@ -225,3 +228,11 @@ LPOPER WINAPI xll_file(const LPOPER po)
 
 	return &f;
 }
+
+int test_doc()
+{
+	Document(OPER("TGAMMA"));
+
+	return TRUE;
+}
+Auto<OpenAfter> xaoa_doc(test_doc);

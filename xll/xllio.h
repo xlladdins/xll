@@ -72,7 +72,7 @@ namespace xll {
 
     inline OPER find_last_of(const OPER& find, const OPER& within)
     {
-        OPER off{ 0 };
+        OPER off{ 0. };
 
         while (auto next = Excel(xlfFind, find, within, OPER(off.val.num + 1))) {
             off = next;
@@ -84,7 +84,7 @@ namespace xll {
     inline OPER basename(const OPER& path, bool strip = false)
     {
         OPER off = find_last_of(OPER(TEXT("\\")), path);
-        OPER base = Excel(xlfRight, path, OPER(Excel(xlfLen, path).val.num - off));
+        OPER base = Excel(xlfRight, path, OPER(Excel(xlfLen, path).val.num - off.val.num));
 
         if (strip) {
             base = Excel(xlfLeft, base, OPER(find_last_of(OPER(L"."), base).val.num - 1));

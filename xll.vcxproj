@@ -24,6 +24,7 @@
     <ClInclude Include="xll\auto.h" />
     <ClInclude Include="xll\concepts.h" />
     <ClInclude Include="xll\defines.h" />
+    <ClInclude Include="xll\document.h" />
     <ClInclude Include="xll\ensure.h" />
     <ClInclude Include="xll\error.h" />
     <ClInclude Include="xll\excel.h" />

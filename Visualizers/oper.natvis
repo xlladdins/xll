@@ -17,7 +17,9 @@
 		<AlternativeType Name="xloper12"/>
 		<DisplayString Condition="xltype == 0x1">xltypeNum = {val.num,na}</DisplayString>
 		<DisplayString Condition="xltype == 0x2">xltypeStr {val.str,[val.str[0]+1]na} </DisplayString>
-		<DisplayString Condition="xltype == 0x4">xltypeBool = {val.xbool,na}</DisplayString>
+    <DisplayString Condition="xltype == 0x1002">xltypeStr {val.str,[val.str[0]+1]na} </DisplayString>
+    <DisplayString Condition="xltype == 0x4002">xltypeStr {val.str,[val.str[0]+1]na} </DisplayString>
+    <DisplayString Condition="xltype == 0x4">xltypeBool = {val.xbool,na}</DisplayString>
 		<!--<DisplayString Condition="xltype == 0x8">{*(val.mref.lpmref)}</DisplayString>-->
 		<DisplayString Condition="xltype == 0x10">xltypeErr = {val.err,na}</DisplayString>
 		<DisplayString Condition="xltype == 0x40">xltypeMulti[{val.array.rows}][{val.array.columns}] = {{ {val.array.lparray[0]}, ... }}</DisplayString>

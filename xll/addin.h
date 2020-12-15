@@ -38,7 +38,7 @@ namespace xll {
             auto i = Map.find(name);
             ensure(i != Map.end());
 
-            return *i;
+            return i->second;
         }
     };
 

@@ -30,7 +30,7 @@ int xll_test_handle()
 		XLL_ERROR(ex.what());
 	}
 
-	return 0;
+	return TRUE;
 }
 Auto<OpenAfter> xao_test_handle(xll_test_handle);
 

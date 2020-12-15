@@ -131,10 +131,10 @@ namespace xll {
 		}
 		handle(const handle&) = delete;
 		handle& operator=(const handle&) = delete;
-		handle(handle&& h)
+		handle(handle&& h) noexcept
 			: p(h.p)
 		{ }
-		handle& operator=(handle&& h)
+		handle& operator=(handle&& h) noexcept
 		{
 			if (p != h.p) {
 				swap(h);
