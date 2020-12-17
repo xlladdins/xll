@@ -111,5 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="xll-msvc16-x64.nuspec" />
+    <None Include="xll\documentation.html">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

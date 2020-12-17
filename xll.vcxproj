@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="xll-msvc16-x64.nuspec" />
+    <None Include="xll\documentation.html" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

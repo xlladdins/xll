@@ -6,6 +6,8 @@
 #define XLL_VERSION 12
 #define XLOPERX XLOPER12
 #define LPXLOPERX LPXLOPER12
+#define TEXTX(s) L##s
+#define TEXTR(s) RL"xyzyx(##s)xyzyx"
 typedef struct _FP12 _FPX;
 
 #undef _MBCS
@@ -23,6 +25,8 @@ typedef struct _FP12 _FPX;
 #define XLL_VERSION 4
 #define XLOPERX XLOPER
 #define LPXLOPERX LPXLOPER
+#define TEXTX(s) u8##s
+#define TEXTR(s) u8R"xyzyx(##s##)xyzyx"
 typedef struct _FP _FPX;
 
 #ifndef _MBCS

@@ -478,7 +478,10 @@ namespace xll {
 				}
 
 				xchar* tmp = (xchar*)realloc(val.str, (val.str[0] + n + 1) * sizeof(xchar));
-				ensure(tmp);
+				if (!tmp) {
+					throw std::bad_alloc{};
+				}
+				// ensure(tmp);
 				val.str = tmp;
 				memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
 				val.str[0] = static_cast<xchar>(val.str[0] + n);

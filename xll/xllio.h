@@ -70,34 +70,37 @@ namespace xll {
         }
     };
 
-    inline OPER find_last_of(const OPER& find, const OPER& within)
+    template<class X>
+    inline XOPER<X> find_last_of(const XOPER<X>& find, const XOPER<X>& within)
     {
-        OPER off{ 0. };
+        XOPER<X> off{ 0. };
 
-        while (auto next = Excel(xlfFind, find, within, OPER(off.val.num + 1))) {
+        while (auto next = XExcel<X>(xlfFind, find, within, XOPER<X>(off.val.num + 1))) {
             off = next;
         }
 
         return off;
     }
 
-    inline OPER basename(const OPER& path, bool strip = false)
+    template<class X>
+    inline XOPER<X> basename(const XOPER<X>& path, bool strip = false)
     {
-        OPER off = find_last_of(OPER(TEXT("\\")), path);
-        OPER base = Excel(xlfRight, path, OPER(Excel(xlfLen, path).val.num - off.val.num));
+        XOPER<X> off = find_last_of(XOPER<X>(TEXT("\\")), path);
+        XOPER<X> base = XExcel<X>(xlfRight, path, XOPER<X>(Excel(xlfLen, path).val.num - off.val.num));
 
         if (strip) {
-            base = Excel(xlfLeft, base, OPER(find_last_of(OPER(L"."), base).val.num - 1));
+            base = XExcel<X>(xlfLeft, base, XOPER<X>(find_last_of(XOPER<X>(L"."), base).val.num - 1));
         }
 
         return base;
     }
 
-    inline OPER dirname(const OPER& path)
+    template<class X>
+    inline XOPER<X> dirname(const XOPER<X>& path)
     {
-        OPER off = find_last_of(OPER(TEXT("\\")), path);
+        XOPER<X> off = find_last_of(XOPER<X>(TEXT("\\")), path);
 
-        return Excel(xlfLeft, path, off);
+        return XExcel<X>(xlfLeft, path, off);
     }
 
 }
