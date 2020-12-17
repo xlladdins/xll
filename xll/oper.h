@@ -419,15 +419,12 @@ namespace xll {
 
 		void oper_free()
 		{
-#ifndef _CONSOLE
 			if (xltype & xlbitXLFree) {
 				X* px[1];
 				px[0] = this;
 				ensure (xlretSuccess ==  traits<X>::Excelv(xlFree, 0, 1, px));
 			}
-			else 
-#endif
-			if (xltype == xltypeStr) {
+			else if (xltype == xltypeStr) {
 				str_free();
 			}
 			else if (xltype == xltypeMulti) {

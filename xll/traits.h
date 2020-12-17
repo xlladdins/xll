@@ -31,10 +31,17 @@ namespace xll {
 		{
 			return MessageBoxA(hWnd, lpText, lpCaption, uType);
 		}
+#ifndef _CONSOLE
 		static int Excelv(int xlfn, LPXLOPER operRes, int count, LPXLOPER opers[])
 		{
 			return ::Excel4v(xlfn, operRes, count, opers);
 		}
+#else
+		static int Excelv(int, LPXLOPER, int, LPXLOPER[])
+		{
+			return 0;
+		}
+#endif
 		static int len(const xchar* s)
 		{
 			return s ? static_cast<int>(strlen(s)) : 0;
@@ -74,10 +81,17 @@ namespace xll {
 		{
 			return MessageBoxW(hWnd, lpText, lpCaption, uType);
 		}
+#ifndef _CONSOLE
 		static int Excelv(int xlfn, LPXLOPER12 operRes, int count, LPXLOPER12 opers[])
 		{
 			return ::Excel12v(xlfn, operRes, count, opers);
 		}
+#else
+		static int Excelv(int, LPXLOPER12, int, LPXLOPER12[])
+		{
+			return 0;
+		}
+#endif
 		static int len(const xchar* s)
 		{
 			return s ? static_cast<int>(wcslen(s)) : 0;
