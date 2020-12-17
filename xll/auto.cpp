@@ -15,10 +15,10 @@ xlAutoOpen(void)
 		}
 
 		for (auto& [key, arg] : AddIn4::Map) {
-			arg.Register();
+			Register(arg);
 		}
 		for (auto& [key, arg] : AddIn12::Map) {
-			arg.Register();
+			Register(arg);
 		}
 
 		if (!Auto<OpenAfter>::Call()) {
@@ -175,7 +175,7 @@ xlAutoRegister(LPXLOPER pxName)
 		auto px = AddIn4::Map.find(*pxName);
 		ensure(px != AddIn4::Map.end());
 		// returns an xltypeNum or xltypeErr
-		o = px->second.Register();
+		o = Register(px->second);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
@@ -201,7 +201,7 @@ xlAutoRegister12(LPXLOPER12 pxName)
 		auto px = AddIn12::Map.find(*pxName);
 		ensure(px != AddIn12::Map.end());
 		// returns an xltypeNum or xltypeErr
-		o = px->second.Register();
+		o = Register(px->second);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());

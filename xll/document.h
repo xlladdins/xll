@@ -3,8 +3,8 @@
 #include <fileapi.h>
 //#include <format>
 #include <string_view>
-#include "addin.h"
 #include "error.h"
+#include "addin.h"
 #include "xllio.h"
 
 namespace xll {
@@ -28,7 +28,7 @@ namespace xll {
 <body>
     <h1>{{FunctionText}}{{MacroType}}</h1>
     <p>
-        This article describes the formula syntax and usage of the {FunctionText}{MacroType} in Microsoft Excel.
+        This article describes the formula syntax and usage of the {{FunctionText}}{{MacroType}} in Microsoft Excel.
     </p>
     <h2>Description</h2>
     <p>
@@ -36,14 +36,14 @@ namespace xll {
     </p>
     <h2>Syntax</h2>
     <p>
-        {{FunctionText}}({{ArgumentHelp}})
+        {{FunctionText}}({{ArgumentText}})
     </p>
     <p>
         The {{FunctionText}} function syntax has the following arguments:
     </p>
     <ul>
 [[
-		<b>{{ArgumentName}}.</b> {{ArgumentHelp}}
+		<b>{{ArgumentName}}</b> {{ArgumentHelp}}
 ]]
     </ul>
     <h2>Remarks</h2>
@@ -57,8 +57,8 @@ namespace xll {
 	class File {
 		HANDLE h;
 	public:
-		File(LPCTSTR name, DWORD mode = GENERIC_READ | GENERIC_WRITE, DWORD disp = CREATE_ALWAYS, DWORD attr = FILE_ATTRIBUTE_NORMAL)
-			: h(CreateFile(name, mode, 0, NULL, disp, attr, NULL))
+		File(const char* name, DWORD mode = GENERIC_READ | GENERIC_WRITE, DWORD disp = CREATE_ALWAYS, DWORD attr = FILE_ATTRIBUTE_NORMAL)
+			: h(CreateFileA(name, mode, 0, NULL, disp, attr, NULL))
 		{ }
 		File(File&) = delete;
 		File& operator=(File&) = delete;
@@ -76,14 +76,9 @@ namespace xll {
 
 			return WriteFile(h, buf, len, &plen, NULL);
 		}
-		BOOL Write(const OPER& o)
-		{
-			return Write(o.val.str + 1, o.val.str[0] * sizeof(TCHAR));
-		}
-
 	};
 
-	// replace first occurence of old by new in string
+	// replace first occurence of old after pos by new in string
 	inline size_t replace(std::string& s, const std::string& o, const std::string& n, size_t pos = 0)
 	{
 		pos = s.find(o, pos);
@@ -92,7 +87,7 @@ namespace xll {
 			return pos;
 		}
 
-		s.replace(pos, pos + o.length(), n);
+		s.replace(pos, o.length(), n);
 		
 		return pos + o.length() - n.length() + 1;
 	}
@@ -107,21 +102,23 @@ namespace xll {
 	}
 	using on = std::map<std::string, std::string>;
 	// replace all occurences
-	inline size_t replace_all(std::string& s, const on& m, size_t pos = 0)
+	inline void replace_all(std::string& s, const on& m)
 	{
 		for (const auto& [o,n] : m) {
-			pos = replace_all(s, o, n, pos);
+			replace_all(s, o, n);
 		} 		
-
-		return pos;
 	}
-	// vector replace first occurence
+
+	// vector replace first occurence after pos
 	inline size_t replace(std::string& s, const std::vector<on>& m, size_t pos = 0)
 	{
 		// [[...]]
 		pos = s.find("[[", pos);
 		if (pos != std::string::npos) {
 			size_t pos_ = s.find("]]", pos + 2);
+			if (pos_ == std::string::npos) {
+				throw std::runtime_error("no matching ]] for [[");
+			}
 			std::string_view t(s.c_str() + pos + 2, pos_ - pos - 2);
 			std::string n;
 			for (size_t i = 0; i < m.size(); ++i) {
@@ -144,35 +141,54 @@ namespace xll {
 		return pos;
 	}
 
-			if (mt == 1) {
-				const auto& help = arg.ArgumentHelp();
-				if (help.size() > 0) {
-					const auto& name = arg.ArgumentName();
-					html.write(OPER("<P>\nThe "));
-					html.write(ft);
-					html.write(OPER(" function syntax has the following arguments:</P>\n<UL>\n"));
-					for (int i = 0; i < help.size(); ++i) {
-						html.write(OPER("<LI><B>"));
-						html.write(name[i]);
-						html.write(OPER("</B> "));
-						html.write(help[i]);
-						html.write(OPER("</LI>\n"));
-					}
-					html.write(OPER("</UL>\n</P>\n"));
-				}
+	inline std::string to_str(const OPER4& s)
+	{
+		if (!s)
+			return "";
+
+		return std::string(s.val.str + 1, s.val.str[0]);
+	}
+	inline std::string to_str(const OPER12& s)
+	{
+		if (!s)
+			return "";
+
+		return utf8::wcstostring(s.val.str + 1, s.val.str[0]);
+	}
+	inline std::string to_str(const std::string& s)
+	{
+		return s;
+	}
+	inline std::string to_str(const std::wstring& s)
+	{
+		return utf8::wcstostring(s.c_str(), s.length());
+	}
 
 	// Write html documentation given Excel function text.
-	inline void Document(const OPER& ft)
+	template<class X>
+	inline XOPER<X> Document(const XOPER<X>& ft)
 	{
+		XOPER<X> file;
 		try {
 			std::string html(documentation_html);
-			const Args& arg = AddIn::Args(ft);
-			const OPER& mt = arg.MacroType();
-			std::string type = (mt == 1 ? " function" : mt == 2 ? " macro" : mt == 3 ? " hidden" : "!!!unknown!!");
+			const XArgs<X>& arg = XAddIn<X>::Args(ft);
+			const XOPER<X>& mt = arg.MacroType();
+
+			std::string type;
+			if (mt == 1)
+				type = " function";
+			else if (mt == 2)
+				type = " macro";
+			else if (mt == 3)
+				type = " hidden";
+			else
+				throw std::runtime_error("unknown MacroType");
+
 			const on m = {
 				{"{{FunctionText}}", to_str(arg.FunctionText()) },
 				{"{{MacroType}}", type },
 				{"{{FunctionHelp}}", to_str(arg.FunctionHelp()) },
+				{"{{ArgumentText}}", to_str(arg.ArgumentText()) },
 				{"{{Documentation}}", to_str(arg.Documentation()) },
 			};
 			if (mt == 1) { // function
@@ -186,19 +202,22 @@ namespace xll {
 					};
 					nh.push_back(nhi);
 				}
+				// replace vectors first
 				replace_all(html, nh);
 			}
 			replace_all(html, m);
 
-			OPER dir = dirname(Excel(xlGetName));
-			OPER file = dir & ft & OPER(".html");
-			traits<XLOPERX>::xstring name(file.val.str + 1, file.val.str[0]);
-			File doc(name.c_str());
+			XOPER<X> dir = dirname(XExcel<X>(xlGetName));
+			file = dir & ft & XOPER<X>(".html");
+			typename traits<X>::xstring name(file.val.str + 1, file.val.str[0]);
+			File doc(to_str(name).c_str());
 			doc.Write(html.c_str(), (DWORD)html.length());
 
 		}
 		catch (const std::exception& ex) {
 			XLL_ERROR(ex.what());
 		}
+
+		return file;
 	}
 }

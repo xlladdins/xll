@@ -4,6 +4,7 @@
 #include <initializer_list>
 #include <vector>
 #include "oper.h"
+#include "document.h"
 
 namespace xll {
 
@@ -37,7 +38,6 @@ namespace xll {
 	template<class X>
 		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	class XArgs {
-		XOPER<X> moduleText;   // from xlGetName
 		XOPER<X> procedure;    // C function
 		XOPER<X> typeText;     // return type and arg codes 
 		XOPER<X> functionText; // Excel function
@@ -56,7 +56,8 @@ namespace xll {
 		using cstr = const char*;
 	public:
 		XArgs()
-		{ }
+		{
+		}
 		~XArgs()
 		{ }
 		// Function
@@ -142,6 +143,18 @@ namespace xll {
 			return XExcel<X>(xlfEvaluate, functionText);
 		}
 
+		// C++ function name
+		const XOPER<X>& Procedure() const
+		{
+			return procedure;
+		}
+
+		// Excel SDK signature
+		const XOPER<X>& TypeText() const
+		{
+			return typeText;
+		}
+
 		// Excel function name used as key for add-in map.
 		const XOPER<X>& FunctionText() const
 		{
@@ -153,20 +166,53 @@ namespace xll {
 			return functionText;
 		}
 
-		// Type of add-in: 1 for function, 2 for macro
+		const XOPER<X>& ArgumentText() const
+		{
+			return argumentText;
+		}
+
+		// Type of add-in: 1 for function, 2 for macro, 3 for hidden
 		const XOPER<X>& MacroType() const
 		{
 			return macroType;
+		}
+
+		const XOPER<X>& Category() const
+		{
+			return category;
+		}
+		XArgs& Category(cstr _category)
+		{
+			category = _category;
+
+			return *this;
+		}
+
+		const XOPER<X>& ShortcutText() const
+		{
+			return shortcutText;
+		}
+
+		const XOPER<X>& HelpTopic() const
+		{
+			return helpTopic;
+		}
+		XArgs& HelpTopic(cstr _helpTopic)
+		{
+			helpTopic = _helpTopic;
+
+			return *this;
 		}
 
 		const XOPER<X>& FunctionHelp() const
 		{
 			return functionHelp;
 		}
-
-		const XOPER<X>& ArgumentText() const
+		XArgs& FunctionHelp(cstr _functionHelp)
 		{
-			return argumentText;
+			functionHelp = _functionHelp;
+
+			return *this;
 		}
 
 		const std::vector<XOPER<X>>& ArgumentName() const
@@ -179,24 +225,6 @@ namespace xll {
 			return argumentHelp;
 		}
 
-		XArgs& Category(cstr _category)
-		{
-			category = _category;
-
-			return *this;
-		}
-		XArgs& FunctionHelp(cstr _functionHelp)
-		{
-			functionHelp = _functionHelp;
-
-			return *this;
-		}
-		XArgs& HelpTopic(cstr _helpTopic)
-		{
-			helpTopic = _helpTopic;
-
-			return *this;
-		}
 
 		// Default value for argument.
 		const X& ArgumentDefault(size_t i) const
@@ -215,56 +243,6 @@ namespace xll {
 			return documentation;
 		}
 
-		// Register add-in with Excel
-		X Register()
-		{
-			int count = 10 + static_cast<int>(argumentHelp.size());
-			std::vector<X*> oper(count + 1);
-
-			if (moduleText == XOPER<X>{}) {
-				moduleText = XExcel<X>(xlGetName);
-			}
-
-			// C++ mangled name must start with '?'
-			ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
-			if (procedure.val.str[1] != '?' && procedure.val.str[1] != '_') {
-				procedure = XOPER<X>("?") & procedure;
-			}
-
-			// Help URLs must end with "!0"
-			if (helpTopic.xltype == xltypeStr) {
-				XOPER xFind = XExcel<X>(xlfFind, XOPER<X>("!"), helpTopic);
-				if (xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
-					helpTopic &= XOPER<X>("!0");
-				}
-			}
-
-			oper[0] = &moduleText;
-			oper[1] = &procedure;
-			oper[2] = &typeText; 
-			oper[3] = &functionText;
-			oper[4] = &argumentText;
-			oper[5] = &macroType;
-			oper[6] = &category;
-			oper[7] = &shortcutText;
-			oper[8] = &helpTopic;
-			oper[9] = &functionHelp;
-			for (size_t i = 0; i < argumentHelp.size(); ++i) {
-				oper[10 + i] = &argumentHelp[i];
-			}
-			// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#argument-description-string-truncation-in-the-function-wizard
-			XOPER<X> xEmpty("");
-			oper[count] = &xEmpty;
-
-			X registerId = { .xltype = xltypeNil };
-			int ret = traits<X>::Excelv(xlfRegister, &registerId, count + 1, &oper[0]);
-			if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
-				XOPER<X> xMsg("Failed to register: ");
-				XExcel<X>(xlcAlert, xMsg & functionText, XOPER<X>(2));
-			}
-
-			return registerId;
-		}
 		// never needed
 		XOPER<X> Unregister() const
 		{

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="register.h" />
     <ClInclude Include="xll\addin.h" />
     <ClInclude Include="xll\args.h" />
     <ClInclude Include="xll\auto.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="xll\handle.h" />
     <ClInclude Include="xll\on.h" />
     <ClInclude Include="xll\oper.h" />
+    <ClInclude Include="xll\register.h" />
     <ClInclude Include="xll\registry.h" />
     <ClInclude Include="xll\sref.h" />
     <ClInclude Include="xll\traits.h" />
