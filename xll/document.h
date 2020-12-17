@@ -144,22 +144,22 @@ namespace xll {
 		return pos;
 	}
 
-	inline std::string to_str(const OPER4& s)
-	{
-		return std::string(s.val.str + 1, s.val.str[0]);
-	}
-	inline std::string to_str(const OPER12& s)
-	{
-		return utf8::wcstostring(s.val.str + 1, s.val.str[0]);
-	}
-	inline std::string to_str(const std::string& s)
-	{
-		return s;
-	}
-	inline std::string to_str(const std::wstring& s)
-	{
-		return utf8::wcstostring(s.c_str(), s.length());
-	}
+			if (mt == 1) {
+				const auto& help = arg.ArgumentHelp();
+				if (help.size() > 0) {
+					const auto& name = arg.ArgumentName();
+					html.write(OPER("<P>\nThe "));
+					html.write(ft);
+					html.write(OPER(" function syntax has the following arguments:</P>\n<UL>\n"));
+					for (int i = 0; i < help.size(); ++i) {
+						html.write(OPER("<LI><B>"));
+						html.write(name[i]);
+						html.write(OPER("</B> "));
+						html.write(help[i]);
+						html.write(OPER("</LI>\n"));
+					}
+					html.write(OPER("</UL>\n</P>\n"));
+				}
 
 	// Write html documentation given Excel function text.
 	inline void Document(const OPER& ft)
