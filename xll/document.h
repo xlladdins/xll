@@ -43,7 +43,7 @@ namespace xll {
     </p>
     <ul>
 [[
-		<b>{{ArgumentName}}</b> {{ArgumentHelp}}
+		<li><b>{{ArgumentName}}</b> {{ArgumentHelp}}</li>
 ]]
     </ul>
     <h2>Remarks</h2>
