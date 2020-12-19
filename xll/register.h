@@ -13,7 +13,6 @@ namespace xll{
 		XOPER<X> moduleText = XExcel<X>(xlGetName);
 
 		XOPER<X> procedure = args.Procedure();
-
 		// C++ mangled name must start with '?'
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
 		if (procedure.val.str[1] != '?' && procedure.val.str[1] != '_') {
@@ -21,9 +20,9 @@ namespace xll{
 		}
 
 		XOPER<X> helpTopic = args.HelpTopic();
-		if (helpTopic == XOPER<X>{}) {
-			helpTopic = xll::Document(args.FunctionText());
-		}
+		//if (helpTopic == XOPER<X>{}) {
+			/*helpTopic =*/ xll::Document(args.FunctionText());
+		//}
 		// Help URLs must end with "!0"
 		if (helpTopic.xltype == xltypeStr) {
 			XOPER xFind = XExcel<X>(xlfFind, XOPER<X>("!"), helpTopic);
