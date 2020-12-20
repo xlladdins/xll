@@ -21,24 +21,24 @@ namespace xll {
         margin: 0.5in;
         padding: 0;
     }
-	table, th, td {
+	table {
 		text-align: left;
 		border-padding: 5px;
 		border-collapse: collapse;
 	}
-	th,td:first-child {
-		padding-right: 5px;
+	th:first-child,td:first-child {
+		padding-right: 10px;
 		text-align: right;
 		font-weight: bold;
 	}
-	tr:nth-child(odd) {
+	tbody>tr:nth-child(odd) {
 		background-color: #f2f2f2;
 	}
 </style>
 )";
 
 	inline const string table_html = R"xyzyx(
-	<h2>{Category}</h2>
+	<h2>Category {Category}</h2>
 	<table>
 	<thead>
 		<tr>
@@ -98,12 +98,21 @@ namespace xll {
         The {FunctionText} function syntax has the following arguments:
     </p>
     <table>
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+	</tr>
+	</thead>
+	<tbody>
 [[
+
 	<tr>
 		<td>{ArgumentName}</td>
 		<td>{ArgumentHelp}</td>
 	</tr>
 ]]
+	</tbody>
     </table>
     <h2>Remarks</h2>
     <p>
