@@ -107,7 +107,7 @@ Auto<Close> xai_close([]() {
 	return TRUE;
 });
 
-AddIn xai_onkey(Macro("xll_onkey", "XLL.ONKEY"));
+AddIn xai_onkey(Macro("xll_onkey", "XLL.ONKEY").FunctionHelp("Called when Ctrl-Alt-a is pressed."));
 int WINAPI xll_onkey(void)
 {
 #pragma XLLEXPORT

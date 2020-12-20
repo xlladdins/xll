@@ -43,12 +43,6 @@ namespace xll {
 	inline const string table_html = R"xyzyx(
 	<h2>Category {Category}</h2>
 	<table>
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Description</th>
-		</tr>
-	</thead>
 	<tbody>
 [[
 		<tr>
