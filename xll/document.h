@@ -34,6 +34,9 @@ namespace xll {
 	tbody>tr:nth-child(odd) {
 		background-color: #f2f2f2;
 	}
+	td:first-child {
+		background-color: #fff;
+	}
 </style>
 )";
 
@@ -84,7 +87,7 @@ namespace xll {
 <body>
     <h1>{FunctionText}{MacroType}</h1>
     <p>
-        This article describes the formula syntax and usage of the {FunctionText}{MacroType} in Microsoft Excel.
+        This article describes the formula syntax of the {FunctionText}{MacroType}.
     </p>
     <h2>Description</h2>
     <p>
@@ -94,16 +97,8 @@ namespace xll {
     <p>
         {FunctionText}({ArgumentText})
     </p>
-    <p>
-        The {FunctionText} function syntax has the following arguments:
-    </p>
+<blockquote>
     <table>
-	<thead>
-	<tr>
-		<th>Name</th>
-		<th>Description</th>
-	</tr>
-	</thead>
 	<tbody>
 [[
 
@@ -114,10 +109,13 @@ namespace xll {
 ]]
 	</tbody>
     </table>
-    <h2>Remarks</h2>
+</blockquote>
     <p>
     {Documentation}
     </p>
+	<footer>
+		Return to <a href="index.html">index</a>.
+	</footer>
 </body>
 </html>
 )xyzyx";
@@ -217,17 +215,11 @@ namespace xll {
 
 	inline string to_str(const OPER4& s)
 	{
-		if (!s)
-			return "";
-
-		return string(s.val.str + 1, s.val.str[0]);
+		return s ? string(s.val.str + 1, s.val.str[0]) : "";
 	}
 	inline string to_str(const OPER12& s)
 	{
-		if (!s)
-			return "";
-
-		return utf8::wcstostring(s.val.str + 1, s.val.str[0]);
+		return s ? utf8::wcstostring(s.val.str + 1, s.val.str[0]) : "";
 	}
 	inline string to_str(const string& s)
 	{
@@ -246,11 +238,10 @@ namespace xll {
 		const auto& help = arg.ArgumentHelp();
 		
 		for (size_t i = 0; i < name.size(); ++i) {
-			map nhi = {
+			nh.push_back({
 				{"{ArgumentName}", to_str(name[i])},
 				{"{ArgumentHelp}", to_str(help[i])},
-			};
-			nh.push_back(nhi);
+			});
 		}
 
 		return nh;
@@ -262,11 +253,8 @@ namespace xll {
 	{
 		XOPER<X> file;
 		try {
-			string html(documentation_html);
 			const XArgs<X>& arg = XAddIn<X>::Args(ft);
 			const XOPER<X>& mt = arg.MacroType();
-
-			replace_all(html, "{Style}", style_css);
 
 			string type;
 			if (mt == 1)
@@ -278,19 +266,19 @@ namespace xll {
 			else
 				throw std::runtime_error("unknown MacroType");
 
-			if (mt == 1) { // function
-				// replace vectors first
-				replace_all(html, NameHelp(arg));
-			}
+			string html(documentation_html);
 
-			const map m = {
-				{"{FunctionText}", to_str(arg.FunctionText()) },
-				{"{MacroType}", type },
-				{"{FunctionHelp}", to_str(arg.FunctionHelp()) },
-				{"{ArgumentText}", to_str(arg.ArgumentText()) },
+			// replace vectors first
+			replace_all(html, NameHelp(arg));
+
+			replace_all(html, {
+				{"{Style}",         style_css },
+				{"{FunctionText}",  to_str(arg.FunctionText()) },
+				{"{MacroType}",     type },
+				{"{FunctionHelp}",  to_str(arg.FunctionHelp()) },
+				{"{ArgumentText}",  to_str(arg.ArgumentText()) },
 				{"{Documentation}", to_str(arg.Documentation()) },
-			};
-			replace_all(html, m);
+			});
 
 			XOPER<X> dir = dirname(XExcel<X>(xlGetName));
 			file = dir & ft & XOPER<X>(".html");
@@ -304,30 +292,7 @@ namespace xll {
 		return file;
 	}
 
-	template<class X>
-	inline map TextHelp(const XAddIn<X>& a)
-	{
-		map m;
-
-		for (const auto& [_, v] : a.Map()) {
-			m[to_str(v.FunctionText())] = to_str(v.FunctionHelp());
-		}
-
-		return m;
-	}
-	template<class X>
-	inline map CategoryText(const XAddIn<X>& a)
-	{
-		map m;
-
-		for (const auto& [_, v] : a.Map()) {
-			m[to_str(v.Category())] = to_str(v.FunctionText());
-		}
-
-		return m;
-	}
-
-	// Index page for documentaton.
+	// Generate documentation for add-ins;
 	inline bool Document(const string& category)
 	{
 		// sort by Category then by FunctionText
@@ -336,35 +301,33 @@ namespace xll {
 		try {
 			for (auto& [key, arg] : AddIn4::Map) {
 				cat_text[to_str(arg.Category())][to_str(arg.FunctionText())] = to_str(arg.FunctionHelp());
+				Document(key);
 			}
 			for (auto& [key, arg] : AddIn12::Map) {
 				cat_text[to_str(arg.Category())][to_str(arg.FunctionText())] = to_str(arg.FunctionHelp());
+				Document(key);
 			}
 
-			std::vector<map> table;
+			std::vector<map> tables;
 			for (const auto& [cat, text_help] : cat_text) {
 				std::vector<map> rows;
 				for (const auto& [text, help] : text_help) {
-					const map td = {
+					rows.push_back({
 						{"{FunctionText}", text},
 						{"{FunctionHelp}", help},
-					};
-					rows.push_back(td);
+					});
 				}
-				string t(table_html);
-				replace(t, "{Category}", cat);
-				replace(t, rows);
+				string table(table_html);
+				replace_all(table, "{Category}", cat);
+				replace_all(table, rows);
 
-				const map r = {
-					{ "{Table}", t },
-				};
-				table.push_back(r);
+				tables.push_back({{ "{Table}", table }});
 			}
 
 			string index(index_html);
 			replace(index, "{Style}", style_css);
 			replace_all(index, "{Category}", category);
-			replace(index, table);
+			replace(index, tables);
 			
 			OPER4 dir = dirname(Excel4(xlGetName));
 			string file = to_str(dir & OPER4("index.html"));

@@ -72,7 +72,7 @@ AddIn xai_jn(
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate the Bessel function.", "=1+.1")
 	})
 	.FunctionHelp("Return the value of the n-th order Bessel function of the first kind.")
-	.Category("Cmath")
+	.Category("CMATH")
 );
 double WINAPI xll_jn(LONG n, double x)
 {
@@ -231,7 +231,7 @@ LPOPER WINAPI xll_file(const LPOPER po)
 
 int test_doc()
 {
-	Document(OPER("TGAMMA"));
+	Document("TEST");
 
 	return TRUE;
 }
