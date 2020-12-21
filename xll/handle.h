@@ -47,9 +47,9 @@ namespace xll {
 
 	// Convert handle in caller to pointer.
 	template<class T>
-	inline T* caller()
+	inline T* coerce(const OPER& caller)
 	{
-		OPER x = Excel(xlCoerce, Excel(xlfCaller));
+		OPER x = Excel(xlCoerce, caller);
 
 		return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
 	}
@@ -99,6 +99,8 @@ namespace xll {
 	class handle {
 		// all active pointers of type T*
 		inline static std::set<std::unique_ptr<T>, unique_ptrcmp<T>> ps;
+		// caller of handle
+		inline static std::map<T*, OPER> caller;
 		
 		// underlying pointer
 		T* p;
@@ -109,7 +111,7 @@ namespace xll {
 		handle(T* p) noexcept
 			: p{ p }
 		{
-			if (T* p_ = caller<T>()) { 
+			if (T* p_ = coerce<T>(caller[p] = Excel(xlfCaller))) {
 				// garbage collect old handle
 				auto pi = ps.find(p_);
 				if (pi != ps.end()) {
@@ -128,6 +130,9 @@ namespace xll {
 					p = nullptr;
 				}
 			}
+			if (caller[p] == Excel(xlfCaller)) {
+				caller[p] = ErrNA; // mark for erasure
+			}
 		}
 		handle(const handle&) = delete;
 		handle& operator=(const handle&) = delete;
@@ -143,7 +148,11 @@ namespace xll {
 			return *this;
 		}
 		~handle()
-		{ }
+		{
+			if (caller[p] == ErrNA) {
+				erase();
+			}
+		}
 
 		void swap(handle& h)
 		{

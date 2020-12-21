@@ -17,17 +17,19 @@ namespace xll {
 	inline size_t rows(const X& x)
 	{
 		// ref type???
-		return x.xltype == xltypeMulti ? x.val.array.rows 
-			 : x.xltype == xltypeNil ? 0
-			 : 1;
+		return (x.xltype & xltypeMulti) ? x.val.array.rows
+			  : x.xltype == xltypeSRef ? x.val.sref.ref.rwLast - x.val.sref.ref.rwFirst + 1
+			  : x.xltype == xltypeNil ? 0
+			  : 1;
 	}
 
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline size_t columns(const X& x)
 	{
-		return x.xltype == xltypeMulti ? x.val.array.columns 
-			 : x.xltype == xltypeNil ? 0
-			 : 1;
+		return (x.xltype & xltypeMulti) ? x.val.array.columns 
+			  : x.xltype == xltypeSRef ? x.val.sref.ref.colLast - x.val.sref.ref.colFirst + 1
+		      : x.xltype == xltypeNil ? 0
+			  : 1;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline size_t size(const X& x)
@@ -37,22 +39,22 @@ namespace xll {
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline X* begin(X& x)
 	{
-		return x.xltype == xltypeMulti ? static_cast<X*>(x.val.array.lparray) : &x;
+		return (x.xltype & xltypeMulti) ? static_cast<X*>(x.val.array.lparray) : &x;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline const X* begin(const X& x)
 	{
-		return x.xltype == xltypeMulti ? static_cast<const X*>(x.val.array.lparray) : &x;
+		return (x.xltype & xltypeMulti) ? static_cast<const X*>(x.val.array.lparray) : &x;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline X * end(X & x)
 	{
-		return x.xltype == xltypeMulti ? static_cast<X*>(x.val.array.lparray + size(x)) : &x + 1;
+		return (x.xltype & xltypeMulti) ? static_cast<X*>(x.val.array.lparray + size(x)) : &x + 1;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline const X* end(const X & x)
 	{
-		return x.xltype == xltypeMulti ? static_cast<const X*>(x.val.array.lparray + size(x)) : &x + 1;
+		return (x.xltype & xltypeMulti) ? static_cast<const X*>(x.val.array.lparray + size(x)) : &x + 1;
 	}
 
 	// one-dimensional index
@@ -61,7 +63,7 @@ namespace xll {
 	{
 		ensure(i < size(x));
 
-		if (x.xltype == xltypeMulti) {
+		if (x.xltype & xltypeMulti) {
 			return static_cast<X&>(x.val.array.lparray[xmod(i, size(x))]);
 		}
 		else {
@@ -110,7 +112,7 @@ inline auto operator<=>(const X& x, const X& y)
 		return x.xltype <=> y.xltype;
 	}
 
-	switch (x.xltype) {
+	switch (x.xltype & ~(xlbitDLLFree|xlbitXLFree)) {
 	case xltypeNum: // operator<=> is only a partial ordering on doubles
 		// IEEE bits agree with floating point order
 		union id {
@@ -129,7 +131,7 @@ inline auto operator<=>(const X& x, const X& y)
 			: xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
 
 	case xltypeErr:
-		return std::strong_ordering::less; // never equal
+		return x.val.err <=> y.val.err;
 
 	case xltypeMulti:
 		if (x.val.array.rows != y.val.array.rows)

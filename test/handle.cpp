@@ -113,9 +113,17 @@ AddIn xai_base_get(
 LPOPER WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
+	static OPER result;
 	xll::handle<base<>> h(_h);
 
-	return h ? &h->get() : (LPOPER)&ErrNA;
+	if (h) {
+		result = h->get();
+	}
+	else {
+		result = ErrNA;
+	}
+
+	return &result;
 }
 
 AddIn xai_base_set(
@@ -166,10 +174,18 @@ AddIn xai_derived_get(
 LPOPER WINAPI xll_derived_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
+	static OPER result;
 	// get handle to base class
 	xll::handle<base<>> h(_h);
-	// cast to derived
+	// downcast to derived
 	derived<>* pd = h.as<derived<>>();
 
-	return pd != nullptr ? &pd->get2() : (LPOPER)&ErrNA;
+	if (pd) {
+		result = pd->get();
+	}
+	else {
+		result = ErrNA;
+	}
+
+	return &result;
 }
