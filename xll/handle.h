@@ -45,14 +45,6 @@ namespace xll {
 		return (T*)((uint64_t)h);
 	}
 
-	// Convert handle in caller to pointer.
-	template<class T>
-	inline T* coerce(const OPER& caller)
-	{
-		OPER x = Excel(xlCoerce, caller);
-
-		return x.xltype == xltypeNum ? to_pointer<T>(x.val.num) : nullptr;
-	}
 
 	// compare underlying raw pointers
 	template<class T>
@@ -101,7 +93,26 @@ namespace xll {
 		inline static std::set<std::unique_ptr<T>, unique_ptrcmp<T>> ps;
 		// caller of handle
 		inline static std::map<T*, OPER> caller;
-		
+
+		static void erase(T* p) noexcept
+		{
+			if (p != nullptr) {
+				auto pi = ps.find(p);
+				if (pi != ps.end()) {
+					ps.erase(pi);
+				}
+			}
+		}
+
+		// Convert handle in caller to pointer.
+		template<class T>
+		static T* coerce(const OPER& caller)
+		{
+			OPER o = Excel(xlCoerce, caller);
+
+			return o.xltype == xltypeNum ? to_pointer<T>(o.val.num) : nullptr;
+		}
+
 		// underlying pointer
 		T* p;
 	public:
@@ -111,16 +122,14 @@ namespace xll {
 		handle(T* p) noexcept
 			: p{ p }
 		{
-			if (T* p_ = coerce<T>(caller[p] = Excel(xlfCaller))) {
-				// garbage collect old handle
-				auto pi = ps.find(p_);
-				if (pi != ps.end()) {
-					ps.erase(pi);
-				}
-			}
+			// caller has previously created handle
+			erase(coerce<T>(caller[p] = Excel(xlfCaller)));
 
 			ps.emplace(std::unique_ptr<T>(p));
 		}
+		/// <summary>
+		/// Lookup an existing handle.
+		/// </summary>
 		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
 		{
@@ -130,6 +139,7 @@ namespace xll {
 					p = nullptr;
 				}
 			}
+			// handle was created by a function argument
 			if (caller[p] == Excel(xlfCaller)) {
 				caller[p] = ErrNA; // mark for erasure
 			}
@@ -149,8 +159,9 @@ namespace xll {
 		}
 		~handle()
 		{
+			// temporary handle
 			if (caller[p] == ErrNA) {
-				erase();
+				erase(p);
 			}
 		}
 
@@ -165,16 +176,6 @@ namespace xll {
 		explicit operator bool() const
 		{
 			return p != nullptr;
-		}
-
-		// erase underlying unique pointer
-		T* erase() noexcept
-		{
-			if (p != nullptr) {
-				ps.erase(ps.find(p));
-			}
-
-			return p;
 		}
 
 		// return value for Excel
