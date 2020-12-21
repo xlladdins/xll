@@ -224,7 +224,8 @@ Define it to be
 for pre 2007 Excel and 
 [`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180) 
 for Excel 2007 and later before including `xll/xll.h`.
-By default it is defined to be `XLOPER12`. 
+By default it is defined to be `XLOPER12`.
+There is no `XLOPER4`.
 The file
 [`traits.h`](https://github.com/xlladdins/xll/blob/master/xll/traits.h)
 uses the [traits pattern](https://accu.org/index.php/journals/442)
@@ -237,6 +238,8 @@ You can use `AddIn` and let `XLOPERX` control the version. If you need to know t
 version at runtime call 
 [`XLCallVer`](https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll#xlcallver).
 It returns `0x500` (oddly enough) for version 4 and `0x0c00` for version 12 (hexidecimal `C`).
+
+Note the original SDK used `Excel4` and `Excel4v` but not `XLOPER4`. Hmmm.
 
 You can get finer grained information by calling the 
 [`GET.WORKSPACE`](https://xlladdins.github.io/Excel4Macros/get.workspace.html)
@@ -309,7 +312,7 @@ for an example of how to use this.
 It calls the FORTRAN function `DPOTRF` from the 
 [LAPACK](http://performance.netlib.org/lapack/) 
 library to perform a Cholesky decomposition.(Yes, you can easily call FORTRAN, and C of course, from C++). 
-A 1000 x 1000 matrix takes about 0.3 seconds on my old Surface Pro 4 laptop.
+A 1000 x 1000 matrix takes about 0.3 seconds on my old Surface Pro 4 1GHz laptop.
 
 There are structs defined in [`XLCALL.H`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
 for versions of Excel prior to 2007 as [`struct _FP`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L96)
@@ -346,9 +349,7 @@ The call `xll::handle<T> h(new T(...))` creates a handle `h` to
 an object of type `T` using any constructor for `T`.
 If the cell a function is being called from contains a handle returned by
 a previous call, then the correspoding C++ object is `delete`d 
-and the new handle is returned to the cell. If you call a function returning a
-handle be sure it has its own cell for the result to avoid
-[memory leaks](#memory-leaks).
+and the new handle is returned to the cell. 
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
 the handle to be returned to Excel. The latter has type `HANDLEX` and
@@ -401,9 +402,17 @@ AddIn xai_base_get(
 LPOPERX WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
+    static OPER result; // must be static since we are returning its address
     xll::handle<base> h(_h);
 
-    return &h->get();
+    if (h) {
+        result = h->get();
+    }
+    else {
+        result = ErrNA;
+    }
+
+    return &result;
 }
 ```
 For a production quality version of this example see 
@@ -496,7 +505,7 @@ these days.
 
 ### Handles
 
-Handles are handled by the `xll::handle<T>` class, parameterized by the handle type `T`.
+Handles are handled by the `xll::handle<T>` class parameterized by the handle type `T`.
 They are similar to `std::unique_ptr<T>`.
 
 A [_handle_](https://github.com/xlladdins/xll/blob/master/xll/handle.h) is a `double` used
@@ -506,7 +515,7 @@ Use `HANDLEX` instead of `double` to make clear when a double is representing a 
 
 If you are worried that the 64-bits in a pointer might represent a `double` that is
 a NaN or denormalized value, you should be. Neither of those survive a round
-trip to Excel and back. Returning a NaN to Excel results in a `#NUM!`.
+trip to Excel and back. Returning a NaN to Excel results in the error type `#NUM!`.
 
 On 64-bit Windows the first 16-bits of a pointer are zero so all we need are the remaining 48-bits. 
 Doubles can exactly represent integers up to 2<sup>53</sup>
@@ -525,9 +534,9 @@ By default it checks to see if this has been constructed by a call to `handle<T>
 but this can be turned off. If the check fails a `nullptr` is returned.
 Use `handle<T>::operator bool() const` to chech for this.
 
-It is possible to leak memory using handles. One way is to call a function returning a handle
-then delete the cell containing the handle. Another way is to call a function returning a handle
-as an argument to another function. Don't do that and you won't have leaks. 
+If any arguments to a function call another function that creates a handle then the handle
+gets deleted after the outer function returns. To avoid repeated calls to `new` and `delete`
+put handles in their own cell and pass a reference to that as an argument.
 
 If you don't like seeing raw pointer values as doubles then roll your own encoder/decoder to display
 whatever suits your fancy.
@@ -535,10 +544,10 @@ whatever suits your fancy.
 ### Uncalced
 
 Functions that are declared `.Uncalced()` have a limited ability to call command equivalents/macros.
-You specify this when writing an add-in that creates a handle.
+You must specify this when writing an add-in that creates a handle.
 In general, add-in functions cannot have side-effects. 
-They can only call Excel with function numbers starting with `xlf` (__f__&zwnj;​unctions) and are 
-forbidden to call Excel with function numbers starting with `xlc` (__c__&zwnj;​ommand equivalents,
+They can only call `Excel` with function numbers starting with `xlf` (__f__&zwnj;​unctions) and are 
+forbidden to call `Excel` with function numbers starting with `xlc` (__c__&zwnj;​ommand equivalents,
 also known as ma&zwnj;__c__&zwnj;ros). 
 
 ### Volatile
