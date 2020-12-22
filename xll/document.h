@@ -6,9 +6,26 @@
 #include <string_view>
 #include "error.h"
 #include "addin.h"
-#include "xllio.h"
+#include "auto.h"
+#include "excel.h"
+//#include "xllio.h"
 
 namespace xll {
+
+	inline std::string dirname(const std::string& path)
+	{
+		char drive[_MAX_DRIVE];
+		char dir[_MAX_DIR];
+		char fname[_MAX_FNAME];
+		char ext[_MAX_EXT];
+
+		errno_t err = _splitpath_s(path.c_str(), drive, dir, fname, ext);
+		if (err != 0) {
+			throw std::runtime_error("_splitpath_s failed");
+		}
+
+		return std::string(drive).append(dir);
+	}
 
 	using string = std::string;
 	using map = std::map<std::string, std::string>;
@@ -274,9 +291,7 @@ namespace xll {
 				{"{Documentation}", to_str(arg.Documentation()) },
 			});
 
-			XOPER<X> dir = dirname(XExcel<X>(xlGetName));
-			file = dir & ft & XOPER<X>(".html");
-			File doc(to_str(file));
+			File doc(dirname(to_str(Excel4(xlGetName))).append(to_str(ft)).append(".html"));
 			doc.Write(html);
 		}
 		catch (const std::exception& ex) {
@@ -323,9 +338,7 @@ namespace xll {
 			replace_all(index, "{Category}", category);
 			replace(index, tables);
 			
-			OPER4 dir = dirname(Excel4(xlGetName));
-			string file = to_str(dir & OPER4("index.html"));
-			File doc(file);
+			File doc(dirname(to_str(Excel4(xlGetName))).append("index.html"));
 			doc.Write(index);
 
 		}
@@ -337,4 +350,13 @@ namespace xll {
 
 		return true;
 	}
+
+	inline int Documentation(const char* category)
+	{
+#ifdef _DEBUG
+		Auto<OpenAfter>([category]() { return Document(category); });
+#endif		
+		return 1;
+	}
+
 }

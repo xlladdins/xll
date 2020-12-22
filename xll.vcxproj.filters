@@ -81,9 +81,6 @@
     <ClInclude Include="xll\document.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="register.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="xll\register.h">
       <Filter>Header Files</Filter>
     </ClInclude>

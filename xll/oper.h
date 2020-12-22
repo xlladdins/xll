@@ -109,7 +109,7 @@ namespace xll {
 		/**/
 		explicit operator bool() const
 		{
-			switch (xltype) {
+			switch (xltype & ~(xlbitDLLFree|xlbitXLFree)) {
 			case xltypeNum:
 				return val.num != 0;
 				break;
@@ -144,15 +144,15 @@ namespace xll {
 		}
 		bool operator==(double num) const
 		{
-			return xltype == xltypeNum && val.num == num;
+			return (xltype & xltypeNum) && val.num == num;
 		}
 		/* not working !!!
 		// handy for using OPERs in numerical expressions
 		operator double()
 		{
-			return xltype == xltypeNum ? val.num 
-				 : xltype == xltypeInt ? val.w 
-				 : xltype == xltypeBool ? val.xbool 
+			return (xltype & xltypeNum) ? val.num 
+				 : (xltype & xltypeInt) ? val.w 
+				 : (xltype & xltypeBool) ? val.xbool 
 				 : std::numeric_limits<double>::quiet_NaN();
 		}
 		*/
@@ -186,7 +186,7 @@ namespace xll {
 		}
 		bool operator==(xcstr str) const
 		{
-			if (xltype != xltypeStr) {
+			if (!(xltype & xltypeStr)) {
 				return false;
 			}
 
@@ -215,14 +215,14 @@ namespace xll {
 		}
 		XOPER& append(const X& x)
 		{
-			ensure(x.xltype == xltypeStr);
+			ensure(x.xltype & xltypeStr);
 			str_append(x.val.str + 1, x.val.str[0]);
 
 			return *this;
 		}
 		XOPER& append(const X_& x)
 		{
-			ensure(x.xltype == xltypeStr);
+			ensure(x.xltype & xltypeStr);
 			str_append(traits<X>::cvt(x.val.str + 1, x.val.str[0]), (size_t)-1);
 
 			return *this;
@@ -271,7 +271,7 @@ namespace xll {
 		}
 		bool operator==(bool xbool) const
 		{
-			return xltype == xltypeBool && val.xbool == static_cast<typename traits<X>::xbool>(xbool);
+			return (xltype & xltypeBool) && val.xbool == static_cast<typename traits<X>::xbool>(xbool);
 		}
 		XOPER operator=(bool xbool)
 		{
@@ -396,9 +396,9 @@ namespace xll {
 		}
 		bool operator==(int w) const
 		{
-			return xltype == xltypeInt ? val.w == w
-				: xltype == xltypeNum ? val.num == w
-				: xltype == xltypeBool ? val.xbool == w
+			return (xltype & xltypeInt) ? val.w == w
+				: (xltype & xltypeNum) ? val.num == w
+				: (xltype & xltypeBool) ? val.xbool == w
 				: false;
 		}
 		XOPER operator=(int w)

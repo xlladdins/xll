@@ -108,11 +108,14 @@ namespace xll {
 template<typename X> requires std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>
 inline auto operator<=>(const X& x, const X& y)
 {
-	if (x.xltype != y.xltype) {
-		return x.xltype <=> y.xltype;
+	auto xtype = (x.xltype & ~(xlbitDLLFree | xlbitXLFree));
+	auto ytype = (y.xltype & ~(xlbitDLLFree | xlbitXLFree));
+
+	if (xtype != ytype) {
+		return xtype <=> ytype;
 	}
 
-	switch (x.xltype & ~(xlbitDLLFree|xlbitXLFree)) {
+	switch (xtype) {
 	case xltypeNum: // operator<=> is only a partial ordering on doubles
 		// IEEE bits agree with floating point order
 		union id {
@@ -154,7 +157,7 @@ inline auto operator<=>(const X& x, const X& y)
 		return x.val.xbool <=> y.val.xbool;
 	}
 
-	return x.xltype <=> y.xltype;
+	return xtype <=> ytype;
 }
 
 #define XLOPER_CMP(op) \

@@ -20,11 +20,8 @@ namespace xll{
 		}
 
 		XOPER<X> helpTopic = args.HelpTopic();
-		//if (helpTopic == XOPER<X>{}) {
-			/*helpTopic =*/ xll::Document(args.FunctionText());
-		//}
 		// Help URLs must end with "!0"
-		if (helpTopic.xltype == xltypeStr) {
+		if (helpTopic.xltype & xltypeStr) {
 			XOPER xFind = XExcel<X>(xlfFind, XOPER<X>("!"), helpTopic);
 			if (xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
 				helpTopic &= XOPER<X>("!0");
