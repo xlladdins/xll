@@ -354,7 +354,7 @@ namespace xll {
 	inline int Documentation(const char* category)
 	{
 #ifdef _DEBUG
-		Auto<OpenAfter>([category]() { return Document(category); });
+		Auto<OpenAfter> aoa_document([category]() { return Document(category); });
 #endif		
 		return 1;
 	}
