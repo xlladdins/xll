@@ -44,7 +44,7 @@ typedef struct _FP _FPX;
 #include "XLCALL.H"
 
 #ifdef __cplusplus
-// mod with 0 <= x < y
+// mod with 0 <= x < y ??? move elsewhere
 template<typename T>
 inline T xmod(T x, T y)
 {

@@ -520,11 +520,16 @@ namespace xll {
 			ensure(r <= (size_t)std::numeric_limits<xrw>::max());
 			ensure(c <= (size_t)std::numeric_limits<xcol>::max());
 
-			ensure(xltype == xltypeMulti);
+			if (!(xltype & xltypeMulti)) {
+				oper_free();
+				multi_alloc(r, c);
+
+				return;
+			}
 
 			if (r * c == 0) {
 				multi_free();
-				operator=(XOPER());
+				operator=(XOPER{});
 
 				return;
 			}
