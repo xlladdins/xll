@@ -86,6 +86,7 @@ namespace xll {
 	<p>
 		Functions and macros of the {Category} add-in.
 	</p>
+	{Description}
 [[
 	{Table}
 ]]
@@ -313,7 +314,7 @@ namespace xll {
 	}
 
 	// Generate documentation for add-ins;
-	inline bool Document(const string& category)
+	inline bool Document(const string& category, const string& description = "")
 	{
 		// sort by Category then by FunctionText
 		std::map<string,map> cat_text; // Category -> FunctionText -> FunctionHelp
@@ -347,6 +348,7 @@ namespace xll {
 			string index(index_html);
 			replace(index, "{Style}", style_css);
 			replace_all(index, "{Category}", category);
+			replace(index, "{Description}", description);
 			replace(index, tables);
 			
 			File doc(dirname(to_str(Excel4(xlGetName))).append("index.html"));

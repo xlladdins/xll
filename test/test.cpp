@@ -231,7 +231,9 @@ LPOPER WINAPI xll_file(const LPOPER po)
 
 int test_doc()
 {
-	Document("TEST");
+	Document("TEST", R"(
+All files and macros in TEST having documentation.
+)");
 
 	return TRUE;
 }
