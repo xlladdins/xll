@@ -64,7 +64,6 @@ To get the latest copy start a Developer Command Prompt and pull.
 
 [1] You may have to restart Visual Studio to have it recognize the `.user` file.
 
-<!--
 The program that the debugger starts and the arguments to use are specified in _project properties_.
 Right click on a project and select `Properties` (`Alt-Enter`) at the bottom of the popup menu.
 Navigate to `Debugging` in `Configuration Properties`.
@@ -78,7 +77,7 @@ Excel when the debugger starts. The variable `$(TargetPath)` is the
 full path to the xll that was built and is opened by Excel. 
 The `/p` flag to Excel sets the
 default directory so `Ctrl-O` opens to the project directory.
--->
+
 
 ## AddIn
 
@@ -442,6 +441,36 @@ have side-effects, they take no arguments and return `TRUE` if they run successf
 function numbers are special to the C API. 
 For example, [`xlUDF`](https://docs.microsoft.com/en-us/office/client-developer/excel/xludf)
 can be used to call User-Defined Functions.
+
+## Documentation
+
+You can automatically generate documentation for your add-in by calling `Documentation("NAME")` anywhere
+in your add-in. This creates an `index.html` file with links to all the functions and macros that
+have a `.Documentation()` argument. The files are created in the directory the add-in is run from
+and only works when compiled in debug mode.
+
+Math is rendered using [KaTeX](https://katex.org/). Inline formulas use `\(...\)` and displayed formulas
+use `\[...]\`. I like to use 
+[raw string literals](https://docs.microsoft.com/en-us/cpp/cpp/string-and-character-literals-cpp?view=msvc-160#raw-string-literals-c11) 
+to keep the documentation next to the code. For example
+```C++
+AddIn xai_foo(
+    Function(...)
+    .Args({...})
+    ...
+    .Documentation(R"xyzyx(
+This is documentation with inline math like this: \(e^{\pi i} + 1 = 0\).
+It also has a displayed equation
+\[
+    \exp(x) = \sum_{n = 0}^\infty \frac{x^n}{n!}.
+\]
+<p>
+You can use any valid HTML in your documentation.
+</p>
+<aside><p>Any unique string of characters can be used with a raw string literal instead of `xyzyx`.</p></aside>
+)xyzyx")) // ← last parentheses closes `.Documentation()`
+);
+```
 
 ## Remarks
 
