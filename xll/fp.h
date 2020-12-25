@@ -49,6 +49,66 @@ inline const double* end(const _FP12& a)
 
 namespace xll {
 
+	// fixed size FP types
+	template<size_t R, size_t C = 1>
+	struct FP_ {
+		unsigned short int rows;
+		unsigned short int columns;
+		double array[R*C];
+		FP_()
+			: rows(R), columns(C)
+		{ }
+		operator ::FP&()
+		{
+			return reinterpret_cast<::FP&>(this);
+		}
+		operator const ::FP& () const
+		{
+			return reinterpret_cast<const ::FP&>(this);
+		}
+		::FP* operator&()
+		{
+			return reinterpret_cast<::FP*>(this);
+		}
+		const ::FP* operator&() const
+		{
+			return reinterpret_cast<const ::FP*>(this);
+		}
+	};
+
+	template<size_t R, size_t C = 1>
+	struct FP12_ {
+		signed int rows;
+		signed int columns;
+		double array[R*C];
+		FP12_()
+			: rows(R), columns(C)
+		{ }
+		operator ::FP12& ()
+		{
+			return reinterpret_cast<::FP12&>(this);
+		}
+		operator const ::FP12& () const
+		{
+			return reinterpret_cast<const ::FP12&>(this);
+		}
+		::FP12* operator&()
+		{
+			return reinterpret_cast<::FP12*>(this);
+		}
+		const ::FP12* operator&() const
+		{
+			return reinterpret_cast<const ::FP12*>(this);
+		}
+	};
+
+	template<size_t R, size_t C = 1>
+#if XLOPERX == XLOPER12
+	using FPX_ = FP12_<R,C>;
+#else
+	using FPX_ = FP_<R,C>;
+#endif
+
 	/// <summary>
 	/// C++ wrapper for FP and FP12 data types
 	/// </summary>
