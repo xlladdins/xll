@@ -56,7 +56,7 @@ namespace xll {
 	}
 	.katex { 
 		font-size: 1em !important;
-		font-weight: 100 !important;
+		font-weight: 200 !important;
 	}
 </style>
 )";
