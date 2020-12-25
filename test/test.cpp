@@ -38,7 +38,7 @@ AddIn xai_tgamma(
 	.Category("CMATH")
 	.HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal")
 	.Documentation(R"xyz(
-The Gamma function satisfies <math>&Gamma;(<i>n</i> + 1) = <i>n</i>!</math> if <i>n</i> is a natural number.
+The Gamma function satisfies \(\Gamma(n + 1) = n!\) if \(n\) is a natural number.
 )xyz")
 );
 double WINAPI xll_tgamma(double x)
