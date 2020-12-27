@@ -372,4 +372,6 @@ namespace xll {
 		return 1;
 	}
 
+	// create sample spreadsheet
+	inline bool SpreadSheet(const char* category)
 }
