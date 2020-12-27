@@ -364,10 +364,10 @@ namespace xll {
 		return true;
 	}
 
-	inline int Documentation(const char* category)
+	inline int Documentation(const char* category, const char* description = "")
 	{
 #ifdef _DEBUG
-		Auto<OpenAfter> aoa_document([category]() { return Document(category); });
+		Auto<OpenAfter> aoa_document([category, description]() { return Document(category, description); });
 #endif		
 		return 1;
 	}

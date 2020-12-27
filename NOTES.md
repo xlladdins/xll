@@ -21,7 +21,7 @@ Use xlfRegister("file.xll") to require add-in. Versions?
 
 Create zip file for visualizers and project template to replace msi.
 
-Handles keep track of caller. If member function has a handle in the same cell then delete it.
+https://www.drdobbs.com/architecture-and-design/faking-dde-with-private-servers/184409151?pgno=3
 
 https://docs.microsoft.com/en-us/office/client-developer/excel/how-to-call-xll-functions-from-the-function-wizard-or-replace-dialog-boxes?redirectedfrom=MSDN
 
