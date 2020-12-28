@@ -178,15 +178,15 @@ namespace xll {
 		}
 		bool isFunction() const
 		{
-			return macroType == "1";
+			return macroType == 1;
 		}
 		bool isMacro() const
 		{
-			return macroType == "2";
+			return macroType == 2;
 		}
 		bool isHidden() const
 		{
-			return macroType == "3";
+			return macroType == 3;
 		}
 
 		const XOPER<X>& Category() const

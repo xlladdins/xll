@@ -8,7 +8,7 @@ using namespace xll;
 using xll::Excel;
 
 typedef traits<XLOPERX>::xword xword;
-
+/*
 template<class X> const XOPER<X> up = XOPER<X>("R[-1]C[0]");
 template<class X> const XOPER<X> down = XOPER<X>("R[1]C[0]");
 template<class X> const XOPER<X> right = XOPER<X>("R[0]C[1]");
@@ -24,7 +24,7 @@ template<class X> const XOPER<X> range_get = XOPER<X>("=RANGE.GET(");
 #define DOWN XExcel<X>(xlcSelect, down<X>)
 #define RIGHT XExcel<X>(xlcSelect, right<X>)
 #define LEFT XExcel<X>(xlcSelect, left<X>)
-
+*/
 inline void Move(short r, short c)
 {
 	Excel(xlcSelect, Excel(xlfOffset, Excel(xlfActiveCell), OPER(r), OPER(c)));
@@ -70,8 +70,8 @@ void xll_paste_regid(const XArgs<X>& args)
 
 	XOPER<X> xFor = XOPER<X>("=") & args.FunctionText() & XOPER<X>("(");
 
-	for (unsigned short i = 1; i < args.ArgumentCount(); ++i) {
-		DOWN;
+	for (unsigned short i = 0; i < args.ArgumentCount(); ++i) {
+		Move(1,0);
 
 		XOPER<X> xActi = XExcel<X>(xlfActiveCell);
 		XOPER<X> xDef = args.ArgumentDefault(i);
@@ -117,18 +117,18 @@ void xll_paste_name(const XArgs<X>& args)
 
 	XOPER<X> xFor = XOPER<X>("=") & args.FunctionText() & XOPER<X>("(");
 
-	for (unsigned short i = 1; i < args.ArgumentCount(); ++i) {
+	for (unsigned short i = 0; i < args.ArgumentCount(); ++i) {
 		Move(1,0);
 
 		XExcel<X>(xlcFormula, args.ArgumentName(i));
-		XOPER<X> xNamei = XExcel<X>(xlfConcatenate, xPre, args.ArgumentName(i));
+		XOPER<X> xNamei = xPre & args.ArgumentName(i);
 
-		RIGHT;
+		Move(0,1);
 		XOPER<X> xActi = XExcel<X>(xlfActiveCell);
 		XOPER<X> xDef = args.ArgumentDefault(i);
 		XOPER<X> xRel = paste_default(xAct, xActi, xDef);
 		XExcel<X>(xlcDefineName, xNamei, XExcel<X>(xlfAbsref, xRel, xAct));
-		LEFT;
+		Move(0, -1);
 
 		if (i > 1) {
 			xFor.append(XOPER<X>(","));
@@ -264,11 +264,7 @@ static AddInX xai_paste_basic(
 );
 */
 
-#ifdef _M_X64
-static AddIn4 xai_paste_basic(Macro4("xll_paste_basic", "XLL.PASTE.BASIC"));
-#else
-static AddIn12 xai_paste_basic(Macro12("_xll_paste_basic@0", "XLL.PASTE.BASIC"));
-#endif
+static AddIn xai_paste_basic(Macro(XLL_DECORATE("_xll_paste_basic", 0), "XLL.PASTE.BASIC"));
 extern "C" int __declspec(dllexport) WINAPI
 xll_paste_basic(void)
 {
@@ -298,11 +294,7 @@ static AddInX xai_paste_create(
 	.Documentation("Uses current cell as a prefix. ")
 );
 */
-#ifdef _M_X64
-static AddIn xai_paste_create(Macro("xll_paste_create", "XLL.PASTE.CREATE"));
-#else
-static AddIn xai_paste_create(Macro("_xll_paste_create@0", "XLL.PASTE.CREATE"));
-#endif
+static AddIn xai_paste_create(Macro(XLL_DECORATE("_xll_paste_create", 0), "XLL.PASTE.CREATE"));
 extern "C" int __declspec(dllexport) WINAPI
 xll_paste_create(void)
 {
@@ -352,7 +344,7 @@ xll_paste_create(void)
 
 		xFor = Excel(xlfConcatenate, OPER("="), args.FunctionText(), OPER("("));
 
-		for (unsigned short i = 1; i < args.ArgumentCount(); ++i) {
+		for (unsigned short i = 0; i < args.ArgumentCount(); ++i) {
 			Move(1, 0);
 
 			Excel(xlcFormula, args.ArgumentName(i));

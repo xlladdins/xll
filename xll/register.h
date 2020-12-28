@@ -13,9 +13,13 @@ namespace xll{
 		XOPER<X> moduleText = XExcel<X>(xlGetName);
 
 		XOPER<X> procedure = args.Procedure();
-		// C++ mangled name must start with '?'
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
-		if (procedure.val.str[1] != '?' && procedure.val.str[1] != '_') {
+		if (procedure.val.str[1] == '_') {
+			// strip off for C functions
+			procedure = XOPER<X>(procedure.val.str + 2, procedure.val.str[0] - 1);
+		}
+		else if (procedure.val.str[1] != '?') {
+			// C++ mangled name must start with '?'
 			procedure = XOPER<X>("?") & procedure;
 		}
 

@@ -32,7 +32,7 @@ AddIn xai_tgamma(
 	Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
 	// Args are an array of one Arg that is a double. 
 	.Args({
-		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
+		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.", "3")
 	})
 	.FunctionHelp("Return the Gamma function value.")
 	.Category("CMATH")
