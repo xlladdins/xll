@@ -40,6 +40,19 @@ namespace xll {
 
             return i->second;
         }
+        // Get arguments using register id.
+        static XArgs<X>& Args(double regid)
+        {
+            static XArgs<X> empty;
+
+            for (auto& args : Map) {
+                if (args.second.RegisterId().val.num == regid) {
+                    return args.second;
+                }
+            }
+
+            return empty;
+        }
     };
 
 	using AddIn4  = XAddIn<XLOPER>;

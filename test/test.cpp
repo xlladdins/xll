@@ -234,6 +234,9 @@ int test_doc()
 	Document("TEST", R"(
 All files and macros in TEST having documentation.
 )");
+	Spreadsheet("TEST", R"(
+All files and macros in TEST having documentation.
+)");
 
 	return TRUE;
 }

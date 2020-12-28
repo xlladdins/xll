@@ -3,6 +3,7 @@
 #include <fileapi.h>
 #include <compare>
 //#include <format>
+#include <fstream>
 #include <string_view>
 #include "error.h"
 #include "addin.h"
@@ -364,7 +365,7 @@ namespace xll {
 		return true;
 	}
 
-	inline int Documentation(const char* category, const char* description = "")
+	inline int Documentation([[maybe_unused]] const char* category, [[maybe_unused]] const char* description = "")
 	{
 #ifdef _DEBUG
 		Auto<OpenAfter> aoa_document([category, description]() { return Document(category, description); });
@@ -373,5 +374,109 @@ namespace xll {
 	}
 
 	// create sample spreadsheet
-	inline bool SpreadSheet(const char* category)
+	inline bool Spreadsheet([[maybe_unused]] const char* category, [[maybe_unused]] const char* description = "")
+	{
+		string dir = dirname(to_str(Excel4(xlGetName)));
+		string xml = string(dir) + string(category) + string(".xml");
+		std::ofstream ofs(xml, std::ios_base::out);
+
+		ofs << R"xyzyx(<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Windows User</Author>
+  <LastAuthor>Windows User</LastAuthor>
+  <Created>2020-12-27T17:59:43Z</Created>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>9750</WindowHeight>
+  <WindowWidth>20565</WindowWidth>
+  <WindowTopX>32767</WindowTopX>
+  <WindowTopY>32767</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s62">
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="14" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Bottom"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Title">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="19.5"/>
+   <Row ss:Index="2" ss:Height="18.75">
+    <Cell ss:Index="2" ss:StyleID="s62"><Data ss:Type="String">Title</Data></Cell>
+   </Row>
+   <Row ss:Index="4">
+    <Cell ss:Index="2"><Data ss:Type="String">Description line 1</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2"><Data ss:Type="String">Description line 2</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Sheet">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="3" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="19.5"/>
+   <Row ss:Index="2">
+    <Cell ss:Index="2" ss:StyleID="s64"><Data ss:Type="String">LEN</Data></Cell>
+    <Cell ss:Formula="=LEN(R[1]C)"><Data ss:Type="Number">3</Data></Cell>
+   </Row>
+   <Row>
+    <Cell ss:Index="2" ss:StyleID="s64"><Data ss:Type="String">string</Data></Cell>
+    <Cell><Data ss:Type="String" x:Ticked="1">foo</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
+)xyzyx";
+
+		return true;
+	}
 }

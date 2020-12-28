@@ -176,6 +176,18 @@ namespace xll {
 		{
 			return macroType;
 		}
+		bool isFunction() const
+		{
+			return macroType == "1";
+		}
+		bool isMacro() const
+		{
+			return macroType == "2";
+		}
+		bool isHidden() const
+		{
+			return macroType == "3";
+		}
 
 		const XOPER<X>& Category() const
 		{
@@ -215,14 +227,27 @@ namespace xll {
 			return *this;
 		}
 
+		size_t ArgumentCount() const
+		{
+			return argumentName.size();
+		}
+
 		const std::vector<XOPER<X>>& ArgumentName() const
 		{
 			return argumentName;
+		}
+		const X& ArgumentName(size_t i) const
+		{
+			return argumentName[i];
 		}
 
 		const std::vector<XOPER<X>>& ArgumentHelp() const
 		{
 			return argumentHelp;
+		}
+		const X& ArgumentHelp(size_t i) const
+		{
+			return argumentHelp[i];
 		}
 
 

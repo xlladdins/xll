@@ -135,6 +135,12 @@ namespace xll {
 			xltype = xltypeNum;
 			val.num = num;
 		}
+		explicit XOPER(size_t num)
+		{
+			xltype = xltypeNum;
+			// ensure (num < 1<<53);
+			val.num = static_cast<double>(num);
+		}
 		XOPER operator=(double num)
 		{
 			oper_free();

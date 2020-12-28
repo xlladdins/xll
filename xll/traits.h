@@ -21,6 +21,7 @@ namespace xll {
 		typedef typename CHAR xchar;
 		typedef typename const CHAR* xcstr;
 		typedef typename short int xint;
+		typedef typename WORD xword;
 		typedef typename WORD xrw;
 		typedef typename WORD xcol; // BYTE???
 		typedef typename WORD xbool;
@@ -71,6 +72,7 @@ namespace xll {
 		typedef typename XCHAR xchar;
 		typedef typename const XCHAR* xcstr;
 		typedef typename INT32 xint;
+		typedef typename WORD xword;
 		typedef typename RW xrw;
 		typedef typename COL xcol;
 		typedef typename INT32 xbool;

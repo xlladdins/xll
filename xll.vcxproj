@@ -33,6 +33,7 @@
     <ClInclude Include="xll\handle.h" />
     <ClInclude Include="xll\on.h" />
     <ClInclude Include="xll\oper.h" />
+    <ClInclude Include="xll\paste.h" />
     <ClInclude Include="xll\register.h" />
     <ClInclude Include="xll\registry.h" />
     <ClInclude Include="xll\sref.h" />
@@ -49,6 +50,7 @@
     <ClCompile Include="xll\defines.c" />
     <ClCompile Include="xll\dllmain.cpp" />
     <ClCompile Include="xll\error.cpp" />
+    <ClCompile Include="xll\paste.cpp" />
     <ClCompile Include="xll\utility.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
