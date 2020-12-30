@@ -305,33 +305,33 @@ xll_paste_create(void)
 		OPER xPre = Excel(xlCoerce, xAct);
 
 		// use cell to right if in cell containing handle
-		if (xPre.xltype == xltypeNum) {
-			Move(0, -1);
+		if (xPre.is_num()) {
+			//Move(0, -1);
 			xAct = Excel(xlfActiveCell);
 			xPre = Excel(xlCoerce, xAct);
 		}
 
-		if (xPre.xltype == xltypeStr) {
+		if (xPre.is_str()) {
 			Excel(xlcAlignment, OPER(4)); // align right
 
-			xPre = Excel(xlfConcatenate, xPre, OPER("."));
+			xPre &= OPER(".");
 		}
 		else {
 			xPre = "";
 		}
 
 		OPER xFor = Excel(xlfGetCell, OPER(6), Excel(xlfOffset, xAct, OPER(0), OPER(1))); // formula
-		ensure(xFor.xltype == xltypeStr);
+		ensure(xFor.is_str());
 		ensure(xFor.val.str[1] == '=');
 
 		// extract "=Function"
 		OPER xFind = Excel(xlfFind, OPER("("), xFor);
-		if (xFind.xltype == xltypeNum)
+		if (xFind.is_num())
 			xFor = Excel(xlfLeft, xFor, OPER(xFind.val.num - 1));
 
 		// get regid
 		xFor = Excel(xlfEvaluate, xFor);
-		ensure(xFor.xltype == xltypeNum);
+		ensure(xFor.is_num());
 		double regid = xFor.val.num;
 
 		const Args& args = AddIn::Args(regid);
@@ -342,21 +342,21 @@ xll_paste_create(void)
 			return 0;
 		}
 
-		xFor = Excel(xlfConcatenate, OPER("="), args.FunctionText(), OPER("("));
+		xFor = OPER("=") & args.FunctionText() & OPER("(");
 
 		for (unsigned short i = 0; i < args.ArgumentCount(); ++i) {
 			Move(1, 0);
 
 			Excel(xlcFormula, args.ArgumentName(i));
 			Excel(xlcAlignment, OPER(4)); // align right
-			OPER xNamei = Excel(xlfConcatenate, xPre, args.ArgumentName(i));
+			OPER xNamei = xPre & args.ArgumentName(i);
 
 			Move(0, 1);
 			Excel(xlcDefineName, xNamei);
 
 			// paste default argument
 			OPER xDef = args.ArgumentDefault(i);
-			if (xDef.xltype == xltypeStr && xDef.val.str[1] == '=') {
+			if (xDef.is_str() && xDef.val.str[1] == '=') {
 				OPER xEval = Excel(xlfEvaluate, xDef);
 				if (xEval.size() > 1) {
 					OPER xFor2 = Excel(xlfConcatenate,
@@ -382,20 +382,21 @@ xll_paste_create(void)
 			}
 
 			if (i > 1) {
-				xFor = Excel(xlfConcatenate, xFor, OPER(", "));
+				xFor &= OPER(", ");
 			}
-			xFor = Excel(xlfConcatenate, xFor, xNamei);
+			xFor &= xNamei;
 
 			Move(0, -1);
 		}
-		xFor = Excel(xlfConcatenate, xFor, OPER(")"));
+		xFor &= OPER(")");
 
 		Excel(xlcSelect, xAct);
 		Move(0, 1);
 		Excel(xlcFormula, xFor);
 		Move(0, -1);
 
-		Excel(xlcSelect, Excel(xlfOffset, xAct, OPER(0), OPER(0), OPER(args.ArgumentCount() + 1), OPER(2))); // select range for RDB.DEFINE
+		Excel(xlcSelect, Excel(xlfOffset, xAct, OPER(0), OPER(0), OPER(args.ArgumentCount() + 1), OPER(2))); 
+		// select range for RDB.DEFINE???
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());

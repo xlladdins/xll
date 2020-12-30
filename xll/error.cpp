@@ -1,8 +1,10 @@
 #pragma warning(disable: 4996)
 #include <stdexcept>
-//#include "xll.h"
+#include "xll.h"
 #include "registry.h"
 #include "error.h"
+
+using namespace xll;
 
 class reg_alert_level {
 	DWORD value;
@@ -44,31 +46,7 @@ DWORD XLL_ALERT_LEVEL(DWORD level)
 
     return olevel;
 }
-/*
-static xll::AddIn xai_set_alert_level(
-    xll::Function(XLL_LONG, L"?xll_set_alert_level", L"XLL.ALERT.LEVEL.SET")
-    .Arg(XLL_LONG, L"level", L"is the alert level mask to set.")
-    .FunctionHelp(L"Set the current alert level using a mask having bits for ERROR(1), WARNING(2), and INFORMATION(4).")
-    .Category(L"XLL")
-);
-DWORD WINAPI xll_set_alert_level(DWORD w)
-{
-#pragma XLLEXPORT
-    xll_alert_level = w;
 
-    return xll_alert_level;
-}
-static xll::AddIn xai_get_alert_level(
-    xll::Function(XLL_LONG, L"?xll_get_alert_level", L"XLL.ALERT.LEVEL.GET")
-    .FunctionHelp(L"Get the current alert level mask having bits for ERROR(1), WARNING(2), and INFORMATION(4).")
-    .Category(L"XLL")
-);
-DWORD WINAPI xll_get_alert_level()
-{
-#pragma XLLEXPORT
-    return xll_alert_level;
-}
-*/
 int 
 XLL_ALERT(const char* text, const char* caption, DWORD level, UINT type, bool force)
 {
@@ -99,6 +77,24 @@ int
 XLL_INFO(const char* e, bool force)
 {
 	return XLL_ALERT(e, "Information", XLL_ALERT_INFO, MB_ICONINFORMATION, force);
+}
+
+AddIn xai_alert_level(
+	Function(XLL_WORD, "xll_alert_level_", "XLL_ALERT_LEVEL")
+	.Args({
+		Arg(XLL_WORD, "level", "is the alert level mask to set."),
+	})
+	.FunctionHelp("Set the current alert level using a mask having bits for ERROR(1), WARNING(2), and INFORMATION(4).")
+	.Category("XLL")
+);
+DWORD WINAPI xll_alert_level_(DWORD w)
+{
+#pragma XLLEXPORT
+	DWORD oal = xll_alert_level;
+
+	xll_alert_level = w;
+
+	return oal;
 }
 
 #ifdef _DEBUG
