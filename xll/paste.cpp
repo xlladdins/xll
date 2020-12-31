@@ -8,23 +8,45 @@ using namespace xll;
 using xll::Excel;
 
 typedef traits<XLOPERX>::xword xword;
-/*
-template<class X> const XOPER<X> up = XOPER<X>("R[-1]C[0]");
-template<class X> const XOPER<X> down = XOPER<X>("R[1]C[0]");
-template<class X> const XOPER<X> right = XOPER<X>("R[0]C[1]");
-template<class X> const XOPER<X> left = XOPER<X>("R[0]C[-1]");
-template<class X> const XOPER<X> alert = XOPER<X>("Would you like to replace the existing definition of ");
-template<class X> const XOPER<X> input = XOPER<X>("Enter the range name.");
-template<class X> const XOPER<X> r_ = XOPER<X>("R[");
-template<class X> const XOPER<X> c0 = XOPER<X>("]C[0]");
-template<class X> const XOPER<X> range_set = XOPER<X>("=RANGE.SET(");
-template<class X> const XOPER<X> range_get = XOPER<X>("=RANGE.GET(");
 
-#define UP XExcel<X>(xlcSelect, up<X>)
-#define DOWN XExcel<X>(xlcSelect, down<X>)
-#define RIGHT XExcel<X>(xlcSelect, right<X>)
-#define LEFT XExcel<X>(xlcSelect, left<X>)
-*/
+static AddIn xai_range_set(
+	Function(XLL_HANDLEX, "xll_range_set", "RANGE.SET")
+	.Args({
+		Arg(XLL_LPOPER, "range", "is the range to set.")
+		})
+	.FunctionHelp("Return a handle to a range.")
+	.Category("XLL")
+	.Documentation(R"(Create a handle to a two dimensional range of cells)")
+);
+HANDLEX WINAPI xll_range_set(LPOPER px)
+{
+#pragma XLLEXPORT
+	handle<OPER> h(new OPER(*px));
+
+	return h.get();
+}
+
+static AddIn xai_range_get(
+	Function(XLL_LPOPER, "xll_range_get", "RANGE.GET")
+	.Args({
+		Arg(XLL_HANDLEX, "handle", "is a handle returned by RANGE.SET.")
+		})
+	.FunctionHelp("Return the range held by a handle.")
+	.Category("XLL")
+	.Documentation(R"(Return a two dimensional range of cells)")
+);
+LPOPER WINAPI xll_range_get(HANDLEX h)
+{
+#pragma XLLEXPORT
+	handle<OPER> h_(h);
+
+	if (!h_) {
+		XLL_WARNING("RANGE.GET: unknown handle");
+	}
+
+	return h_.ptr();
+}
+
 inline void Move(short r, short c)
 {
 	Excel(xlcSelect, Excel(xlfOffset, Excel(xlfActiveCell), OPER(r), OPER(c)));
@@ -264,23 +286,30 @@ static AddInX xai_paste_basic(
 );
 */
 
-static AddIn xai_paste_basic(Macro(XLL_DECORATE("_xll_paste_basic", 0), "XLL.PASTE.BASIC"));
+static AddIn xai_paste_basic(
+	Macro(XLL_DECORATE("_xll_paste_basic", 0), "XLL.PASTE.BASIC")
+	.FunctionHelp("Paste a function with default arguments. Shortcut Ctrl-Shift-B.")
+	.Category("XLL")
+	.ShortcutText("^+B")
+	.Documentation("Shortcut Ctrl-Shift-B. Does not define names.")
+);
 extern "C" int __declspec(dllexport) WINAPI
 xll_paste_basic(void)
 {
-	Excel(xlfEcho, OPER(false));
+	int result = TRUE;
 
+	Excel(xlfEcho, OPER(false));
 	try {
 		xll_paste_regidx();
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		return 0;
+		result = FALSE;
 	}
 	Excel(xlfEcho, OPER(true));
 
-	return 1;
+	return result;
 }
 // Ctrl-Shift-B
 static On<Key> xok_paste_basic("^+B", "XLL.PASTE.BASIC");
@@ -298,41 +327,22 @@ static AddIn xai_paste_create(Macro(XLL_DECORATE("_xll_paste_create", 0), "XLL.P
 extern "C" int __declspec(dllexport) WINAPI
 xll_paste_create(void)
 {
-	Excel(xlfEcho, OPER(false));
+	int result = TRUE;
 
+	Excel(xlfEcho, OPER(false));
 	try {
 		OPER xAct = Excel(xlfActiveCell);
-		OPER xPre = Excel(xlCoerce, xAct);
+		OPER xFor = Excel(xlfGetCell, OPER(6), xAct); // formula
+		ensure(xFor.is_str() and xFor.val.str[1] == '=');
 
-		// use cell to right if in cell containing handle
-		if (xPre.is_num()) {
-			//Move(0, -1);
-			xAct = Excel(xlfActiveCell);
-			xPre = Excel(xlCoerce, xAct);
-		}
-
-		if (xPre.is_str()) {
-			Excel(xlcAlignment, OPER(4)); // align right
-
-			xPre &= OPER(".");
-		}
-		else {
-			xPre = "";
-		}
-
-		OPER xFor = Excel(xlfGetCell, OPER(6), Excel(xlfOffset, xAct, OPER(0), OPER(1))); // formula
-		ensure(xFor.is_str());
-		ensure(xFor.val.str[1] == '=');
-
-		// extract "=Function"
+		// extract "=Function("
 		OPER xFind = Excel(xlfFind, OPER("("), xFor);
-		if (xFind.is_num())
+		if (xFind.is_num()) {
 			xFor = Excel(xlfLeft, xFor, OPER(xFind.val.num - 1));
+		}
 
 		// get regid
-		xFor = Excel(xlfEvaluate, xFor);
-		ensure(xFor.is_num());
-		double regid = xFor.val.num;
+		double regid = Excel(xlfEvaluate, xFor).val.num;
 
 		const Args& args = AddIn::Args(regid);
 
@@ -342,43 +352,38 @@ xll_paste_create(void)
 			return 0;
 		}
 
-		xFor = OPER("=") & args.FunctionText() & OPER("(");
+		xFor &= OPER("(");
 
 		for (unsigned short i = 0; i < args.ArgumentCount(); ++i) {
 			Move(1, 0);
 
-			Excel(xlcFormula, args.ArgumentName(i));
+			OPER xNamei = args.ArgumentName(i);
+			Excel(xlcFormula, xNamei);
 			Excel(xlcAlignment, OPER(4)); // align right
-			OPER xNamei = xPre & args.ArgumentName(i);
 
 			Move(0, 1);
-			Excel(xlcDefineName, xNamei);
 
 			// paste default argument
-			OPER xDef = args.ArgumentDefault(i);
-			if (xDef.is_str() && xDef.val.str[1] == '=') {
-				OPER xEval = Excel(xlfEvaluate, xDef);
-				if (xEval.size() > 1) {
-					OPER xFor2 = Excel(xlfConcatenate,
-						OPER("=RANGE.SET("),
-						OPER(xDef.val.str + 2, xDef.val.str[0] - 1),
-						OPER(")"));
-					Excel(xlcFormula, xFor2);
-					xNamei = OPER("RANGE.GET(") & xNamei & OPER(")");
-				}
-				else {
-					Excel(xlcFormula, xDef);
-				}
+			OPER xEval = Excel(xlfEvaluate, args.ArgumentDefault(i));
+			if (xEval.size() > 1) {
+				OPER xFor2 = Excel(xlfConcatenate,
+					OPER("=RANGE.SET("),
+					args.ArgumentDefault(i),
+					OPER(")"));
+				Excel(xlcFormula, xFor2);
+				xNamei = OPER("RANGE.GET(") & xNamei & OPER(")");
 			}
 			else {
-				Excel(xlcFormula, xDef);
+				Excel(xlcFormula, xEval);
 			}
+			Excel(xlcDefineName, xNamei);
+
 			// style
-			if (args.ArgumentName(i).val.str[1] == '[') {
+			if (xNamei.val.str[1] == '[') {
 				ApplyStyle("Optional");
 			}
 			else {
-				ApplyStyle("Output");
+				ApplyStyle("Input");
 			}
 
 			if (i > 1) {
@@ -393,20 +398,24 @@ xll_paste_create(void)
 		Excel(xlcSelect, xAct);
 		Move(0, 1);
 		Excel(xlcFormula, xFor);
+		ApplyStyle("Output");
 		Move(0, -1);
 
-		Excel(xlcSelect, Excel(xlfOffset, xAct, OPER(0), OPER(0), OPER(args.ArgumentCount() + 1), OPER(2))); 
+		Excel(xlcFormula, args.FunctionText());
+		Excel(xlcAlignment, OPER(4)); // align right
+
 		// select range for RDB.DEFINE???
+		// Excel(xlcSelect, Excel(xlfOffset, xAct, OPER(0), OPER(0), OPER(args.ArgumentCount() + 1), OPER(2)));
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		return 0;
+		result = FALSE;
 	}
 
 	Excel(xlfEcho, OPER(true));
 
-	return 1;
+	return result;
 }
 // Ctrl-Shift-C
 static On<Key> xok_paste_create("^+C", "XLL.PASTE.CREATE");

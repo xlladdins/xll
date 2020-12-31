@@ -230,13 +230,19 @@ namespace xll {
 		XOPER& append(const X& x)
 		{
 			ensure(x.xltype & xltypeStr);
+			
+			if (xltype & xlbitXLFree) {
+				XOPER tmp(*this);
+				oper_free();
+				swap(tmp);
+			}
 			str_append(x.val.str + 1, x.val.str[0]);
 
 			return *this;
 		}
 		XOPER& append(const X_& x)
 		{
-			ensure(x.xltype & xltypeStr);
+			ensure(x.is_str());
 			str_append(traits<X>::cvt(x.val.str + 1, x.val.str[0]), (size_t)-1);
 
 			return *this;
