@@ -204,6 +204,12 @@ namespace xll {
 		{
 			return shortcutText;
 		}
+		XArgs& ShortcutText(cstr _shortcutText)
+		{
+			shortcutText = _shortcutText;
+
+			return *this;
+		}
 
 		const XOPER<X>& HelpTopic() const
 		{

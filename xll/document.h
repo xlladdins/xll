@@ -35,7 +35,7 @@ namespace xll {
     body {
         background-color: #fff;
         color: #363636;
-        font-family: 'Segoe UI Light',Arial,'Helvetica Neue',Verdana,Helvetica,Sans-Serif;
+        font-family: 'Segoe UI',Calibri,Arial,'Helvetica Neue',Verdana,Helvetica,Sans-Serif;
         margin: 0.5in;
         padding: 0;
     }

@@ -130,6 +130,10 @@ namespace xll {
 		}
 		/**/
 		// IEEE 64-bit floating point number
+		bool is_num() const
+		{
+			return xltype & xltypeNum;
+		}
 		explicit XOPER(double num)
 		{
 			xltype = xltypeNum;
@@ -163,6 +167,10 @@ namespace xll {
 		}
 		*/
 
+		bool is_str() const
+		{
+			return xltype & xltypeStr;
+		}
 		// xltypeStr given length
 		XOPER(xcstr str, int n)
 		{
@@ -222,13 +230,19 @@ namespace xll {
 		XOPER& append(const X& x)
 		{
 			ensure(x.xltype & xltypeStr);
+			
+			if (xltype & xlbitXLFree) {
+				XOPER tmp(*this);
+				oper_free();
+				swap(tmp);
+			}
 			str_append(x.val.str + 1, x.val.str[0]);
 
 			return *this;
 		}
 		XOPER& append(const X_& x)
 		{
-			ensure(x.xltype & xltypeStr);
+			ensure(x.is_str());
 			str_append(traits<X>::cvt(x.val.str + 1, x.val.str[0]), (size_t)-1);
 
 			return *this;
@@ -292,6 +306,10 @@ namespace xll {
 		// xltypeFlow - not used
 
 		// xltypeMulti
+		bool is_multi() const
+		{
+			return xltype & xltypeMulti;
+		}
 		XOPER(size_t rw, size_t col)
 		{
 			multi_alloc(rw, col);
@@ -389,12 +407,20 @@ namespace xll {
 		// xltypeNil - predefined as Nil
 
 		// xltypeSRef - reference to a single range
+		bool is_sref() const
+		{
+			return xltype & xltypeSRef;
+		}
 		XOPER(xrw row, xcol col, xrw height, xcol width)
 			: xltype(xltypeSRef), val({.sref = {.count = 1, .ref = XREF<X>(row, col, height, width) }})
 		{
 		}
 
 		// xltypeInt. Excel usually converts this to num.
+		bool is_int() const
+		{
+			return xltype & xltypeInt;
+		}
 		explicit XOPER(int w)
 		{
 			xltype = xltypeInt;
