@@ -60,7 +60,7 @@ namespace xll {
 	template<class X>
 	inline void UnsetNames(X** ppa, size_t len)
 	{
-		for (int i = 0, j = 1; i < len; ++i) {
+		for (size_t i = 0, j = 1; i < len; ++i) {
 			XOPER<X> ki, vi; // key, value
 			const XOPER<X>& ai = *ppa[i];
 
