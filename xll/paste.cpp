@@ -99,7 +99,7 @@ void xll_paste_regid(const XArgs<X>& args)
 		XOPER<X> xDef = args.ArgumentDefault(i);
 		XOPER<X> xRel = paste_default(xAct, xActi, xDef);
 
-		if (i > 1) {
+		if (i > 0) {
 			xFor.append(XOPER<X>(", "));
 		}
 		xFor.append(xRel);
@@ -152,9 +152,8 @@ void xll_paste_name(const XArgs<X>& args)
 		XExcel<X>(xlcDefineName, xNamei, XExcel<X>(xlfAbsref, xRel, xAct));
 		Move(0, -1);
 
-		if (i > 1) {
-			xFor.append(XOPER<X>(","));
-			xFor.append(XOPER<X>(" "));
+		if (i > 0) {
+			xFor.append(", ");
 		}
 		xFor.append(xNamei);
 	}
@@ -290,7 +289,7 @@ static AddIn xai_paste_basic(
 	Macro(XLL_DECORATE("_xll_paste_basic", 0), "XLL.PASTE.BASIC")
 	.FunctionHelp("Paste a function with default arguments. Shortcut Ctrl-Shift-B.")
 	.Category("XLL")
-	.ShortcutText("^+B")
+	//.ShortcutText("^+B")
 	.Documentation("Shortcut Ctrl-Shift-B. Does not define names.")
 );
 extern "C" int __declspec(dllexport) WINAPI
@@ -312,7 +311,18 @@ xll_paste_basic(void)
 	return result;
 }
 // Ctrl-Shift-B
-static On<Key> xok_paste_basic("^+B", "XLL.PASTE.BASIC");
+Auto<Open> xaoa_paste_basic([]() {
+	try {
+		On<Key> xok_paste_basic(ON_CTRL ON_SHIFT "B", "XLL.PASTE.BASIC");
+	}
+	catch (...) {
+		XLL_ERROR("On<Key> failed to assign Ctrl-Shift-B to XLL.PASTE.BASIC");
+
+		return FALSE;
+	}
+
+	return TRUE;
+});
 
 // create named ranges for arguments
 /*
@@ -386,7 +396,7 @@ xll_paste_create(void)
 				ApplyStyle("Input");
 			}
 
-			if (i > 1) {
+			if (i > 0) {
 				xFor &= OPER(", ");
 			}
 			xFor &= xNamei;
@@ -418,4 +428,15 @@ xll_paste_create(void)
 	return result;
 }
 // Ctrl-Shift-C
-static On<Key> xok_paste_create("^+C", "XLL.PASTE.CREATE");
+Auto<Open> xaoa_paste_create([]() {
+	try {
+		On<Key> xok_paste_create(ON_CTRL ON_SHIFT "C", "XLL.PASTE.CREATE");
+	}
+	catch (...) {
+		XLL_ERROR("On<Key> failed to assign Ctrl-Shift-C to XLL.PASTE.CREATE");
+
+		return FALSE;
+	}
+
+	return TRUE;
+});
