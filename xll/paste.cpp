@@ -14,6 +14,7 @@ static AddIn xai_range_set(
 	.Args({
 		Arg(XLL_LPOPER, "range", "is the range to set.")
 		})
+	.Uncalced()
 	.FunctionHelp("Return a handle to a range.")
 	.Category("XLL")
 	.Documentation(R"(Create a handle to a two dimensional range of cells)")
@@ -440,3 +441,5 @@ Auto<Open> xaoa_paste_create([]() {
 
 	return TRUE;
 });
+
+// Use paste_args + modifier/policy
