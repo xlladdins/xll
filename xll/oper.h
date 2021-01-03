@@ -412,8 +412,16 @@ namespace xll {
 			return xltype & xltypeSRef;
 		}
 		XOPER(xrw row, xcol col, xrw height, xcol width)
-			: xltype(xltypeSRef), val({.sref = {.count = 1, .ref = XREF<X>(row, col, height, width) }})
 		{
+			xltype = xltypeSRef;
+			val.sref.count = 1;
+			val.sref.ref = XREF<X>(row, col, height, width);
+		}
+		XOPER(const XREF<X>& ref)
+		{
+			xltype = xltypeSRef;
+			val.sref.count = 1;
+			val.sref.ref = ref;
 		}
 
 		// xltypeInt. Excel usually converts this to num.

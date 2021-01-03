@@ -38,7 +38,8 @@ AddIn xai_tgamma(
 	.Category("CMATH")
 	.HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal")
 	.Documentation(R"xyz(
-The Gamma function satisfies \(\Gamma(n + 1) = n!\) if \(n\) is a natural number.
+The Gamma function is \(\Gamma(\alpha) = \int_0^\infty x^{\alpha - 1} e^{-x}\,dx\).
+It satisfies \(\Gamma(n + 1) = n!\) if \(n\) is a natural number.
 )xyz")
 );
 double WINAPI xll_tgamma(double x)
@@ -228,6 +229,7 @@ LPOPER WINAPI xll_file(const LPOPER po)
 
 	return &f;
 }
+
 
 int test_doc()
 {

@@ -419,3 +419,23 @@ xll_paste_create(void)
 }
 // Ctrl-Shift-C
 static On<Key> xok_paste_create("^+C", "XLL.PASTE.CREATE");
+
+// create sample spreadsheet
+inline bool Spreadsheet(const char* category, const char* description = "")
+{
+	Excel(xlSet, OPER(REF(1, 1)), OPER(category));
+	// format!!!
+	Excel(xlSet, OPER(REF(3, 1)), OPER(description));
+
+	Excel(xlcSelect, OPER(REF(5, 1)));
+	Excel(xlcFormula, OPER("=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
+
+	return true;
+}
+
+AddIn xai_spreadsheet(Macro("xll_spreadsheet", "DOC"));
+int WINAPI xll_spreadsheet()
+{
+#pragma XLLEXPORT
+	return Spreadsheet("TEST", R"(All files and macros in TEST having documentation.)");
+}
