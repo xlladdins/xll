@@ -74,6 +74,27 @@ namespace xll {
 		{
 			return reinterpret_cast<const ::FP*>(this);
 		}
+		size_t size() const
+		{
+			return rows * columns;
+		}
+		FP_& resize(unsigned short int r, unsigned short int c)
+		{
+			ensure(r * c <= R * C);
+
+			rows = r;
+			columns = c;
+
+			return *this;
+		}
+		double& operator[](unsigned short int i)
+		{
+			return array[xmod<size_t>(i, size())];
+		}
+		const double& operator[](unsigned short int i) const
+		{
+			return array[xmod<size_t > (i, size())];
+		}
 	};
 
 	template<size_t R, size_t C = 1>
@@ -100,13 +121,61 @@ namespace xll {
 		{
 			return reinterpret_cast<const ::FP12*>(this);
 		}
-	};
+		size_t size() const
+		{
+			return rows * columns;
+		}
+		FP12_& resize(int r, int c)
+		{
+			ensure(r * c <= R * C);
+
+			rows = r;
+			columns = c;
+
+			return *this;
+		}
+		double& operator[](int i)
+		{
+			return array[xmod<size_t > (i, size())];
+		}
+		const double& operator[](int i) const
+		{
+			return array[xmod<size_t > (i, size())];
+	}
+};
 
 	template<size_t R, size_t C = 1>
 #if XLOPERX == XLOPER12
 	using FPX_ = FP12_<R,C>;
 #else
 	using FPX_ = FP_<R,C>;
+#endif
+	
+#if 0
+	template<class X>
+	class XFP_ {
+		typedef typename traits<X>::xint xint;
+		typedef typename traits<X>::xfp xfp;
+		void* operator new(size_t size, xint r, xint c)
+		{
+			return ::malloc(size + r * c * sizeof(double));
+		}
+		void operator delete(void* p, xint, xint)
+		{
+			::free(p);
+		}
+	public:
+		xint rows;
+		xint columns;
+		double array[1];
+		XFP_()
+		{ }
+		XFP_(xint r, xint c)
+			: rows(r), columns(c)
+		{
+			new (r, c) XFP_;
+		}
+	};
 #endif
 
 	/// <summary>
@@ -157,6 +226,10 @@ namespace xll {
 		const xfp* get() const
 		{
 			return reinterpret_cast<const xfp*>(fp);
+		}
+		xfp* operator&()
+		{
+			return get();
 		}
 
 		bool operator==(const XFP& a) const
