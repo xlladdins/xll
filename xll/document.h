@@ -9,29 +9,50 @@
 #include "addin.h"
 #include "auto.h"
 #include "excel.h"
-//#include "xllio.h"
 
 // TODO use ostream instead of replace.
 
 namespace xll {
 
-	inline std::string dirname(const std::string& path)
-	{
+	struct splitpath {
 		char drive[_MAX_DRIVE];
 		char dir[_MAX_DIR];
 		char fname[_MAX_FNAME];
 		char ext[_MAX_EXT];
-
-		errno_t err = _splitpath_s(path.c_str(), drive, dir, fname, ext);
-		if (err != 0) {
-			throw std::runtime_error("_splitpath_s failed");
+		splitpath(const char* path)
+		{
+			errno_t err = _splitpath_s(path, drive, dir, fname, ext);
+			if (err != 0) {
+				throw std::runtime_error("_splitpath_s failed");
+			}
 		}
+		std::string dirname() const
+		{
+			return std::string(drive) + std::string(dir);
+		}
+	};
 
-		return std::string(drive).append(dir);
-	}
-
+	/*
 	using string = std::string;
 	using map = std::map<std::string, std::string>;
+
+	template<class X>
+	inline std::vector<map> NameHelp(const XArgs<X>& arg)
+	{
+		std::vector<map> nh;
+		const auto& name = arg.ArgumentName();
+		const auto& help = arg.ArgumentHelp();
+
+		for (size_t i = 0; i < name.size(); ++i) {
+			nh.push_back({
+				{"{ArgumentName}", name[i].to_string()},
+				{"{ArgumentHelp}", help[i].to_string()},
+				});
+		}
+
+		return nh;
+	}
+
 
 	inline const string style_css = R"(<style>
     body {
@@ -96,87 +117,6 @@ namespace xll {
 </body>
 )xyzyx";
 
-	inline const string documentation_html = R"xyzyx(<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-	{Style}
-     <title>{FunctionText}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" 
-		integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
-		integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" 
-		integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-        onload="renderMathInElement(document.body);"></script>
-</head>
-<body>
-    <h1>{FunctionText}{MacroType}</h1>
-    <p>
-        This article describes the formula syntax of the {FunctionText}{MacroType}.
-    </p>
-    <h2>Description</h2>
-    <p>
-        {FunctionHelp}
-    </p>
-    <h2>Syntax</h2>
-    <p>
-        {FunctionText}({ArgumentText})
-    </p>
-<blockquote>
-    <table>
-	<tbody>
-[[
-
-	<tr>
-		<td>{ArgumentName}</td>
-		<td>{ArgumentHelp}</td>
-	</tr>
-]]
-	</tbody>
-    </table>
-</blockquote>
-    <p>
-    {Documentation}
-    </p>
-	<footer>
-		Return to <a href="index.html">index</a>.
-	</footer>
-</body>
-</html>
-)xyzyx";
-
-	class File {
-		HANDLE h;
-	public:
-		File(const char* name, DWORD mode = GENERIC_READ | GENERIC_WRITE, DWORD disp = CREATE_ALWAYS, DWORD attr = FILE_ATTRIBUTE_NORMAL)
-			: h(CreateFileA(name, mode, 0, NULL, disp, attr, NULL))
-		{ }
-		File(const string& name, DWORD mode = GENERIC_READ | GENERIC_WRITE, DWORD disp = CREATE_ALWAYS, DWORD attr = FILE_ATTRIBUTE_NORMAL)
-			: File(name.c_str(), mode, disp, attr)
-		{ }
-		File(File&) = delete;
-		File& operator=(File&) = delete;
-		~File()
-		{ 
-			CloseHandle(h);
-		}
-		BOOL Write(LPCVOID buf, DWORD len, LPDWORD plen)
-		{
-			return WriteFile(h, buf, len, plen, NULL);
-		}
-		BOOL Write(LPCVOID buf, DWORD len)
-		{
-			DWORD plen;
-
-			return WriteFile(h, buf, len, &plen, NULL);
-		}
-		BOOL Write(const std::string& str)
-		{
-			return Write(str.c_str(), (DWORD)str.length());
-		}
-	};
-
 	// replace first occurence of old after pos by new in string
 	inline size_t replace(string& s, const string& o, const string& n, size_t pos = 0)
 	{
@@ -238,76 +178,85 @@ namespace xll {
 
 		return pos;
 	}
-
-	inline string to_str(const OPER4& s)
-	{
-		return s ? string(s.val.str + 1, s.val.str[0]) : "";
-	}
-	inline string to_str(const OPER12& s)
-	{
-		return s ? utf8::wcstostring(s.val.str + 1, s.val.str[0]) : "";
-	}
-	inline string to_str(const string& s)
-	{
-		return s;
-	}
-	inline string to_str(const std::wstring& s)
-	{
-		return utf8::wcstostring(s.c_str(), s.length());
-	}
-
-	template<class X>
-	inline std::vector<map> NameHelp(const XArgs<X>& arg)
-	{
-		std::vector<map> nh;
-		const auto& name = arg.ArgumentName();
-		const auto& help = arg.ArgumentHelp();
-		
-		for (size_t i = 0; i < name.size(); ++i) {
-			nh.push_back({
-				{"{ArgumentName}", to_str(name[i])},
-				{"{ArgumentHelp}", to_str(help[i])},
-			});
-		}
-
-		return nh;
-	}
+	*/
 
 	// Write html documentation given Excel function text.
 	template<class X>
-	inline XOPER<X> Document(const XOPER<X>& ft)
+	inline XOPER<X> Document(const XOPER<X>& functionText)
 	{
 		XOPER<X> file;
 		try {
-			const XArgs<X>& arg = XAddIn<X>::Args(ft);
-			const XOPER<X>& mt = arg.MacroType();
+			// factor out!!!
+			splitpath sp(Excel4(xlGetName).to_string().c_str());
+			std::string ofile(sp.dirname() + sp.fname + ".html");
+			std::ofstream ofs(ofile, std::ios::out);
 
-			string type;
-			if (mt == 1)
-				type = " function";
-			else if (mt == 2)
-				type = " macro";
-			else if (mt == 3)
-				type = " hidden";
-			else
-				throw std::runtime_error("unknown MacroType");
+			const XArgs<X>& arg = XAddIn<X>::Args(functionText);
+			size_t foo;
+			foo = arg.ArgumentCount();
 
-			string html(documentation_html);
+			ofs << R"xyzyx(<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+	{Style}
+     <title>{FunctionText}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" 
+		integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+		integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" 
+		integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+<body>
+    <h1>{FunctionText}{MacroType}</h1>
+    <p>
+        This article describes the formula syntax of the {FunctionText}{MacroType}.
+    </p>
+    <h2>Description</h2>
+    <p>
+        {FunctionHelp}
+    </p>
+    <h2>Syntax</h2>
+    <p>
+        {FunctionText}({ArgumentText})
+    </p>
+<blockquote>
+    <table>
+	<tbody>
+[[
 
+	<tr>
+		<td>{ArgumentName}</td>
+		<td>{ArgumentHelp}</td>
+	</tr>
+]]
+	</tbody>
+    </table>
+</blockquote>
+    <p>
+    {Documentation}
+    </p>
+	<footer>
+		Return to <a href="index.html">index</a>.
+	</footer>
+</body>
+</html>
+)xyzyx";
+			/*
 			// replace vectors first
 			replace_all(html, NameHelp(arg));
 
 			replace_all(html, {
 				{"{Style}",         style_css },
-				{"{FunctionText}",  to_str(arg.FunctionText()) },
+				{"{FunctionText}",  arg.FunctionText().to_string() },
 				{"{MacroType}",     type },
-				{"{FunctionHelp}",  to_str(arg.FunctionHelp()) },
-				{"{ArgumentText}",  to_str(arg.ArgumentText()) },
-				{"{Documentation}", to_str(arg.Documentation()) },
+				{"{FunctionHelp}",  arg.FunctionHelp().to_string() },
+				{"{ArgumentText}",  arg.ArgumentText().to_string() },
+				{"{Documentation}", arg.Documentation().to_string() },
 			});
-
-			File doc(dirname(to_str(Excel4(xlGetName))).append(to_str(ft)).append(".html"));
-			doc.Write(html);
+			*/
 		}
 		catch (const std::exception& ex) {
 			XLL_ERROR(ex.what());
@@ -317,21 +266,20 @@ namespace xll {
 	}
 
 	// Generate documentation for add-ins;
-	inline bool Document(const string& category, const string& description = "")
+	inline bool Document(const char* category="", const char* description = "")
 	{
+		char c;
+		c = *category;
+		c = *description;
 		// sort by Category then by FunctionText
-		std::map<string,map> cat_text; // Category -> FunctionText -> FunctionHelp
+		std::map<OPER,std::map<OPER,OPER>> cat_text; // Category -> FunctionText -> FunctionHelp
 
 		try {
-			for (auto& [key, arg] : AddIn4::Map) {
-				cat_text[to_str(arg.Category())][to_str(arg.FunctionText())] = to_str(arg.FunctionHelp());
+			for (auto& [key, arg] : AddIn::Map) {
+				cat_text[arg.Category()][arg.FunctionText()] = arg.FunctionHelp();
 				Document(key);
 			}
-			for (auto& [key, arg] : AddIn12::Map) {
-				cat_text[to_str(arg.Category())][to_str(arg.FunctionText())] = to_str(arg.FunctionHelp());
-				Document(key);
-			}
-
+/*
 			std::vector<map> tables;
 			for (const auto& [cat, text_help] : cat_text) {
 				std::vector<map> rows;
@@ -354,9 +302,11 @@ namespace xll {
 			replace(index, "{Description}", description);
 			replace(index, tables);
 			
-			File doc(dirname(to_str(Excel4(xlGetName))).append("index.html"));
-			doc.Write(index);
-
+			splitpath sp(Excel4(xlGetName)).c_str().to_string();
+			string ofile(sp.dirname() + "index.html");
+			std::ofstream ofs(ofile, std::ios::out);
+			ofs.write(index.c_str(), index.length());
+			*/
 		}
 		catch (const std::exception& ex) {
 			XLL_ERROR(ex.what());

@@ -25,7 +25,7 @@ int test_utf8 = []() {
 		char s[] = "哈"; // ha
 		wchar_t ha[] = L"哈";
 		assert(3 == strlen(s));
-		wchar_t* ws = mbstowcs(s); // unique_ptr!!!
+		wchar_t* ws = mbstowcs(s);
 		assert(0 == wcsncmp(ws + 1, ha, 1));
 		free(ws);
 	}

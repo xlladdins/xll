@@ -58,9 +58,9 @@ namespace xll {
 			return strncmp(dest, src, n);
 		}
 		// return counted string that must be free'd
-		static char* cvt(const wchar_t* ws)
+		static char* cvt(const wchar_t* ws, int wn = -1)
 		{
-			return utf8::wcstombs(ws);
+			return utf8::wcstombs(ws, wn);
 		}
 	};
 	
@@ -109,9 +109,9 @@ namespace xll {
 			return wcsncmp(dest, src, n);
 		}
 		// return counted string that must be free'd
-		static wchar_t* cvt(const char* s)
+		static wchar_t* cvt(const char* s, int n = -1)
 		{
-			return utf8::mbstowcs(s);
+			return utf8::mbstowcs(s, n);
 		}
 	};
 

@@ -9,45 +9,6 @@ using xll::Excel;
 
 typedef traits<XLOPERX>::xword xword;
 
-static AddIn xai_range_set(
-	Function(XLL_HANDLEX, "xll_range_set", "RANGE.SET")
-	.Args({
-		Arg(XLL_LPOPER, "range", "is the range to set.")
-		})
-	.Uncalced()
-	.FunctionHelp("Return a handle to a range.")
-	.Category("XLL")
-	.Documentation(R"(Create a handle to a two dimensional range of cells)")
-);
-HANDLEX WINAPI xll_range_set(LPOPER px)
-{
-#pragma XLLEXPORT
-	handle<OPER> h(new OPER(*px));
-
-	return h.get();
-}
-
-static AddIn xai_range_get(
-	Function(XLL_LPOPER, "xll_range_get", "RANGE.GET")
-	.Args({
-		Arg(XLL_HANDLEX, "handle", "is a handle returned by RANGE.SET.")
-		})
-	.FunctionHelp("Return the range held by a handle.")
-	.Category("XLL")
-	.Documentation(R"(Return a two dimensional range of cells)")
-);
-LPOPER WINAPI xll_range_get(HANDLEX h)
-{
-#pragma XLLEXPORT
-	handle<OPER> h_(h);
-
-	if (!h_) {
-		XLL_WARNING("RANGE.GET: unknown handle");
-	}
-
-	return h_.ptr();
-}
-
 inline void Move(short r, short c)
 {
 	Excel(xlcSelect, Excel(xlfOffset, Excel(xlfActiveCell), OPER(r), OPER(c)));
@@ -430,3 +391,25 @@ xll_paste_create(void)
 }
 // Ctrl-Shift-C
 static On<Key> xok_paste_create("^+C", "XLL.PASTE.CREATE");
+
+// create sample spreadsheet
+inline bool Spreadsheet(const char* category, const char* description = "")
+{
+	// get dir and filename extension
+	// "=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
+	Excel(xlSet, OPER(REF(1, 1)), OPER(category));
+	// format!!!
+	Excel(xlSet, OPER(REF(3, 1)), OPER(description));
+
+	Excel(xlcSelect, OPER(REF(5, 1)));
+	Excel(xlcFormula, OPER("=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
+
+	return true;
+}
+
+AddIn xai_spreadsheet(Macro("xll_spreadsheet", "DOC"));
+int WINAPI xll_spreadsheet()
+{
+#pragma XLLEXPORT
+	return Spreadsheet("TEST", R"(All files and macros in TEST having documentation.)");
+}

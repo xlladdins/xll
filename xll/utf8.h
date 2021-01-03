@@ -10,15 +10,21 @@
 
 namespace utf8 {
 	// Multi-byte character string to counted wide character string allocated by malloc.
-	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, size_t n = 0)
+	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, int n = -1)
 	{
 		wchar_t* ws = nullptr;
 
 		if (nullptr == s) {
 			n = 0;
 		}
-		else if (n == 0) {
-			n = strlen(s);
+		// n = -1 means null terminated, just like MultiByteToWideChar
+		if (n == 0) {
+			ws = (wchar_t*)malloc(sizeof(wchar_t));
+			if (ws != nullptr) {
+				*ws = 0;
+			}
+
+			return ws;
 		}
 
 		// Loss-free conversion from UTF-16 to MBCS and back
@@ -32,12 +38,12 @@ namespace utf8 {
 		if (ws) {
 			ensure(wn == MultiByteToWideChar(CP_UTF8, 0, s ? s : "", (int)n, ws + 1, wn));
 			ensure(wn <= WCHAR_MAX);
-			ws[0] = static_cast<wchar_t>(wn);
+			ws[0] = static_cast<wchar_t>(wn - 1);
 		}
 
 		return ws;
 	}
-	inline std::wstring mbstowstring(const char* s, size_t n = 0)
+	inline std::wstring mbstowstring(const char* s, int n = -1)
 	{
 		std::wstring ws;
 
@@ -51,15 +57,21 @@ namespace utf8 {
 	}
 
 	// Wide character string to counted multi-byte character string allocated by malloc
-	inline /*_Post_ _Notnull_*/ char* wcstombs(const wchar_t* ws, size_t wn = 0)
+	inline /*_Post_ _Notnull_*/ char* wcstombs(const wchar_t* ws, size_t wn = -1)
 	{
 		char* s = nullptr;
 
 		if (nullptr == ws) {
 			wn = 0;
 		}
-		else if (wn == 0) {
-			wn = wcslen(ws);
+		// n = -1 means null terminated, just like MultiByteToWideChar
+		if (wn == 0) {
+			s = (char*)malloc(sizeof(char));
+			if (s != nullptr) {
+				*s = 0;
+			}
+
+			return s;
 		}
 
 		int n = 0;
@@ -72,12 +84,12 @@ namespace utf8 {
 			ensure(n == WideCharToMultiByte(CP_UTF8, 0, ws ? ws : L"", (int)wn, s + 1, n, NULL, NULL));
 			// ???NormalizeString
 			ensure(n <= UCHAR_MAX);
-			s[0] = static_cast<char>(n);
+			s[0] = static_cast<char>(n - 1);
 		}
 
 		return s;
 	}
-	inline std::string wcstostring(const wchar_t* ws, size_t wn = 0)
+	inline std::string wcstostring(const wchar_t* ws, int wn = -1)
 	{
 		std::string s;
 

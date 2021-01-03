@@ -171,6 +171,22 @@ namespace xll {
 		{
 			return xltype & xltypeStr;
 		}
+		std::string to_string() const
+		{
+			if (xltype & xltypeNil) {
+				return "";
+			}
+
+			ensure(is_str());
+
+			if constexpr (std::is_same_v<X, XLOPER>) {
+				return std::string(val.str + 1, val.str[0]);
+			}
+			else {
+				return utf8::wcstostring(val.str + 1, val.str[0]);
+			}
+		}
+
 		// xltypeStr given length
 		XOPER(xcstr str, int n)
 		{
@@ -190,13 +206,13 @@ namespace xll {
 		// convert to type appropriate for X
 		explicit XOPER(cstrx str)
 		{
-			str_alloc(traits<X>::cvt(str), (size_t)-1);
+			str_alloc(traits<X>::cvt(str), -1);
 		}
 		// Construct from string literal
 		template<size_t N>
 		XOPER(cstrx (&str)[N])
 		{
-			str_alloc(traits<X>::cvt(str), (size_t)-1);
+			str_alloc(traits<X>::cvt(str), -1);
 		}
 		bool operator==(xcstr str) const
 		{
@@ -223,7 +239,7 @@ namespace xll {
 		XOPER operator=(cstrx str)
 		{
 			oper_free();
-			str_alloc(traits<X>::cvt(str), (size_t)-1);
+			str_alloc(traits<X>::cvt(str), -1);
 
 			return *this;
 		}
@@ -270,7 +286,7 @@ namespace xll {
 		}
 		XOPER& append(cstrx str)
 		{
-			str_append(traits<X>::cvt(str), (size_t)-1);
+			str_append(traits<X>::cvt(str), -1);
 
 			return *this;
 		}
@@ -478,15 +494,15 @@ namespace xll {
 		}
 
 		// allocate unless counted
-		void str_alloc(xcstr str, size_t n)
+		void str_alloc(xcstr str, int n)
 		{
 			xltype = xltypeStr;
 
-			if (n == (size_t)-1) {
+			if (n == -1) {
 				val.str = const_cast<xchar*>(str); // move
 			}
 			else {
-				val.str = (xchar*)malloc((n + 1) * sizeof(xchar));
+				val.str = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
 				// first character is count
 				if (val.str) {
 					memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
@@ -495,7 +511,7 @@ namespace xll {
 				}
 			}
 		}
-		void str_append(xcstr str, size_t n)
+		void str_append(xcstr str, int n)
 		{
 			if (xltype == xltypeNil) {
 				str_alloc(str, n);
@@ -514,7 +530,7 @@ namespace xll {
 					n = traits<X>::len(str);
 				}
 
-				xchar* tmp = (xchar*)realloc(val.str, (val.str[0] + n + 1) * sizeof(xchar));
+				xchar* tmp = (xchar*)realloc(val.str, ((size_t)val.str[0] + n + 1) * sizeof(xchar));
 				if (!tmp) {
 					throw std::bad_alloc{};
 				}
