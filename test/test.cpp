@@ -5,6 +5,16 @@
 
 using namespace xll;
 
+// Generate docuentation
+static int test_doc = Documentation("TEST", R"(
+All files and macros in TEST having documentation.
+)");
+	/*
+		Spreadsheet("TEST", R"(
+	All files and macros in TEST having documentation.
+	)");
+	*/
+
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
 // See https://xlladdins.github.io/Excel4Macros/
 // for documentation of Excel arguments.
@@ -198,17 +208,3 @@ LPOPER WINAPI xll_file(const LPOPER po)
 }
 
 
-int test_doc()
-{
-	Documentation("TEST", R"(
-All files and macros in TEST having documentation.
-)");
-/*
-	Spreadsheet("TEST", R"(
-All files and macros in TEST having documentation.
-)");
-*/
-
-	return TRUE;
-}
-Auto<OpenAfter> xaoa_doc(test_doc);

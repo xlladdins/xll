@@ -47,6 +47,6 @@
 
 #ifdef _DEBUG
 #pragma comment(linker, "/export:?crtDbg@@3UCrtDbg@@A")
-#pragma comment(linker, "/export:?Documentation@xll@@YAHPEBD0@Z")
+//#pragma comment(linker, "/export:?Documentation@xll@@YAHPEBD0@Z")
 #endif // _DEBUG
 

@@ -296,15 +296,22 @@ Auto<Open> xaoa_paste_basic([]() {
 });
 
 // create named ranges for arguments
-/*
-static AddInX xai_paste_create(
-	MacroX("_xll_paste_create@0"), _T("XLL.PASTE.CREATE")
-	.Category("Utility")
+static AddIn xai_paste_create(
+	Macro(XLL_DECORATE("_xll_paste_create", 0), "XLL.PASTE.CREATE")
+	.Category("XLL")
 	.FunctionHelp("Paste a function and create named ranges for arguments. Shortcut Ctrl-Shift-C")
-	.Documentation("Uses current cell as a prefix. ")
-);
-*/
-static AddIn xai_paste_create(Macro(XLL_DECORATE("_xll_paste_create", 0), "XLL.PASTE.CREATE"));
+	.Documentation(R"xyzyx(Paste a call to an add-in function and create argument names.
+<p>
+Excel's built-in Ctrl-Shift-A shortcut pastes the function text after typing <code> =FUNCTION</code>
+while in edit mode.
+This macro requires you to first enter <code> =FUNCTION&lt;Enter&gt;</code> in the cell to get the
+<a href="https://docs.microsoft.com/en-us/office/client-developer/excel/xlfregister-form-1#property-valuereturn-value">register id</a>
+of the function. Ctrl-Shift-C uses this to look up the function and pastes the default
+argument names in the cells below and default values to the immediate right.
+The default values are named then the register id is replaced by the function name
+and the cell to the immediate right has a call to the function using the default argument names. 
+</p>
+)xyzyx"));
 extern "C" int __declspec(dllexport) WINAPI
 xll_paste_create(void)
 {
@@ -399,7 +406,18 @@ xll_paste_create(void)
 	return result;
 }
 // Ctrl-Shift-C
-static On<Key> xok_paste_create("^+C", "XLL.PASTE.CREATE");
+Auto<Open> xaoa_paste_create([]() {
+	try {
+		On<Key> xok_paste_create(ON_CTRL ON_SHIFT "C", "XLL.PASTE.CREATE");
+	}
+	catch (...) {
+		XLL_ERROR("On<Key> failed to assign Ctrl-Shift-C to XLL.PASTE.CREATE");
+
+		return FALSE;
+	}
+
+	return TRUE;
+});
 
 // create sample spreadsheet
 inline bool Spreadsheet(const char* category, const char* description = "")

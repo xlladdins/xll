@@ -1,10 +1,7 @@
 // document.cpp - generate add-in documentaton
-#include "document.h"
-
-// document.h - Generate HTML documentation for an add-in
-#pragma once
-#include <fileapi.h>
 #include <fstream>
+#include "splitpath.h"
+#include "document.h"
 #include "error.h"
 #include "addin.h"
 #include "auto.h"
@@ -12,6 +9,7 @@
 
 namespace xll {
 
+	// CSS style
 	static inline const char* html_style_css = R"xyzyx(
 	<style>
 	body{
@@ -44,12 +42,7 @@ namespace xll {
 	</style>
 )xyzyx";
 
-	static inline const char* html_head_pre = R"xyzyx(<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-)xyzyx";
-
+	// load katex
 	inline const char* html_head_post = R"xyzyx(
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" 
 		integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
@@ -63,7 +56,7 @@ namespace xll {
 
 	// Write html documentation given Args.
 	template<class X>
-	inline bool Document(const XArgs<X>& arg)
+	bool Document(const XArgs<X>& arg)
 	{
 		try {
 			std::string functionText
@@ -74,7 +67,11 @@ namespace xll {
 			std::string ofile(sp.dirname() + functionText + ".html");
 			std::ofstream ofs(ofile, std::ios::out);
 
-			ofs << html_head_pre
+			ofs << R"xyzyx(<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+)xyzyx"
 				<< html_style_css
 				<< "<title>" << functionText << "</title>\n"
 				<< html_head_post;
@@ -122,7 +119,7 @@ namespace xll {
 	}
 
 	// Generate documentation for add-ins;
-	inline bool Document(const char* category = "", const char* description = "")
+	bool Document(const char* category = "", const char* description = "")
 	{
 		splitpath sp(Excel4(xlGetName).to_string().c_str());
 		std::string ofile(sp.dirname() + "index.html");
@@ -183,8 +180,7 @@ namespace xll {
 		return true;
 	}
 
-	// call to generate all documentation for an add-in
-	inline int Documentation([[maybe_unused]] const char* category, [[maybe_unused]] const char* description)
+	int Documentation([[maybe_unused]] const char* category, [[maybe_unused]] const char* description)
 	{
 #ifdef _DEBUG
 		Auto<OpenAfter> aoa_document([category, description]() { return Document(category, description); });

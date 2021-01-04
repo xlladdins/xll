@@ -36,6 +36,7 @@
     <ClInclude Include="xll\paste.h" />
     <ClInclude Include="xll\register.h" />
     <ClInclude Include="xll\registry.h" />
+    <ClInclude Include="xll\splitpath.h" />
     <ClInclude Include="xll\sref.h" />
     <ClInclude Include="xll\traits.h" />
     <ClInclude Include="xll\utf8.h" />
