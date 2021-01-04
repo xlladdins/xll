@@ -1,7 +1,11 @@
 // auto.cpp - Implement well known Excel interfaces.
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 // https://docs.microsoft.com/en-us/office/client-developer/excel/creating-xlls
-#include "xll.h"
+#include "error.h"
+#include "auto.h"
+#include "register.h"
+#include "excel.h"
+#include "addin.h"
 
 using namespace xll;
 

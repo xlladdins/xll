@@ -221,7 +221,7 @@ namespace xll {
 			}
 
 			size_t n = traits<X>::len(str);
-			ensure(n < static_cast<size_t>(std::numeric_limits<xchar>::max()));
+			//ensure(n < static_cast<size_t>(std::numeric_limits<xchar>::max()));
 			
 			if (val.str[0] != static_cast<xchar>(n))
 				return false;
@@ -333,7 +333,7 @@ namespace xll {
 		// XOPER({XOPER(a), ...}). Use resize if needed.
 		explicit XOPER(std::initializer_list<XOPER> x)
 		{
-			ensure(x.size() <= std::numeric_limits<xcol>::max());
+			//ensure(x.size() <= std::numeric_limits<xcol>::max());
 
 			multi_alloc(1, static_cast<xcol>(x.size()));
 			std::copy(x.begin(), x.end(), begin());
@@ -554,8 +554,8 @@ namespace xll {
 		// xltypeMulti
 		void multi_alloc(size_t r, size_t c)
 		{
-			ensure(r <= (size_t)std::numeric_limits<xrw>::max());
-			ensure(c <= (size_t)std::numeric_limits<xcol>::max());
+			//ensure(r <= (size_t)std::numeric_limits<xrw>::max());
+			//ensure(c <= (size_t)std::numeric_limits<xcol>::max());
 
 			if (r * c == 0) {
 				xltype = XOPER().xltype;
@@ -573,8 +573,8 @@ namespace xll {
 		}
 		void multi_realloc(size_t r, size_t c)
 		{
-			ensure(r <= (size_t)std::numeric_limits<xrw>::max());
-			ensure(c <= (size_t)std::numeric_limits<xcol>::max());
+			//ensure(r <= (size_t)std::numeric_limits<xrw>::max());
+			//ensure(c <= (size_t)std::numeric_limits<xcol>::max());
 
 			if (!(xltype & xltypeMulti)) {
 				oper_free();

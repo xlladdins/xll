@@ -4,7 +4,6 @@
 #include <initializer_list>
 #include <vector>
 #include "oper.h"
-#include "document.h"
 
 namespace xll {
 
@@ -242,7 +241,7 @@ namespace xll {
 		{
 			return argumentName;
 		}
-		const X& ArgumentName(size_t i) const
+		const XOPER<X>& ArgumentName(size_t i) const
 		{
 			return argumentName[i];
 		}
@@ -251,7 +250,7 @@ namespace xll {
 		{
 			return argumentHelp;
 		}
-		const X& ArgumentHelp(size_t i) const
+		const XOPER<X>& ArgumentHelp(size_t i) const
 		{
 			return argumentHelp[i];
 		}

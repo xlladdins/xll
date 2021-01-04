@@ -1,0 +1,195 @@
+// document.cpp - generate add-in documentaton
+#include "document.h"
+
+// document.h - Generate HTML documentation for an add-in
+#pragma once
+#include <fileapi.h>
+#include <fstream>
+#include "error.h"
+#include "addin.h"
+#include "auto.h"
+#include "excel.h"
+
+namespace xll {
+
+	static inline const char* html_style_css = R"xyzyx(
+	<style>
+	body{
+		background-color: #fff;
+		color: #363636;
+		font-family: 'Segoe UI',Calibri,Arial,'Helvetica Neue',Verdana,Helvetica,Sans-Serif;
+		margin: 0.5in;
+		padding: 0;
+	}
+	table {
+		text-align: left;
+		border-padding: 5px;
+		border-collapse: collapse;
+	}
+	th:first-child, td:first-child {
+		padding-right: 1em;
+		text-align: right;
+		font-weight: bold;
+	}
+		tbody>tr:nth-child(odd) {
+		background-color: #f2f2f2;
+	}
+	td:first-child {
+		background-color: #fff;
+	}
+	.katex{
+		font-size: 1em !important;
+		font-weight: 200 !important;
+	}
+	</style>
+)xyzyx";
+
+	static inline const char* html_head_pre = R"xyzyx(<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+)xyzyx";
+
+	inline const char* html_head_post = R"xyzyx(
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" 
+		integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+		integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" 
+		integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+)xyzyx";
+
+	// Write html documentation given Args.
+	template<class X>
+	inline bool Document(const XArgs<X>& arg)
+	{
+		try {
+			std::string functionText
+				= arg.FunctionText().to_string();
+
+			// factor out!!!
+			splitpath sp(Excel4(xlGetName).to_string().c_str());
+			std::string ofile(sp.dirname() + functionText + ".html");
+			std::ofstream ofs(ofile, std::ios::out);
+
+			ofs << html_head_pre
+				<< html_style_css
+				<< "<title>" << functionText << "</title>\n"
+				<< html_head_post;
+
+			std::string macroType
+				= arg.isFunction() ? " function"
+				: arg.isMacro() ? " macro"
+				: arg.isHidden() ? " hidden"
+				: " unknown";
+			ofs << "<body>\n\t<h1>" << functionText << macroType << "</h1>\n\t";
+			ofs << "<p>This article describes the formula syntax of the " << functionText << macroType << "</p>\n\t";
+
+			std::string functionHelp
+				= arg.FunctionHelp().to_string();
+			ofs << "<h2>Description</h2>\n\t<p>\n" << functionHelp << "\n\t</p>\n\t";
+
+			std::string argumentText
+				= arg.ArgumentText().to_string();
+			ofs << "<h2>Syntax</h2>\n\t<p>" << functionText << "(" << argumentText << ")</p>\n\t";
+
+			ofs << "<blockquote>\n\t<table>\n\t<tbody>\n\t";
+			for (int i = 0; i < arg.ArgumentCount(); ++i) {
+				ofs << "\t<tr>\n\t\t"
+					<< "<td>" << arg.ArgumentName(i).to_string() << "</td>\n\t\t"
+					<< "<td>" << arg.ArgumentHelp(i).to_string() << "</td>\n\t\t"
+					<< "</tr>\n\t";
+			}
+			ofs << "</tbody>\n</table>\n</blockquote>\n"
+				<< "<p>" << arg.Documentation() << "</p>\n"
+				<< R"(
+	<footer>
+		Return to <a href="index.html">index</a>.
+	</footer>
+</body>
+</html>
+)";
+		}
+		catch (const std::exception& ex) {
+			XLL_ERROR(ex.what());
+
+			return false;
+		}
+
+		return true;
+	}
+
+	// Generate documentation for add-ins;
+	inline bool Document(const char* category = "", const char* description = "")
+	{
+		splitpath sp(Excel4(xlGetName).to_string().c_str());
+		std::string ofile(sp.dirname() + "index.html");
+		std::ofstream ofs(ofile, std::ios::out);
+
+		// sort by Category then by FunctionText
+		std::map<OPER, std::map<OPER, OPER>> cat_text; // Category -> FunctionText -> FunctionHelp
+
+		try {
+			for (auto& [key, arg] : AddIn::Map) {
+				if (arg.Documentation().length() != 0) {
+					cat_text[arg.Category()][arg.FunctionText()] = arg.FunctionHelp();
+					Document(arg);
+				}
+			}
+
+			// index.html preamble
+			ofs << R"(<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+	)"
+				<< html_style_css
+				<< "<title>" << category << "</title>"
+				<< R"(
+</head>
+<body>
+<h1>)"
+<< category
+<< R"(</h1>
+	<p>
+		Functions and macros of the )" << category << R"( add-in.
+	</p>
+	<p>
+	)"
+				<< description << "</p>\n";
+
+			// categories and all functions belonging the to each category
+			for (const auto& [cat, text_help] : cat_text) {
+				ofs << "<h2>Category " << cat.to_string() << "</h2>\n"
+					<< "<table>\n<tbody>\n";
+				for (const auto& [text, help] : text_help) {
+					std::string functionText = text.to_string();
+					std::string functionHelp = help.to_string();
+					ofs << "<tr>\n\t"
+						<< "<td><a href=\"" << functionText << ".html\">" << functionText << "</a></td>\n"
+						<< "<td>" << functionHelp << "</td>\n"
+						<< "</tr>\n";
+				}
+				ofs << "</tbody>\n</table>\n";
+			}
+		}
+		catch (const std::exception& ex) {
+			XLL_ERROR(ex.what());
+
+			return false;
+		}
+
+		return true;
+	}
+
+	// call to generate all documentation for an add-in
+	inline int Documentation([[maybe_unused]] const char* category, [[maybe_unused]] const char* description)
+	{
+#ifdef _DEBUG
+		Auto<OpenAfter> aoa_document([category, description]() { return Document(category, description); });
+#endif		
+		return 1;
+	}
+
+}

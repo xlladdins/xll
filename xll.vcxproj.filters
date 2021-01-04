@@ -116,6 +116,9 @@
     <ClCompile Include="xll\xll_range.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="xll\document.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="xll\XLCALL32.LIB" />

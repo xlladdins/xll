@@ -49,6 +49,7 @@
     <ClCompile Include="xll\debug.cpp" />
     <ClCompile Include="xll\defines.c" />
     <ClCompile Include="xll\dllmain.cpp" />
+    <ClCompile Include="xll\document.cpp" />
     <ClCompile Include="xll\error.cpp" />
     <ClCompile Include="xll\paste.cpp" />
     <ClCompile Include="xll\utility.cpp">

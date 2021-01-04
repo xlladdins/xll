@@ -252,7 +252,16 @@ static AddIn xai_paste_basic(
 	.FunctionHelp("Paste a function with default arguments. Shortcut Ctrl-Shift-B.")
 	.Category("XLL")
 	//.ShortcutText("^+B")
-	.Documentation("Shortcut Ctrl-Shift-B. Does not define names.")
+	.Documentation(R"xyzyx(Paste a basic call to an add-in function.
+<p>
+Excel's built-in Ctrl-Shift-A shortcut pastes the function text after typing <code> =FUNCTION</code>
+while in edit mode.
+This macro requires you to first enter <code> =FUNCTION&lt;Enter&gt;</code> in the cell to get the
+<a href="https://docs.microsoft.com/en-us/office/client-developer/excel/xlfregister-form-1#property-valuereturn-value">register id</a>
+of the function. Ctrl-Shift-B uses this to look up the function and pastes the default
+arguments in the cells below, then replaces the register id with a call to the function using the default arguments. 
+</p>
+)xyzyx")
 );
 extern "C" int __declspec(dllexport) WINAPI
 xll_paste_basic(void)

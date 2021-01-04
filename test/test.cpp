@@ -165,39 +165,6 @@ LPOPER WINAPI xll_get_workspace(SHORT type_num)
 	return &oResult;
 }
 
-// Force Excel to use the old API.
-AddIn4 xai_set_range(
-	Function4(XLL_HANDLEX, "xll_set_range", "SET.RANGE")
-	.Args({
-		Arg(XLL_LPOPER4, "range", "is a range")
-	})
-	.FunctionHelp("Return a handle to a range.")
-	.Category("XLL")
-	.Uncalced()
-);
-HANDLEX WINAPI xll_set_range(LPOPER4 po) {
-#pragma XLLEXPORT
-	handle<OPER4> h(new OPER4(*po));
-
-	return h.get();
-}
-AddIn4 xai_get_range(
-	Function4(XLL_LPOPER4, "xll_get_range", "GET.RANGE")
-	.Args({
-		Arg(XLL_HANDLEX, "handle", "is a handle to a range")
-		})
-	.FunctionHelp("Return a range corresponding to handle.")
-	.Category("XLL")
-);
-LPOPER4 WINAPI xll_get_range(HANDLEX _h) {
-#pragma XLLEXPORT
-	handle<OPER4> h(_h);
-
-	h->operator()(0, 0) = "";
-
-	return h.ptr();
-}
-
 // UTF-8 test
 AddIn xai_utf8(Macro("xll_utf8", "XLL.UTF8"));
 int WINAPI xll_utf8(void)
@@ -233,7 +200,7 @@ LPOPER WINAPI xll_file(const LPOPER po)
 
 int test_doc()
 {
-	Document("TEST", R"(
+	Documentation("TEST", R"(
 All files and macros in TEST having documentation.
 )");
 /*

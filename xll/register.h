@@ -1,6 +1,6 @@
 // register.h - Register an add-in
 #pragma once
-#include "document.h"
+#include "args.h"
 
 namespace xll{
 

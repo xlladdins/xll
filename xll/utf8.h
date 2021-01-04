@@ -10,6 +10,7 @@
 
 namespace utf8 {
 	// Multi-byte character string to counted wide character string allocated by malloc.
+	// n = -1 means null terminated, just like MultiByteToWideChar
 	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, int n = -1)
 	{
 		wchar_t* ws = nullptr;
@@ -17,8 +18,8 @@ namespace utf8 {
 		if (nullptr == s) {
 			n = 0;
 		}
-		// n = -1 means null terminated, just like MultiByteToWideChar
 		if (n == 0) {
+			// zero mean one null character
 			ws = (wchar_t*)malloc(sizeof(wchar_t));
 			if (ws != nullptr) {
 				*ws = 0;
@@ -34,11 +35,13 @@ namespace utf8 {
 			ensure(0 != (wn = MultiByteToWideChar(CP_UTF8, 0, s, (int)n, nullptr, 0)));
 		}
 
+
 		ws = (wchar_t*)malloc((static_cast<size_t>(wn) + 1) * sizeof(wchar_t));
 		if (ws) {
 			ensure(wn == MultiByteToWideChar(CP_UTF8, 0, s ? s : "", (int)n, ws + 1, wn));
 			ensure(wn <= WCHAR_MAX);
-			ws[0] = static_cast<wchar_t>(wn - 1);
+			// MBTWC includes terminating null
+			ws[0] = static_cast<wchar_t>(wn - (n == -1));
 		}
 
 		return ws;
@@ -84,7 +87,8 @@ namespace utf8 {
 			ensure(n == WideCharToMultiByte(CP_UTF8, 0, ws ? ws : L"", (int)wn, s + 1, n, NULL, NULL));
 			// ???NormalizeString
 			ensure(n <= UCHAR_MAX);
-			s[0] = static_cast<char>(n - 1);
+			// WCTMBS includes terminating null
+			s[0] = static_cast<char>(n - (wn == -1));
 		}
 
 		return s;

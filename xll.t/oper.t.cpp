@@ -21,6 +21,8 @@ int test_oper_adt = []()
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == 3);
 		ensure(o.val.str[3] == 'c');
+		std::string s = o.to_string();
+		assert(s == "abc");
 	}
 	{
 		const char* abc = "abc";
@@ -41,6 +43,8 @@ int test_oper_adt = []()
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == 3);
 		ensure(o.val.str[3] == 'c');
+		std::string s = o.to_string();
+		assert(s == "abc");
 	}
 	{
 		const wchar_t* abc = L"abc";

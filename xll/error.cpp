@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include "xll.h"
 #include "registry.h"
+#include "exports.h"
 #include "error.h"
 
 using namespace xll;

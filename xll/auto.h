@@ -29,11 +29,11 @@ namespace xll {
 		{
 			for (const auto& m : macros) {
 				if (!m()) {
-					return FALSE;
+					return 0;
 				}
 			}
 
-			return TRUE;
+			return 1;
 		}
 	};
 } // namespace xll
