@@ -120,7 +120,7 @@ xll_spreadsheet(void)
 	int result = FALSE;
 
 	try {
-		result = Spreadsheet(R"(All files and macros having documentation.)", true);
+		result = Spreadsheet(R"(All functions and macros having documentation.)", true);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
