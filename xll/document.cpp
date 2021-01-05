@@ -118,7 +118,7 @@ namespace xll {
 	}
 
 	// Generate documentation for add-ins;
-	bool Document(const char* category = "", const char* description = "")
+	bool Document(const char* category, const char* description)
 	{
 		splitpath sp(Excel4(xlGetName).to_string().c_str());
 		std::string ofile(sp.dirname() + "index.html");
@@ -178,13 +178,4 @@ namespace xll {
 
 		return true;
 	}
-
-	int Documentation([[maybe_unused]] const char* category, [[maybe_unused]] const char* description)
-	{
-#ifdef _DEBUG
-		Auto<OpenAfter> aoa_document([category, description]() { return Document(category, description); });
-#endif		
-		return 1;
-	}
-
 }
