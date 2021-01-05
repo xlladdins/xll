@@ -6,15 +6,11 @@
 using namespace xll;
 
 // create sample spreadsheet
-bool Spreadsheet(const char* description = "")
+bool Spreadsheet(const char* description = "", bool release = false)
 {
 	// get dir and filename extension
 	splitpath sp(Excel4(xlGetName).to_string().c_str());
-#ifdef _DEBUG
-	OPER dir(sp.dirname().c_str());
-#else
-	OPER dir(ADDIN_URL);
-#endif
+	OPER dir(release ? ADDIN_URL : sp.dirname().c_str());
 
 	OPER addin = OPER(sp.fname) & OPER(sp.ext);
 	OPER Name(Excel(xlfUpper, OPER(sp.fname)));
@@ -85,6 +81,7 @@ bool Spreadsheet(const char* description = "")
 	Excel(xlcSelect, OPER(REF(1, 1)));
 	Excel(xlcFormula, OPER("=HYPERLINK(\"") & dir & addin & OPER("\", \"") & Name & OPER("\")"));
 	Excel(xlcFormatFont, XLL_H1);
+	Excel(xlcAlignment, XLL_ALIGN_RIGHT);
 
 	Excel(xlcSelect, OPER(REF(1, 2)));
 	Excel(xlcFormula, OPER(description));
@@ -119,7 +116,7 @@ extern "C" int __declspec(dllexport) WINAPI xll_spreadsheet()
 	int result = FALSE;
 
 	try {
-		result = Spreadsheet(R"(All files and macros having documentation.)");
+		result = Spreadsheet(R"(All files and macros having documentation.)", true);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());

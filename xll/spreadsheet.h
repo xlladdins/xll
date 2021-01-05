@@ -1,6 +1,7 @@
 // spreadsheet.h - tools for automating spreadsheet creation
 #pragma once
 
+#define ADDIN_URL "https://xlladdins.com/addins/"
 #define XLL_FONT "Calibri"
 
 // https://xlladdins.github.io/Excel4Macros/format.font.html
