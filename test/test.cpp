@@ -7,7 +7,7 @@ using namespace xll;
 
 // Generate docuentation
 static int test_doc = Documentation("TEST", R"(
-All files and macros in TEST having documentation.
+All functions and macros in TEST having documentation.
 )");
 
 
