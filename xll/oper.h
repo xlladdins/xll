@@ -245,6 +245,10 @@ namespace xll {
 		}
 		XOPER& append(const X& x)
 		{
+			if (x.xltype == xltypeNil) {
+				return *this;
+			}
+
 			ensure(x.xltype & xltypeStr);
 			
 			if (xltype & xlbitXLFree) {
@@ -258,6 +262,10 @@ namespace xll {
 		}
 		XOPER& append(const X_& x)
 		{
+			if (x.xltype == xltypeNil) {
+				return *this;
+			}
+
 			ensure(x.is_str());
 			str_append(traits<X>::cvt(x.val.str + 1, x.val.str[0]), (size_t)-1);
 

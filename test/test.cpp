@@ -9,11 +9,7 @@ using namespace xll;
 static int test_doc = Documentation("TEST", R"(
 All files and macros in TEST having documentation.
 )");
-	/*
-		Spreadsheet("TEST", R"(
-	All files and macros in TEST having documentation.
-	)");
-	*/
+
 
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
 // See https://xlladdins.github.io/Excel4Macros/
@@ -84,6 +80,11 @@ AddIn xai_jn(
 	})
 	.FunctionHelp("Return the value of the n-th order Bessel function of the first kind.")
 	.Category("CMATH")
+	.Documentation(R"xyzyx(The \(n\)-th order Bessel function of the first kind
+\[
+	J_n(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m!\Gamma(m + n + 1)}\left(\frac{x}{2}\right)^{2m + n}.
+\]
+)xyzyx")
 );
 double WINAPI xll_jn(LONG n, double x)
 {

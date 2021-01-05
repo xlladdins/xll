@@ -1,16 +1,16 @@
 // document.cpp - generate add-in documentaton
 #include <fstream>
 #include "splitpath.h"
-#include "document.h"
 #include "error.h"
 #include "addin.h"
 #include "auto.h"
 #include "excel.h"
+#include "document.h"
 
 namespace xll {
 
 	// CSS style
-	static inline const char* html_style_css = R"xyzyx(
+	static const char* html_style_css = R"xyzyx(
 	<style>
 	body{
 		background-color: #fff;
@@ -42,7 +42,7 @@ namespace xll {
 	</style>
 )xyzyx";
 
-	// load katex
+	// load katex ??? fleqn
 	inline const char* html_head_post = R"xyzyx(
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" 
 		integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
@@ -76,13 +76,12 @@ namespace xll {
 				<< "<title>" << functionText << "</title>\n"
 				<< html_head_post;
 
-			std::string macroType
-				= arg.isFunction() ? " function"
-				: arg.isMacro() ? " macro"
-				: arg.isHidden() ? " hidden"
-				: " unknown";
+			std::string macroType(" ");
+			macroType.append(arg.Type().to_string());
+
 			ofs << "<body>\n\t<h1>" << functionText << macroType << "</h1>\n\t";
-			ofs << "<p>This article describes the formula syntax of the " << functionText << macroType << "</p>\n\t";
+			ofs << "<p>This article describes the formula syntax of the " 
+				<< functionText << macroType << "</p>\n\t";
 
 			std::string functionHelp
 				= arg.FunctionHelp().to_string();

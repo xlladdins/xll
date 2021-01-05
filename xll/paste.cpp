@@ -1,25 +1,12 @@
 // paste.cpp - Paste arguments into Excel given function name or register id.
 // If it is a number, just paste the default arguments and do not define names.
 // If it is a string, use that as a rdb prefix for defined names.
-
+#include "splitpath.h"
 #include "xll.h"
+#include "spreadsheet.h"
 
 using namespace xll;
 using xll::Excel;
-
-typedef traits<XLOPERX>::xword xword;
-
-inline void Move(short r, short c)
-{
-	Excel(xlcSelect, Excel(xlfOffset, Excel(xlfActiveCell), OPER(r), OPER(c)));
-}
-
-inline void
-ApplyStyle(const char* style)
-{
-	Excel(xlcDefineStyle, OPER(style));
-	Excel(xlcApplyStyle, OPER(style));
-}
 
 // paste argument into xActi, return reference for formula
 template<class X>
@@ -238,15 +225,6 @@ static Auto<Open> xao_paste(xll_paste_open);
 */
 
 
-/*
-static AddInX xai_paste_basic(
-	MacroX("_xll_paste_basic@0"), _T("XLL.PASTE.BASIC")
-	.Category("Utility")
-	.FunctionHelp("Paste a function with default arguments. Shortcut Ctrl-Shift-B.")
-	.Documentation("Does not define names. ")
-);
-*/
-
 static AddIn xai_paste_basic(
 	Macro(XLL_DECORATE("_xll_paste_basic", 0), "XLL.PASTE.BASIC")
 	.FunctionHelp("Paste a function with default arguments. Shortcut Ctrl-Shift-B.")
@@ -418,25 +396,3 @@ Auto<Open> xaoa_paste_create([]() {
 
 	return TRUE;
 });
-
-// create sample spreadsheet
-inline bool Spreadsheet(const char* category, const char* description = "")
-{
-	// get dir and filename extension
-	// "=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
-	Excel(xlSet, OPER(REF(1, 1)), OPER(category));
-	// format!!!
-	Excel(xlSet, OPER(REF(3, 1)), OPER(description));
-
-	Excel(xlcSelect, OPER(REF(5, 1)));
-	Excel(xlcFormula, OPER("=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
-
-	return true;
-}
-
-AddIn xai_spreadsheet(Macro("xll_spreadsheet", "DOC"));
-int WINAPI xll_spreadsheet()
-{
-#pragma XLLEXPORT
-	return Spreadsheet("TEST", R"(All files and macros in TEST having documentation.)");
-}

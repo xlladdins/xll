@@ -87,10 +87,12 @@ AddIn xai_udf(
 	.Uncalced()
 	.FunctionHelp("Call user defined function.")
 	.Category("XLL")
+	/*
 	.Documentation(R"(
 Call a user defined function given its arguments.
 Either the string or register id of the udf may be used.
 	)")
+	*/
 );
 LPXLOPERX WINAPI xll_udf(LPXLOPERX pa LPXLOPERX32)  
 {
@@ -115,12 +117,14 @@ AddIn xai_eval(
 	.Uncalced()
 	.FunctionHelp("Evaluate a function.")
 	.Category("XLL")
+	/*
 	.Documentation(R"(
 The first argument is a string expression to evaluate.
 Occurences of _1, _2, ... are replaced by the following arguments.
 If the argument is a key-value pair the key is replaced by the value in the string expression.
 To use a cell reference or existing name prepend an exclamation point.		
 	)")
+	*/
 );
 LPXLOPERX WINAPI xll_eval(LPXLOPERX pa LPXLOPERX32)
 {

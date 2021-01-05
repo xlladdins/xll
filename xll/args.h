@@ -175,6 +175,13 @@ namespace xll {
 		{
 			return macroType;
 		}
+		XOPER<X> Type() const
+		{
+			return OPER(macroType == 1 ? "function"
+				: macroType == 2 ? "macro"
+				: macroType == 3 ? "hidden"
+				: "unknown");
+		}
 		bool isFunction() const
 		{
 			return macroType == 1;

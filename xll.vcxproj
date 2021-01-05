@@ -37,6 +37,7 @@
     <ClInclude Include="xll\register.h" />
     <ClInclude Include="xll\registry.h" />
     <ClInclude Include="xll\splitpath.h" />
+    <ClInclude Include="xll\spreadsheet.h" />
     <ClInclude Include="xll\sref.h" />
     <ClInclude Include="xll\traits.h" />
     <ClInclude Include="xll\utf8.h" />
@@ -53,6 +54,7 @@
     <ClCompile Include="xll\document.cpp" />
     <ClCompile Include="xll\error.cpp" />
     <ClCompile Include="xll\paste.cpp" />
+    <ClCompile Include="xll\spreadsheet.cpp" />
     <ClCompile Include="xll\utility.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

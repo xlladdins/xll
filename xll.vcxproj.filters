@@ -90,6 +90,9 @@
     <ClInclude Include="xll\splitpath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="xll\spreadsheet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">
@@ -120,6 +123,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="xll\document.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\spreadsheet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
