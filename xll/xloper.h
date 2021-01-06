@@ -16,7 +16,7 @@ namespace xll {
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline size_t rows(const X& x)
 	{
-		// ref type???
+		// xltypeRef type???
 		return (x.xltype & xltypeMulti) ? x.val.array.rows
 			  : x.xltype == xltypeSRef ? x.val.sref.ref.rwLast - x.val.sref.ref.rwFirst + 1
 			  : x.xltype == xltypeNil ? 0
@@ -127,12 +127,12 @@ inline auto operator<=>(const X& x, const X& y)
 
 		return xid.i <=> yid.i;
 
-	case xltypeStr:
-		//if (x.val.str[0] != y.val.str[0]) return x.val.str[0] <=> y.val.str[0];
-		return x.val.str[0] != y.val.str[0]
-			? x.val.str[0] <=> y.val.str[0]
-			: xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
+	case xltypeStr: {
+		auto smin = x.val.str[0] < y.val.str[0] ? x.val.str[0] : y.val.str[0];
+		auto scmp = xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, smin);
 
+		return scmp != 0 ? scmp <=> 0 : x.val.str[0] <=> y.val.str[0];
+	}
 	case xltypeErr:
 		return x.val.err <=> y.val.err;
 

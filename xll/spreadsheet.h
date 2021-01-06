@@ -16,6 +16,9 @@
 #define XLL_ALIGN_CENTER OPER(3)
 #define XLL_ALIGN_RIGHT  OPER(4)
 
+// https://xlladdins.github.io/Excel4Macros/options.view.html
+// OPTIONS.VIEW(formula, status, notes, show_info, object_num, page_breaks, formulas, gridlines, color_num, headers, outline, zeros, hor_scroll, vert_scroll, sheet_tabs)
+
 namespace xll {
 
 	inline void ApplyStyle(const char* style)

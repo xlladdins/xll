@@ -12,9 +12,14 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	splitpath sp(Excel4(xlGetName).to_string().c_str());
 	OPER dir(release ? ADDIN_URL : sp.dirname().c_str());
 
+	Excel(xlcEditColor, OPER(56), OPER(0xF0), OPER(0xF0), OPER(0xF0)); // light grey
+
 	OPER addin = OPER(sp.fname) & OPER(sp.ext);
 	OPER Name(Excel(xlfUpper, OPER(sp.fname)));
 	Rename(Name);
+	// turn off gridlines
+	// DISPLAY(formulas, gridlines, headings, zeros, color_num, reserved, outline, page_breaks, object_num)
+	Excel(xlcDisplay, OPER(false), OPER(false));
 
 	// sort by category then function text/key
 	std::map<OPER, std::map<OPER, Args*>> cat_key;
@@ -33,10 +38,12 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	// reverse order since inserts happen on the left
 	std::reverse(tabs.begin(), tabs.end());
 
+	// insert sheets with sample call
 	for (auto& [tab, args] : tabs) {
 		OPER old = GetSheet();
 		Excel(xlcWorkbookSelect, old);
 		Excel(xlcWorkbookInsert, OPER(1)); // insert Worksheet
+		Excel(xlcDisplay, OPER(false), OPER(false)); // gridlines off
 		Rename(tab);
 
 		Excel(xlcSelect, OPER(REF(1, 1)));
@@ -68,9 +75,6 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		}
 		Excel(xlcSelect, xFor);
 		Excel(xlcFormula, OPER("=") & args->FunctionText() & OPER("(") & args->ArgumentText() & OPER(")"));
-		//Excel(xlcWorkbookMove, text); // move to last tab
-		//old = Excel(xlfGetDocument, OPER(76)); // [Book]Sheet
-		//Excel(xlcAlert, old, OPER(3));
 	}
 
 	OPER book = GetBook();
@@ -81,7 +85,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	Excel(xlcSelect, OPER(REF(1, 1)));
 	Excel(xlcFormula, OPER("=HYPERLINK(\"") & dir & addin & OPER("\", \"") & Name & OPER("\")"));
 	Excel(xlcFormatFont, XLL_H1);
-	Excel(xlcAlignment, XLL_ALIGN_RIGHT);
+	Excel(xlcAlignment, XLL_ALIGN_CENTER);
 
 	Excel(xlcSelect, OPER(REF(1, 2)));
 	Excel(xlcFormula, OPER(description));
@@ -92,16 +96,24 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		Excel(xlcFormula, OPER("Category ") & cat);
 		Excel(xlcFormatFont, XLL_H2);
 		Move(2, 0);
+		OPER afore(56);
+		OPER bfore(2);
 		for (auto& [text, args] : key) {
 			Excel(xlcFormula, text);
 			Excel(xlcFormatFont, XLL_ARG);
 			Excel(xlcAlignment, XLL_ALIGN_RIGHT);
 			Move(0, 1);
 			Excel(xlcFormula, args->FunctionHelp());
+			// PATTERNS(apattern, afore, aback, newui)
+			Excel(xlcPatterns, OPER(1), afore);
+			afore.swap(bfore);
 			Move(1, -1);
 		}
 		Move(1, 0);
 	}
+	// select column C and fit text width
+	// COLUMN.WIDTH(width_num, reference, standard, type_num, standard_num)
+	Excel(xlcColumnWidth, OPER(), OPER("C3:C3"), OPER(), OPER(3));
 
 	// select cell containing the hyperlink
 	Excel(xlcSelect, OPER(REF(1, 1)));

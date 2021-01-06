@@ -11,6 +11,8 @@ Add date and handle types with "B1" and "B2"? Excel seems to ignore the 1 and 2.
 https://docs.microsoft.com/en-us/office/dev/add-ins/excel/make-custom-functions-compatible-with-xll-udf
 Adds formula auto complete.
 
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\ClickToRun\Configuration x64 or x86
+
 Generate JS from AddIn?
 
 Use function tests instead of lambdas.
