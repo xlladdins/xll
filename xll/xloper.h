@@ -8,6 +8,15 @@
 
 namespace xll {
 
+	// mod with 0 <= x < y 
+	template<typename T>
+	inline T xmod(T x, T y)
+	{
+		T z = x % y;
+
+		return z >= 0 ? z : z + y;
+	}
+
 	// convertible to double
 	inline static const int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
 	// do not involve memory allocation
@@ -104,7 +113,6 @@ namespace xll {
 #undef X
 }
 
-// use std::strong_ordering!!!
 template<typename X> requires std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>
 inline auto operator<=>(const X& x, const X& y)
 {
@@ -116,7 +124,7 @@ inline auto operator<=>(const X& x, const X& y)
 	}
 
 	switch (xtype) {
-	case xltypeNum: // operator<=> is only a partial ordering on doubles
+	case xltypeNum: { // operator<=> is only a partial ordering on doubles
 		// IEEE bits agree with floating point order
 		union id {
 			int64_t i;
@@ -126,7 +134,7 @@ inline auto operator<=>(const X& x, const X& y)
 		yid.d = y.val.num;
 
 		return xid.i <=> yid.i;
-
+	}
 	case xltypeStr: {
 		auto smin = x.val.str[0] < y.val.str[0] ? x.val.str[0] : y.val.str[0];
 		auto scmp = xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, smin);
@@ -136,7 +144,7 @@ inline auto operator<=>(const X& x, const X& y)
 	case xltypeErr:
 		return x.val.err <=> y.val.err;
 
-	case xltypeMulti:
+	case xltypeMulti: {
 		if (x.val.array.rows != y.val.array.rows)
 			return x.val.array.rows <=> y.val.array.rows;
 		if (x.val.array.columns != y.val.array.columns)
@@ -145,11 +153,11 @@ inline auto operator<=>(const X& x, const X& y)
 			if (x.val.array.lparray[i] != y.val.array.lparray[i])
 				return x.val.array.lparray[i] <=> y.val.array.lparray[i];
 		return std::strong_ordering::equal;
-
+	}
 	case xltypeSRef:
 		return x.val.sref.ref <=> y.val.sref.ref;
 
-		//case xltypeRef:
+	//case xltypeRef: ???
 	case xltypeInt:
 		return x.val.w <=> y.val.w;
 

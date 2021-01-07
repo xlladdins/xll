@@ -151,21 +151,13 @@ xlAutoFree(LPXLOPER px)
 extern "C" void __declspec(dllexport) WINAPI
 xlAutoFree12(LPXLOPER12 px)
 {
-	try {
-		if (px->xltype & xlbitDLLFree) {
-			if (px->xltype & xltypeStr) {
-				free(px->val.str);
-			}
-			else if (px->xltype & xltypeMulti) {
-				free(px->val.array.lparray);
-			}
+	if (px->xltype & xlbitDLLFree) {
+		if (px->xltype & xltypeStr) {
+			free(px->val.str);
 		}
-	}
-	catch (const std::exception& ex) {
-		XLL_ERROR(ex.what());
-	}
-	catch (...) {
-		XLL_ERROR("Unknown exception in xlAutoFree12");
+		else if (px->xltype & xltypeMulti) {
+			free(px->val.array.lparray);
+		}
 	}
 }
 

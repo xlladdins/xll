@@ -55,8 +55,9 @@ namespace xll {
 		using cstr = const char*;
 	public:
 		XArgs()
-		{
-		}
+		{ }
+		XArgs(const XArgs&) = default;
+		XArgs& operator=(const XArgs&) = default;
 		~XArgs()
 		{ }
 		// Function
@@ -73,15 +74,15 @@ namespace xll {
 		// list of function arguments
 		XArgs& Args(const std::initializer_list<Arg>& args)
 		{
+			const char* comma = "";
 			for (const auto& arg : args) {
 				typeText &= arg.type;
-				if (argumentHelp.size() != 0) {
-					argumentText &= ", ";
-				}
-				argumentText &= arg.name;
 				argumentName.push_back(XOPER<X>(arg.name));
 				argumentHelp.push_back(XOPER<X>(arg.help));
 				argumentDefault.push_back(XOPER<X>(arg.init));
+				argumentText &= comma;
+				argumentText &= arg.name;
+				comma = ", ";
 			}
 
 			return *this;
@@ -90,19 +91,7 @@ namespace xll {
 		// list of typeText arguments
 		XArgs& Args(const std::vector<cstr>& args)
 		{
-			for (const auto& arg : args) {
-				typeText &= arg;
-				if (argumentHelp.size() != 0) {
-					argumentText &= ", ";
-				}
-				// generic text and help
-				argumentText &= "Arg";
-				argumentName.push_back(XOPER<X>("Arg")); // Arg<n>???
-				argumentHelp.push_back(XOPER<X>("is an argument"));
-				argumentDefault.push_back(XOPER<X>());
-			}
-
-			return *this;
+			return std::initializer_list<Arg>(args.begin(), args.end());
 		}
 
 		XArgs& Uncalced()
@@ -179,7 +168,7 @@ namespace xll {
 		{
 			return OPER(macroType == 1 ? "function"
 				: macroType == 2 ? "macro"
-				: macroType == 3 ? "hidden"
+				: macroType == 0 ? "hidden"
 				: "unknown");
 		}
 		bool isFunction() const
@@ -192,7 +181,7 @@ namespace xll {
 		}
 		bool isHidden() const
 		{
-			return macroType == 3;
+			return macroType == 0;
 		}
 
 		const XOPER<X>& Category() const

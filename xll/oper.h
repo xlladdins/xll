@@ -16,7 +16,7 @@ namespace xll {
 	/// <summary>
 	///  Wrapper for XLOPER/XLOPER12 structs.
 	/// </summary>
-	/// <typeparam name="XLOPERX">
+	/// <typeparam name="X">
 	/// Either XLOPER or XLOPER12 
 	/// </typeparam>
 	/// An OPER corresponds to a cell or a 2-dimensional range of cells.
@@ -106,7 +106,7 @@ namespace xll {
 		{
 			return xltype & xltypeScalar;
 		}
-		/**/
+		
 		explicit operator bool() const
 		{
 			switch (xltype & ~(xlbitDLLFree|xlbitXLFree)) {
@@ -283,6 +283,7 @@ namespace xll {
 		XOPER& append(xcstr str = nullptr)
 		{
 			if (!str) {
+				// null terminate a string
 				xchar null[1] = { 0 };
 				str_append(null, 1);
 			}
@@ -477,8 +478,8 @@ namespace xll {
 		// true if memory overlaps with x
 		bool overlap(const X& x) const
 		{
-			return (begin() <= xll::begin(x) && xll::begin(x) < end()) 
-				|| (begin() < xll::end(x)    && xll::end(x)  <= end());
+			return (begin() <= xll::begin(x) and xll::begin(x) < end()) 
+				|| (begin() < xll::end(x)    and xll::end(x)  <= end());
 		}
 
 		void oper_free()
@@ -562,8 +563,8 @@ namespace xll {
 		// xltypeMulti
 		void multi_alloc(size_t r, size_t c)
 		{
-			//ensure(r <= (size_t)std::numeric_limits<xrw>::max());
-			//ensure(c <= (size_t)std::numeric_limits<xcol>::max());
+			ensure(r <= (size_t)(std::numeric_limits<xrw>::max)());
+			ensure(c <= (size_t)(std::numeric_limits<xcol>::max)());
 
 			if (r * c == 0) {
 				xltype = XOPER().xltype;
@@ -581,8 +582,8 @@ namespace xll {
 		}
 		void multi_realloc(size_t r, size_t c)
 		{
-			//ensure(r <= (size_t)std::numeric_limits<xrw>::max());
-			//ensure(c <= (size_t)std::numeric_limits<xcol>::max());
+			ensure(r <= (size_t)(std::numeric_limits<xrw>::max)());
+			ensure(c <= (size_t)(std::numeric_limits<xcol>::max)());
 
 			if (!(xltype & xltypeMulti)) {
 				oper_free();

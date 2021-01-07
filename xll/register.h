@@ -7,10 +7,10 @@ namespace xll{
 	template<class X>
 	inline X Register(const XArgs<X>& args)
 	{
-		int count = 10 + static_cast<int>(args.ArgumentHelp().size());
-		std::vector<const X*> oper(count + 1);
+		static XOPER<X> moduleText = XExcel<X>(xlGetName);
 
-		XOPER<X> moduleText = XExcel<X>(xlGetName);
+		int count = 10 + static_cast<int>(args.ArgumentCount());
+		std::vector<const X*> oper(count + 1);
 
 		XOPER<X> procedure = args.Procedure();
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);

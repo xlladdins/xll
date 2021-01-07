@@ -13,8 +13,11 @@ namespace xll {
 		XOPER<X> o;
 
 		int ret = traits<X>::Excelv(xlfn, &o, static_cast<int>(n), &opers[0]);
-		ensure(ret == xlretSuccess); // !!!indicate ret???
-		if (!o.is_scalar()) {
+		if (ret != xlretSuccess) {
+			ensure(o.xltype == xltypeErr);
+			XLL_ERROR(xll_err_desc[o.val.err]);
+		}
+		else if (!o.is_scalar()) {
 			o.xltype |= xlbitXLFree;
 		}
 

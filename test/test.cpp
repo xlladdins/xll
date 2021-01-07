@@ -7,9 +7,24 @@ using namespace xll;
 
 // Generate docuentation
 static int test_doc = Documentation("TEST", R"(
-All functions and macros in TEST having documentation.
+All functions and macros in TEST having Args::Documentation().
 )");
 
+static LSTATUS reg_query = []() {
+
+	LSTATUS status;
+	auto HKLM = HKEY_LOCAL_MACHINE;
+	LPCSTR key = "SOFTWARE\\Microsoft\\Office\\ClickToRun\\Configuration";
+	LPCSTR val = "Platform";
+	DWORD flags = RRF_RT_REG_SZ;
+	DWORD type;
+	char data[1024];
+	DWORD len = 1023;
+	status = RegGetValueA(HKLM, key, val, flags, &type, (PVOID)data, &len);
+
+	return status;
+
+}();
 
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
 // See https://xlladdins.github.io/Excel4Macros/

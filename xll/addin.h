@@ -29,10 +29,6 @@ namespace xll {
         }
 
         // Get arguments using Excel function text name.
-        static XArgs<X>& Args(const char* name)
-        {
-            return Args(XOPER<X>(name));
-        }
         static XArgs<X>& Args(const XOPER<X>& name)
         {
             auto i = Map.find(name);
