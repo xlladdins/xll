@@ -322,13 +322,14 @@ namespace xll {
 		{
 			xint n = r * c;
 			if (n != size()) {
-				fp = realloc(fp, sizeof(xfp) + n * sizeof(double));
+				void* tmp = realloc(fp, sizeof(xfp) + n * sizeof(double));
+				if (tmp) {
+					fp = (xfp*)tmp;
+				}
 			}
-			if (fp) {
-				xfp* pfx = get();
-				pfx->rows = r;
-				pfx->columns = c;
-			}
+			xfp* pfx = get();
+			pfx->rows = r;
+			pfx->columns = c;
 		}
 		void fp_free()
 		{

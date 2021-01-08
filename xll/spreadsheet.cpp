@@ -61,7 +61,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		Move(0, 1);
 		OPER xFor = Excel(xlfActiveCell);
 		Move(1, -1);
-		for (int i = 0; i < args->ArgumentCount(); ++i) {
+		for (size_t i = 0; i < args->ArgumentCount(); ++i) {
 			Excel(xlcFormula, args->ArgumentName(i));
 			Excel(xlcAlignment, XLL_ALIGN_RIGHT);
 			Excel(xlcFontProperties, OPER(XLL_FONT), OPER("Bold"));

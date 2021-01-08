@@ -51,7 +51,7 @@ namespace xll {
 	// rename current tab
 	inline void Rename(const OPER& name)
 	{
-		Excel(xlcWorkbookName, GetBook(), name); // [Book]Sheet
+		Excel(xlcWorkbookName, GetBook(), name);
 	}
 
 }
