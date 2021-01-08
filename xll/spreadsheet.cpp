@@ -85,7 +85,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	Excel(xlcSelect, OPER(REF(1, 1)));
 	Excel(xlcFormula, OPER("=HYPERLINK(\"") & dir & addin & OPER("\", \"") & Name & OPER("\")"));
 	Excel(xlcFormatFont, XLL_H1);
-	Excel(xlcAlignment, XLL_ALIGN_CENTER);
+	Excel(xlcAlignment, XLL_ALIGN_RIGHT);
 
 	Excel(xlcSelect, OPER(REF(1, 2)));
 	Excel(xlcFormula, OPER(description));
