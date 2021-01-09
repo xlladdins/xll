@@ -14,7 +14,6 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 	Excel(xlcEditColor, OPER(56), OPER(0xF0), OPER(0xF0), OPER(0xF0)); // light grey
 
-	OPER addin = OPER(sp.fname) & OPER(sp.ext);
 	OPER Name(Excel(xlfUpper, OPER(sp.fname)));
 	Rename(Name);
 	// turn off gridlines
@@ -83,7 +82,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 	// "=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
 	Excel(xlcSelect, OPER(REF(1, 1)));
-	Excel(xlcFormula, OPER("=HYPERLINK(\"") & dir & addin & OPER("\", \"") & Name & OPER("\")"));
+	Excel(xlcFormula, OPER("=HYPERLINK(\"") & dir & OPER(sp.fname) & OPER(" & WinXX() & ") & OPER(sp.ext) & OPER("\", \"") & Name & OPER("\")"));
 	Excel(xlcFormatFont, XLL_H1);
 	Excel(xlcAlignment, XLL_ALIGN_RIGHT);
 
