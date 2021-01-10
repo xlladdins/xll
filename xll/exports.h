@@ -36,7 +36,7 @@
 //#pragma comment(linker, "/export:xlAddInManagerInfo12" XLL_X32("@4=xlAddInManagerInfo12"))
 #pragma comment(linker, "/export:" XLL_DECORATE("xll_paste_basic", 0))
 #pragma comment(linker, "/export:" XLL_DECORATE("xll_paste_create", 0))
-//#pragma comment(linker, "/export:" XLL_DECORATE("xll_spreadsheet", 0))
+#pragma comment(linker, "/export:" XLL_DECORATE("xll_spreadsheet", 0))
 
 #ifndef _LIB
 //#pragma comment(linker, "/include:" XLL_DECORATE("_xll_replace_eq_by_eq", 0))
