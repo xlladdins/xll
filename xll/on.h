@@ -86,10 +86,10 @@ namespace xll {
 		On(cstr text, cstr macro)
 		{
 			Auto<OpenAfter> xao([text, macro]() {
-				return XExcel<XLOPERX>(Key::On, OPER(text), OPER(macro)) == true;
+				return Excel(Key::On, OPER(text), OPER(macro)) == true;
 			});
 			Auto<CloseBefore> xac([text]() {
-				return XExcel<XLOPERX>(Key::On, OPER(text)) == true;
+				return Excel(Key::On, OPER(text)) == true;
 			});
 		}
 		On(cstr text, cstr macro, bool activate)
@@ -97,10 +97,10 @@ namespace xll {
 			static_assert(std::is_same_v<Key, Sheet>);
 
 			Auto<OpenAfter> xao([text, macro, activate]() {
-				return XExcel<XLOPERX>(Key::On, OPER(text), OPER(macro), OPER(activate)) == true;
+				return Excel(Key::On, OPER(text), OPER(macro), OPER(activate)) == true;
 			});
 			Auto<CloseBefore> xac([text]() {
-				return XExcel<XLOPERX>(Key::On, OPER(text)) == true;
+				return Excel(Key::On, OPER(text)) == true;
 			});
 		}
 		On(const OPER& time, cstr macro, const OPER& tolerance, bool insert)
@@ -108,10 +108,10 @@ namespace xll {
 			static_assert(std::is_same_v<Key, Time>);
 
 			Auto<OpenAfter> xao([time, macro, tolerance, insert]() {
-				return XExcel<XLOPERX>(Key::On, OPER(time), OPER(macro), OPER(tolerance), OPER(insert)) == true;
+				return Excel(Key::On, OPER(time), OPER(macro), OPER(tolerance), OPER(insert)) == true;
 			});
 			Auto<CloseBefore> xac([]() {
-				return XExcel<XLOPERX>(Key::On) == true;
+				return Excel(Key::On) == true;
 			});
 		}
 	};
