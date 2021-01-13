@@ -1,7 +1,9 @@
 // registry.h - Windows registry wrappers
-#include <Windows.h>
+#include <algorithm>
+#include <iterator>
 #include <stdexcept>
 #include <string>
+#include <Windows.h>
 
 namespace Reg {
 
@@ -95,7 +97,6 @@ namespace Reg {
 	// SetValue
 	// std::vector<tstring> REG_MULTI_SZ
 
-
 	// create or open key if it already exists
 	class CreateKey {
 		HKEY hkey;
@@ -106,7 +107,8 @@ namespace Reg {
 		{ }
 		CreateKey(HKEY hKey, PCTSTR lpSubKey, REGSAM samDesired = KEY_ALL_ACCESS | KEY_WOW64_64KEY)
 		{
-			LSTATUS status = RegCreateKeyEx(hKey, lpSubKey, 0, 0, 0, samDesired, 0, &hkey, &disp);
+			tstring subKey(lpSubKey);
+			LSTATUS status = RegCreateKeyEx(hKey, slash(subKey).c_str(), 0, 0, 0, samDesired, 0, &hkey, &disp);
 			if (status != ERROR_SUCCESS) {
 				throw std::runtime_error(GetFormatMessage(status));
 			}
@@ -131,6 +133,10 @@ namespace Reg {
 			if (hkey and disp) {
 				RegCloseKey(hkey);
 			}
+		}
+		auto operator<=>(const CreateKey& k) const
+		{
+			return hkey <=> k.hkey; // disposition doesn't matter
 		}
 		explicit operator bool() const
 		{
@@ -177,7 +183,27 @@ namespace Reg {
 		{
 			Reg::SetValue(t, hkey, value);
 		}
-		
+		template<>
+		tstring QueryValue<tstring>(PCTSTR value)
+		{
+			tstring tstr;
+			DWORD type = REG_SZ;
+			DWORD size = 0;
+
+			LSTATUS status = RegQueryValueEx(hkey, value, 0, &type, NULL, &size);
+			if (ERROR_SUCCESS != status) {
+				throw std::runtime_error(GetFormatMessage(status));
+			}
+			size_t n = size / sizeof(TCHAR);
+			tstr.resize(n);
+			status = RegQueryValueEx(hkey, value, 0, &type, (LPBYTE)tstr.data(), &size);
+			if (ERROR_SUCCESS != status) {
+				throw std::runtime_error(GetFormatMessage(status));
+			}
+
+			return erase0(tstr);
+		}
+
 		struct Proxy {
 			CreateKey& key;
 			PCTSTR value;
@@ -201,6 +227,64 @@ namespace Reg {
 		{
 			return Proxy(*this, value);
 		}
-	};
 
+		// iterator over key names
+		class KeyIterator {
+			DWORD index;
+			Reg::CreateKey& key;
+			TCHAR name[MAX_PATH]; // name of current index
+			DWORD namelen;
+		public:
+			using iterator_category = std::forward_iterator_tag;
+			using value_type = PCTSTR;
+
+			KeyIterator(Reg::CreateKey& key)
+				: index((DWORD)-1), key(key)
+			{				
+				next();
+			}
+			auto operator<=>(const KeyIterator& k) const
+			{
+				auto cmp = key <=> k.key;
+				if (cmp != 0) {
+					return cmp;
+				}
+
+				if (index == (DWORD)-1) {
+					return index <=> k.index; // ends compare equal
+				}
+
+				return std::lexicographical_compare_three_way(name, name + namelen, k.name, k.name + k.namelen);
+			}
+			// key name
+			value_type operator*() const
+			{
+				return name;
+			}
+			DWORD length() const
+			{
+				return namelen;
+			}
+			
+			KeyIterator& operator++()
+			{
+				return next();
+			};
+		private:
+			KeyIterator& next()
+			{
+				++index;
+				namelen = MAX_PATH;
+				LSTATUS status = RegEnumKeyEx(key, 0, name, &namelen, NULL, NULL, NULL, NULL);
+				if (ERROR_NO_MORE_ITEMS == status) {
+					index = (DWORD)-1;
+				}
+				else if (ERROR_SUCCESS != status) {
+					throw std::runtime_error(GetFormatMessage(status));
+				}
+
+				return *this;
+			}
+		};
+	};
 }

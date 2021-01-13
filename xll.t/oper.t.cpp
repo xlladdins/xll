@@ -7,6 +7,11 @@
 
 using namespace xll;
 
+int XLL_ERROR(const char*, bool)
+{
+	return 0;
+}
+
 int test_defines = []()
 {
 	return 0;
