@@ -27,7 +27,7 @@ public:
 	}
 	reg_alert_level& operator=(DWORD level)
 	{
-		Reg::CreateKey key(HKEY_CURRENT_USER, TEXT("Software\\KALX\\xll"));
+		Reg::Key key(HKEY_CURRENT_USER, TEXT("Software\\KALX\\xll"));
 		key[TEXT("xll_alert_level")] = level;
         value = level;
 
@@ -101,7 +101,7 @@ DWORD WINAPI xll_alert_level_(DWORD w)
 #ifdef _DEBUG
 
 struct test_dword {
-	Reg::CreateKey key;
+	Reg::Key key;
 	test_dword()
 		: key(HKEY_CURRENT_USER, TEXT("tmp\\key"))
 	{
@@ -126,10 +126,10 @@ struct test_registry {
 		key = Reg::Key(HKEY_CURRENT_USER, TEXT("tmp\\key"));
         LSTATUS status;
         status = RegDeleteKey(key, TEXT("tmp\\key"));
-        using tstring = std::basic_string<TCHAR>;
+        using SZ = std::basic_string<TCHAR>;
         Reg::Key key2(HKEY_CURRENT_USER, TEXT("tmp\\string"));
-        Reg::Entry<tstring> value(key2, TEXT("value"));
-        tstring s = value;
+        Reg::Entry<SZ> value(key2, TEXT("value"));
+        SZ s = value;
         value = TEXT("text");
         s = value;
         s = s;

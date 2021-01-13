@@ -138,12 +138,12 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	return true;
 }
 
-static AddIn xai_spreadsheet(
-	Macro(XLL_DECORATE("_xll_spreadsheet", 0), "DOC")
+static AddIn xai_spreadsheet_doc(
+	Macro(XLL_DECORATE("_xll_spreadsheet_doc", 0), "DOC")
 	.Category("XLL")
 );
-extern "C" int __declspec(dllexport) WINAPI 
-xll_spreadsheet(void)
+extern "C" __declspec(dllexport) int WINAPI
+xll_spreadsheet_doc(void)
 {
 #pragma XLLEXPORT
 	int result = FALSE;
