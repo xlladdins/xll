@@ -145,7 +145,6 @@ static AddIn xai_spreadsheet_doc(
 extern "C" __declspec(dllexport) int WINAPI
 xll_spreadsheet_doc(void)
 {
-#pragma XLLEXPORT
 	int result = FALSE;
 
 	try {
