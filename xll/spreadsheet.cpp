@@ -142,7 +142,7 @@ static AddIn xai_spreadsheet(
 	Macro(XLL_DECORATE("_xll_spreadsheet", 0), "DOC")
 	.Category("XLL")
 );
-extern "C" int __declspec(dllexport) WINAPI 
+extern "C" __declspec(dllexport) int WINAPI 
 xll_spreadsheet(void)
 {
 #pragma XLLEXPORT
