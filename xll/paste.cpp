@@ -15,17 +15,7 @@ inline XOPER<X> paste_default(const XOPER<X>& xAct, const XOPER<X>& xActi, const
 	XOPER<X> xRel = XExcel<X>(xlfRelref, xActi, xAct);
 
 	if (xDef && xDef.xltype == xltypeStr && xDef.val.str[0] > 0 && xDef.val.str[1] == '=') {
-		XOPER<X> xEval = XExcel<X>(xlfEvaluate, xDef);
-		XOPER<X> xSize = XExcel<X>(xlfLen, xEval);
-		if (xSize.val.num > 1) {
-			XOPER<X> xOff = XExcel<X>(xlfOffset, xActi, XOPER<X>(0), XOPER<X>(0), XOPER<X>(1), xSize);
-			XExcel<X>(xlSet, xOff, xEval);
-
-			xRel = XExcel<X>(xlfRelref, xOff, xAct);
-		}
-		else {
-			XExcel<X>(xlcFormula, xDef);
-		}
+		XExcel<X>(xlcFormula, xDef);
 	}
 	else {
 		XExcel<X>(xlSet, xActi, xDef);

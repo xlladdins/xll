@@ -7,6 +7,17 @@
 #include <vector>
 #include <Windows.h>
 
+#define REG_KEY(X) \
+	X(HKCR, CLASSES_ROOT, "Defines types (or classes) of documents and the properties associated with those types.") \
+	X(HKCC, CURRENT_CONFIG, "Contains information about the current hardware profile of the local computer system.") \
+	X(HKCU, CURRENT_USER, "Defines the preferences of the current user.") \
+	X(HKLS, CURRENT_USER_LOCAL_SETTINGS, "Defines preferences of the current user that are local to the machine.") \
+	X(HKLM, LOCAL_MACHINE, "Defines the physical state of the computer.") \
+	X(HKPD, PERFORMANCE_DATA, "Allows you to access performance data.") \
+	X(HKPN, PERFORMANCE_NLSTEXT, "References the text strings that describe counters.") \
+	X(HKPT, PERFORMANCE_TEXT, "References the text strings that describe counters in US English.") \
+	X(HKUS, USERS, "Defines the default user configuration for new users on the local computer and the user configuration for the current user.") \
+
 #define REG_SAM(X) \
 	X(ALL_ACCESS, "Combines the STANDARD_RIGHTS_REQUIRED, KEY_QUERY_VALUE, KEY_SET_VALUE, KEY_CREATE_SUB_KEY, KEY_ENUMERATE_SUB_KEYS, KEY_NOTIFY, and KEY_CREATE_LINK access rights.") \
 	X(CREATE_LINK, "Reserved for system use.") \
@@ -20,6 +31,19 @@
 	X(WOW64_32KEY, "Indicates that an application on 64-bit Windows should operate on the 32-bit registry view. This flag is ignored by 32-bit Windows. For more information, see Accessing an Alternate Registry View.") \
 	X(WOW64_64KEY, "Indicates that an application on 64-bit Windows should operate on the 64-bit registry view. This flag is ignored by 32-bit Windows. For more information, see Accessing an Alternate Registry View.") \
 	X(WRITE, "Combines the STANDARD_RIGHTS_WRITE, KEY_SET_VALUE, and KEY_CREATE_SUB_KEY access rights.") \
+
+#define REG_TYPE(X) \
+	X(BINARY, "Binary data in any form.") \
+	X(DWORD, "A 32-bit number.") \
+	X(DWORD_LITTLE_ENDIAN, "A 32-bit number in little-endian format.") \
+	X(DWORD_BIG_ENDIAN, "A 32-bit number in big-endian format.") \
+	X(EXPAND_SZ, "A null-terminated string that contains unexpanded references to environment variables") \
+	X(LINK, "A null-terminated Unicode string that contains the target path of a symbolic link that was created by calling the RegCreateKeyEx function with REG_OPTION_CREATE_LINK.") \
+	X(MULTI_SZ, "A sequence of null-terminated strings, terminated by an empty string.") \
+	X(NONE, "No defined value type.") \
+	X(QWORD, "A 64-bit number.") \
+	X(QWORD_LITTLE_ENDIAN, "A 64-bit number in little-endian format.") \
+	X(SZ, "A null-terminated string. This will be either a Unicode or an ANSI string, depending on whether you use the Unicode or ANSI functions.") \
 
 namespace Reg {
 
@@ -75,7 +99,7 @@ namespace Reg {
 	struct reg_traits<REG_BINARY> { typedef LPBYTE type; };
 	//!!!...
 
-	// get value using subkey for HKxx keys
+	// get value using subkey
 	template<class T>
 	inline typename T GetValue(HKEY hKey, PCTSTR lpSubKey, PCTSTR lpValue = 0);
 	// set value for key opened with subkey specified
@@ -109,7 +133,6 @@ namespace Reg {
 	{
 		SetValue(static_cast<DWORD>(i), hKey, lpValue);
 	}
-
 
 	template<>
 	inline SZ GetValue<SZ>(HKEY hKey, PCTSTR lpSubKey, PCTSTR lpValue)
@@ -151,10 +174,10 @@ namespace Reg {
 		Key() noexcept
 			: hkey(nullptr), disp(0)
 		{ }
-		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM samDesired = KEY_ALL_ACCESS | KEY_WOW64_64KEY)
+		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM sam = KEY_ALL_ACCESS | KEY_WOW64_64KEY)
 		{
 			SZ subKey(lpSubKey);
-			LSTATUS status = RegCreateKeyEx(hKey, tack(subKey).c_str(), 0, 0, 0, samDesired, 0, &hkey, &disp);
+			LSTATUS status = RegCreateKeyEx(hKey, tack(subKey).c_str(), 0, 0, 0, sam, 0, &hkey, &disp);
 			if (status != ERROR_SUCCESS) {
 				throw std::runtime_error(GetFormatMessage(status));
 			}
@@ -163,8 +186,7 @@ namespace Reg {
 		Key& operator=(const Key&) = delete;
 		Key(Key&& h) noexcept
 			: hkey(std::exchange(h.hkey, nullptr)), disp(std::exchange(h.disp, 0))
-		{
-		}
+		{ }
 		Key& operator=(Key&& h) noexcept
 		{
 			if (this != &h) {
@@ -193,7 +215,7 @@ namespace Reg {
 			return disp;
 		}
 
-		// get value if key opened with specified subkey
+		// get value given its name
 		template<class T>
 		T QueryValue(PCTSTR value);
 		template<>
@@ -294,6 +316,14 @@ namespace Reg {
 					next();
 				}
 			}
+			KeyIterator begin() const
+			{
+				return KeyIterator(hkey);
+			}
+			KeyIterator end() const
+			{
+				return KeyIterator(hkey, true);
+			}
 			explicit operator bool() const
 			{
 				return index != -1;
@@ -341,14 +371,10 @@ namespace Reg {
 			}
 		};
 
-		KeyIterator begin() const
+		KeyIterator Keys()
 		{
 			return KeyIterator(*this);
-		}
-		KeyIterator end() const
-		{
-			return KeyIterator(*this, true);
-		}
+		};
 
 		// iterator over key values
 		class ValueIterator {
@@ -371,6 +397,14 @@ namespace Reg {
 				else {
 					next();
 				}
+			}
+			ValueIterator begin() const
+			{
+				return ValueIterator(hkey);
+			}
+			ValueIterator end() const
+			{
+				return ValueIterator(hkey, true);
 			}
 			explicit operator bool() const
 			{
@@ -426,23 +460,25 @@ namespace Reg {
 				namelen = 0x3FF;
 				DWORD len = 0;
 				LSTATUS status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, NULL, &len);
+				if (ERROR_SUCCESS != status) {
+					throw std::runtime_error(GetFormatMessage(status));
+				}
+				buf.resize(len);
+				status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, buf.data(), &len);
 				if (ERROR_NO_MORE_ITEMS == status) {
 					index = (DWORD)-1;
 
 					return *this;
 				}
-				else if (ERROR_SUCCESS != status) {
-					throw std::runtime_error(GetFormatMessage(status));
-				}
-				buf.resize(len);
-				status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, buf.data(), &len);
-				if (ERROR_SUCCESS != status) {
-					throw std::runtime_error(GetFormatMessage(status));
-				}
 
 				return *this;
 			}
 		};
+
+		ValueIterator Values() const
+		{
+			return ValueIterator(*this);
+		}
 
 	};
 }

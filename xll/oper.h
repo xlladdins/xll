@@ -473,6 +473,25 @@ namespace xll {
 
 			return *this;
 		}
+		explicit XOPER(DWORD w)
+		{
+			xltype = xltypeNum;
+			val.num = static_cast<double>(w);
+		}
+		bool operator==(DWORD w) const
+		{
+			return (xltype & xltypeInt) ? val.w == w
+				: (xltype & xltypeNum) ? val.num == w
+				: (xltype & xltypeBool) ? val.xbool == w
+				: false;
+		}
+		XOPER operator=(DWORD w)
+		{
+			oper_free();
+			operator=(XOPER(w));
+
+			return *this;
+		}
 
 	private:
 		// true if memory overlaps with x
