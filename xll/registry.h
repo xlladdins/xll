@@ -7,6 +7,43 @@
 #include <vector>
 #include <Windows.h>
 
+
+namespace Reg {
+
+	using SZ = std::basic_string<TCHAR>;
+
+	// remove characters including and trailing c
+	inline SZ chop(SZ& s, TCHAR c = TEXT('\0'))
+	{
+		auto i = s.find(c);
+		if (i != s.npos) {
+			s.erase(i);
+		}
+
+		return s;
+	}
+
+	// add trailing character if missing
+	inline SZ tack(SZ& s, TCHAR c = TEXT('\\'))
+	{
+		if (s.length() != 0 and s.back() != c) {
+			s.push_back(c);
+		}
+
+		return s;
+	}
+
+	inline char* GetFormatMessage(DWORD id)
+	{
+		// not thread safe
+		static constexpr DWORD size = 1024;
+		static char buf[size];
+
+		FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM, 0, id, 0, buf, size, 0);
+
+		return buf;
+	}
+
 #define REG_KEY(X) \
 	X(HKCR, CLASSES_ROOT, "Defines types (or classes) of documents and the properties associated with those types.") \
 	X(HKCC, CURRENT_CONFIG, "Contains information about the current hardware profile of the local computer system.") \
@@ -32,72 +69,27 @@
 	X(WOW64_64KEY, "Indicates that an application on 64-bit Windows should operate on the 64-bit registry view. This flag is ignored by 32-bit Windows. For more information, see Accessing an Alternate Registry View.") \
 	X(WRITE, "Combines the STANDARD_RIGHTS_WRITE, KEY_SET_VALUE, and KEY_CREATE_SUB_KEY access rights.") \
 
-#define REG_TYPE(X) \
-	X(BINARY, "Binary data in any form.") \
-	X(DWORD, "A 32-bit number.") \
-	X(DWORD_LITTLE_ENDIAN, "A 32-bit number in little-endian format.") \
-	X(DWORD_BIG_ENDIAN, "A 32-bit number in big-endian format.") \
-	X(EXPAND_SZ, "A null-terminated string that contains unexpanded references to environment variables") \
-	X(LINK, "A null-terminated Unicode string that contains the target path of a symbolic link that was created by calling the RegCreateKeyEx function with REG_OPTION_CREATE_LINK.") \
-	X(MULTI_SZ, "A sequence of null-terminated strings, terminated by an empty string.") \
-	X(NONE, "No defined value type.") \
-	X(QWORD, "A 64-bit number.") \
-	X(QWORD_LITTLE_ENDIAN, "A 64-bit number in little-endian format.") \
-	X(SZ, "A null-terminated string. This will be either a Unicode or an ANSI string, depending on whether you use the Unicode or ANSI functions.") \
-
-namespace Reg {
-
-	using SZ = std::basic_string<TCHAR>;
-
-	// remove characters including and trailing c
-	inline SZ chop(SZ& s, TCHAR c = TEXT('\0'))
-	{
-		auto i = s.find(c);
-		if (i != s.npos) {
-			s.erase(i);
-		}
-
-		return s;
-	}
-
-	// add trailing character if missing
-	inline SZ tack(SZ& s, TCHAR c = TEXT('\\'))
-	{
-		if (s.back() != c) {
-			s.push_back(c);
-		}
-
-		return s;
-	}
-
-	inline char* GetFormatMessage(DWORD id)
-	{
-		// not thread safe
-		static constexpr DWORD size = 1024;
-		static char buf[size];
-
-		FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM, 0, id, 0, buf, size, 0);
-
-		return buf;
-	}
-
 #define REG_SAM_ENUM(a,b) a = KEY_##a,
 	enum KEY {
 		REG_SAM(REG_SAM_ENUM)
 	};
 #undef REG_SAM_ENUM
 
+#define REG_TYPE(X) \
+	X(BINARY,    PBYTE,    "Binary data in any form.") \
+	X(DWORD,     DWORD,    "A 32-bit number.") \
+	X(EXPAND_SZ, PCTSTR,   "A null-terminated string that contains unexpanded references to environment variables") \
+	X(LINK,      PCTSTR,   "A null-terminated Unicode string that contains the target path of a symbolic link that was created by calling the RegCreateKeyEx function with REG_OPTION_CREATE_LINK.") \
+	X(MULTI_SZ,  PCTSTR,   "A sequence of null-terminated strings, terminated by an empty string.") \
+	X(NONE,      void,     "No defined value type.") \
+	X(QWORD,     LONGLONG, "A 64-bit number.") \
+	X(SZ,        PCTSTR,   "A null-terminated string. This will be either a Unicode or an ANSI string, depending on whether you use the Unicode or ANSI functions.") \
+
 	template<DWORD T> 
 	struct reg_traits { };
-	template<> 
-	struct reg_traits<REG_DWORD> { typedef DWORD type;  };
-	template<>
-	struct reg_traits<REG_QWORD> { typedef ULONGLONG type; };
-	template<>
-	struct reg_traits<REG_SZ> { typedef PCTSTR type; };
-	template<>
-	struct reg_traits<REG_BINARY> { typedef LPBYTE type; };
-	//!!!...
+#define REG_TYPE_TRAITS(a, b, c) template<> struct reg_traits<REG_##a> { typedef b type; };
+	REG_TYPE(REG_TYPE_TRAITS)
+#undef REG_TYPE_TRAITS
 
 	// get value using subkey
 	template<class T>
@@ -378,38 +370,49 @@ namespace Reg {
 
 		// iterator over key values
 		class ValueIterator {
-			DWORD index;
 			HKEY hkey;
-			TCHAR name[0x3FF] = TEXT(""); // name of current index
-			DWORD namelen = 0x3FF;
+			DWORD index;
 			DWORD type;
-			std::vector<BYTE> buf;
+			DWORD len;
+			DWORD namelen = 0x3FF;
+			TCHAR name[0x3FF] = TEXT(""); // name of current index
 		public:
 			using iterator_category = std::forward_iterator_tag;
-			using value_type = PCTSTR;
+			using value_type = std::tuple<PCTSTR,DWORD,DWORD,DWORD>; // name, index, type, len
 
-			ValueIterator(HKEY hkey, bool end = false)
-				: index((DWORD)-1), hkey(hkey)
+			ValueIterator(HKEY hkey, DWORD index = 0)
+				: hkey(hkey), index(index)
 			{
-				if (end) {
-					name[0] = 0;
-				}
-				else {
-					next();
+				if (index != -1) {
+					LSTATUS status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, NULL, &len);
+					if (ERROR_NO_MORE_ITEMS == status) {
+						index = (DWORD)-1;
+					}
+					else if (ERROR_SUCCESS != status) {
+						throw std::runtime_error(GetFormatMessage(status));
+					}
 				}
 			}
+			ValueIterator& operator=(const ValueIterator&) = default;
+			ValueIterator(ValueIterator&&) = default;
+			ValueIterator& operator=(ValueIterator&&) = default;
+			~ValueIterator()
+			{ }
+
 			ValueIterator begin() const
 			{
-				return ValueIterator(hkey);
+				return ValueIterator(hkey, 0);
 			}
 			ValueIterator end() const
 			{
-				return ValueIterator(hkey, true);
+				return ValueIterator(hkey, (DWORD)-1);
 			}
+
 			explicit operator bool() const
 			{
 				return index != -1;
 			}
+
 			bool operator==(const ValueIterator& k) const
 			{
 				if (hkey != k.hkey) {
@@ -421,57 +424,39 @@ namespace Reg {
 				// same name, same value
 				return 0 == std::lexicographical_compare(name, name + namelen, k.name, k.name + k.namelen);
 			}
-			// key name
+
 			value_type operator*() const
 			{
-				return name;
-			}
-			DWORD length() const
-			{
-				return namelen;
-			}
-			DWORD Type() const
-			{
-				return type;
+				return std::tuple(name,index,type,len);
 			}
 
 			ValueIterator& operator++()
 			{
-				return next();
-			};
-			BYTE* data()
-			{
-				return &buf[0];
-			}
-			/*
-			template<class T>
-			const T& Value() const
-			{
-				static_assert(std::is_same_v<T, reg_traits<T>>::type);
-
-				return *static_cast<const T*>(&data[0]);
-			}
-			*/
-		private:
-			ValueIterator& next()
-			{
-				++index;
-				name[0] = 0;
-				namelen = 0x3FF;
-				DWORD len = 0;
-				LSTATUS status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, NULL, &len);
-				if (ERROR_SUCCESS != status) {
-					throw std::runtime_error(GetFormatMessage(status));
-				}
-				buf.resize(len);
-				status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, buf.data(), &len);
-				if (ERROR_NO_MORE_ITEMS == status) {
-					index = (DWORD)-1;
-
-					return *this;
+				if (index != -1) {
+					++index;
+					namelen = 0x3FF;
+					LSTATUS status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, NULL, &len);
+					if (ERROR_NO_MORE_ITEMS == status) {
+						index = (DWORD)-1;
+					}
+					else if (ERROR_SUCCESS != status) {
+						throw std::runtime_error(GetFormatMessage(status));
+					}
 				}
 
 				return *this;
+			}
+
+			// stuff bits into data
+			LSTATUS Value(PBYTE data)
+			{
+				if (index == (DWORD)-1) {
+					return ERROR_NO_MORE_ITEMS;
+				}
+
+				namelen = 0x3FF;
+
+				return RegEnumValue(hkey, index, name, &namelen, NULL, &type, data, &len);
 			}
 		};
 

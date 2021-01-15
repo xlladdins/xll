@@ -23,6 +23,11 @@ namespace xll{
 			procedure = XOPER<X>("?") & procedure;
 		}
 
+		// indicates function returns a handle
+		if (args.FunctionText().val.str[1] == '\\') {
+			ensure(args.isUncalced());
+		}
+
 		XOPER<X> helpTopic = args.HelpTopic();
 		// Help URLs must end with "!0"
 		if (helpTopic.xltype & xltypeStr) {

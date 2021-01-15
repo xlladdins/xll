@@ -10,6 +10,7 @@ using namespace xll;
 class reg_alert_level {
 	DWORD value;
 public:
+	// default to ERROR, WARNING, INFORMATION on
 	reg_alert_level()
 		: value(0x7)
 	{
@@ -22,7 +23,7 @@ public:
 			&value, &size);
 		if (ERROR_SUCCESS != status) 
 		{
-			operator=(value);
+			operator=(value); // override if in registry
 		}
 	}
 	reg_alert_level& operator=(DWORD level)

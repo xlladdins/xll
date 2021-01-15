@@ -328,6 +328,10 @@ namespace xll {
 
 		// xltypeRef
 		// xltypeErr - predifined as ErrXXX
+		bool is_err() const
+		{
+			return xltype == xltypeErr;
+		}
 		// xltypeFlow - not used
 
 		// xltypeMulti

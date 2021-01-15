@@ -100,29 +100,52 @@ namespace xll {
 
 			return *this;
 		}
+		bool isUncalced() const
+		{
+			return !XExcel<X>(xlfFind, XOPER<X>(XLL_UNCALCED), typeText).is_err();
+		}
+
 		XArgs& Volatile()
 		{
 			typeText &= XLL_VOLATILE;
 
 			return *this;
 		}
+		bool isVolatile() const
+		{
+			return !XExcel<X>(xlfFind, XOPER<X>(XLL_VOLATILE), typeText).is_err();
+		}
+
 		XArgs& ThreadSafe()
 		{
 			typeText &= XLL_THREAD_SAFE;
 
 			return *this;
 		}
+		bool isThreadSafe() const
+		{
+			return !XExcel<X>(xlfFind, XOPER<X>(XLL_THREAD_SAFE), typeText).is_err();
+		}
+
 		XArgs& ClusterSafe()
 		{
 			typeText &= XLL_CLUSTER_SAFE;
 
 			return *this;
 		}
+		bool isClusterSafe() const
+		{
+			return !XExcel<X>(xlfFind, XOPER<X>(XLL_CLUSTER_SAFE), typeText).is_err();
+		}
 		XArgs& Asynchronous()
 		{
 			typeText &= XLL_ASYNCHRONOUS;
 
 			return *this;
+		}
+		bool isAsynchronous() const
+		{
+			return !XExcel<X>(xlfFind, XOPER<X>(XLL_ASYNCHRONOUS), typeText).is_err();
 		}
 
 		// slice okay since it is xltypeNum/Err

@@ -28,6 +28,7 @@ namespace xll {
 		typedef typename _FP xfp;
 		typedef typename std::basic_string<xchar> xstring;
 		static const int argmax = 255;
+		static const int charmax = 0xFF;
 		static int WINAPI MessageBoX(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType)
 		{
 			return MessageBoxA(hWnd, lpText, lpCaption, uType);
@@ -79,6 +80,7 @@ namespace xll {
 		typedef typename _FP12 xfp;
 		typedef typename std::basic_string<xchar> xstring;
 		static const int argmax = 255;
+		static const int charmax = 0x7FFF;
 		static int WINAPI MessageBoX(HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
 		{
 			return MessageBoxW(hWnd, lpText, lpCaption, uType);
