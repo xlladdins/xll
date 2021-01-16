@@ -160,8 +160,8 @@ namespace Reg {
 
 	// create or open key if it already exists
 	class Key {
-		HKEY hkey;
-		DWORD disp;
+		HKEY hkey = nullptr;
+		DWORD disp = 0;
 	public:
 		Key() noexcept
 			: hkey(nullptr), disp(0)

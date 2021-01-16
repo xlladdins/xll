@@ -48,7 +48,7 @@ namespace xll{
 		oper[8] = &helpTopic;
 		oper[9] = &args.FunctionHelp();
 		const std::vector<XOPER<X>>& argumentHelp = args.ArgumentHelp();
-		for (size_t i = 0; i < argumentHelp.size(); ++i) {
+		for (unsigned i = 0; i < argumentHelp.size(); ++i) {
 			oper[10 + i] = &argumentHelp[i];
 		}
 		// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#argument-description-string-truncation-in-the-function-wizard

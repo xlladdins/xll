@@ -48,13 +48,13 @@ namespace xll {
 		{
 			return s ? static_cast<int>(strlen(s)) : 0;
 		}
-		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
+		static xchar* cpy(xchar* dest, const xchar* src, unsigned n)
 		{
 			ensure (0 == strncpy_s(dest, n, src, n));
 
 			return dest;
 		}
-		static int cmp(const xchar* dest, const xchar* src, size_t n)
+		static int cmp(const xchar* dest, const xchar* src, unsigned n)
 		{
 			return strncmp(dest, src, n);
 		}
@@ -100,13 +100,13 @@ namespace xll {
 		{
 			return s ? static_cast<int>(wcslen(s)) : 0;
 		}
-		static xchar* cpy(xchar* dest, const xchar* src, size_t n)
+		static xchar* cpy(xchar* dest, const xchar* src, unsigned n)
 		{
 			ensure (0 == wcsncpy_s(dest, n, src, n));
 
 			return dest;
 		}
-		static int cmp(const xchar* dest, const xchar* src, size_t n)
+		static int cmp(const xchar* dest, const xchar* src, unsigned n)
 		{
 			return wcsncmp(dest, src, n);
 		}

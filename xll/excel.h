@@ -8,7 +8,7 @@
 namespace xll {
 
 	template<typename X>
-	inline XOPER<X> Excelv(int xlfn, size_t n, X* opers[])
+	inline XOPER<X> Excelv(int xlfn, unsigned n, X* opers[])
 	{
 		XOPER<X> o;
 

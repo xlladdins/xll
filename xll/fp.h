@@ -50,7 +50,7 @@ inline const double* end(const _FP12& a)
 namespace xll {
 
 	// fixed size FP types
-	template<size_t R, size_t C = 1>
+	template<unsigned R, unsigned C = 1>
 	struct FP_ {
 		unsigned short int rows;
 		unsigned short int columns;
@@ -74,7 +74,7 @@ namespace xll {
 		{
 			return reinterpret_cast<const ::FP*>(this);
 		}
-		size_t size() const
+		unsigned size() const
 		{
 			return rows * columns;
 		}
@@ -89,15 +89,15 @@ namespace xll {
 		}
 		double& operator[](unsigned short int i)
 		{
-			return array[xmod<size_t>(i, size())];
+			return array[xmod<unsigned>(i, size())];
 		}
 		const double& operator[](unsigned short int i) const
 		{
-			return array[xmod<size_t>(i, size())];
+			return array[xmod<unsigned>(i, size())];
 		}
 	};
 
-	template<size_t R, size_t C = 1>
+	template<unsigned R, unsigned C = 1>
 	struct FP12_ {
 		signed int rows;
 		signed int columns;
@@ -121,7 +121,7 @@ namespace xll {
 		{
 			return reinterpret_cast<const ::FP12*>(this);
 		}
-		size_t size() const
+		unsigned size() const
 		{
 			return rows * columns;
 		}
@@ -136,15 +136,15 @@ namespace xll {
 		}
 		double& operator[](int i)
 		{
-			return array[xmod<size_t>(i, size())];
+			return array[xmod<unsigned>(i, size())];
 		}
 		const double& operator[](int i) const
 		{
-			return array[xmod<size_t>(i, size())];
+			return array[xmod<unsigned>(i, size())];
 	}
 };
 
-	template<size_t R, size_t C = 1>
+	template<unsigned R, unsigned C = 1>
 #if XLOPERX == XLOPER12
 	using FPX_ = FP12_<R,C>;
 #else

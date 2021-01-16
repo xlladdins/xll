@@ -251,34 +251,51 @@ namespace xll {
 			return *this;
 		}
 
-		size_t ArgumentCount() const
+		// 1-based indexing
+		unsigned ArgumentCount() const
 		{
-			return argumentName.size();
+			return static_cast<unsigned>(argumentName.size());
 		}
 
 		const std::vector<XOPER<X>>& ArgumentName() const
 		{
 			return argumentName;
 		}
-		const XOPER<X>& ArgumentName(size_t i) const
+		const XOPER<X>& ArgumentName(unsigned i) const
 		{
-			return argumentName[i];
+			if (i == 0) {
+				return functionText;
+			}
+
+			return argumentName[i - 1];
 		}
 
 		const std::vector<XOPER<X>>& ArgumentHelp() const
 		{
 			return argumentHelp;
 		}
-		const XOPER<X>& ArgumentHelp(size_t i) const
+		const XOPER<X>& ArgumentHelp(unsigned i) const
 		{
-			return argumentHelp[i];
+			if (i == 0) {
+				return functionHelp;
+			}
+
+			return argumentHelp[i - 1];
 		}
 
 
 		// Default value for argument.
-		const X& ArgumentDefault(size_t i) const
+		const XOPER<X>& ArgumentDefault(unsigned i) const
 		{
-			return argumentDefault[i];
+			if (i == 0) {
+				static XOPER<X> arg0, eq("="), lp("("), rp(")");
+
+				arg0 = eq & functionText & lp & argumentText & rp;
+
+				return arg0;
+			}
+
+			return argumentDefault[i - 1];
 		}
 
 		XArgs& Documentation(const std::string& s)

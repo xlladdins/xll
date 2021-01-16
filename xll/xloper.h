@@ -23,7 +23,7 @@ namespace xll {
 	inline static const int xltypeScalar = (xltypeNumeric | xltypeErr | xltypeMissing | xltypeNil | xltypeSRef);
 
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline size_t rows(const X& x)
+	inline unsigned rows(const X& x)
 	{
 		// xltypeRef type???
 		return (x.xltype & xltypeMulti) ? x.val.array.rows
@@ -33,7 +33,7 @@ namespace xll {
 	}
 
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline size_t columns(const X& x)
+	inline unsigned columns(const X& x)
 	{
 		return (x.xltype & xltypeMulti) ? x.val.array.columns 
 			  : x.xltype == xltypeSRef ? x.val.sref.ref.colLast - x.val.sref.ref.colFirst + 1
@@ -41,7 +41,7 @@ namespace xll {
 			  : 1;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline size_t size(const X& x)
+	inline unsigned size(const X& x)
 	{
 		return rows(x) * columns(x);
 	}
@@ -68,7 +68,7 @@ namespace xll {
 
 	// one-dimensional index
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	X& index(X& x, size_t i)
+	X& index(X& x, unsigned i)
 	{
 		ensure(i < size(x));
 
@@ -82,7 +82,7 @@ namespace xll {
 	}
 	// two-dimensional index
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	X& index(X& x, size_t rw, size_t col)
+	X& index(X& x, unsigned rw, unsigned col)
 	{
 		return index(x, columns(x) * xmod(rw, rows(x)) + xmod(col, columns(x)));
 	}
@@ -149,7 +149,7 @@ inline auto operator<=>(const X& x, const X& y)
 			return x.val.array.rows <=> y.val.array.rows;
 		if (x.val.array.columns != y.val.array.columns)
 			return x.val.array.columns <=> y.val.array.columns;
-		for (size_t i = 0; i < xll::size(x); ++i)
+		for (unsigned i = 0; i < xll::size(x); ++i)
 			if (x.val.array.lparray[i] != y.val.array.lparray[i])
 				return x.val.array.lparray[i] <=> y.val.array.lparray[i];
 		return std::strong_ordering::equal;

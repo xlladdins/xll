@@ -39,7 +39,7 @@ int test_registry()
 			PCTSTR s;
 			s = *ki;
 			int icount = 0;
-			for (auto i : key) {
+			for (auto i : key.Keys()) {
 				s = i;
 				++icount;
 			}
@@ -57,11 +57,12 @@ int test_registry()
 			Key key(HKEY_CURRENT_USER, TEXT("Console"));
 			Key::ValueIterator vi(key);
 			while (vi) {
-				if (vi.Type() == REG_DWORD) {
+				auto [name, index, type, len] = *vi;
+				if (type == REG_DWORD) {
 					DWORD dw;
-					dw = *(DWORD*)vi.data();
+					vi.Value((PBYTE)&dw);
 				}
-				if (vi.Type() == REG_SZ) {
+				if (type == REG_SZ) {
 					//PCTSTR s;
 					//s = vi.data()
 				}

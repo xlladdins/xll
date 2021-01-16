@@ -15,7 +15,7 @@ namespace xll {
 
 	// first missing arg determines length
 	template<class X>
-	inline size_t len(X** ppa)
+	inline unsigned len(X** ppa)
 	{
 		auto missing = [](X* pa) { return pa->xltype == xltypeMissing; };
 		auto i = std::find_if(ppa, ppa + ARGMAX, missing);
@@ -26,7 +26,7 @@ namespace xll {
 	// 1.2, {"foo", "bar"}, true, ...
 	// _1 = 1.2, foo = "bar", _2 = true, ...
 	template<class X>
-	inline size_t SetNames(X** ppa)
+	inline unsigned SetNames(X** ppa)
 	{
 		//int j = 1;
 		for (int i = 0, j = 1; i < ARGMAX; ++i) {
@@ -55,12 +55,12 @@ namespace xll {
 			//ensure(XExcel<X>(xlfEvaluate, XExcel<X>(xlfGetName, ki)) == vi);
 		}
 
-		return (size_t)-1;
+		return -1;
 	}
 	template<class X>
-	inline void UnsetNames(X** ppa, size_t len)
+	inline void UnsetNames(X** ppa, unsigned len)
 	{
-		for (size_t i = 0, j = 1; i < len; ++i) {
+		for (unsigned i = 0, j = 1; i < len; ++i) {
 			XOPER<X> ki, vi; // key, value
 			const XOPER<X>& ai = *ppa[i];
 
@@ -134,7 +134,7 @@ LPXLOPERX WINAPI xll_eval(LPXLOPERX pa LPXLOPERX32)
 	try {
 		XLOPERX** ppa = &pa;
 
-		size_t n = SetNames(ppa + 1);
+		unsigned n = SetNames(ppa + 1);
 		r = Excelv(xlfEvaluate, 1, ppa);
 		UnsetNames(ppa + 1, n);
 	}

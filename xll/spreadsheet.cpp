@@ -58,7 +58,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		OPER xFor = Excel(xlfActiveCell);
 		Move(1, -1);
 		if (args->isFunction()) {
-			for (size_t i = 0; i < args->ArgumentCount(); ++i) {
+			for (unsigned i = 0; i < args->ArgumentCount(); ++i) {
 				Excel(xlcFormula, args->ArgumentName(i));
 				Excel(xlcAlignment, XLL_ALIGN_RIGHT);
 				Bold();

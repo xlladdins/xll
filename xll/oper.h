@@ -220,7 +220,7 @@ namespace xll {
 				return false;
 			}
 
-			size_t n = traits<X>::len(str);
+			unsigned n = traits<X>::len(str);
 			//ensure(n < static_cast<size_t>(std::numeric_limits<xchar>::max()));
 			
 			if (val.str[0] != static_cast<xchar>(n))
@@ -267,7 +267,7 @@ namespace xll {
 			}
 
 			ensure(x.is_str());
-			str_append(traits<X>::cvt(x.val.str + 1, x.val.str[0]), (size_t)-1);
+			str_append(traits<X>::cvt(x.val.str + 1, x.val.str[0]), (unsigned)-1);
 
 			return *this;
 		}
@@ -339,7 +339,7 @@ namespace xll {
 		{
 			return xltype & xltypeMulti;
 		}
-		XOPER(size_t rw, size_t col)
+		XOPER(unsigned rw, unsigned col)
 		{
 			multi_alloc(rw, col);
 		}
@@ -351,21 +351,21 @@ namespace xll {
 			multi_alloc(1, static_cast<xcol>(x.size()));
 			std::copy(x.begin(), x.end(), begin());
 		}
-		XOPER& resize(size_t rw, size_t col)
+		XOPER& resize(unsigned rw, unsigned col)
 		{
 			multi_realloc(rw, col);
 
 			return *this;
 		}
-		size_t rows() const
+		unsigned rows() const
 		{
 			return xll::rows(*this);
 		}
-		size_t columns() const
+		unsigned columns() const
 		{
 			return xll::columns(*this);
 		}
-		size_t size() const
+		unsigned size() const
 		{
 			return xll::size(*this);
 		}
@@ -387,20 +387,20 @@ namespace xll {
 			return xll::end(*this);
 		}
 		// one-dimensional index
-		XOPER& operator[](size_t i)
+		XOPER& operator[](unsigned i)
 		{
 			return xll::index(*this, i);
 		}
-		const XOPER& operator[](size_t i) const
+		const XOPER& operator[](unsigned i) const
 		{
 			return xll::index(*this, i);
 		}
 		// two-dimensional index
-		XOPER& operator()(size_t rw, size_t col)
+		XOPER& operator()(unsigned rw, unsigned col)
 		{
 			return xll::index(*this, rw, col);
 		}
-		const XOPER& operator()(size_t rw, size_t col) const
+		const XOPER& operator()(unsigned rw, unsigned col) const
 		{
 			return xll::index(*this, rw, col);
 		}
@@ -554,7 +554,7 @@ namespace xll {
 			else {
 				ensure(xltype == xltypeStr);
 				bool counted = false;
-				if (n == (size_t)-1) {
+				if (n == -1) {
 					counted = true;
 					n = str[0];
 				}
@@ -584,10 +584,10 @@ namespace xll {
 		}
 		
 		// xltypeMulti
-		void multi_alloc(size_t r, size_t c)
+		void multi_alloc(unsigned r, unsigned c)
 		{
-			ensure(r <= (size_t)(std::numeric_limits<xrw>::max)());
-			ensure(c <= (size_t)(std::numeric_limits<xcol>::max)());
+			ensure(r <= (unsigned)(std::numeric_limits<xrw>::max)());
+			ensure(c <= (unsigned)(std::numeric_limits<xcol>::max)());
 
 			if (r * c == 0) {
 				xltype = XOPER().xltype;
@@ -603,10 +603,10 @@ namespace xll {
 				std::fill(begin(), end(), XOPER{});
 			}
 		}
-		void multi_realloc(size_t r, size_t c)
+		void multi_realloc(unsigned r, unsigned c)
 		{
-			ensure(r <= (size_t)(std::numeric_limits<xrw>::max)());
-			ensure(c <= (size_t)(std::numeric_limits<xcol>::max)());
+			ensure(r <= (unsigned)(std::numeric_limits<xrw>::max)());
+			ensure(c <= (unsigned)(std::numeric_limits<xcol>::max)());
 
 			if (!(xltype & xltypeMulti)) {
 				oper_free();
@@ -698,8 +698,8 @@ inline auto& operator<<(std::ostream& os, const xll::OPER& o)
 		break;
 	case xltypeMulti: // "{a,b...;c,d,...}"
 		os << "{";
-		for (size_t r = 0; r < xll::rows(o); ++r) {
-			for (size_t c = 0; c < xll::columns(o)) {
+		for (unsigned r = 0; r < xll::rows(o); ++r) {
+			for (unsigned c = 0; c < xll::columns(o)) {
 				if (c > 0)
 					os << ",";
 				else if (r > 0)

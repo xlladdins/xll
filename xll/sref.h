@@ -5,17 +5,17 @@
 #include "concepts.h"
 
 template<class X> requires either_base_of_v<XLREF,XLREF12,X>
-inline size_t height(const X& x)
+inline unsigned height(const X& x)
 {
 	return x.rwLast - x.rwFirst + 1;
 }
 template<class X> requires either_base_of_v<XLREF, XLREF12, X>
-inline size_t width(const X& x)
+inline unsigned width(const X& x)
 {
 	return x.colLast - x.colFirst + 1;
 }
 template<class X> requires either_base_of_v<XLREF, XLREF12, X>
-inline size_t size(const X& x) // extent???
+inline unsigned size(const X& x) // extent???
 {
 	return height(x) * width(x);
 }

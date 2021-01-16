@@ -91,7 +91,7 @@ ofs << "<h2>Description</h2>\n\t<p>\n" << functionHelp << "\n\t</p>\n\t";
 ofs << "<h2>Syntax</h2>\n\t<p>" << functionText << "(" << argumentText << ")</p>\n\t"
     << "<blockquote>\n\t<table>\n\t<tbody>\n\t";
 
-			for (size_t i = 0; i < arg.ArgumentCount(); ++i) {
+			for (unsigned i = 0; i < arg.ArgumentCount(); ++i) {
 ofs << "\t<tr>\n\t\t"
 	<< "<td>" << arg.ArgumentName(i).to_string() << "</td>\n\t\t"
 	<< "<td>" << arg.ArgumentHelp(i).to_string() << "</td>\n\t\t"
