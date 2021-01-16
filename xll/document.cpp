@@ -152,7 +152,7 @@ ofs << R"(<!DOCTYPE html>
 	</p>
 	<p>
 	)"
-				<< description << "</p>\n";
+<< description << "</p>\n";
 
 			// categories and all functions belonging the to each category
 			for (const auto& [cat, text_help] : cat_text) {
@@ -161,8 +161,13 @@ ofs << "<h2>Category " << cat.to_string() << "</h2>\n"
 				for (const auto& [text, help] : text_help) {
 					std::string functionText = text.to_string();
 					std::string functionHelp = help.to_string();
+					std::string href = functionText;
+					//!!! use isHandle ???
+					if (href[0] == '\\') {
+						href.erase(0, 1);
+					}
 ofs << "<tr>\n\t"
-	<< "<td><a href=\"" << functionText << ".html\">" << functionText << "</a></td>\n"
+	<< "<td><a href=\"" << href << ".html\">" << functionText << "</a></td>\n"
 	<< "<td>" << functionHelp << "</td>\n"
 	<< "</tr>\n";
 				}

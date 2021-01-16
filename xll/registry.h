@@ -166,10 +166,16 @@ namespace Reg {
 		Key() noexcept
 			: hkey(nullptr), disp(0)
 		{ }
-		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM sam = KEY_ALL_ACCESS | KEY_WOW64_64KEY)
+		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM sam = KEY_ALL_ACCESS | KEY_WOW64_64KEY, bool open = false)
 		{
 			SZ subKey(lpSubKey);
-			LSTATUS status = RegCreateKeyEx(hKey, tack(subKey).c_str(), 0, 0, 0, sam, 0, &hkey, &disp);
+			LSTATUS status;
+			if (open) {
+				status = RegOpenKeyEx(hKey, tack(subKey).c_str(), 0, sam, &hkey);
+			}
+			else {
+				status = RegCreateKeyEx(hKey, tack(subKey).c_str(), 0, 0, 0, sam, 0, &hkey, &disp);
+			}
 			if (status != ERROR_SUCCESS) {
 				throw std::runtime_error(GetFormatMessage(status));
 			}
