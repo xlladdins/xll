@@ -27,8 +27,9 @@ namespace xll {
 	{
 		// xltypeRef type???
 		return (x.xltype & xltypeMulti) ? x.val.array.rows
-			  : x.xltype == xltypeSRef ? x.val.sref.ref.rwLast - x.val.sref.ref.rwFirst + 1
+			  : x.xltype == xltypeSRef ? height(x.val.sref.ref)
 			  : x.xltype == xltypeNil ? 0
+		      : (x.xltype & xltypeRef) ? x.val.mref.lpmref->count // number of references
 			  : 1;
 	}
 
@@ -36,7 +37,7 @@ namespace xll {
 	inline unsigned columns(const X& x)
 	{
 		return (x.xltype & xltypeMulti) ? x.val.array.columns 
-			  : x.xltype == xltypeSRef ? x.val.sref.ref.colLast - x.val.sref.ref.colFirst + 1
+			  : x.xltype == xltypeSRef ? width(x.val.sref.ref)
 		      : x.xltype == xltypeNil ? 0
 			  : 1;
 	}
@@ -136,33 +137,47 @@ inline auto operator<=>(const X& x, const X& y)
 		return xid.i <=> yid.i;
 	}
 	case xltypeStr: {
-		auto smin = x.val.str[0] < y.val.str[0] ? x.val.str[0] : y.val.str[0];
-		auto scmp = xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, smin);
+		auto cmp = x.val.str[0] <=> y.val.str[0];
+		if (cmp != 0)
+			return cmp;
 
-		return scmp != 0 ? scmp <=> 0 : x.val.str[0] <=> y.val.str[0];
+		return xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
 	}
 	case xltypeErr:
-		return x.val.err <=> y.val.err;
+		return x.val.err <=> y.val.err; // false???
 
 	case xltypeMulti: {
-		if (x.val.array.rows != y.val.array.rows)
-			return x.val.array.rows <=> y.val.array.rows;
-		if (x.val.array.columns != y.val.array.columns)
-			return x.val.array.columns <=> y.val.array.columns;
+		if (auto cmp = x.val.array.rows <=> y.val.array.rows; cmp != 0)
+			return cmp;
+		if (auto cmp = x.val.array.columns <=> y.val.array.columns; cmp != 0)
+			return cmp;
 		for (unsigned i = 0; i < xll::size(x); ++i)
-			if (x.val.array.lparray[i] != y.val.array.lparray[i])
-				return x.val.array.lparray[i] <=> y.val.array.lparray[i];
+			if (auto cmp = x.val.array.lparray[i] <=> y.val.array.lparray[i]; cmp != 0)
+				return cmp;
+
 		return std::strong_ordering::equal;
 	}
 	case xltypeSRef:
 		return x.val.sref.ref <=> y.val.sref.ref;
+	case xltypeRef:
+		if (auto cmp = x.val.mref.idSheet <=> y.val.mref.idSheet; cmp != 0)
+			return cmp;
+		if (auto cmp = x.val.mref.lpmref->count <=> y.val.mref.lpmref->count; cmp != 0)
+			return cmp;
+		for (unsigned i = 0; i < x.val.mref.lpmref->count; ++i)
+			if (auto cmp = x.val.mref.lpmref->reftbl[i] <=> y.val.mref.lpmref->reftbl[i]; cmp != 0)
+				return cmp;
 
-	//case xltypeRef: ???
+		return std::strong_ordering::equal;
 	case xltypeInt:
 		return x.val.w <=> y.val.w;
-
 	case xltypeBool:
 		return x.val.xbool <=> y.val.xbool;
+	case xltypeBigData: // ??? what is bidata.cbData if HANDLE
+		if (x.val.bigdata.cbData != y.val.bigdata.cbData)
+			return x.val.bigdata.cbData <=> y.val.bigdata.cbData;
+
+		return std::memcmp(x.val.bigdata.h.lpbData, y.val.bigdata.h.lpbData, x.val.bigdata.cbData) <=> 0;
 	}
 
 	return xtype <=> ytype;

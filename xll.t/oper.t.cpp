@@ -304,7 +304,7 @@ int test_oper_multi = []()
 		ensure(m(2, 1)(1, 2) == "bar");
 	}
 	{
-		OPER o({});
+		OPER o;
 		ensure(o.xltype == xltypeNil);
 		ensure(o.size() == 0);
 		o.append_bottom(o);
@@ -596,3 +596,28 @@ int test_oper_err = []() {
 
 	return 0;
 }();
+
+int test_mref()
+{
+	{
+		REF r(1, 1);
+		OPER mr({ r,r,r });
+		assert(mr.size() == 3);
+		assert(mr == mr);
+		OPER mr2(mr);
+		mr = mr2;
+		assert(mr == mr2);
+	}
+	{
+		REF12 r(1, 1);
+		OPER12 mr({ r,r,r });
+		assert(mr.size() == 3);
+		assert(mr == mr);
+		OPER12 mr2(mr);
+		mr = mr2;
+		assert(mr == mr2);
+	}
+
+	return 0;
+}
+int test_mref_ = test_mref();

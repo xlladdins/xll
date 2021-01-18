@@ -56,12 +56,11 @@ namespace xll {
 		using xrw = typename traits<X>::xrw;
 		using xcol = typename traits<X>::xcol;
 		using xref = typename traits<X>::xref;
-		using xref::xref;
 	public:
 		XREF()
 		{ }
 		XREF(xrw row, xcol col, xrw height = 1, xcol width = 1)
-			: xref{ row, row + height - 1, col, col + width - 1 }
+			: xref{ row, static_cast<xrw>(row + height - 1), col, static_cast<xcol>(col + width - 1) }
 		{ }
 		explicit XREF(const xref& r)
 			: xref{ r }

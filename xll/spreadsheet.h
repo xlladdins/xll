@@ -1,4 +1,9 @@
 // spreadsheet.h - tools for automating spreadsheet creation
+// 
+// For xlcMacroFun having many arguments we define struct MacroFun.
+// It has OPER members with exactly the same name as the documentation
+// and a member OPER Fun() that calls Excel(xlcMacroFun, args...),
+// and possible come convenience functions making it easier to use.
 #pragma once
 #include "xll.h"
 
@@ -23,6 +28,7 @@ namespace xll {
 		return OPER(index);
 	}
 
+	// https://xlladdins.github.io/Excel4Macros/alignment.html
 	// selection alignment
 	struct Alignment {
 		OPER horiz_align = Missing; 
@@ -61,27 +67,15 @@ namespace xll {
 		}
 		static OPER Align(enum Horizontal e)
 		{
-			Alignment align;
-
-			align.horiz_align = (int)e;
-
-			return align.Align();
+			Alignment align; align.horiz_align = (int)e; return align.Align();
 		}
 		static OPER Align(enum Vertical e)
 		{
-			Alignment align;
-
-			align.vert_align = (int)e;
-
-			return align.Align();
+			Alignment align; align.vert_align = (int)e; return align.Align();
 		}
 		static OPER Align(enum Orientation e)
 		{
-			Alignment align;
-
-			align.orientation = (int)e;
-
-			return align.Align();
+			Alignment align; align.orientation = (int)e; return align.Align();
 		}
 	};
 
@@ -103,6 +97,31 @@ namespace xll {
 			ensure(xll::Excel(xlcFormatFont, name_text, size_num,
 				bold, italic, underline, strike,
 				color, outline, shadow));
+		}
+
+		FormatFont& NameText(const char* name)
+		{
+			name_text = name; return *this;
+		}
+		FormatFont& SizeNum(int size)
+		{
+			size_num = size; return *this;
+		}
+		FormatFont& Bold(bool b = true)
+		{
+			bold = b; return *this;
+		}
+		FormatFont& Italic(bool b = true)
+		{
+			italic = b; return *this;
+		}
+		FormatFont& Underline(bool b = true)
+		{
+			underline = b; return *this;
+		}
+		FormatFont& Strike(bool b = true)
+		{
+			strike = b; return *this;
 		}
 	};
 
@@ -131,10 +150,15 @@ namespace xll {
 				formulas, gridlines, color_num, headers, outline, 
 				zeros, hor_scroll, vert_scroll, sheet_tabs);
 		}
+
+		OptionsView& Gridlines(bool b)
+		{
+			gridlines = b; return *this;
+		}
 	};
 
 
-	// Cell information and settings
+	// Cell information from xlcGetCell
 	struct Cell {
 		OPER ref;
 		Cell(const OPER& ref = xll::Excel(xlfActiveCell))
@@ -286,32 +310,31 @@ namespace xll {
 		return xll::Excel(xlcPatterns, OPER(0), fore, back);
 	}
 
-	class Selection {
+	// https://xlladdins.github.io/Excel4Macros/selection.html
+	// https://xlladdins.github.io/Excel4Macros/select.html
+	class Select {
 		OPER sel; // ??? must be an sref
 	public:
-		Selection(const OPER& sel = xll::Excel(xlfActiveCell))
-			: sel(sel)
+		Select(const OPER& _sel = xll::Excel(xlfActiveCell))
+			: sel(_sel)
 		{
-			Select();
+			if (sel.xltype & xltypeRef) {
+				ensure(Excel(xlcSelect, OPER(sel.val.mref.lpmref->reftbl[0])));
+			}
+			else {
+				ensure(Excel(xlcSelect, sel));
+			}
 		}
-		Selection(const REF& sel)
-			: sel(OPER(sel))
+		Select(const REF& sel)
+			: Select(OPER(sel))
 		{ }
-		Selection(const char* sel)
-			: sel(xll::Excel(xlfTextref, OPER(sel), OPER(false))) // R1C1
+		Select(const char* sel)
+			: Select(xll::Excel(xlfTextref, OPER(sel), OPER(false))) // R1C1
 		{ }
-
-		OPER Select()
-		{
-			return xll::Excel(xlcSelect, sel);
-		}
-
 		// move r rows and c columns
 		OPER Move(int r, int c)
 		{
-			sel = xll::Excel(xlfOffset, sel, OPER(r), OPER(c));
-
-			return Select();
+			return sel = xll::Excel(xlfOffset, sel, OPER(r), OPER(c));
 		}
 
 		// Enters numbers, text, references, and formulas in a worksheet
@@ -399,9 +422,18 @@ namespace xll {
 		{
 			ensure(xll::Excel(xlcWorkbookSelect, name));
 		}
-		static void Insert()
+		// https://xlladdins.github.io/Excel4Macros/workbook.insert.html
+		enum Insert {
+			Worksheet = 1,
+			Chart = 2,
+			MacroSheet = 3,
+			InternationallMacroSheet = 4,
+			VisualBasicModule = 6,
+			Dialog = 7
+		};
+		static void Insert(enum Insert type = Worksheet)
 		{
-			ensure(xll::Excel(xlcWorkbookInsert, OPER(1))); // insert Worksheet
+			ensure(xll::Excel(xlcWorkbookInsert, OPER((int)type)));
 		}
 	};
 

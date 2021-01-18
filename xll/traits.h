@@ -18,13 +18,14 @@ namespace xll {
 		typedef typename XLOPER xtype;
 		typedef typename XLOPER12 typex;
 		typedef typename XLREF xref;
+		typedef typename XLMREF xmref;
 		typedef typename CHAR xchar;
 		typedef typename const CHAR* xcstr;
 		typedef typename short int xint;
 		typedef typename WORD xword;
 		typedef typename WORD xrw;
-		typedef typename WORD xcol; // BYTE???
-		typedef typename WORD xbool;
+		typedef typename BYTE xcol;
+		typedef typename BYTE xbool;
 		typedef typename _FP xfp;
 		typedef typename std::basic_string<xchar> xstring;
 		static const int argmax = 255;
@@ -70,6 +71,7 @@ namespace xll {
 		typedef typename XLOPER12 xtype;
 		typedef typename XLOPER typex; // not XLOPER12
 		typedef typename XLREF12 xref;
+		typedef typename XLMREF12 xmref;
 		typedef typename XCHAR xchar;
 		typedef typename const XCHAR* xcstr;
 		typedef typename INT32 xint;

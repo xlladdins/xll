@@ -65,12 +65,19 @@ namespace xll {
 				str_alloc(x.val.str + 1, x.val.str[0]);
 			}
 			else if (x.xltype & xltypeMulti) {
-				multi_alloc(x.val.array.rows, x.val.array.columns);
-				std::copy(x.val.array.lparray, x.val.array.lparray + size(), begin());
+				multi_alloc(xll::rows(x), xll::columns(x));
+				std::copy(xll::begin(x), xll::end(x), begin());
+			}
+			else if (x.xltype & xltypeRef) {
+				ref_alloc(x.val.mref.lpmref->count);
+				val.mref.idSheet = x.val.mref.idSheet;
+				std::copy(x.val.mref.lpmref->reftbl, x.val.mref.lpmref->reftbl + size(), val.mref.lpmref->reftbl);
+			}
+			else if (x.xltype & xltypeBigData) {
+				throw std::runtime_error("XOPER: xltypeBigData not supported yet");
 			}
 			else {
-				xltype = xltypeErr;
-				val.err = xlerrValue;
+				throw std::runtime_error("XOPER: unknown xltype");
 			}
 		}
 		XOPER(const XOPER& o)
@@ -112,21 +119,21 @@ namespace xll {
 			switch (xltype & ~(xlbitDLLFree|xlbitXLFree)) {
 			case xltypeNum:
 				return val.num != 0;
-				break;
 			case xltypeStr:
 				return val.str[0] != 0;
-				break;
 			case xltypeBool:
 				return val.xbool != 0;
-				break;
 			case xltypeMulti:
-				return std::any_of(begin(), end(), [](const auto& x) { return x; });
-				break;
+				return std::any_of(begin(), end(), [](const XOPER& x) { return !!x; });
 			case xltypeInt:
 				return val.w != 0;
+			case xltypeBigData:
+				return val.bigdata.cbData != 0;
+			case xltypeMissing: case xltypeSRef: case xltypeRef:
+				return true;
 			}
 
-			return false; // xltypeErr, xltypeMissig, xltypeNil
+			return false; // xltypeErr, xltypeNil
 		}
 		/**/
 		// IEEE 64-bit floating point number
@@ -142,7 +149,7 @@ namespace xll {
 		explicit XOPER(size_t num)
 		{
 			xltype = xltypeNum;
-			// ensure (num < 1<<53);
+			ensure (num < (1<<53));
 			val.num = static_cast<double>(num);
 		}
 		XOPER operator=(double num)
@@ -446,11 +453,22 @@ namespace xll {
 			val.sref.count = 1;
 			val.sref.ref = XREF<X>(row, col, height, width);
 		}
-		XOPER(const XREF<X>& ref)
+		XOPER(const typename traits<X>::xref& ref)
 		{
 			xltype = xltypeSRef;
 			val.sref.count = 1;
 			val.sref.ref = ref;
+		}
+		
+		// xltypeRef - reference to multiple refs
+		XOPER(const std::initializer_list<XREF<X>>& ref)
+		{
+			xltype = xltypeRef;
+			ref_alloc(static_cast<WORD>(ref.size()));
+			unsigned i = 0;
+			for (const auto& ri : ref) {
+				val.mref.lpmref->reftbl[i++] = ri;
+			}
 		}
 
 		// xltypeInt. Excel usually converts this to num.
@@ -519,7 +537,7 @@ namespace xll {
 				multi_free();
 			}
 			else if (xltype == xltypeRef) {
-				ensure(!"oper_free: xltypeRef not implemented");
+				ref_free();
 			}
 			
 			xltype = xltypeNil;
@@ -644,6 +662,35 @@ namespace xll {
 			ensure(xltype == xltypeMulti);
 			std::for_each(begin(), end(), [](auto& o) { o.oper_free(); });
 			free(val.array.lparray);
+
+			xltype = xltypeNil;
+		}
+		void ref_alloc(WORD count)
+		{
+			using xref = typename traits<X>::xref;
+			using xmref = typename traits<X>::xmref;
+
+			xltype = xltypeRef;
+			val.mref.lpmref = (xmref*)malloc(sizeof(xmref) + count * sizeof(xref));
+			ensure(val.mref.lpmref);
+			val.mref.lpmref->count = count;
+		}
+		void ref_realloc(WORD count)
+		{
+			using xref = typename traits<X>::xref;
+			using xmref = typename traits<X>::xmref;
+
+			ensure(xltype == xltypeRef);
+			void* tmp = realloc(val.mref.lpmref, sizeof(xmref) + count * sizeof(xref));
+			if (tmp) {
+				val.mref.lpmref = (xmref*)tmp;
+				val.mref.lpmref->count = count;
+			}
+		}
+		void ref_free()
+		{
+			ensure(xltype == xltypeRef);
+			free(val.mref.lpmref);
 
 			xltype = xltypeNil;
 		}

@@ -69,10 +69,11 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		Workbook::Select();
 		Workbook::Insert();
 		Workbook::Rename(tab);
-		Selection r1("R1:R1");
+		Select sel("R1:R1");
 		Header().Apply();
-		r1.Formula(tab & OPER(" ") & args->Type());
-		r1.Move(1, 0);
+		sel = Select(OPER(REF(1, 1)));
+		sel.Formula(tab & OPER(" ") & args->Type());
+		sel.Move(1, 0);
 		Excel(xlcFormula, args->FunctionHelp());
 		
 		/*
