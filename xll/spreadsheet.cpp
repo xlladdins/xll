@@ -6,24 +6,47 @@
 
 using namespace xll;
 
+// system default
+const OPER xBlack(1);
+const OPER xWhite(2);
+
+inline Style Header()
+{
+	FormatFont format;
+	format.color = xWhite;
+	format.size_num = 24;
+
+	Alignment align;
+	align.vert_align = (int)Alignment::Vertical::Center;
+	align.horiz_align = (int)Alignment::Horizontal::Right;
+
+	Style Header("Header");
+	Header.FormatFont(format).Alignment(align); // .Pattern(xGreen, xBlue);
+
+	return Header;
+}
+
+#pragma warning(disable: 100)
 // create sample spreadsheet
 bool Spreadsheet(const char* description = "", bool release = false)
 {
-	Colors();
+	using cat_type_text_map = std::map<OPER, std::map<OPER, std::map<OPER, Args*>>>;
 
-	// sort by category, macro type, then function text
-	std::map<OPER, std::map<OPER, std::map<OPER, Args*>>> cat_type_text;
-	for (auto& [key, args] : AddIn::Map) {
-		cat_type_text[args.Category()][args.Type()][args.FunctionText()] = &args;
-	}
+	// custom colors
+	const OPER xGrey = EditColor(56, 0xF0, 0xF0, 0xF0);
+	const OPER xGreen = EditColor(55, 0x00, 0xD1, 0xB1);
+	const OPER xBlue = EditColor(54, 0x31, 0x8B, 0xCE);
 
 	// get dir and filename extension
 	splitpath sp(Excel4(xlGetName).to_string().c_str());
 	OPER dir(release ? ADDIN_URL : sp.dirname().c_str());
-
 	OPER Name(Excel(xlfUpper, OPER(sp.fname)));
-	Rename(Name);
-	Header();
+
+	// sort by category, macro type, then function text
+	cat_type_text_map cat_type_text;
+	for (auto& [key, args] : AddIn::Map) {
+		cat_type_text[args.Category()][args.Type()][args.FunctionText()] = &args;
+	}
 
 	std::list<std::pair<OPER, Args*>> tabs;
 	for (auto& [cat, type_text] : cat_type_text) {
@@ -34,15 +57,25 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		}
 	}
 
+	// global settings
+	//OptionsView global;
+	//global.gridlines = false;
+	//global.View();
+
+	Workbook::Rename(Name);
+
 	// insert sheets with sample call
 	for (auto& [tab, args] : tabs) {
-		OPER old = GetSheet();
-		Excel(xlcWorkbookSelect, old);
-		Excel(xlcWorkbookInsert, OPER(1)); // insert Worksheet
-		Excel(xlcDisplay, OPER(false), OPER(false)); // gridlines off
-		Rename(tab);
-		Header();
-
+		Workbook::Select();
+		Workbook::Insert();
+		Workbook::Rename(tab);
+		Selection r1("R1:R1");
+		Header().Apply();
+		r1.Formula(tab & OPER(" ") & args->Type());
+		r1.Move(1, 0);
+		Excel(xlcFormula, args->FunctionHelp());
+		
+		/*
 		Excel(xlcSelect, OPER(REF(1, 1)));
 		Excel(xlcFormula, tab & OPER(" ") & args->Type());
 
@@ -73,8 +106,10 @@ bool Spreadsheet(const char* description = "", bool release = false)
 			Excel(xlcSelect, xFor);
 			Excel(xlcFormula, OPER("=") & args->FunctionText() & OPER("(") & args->ArgumentText() & OPER(")"));
 		}
+		*/
 	}
 
+	/*
 	OPER book = GetBook();
 	Excel(xlcWorkbookMove, Name, book, OPER(1)); // move main page to first position
 	Excel(xlcWorkbookSelect, Name);
@@ -134,6 +169,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 	// select cell containing the hyperlink
 	Excel(xlcSelect, OPER(REF(1, 1)));
+	*/
 
 	return true;
 }

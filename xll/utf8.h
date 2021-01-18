@@ -35,7 +35,6 @@ namespace utf8 {
 			ensure(0 != (wn = MultiByteToWideChar(CP_UTF8, 0, s, (int)n, nullptr, 0)));
 		}
 
-
 		ws = (wchar_t*)malloc((static_cast<size_t>(wn) + 1) * sizeof(wchar_t));
 		if (ws) {
 			ensure(wn == MultiByteToWideChar(CP_UTF8, 0, s ? s : "", (int)n, ws + 1, wn));

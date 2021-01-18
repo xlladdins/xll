@@ -52,7 +52,9 @@
     <ClCompile Include="xll\dllmain.cpp" />
     <ClCompile Include="xll\document.cpp" />
     <ClCompile Include="xll\error.cpp" />
-    <ClCompile Include="xll\paste.cpp" />
+    <ClCompile Include="xll\paste.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="xll\spreadsheet.cpp" />
     <ClCompile Include="xll\utility.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
