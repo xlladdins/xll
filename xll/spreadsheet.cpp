@@ -33,6 +33,43 @@ inline Style H1()
 	return s;
 }
 
+inline void Header()
+{
+	FormatFont::Color(xWhite);
+	FormatFont::SizeNum(24);
+	Alignment::Align(Alignment::Vertical::Center);
+	Alignment::Align(Alignment::Horizontal::Left);
+	Patterns(xGreen, xWhite);
+}
+inline void Subheader()
+{
+	FormatFont::SizeNum(13);
+}
+inline void ArgumentName()
+{
+	Alignment::Align(Alignment::Horizontal::Right);
+	FormatFont::Bold();
+}
+inline void Category()
+{
+	FormatFont::SizeNum(16);
+	//FormatFont::Bold();
+}
+inline void TableHeader()
+{
+	FormatFont::SizeNum(13);
+	FormatFont::Color(xWhite);
+	Patterns(xBlue, xWhite);
+	//Alignment::Align(Alignment::Vertical::Center);
+	if (Excel(xlfColumn) == 2) {
+		Alignment::Align(Alignment::Horizontal::Right);
+		FormatFont::Bold();
+	}
+	else if (Excel(xlfColumn) == 3) {
+		Alignment::Align(Alignment::Horizontal::Left);
+	}
+}
+
 #pragma warning(disable: 100)
 // create sample spreadsheet
 bool Spreadsheet(const char* description = "", bool release = false)
@@ -81,83 +118,79 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		Workbook::Rename(tab);
 
 		Select sel("R1:R1");
-		H1().Apply();
+		Header();
 
 		sel = Select(REF(0,1)); // B1
 		sel.Set(tab & OPER(" ") & args->Type());
-		sel.Move(1, 0);
-		// ??? H2.Apply() 
+	
+		sel.Down();
 		sel.Set(args->FunctionHelp());
+		Subheader();
+		sel.Down();
 		
 		if (args->isFunction()) {
-			sel.Move(1, 0);
+			sel.Down();
 			sel.Set(args->FunctionText());
 			Alignment::Align(Alignment::Horizontal::Right);
-			sel.Move(0, 1);
+			
+			sel.Right();
 			sel.Formula(OPER("=") & args->FunctionText() & OPER("(") & args->ArgumentText() & OPER(")"));
 
-			sel.Move(1, -1);
+			sel.Left().Down();
 			for (unsigned i = 1; i <= args->ArgumentCount(); ++i) {
 				sel.Set(args->ArgumentName(i));
-				Alignment::Align(Alignment::Horizontal::Right);
-				FormatFont::Bold();
+				ArgumentName();
 				
-				sel.Move(0, 1);
+				sel.Right();
 				OPER ref = paste_default(sel.selection, args, i);
 				xll::Name namei(args->ArgumentName(i));
 				namei.Define(ref, true); // local name
-				sel.Move(0, 1);
+
+				sel.Right();
 				sel.Set(args->ArgumentHelp(i));
-				sel.Move(rows(ref), -2);
+
+				sel.Left(2).Down(rows(ref));
 			}
 		}
 
 	}
 
-	OPER book = Document::Sheet();
+	// move main sheet to first position
+	Workbook::Move(Name, 1);
+	Workbook::Select(Name);
 
-	Excel(xlcWorkbookMove, Name, book, OPER(1)); // move main page to first position
-	Excel(xlcWorkbookSelect, Name);
 	Select sel("R1:R1");
-	H1().Apply();
+	Header();
 
 	sel = Select(REF(0, 1)); // B1
-
 	// "=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
 	sel.Formula(OPER("=HYPERLINK(\"") & dir & OPER(sp.fname) & OPER(" & WinXX() & ") & OPER(sp.ext) & OPER("\", \"") & Name & OPER("\")"));
-	Alignment::Align(Alignment::Horizontal::Left);
 	//Excel(xlcNote, OPER("user: addinuser pass: @addm3"));
 
-	sel.Move(1, 0);
+	sel.Down();
 	sel.Set(OPER(description));
 
-	sel.Move(1, 0);
+	sel.Down(2);
 
 	for (auto& [cat, type_text] : cat_type_text) {
+		if (type_text.size() == 0) {
+			continue;
+		}
 		sel.Set(OPER("Category ") & cat);
-		FormatFont::SizeNum(16);
-		//FormatFont::Bold();
-		sel.Move(1, 0);
+		Category();
+
+		sel.Down();
 		for (auto& [type, text] : type_text) {
-
+			// Function/Macro
 			sel.Set(Excel(xlfProper, type));
-			Alignment::Align(Alignment::Horizontal::Right);
-			//Alignment::Align(Alignment::Vertical::Center);
-			FormatFont::SizeNum(13);
-			FormatFont::Color(xWhite);
-			Patterns(xBlue, xWhite);
+			TableHeader();
 
-			// table header
-			sel.Move(0, 1);
+			sel.Right();
 			sel.Set(OPER("Description"));
-			Alignment::Align(Alignment::Horizontal::Left);
-			//Alignment::Align(Alignment::Vertical::Center);
-			FormatFont::SizeNum(13);
-			FormatFont::Color(xWhite);
-			Patterns(xBlue, xWhite);
+			TableHeader();
 
-			sel.Move(1, -1);
-			int i = 1;
+			sel.Left().Down();
+			int i = 0;
 			for (auto& [key, args] : text) {
 				if (!args->FunctionHelp()) {
 					continue;
@@ -167,13 +200,12 @@ bool Spreadsheet(const char* description = "", bool release = false)
 				Alignment::Align(Alignment::Horizontal::Right);
 				FormatFont::Bold();
 
-				sel.Move(0, 1);
+				sel.Right();
 				Excel(xlcFormula, args->FunctionHelp());
-				// PATTERNS(apattern, afore, aback, newui)
-				//if (i % 2 == 1) {
-					//Background(xGrey);
-				//}
-				sel.Move(1, -1);
+				if (i % 2 == 1) {
+					Patterns(xGrey, xWhite);
+				}
+				sel.Left().Down();
 				++i;
 			}
 		}

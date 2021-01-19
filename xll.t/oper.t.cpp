@@ -89,7 +89,7 @@ int test_oper_default = []()
 }
 ();
 
-int test_oper_num = []()
+int test_oper_num()
 {
 	{
 		OPER4 o(1.23);
@@ -119,8 +119,8 @@ int test_oper_num = []()
 	{
 		OPER4 o;
 		o = 1;
-		ensure(o.xltype == xltypeInt);
-		ensure(o.val.w == 1);
+		ensure(o.xltype == xltypeNum); // just like Excel
+		ensure(o.val.num == 1);
 		ensure(o == 1);
 	}
 	{
@@ -152,7 +152,7 @@ int test_oper_num = []()
 
 	return 0;
 }
-();
+int test_oper_num_ = test_oper_num();
 
 int test_oper_str = []()
 {
@@ -403,24 +403,25 @@ int test_oper_bool = []()
 }
 ();
 
-int test_oper_int = []()
+// ints converted to double, just like Excel
+int test_oper_int()
 {
 	{
 		OPER o(123);
-		ensure(o.xltype == xltypeInt);
-		ensure(o.val.w == 123);
+		ensure(o.xltype == xltypeNum);
+		ensure(o.val.num == 123);
 	}
 	{
 		OPER12 o(-123);
-		ensure(o.xltype == xltypeInt);
-		ensure(o.val.w == -123);
+		ensure(o.xltype == xltypeNum);
+		ensure(o.val.num == -123);
 	}
 
 	return 0;
 }
-();
+int test_oper_int_ = test_oper_int();
 
-int test_compare = []()
+int test_compare()
 {
 	{
 		OPER o1(1.23);
@@ -452,7 +453,7 @@ int test_compare = []()
 
 	return 0;
 }
-();
+int test_compare_ = test_compare();
 
 int test_fp = []()
 {

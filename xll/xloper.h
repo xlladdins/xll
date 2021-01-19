@@ -21,6 +21,8 @@ namespace xll {
 	inline static const int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
 	// do not involve memory allocation
 	inline static const int xltypeScalar = (xltypeNumeric | xltypeErr | xltypeMissing | xltypeNil | xltypeSRef);
+	// turn off xlbit flats
+	inline static const int xlbitmask = ~(xlbitXLFree | xlbitDLLFree);
 
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline unsigned rows(const X& x)
@@ -65,6 +67,30 @@ namespace xll {
 	inline const X* end(const X & x)
 	{
 		return (x.xltype & xltypeMulti) ? static_cast<const X*>(x.val.array.lparray + size(x)) : &x + 1;
+	}
+
+	// str iterator
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline typename traits<X>::xcstr str_begin(const X& x)
+	{
+		return (x.xltype & xltypeStr) ? x.val.str + 1 : nullptr;
+	}
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline typename traits<X>::xcstr str_end(const X& x)
+	{
+		return (x.xltype & xltypeStr) ? x.val.str + 1 + x.val.str[0] : nullptr;
+	}
+
+	// ref iterator
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline typename const traits<X>::xref* ref_begin(const X& x)
+	{
+		return (x.xltype & xltypeRef) ? x.val.mref.lpmref->reftbl : nullptr;
+	}
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline typename const traits<X>::xref* ref_end(const X& x)
+	{
+		return (x.xltype & xltypeRef) ? x.val.mref.lpmref->reftbl + x.val.mref.lpmref->count : nullptr;
 	}
 
 	// one-dimensional index
@@ -137,11 +163,11 @@ inline auto operator<=>(const X& x, const X& y)
 		return xid.i <=> yid.i;
 	}
 	case xltypeStr: {
-		auto cmp = x.val.str[0] <=> y.val.str[0];
-		if (cmp != 0)
-			return cmp;
-
-		return xll::traits<X>::cmp(x.val.str + 1, y.val.str + 1, x.val.str[0]) <=> 0;
+		return std::lexicographical_compare_three_way(
+			x.val.str + 1, x.val.str + 1 + x.val.str[0],
+			y.val.str + 1, y.val.str + 1 + y.val.str[0],
+			[](auto cx, auto cy) { return std::toupper(cx) <=> std::toupper(cy);  }
+			) <=> 0;
 	}
 	case xltypeErr:
 		return x.val.err <=> y.val.err; // false???

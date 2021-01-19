@@ -373,18 +373,35 @@ namespace xll {
 			: Select(xll::Excel(xlfTextref, OPER(selection), OPER(false))) // R1C1
 		{ }
 
-		OPER Offset(int r, int c, int h = 1, int w = 1)
+		OPER Offset(int r, int c, int h = 1, int w = 1) const
 		{
 			return xll::Excel(xlfOffset, selection, OPER(r), OPER(c), OPER(w), OPER(h));
 		}
+
 		// move r rows and c columns
 		Select& Move(int r, int c)
 		{
-			selection = xll::Excel(xlfOffset, selection, OPER(r), OPER(c));
+			selection = Offset(r, c);
 			
 			ensure(Excel(xlcSelect, selection));
 
 			return *this;
+		}
+		Select& Down(int r = 1)
+		{
+			return Move(r, 0);
+		}
+		Select& Up(int r = 1)
+		{
+			return Move(-r, 0);
+		}
+		Select& Right(int c = 1)
+		{
+			return Move(0, c);
+		}
+		Select& Left(int c = 1)
+		{
+			return Move(0, -c);
 		}
 
 		// Enters numbers, text, references, and formulas in a worksheet
@@ -467,13 +484,13 @@ namespace xll {
 	};
 
 	struct Workbook {
-		static void Rename(const OPER& name)
+		static OPER Rename(const OPER& name)
 		{
-			ensure(xll::Excel(xlcWorkbookName, Document::Book(), name));
+			return xll::Excel(xlcWorkbookName, Document::Book(), name);
 		}
-		static void Select(const OPER& name = Document::Sheet())
+		static OPER Select(const OPER& name = Document::Sheet())
 		{
-			ensure(xll::Excel(xlcWorkbookSelect, name));
+			return xll::Excel(xlcWorkbookSelect, name);
 		}
 		// https://xlladdins.github.io/Excel4Macros/workbook.insert.html
 		enum class Type {
@@ -484,9 +501,13 @@ namespace xll {
 			VisualBasicModule = 6,
 			Dialog = 7
 		};
-		static void Insert(enum Type type = Type::Worksheet)
+		static OPER Insert(enum Type type = Type::Worksheet)
 		{
-			ensure(xll::Excel(xlcWorkbookInsert, OPER((int)type)));
+			return xll::Excel(xlcWorkbookInsert, OPER((int)type));
+		}
+		static OPER Move(const OPER& name, int position = 1)
+		{
+			return xll::Excel(xlcWorkbookMove, name, Document::Sheet(), OPER(position));
 		}
 	};
 

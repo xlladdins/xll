@@ -71,7 +71,7 @@ namespace xll {
 			else if (x.xltype & xltypeRef) {
 				ref_alloc(x.val.mref.lpmref->count);
 				val.mref.idSheet = x.val.mref.idSheet;
-				std::copy(x.val.mref.lpmref->reftbl, x.val.mref.lpmref->reftbl + size(), val.mref.lpmref->reftbl);
+				std::copy(ref_begin(x), ref_end(x), val.mref.lpmref->reftbl);
 			}
 			else if (x.xltype & xltypeBigData) {
 				throw std::runtime_error("XOPER: xltypeBigData not supported yet");
@@ -116,7 +116,7 @@ namespace xll {
 		
 		explicit operator bool() const
 		{
-			switch (xltype & ~(xlbitDLLFree|xlbitXLFree)) {
+			switch (xltype & xlbitmask) {
 			case xltypeNum:
 				return val.num != 0;
 			case xltypeStr:
@@ -139,33 +139,32 @@ namespace xll {
 		// IEEE 64-bit floating point number
 		bool is_num() const
 		{
-			return xltype & xltypeNum;
+			return xltype == xltypeNum;
 		}
-		explicit XOPER(double num)
-		{
-			xltype = xltypeNum;
-			val.num = num;
-		}
-		explicit XOPER(size_t num)
+		template<class T> 
+			requires std::is_convertible_v<T,double> // && !std::same_v<T, bool>
+		XOPER(T num)
 		{
 			xltype = xltypeNum;
 			val.num = static_cast<double>(num);
 		}
-		explicit XOPER(unsigned num)
-		{
-			xltype = xltypeNum;
-			val.num = static_cast<double>(num);
-		}
-		XOPER operator=(double num)
+		template<class T>
+			requires std::is_convertible_v<T, double> // && !std::same_v<T, bool>
+		XOPER& operator=(T num)
 		{
 			oper_free();
-			operator=(XOPER(num));
+
+			xltype = xltypeNum;
+			val.num = static_cast<double>(num);
 
 			return *this;
 		}
-		bool operator==(double num) const
+
+		template<class T>
+			requires std::is_convertible_v<T, double> // && !std::same_v<T, bool>
+		bool operator==(T num) const
 		{
-			return (xltype & xltypeNum) && val.num == num;
+			return xltype == xltypeNum && val.num == static_cast<double>(num);
 		}
 		/* not working !!!
 		// handy for using OPERs in numerical expressions
@@ -320,6 +319,10 @@ namespace xll {
 		}
 
 		// xltypeBool
+		bool is_bool() const
+		{
+			return xltype == xltypeBool;
+		}
 		explicit XOPER(bool xbool)
 		{
 			xltype = xltypeBool;
@@ -480,18 +483,10 @@ namespace xll {
 		{
 			return xltype & xltypeInt;
 		}
-		explicit XOPER(int w)
-		{
-			xltype = xltypeInt;
-			val.w = static_cast<xint>(w);
-		}
-		bool operator==(int w) const
-		{
-			return (xltype & xltypeInt) ? val.w == w
-				: (xltype & xltypeNum) ? val.num == w
-				: (xltype & xltypeBool) ? val.xbool == w
-				: false;
-		}
+		// ints get converted to double, just like Excel
+		// explicit XOPER(int w)
+		
+		/*
 		XOPER operator=(int w)
 		{
 			oper_free();
@@ -518,7 +513,7 @@ namespace xll {
 
 			return *this;
 		}
-
+		*/
 	private:
 		// true if memory overlaps with x
 		bool overlap(const X& x) const
