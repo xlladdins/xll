@@ -142,14 +142,14 @@ namespace xll {
 			return xltype == xltypeNum;
 		}
 		template<class T> 
-			requires std::is_convertible_v<T,double> // && !std::same_v<T, bool>
+			requires std::is_convertible_v<T,double>
 		XOPER(T num)
 		{
 			xltype = xltypeNum;
 			val.num = static_cast<double>(num);
 		}
 		template<class T>
-			requires std::is_convertible_v<T, double> // && !std::same_v<T, bool>
+			requires std::is_convertible_v<T, double>
 		XOPER& operator=(T num)
 		{
 			oper_free();
@@ -161,7 +161,7 @@ namespace xll {
 		}
 
 		template<class T>
-			requires std::is_convertible_v<T, double> // && !std::same_v<T, bool>
+			requires std::is_convertible_v<T, double>
 		bool operator==(T num) const
 		{
 			return xltype == xltypeNum && val.num == static_cast<double>(num);
@@ -330,7 +330,7 @@ namespace xll {
 		}
 		bool operator==(bool xbool) const
 		{
-			return (xltype & xltypeBool) && val.xbool == static_cast<typename traits<X>::xbool>(xbool);
+			return xltype == xltypeBool and val.xbool == static_cast<typename traits<X>::xbool>(xbool);
 		}
 		XOPER operator=(bool xbool)
 		{
@@ -472,10 +472,7 @@ namespace xll {
 		{
 			xltype = xltypeRef;
 			ref_alloc(static_cast<WORD>(ref.size()));
-			unsigned i = 0;
-			for (const auto& ri : ref) {
-				val.mref.lpmref->reftbl[i++] = ri;
-			}
+			std::copy(ref.begin(), ref.end(), val.mref.lpmref->reftbl);
 		}
 
 		// xltypeInt. Excel usually converts this to num.
@@ -484,36 +481,7 @@ namespace xll {
 			return xltype & xltypeInt;
 		}
 		// ints get converted to double, just like Excel
-		// explicit XOPER(int w)
-		
-		/*
-		XOPER operator=(int w)
-		{
-			oper_free();
-			operator=(XOPER(w));
 
-			return *this;
-		}
-		explicit XOPER(DWORD w)
-		{
-			xltype = xltypeNum;
-			val.num = static_cast<double>(w);
-		}
-		bool operator==(DWORD w) const
-		{
-			return (xltype & xltypeInt) ? val.w == w
-				: (xltype & xltypeNum) ? val.num == w
-				: (xltype & xltypeBool) ? val.xbool == w
-				: false;
-		}
-		XOPER operator=(DWORD w)
-		{
-			oper_free();
-			operator=(XOPER(w));
-
-			return *this;
-		}
-		*/
 	private:
 		// true if memory overlaps with x
 		bool overlap(const X& x) const
