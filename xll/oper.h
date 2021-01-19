@@ -149,7 +149,11 @@ namespace xll {
 		explicit XOPER(size_t num)
 		{
 			xltype = xltypeNum;
-			ensure (num < (1<<53));
+			val.num = static_cast<double>(num);
+		}
+		explicit XOPER(unsigned num)
+		{
+			xltype = xltypeNum;
 			val.num = static_cast<double>(num);
 		}
 		XOPER operator=(double num)
