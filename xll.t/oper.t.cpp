@@ -2,7 +2,6 @@
 #undef NDEBUG
 #include <cassert>
 #include <functional>
-#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
@@ -270,38 +269,38 @@ int test_oper_multi = []()
 
 		m(1,0) = "foo";
 		ensure(m(1,0).xltype == xltypeStr);
-		ensure(m(1,0) == "foo");
-		ensure(m[3] == "foo");
+		ensure(m(1,0) == _T("foo"));
+		ensure(m[3] == _T("foo"));
 
 		m.resize(3, 2);
 		ensure(m.xltype == xltypeMulti);
 		ensure(m.rows() == 3);
 		ensure(m.columns() == 2);
 		ensure(m.size() == 6);
-		ensure(m[3] == "foo");
-		ensure(m(1, 1) == "foo");
+		ensure(m[3] == _T("foo"));
+		ensure(m(1, 1) == _T("foo"));
 
 		m.resize(2, 2);
 		ensure(m.xltype == xltypeMulti);
 		ensure(m.rows() == 2);
 		ensure(m.columns() == 2);
 		ensure(m.size() == 4);
-		ensure(m[3] == "foo");
-		ensure(m(1, 1) == "foo");
+		ensure(m[3] == _T("foo"));
+		ensure(m(1, 1) == _T("foo"));
 
 		m.resize(3, 3);
 		ensure(m.xltype == xltypeMulti);
 		ensure(m.rows() == 3);
 		ensure(m.columns() == 3);
 		ensure(m.size() == 9);
-		ensure(m[3] == "foo");
-		ensure(m(1, 0) == "foo");
+		ensure(m[3] == _T("foo"));
+		ensure(m(1, 0) == _T("foo"));
 
 		m(1, 2) = OPER("bar");
-		ensure(m(1, 2) == "bar");
+		ensure(m(1, 2) == _T("bar"));
 
 		m(2, 1) = m; // multis can nest
-		ensure(m(2, 1)(1, 2) == "bar");
+		ensure(m(2, 1)(1, 2) == _T("bar"));
 	}
 	{
 		OPER o;
@@ -336,14 +335,14 @@ int test_oper_multi = []()
 		ensure(o.rows() == 1);
 		ensure(o.columns() == 2);
 		ensure(o[0] == 1.23);
-		ensure(o[1] == "foo");
+		ensure(o[1] == _T("foo"));
 		o.append_bottom(o);
 		ensure(o.rows() == 2);
 		ensure(o.columns() == 2);
 		ensure(o[0] == 1.23);
-		ensure(o[1] == "foo");
+		ensure(o[1] == _T("foo"));
 		ensure(o[2] == 1.23);
-		ensure(o[3] == "foo");
+		ensure(o[3] == _T("foo"));
 	}
 	{
 		OPER o({ OPER(1.23), OPER("foo") });
@@ -351,7 +350,7 @@ int test_oper_multi = []()
 		ensure(o.rows() == 1);
 		ensure(o.columns() == 2);
 		ensure(o[0] == 1.23);
-		ensure(o[1] == "foo");
+		ensure(o[1] == _T("foo"));
 		XLOPERX x;
 		XLOPERX x2[2];
 		x2[0].xltype = xltypeMissing;
@@ -364,7 +363,7 @@ int test_oper_multi = []()
 		ensure(o.rows() == 2);
 		ensure(o.columns() == 2);
 		ensure(o[0] == 1.23);
-		ensure(o[1] == "foo");
+		ensure(o[1] == _T("foo"));
 		ensure(o[2].xltype == xltypeMissing);
 		ensure(o[3].xltype == xltypeErr);
 	}

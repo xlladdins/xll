@@ -117,7 +117,7 @@ ofs << "</tbody>\n</table>\n</blockquote>\n"
 	}
 
 	// Generate documentation for add-ins;
-	bool Document(const char* category, const char* description)
+	bool HTMLDocumentation(const char* category, const char* description)
 	{
 		splitpath sp(Excel4(xlGetName).to_string().c_str());
 		std::string ofile(sp.dirname() + "index.html");

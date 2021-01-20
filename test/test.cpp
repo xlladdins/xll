@@ -1,6 +1,6 @@
 ﻿#include <cmath>
 // Uncomment to use Excel4 API. Default is XLOPER12.
-//#define XLOPERX XLOPER
+//#define XLL_VERSION 4
 #include "../xll/xll.h"
 
 using namespace xll;
