@@ -2,39 +2,34 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 
-#ifndef XLOPERX
+// Parameterize by XLL_VERSION
+// Define to be 12 for Excel 2007 and later or 4 otherwise
+#ifndef XLL_VERSION
 #define XLL_VERSION 12
+#endif
+
+#ifndef XLOPERX
+#if XLL_VERSION == 12
 #define XLOPERX XLOPER12
-#define LPXLOPERX LPXLOPER12
-#define TEXTX(s) L##s
-#define TEXTR(s) RL"xyzyx(##s)xyzyx"
-typedef struct _FP12 _FPX;
-
-#undef _MBCS
-
-#ifndef _UNICODE
-#define _UNICODE
-#endif
-
-#ifndef UNICODE
-#define UNICODE
-#endif
-
 #else
-
-#define XLL_VERSION 4
-#define XLOPERX XLOPER
-#define LPXLOPERX LPXLOPER
-#define TEXTX(s) u8##s
-#define TEXTR(s) u8R"xyzyx(##s##)xyzyx"
-typedef struct _FP _FPX;
-
-#ifndef _MBCS
-#define _MBCS
+#define XLOPERX XLOPER4
+#endif
 #endif
 
-#undef _UNICODE
-#undef UNICODE
+#if XLL_VERSION == 12
+	#undef _MBCS
+	#ifndef _UNICODE
+	#define _UNICODE
+	#endif
+	#ifndef UNICODE
+	#define UNICODE
+	#endif
+#else
+	#ifndef _MBCS
+	#define _MBCS
+	#endif
+	#undef _UNICODE
+	#undef UNICODE
 #endif
 
 #define NOMINMAX
@@ -43,6 +38,17 @@ typedef struct _FP _FPX;
 #include <tchar.h>
 #include "XLCALL.H"
 
+#if XLL_VERSION == 12
+#define LPXLOPERX LPXLOPER12
+#define TEXTX(s) L##s
+#define TEXTR(s) RL"xyzyx(##s)xyzyx"
+typedef struct _FP12 _FPX;
+#else // 
+#define LPXLOPERX LPXLOPER
+#define TEXTX(s) u8##s
+#define TEXTR(s) u8R"xyzyx(##s##)xyzyx"
+typedef struct _FP _FPX;
+#endif
 
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \
@@ -112,8 +118,8 @@ XLL_ARG_TYPE(X)
 #ifdef __cplusplus
 }
 #endif
-
+/*
 #define XLL_CONST(type, name, value, help, cat, topic) \
 AddIn xai_ ## name (Function(XLL_##type, "_xll_" #name , #name).FunctionHelp(help).Category(cat).HelpTopic(topic)); \
 extern "C" _declspec(dllexport) type WINAPI xll_ ## name () { return value; }
-
+*/

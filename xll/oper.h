@@ -694,7 +694,6 @@ inline xll::OPER12 operator&(const XLOPER12& x, const wchar_t* y)
 }
 
 /*
-// use xlfEvaluate???
 inline auto& operator<<(std::ostream& os, const xll::OPER& o)
 {
 	switch (o.xltype) {

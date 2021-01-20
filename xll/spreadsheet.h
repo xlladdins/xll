@@ -7,6 +7,7 @@
 // We throw in some enums from the documentation for the macro function
 // and provide static members for common operations.
 #pragma once
+#define XLOPERX XLOPER12
 #include "xll.h"
 
 #define ADDIN_URL "https://xlladdins.com/addins/"
@@ -445,7 +446,48 @@ namespace xll {
 		{
 			return xll::Excel(xlcNote, OPER(note), selection);
 		}
+		enum Type {
+			Notes = 1,
+			Constants = 2,
+			Formulas = 3,
+			Blanks = 4,
+			CurrentRegion = 5,
+			Current = 6, // current array
+			RowDifferences = 7,
+			ColumnDifferences = 8,
+			Precedents = 9,
+			Dependents = 10,
+			LastCell = 11,
+			VisibleCellsOnly = 12, // (outlining)
+			AllObjects = 13
+		};
+		enum ValueType {
+			Numbers = 1,
+			Text = 2,
+			Logical = 4, 
+			Error = 16,
+			Default = Numbers + Text + Logical + Error
+		};
+		enum Level {
+			Direct = 1,
+			All = 2
+		};
+		// uses active cell implicitly
+		static OPER Special(Type type, ValueType value = ValueType::Default, Level level = Level::Direct)
+		{
+			OPER type_num = type;
+			OPER value_type = Missing;
+			OPER levels = Missing;
 
+			if (type == Type::Constants or type == Type::Formulas) {
+				value_type = value;
+			}
+			else if (type == Type::Precedents or type == Type::Dependents) {
+				levels = level;
+			}
+
+			return xll::Excel(xlcSelectSpecial, type_num, value_type, levels);
+		}
 	};
 
 	struct Name {
@@ -548,13 +590,13 @@ namespace xll {
 	*/
 	// paste default argument at ref and return reference to what was pasted
 	template<class X>
-	inline XOPER<X> paste_default(XOPER<X> ref, const XArgs<X>* pa, unsigned i)
+	inline OPER paste_default(OPER ref, const XArgs<X>* pa, unsigned i)
 	{
-		const XOPER<X>& x = pa->ArgumentDefault(i);
+		const OPER& x = pa->ArgumentDefault(i);
 
 		if (x.is_str() and x.val.str[1] == '=') {
 			// formula
-			XOPER<X> xi = XExcel<X>(xlfEvaluate, x);
+			OPER xi = XExcel<X>(xlfEvaluate, x);
 			ensure(xi);
 			if (size(xi) == 1) {
 				ensure(XExcel<X>(xlcFormula, x, ref));
@@ -569,7 +611,7 @@ namespace xll {
 		else {
 			auto rw = rows(x);
 			auto col = columns(x);
-			ref = XExcel<X>(xlfOffset, ref, XOPER<X>(0), XOPER<X>(0), XOPER<X>(rw), XOPER<X>(col));
+			ref = XExcel<X>(xlfOffset, ref, OPER(0), OPER(0), OPER(rw), OPER(col));
 			ensure(XExcel<X>(xlcFormula, x, ref));
 		}
 		

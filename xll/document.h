@@ -3,8 +3,6 @@
 
 namespace xll {
 
-	// hide???
-	bool Document(const char*, const char*);
 
 	// call to generate all documentation for an add-in
 	inline int Documentation([[maybe_unused]] const char* name, [[maybe_unused]] const char* description)

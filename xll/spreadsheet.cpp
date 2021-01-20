@@ -1,6 +1,5 @@
 // spreadsheet.cpp
 #include "splitpath.h"
-#include "xll.h"
 #include "spreadsheet.h"
 
 using namespace xll;
@@ -17,6 +16,7 @@ static OPER xGreen;
 const Color blue(0x31, 0x8B, 0xCE);
 static OPER xBlue;
 
+/*
 inline Style H1()
 {
 	FormatFont format;
@@ -32,7 +32,7 @@ inline Style H1()
 
 	return s;
 }
-
+*/
 inline void Header()
 {
 	FormatFont::Color(xWhite);

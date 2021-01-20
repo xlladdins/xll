@@ -8,20 +8,11 @@
 using namespace xll;
 using xll::Excel;
 
-// paste argument into xActi, return reference for formula
 template<class X>
-inline XOPER<X> paste_default(const XOPER<X>& xAct, const XOPER<X>& xActi, const XOPER<X>& xDef)
+inline void Move(int r, int c)
 {
-	XOPER<X> xRel = XExcel<X>(xlfRelref, xActi, xAct);
-
-	if (xDef && xDef.xltype == xltypeStr && xDef.val.str[0] > 0 && xDef.val.str[1] == '=') {
-		XExcel<X>(xlcFormula, xDef);
-	}
-	else {
-		XExcel<X>(xlSet, xActi, xDef);
-	}
-
-	return xRel;
+	Select<X> sel;
+	sel.Move(r, c);
 }
 
 template<class X>
@@ -31,22 +22,17 @@ void xll_paste_regid(const XArgs<X>& args)
 
 	XOPER<X> xFor = XOPER<X>("=") & args.FunctionText() & XOPER<X>("(");
 
-	for (unsigned short i = 0; i < args.ArgumentCount(); ++i) {
-		Move(1,0);
+	for (unsigned short i = 1; i <= args.ArgumentCount(); ++i) {
+		Move<X>(1,0);
 
-		XOPER<X> xActi = XExcel<X>(xlfActiveCell);
-		XOPER<X> xDef = args.ArgumentDefault(i);
-		XOPER<X> xRel = paste_default(xAct, xActi, xDef);
+		XOPER<X> xRel = paste_default(xAct, &args, i);
 
-		if (i > 0) {
+		if (i > 1) {
 			xFor.append(XOPER<X>(", "));
 		}
-		xFor.append(xRel);
+		xFor.append(XExcel<X>(xlfReftext, xRel));
 	}
 	xFor.append(XOPER<X>(")"));
-
-	XExcel<X>(xlcSelect, xAct);
-	XExcel<X>(xlcFormula, xFor);
 }
 
 void xll_paste_regidx(void)
@@ -73,35 +59,30 @@ void xll_paste_regidx(void)
 template<class X>
 void xll_paste_name(const XArgs<X>& args)
 {
-	XOPER<X> xAct = XExcel<X>(xlfActiveCell);
-	XOPER<X> xPre = XExcel<X>(xlCoerce, xAct);
-
+	Select<X> xAct;
 	XOPER<X> xFor = XOPER<X>("=") & args.FunctionText() & XOPER<X>("(");
 
-	for (unsigned short i = 0; i < args.ArgumentCount(); ++i) {
-		Move(1,0);
+	for (unsigned short i = 1; i <= args.ArgumentCount(); ++i) {
+		Move<X>(1,0);
+		XOPER<X> xNamei = args.ArgumentName(i);
+		XExcel<X>(xlcFormula, xNamei);
 
-		XExcel<X>(xlcFormula, args.ArgumentName(i));
-		XOPER<X> xNamei = xPre & args.ArgumentName(i);
-
-		Move(0,1);
-		XOPER<X> xActi = XExcel<X>(xlfActiveCell);
-		XOPER<X> xDef = args.ArgumentDefault(i);
-		XOPER<X> xRel = paste_default(xAct, xActi, xDef);
-		XExcel<X>(xlcDefineName, xNamei, XExcel<X>(xlfAbsref, xRel, xAct));
-		Move(0, -1);
-
-		if (i > 0) {
+		Move<X>(0,1);
+		Name namei(xNamei);
+		namei.Define(Select<X>::Special(Select<X>::Type::Current), true);
+		
+		Move<X>(0, -1);
+		if (i > 1) {
 			xFor.append(", ");
 		}
 		xFor.append(xNamei);
 	}
 	xFor.append(XOPER<X>(")"));
 
-	XExcel<X>(xlcSelect, xAct);
-	Move(0, -1);
+	XExcel<X>(xlcSelect, xAct.selection);
+	Move<X>(0, -1);
 	XExcel<X>(xlcFormula, xFor);
-	Move(0, 1);
+	Move<X>(0, 1);
 }
 
 void xll_paste_namex(void)
@@ -310,14 +291,14 @@ xll_paste_create(void)
 
 		xFor &= OPER("(");
 
-		for (unsigned short i = 0; i < args.ArgumentCount(); ++i) {
-			Move(1, 0);
+		for (unsigned i = 1; i <= args.ArgumentCount(); ++i) {
+			Move<XLOPER>(1, 0);
 
 			OPER xNamei = args.ArgumentName(i);
 			Excel(xlcFormula, xNamei);
 			Excel(xlcAlignment, OPER(4)); // align right
 
-			Move(0, 1);
+			Move<XLOPER>(0, 1);
 
 			// paste default argument
 			OPER xEval = Excel(xlfEvaluate, args.ArgumentDefault(i));
@@ -335,27 +316,28 @@ xll_paste_create(void)
 			Excel(xlcDefineName, xNamei);
 
 			// style
+			/*
 			if (xNamei.val.str[1] == '[') {
 				ApplyStyle("Optional");
 			}
 			else {
 				ApplyStyle("Input");
 			}
-
-			if (i > 0) {
+			*/
+			if (i > 1) {
 				xFor &= OPER(", ");
 			}
 			xFor &= xNamei;
 
-			Move(0, -1);
+			Move<XLOPER>(0, -1);
 		}
 		xFor &= OPER(")");
 
 		Excel(xlcSelect, xAct);
-		Move(0, 1);
+		Move<XLOPER>(0, 1);
 		Excel(xlcFormula, xFor);
-		ApplyStyle("Output");
-		Move(0, -1);
+		// ApplyStyle("Output");
+		Move<XLOPER>(0, -1);
 
 		Excel(xlcFormula, args.FunctionText());
 		Excel(xlcAlignment, OPER(4)); // align right
