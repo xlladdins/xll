@@ -135,6 +135,8 @@ bool Spreadsheet(const char* description = "", bool release = false)
 			
 			sel.Right();
 			sel.Formula(OPER("=") & args->FunctionText() & OPER("(") & args->ArgumentText() & OPER(")"));
+			xll::Name name0(args->FunctionText());
+			name0.Define(sel.selection, true);
 
 			sel.Left().Down();
 			for (unsigned i = 1; i <= args->ArgumentCount(); ++i) {
@@ -152,12 +154,13 @@ bool Spreadsheet(const char* description = "", bool release = false)
 				sel.Left(2).Down(rows(ref));
 			}
 		}
-
+		//!!! select args->FunctionText()
 	}
 
 	// move main sheet to first position
-	Workbook::Move(Name, 1);
+	//Workbook::Move(Name, 1);
 	Workbook::Select(Name);
+	Workbook::Move(Name, 1);
 
 	Select sel("R1:R1");
 	Header();
@@ -196,7 +199,9 @@ bool Spreadsheet(const char* description = "", bool release = false)
 					continue;
 				}
 				// table row
-				Excel(xlcFormula, args->FunctionText());
+				OPER ft = args->FunctionText();
+				OPER hl = OPER("=HYPERLINK(CELL(\"address\", ") & ft & OPER("!") & ft & OPER(")");
+				Excel(xlcFormula, hl & OPER(", \"") & ft & OPER("\")"));
 				Alignment::Align(Alignment::Horizontal::Right);
 				FormatFont::Bold();
 
