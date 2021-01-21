@@ -2,7 +2,7 @@
 #pragma once
 #include "traits.h"
 
-inline auto size(const _FP& a)
+inline unsigned size(const _FP& a)
 {
 	return a.rows * a.columns;
 }
@@ -25,7 +25,7 @@ inline const double* end(const _FP& a)
 	return a.array + size(a);
 }
 
-inline auto size(const _FP12& a)
+inline unsigned size(const _FP12& a)
 {
 	return a.rows * a.columns;
 }
