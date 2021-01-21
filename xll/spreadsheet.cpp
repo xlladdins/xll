@@ -9,11 +9,11 @@ const OPER xBlack(1);
 const OPER xWhite(2);
 
 // custom colors
-const Color grey(0xF0, 0xF0, 0xF0);
+const EditColor grey(0xF0, 0xF0, 0xF0);
 static OPER xGrey;
-const Color green(0x00, 0xD1, 0xB1);
+const EditColor green(0x00, 0xD1, 0xB1);
 static OPER xGreen;
-const Color blue(0x31, 0x8B, 0xCE);
+const EditColor blue(0x31, 0x8B, 0xCE);
 static OPER xBlue;
 
 /*
@@ -77,9 +77,9 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	using cat_type_text_map = std::map<OPER, std::map<OPER, std::map<OPER, Args*>>>;
 
 	// custom colors
-	xGrey = grey.Edit();
-	xGreen = green.Edit();
-	xBlue = blue.Edit();
+	xGrey = grey.Color();
+	xGreen = green.Color();
+	xBlue = blue.Color();
 
 	// get dir and filename extension
 	splitpath sp(Excel4(xlGetName).to_string().c_str());
