@@ -137,6 +137,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 			sel.Formula(OPER("=") & args->FunctionText() & OPER("(") & args->ArgumentText() & OPER(")"));
 			xll::Name name0(args->FunctionText());
 			name0.Define(sel.selection, true);
+			OPER xFunctionText = sel.selection;
 
 			sel.Left().Down();
 			for (unsigned i = 1; i <= args->ArgumentCount(); ++i) {
@@ -153,8 +154,8 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 				sel.Left(2).Down(rows(ref));
 			}
+			Excel(xlcSelect, xFunctionText);
 		}
-		//!!! select args->FunctionText()
 	}
 
 	// move main sheet to first position
