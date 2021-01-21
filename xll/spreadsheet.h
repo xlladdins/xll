@@ -376,7 +376,7 @@ namespace xll {
 
 		OPER Offset(int r, int c, int h = 1, int w = 1) const
 		{
-			return xll::Excel(xlfOffset, selection, OPER(r), OPER(c), OPER(w), OPER(h));
+			return xll::Excel(xlfOffset, selection, OPER(r), OPER(c), OPER(h), OPER(w));
 		}
 
 		// move r rows and c columns
