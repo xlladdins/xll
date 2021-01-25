@@ -30,6 +30,7 @@ namespace xll {
 		typedef typename traits<X_>::xchar charx;
 		typedef typename traits<X>::xcstr xcstr;
 		typedef typename traits<X_>::xcstr cstrx;
+		typedef typename traits<X>::xbool xbool;
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xrw xrw;
 		typedef typename traits<X>::xcol xcol;
@@ -137,10 +138,6 @@ namespace xll {
 		}
 		/**/
 		// IEEE 64-bit floating point number
-		bool is_num() const
-		{
-			return xltype == xltypeNum;
-		}
 		template<class T> 
 			requires std::is_convertible_v<T,double>
 		XOPER(T num)
@@ -159,42 +156,27 @@ namespace xll {
 
 			return *this;
 		}
-
 		template<class T>
 			requires std::is_convertible_v<T, double>
 		bool operator==(T num) const
 		{
 			return xltype == xltypeNum && val.num == static_cast<double>(num);
 		}
-		/* not working !!!
-		// handy for using OPERs in numerical expressions
-		operator double()
+		bool is_num() const
 		{
-			return (xltype & xltypeNum) ? val.num 
-				 : (xltype & xltypeInt) ? val.w 
-				 : (xltype & xltypeBool) ? val.xbool 
-				 : std::numeric_limits<double>::quiet_NaN();
+			return xltype == xltypeNum;
 		}
-		*/
-
-		bool is_str() const
+		const double& as_num() const
 		{
-			return xltype & xltypeStr;
+			ensure(is_num());
+
+			return val.num;
 		}
-		std::string to_string() const
+		double& as_num()
 		{
-			if (xltype & xltypeNil) {
-				return "";
-			}
+			ensure(is_num());
 
-			ensure(is_str());
-
-			if constexpr (std::is_same_v<X, XLOPER>) {
-				return std::string(val.str + 1, val.str[0]);
-			}
-			else {
-				return utf8::wcstostring(val.str + 1, val.str[0]);
-			}
+			return val.num;
 		}
 
 		// xltypeStr given length
@@ -253,6 +235,34 @@ namespace xll {
 
 			return *this;
 		}
+		bool is_str() const
+		{
+			return xltype & xltypeStr;
+		}
+		// reference to counted string
+		const xcstr& as_str() const
+		{
+			ensure(is_str());
+
+			return val.str;
+		}
+		// xcstr& as_str() not provided
+		std::string to_string() const
+		{
+			if (xltype & xltypeNil) {
+				return "";
+			}
+
+			ensure(is_str());
+
+			if constexpr (std::is_same_v<X, XLOPER>) {
+				return std::string(val.str + 1, val.str[0]);
+			}
+			else {
+				return utf8::wcstostring(val.str + 1, val.str[0]);
+			}
+		}
+		// string building
 		XOPER& append(const X& x)
 		{
 			if (x.xltype == xltypeNil) {
@@ -319,10 +329,6 @@ namespace xll {
 		}
 
 		// xltypeBool
-		bool is_bool() const
-		{
-			return xltype == xltypeBool;
-		}
 		explicit XOPER(bool xbool)
 		{
 			xltype = xltypeBool;
@@ -339,9 +345,42 @@ namespace xll {
 
 			return *this;
 		}
+		bool is_bool() const
+		{
+			return xltype == xltypeBool;
+		}
+		xbool& as_bool()
+		{
+			ensure(is_bool());
 
-		// xltypeRef
+			return val.xbool;
+		}
+		const xbool& as_bool() const
+		{
+			ensure(is_bool());
+
+			return val.xbool;
+		}
+
 		// xltypeErr - predifined as ErrXXX
+#define XLL_ERR_ENUM(a, b, c) a = xlerr##a,
+		enum class Err {
+			XLL_ERR_TYPE(XLL_ERR_ENUM)
+		};
+#undef XLL_ERR_ENUM
+		XOPER(enum Err err)
+		{
+			xltype = xltypeErr;
+			val.err = static_cast<WORD>(err);
+		}
+		XOPER& operator=(enum Err err)
+		{
+			oper_free();
+			xltype = xltypeErr;
+			val.err = static_cast<WORD>(err);
+
+			return *this;
+		}
 		bool is_err() const
 		{
 			return xltype == xltypeErr;
@@ -450,29 +489,54 @@ namespace xll {
 		// xltypeNil - predefined as Nil
 
 		// xltypeSRef - reference to a single range
-		bool is_sref() const
-		{
-			return xltype & xltypeSRef;
-		}
 		XOPER(xrw row, xcol col, xrw height, xcol width)
 		{
 			xltype = xltypeSRef;
 			val.sref.count = 1;
-			val.sref.ref = XREF<X>(row, col, height, width);
+			val.sref.ref = xref(row, col, height, width);
 		}
-		XOPER(const typename traits<X>::xref& ref)
+		XOPER(const xref& ref)
 		{
 			xltype = xltypeSRef;
 			val.sref.count = 1;
 			val.sref.ref = ref;
 		}
-		
+		bool is_sref() const
+		{
+			return xltype == xltypeSRef;
+		}
+		const xref& as_sref() const
+		{
+			return val.sref.ref;
+		}
+		xref& as_sref()
+		{
+			return val.sref.ref;
+		}
+
 		// xltypeRef - reference to multiple refs
-		XOPER(const std::initializer_list<XREF<X>>& ref)
+		XOPER(const std::initializer_list<xref>& ref)
 		{
 			xltype = xltypeRef;
 			ref_alloc(static_cast<WORD>(ref.size()));
 			std::copy(ref.begin(), ref.end(), val.mref.lpmref->reftbl);
+		}
+		bool is_ref() const
+		{
+			return xltype & xltypeRef;
+		}
+		// size() returns number of refs
+		const xref* as_ref() const
+		{
+			ensure(is_ref());
+
+			return val.mref.lpmref->reftbl;
+		}
+		xref* as_ref()
+		{
+			ensure(is_ref());
+
+			return val.mref.lpmref->reftbl;
 		}
 
 		// xltypeInt. Excel usually converts this to num.
@@ -481,6 +545,18 @@ namespace xll {
 			return xltype & xltypeInt;
 		}
 		// ints get converted to double, just like Excel
+		const xint& as_int() const
+		{
+			ensure(is_int());
+
+			return val.w;
+		}
+		xint& as_int()
+		{
+			ensure(is_int());
+
+			return val.w;
+		}
 
 	private:
 		// true if memory overlaps with x
