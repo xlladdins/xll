@@ -166,8 +166,8 @@ inline auto operator<=>(const X& x, const X& y)
 		return std::lexicographical_compare_three_way(
 			x.val.str + 1, x.val.str + 1 + x.val.str[0],
 			y.val.str + 1, y.val.str + 1 + y.val.str[0],
-			[](auto cx, auto cy) { return std::toupper(cx) <=> std::toupper(cy);  }
-			) <=> 0;
+			[](auto cx, auto cy) { return std::toupper(cx) <=> std::toupper(cy); }
+		);
 	}
 	case xltypeErr:
 		return x.val.err <=> y.val.err; // false???
