@@ -3,7 +3,7 @@
 // For xlcMacroFun having many arguments we define struct MacroFun.
 // It has OPER members with exactly the same name as the documentation
 // and a member OPER Fun() that calls Excel(xlcMacroFun, args...),
-// and possible come convenience functions making it easier to use.
+// and possibly come convenience functions making it easier to use.
 // We throw in some enums from the documentation for the macro function
 // and provide static members for common operations.
 #pragma once
@@ -18,11 +18,12 @@ using xll::Excel;
 namespace xll {
 
 	// RGB colors in the palette
-	class Color {
+	// https://xlladdins.github.io/Excel4Macros/edit.color.html
+	class EditColor {
 		inline static int count = 57; // largest index
 	public:
 		OPER r, g, b;
-		Color(int _r, int _g, int _b)
+		EditColor(int _r, int _g, int _b)
 			: r(_r), g(_g), b(_b)
 		{
 			ensure(0 <= _r and _r <= 255);
@@ -30,7 +31,7 @@ namespace xll {
 			ensure(0 <= _b and _b <= 255);
 		}
 		// Add to color palette
-		OPER Edit() const
+		OPER Color() const
 		{
 			ensure(--count > 10);
 			ensure(xll::Excel(xlcEditColor, OPER(count), OPER(r), OPER(g), OPER(b)));
@@ -103,7 +104,7 @@ namespace xll {
 		OPER outline = Missing;
 		OPER shadow = Missing;
 
-		OPER Format()
+		OPER Font()
 		{
 			return xll::Excel(xlcFormatFont, name_text, size_num,
 				bold, italic, underline, strike,
@@ -112,31 +113,31 @@ namespace xll {
 
 		static OPER NameText(const char* name)
 		{
-			FormatFont ff; ff.name_text = name; return ff.Format();
+			FormatFont ff; ff.name_text = name; return ff.Font();
 		}
 		static OPER SizeNum(int size)
 		{
-			FormatFont ff; ff.size_num = size; return ff.Format();
+			FormatFont ff; ff.size_num = size; return ff.Font();
 		}
 		static OPER Color(const OPER& color)
 		{
-			FormatFont ff; ff.color = color; return ff.Format();
+			FormatFont ff; ff.color = color; return ff.Font();
 		}
 		static OPER Bold(bool b = true)
 		{
-			FormatFont ff; ff.bold = b; return ff.Format();
+			FormatFont ff; ff.bold = b; return ff.Font();
 		}
 		static OPER Italic(bool b = true)
 		{
-			FormatFont ff; ff.italic = b; return ff.Format();
+			FormatFont ff; ff.italic = b; return ff.Font();
 		}
 		static OPER Underline(bool b = true)
 		{
-			FormatFont ff; ff.underline = b; return ff.Format();
+			FormatFont ff; ff.underline = b; return ff.Font();
 		}
 		static OPER Strike(bool b = true)
 		{
-			FormatFont ff; ff.strike = b; return ff.Format();
+			FormatFont ff; ff.strike = b; return ff.Font();
 		}
 	};
 
@@ -202,6 +203,7 @@ namespace xll {
 
 
 	// Cell information from xlcGetCell
+	// https://xlladdins.github.io/Excel4Macros/get.cell.html
 	struct Cell {
 		OPER ref;
 		Cell(const OPER& ref = xll::Excel(xlfActiveCell))
@@ -376,7 +378,7 @@ namespace xll {
 
 		OPER Offset(int r, int c, int h = 1, int w = 1) const
 		{
-			return xll::Excel(xlfOffset, selection, OPER(r), OPER(c), OPER(w), OPER(h));
+			return xll::Excel(xlfOffset, selection, OPER(r), OPER(c), OPER(h), OPER(w));
 		}
 
 		// move r rows and c columns
@@ -446,7 +448,7 @@ namespace xll {
 		{
 			return xll::Excel(xlcNote, OPER(note), selection);
 		}
-		enum Type {
+		enum class Type {
 			Notes = 1,
 			Constants = 2,
 			Formulas = 3,
@@ -461,29 +463,29 @@ namespace xll {
 			VisibleCellsOnly = 12, // (outlining)
 			AllObjects = 13
 		};
-		enum ValueType {
+		enum class ValueType {
 			Numbers = 1,
 			Text = 2,
 			Logical = 4, 
 			Error = 16,
 			Default = Numbers + Text + Logical + Error
 		};
-		enum Level {
+		enum class Level {
 			Direct = 1,
 			All = 2
 		};
 		// uses active cell implicitly
 		static OPER Special(Type type, ValueType value = ValueType::Default, Level level = Level::Direct)
 		{
-			OPER type_num = type;
+			OPER type_num = OPER((int)type);
 			OPER value_type = Missing;
 			OPER levels = Missing;
 
 			if (type == Type::Constants or type == Type::Formulas) {
-				value_type = value;
+				value_type = OPER((int)value);
 			}
 			else if (type == Type::Precedents or type == Type::Dependents) {
-				levels = level;
+				levels = OPER((int)level);
 			}
 
 			return xll::Excel(xlcSelectSpecial, type_num, value_type, levels);
@@ -553,50 +555,15 @@ namespace xll {
 		}
 	};
 
-	/*
-	inline void Header()
-	{
-		xll::Excel(xlcDisplay, OPER(false), OPER(false)); // no gridlines
-		xll::Excel(xlcRowHeight, OPER(24), OPER("R2:R2"));
-		xll::Excel(xlcSelect, OPER("R2:R2"));
-		FormatFont ff(OPER(XLL_FONT), OPER(14), xWhite);
-		ff.Bold().Set();
-		xll::Excel(xlcSelect, OPER("R1:R3"));
-		Excel(xlcPatterns, OPER(1), xGreen, OPER(0));
-	}
-	inline void Category()
-	{
-		Excel(xlcRowHeight, OPER(20), OPER("R[0]:R[0]"));
-		FormatFont ff(OPER(XLL_FONT), OPER(14), xBlack);
-		ff.Bold().Set();
-		//Excel(xlcAlignment, HALIGN_RIGHT, OPER(), VALIGN_CENTER);
-	}
-	inline void TableHeader()
-	{
-		Excel(xlcRowHeight, OPER(17.5), OPER("R[0]:R[0]"));
-	}
-	inline void TableRow()
-	{
-		Excel(xlcRowHeight, OPER(15), OPER("R[0]:R[0]"));
-	}
-
-
-
-
-	inline void Move(short r, short c)
-	{
-		Excel(xlcSelect, Excel(xlfOffset, Excel(xlfActiveCell), OPER(r), OPER(c)));
-	}
-	*/
 	// paste default argument at ref and return reference to what was pasted
 	template<class X>
-	inline OPER paste_default(OPER ref, const XArgs<X>* pa, unsigned i)
+	inline XOPER<X> paste_default(XOPER<X> ref, const XArgs<X>* pa, unsigned i)
 	{
-		const OPER& x = pa->ArgumentDefault(i);
+		const XOPER<X>& x = pa->ArgumentDefault(i);
 
 		if (x.is_str() and x.val.str[1] == '=') {
 			// formula
-			OPER xi = XExcel<X>(xlfEvaluate, x);
+			XOPER<X> xi = XExcel<X>(xlfEvaluate, x);
 			ensure(xi);
 			if (size(xi) == 1) {
 				ensure(XExcel<X>(xlcFormula, x, ref));
@@ -604,14 +571,14 @@ namespace xll {
 			else {
 				auto rw = rows(xi);
 				auto col = columns(xi);
-				ref = XExcel<X>(xlfOffset, ref, OPER(0), OPER(0), OPER(rw), OPER(col));
+				ref = XExcel<X>(xlfOffset, ref, XOPER<X>(0), XOPER<X>(0), XOPER<X>(rw), XOPER<X>(col));
 				ensure(XExcel<X>(xlcFormulaArray, x, ref))
 			}
 		}
 		else {
 			auto rw = rows(x);
 			auto col = columns(x);
-			ref = XExcel<X>(xlfOffset, ref, OPER(0), OPER(0), OPER(rw), OPER(col));
+			ref = XExcel<X>(xlfOffset, ref, XOPER<X>(0), XOPER<X>(0), XOPER<X>(rw), XOPER<X>(col));
 			ensure(XExcel<X>(xlcFormula, x, ref));
 		}
 		
