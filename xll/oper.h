@@ -480,6 +480,8 @@ namespace xll {
 		{
 			return xll::index(*this, rw, col);
 		}
+		// push on bottom of multi if same number of columns
+		// push on right of multi if same number of rows
 		const XOPER& push_back(const X& x)
 		{
 			if (xltype == xltypeNil) {
@@ -490,9 +492,27 @@ namespace xll {
 			// make a copy if memory overlap
 			const XOPER& o = overlap(x) ? XOPER(x) : x;
 			if (xltype == xltypeMulti) {
-				ensure(columns() == xll::columns(x));
-				multi_realloc(rows() + xll::rows(x), columns());
-				std::copy(o.begin(), o.end(), end() - o.size());
+				auto r = rows();
+				auto c = columns();
+				if (c == xll::columns(x)) {
+					multi_realloc(rows() + xll::rows(x), columns());
+					std::copy(o.begin(), o.end(), begin() + r*c);
+				}
+				else if (rows() == xll::rows(x)) {
+					multi_realloc(rows(), columns() + xll::columns(x));
+					// copy to back of old range
+					std::copy(o.begin(), o.end(), begin() + r*c);
+					// rotate new rows into place
+					for (unsigned i = 1; i < rows(); ++i) {
+						auto b = begin() + r * columns();
+						auto m = b + o.columns();
+						auto e = b + columns();
+						std::rotate(b, m, e);
+					}
+				}
+				else {
+					ensure(!"OPER::push_back: dimension mismatch");
+				}
 			}
 			else {
 				XOPER tmp(1, 1);
