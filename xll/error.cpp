@@ -83,7 +83,7 @@ XLL_INFO(const char* e, bool force)
 
 AddIn xai_alert_level(
 	Function(XLL_WORD, "xll_alert_level_", "XLL_ALERT_LEVEL")
-	.Args({
+	.Arguments({
 		Arg(XLL_WORD, "level", "is the alert level mask to set."),
 	})
 	.FunctionHelp("Set the current alert level using a mask having bits for ERROR(1), WARNING(2), and INFORMATION(4).")

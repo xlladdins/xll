@@ -4,7 +4,7 @@
 #include "defines.h"
 
 // Don't export for xll.t project
-#ifndef _CONSOLE
+#if !defined(_CONSOLE)
 
 // Used to export undecorated function name from a dll.
 // Put '#pragma XLLEXPORT' in every add-in function body.
@@ -30,20 +30,20 @@
 #pragma comment(linker, "/export:xlAutoRemove" XLL_X32("@0=xlAutoRemove"))
 #pragma comment(linker, "/export:xlAutoFree" XLL_X32("@4=xlAutoFree"))
 #pragma comment(linker, "/export:xlAutoFree12" XLL_X32("@4=xlAutoFree12"))
-#pragma comment(linker, "/export:xlAutoRegister" XLL_X32("@4=xlAutoRegister"))
-#pragma comment(linker, "/export:xlAutoRegister12" XLL_X32("@4=xlAutoRegister12"))
+//#pragma comment(linker, "/export:xlAutoRegister" XLL_X32("@4=xlAutoRegister"))
+//#pragma comment(linker, "/export:xlAutoRegister12" XLL_X32("@4=xlAutoRegister12"))
 //#pragma comment(linker, "/export:xlAddInManagerInfo" XLL_X32("@4=xlAddInManagerInfo"))
 //#pragma comment(linker, "/export:xlAddInManagerInfo12" XLL_X32("@4=xlAddInManagerInfo12"))
-#pragma comment(linker, "/export:" XLL_DECORATE("xll_replace_eq_by_eq", 0))
+//#pragma comment(linker, "/export:" XLL_DECORATE("xll_replace_eq_by_eq", 0))
 //#pragma comment(linker, "/export:" XLL_DECORATE("xll_paste_basic", 0))
 //#pragma comment(linker, "/export:" XLL_DECORATE("xll_paste_create", 0))
-#pragma comment(linker, "/export:" XLL_DECORATE("xll_spreadsheet_doc", 0))
+//#pragma comment(linker, "/export:" XLL_DECORATE("xll_spreadsheet_doc", 0))
 
 #ifndef _LIB
-#pragma comment(linker, "/include:" XLL_DECORATE("xll_replace_eq_by_eq", 0))
+//#pragma comment(linker, "/include:" XLL_DECORATE("xll_replace_eq_by_eq", 0))
 //#pragma comment(linker, "/include:" XLL_DECORATE("xll_paste_basic", 0))
 //#pragma comment(linker, "/include:" XLL_DECORATE("xll_paste_create", 0))
-#pragma comment(linker, "/include:" XLL_DECORATE("xll_spreadsheet_doc", 0))
+//#pragma comment(linker, "/include:" XLL_DECORATE("xll_spreadsheet_doc", 0))
 #endif // _LIB
 
 #endif // CONSOLE

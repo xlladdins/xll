@@ -18,10 +18,7 @@ xlAutoOpen(void)
 			return FALSE;
 		}
 
-		for (auto& [key, arg] : AddIn4::Map) {
-			Register(arg);
-		}
-		for (auto& [key, arg] : AddIn12::Map) {
+		for (auto& [key, arg] : AddIn::Map) {
 			Register(arg);
 		}
 
@@ -53,11 +50,8 @@ xlAutoClose(void)
 		}
 
 		// No need to call xlfUnregister, just delete names.
-		for (const auto& [key, args] : AddIn12::Map) {
+		for (const auto& [key, args] : AddIn::Map) {
 			Excel12(xlfSetName, key);
-		}
-		for (const auto& [key, args] : AddIn4::Map) {
-			Excel4(xlfSetName, key);
 		}
 
 		if (!Auto<Close>::Call()) {
@@ -160,7 +154,7 @@ xlAutoFree12(LPXLOPER12 px)
 		}
 	}
 }
-
+#if 0
 // Look up name and register.
 extern "C" LPXLOPER __declspec(dllexport) WINAPI
 xlAutoRegister(LPXLOPER pxName)
@@ -168,8 +162,8 @@ xlAutoRegister(LPXLOPER pxName)
 	static XLOPER o;
 
 	try {
-		auto px = AddIn4::Map.find(*pxName);
-		ensure(px != AddIn4::Map.end());
+		auto px = AddIn::Map.find(*pxName);
+		ensure(px != AddIn::Map.end());
 		// returns an xltypeNum or xltypeErr
 		o = Register(px->second);
 	}
@@ -194,8 +188,8 @@ xlAutoRegister12(LPXLOPER12 pxName)
 	static XLOPER12 o;
 	
 	try {
-		auto px = AddIn12::Map.find(*pxName);
-		ensure(px != AddIn12::Map.end());
+		auto px = AddIn::Map.find(*pxName);
+		ensure(px != AddIn::Map.end());
 		// returns an xltypeNum or xltypeErr
 		o = Register(px->second);
 	}
@@ -212,7 +206,7 @@ xlAutoRegister12(LPXLOPER12 pxName)
 
 	return &o;
 }
-
+#endif // 0
 
 // Called by Microsoft Excel when the Add-in Manager is invoked for the first time.
 // This function is used to provide the Add-In Manager with information about your add-in.

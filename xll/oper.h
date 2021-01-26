@@ -11,6 +11,7 @@
 
 #pragma warning(disable: 4996)
 
+
 namespace xll {
 
 	/// <summary>
@@ -91,12 +92,29 @@ namespace xll {
 			xltype = std::exchange(o.xltype, xltype);
 			val = std::exchange(o.val, val);
 		}
+		// convert from other type of OPER
+		XOPER(const X_& x)
+		{
+			switch (x.xltype & xlbitmask) {
+			case xltypeStr:
+				str_alloc(traits<X>::cvt(x.val.str + 1, x.val.str[0]), -1);
+				break;
+			case xltypeMulti:
+				multi_alloc(rows(x), columns(x));
+				for (unsigned i = 0; i < size(); ++i)
+					val.array.lparray[i] = XOPER(x.val.array.lparry[i]);
+				break;
+			default:
+				xltype = x.xltype;
+				val = x.val; //???
+			}
+		}
 		//
 		// Assignment
 		//
 		XOPER& operator=(const XOPER& o)
 		{
-			return *this = XOPER(o);
+			return *this = XOPER(o); //??? = o;
 		}
 		XOPER& operator=(XOPER&& o) noexcept
 		{
@@ -195,17 +213,6 @@ namespace xll {
 			: XOPER(str, N)
 		{
 		}
-		// convert to type appropriate for X
-		explicit XOPER(cstrx str)
-		{
-			str_alloc(traits<X>::cvt(str), -1);
-		}
-		// Construct from string literal
-		template<size_t N>
-		XOPER(cstrx (&str)[N])
-		{
-			str_alloc(traits<X>::cvt(str), -1);
-		}
 		bool operator==(xcstr str) const
 		{
 			if (!(xltype & xltypeStr)) {
@@ -220,7 +227,6 @@ namespace xll {
 
 			return 0 == traits<X>::cmp(str, val.str + 1, n);
 		}
-		// no operator== for cstrx
 		XOPER operator=(xcstr str)
 		{
 			oper_free();
@@ -228,12 +234,29 @@ namespace xll {
 
 			return *this;
 		}
+
+		// convert to type appropriate for X
+		explicit XOPER(cstrx str)
+		{
+			str_alloc(traits<X>::cvt(str), -1);
+		}
+		// Construct from string literal
+		template<size_t N>
+		XOPER(cstrx(&str)[N])
+		{
+			str_alloc(traits<X>::cvt(str), -1);
+		}
 		XOPER operator=(cstrx str)
 		{
 			oper_free();
 			str_alloc(traits<X>::cvt(str), -1);
 
 			return *this;
+		}
+		//??? is this a good idea
+		bool operator==(cstrx str) const
+		{
+			return *this == XOPER(str);
 		}
 		bool is_str() const
 		{
@@ -249,7 +272,7 @@ namespace xll {
 		// xcstr& as_str() not provided
 		std::string to_string() const
 		{
-			if (xltype & xltypeNil) {
+			if (xltype == xltypeNil) {
 				return "";
 			}
 
@@ -334,16 +357,16 @@ namespace xll {
 			xltype = xltypeBool;
 			val.xbool = xbool;
 		}
-		bool operator==(bool xbool) const
-		{
-			return xltype == xltypeBool and val.xbool == static_cast<typename traits<X>::xbool>(xbool);
-		}
 		XOPER operator=(bool xbool)
 		{
 			oper_free();
 			operator=(XOPER(xbool));
 
 			return *this;
+		}
+		bool operator==(bool xbool) const
+		{
+			return xltype == xltypeBool and val.xbool == static_cast<typename traits<X>::xbool>(xbool);
 		}
 		bool is_bool() const
 		{
@@ -457,7 +480,7 @@ namespace xll {
 		{
 			return xll::index(*this, rw, col);
 		}
-		const XOPER& append_bottom(const X& x)
+		const XOPER& push_bottom(const X& x)
 		{
 			if (xltype == xltypeNil) {
 				operator=(x);
@@ -476,7 +499,7 @@ namespace xll {
 				swap(tmp);
 				operator[](0) = tmp;
 
-				return append_bottom(o);
+				return push_bottom(o);
 			}
 
 			return *this;
@@ -592,7 +615,8 @@ namespace xll {
 			xltype = xltypeStr;
 
 			if (n == -1) {
-				val.str = const_cast<xchar*>(str); // move
+				// str was allocated by mallc
+				val.str = const_cast<xchar*>(str);
 			}
 			else {
 				val.str = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));

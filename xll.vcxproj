@@ -34,11 +34,9 @@
     <ClInclude Include="xll\handle.h" />
     <ClInclude Include="xll\on.h" />
     <ClInclude Include="xll\oper.h" />
-    <ClInclude Include="xll\paste.h" />
     <ClInclude Include="xll\register.h" />
     <ClInclude Include="xll\registry.h" />
     <ClInclude Include="xll\splitpath.h" />
-    <ClInclude Include="xll\spreadsheet.h" />
     <ClInclude Include="xll\sref.h" />
     <ClInclude Include="xll\traits.h" />
     <ClInclude Include="xll\utf8.h" />
@@ -51,18 +49,7 @@
     <ClCompile Include="xll\debug.cpp" />
     <ClCompile Include="xll\defines.c" />
     <ClCompile Include="xll\dllmain.cpp" />
-    <ClCompile Include="xll\document.cpp" />
     <ClCompile Include="xll\error.cpp" />
-    <ClCompile Include="xll\paste.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="xll\spreadsheet.cpp" />
-    <ClCompile Include="xll\utility.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="xll\XLCALL.CPP" />
     <ClCompile Include="xll\xll_range.cpp" />
   </ItemGroup>
