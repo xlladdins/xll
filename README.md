@@ -122,7 +122,7 @@ using namespace xll;
 
 AddIn xai_tgamma(
     Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
-    .Args({
+    .Arguments({
         Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
     })
     .FunctionHelp("Return the Gamma function value.")
@@ -375,7 +375,7 @@ then we can embed `base` objects in Excel using
 ```C++
 AddIn xai_base(
     Function(XLL_HANDLEX, "?xll_base", "XLL.BASE")
-    .Args({
+    .Arguments({
         Arg(XLL_LPOPER, "x", "is a cell or range of cells")
     })
     .FunctionHelp("Return a handle to a base object.")
@@ -393,7 +393,7 @@ and access them with
 ```C++
 AddIn xai_base_get(
     Function(XLL_LPOPER, "?xll_base_get", "XLL.BASE.GET")
-    .Args({
+    .Arguments({
         Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE")
     })
     .FunctionHelp("Return the value stored in base.")
@@ -456,7 +456,7 @@ to keep the documentation next to the code. For example
 ```C++
 AddIn xai_foo(
     Function(...)
-    .Args({...})
+    .Arguments({...})
     ...
     .Documentation(R"xyzyx(
 This is documentation with inline math like this: \(e^{\pi i} + 1 = 0\).

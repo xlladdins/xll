@@ -88,7 +88,7 @@ public:
 
 AddIn xai_base(
 	Function(XLL_HANDLEX, "xll_base", "XLL.BASE")
-	.Args({
+	.Arguments({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
 	})
 	.FunctionHelp("Return a handle to a base object.")
@@ -105,7 +105,7 @@ HANDLEX WINAPI xll_base(const LPOPER px)
 // also works for any derived class
 AddIn xai_base_get(
 	Function(XLL_LPOPER, "xll_base_get", "XLL.BASE.GET")
-	.Args({
+	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE")
 	})
 	.FunctionHelp("Return the value stored in base.")
@@ -128,7 +128,7 @@ LPOPER WINAPI xll_base_get(HANDLEX _h)
 
 AddIn xai_base_set(
 	Function(XLL_HANDLEX, "xll_base_set", "XLL.BASE.SET")
-	.Args({
+	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE"),
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
 	})
@@ -147,7 +147,7 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 }
 AddIn xai_derived(
 	Function(XLL_HANDLEX, "xll_derived", "XLL.DERIVED")
-	.Args({
+	.Arguments({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells"),
 		Arg(XLL_LPOPER, "cell2", "is a cell or range of cells")
 	})
@@ -166,7 +166,7 @@ HANDLEX WINAPI xll_derived(LPOPER px, LPOPER px2)
 // XLL.BASE.GET calls base::get for handles returned by XLL.DERIVED.
 AddIn xai_derived_get(
 	Function(XLL_LPOPER, "xll_derived_get", "XLL.DERIVED.GET")
-	.Args({
+	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.DERIVED")
 	})
 	.FunctionHelp("Return the second value stored in derived.")

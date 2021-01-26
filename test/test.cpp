@@ -5,11 +5,6 @@
 
 using namespace xll;
 
-// Generate docuentation
-static int test_doc = Documentation("TEST", R"(
-All functions and macros in TEST having Args::Documentation().
-)");
-
 static LSTATUS reg_query = []() {
 
 	LSTATUS status;
@@ -52,7 +47,7 @@ AddIn xai_tgamma(
 	// Return a double by calling xll_tgamma using TGAMMA in Excel.
 	Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
 	// Args are an array of one Arg that is a double. 
-	.Args({
+	.Arguments({
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.", "3")
 	})
 	.FunctionHelp("Return the Gamma function value.")
@@ -73,7 +68,7 @@ double WINAPI xll_tgamma(double x)
 // AddIn previously defined: TGAMMA 
 AddIn xai_tgamma2(
 	Function(XLL_DOUBLE, "xll_tgamma2", "TGAMMA")
-	.Args({
+	.Arguments({
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
 		})
 	.FunctionHelp("Return the Gamma function value.")
@@ -89,7 +84,7 @@ double WINAPI xll_tgamma2(double x)
 
 AddIn xai_jn(
 	Function(XLL_DOUBLE, "xll_jn", "JN")
-	.Args({
+	.Arguments({
 		Arg(XLL_LONG, "n", "is the order of the Bessel function.", "=1"),
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate the Bessel function.", "=1+.1")
 	})
@@ -166,7 +161,7 @@ On<Sheet> xon_sheet("", "XLL.ONSHEET", true);
 
 AddIn xai_get_workspace(
 	Function(XLL_LPOPER, "xll_get_workspace", "GET_WORKSPACE")
-	.Args({
+	.Arguments({
 		Arg(XLL_SHORT, "type_num", "is a number specifying the type of workspace information you want.")
 	})
 	.Uncalced()
@@ -207,7 +202,7 @@ int WINAPI xll_utf8(void)
 
 AddIn xai_file(
 	Function(XLL_LPOPER, "xll_file", "XLL.FILE")
-	.Args({
+	.Arguments({
 		Arg(XLL_LPOPER, "url", "is a URL to retrieve.")
 	})
 	.Category("XLL")
