@@ -480,7 +480,7 @@ namespace xll {
 		{
 			return xll::index(*this, rw, col);
 		}
-		const XOPER& push_bottom(const X& x)
+		const XOPER& push_back(const X& x)
 		{
 			if (xltype == xltypeNil) {
 				operator=(x);
@@ -499,14 +499,11 @@ namespace xll {
 				swap(tmp);
 				operator[](0) = tmp;
 
-				return push_bottom(o);
+				return push_back(o);
 			}
 
 			return *this;
 		}
-		// append_top
-		// append_right
-		// append_left
 
 		// xltypeMissing - predefined as Missing
 		// xltypeNil - predefined as Nil

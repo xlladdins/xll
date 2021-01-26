@@ -244,7 +244,7 @@ int test_oper_str = []()
 }
 ();
 
-int test_oper_multi = []()
+int test_oper_multi()
 {
 	{
 		OPER m(2, 3);
@@ -306,7 +306,7 @@ int test_oper_multi = []()
 		OPER o;
 		ensure(o.xltype == xltypeNil);
 		ensure(o.size() == 0);
-		o.append_bottom(o);
+		o.push_back(o);
 		ensure(o.xltype == xltypeNil);
 	}
 	{
@@ -316,7 +316,7 @@ int test_oper_multi = []()
 		ensure(o.columns() == 1);
 		ensure(o[0] == 1.23);
 		ensure(o == 1.23);
-		o.append_bottom(o);
+		o.push_back(o);
 		ensure(o.rows() == 2);
 		ensure(o.columns() == 1);
 		ensure(o[0] == 1.23);
@@ -336,7 +336,7 @@ int test_oper_multi = []()
 		ensure(o.columns() == 2);
 		ensure(o[0] == 1.23);
 		ensure(o[1] == _T("foo"));
-		o.append_bottom(o);
+		o.push_back(o);
 		ensure(o.rows() == 2);
 		ensure(o.columns() == 2);
 		ensure(o[0] == 1.23);
@@ -359,7 +359,7 @@ int test_oper_multi = []()
 		x.val.array.rows = 1;
 		x.val.array.columns = 2;
 		x.val.array.lparray = x2;
-		o.append_bottom(x);
+		o.push_back(x);
 		ensure(o.rows() == 2);
 		ensure(o.columns() == 2);
 		ensure(o[0] == 1.23);
@@ -370,7 +370,7 @@ int test_oper_multi = []()
 
 	return 0;
 }
-();
+int test_oper_multi_ = test_oper_multi();
 
 int test_oper_bool = []()
 {

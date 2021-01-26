@@ -8,6 +8,8 @@
 
 namespace xll {
 
+#pragma warning(push)
+#pragma warning(disable: 4724)
 	// mod with 0 <= x < y 
 	template<typename T>
 	inline T xmod(T x, T y)
@@ -16,6 +18,7 @@ namespace xll {
 
 		return z >= 0 ? z : z + y;
 	}
+#pragma warning(pop)
 
 	// convertible to double
 	inline static const int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
