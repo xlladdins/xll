@@ -182,7 +182,7 @@ namespace xll {
 		}
 		bool is_num() const
 		{
-			return xltype == xltypeNum;
+			return (xltype & xlbitmask) == xltypeNum;
 		}
 		const double& as_num() const
 		{
@@ -260,7 +260,7 @@ namespace xll {
 		}
 		bool is_str() const
 		{
-			return xltype & xltypeStr;
+			return (xltype & xlbitmask) == xltypeStr;
 		}
 		// reference to counted string
 		const xcstr& as_str() const
@@ -370,7 +370,7 @@ namespace xll {
 		}
 		bool is_bool() const
 		{
-			return xltype == xltypeBool;
+			return (xltype & xlbitmask) == xltypeBool;
 		}
 		xbool& as_bool()
 		{
@@ -388,7 +388,7 @@ namespace xll {
 		// xltypeErr - predifined as ErrXXX
 #define XLL_ERR_ENUM(a, b, c) a = xlerr##a,
 		enum class Err {
-			XLL_ERR_TYPE(XLL_ERR_ENUM)
+			XLL_ERR_TYPE(XLL_ERR_ENUM) // Err::NA, etc
 		};
 #undef XLL_ERR_ENUM
 		XOPER(enum Err err)
@@ -413,7 +413,7 @@ namespace xll {
 		// xltypeMulti
 		bool is_multi() const
 		{
-			return xltype & xltypeMulti;
+			return (xltype & xlbitmask) == xltypeMulti;
 		}
 		XOPER(unsigned rw, unsigned col)
 		{
@@ -523,7 +523,7 @@ namespace xll {
 		}
 		bool is_sref() const
 		{
-			return xltype == xltypeSRef;
+			return (xltype & xlbitmask) == xltypeSRef;
 		}
 		const xref& as_sref() const
 		{
@@ -543,7 +543,7 @@ namespace xll {
 		}
 		bool is_ref() const
 		{
-			return xltype & xltypeRef;
+			return (xltype & bitmask) == xltypeRef;
 		}
 		// size() returns number of refs
 		const xref* as_ref() const
@@ -562,7 +562,7 @@ namespace xll {
 		// xltypeInt. Excel usually converts this to num.
 		bool is_int() const
 		{
-			return xltype & xltypeInt;
+			return (xltype & xlbitmask) == xltypeInt;
 		}
 		// ints get converted to double, just like Excel
 		const xint& as_int() const

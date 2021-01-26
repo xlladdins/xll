@@ -1,64 +1,64 @@
 // codec.h - encoder/decoder for XLOPERs
+// XLOPER is a variant type num|str|multi|...
 #pragma once
 #include <concepts>
+#include <iostream>
 #include "traits.h"
 
 namespace xll {
 
-	// ??? use encoder/decoder to serialize/unserialize
-	template<class O, class X> // ouput
-	concept encoder {
-		static O& operator()(O& o, double num);
-		static O& operator()(O& o, traits<X>::cstr str);
-		...
-			template<class T>
-		static O& operator()(O& o, T t);
-	};
-
-	template<class E, class O, class X>
-	O& encode(O& o, const XOPER<X>& x)
+	template<class X>
+	std::ostream& encode(std::ostream& os, const X& x)
 	{
-		switch (x.xltype & xlbitmask) {
-		case xltypeNum: E(o, x.val.num); break;
-		case xltypeStr: E(o, x.val.str); break; // counted string
-			...
+		// for xltypeMulti
+		static traits<X>::xchar lb = '{', rb = '}', fs = ',', rs = ';';
 
+		switch (x.xltype & xlbitmask) {
+		case xltypeNum:
+			os << x.val.num;
+			break;
+		case xltypeStr:
+			os.write(x.val.str + 1, x.val.str[0]);
+			break;
+		case xltypeErr:
+			os << xll_err_desc[x.val.err];
+			break;
+		case xltypeMulti:
+			os << rb;
+			for (unsigned i = 0; i < rows(x); ++i) {
+				if (i > 0) {
+					os << rs;
+				}
+				for (unsigned j = 0; j < columns(x); ++j) {
+					if (j > 0) {
+						os << fs;
+					}
+					os << index(x, i, j);
+				}
+			}
+			os << lb;
+			break;
+		case xltypeSRef:
+			X o;
+			int result = traits<X>::Excelv(xlfReftext, &o, 1, &x);
+			ensure(result == xlretSuccess and o.val.xltype == xltypeStr);
+			os.write(o.val.str + 1, o.val.str[0]);
+			traits<X>::Excelv(xlFree, 0, 1, &o);
+			break;
+		case xltypeRef:
+			ensure(!"not implemented");
+			break;
+		case xltypeInt:
+			os << x.val.w;
+			break;
+		case xltypeBool:
+			os << x.val.xbool != 0;
+			break;
+		default:
+			ensure(!"unknown type");
 		}
 
-		return o;
+		return os;
 	}
-
-	class decoder {
-	}
-
-
-
-	// ??? use encoder/decoder to serialize/unserialize
-	template<class O, class X> // ouput
-	struct encoder {
-		static O& operator()(O& o, double num);
-		static O& operator()(O& o, traits<X>::cstr str);
-		...
-			template<class T>
-		static O& operator()(O& o, T t);
-	};
-
-	template<class E, class O, class X>
-	O& encode(O& o, const XOPER<X>& x)
-	{
-		switch (x.xltype & xlbitmask) {
-		case xltypeNum: E(o, x.val.num); break;
-		case xltypeStr: E(o, x.val.str); break; // counted string
-			...
-
-		}
-
-		return o;
-	}
-
-	class decoder {
-	}
-
-
 
 }
