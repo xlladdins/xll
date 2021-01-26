@@ -9,15 +9,14 @@ namespace xll {
     /// <summary>
     /// Store argument add-in data for xlfRegister
     /// </summary>
-    template<class X>
-	struct XAddIn {
+	struct AddIn {
         // add-ins indexed by Excel name
-        static inline std::map<XOPER<X>, XArgs<X>> Map;
+        static inline std::map<OPER, Args> Map;
  
-        XAddIn(const XArgs<X>& args) noexcept
+        AddIn(const Args& args) noexcept
         {
             const auto& key = args.FunctionText();
-            auto [_, inserted] = Map.try_emplace(key, std::move(args));
+            auto [_, inserted] = Map.try_emplace(key, args);
             /*
             // warn if it already exists
             if (!inserted) {
@@ -29,31 +28,24 @@ namespace xll {
         }
 
         // Get arguments using Excel function text name.
-        static XArgs<X>& Args(const XOPER<X>& name)
+        static Args* Arguments(const OPER& name)
         {
             auto i = Map.find(name);
-            ensure(i != Map.end());
-
-            return i->second;
+            
+            return i != Map.end() ? &i->second : nullptr;
         }
         // Get arguments using register id.
-        static XArgs<X>& Args(double regid)
+        static Args* Arguments(double regid)
         {
-            static XArgs<X> empty;
-
             for (auto& args : Map) {
                 if (args.second.RegisterId().val.num == regid) {
-                    return args.second;
+                    return &args.second;
                 }
             }
 
-            return empty;
+            return nullptr;
         }
     };
-
-	using AddIn4  = XAddIn<XLOPER>;
-    using AddIn12 = XAddIn<XLOPER12>;
-    using AddIn   = XAddIn<XLOPERX>;
 
 } // xll namespace
 

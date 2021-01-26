@@ -5,7 +5,7 @@ using namespace xll;
 
 static AddIn xai_range_set(
 	Function(XLL_HANDLEX, "xll_range_set", "RANGE.SET")
-	.Args({
+	.Arguments({
 		Arg(XLL_LPOPER, "range", "is the range to set.")
 		})
 	.Uncalced()
@@ -23,9 +23,9 @@ HANDLEX WINAPI xll_range_set(LPOPER px)
 
 static AddIn xai_range_get(
 	Function(XLL_LPOPER, "xll_range_get", "RANGE.GET")
-	.Args({
+	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by RANGE.SET.")
-		})
+	})
 	.FunctionHelp("Return the range held by a handle.")
 	.Category("XLL")
 	.Documentation(R"(Return a two dimensional range of cells)")
