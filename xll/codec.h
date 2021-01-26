@@ -7,11 +7,11 @@
 
 namespace xll {
 
-	template<class X>
-	std::ostream& encode(std::ostream& os, const X& x)
+	template<class X, class C = traits<X>::xchar>
+	std::basic_ostream<C>& encode(std::basic_ostream<C>& os, const X& x)
 	{
 		// for xltypeMulti
-		static traits<X>::xchar lb = '{', rb = '}', fs = ',', rs = ';';
+		static C lb = '{', rb = '}', fs = ',', rs = ';';
 
 		switch (x.xltype & xlbitmask) {
 		case xltypeNum:
@@ -61,4 +61,22 @@ namespace xll {
 		return os;
 	}
 
+	template<class X, class C = traits<X>::xchar>
+	inline X decode(std::basic_istream<C>& is)
+	{
+		C c = 0; // length char at front
+		std::basic_ostringstream<C> os;
+		os << c;
+		os << is;
+		std::basic_string<C> s(os.str());
+		s[0] = static_cast<C>(s.length());
+		X x, o;
+		x.xltype = xltypeStr;
+		x.val.str = &s[0];
+		int result = traits<X>::Excelv(xlfEvaluate, &o, 1, &x);
+		ensure(result == xlretSuccess);
+		x.xlbit |= xlbitXLFree;
+
+		return x;
+	}
 }

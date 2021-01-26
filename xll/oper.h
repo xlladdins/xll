@@ -543,7 +543,7 @@ namespace xll {
 		}
 		bool is_ref() const
 		{
-			return (xltype & bitmask) == xltypeRef;
+			return (xltype & xlbitmask) == xltypeRef;
 		}
 		// size() returns number of refs
 		const xref* as_ref() const
