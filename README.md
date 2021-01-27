@@ -191,7 +191,7 @@ int WINAPI xll_macro(void)
             )
         ),
         OPER(2), // general information
-        OPER("https://xlladdins.github.io/Excel4Macros/alert.html!0")
+        OPER("https://xlladdins.github.io/Excel4Macros/alert.html")
     );
 	
     return TRUE;
@@ -217,14 +217,13 @@ When the suffix is omitted the appropriate function will be called based on macr
 The major difference is that the generic functions always take UTF-8 strings.
 The xll library converts these to the appropriate string types for Excel.
 
-The xll library controls this by the macro `XLOPERX`.
+The xll library controls this by the macro `XLL_VERSION`.
 Define it to be 
-[`XLOPER`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118) 
+[`4`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L118) 
 for pre 2007 Excel and 
-[`XLOPER12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180) 
+[`12`](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H#L180) 
 for Excel 2007 and later before including `xll/xll.h`.
-By default it is defined to be `XLOPER12`.
-There is no `XLOPER4`.
+By default it is defined to be `12`.
 The file
 [`traits.h`](https://github.com/xlladdins/xll/blob/master/xll/traits.h)
 uses the [traits pattern](https://accu.org/index.php/journals/442)
@@ -232,13 +231,12 @@ to parameterize by these two types.
 
 The SDK uses `Excel4` (or `Excel4v`) and `Excel12` (or `Excel12v`) to 
 [call Excel functions](https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll)
-from your add-in. We use `AddIn4` and and `AddIn12` to create add-ins for a particular version of Excel if needed.
-You can use `AddIn` and let `XLOPERX` control the version. If you need to know the Excel
+from your add-in. If you need to know the Excel
 version at runtime call 
 [`XLCallVer`](https://docs.microsoft.com/en-us/office/client-developer/excel/calling-into-excel-from-the-dll-or-xll#xlcallver).
 It returns `0x500` (oddly enough) for version 4 and `0x0c00` for version 12 (hexidecimal `C`).
 
-Note the original SDK used `Excel4` and `Excel4v` but not `XLOPER4`. Hmmm.
+Note the original SDK used `Excel4` and `Excel4v` but not `XLOPER4`. Obviously.
 
 You can get finer grained information by calling the 
 [`GET.WORKSPACE`](https://xlladdins.github.io/Excel4Macros/get.workspace.html)
@@ -251,17 +249,17 @@ The destructor for `version` will release the memory when it goes out of scope.
 
 ### Excel Data Types
 
-Excel knows about booleans, floating point doubles, various kinds of integers, and null terminated strings. 
-These are indicated by, `XLL_BOOL`, `XLL_DOUBLE`, `XLL_SHORT`, ..., `XLL_LONG`, and `XLL_CSTRING`. 
-Excel uses _counted strings_ (`XLL_PSTRING`) internally where the first character is the length of the following
+Excel knows about floating point doubles, null terminate strings, and various integer types that it never uses internally. 
+These are indicated by, `XLL_DOUBLE`, `XLL_CSTRING`, `XLL_WORD`, ..., `XLL_LONG`. There is also`XLL_PSTRING` 
+for getting _counted strings_ where the first character is the length of the following
 string characters.
 
 A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPER` type
 defined in the `xll` namespace. It is a _variant_
 type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
-nil, simple reference, or integer. The `xltype` member indicates the type and can be one of
+nil, simple reference, multiple reference or integer. The `xltype` member indicates the type and can be one of
 `xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
-`xltypeNil`, `xltypeSRef`, or `xltypeInt`. Although C++ is strongly typed the `OPER` class is designed
+`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. Although C++ is strongly typed the `OPER` class is designed
 to behave much like a cell in a spreadsheet. E.g., `OPER o = 1.23` results in `o.xltype == xltypeNum`
 and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted string with
 `o.xltype == xltypeStr` and `o.val.str == "\03foo" (== {3, 'f', 'o', 'o')})`. The C++ class for
@@ -417,7 +415,8 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 For a production quality version of this example see 
 [handle.cpp](https://github.com/xlladdins/xll/blob/master/test/handle.cpp).
 That file also has examples illustrating how single inheritance can be used in Excel
-using `dynamic_cast`.
+using `dynamic_cast`. Tha `handle` class has a member `template<class U> U* as()`
+to do this for you and ensure `U` is derived from `T`.
 
 When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
 The old handles that were previously saved are stale.
@@ -478,7 +477,7 @@ This section contains miscellaneous remarks.
 
 ### Bits, bits everywhere
 
-At the end of the day, computer programs come down to bits. Everything is
+At the end of the day computer programs come down to bits. Everything is
 a collection of bits, it is just a matter of how to interpret them.
 The Windows 10 operating system comes in two flavors: 32-bit and 64-bit. The
 [abstract data model](https://docs.microsoft.com/en-us/windows/win32/winprog64/abstract-data-models),
@@ -563,12 +562,12 @@ By default it checks to see if this has been constructed by a call to `handle<T>
 but this can be turned off. If the check fails a `nullptr` is returned.
 Use `handle<T>::operator bool() const` to chech for this.
 
-If any arguments to a function call another function that creates a handle then the handle
+If any arguments to a function call another function that created a handle, then the handle
 gets deleted after the outer function returns. To avoid repeated calls to `new` and `delete`
 put handles in their own cell and pass a reference to that as an argument.
 
 If you don't like seeing raw pointer values as doubles then roll your own encoder/decoder to display
-whatever suits your fancy.
+whatever tickles your fancy.
 
 ### Uncalced
 
@@ -590,9 +589,9 @@ It is always recalculated even though it has no dependencies.
 In Excel `F9` (`xlcCalculateNow`) recalculates all 'dirty' cells. 
 Use `Shift-F9` (`xlcCalculateDocument`) to recalculate only the dirty cells in the active worksheet.
 There is no command equivalent in the C API for `Ctrl-Alt-F9`. 
-Use this when you want Excel to recalculate everything. 
+Use this when you want Excel to recalculate everything, really, no kidding, just do it. 
 
 You should be aware of the 'replace equal by equal' idiom. 
 The key sequence is `Ctrl-H, =, <tab>, =, a`. 
 This replaces all occurences of the `=` character in every formula by `=`
-and causes every formula to be recalculated without changing the formula.
+and causes each formula to be recalculated without changing the formula.
