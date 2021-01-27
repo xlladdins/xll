@@ -115,7 +115,7 @@ can get you up to speed.
 ```C++
 #include <cmath>
 // Uncomment to build for versions of Excel prior to 2007.
-// #define XLOPERX XLOPER
+// #define XLL_VERSION 4
 #include "xll/xll.h"
 
 using namespace xll;
