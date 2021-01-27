@@ -184,7 +184,7 @@ int WINAPI xll_macro(void)
 #pragma XLLEXPORT
     Excel(xlcAlert, 
         Excel(xlfConcatenate,
-            OPER("XLL.MACRO called with active cell: "),
+            OPER("XLL.MACRO 召唤 with активный  cell: "), // use utf-8!
             Excel(xlfReftext, 
                 Excel(xlfActiveCell), 
                 OPER(true) // A1 style instead of R1C1
