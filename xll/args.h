@@ -94,9 +94,9 @@ namespace xll {
 			const char* comma = "";
 			for (const auto& arg : args) {
 				key("typeText") &= arg.type;
-				key("argumentName").append(OPER(arg.name));
-				key("argumentHelp").append(OPER(arg.help));
-				key("argumentDefault").append(OPER(arg.init));
+				key("argumentName").push_back(OPER(arg.name));
+				key("argumentHelp").push_back(OPER(arg.help));
+				key("argumentDefault").push_back(OPER(arg.init));
 				key("argumentText") &= comma;
 				key("argumentText") &= arg.name;
 				comma = ", ";
