@@ -8,9 +8,9 @@
 #include "utf8.h"
 #include "xloper.h"
 #include "sref.h"
+#include "error.h"
 
 #pragma warning(disable: 4996)
-
 
 namespace xll {
 
