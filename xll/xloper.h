@@ -8,6 +8,8 @@
 
 namespace xll {
 
+#pragma warning(push)
+#pragma warning(disable: 4724)
 	// mod with 0 <= x < y 
 	template<typename T>
 	inline T xmod(T x, T y)
@@ -16,6 +18,7 @@ namespace xll {
 
 		return z >= 0 ? z : z + y;
 	}
+#pragma warning(pop)
 
 	// convertible to double
 	inline static const int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
@@ -166,8 +169,8 @@ inline auto operator<=>(const X& x, const X& y)
 		return std::lexicographical_compare_three_way(
 			x.val.str + 1, x.val.str + 1 + x.val.str[0],
 			y.val.str + 1, y.val.str + 1 + y.val.str[0],
-			[](auto cx, auto cy) { return std::toupper(cx) <=> std::toupper(cy);  }
-			) <=> 0;
+			[](auto cx, auto cy) { return std::toupper(cx) <=> std::toupper(cy); }
+		);
 	}
 	case xltypeErr:
 		return x.val.err <=> y.val.err; // false???

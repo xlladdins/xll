@@ -19,7 +19,7 @@ namespace utf8 {
 			n = 0;
 		}
 		if (n == 0) {
-			// zero mean one null character
+			// zero means one null character
 			ws = (wchar_t*)malloc(sizeof(wchar_t));
 			if (ws != nullptr) {
 				*ws = 0;

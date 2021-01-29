@@ -75,19 +75,10 @@
     <ClInclude Include="xll\concepts.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="xll\document.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="xll\register.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="xll\paste.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="xll\splitpath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="xll\spreadsheet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="xll\codec.h">
@@ -113,19 +104,7 @@
     <ClCompile Include="xll\defines.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="xll\utility.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="xll\paste.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="xll\xll_range.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="xll\document.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="xll\spreadsheet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

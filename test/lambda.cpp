@@ -83,7 +83,7 @@ namespace xll {
 
 AddIn xai_udf(
 	Function(XLL_LPOPER, "xll_udf", "XLL.UDF")
-	.Args(std::vector(ARGMAX, XLL_LPOPER))
+	.Arguments(std::vector(ARGMAX, XLL_LPOPER))
 	.Uncalced()
 	.FunctionHelp("Call user defined function.")
 	.Category("XLL")
@@ -113,7 +113,7 @@ LPXLOPERX WINAPI xll_udf(LPXLOPERX pa LPXLOPERX32)
 
 AddIn xai_eval(
 	Function(XLL_LPOPER, "xll_eval", "XLL.EVAL")
-	.Args(std::vector(ARGMAX, XLL_LPOPER))
+	.Arguments(std::vector(ARGMAX, XLL_LPOPER))
 	.Uncalced()
 	.FunctionHelp("Evaluate a function.")
 	.Category("XLL")

@@ -12,7 +12,7 @@
 #if XLL_VERSION == 12
 #define XLOPERX XLOPER12
 #else
-#define XLOPERX XLOPER4
+#define XLOPERX XLOPER
 #endif
 #endif
 
@@ -118,8 +118,8 @@ XLL_ARG_TYPE(X)
 #ifdef __cplusplus
 }
 #endif
-/*
+
 #define XLL_CONST(type, name, value, help, cat, topic) \
 AddIn xai_ ## name (Function(XLL_##type, "_xll_" #name , #name).FunctionHelp(help).Category(cat).HelpTopic(topic)); \
-extern "C" _declspec(dllexport) type WINAPI xll_ ## name () { return value; }
-*/
+extern "C" _declspec(dllexport) auto WINAPI xll_ ## name () { return value; }
+

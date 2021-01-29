@@ -4,23 +4,22 @@
 
 namespace xll{
 
-	template<class X>
-	inline X Register(const XArgs<X>& args)
+	inline OPER Register(Args& args)
 	{
-		static XOPER<X> moduleText = XExcel<X>(xlGetName);
+		args.key("moduleText") = Excel(xlGetName);
 
 		int count = 10 + static_cast<int>(args.ArgumentCount());
-		std::vector<const X*> oper(count + 1);
+		std::vector<const XLOPERX*> oper(count + 1);
 
-		XOPER<X> procedure = args.Procedure();
+		OPER procedure = args.Procedure();
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
 		if (procedure.val.str[1] == '_') {
 			// strip off for C functions
-			procedure = XOPER<X>(procedure.val.str + 2, procedure.val.str[0] - 1);
+			procedure = OPER(procedure.val.str + 2, procedure.val.str[0] - 1);
 		}
 		else if (procedure.val.str[1] != '?') {
 			// C++ mangled name must start with '?'
-			procedure = XOPER<X>("?") & procedure;
+			procedure = OPER("?") & procedure;
 		}
 
 		// indicates function returns a handle
@@ -28,16 +27,16 @@ namespace xll{
 			ensure(args.isUncalced());
 		}
 
-		XOPER<X> helpTopic = args.HelpTopic();
+		OPER helpTopic = args.HelpTopic();
 		// Help URLs must end with "!0"
 		if (helpTopic.xltype & xltypeStr) {
-			XOPER xFind = XExcel<X>(xlfFind, XOPER<X>("!"), helpTopic);
+			XOPER xFind = Excel(xlfFind, OPER("!"), helpTopic);
 			if (xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
-				helpTopic &= XOPER<X>("!0");
+				helpTopic &= OPER("!0");
 			}
 		}
 
-		oper[0] = &moduleText;
+		oper[0] = &args.ModuleText();
 		oper[1] = &procedure;
 		oper[2] = &args.TypeText();
 		oper[3] = &args.FunctionText();
@@ -47,19 +46,18 @@ namespace xll{
 		oper[7] = &args.ShortcutText();
 		oper[8] = &helpTopic;
 		oper[9] = &args.FunctionHelp();
-		const std::vector<XOPER<X>>& argumentHelp = args.ArgumentHelp();
-		for (unsigned i = 0; i < argumentHelp.size(); ++i) {
-			oper[10 + i] = &argumentHelp[i];
+		for (unsigned i = 1; i <= args.ArgumentCount(); ++i) {
+			oper[9 + i] = &args.ArgumentHelp(i);
 		}
 		// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#argument-description-string-truncation-in-the-function-wizard
-		XOPER<X> xEmpty("");
+		OPER xEmpty("");
 		oper[count] = &xEmpty;
 
-		X registerId = { .xltype = xltypeNil };
-		int ret = traits<X>::Excelv(xlfRegister, &registerId, count + 1, (X**)&oper[0]);
+		XLOPERX registerId = { .xltype = xltypeNil };
+		int ret = traits<XLOPERX>::Excelv(xlfRegister, &registerId, count + 1, (XLOPERX**)&oper[0]);
 		if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
-			XOPER<X> xMsg("Failed to register: ");
-			XExcel<X>(xlcAlert, xMsg & args.FunctionText(), XOPER<X>(2));
+			OPER xMsg("Failed to register: ");
+			Excel(xlcAlert, xMsg & args.FunctionText(), OPER(2));
 		}
 
 		return registerId;
