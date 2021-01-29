@@ -2,8 +2,17 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 #include <initializer_list>
+#include <map>
+#include <set>
 #include <vector>
-#include "oper.h"
+#include "excel.h"
+
+// allows add-in argument types
+#define XLL_ARG_TYPES(a,b,c,d) b,c,
+inline std::set<std::string> xll_arg_types = {
+XLL_ARG_TYPE(XLL_ARG_TYPES)
+};
+#undef XLL_ARG_TYPES
 
 namespace xll {
 
@@ -20,233 +29,250 @@ namespace xll {
 		Arg(cstr type, cstr name, cstr help, cstr init = nullptr)
 			: type(type), name(name), help(help), init(init)
 		{
-			/*
 			if (!xll_arg_types.contains(type)) {
-				std::basic_string<xchar> msg{ _T("Unknown Excel argument type: ") };
-				msg += type;
-				MessageBox(GetForegroundWindow(), msg.c_str(), 0, MB_OK);
+				std::string err("Unknown add-in argument type: ");
+				XLL_ERROR(err.append(type).c_str());
 			}
-			*/
 		}
 	};
+
+	using xll::Excel;
 
 	/// <summary>
 	/// Everything needed to register an add-in.
 	/// </summary>
-	/// <typeparam name="X">Must be either XLOPER or XLOPER12</typeparam>
-	template<class X>
-		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
-	class XArgs {
-		XOPER<X> procedure;    // C function
-		XOPER<X> typeText;     // return type and arg codes 
-		XOPER<X> functionText; // Excel function
-		XOPER<X> argumentText; // Ctrl-Shift-A text
-		XOPER<X> macroType;    // function; 2 for macro; 0 for hidden
-		XOPER<X> category;     // for function wizard
-		XOPER<X> shortcutText; // single character for Ctrl-Shift-char shortcut
-		XOPER<X> helpTopic;    // filepath!HelpContextID or http://host/path!0, ???default to???
-		XOPER<X> functionHelp; // for function wizard
-		std::vector<XOPER<X>> argumentName;
-		std::vector<XOPER<X>> argumentHelp;
-		std::vector<XOPER<X>> argumentDefault;
-		std::string documentation;
-//		X registerId = { .val = { .num = 0 }, .xltype = xltypeNum };
-
+	class Args {
 		using cstr = const char*;
+
+		std::map<OPER, OPER> argMap;
+		std::string documentation;
 	public:
-		XArgs()
+		OPER& operator[](const OPER& name)
+		{
+			return argMap[name];
+		}
+		const OPER& operator[](const OPER& name) const
+		{
+			static OPER o = Nil;
+			auto i = argMap.find(name);
+			return i != argMap.end() ? i->second : o;
+		}
+		OPER& key(cstr name)
+		{
+			return operator[](OPER(name));
+		}
+		const OPER& key(cstr name) const
+		{
+			return operator[](OPER(name));
+		}
+
+		Args()
 		{ }
-		XArgs(const XArgs&) = default;
-		XArgs& operator=(const XArgs&) = default;
-		~XArgs()
+		Args(const Args&) = default;
+		Args& operator=(const Args&) = default;
+		~Args()
 		{ }
 		// Function
-		XArgs(cstr type, cstr procedure, cstr functionText)
-			: typeText(type), procedure(procedure), functionText(functionText), macroType(1)
+		Args(cstr type, cstr procedure, cstr functionText)
 		{
+			key("typeText") = type;
+			key("procedure") = procedure;
+			key("functionText") = functionText;
+			key("macroType") = 1;
 		}
 		// Macro
-		XArgs(cstr procedure, cstr functionText)
-			: procedure(procedure), functionText(functionText), macroType(2)
+		Args(cstr procedure, cstr functionText)
 		{
+			key("procedure") = procedure;
+			key("functionText") = functionText;
+			key("macroType") = 2;
 		}
 
 		// list of function arguments
-		XArgs& Args(const std::initializer_list<Arg>& args)
+		Args& Arguments(const std::initializer_list<Arg>& args)
 		{
 			const char* comma = "";
 			for (const auto& arg : args) {
-				typeText &= arg.type;
-				argumentName.push_back(XOPER<X>(arg.name));
-				argumentHelp.push_back(XOPER<X>(arg.help));
-				argumentDefault.push_back(XOPER<X>(arg.init));
-				argumentText &= comma;
-				argumentText &= arg.name;
+				key("typeText") &= arg.type;
+				key("argumentName").push_back(OPER(arg.name));
+				key("argumentHelp").push_back(OPER(arg.help));
+				key("argumentDefault").push_back(OPER(arg.init));
+				key("argumentText") &= comma;
+				key("argumentText") &= arg.name;
 				comma = ", ";
 			}
 
 			return *this;
 		}
-
+		/*
 		// list of typeText arguments
-		XArgs& Args(const std::vector<cstr>& args)
+		Args& Arguments(const std::vector<cstr>& args)
 		{
-			return std::initializer_list<Arg>(args.begin(), args.end());
+			return Arguments(std::initializer_list<Arg>(args.begin(), args.end()));
 		}
+		*/
 
-		XArgs& Uncalced()
+		Args& Uncalced()
 		{
-			typeText &= XLL_UNCALCED;
+			key("typeText") &= XLL_UNCALCED;
 
 			return *this;
 		}
 		bool isUncalced() const
 		{
-			return !XExcel<X>(xlfFind, XOPER<X>(XLL_UNCALCED), typeText).is_err();
+			return !Excel(xlfFind, OPER(XLL_UNCALCED), TypeText()).is_err();
 		}
 
-		XArgs& Volatile()
+		Args& Volatile()
 		{
-			typeText &= XLL_VOLATILE;
+			key("typeText") &= XLL_VOLATILE;
 
 			return *this;
 		}
 		bool isVolatile() const
 		{
-			return !XExcel<X>(xlfFind, XOPER<X>(XLL_VOLATILE), typeText).is_err();
+			return !Excel(xlfFind, OPER(XLL_VOLATILE), TypeText()).is_err();
 		}
 
-		XArgs& ThreadSafe()
+		Args& ThreadSafe()
 		{
-			typeText &= XLL_THREAD_SAFE;
+			key("typeText") &= XLL_THREAD_SAFE;
 
 			return *this;
 		}
 		bool isThreadSafe() const
 		{
-			return !XExcel<X>(xlfFind, XOPER<X>(XLL_THREAD_SAFE), typeText).is_err();
+			return !Excel(xlfFind, OPER(XLL_THREAD_SAFE), TypeText()).is_err();
 		}
 
-		XArgs& ClusterSafe()
+		Args& ClusterSafe()
 		{
-			typeText &= XLL_CLUSTER_SAFE;
+			key("typeText") &= XLL_CLUSTER_SAFE;
 
 			return *this;
 		}
 		bool isClusterSafe() const
 		{
-			return !XExcel<X>(xlfFind, XOPER<X>(XLL_CLUSTER_SAFE), typeText).is_err();
+			return !Excel(xlfFind, OPER(XLL_CLUSTER_SAFE), TypeText()).is_err();
 		}
-		XArgs& Asynchronous()
+		Args& Asynchronous()
 		{
-			typeText &= XLL_ASYNCHRONOUS;
+			key("typeText") &= XLL_ASYNCHRONOUS;
 
 			return *this;
 		}
 		bool isAsynchronous() const
 		{
-			return !XExcel<X>(xlfFind, XOPER<X>(XLL_ASYNCHRONOUS), typeText).is_err();
+			return !Excel(xlfFind, OPER(XLL_ASYNCHRONOUS), TypeText()).is_err();
 		}
 
-		// slice okay since it is xltypeNum/Err
-		X RegisterId() const
+		OPER RegisterId() const
 		{
-			return XExcel<X>(xlfEvaluate, functionText);
+			return Excel(xlfEvaluate, key("functionText"));
+		}
+
+		const OPER& ModuleText() const
+		{
+			return key("moduleText");
+		}
+		OPER& ModuleText()
+		{
+			return key("moduleText");
 		}
 
 		// C++ function name
-		const XOPER<X>& Procedure() const
+		const OPER& Procedure() const
 		{
-			return procedure;
+			return key("procedure");
 		}
 
 		// Excel SDK signature
-		const XOPER<X>& TypeText() const
+		const OPER& TypeText() const
 		{
-			return typeText;
+			return key("typeText");
 		}
 
 		// Excel function name used as key for add-in map.
-		const XOPER<X>& FunctionText() const
+		const OPER& FunctionText() const
 		{
-			return functionText;
+			return key("functionText");
 		}
 		// Key used in AddIn::Map.
-		const XOPER<X>& Key() const
+		const OPER& Key() const
 		{
-			return functionText;
+			return key("functionText");
 		}
 
-		const XOPER<X>& ArgumentText() const
+		const OPER& ArgumentText() const
 		{
-			return argumentText;
+			return key("argumentText");
 		}
 
 		// Type of add-in: 1 for function, 2 for macro, 3 for hidden
-		const XOPER<X>& MacroType() const
+		const OPER& MacroType() const
 		{
-			return macroType;
+			return key("macroType");
 		}
-		XOPER<X> Type() const
+		OPER Type() const
 		{
-			return OPER(macroType == 1 ? "function"
-				: macroType == 2 ? "macro"
-				: macroType == 0 ? "hidden"
+			return OPER(MacroType() == 1 ? "function"
+				: MacroType() == 2 ? "macro"
+				: MacroType() == 0 ? "hidden"
 				: "unknown");
 		}
 		bool isFunction() const
 		{
-			return macroType == 1;
+			return MacroType() == 1;
 		}
 		bool isMacro() const
 		{
-			return macroType == 2;
+			return MacroType() == 2;
 		}
 		bool isHidden() const
 		{
-			return macroType == 0;
+			return MacroType() == 0;
 		}
 
-		const XOPER<X>& Category() const
+		const OPER& Category() const
 		{
-			return category;
+			return key("category");
 		}
-		XArgs& Category(cstr _category)
+		Args& Category(cstr category)
 		{
-			category = _category;
-
-			return *this;
-		}
-
-		const XOPER<X>& ShortcutText() const
-		{
-			return shortcutText;
-		}
-		XArgs& ShortcutText(cstr _shortcutText)
-		{
-			shortcutText = _shortcutText;
+			key("category") = category;
 
 			return *this;
 		}
 
-		const XOPER<X>& HelpTopic() const
+		const OPER& ShortcutText() const
 		{
-			return helpTopic;
+			return key("shortcutText");
 		}
-		XArgs& HelpTopic(cstr _helpTopic)
+		Args& ShortcutText(cstr shortcutText)
 		{
-			helpTopic = _helpTopic;
+			key("shortcutText") = shortcutText;
 
 			return *this;
 		}
 
-		const XOPER<X>& FunctionHelp() const
+		const OPER& HelpTopic() const
 		{
-			return functionHelp;
+			return key("helpTopic");
 		}
-		XArgs& FunctionHelp(cstr _functionHelp)
+		Args& HelpTopic(cstr helpTopic)
 		{
-			functionHelp = _functionHelp;
+			key("helpTopic") = helpTopic;
+
+			return *this;
+		}
+
+		const OPER& FunctionHelp() const
+		{
+			return key("functionHelp");
+		}
+		Args& FunctionHelp(cstr functionHelp)
+		{
+			key("functionHelp") = functionHelp;
 
 			return *this;
 		}
@@ -254,51 +280,59 @@ namespace xll {
 		// 1-based indexing
 		unsigned ArgumentCount() const
 		{
-			return static_cast<unsigned>(argumentName.size());
+			return static_cast<unsigned>(ArgumentName().size());
 		}
 
-		const std::vector<XOPER<X>>& ArgumentName() const
+		const OPER& ArgumentName() const
 		{
-			return argumentName;
+			return key("argumentName");
 		}
-		const XOPER<X>& ArgumentName(unsigned i) const
-		{
-			if (i == 0) {
-				return functionText;
-			}
-
-			return argumentName[i - 1];
-		}
-
-		const std::vector<XOPER<X>>& ArgumentHelp() const
-		{
-			return argumentHelp;
-		}
-		const XOPER<X>& ArgumentHelp(unsigned i) const
+		const OPER& ArgumentName(unsigned i) const
 		{
 			if (i == 0) {
-				return functionHelp;
+				return key("functionText");
 			}
 
-			return argumentHelp[i - 1];
+			return key("argumentName")[i - 1];
+		}
+
+		const OPER& ArgumentHelp() const
+		{
+			return key("argumentHelp");
+		}
+		const OPER& ArgumentHelp(unsigned i) const
+		{
+			if (i == 0) {
+				return key("functionHelp");
+			}
+
+			return key("argumentHelp")[i - 1];
 		}
 
 
 		// Default value for argument.
-		const XOPER<X>& ArgumentDefault(unsigned i) const
+		const OPER& ArgumentDefault(unsigned i) const
 		{
 			if (i == 0) {
-				static XOPER<X> arg0, eq("="), lp("("), rp(")");
+				// function call with default arguments
+				static OPER arg0, eq("="), lp("("), rp(")"), c(", ");
 
-				arg0 = eq & functionText & lp & argumentText & rp;
+				arg0 = eq & FunctionText() & lp;
+				for (unsigned j = 1; j <= ArgumentCount(); ++j) {
+					if (j > 1) {
+						arg0 &= c;
+					}
+					arg0 &= ArgumentDefault(j);
+				}
+				arg0 &= rp;
 
 				return arg0;
 			}
 
-			return argumentDefault[i - 1];
+			return key("argumentDefault")[i - 1];
 		}
 
-		XArgs& Documentation(const std::string& s)
+		Args& Documentation(const std::string& s)
 		{
 			documentation = s;
 
@@ -310,24 +344,17 @@ namespace xll {
 		}
 
 		// never needed
-		XOPER<X> Unregister() const
+		auto Unregister() const
 		{
-			X* px[1];
-			px[0] = RegisterId();
-			return traits<X>::Excelv(xlfUnregister, 0, 1, px);
+			XLOPERX* px[1];
+			OPER regid = RegisterId();
+			px[0] = &regid;
+		
+			return traits<XLOPERX>::Excelv(xlfUnregister, 0, 1, px);
 		}
 	};
 
-	using Args4  = XArgs<XLOPER>;
-	using Args12 = XArgs<XLOPER12>;
-	using Args   = XArgs<XLOPERX>;
-
-	using Function4  = XArgs<XLOPER>;
-	using Function12 = XArgs<XLOPER12>;
-	using Function   = XArgs<XLOPERX>;
-
-	using Macro4  = XArgs<XLOPER>;
-	using Macro12 = XArgs<XLOPER12>;
-	using Macro   = XArgs<XLOPERX>;
+	using Function = Args;
+	using Macro = Args;
 
 }
