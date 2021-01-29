@@ -47,7 +47,7 @@ namespace xll{
 		oper[8] = &helpTopic;
 		oper[9] = &args.FunctionHelp();
 		for (unsigned i = 1; i <= args.ArgumentCount(); ++i) {
-			oper[10 + i] = &args.ArgumentHelp(i);
+			oper[9 + i] = &args.ArgumentHelp(i);
 		}
 		// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#argument-description-string-truncation-in-the-function-wizard
 		OPER xEmpty("");
