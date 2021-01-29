@@ -11,12 +11,13 @@ int XLL_ERROR(const char*, bool)
 	return 0;
 }
 
-int test_defines = []()
+int test_defines()
 {
 	return 0;
-}();
+}
+int test_defines_ = test_defines();
 
-int test_oper_adt = []()
+int test_oper_adt()
 {
 	{
 		OPER4 o("abc");
@@ -71,9 +72,9 @@ int test_oper_adt = []()
 
 	return 0;
 }
-();
+int test_oper_adt_ = test_oper_adt();
 
-int test_oper_default = []()
+int test_oper_default()
 {
 	{
 		OPER4 o;
@@ -86,7 +87,7 @@ int test_oper_default = []()
 
 	return 0;
 }
-();
+int test_oper_default_ = test_oper_default();
 
 int test_oper_num()
 {
@@ -153,7 +154,7 @@ int test_oper_num()
 }
 int test_oper_num_ = test_oper_num();
 
-int test_oper_str = []()
+int test_oper_str()
 {
 	{
 		OPER4 o("abc");
@@ -242,7 +243,7 @@ int test_oper_str = []()
 
 	return 0;
 }
-();
+int test_oper_str_ = test_oper_str();
 
 int test_oper_multi()
 {
@@ -386,7 +387,7 @@ int test_oper_multi()
 }
 int test_oper_multi_ = test_oper_multi();
 
-int test_oper_bool = []()
+int test_oper_bool()
 {
 	{
 		OPER o(true);
@@ -414,7 +415,7 @@ int test_oper_bool = []()
 
 	return 0;
 }
-();
+int test_oper_bool_ = test_oper_bool();
 
 // ints converted to double, just like Excel
 int test_oper_int()
@@ -468,7 +469,7 @@ int test_compare()
 }
 int test_compare_ = test_compare();
 
-int test_fp = []()
+int test_fp()
 {
 	using xll::FP4;
 	using xll::FP12;
@@ -539,9 +540,9 @@ int test_fp = []()
 
 	return 0;
 }
-();
+int test_fp_ = test_fp();
 
-int test_handle = []()
+int test_handle()
 {
 	{
   		int* pi = new int(2);
@@ -558,10 +559,10 @@ int test_handle = []()
 
 	return 0;
 }
-();
+int test_handle_ = test_handle();
 
 
-int test_xloper = []()
+int test_xloper()
 {
 	{
 		ensure(0 == strcmp(XLL_DOUBLE, "B"));
@@ -570,10 +571,11 @@ int test_xloper = []()
 
 	return 0;
 }
-();
+int test_xloper_ = test_xloper();
 
 
-int test_oper_cvt = []() {
+int test_oper_cvt() 
+{
 	{
 		OPER4 o(L"abc");
 		ensure(o.xltype == xltypeStr);
@@ -596,9 +598,11 @@ int test_oper_cvt = []() {
 	}
 
 	return 0;
-}();
+}
+int test_oper_cvt_ = test_oper_cvt();
 
-int test_oper_err = []() {
+int test_oper_err()
+{
 	ensure(ErrValue4.xltype == xltypeErr);
 	ensure(ErrValue4.val.err == xlerrValue);
 
@@ -608,8 +612,11 @@ int test_oper_err = []() {
 	ensure(ErrValue.xltype == xltypeErr);
 	ensure(ErrValue.val.err == xlerrValue);
 
+	assert(OPER(OPER::Err::Value) == ErrValue);
+
 	return 0;
-}();
+}
+int test_oper_err_ = test_oper_err();
 
 int test_mref()
 {
@@ -617,6 +624,7 @@ int test_mref()
 		REF r(1, 1);
 		OPER mr({ r,r,r });
 		assert(mr.size() == 3);
+		assert(mr.type() == xltypeRef);
 		assert(mr == mr);
 		OPER mr2(mr);
 		mr = mr2;
