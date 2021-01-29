@@ -44,7 +44,6 @@
     <ClInclude Include="xll\xloper.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="xll\addin.cpp" />
     <ClCompile Include="xll\auto.cpp" />
     <ClCompile Include="xll\debug.cpp" />
     <ClCompile Include="xll\defines.c" />
