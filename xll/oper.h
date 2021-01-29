@@ -8,6 +8,7 @@
 #include "utf8.h"
 #include "xloper.h"
 #include "sref.h"
+#include "error.h"
 
 #pragma warning(disable: 4996)
 
@@ -119,7 +120,7 @@ namespace xll {
 		//
 		XOPER& operator=(const XOPER& o)
 		{
-			return *this = XOPER(o); //??? = o;
+			return *this = XOPER(o);
 		}
 		XOPER& operator=(XOPER&& o) noexcept
 		{
@@ -187,7 +188,10 @@ namespace xll {
 		}
 		bool is_num() const
 		{
-			return type() == xltypeNum;
+			return (xltype & xltypeNum) ? val.num 
+				 : (xltype & xltypeInt) ? val.w 
+				 : (xltype & xltypeBool) ? val.xbool 
+				 : std::numeric_limits<double>::quiet_NaN();
 		}
 		const double& as_num() const
 		{
@@ -255,9 +259,6 @@ namespace xll {
 		{
 			oper_free();
 			str_alloc(traits<X>::cvt(str), -1);
-
-			return *this;
-		}
 		//??? is this a good idea
 		bool operator==(cstrx str) const
 		{
@@ -291,6 +292,9 @@ namespace xll {
 			}
 		}
 		// string building
+
+			return *this;
+		}
 		XOPER& append(const X& x)
 		{
 			if (x.xltype == xltypeNil) {
@@ -370,9 +374,6 @@ namespace xll {
 			return *this;
 		}
 		bool operator==(bool xbool) const
-		{
-			return xltype == xltypeBool and val.xbool == static_cast<typename traits<X>::xbool>(xbool);
-		}
 		bool is_bool() const
 		{
 			return type() == xltypeBool;
@@ -402,6 +403,32 @@ namespace xll {
 			val.err = static_cast<WORD>(err);
 		}
 		XOPER& operator=(enum Err err)
+			return xltype == xltypeBool and val.xbool == static_cast<typename traits<X>::xbool>(xbool);
+			oper_free();
+			xltype = xltypeErr;
+			val.err = static_cast<WORD>(err);
+		{
+			oper_free();
+			operator=(XOPER(xbool));
+		const xbool& as_bool() const
+		{
+			ensure(is_bool());
+
+			return val.xbool;
+		}
+
+		// xltypeErr - predifined as ErrXXX
+#define XLL_ERR_ENUM(a, b, c) a = xlerr##a,
+		enum class Err {
+			XLL_ERR_TYPE(XLL_ERR_ENUM)
+		};
+#undef XLL_ERR_ENUM
+		XOPER(enum Err err)
+		{
+			xltype = xltypeErr;
+			val.err = static_cast<WORD>(err);
+		}
+		XOPER& operator=(enum Err err)
 		{
 			oper_free();
 			xltype = xltypeErr;
@@ -409,6 +436,9 @@ namespace xll {
 
 			return *this;
 		}
+
+		// xltypeRef
+		// xltypeErr - predifined as ErrXXX
 		bool is_err() const
 		{
 			return xltype == xltypeErr;
@@ -482,21 +512,18 @@ namespace xll {
 			return xll::index(*this, rw, col);
 		}
 		const XOPER& operator()(unsigned rw, unsigned col) const
-		{
-			return xll::index(*this, rw, col);
-		}
 		enum class Side {
 			Bottom, Right, Top, Left
 		};
 		const XOPER& push_back(const X& x, Side side = Side::Bottom)
+			return xll::index(*this, rw, col);
+		}
+		const XOPER& append_bottom(const X& x)
 		{
 			if (xltype == xltypeNil) {
 				operator=(x);
 
 				return *this;
-			}
-			// make a copy if memory overlap
-			const XOPER& o = overlap(x) ? XOPER(x) : x;
 			if (type() == xltypeMulti) {
 				if (type() != xltype) {
 					operator=(*this); // free old and make new copy
@@ -529,13 +556,16 @@ namespace xll {
 				else {
 					ensure(!"OPER::push_back: dimension mismatch");
 				}
+				ensure(columns() == xll::columns(x));
+				multi_realloc(rows() + xll::rows(x), columns());
+				std::copy(o.begin(), o.end(), end() - o.size());
 			}
 			else {
 				XOPER tmp(1, 1);
-				swap(tmp);
+				return push_back(o, side);
 				operator[](0) = tmp;
 
-				return push_back(o, side);
+				return append_bottom(o);
 			}
 
 			return *this;
@@ -554,9 +584,6 @@ namespace xll {
 		XOPER(const xref& ref)
 		{
 			xltype = xltypeSRef;
-			val.sref.count = 1;
-			val.sref.ref = ref;
-		}
 		bool is_sref() const
 		{
 			return type() == xltypeSRef;
@@ -570,13 +597,13 @@ namespace xll {
 			return val.sref.ref;
 		}
 
+			val.sref.ref = ref;
+		}
+		
 		// xltypeRef - reference to multiple refs
 		XOPER(const std::initializer_list<xref>& ref)
 		{
 			xltype = xltypeRef;
-			ref_alloc(static_cast<WORD>(ref.size()));
-			std::copy(ref.begin(), ref.end(), val.mref.lpmref->reftbl);
-		}
 		bool is_ref() const
 		{
 			return type() == xltypeRef;
@@ -591,6 +618,9 @@ namespace xll {
 		xref* as_ref()
 		{
 			ensure(is_ref());
+			ref_alloc(static_cast<WORD>(ref.size()));
+			std::copy(ref.begin(), ref.end(), val.mref.lpmref->reftbl);
+		}
 
 			return val.mref.lpmref->reftbl;
 		}
@@ -598,12 +628,12 @@ namespace xll {
 		// xltypeInt. Excel usually converts this to num.
 		bool is_int() const
 		{
-			return type() == xltypeInt;
-		}
-		// ints get converted to double, just like Excel
 		const xint& as_int() const
 		{
 			ensure(is_int());
+			return type() == xltypeInt;
+		}
+		// ints get converted to double, just like Excel
 
 			return val.w;
 		}
