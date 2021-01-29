@@ -14,6 +14,7 @@ namespace xll {
 	template<typename T>
 	inline T xmod(T x, T y)
 	{
+		ensure(y != 0);
 		T z = x % y;
 
 		return z >= 0 ? z : z + y;

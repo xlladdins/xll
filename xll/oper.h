@@ -50,6 +50,11 @@ namespace xll {
 			swap(val, x.val);
 		}
 
+		auto type() const
+		{
+			return xltype & xlbitmask;
+		}
+
 		//
 		// constructors
 		//
@@ -102,7 +107,7 @@ namespace xll {
 			case xltypeMulti:
 				multi_alloc(rows(x), columns(x));
 				for (unsigned i = 0; i < size(); ++i)
-					val.array.lparray[i] = XOPER(x.val.array.lparry[i]);
+					val.array.lparray[i] = XOPER(x.val.array.lparray[i]);
 				break;
 			default:
 				xltype = x.xltype;
@@ -135,7 +140,7 @@ namespace xll {
 		
 		explicit operator bool() const
 		{
-			switch (xltype & xlbitmask) {
+			switch (type()) {
 			case xltypeNum:
 				return val.num != 0;
 			case xltypeStr:
@@ -182,7 +187,7 @@ namespace xll {
 		}
 		bool is_num() const
 		{
-			return (xltype & xlbitmask) == xltypeNum;
+			return type() == xltypeNum;
 		}
 		const double& as_num() const
 		{
@@ -260,7 +265,7 @@ namespace xll {
 		}
 		bool is_str() const
 		{
-			return (xltype & xlbitmask) == xltypeStr;
+			return type() == xltypeStr;
 		}
 		// reference to counted string
 		const xcstr& as_str() const
@@ -370,7 +375,7 @@ namespace xll {
 		}
 		bool is_bool() const
 		{
-			return (xltype & xlbitmask) == xltypeBool;
+			return type() == xltypeBool;
 		}
 		xbool& as_bool()
 		{
@@ -413,7 +418,7 @@ namespace xll {
 		// xltypeMulti
 		bool is_multi() const
 		{
-			return (xltype & xlbitmask) == xltypeMulti;
+			return type() == xltypeMulti;
 		}
 		XOPER(unsigned rw, unsigned col)
 		{
@@ -480,7 +485,10 @@ namespace xll {
 		{
 			return xll::index(*this, rw, col);
 		}
-		const XOPER& push_back(const X& x)
+		enum class Side {
+			Bottom, Right, Top, Left
+		};
+		const XOPER& push_back(const X& x, Side side = Side::Bottom)
 		{
 			if (xltype == xltypeNil) {
 				operator=(x);
@@ -489,17 +497,45 @@ namespace xll {
 			}
 			// make a copy if memory overlap
 			const XOPER& o = overlap(x) ? XOPER(x) : x;
-			if (xltype == xltypeMulti) {
-				ensure(columns() == xll::columns(x));
-				multi_realloc(rows() + xll::rows(x), columns());
-				std::copy(o.begin(), o.end(), end() - o.size());
+			if (type() == xltypeMulti) {
+				if (type() != xltype) {
+					operator=(*this); // free old and make new copy
+				}
+				unsigned r = rows();
+				unsigned c = columns();
+				if (side == Side::Bottom) {
+					ensure(c == o.columns());
+					multi_realloc(r + o.rows(), c);
+					std::copy(o.begin(), o.end(), begin() + r * c);
+				}
+				else if (side == Side::Right) {
+					ensure(r == o.rows());
+					multi_realloc(r, c + o.columns());
+					// copy to back of old range
+					std::copy(o.begin(), o.end(), begin() + r * c);
+					// rotate new rows into place
+					auto b = begin() + c;
+					auto m = b + o.columns();
+					auto e = begin() + r * c + o.columns();
+					while (--r) {
+						std::rotate(b, m, e);
+						b += o.columns();
+						m += o.columns();
+						e += o.columns();
+					}
+				}
+				// else if (side == Side::Top) { ... }
+				// else if (side == Side::Left) { ... }
+				else {
+					ensure(!"OPER::push_back: dimension mismatch");
+				}
 			}
 			else {
 				XOPER tmp(1, 1);
 				swap(tmp);
 				operator[](0) = tmp;
 
-				return push_back(o);
+				return push_back(o, side);
 			}
 
 			return *this;
@@ -523,7 +559,7 @@ namespace xll {
 		}
 		bool is_sref() const
 		{
-			return (xltype & xlbitmask) == xltypeSRef;
+			return type() == xltypeSRef;
 		}
 		const xref& as_sref() const
 		{
@@ -543,7 +579,7 @@ namespace xll {
 		}
 		bool is_ref() const
 		{
-			return (xltype & xlbitmask) == xltypeRef;
+			return type() == xltypeRef;
 		}
 		// size() returns number of refs
 		const xref* as_ref() const
@@ -562,7 +598,7 @@ namespace xll {
 		// xltypeInt. Excel usually converts this to num.
 		bool is_int() const
 		{
-			return (xltype & xlbitmask) == xltypeInt;
+			return type() == xltypeInt;
 		}
 		// ints get converted to double, just like Excel
 		const xint& as_int() const
@@ -617,12 +653,13 @@ namespace xll {
 			}
 			else {
 				val.str = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
-				// first character is count
-				if (val.str) {
-					memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
-					// ensure (n <= ...MAX);
-					val.str[0] = static_cast<xchar>(n);
+				if (!val.str) {
+					throw std::bad_alloc{};
 				}
+				// first character is count
+				memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+				// ensure (n <= ...MAX);
+				val.str[0] = static_cast<xchar>(n);
 			}
 		}
 		void str_append(xcstr str, int n)
@@ -681,9 +718,10 @@ namespace xll {
 			val.array.rows = static_cast<xrw>(r);
 			val.array.columns = static_cast<xcol>(c);
 			val.array.lparray = static_cast<X*>(malloc(size() * sizeof(X)));
-			if (val.array.lparray) {
-				std::fill(begin(), end(), XOPER{});
+			if (!val.array.lparray) {
+				throw std::bad_alloc{};
 			}
+			std::fill(begin(), end(), XOPER{});
 		}
 		void multi_realloc(unsigned r, unsigned c)
 		{
@@ -711,12 +749,16 @@ namespace xll {
 			if (n > size()) {
 				std::for_each(end(), begin() + n, [](auto& o) { o.oper_free(); });
 				X* tmp = (X*)realloc(val.array.lparray, size() * sizeof(X));
-				ensure(tmp);
+				if (!tmp) {
+					throw std::bad_alloc{};
+				}
 				val.array.lparray = tmp;
 			}
 			else if (n < size()) {
 				X* tmp = (X*)realloc(val.array.lparray, size() * sizeof(X));
-				ensure(tmp);
+				if (!tmp) {
+					throw std::bad_alloc{};
+				}
 				val.array.lparray = tmp;
 				std::fill(begin() + n, end(), XOPER{});
 			}
@@ -736,7 +778,9 @@ namespace xll {
 
 			xltype = xltypeRef;
 			val.mref.lpmref = (xmref*)malloc(sizeof(xmref) + count * sizeof(xref));
-			ensure(val.mref.lpmref);
+			if (!val.mref.lpmref) {
+				throw std::bad_alloc{};
+			}
 			val.mref.lpmref->count = count;
 		}
 		void ref_realloc(WORD count)
@@ -746,10 +790,11 @@ namespace xll {
 
 			ensure(xltype == xltypeRef);
 			void* tmp = realloc(val.mref.lpmref, sizeof(xmref) + count * sizeof(xref));
-			if (tmp) {
-				val.mref.lpmref = (xmref*)tmp;
-				val.mref.lpmref->count = count;
+			if (!tmp) {
+				throw std::bad_alloc{};
 			}
+			val.mref.lpmref = (xmref*)tmp;
+			val.mref.lpmref->count = count;
 		}
 		void ref_free()
 		{

@@ -367,6 +367,20 @@ int test_oper_multi()
 		ensure(o[2].xltype == xltypeMissing);
 		ensure(o[3].xltype == xltypeErr);
 	}
+	{
+		OPER o(2, 1);
+		o(0, 0) = 0;
+		o(1, 0) = 10;
+		OPER o2(2, 1);
+		o2(0, 0) = 1;
+		o2(1, 0) = 11;
+		o.push_back(o2, OPER::Side::Right); // push back column
+		//o.push_back(o, OPER::Side::Right);
+		assert(o(0, 0) == 0);
+		assert(o(0, 1) == 1);
+		assert(o(1, 0) == 10);
+		assert(o(1, 1) == 11);
+	}
 
 	return 0;
 }
