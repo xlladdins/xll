@@ -1,4 +1,7 @@
 ﻿// utf8.h - convert utf-8 to counted, allocated string and vice versa
+// Loss-free conversion from UTF-16 to MBCS and back
+// https://docs.microsoft.com/en-us/archive/msdn-magazine/2016/september/c-unicode-encoding-conversions-with-stl-strings-and-win32-apis
+
 #pragma once
 #include <cstdlib>
 #include <cstring>
@@ -28,8 +31,6 @@ namespace utf8 {
 			return ws;
 		}
 
-		// Loss-free conversion from UTF-16 to MBCS and back
-		// https://tinyurl.com/yxf7lvo6?
 		int wn = 0;
 		if (n != 0) {
 			ensure(0 != (wn = MultiByteToWideChar(CP_UTF8, 0, s, (int)n, nullptr, 0)));
