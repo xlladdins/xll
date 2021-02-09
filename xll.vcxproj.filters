@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="macrofun">
+      <UniqueIdentifier>{e31853b1-2776-4569-b116-5b1b8316a693}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xll\xll.h">
@@ -84,6 +87,12 @@
     <ClInclude Include="xll\codec.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="xll\macrofun\xll_macrofun.h">
+      <Filter>macrofun</Filter>
+    </ClInclude>
+    <ClInclude Include="xll\macrofun\xll_paste.h">
+      <Filter>macrofun</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">
@@ -106,6 +115,24 @@
     </ClCompile>
     <ClCompile Include="xll\xll_range.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_addin.cpp">
+      <Filter>macrofun</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_document.cpp">
+      <Filter>macrofun</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_function.cpp">
+      <Filter>macrofun</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_macrofun.cpp">
+      <Filter>macrofun</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_paste.cpp">
+      <Filter>macrofun</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_utility.cpp">
+      <Filter>macrofun</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -9,3 +9,7 @@
 #include "on.h"
 #include "handle.h"
 #include "fp.h"
+
+namespace xll {
+	bool Documentation(const char* category, const char* description);
+}

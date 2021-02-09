@@ -31,6 +31,8 @@
     <ClInclude Include="xll\exports.h" />
     <ClInclude Include="xll\fp.h" />
     <ClInclude Include="xll\handle.h" />
+    <ClInclude Include="xll\macrofun\xll_macrofun.h" />
+    <ClInclude Include="xll\macrofun\xll_paste.h" />
     <ClInclude Include="xll\on.h" />
     <ClInclude Include="xll\oper.h" />
     <ClInclude Include="xll\register.h" />
@@ -49,6 +51,12 @@
     <ClCompile Include="xll\defines.c" />
     <ClCompile Include="xll\dllmain.cpp" />
     <ClCompile Include="xll\error.cpp" />
+    <ClCompile Include="xll\macrofun\xll_addin.cpp" />
+    <ClCompile Include="xll\macrofun\xll_document.cpp" />
+    <ClCompile Include="xll\macrofun\xll_function.cpp" />
+    <ClCompile Include="xll\macrofun\xll_macrofun.cpp" />
+    <ClCompile Include="xll\macrofun\xll_paste.cpp" />
+    <ClCompile Include="xll\macrofun\xll_utility.cpp" />
     <ClCompile Include="xll\XLCALL.CPP" />
     <ClCompile Include="xll\xll_range.cpp" />
   </ItemGroup>

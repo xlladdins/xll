@@ -5,6 +5,12 @@
 
 using namespace xll;
 
+#ifdef _DEBUG
+Auto<OpenAfter> xaoa_test_doc([]() {
+	return Documentation("TEST", "Excel test functions");
+});
+#endif
+
 static LSTATUS reg_query = []() {
 
 	LSTATUS status;
