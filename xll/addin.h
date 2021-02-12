@@ -16,7 +16,8 @@ namespace xll {
         AddIn(const Args& args) noexcept
         {
             const auto& key = args.FunctionText();
-            auto [_, inserted] = Map.try_emplace(key, args);
+            Map[key] = args;
+            //auto [_, inserted] = Map.try_emplace(key, args);
             /*
             // warn if it already exists
             if (!inserted) {

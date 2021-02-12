@@ -21,6 +21,7 @@
 #define XLL_X32(x) x
 #endif
 
+#pragma comment(lib, "Shlwapi.lib")
 // xlAuto functions required by Excel
 #pragma comment(linker, "/include:" XLL_DECORATE("DllMain", 12))
 #pragma comment(linker, "/export:" XLL_DECORATE("XLCallVer", 0))

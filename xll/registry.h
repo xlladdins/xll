@@ -7,7 +7,6 @@
 #include <vector>
 #include <Windows.h>
 
-
 namespace Reg {
 
 	using SZ = std::basic_string<TCHAR>;

@@ -1,5 +1,6 @@
 // register.h - Register an add-in
 #pragma once
+#include "shlwapi.h"
 #include "args.h"
 
 namespace xll{
@@ -8,7 +9,7 @@ namespace xll{
 	{
 		args.key("moduleText") = Excel(xlGetName);
 
-		int count = 10 + static_cast<int>(args.ArgumentCount());
+		unsigned count = 10 + static_cast<int>(args.ArgumentCount());
 		std::vector<const XLOPERX*> oper(count + 1);
 
 		OPER procedure = args.Procedure();
@@ -28,8 +29,29 @@ namespace xll{
 		}
 
 		OPER helpTopic = args.HelpTopic();
+		if (!helpTopic and args.Documentation().length() > 0) {
+			OPER name = args.key("moduleText");
+			name.append(); // null terminate
+
+			xll::traits<XLOPERX>::xchar buf[2048];
+			DWORD len = 2048;
+			ensure(S_OK == UrlCreateFromPath(name.val.str + 1, buf, &len, 0));
+
+			helpTopic = buf;
+			unsigned slash = 0; // last index of slash
+			for (unsigned i = 1; i <= helpTopic.val.str[0]; ++i) {
+				if (helpTopic.val.str[i] == '/') {
+					slash = i;
+				}
+			}
+			helpTopic = Excel(xlfLeft, helpTopic, OPER(slash));
+			// remove unsafe character
+			helpTopic = Excel(xlfSubstitute, helpTopic, OPER("\\"), OPER(""));
+			helpTopic.append(args.FunctionText());
+			helpTopic.append(".html");
+		}
 		// Help URLs must end with "!0"
-		if (helpTopic.xltype & xltypeStr) {
+		if (helpTopic.xltype & xltypeStr) { 
 			XOPER xFind = Excel(xlfFind, OPER("!"), helpTopic);
 			if (xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
 				helpTopic &= OPER("!0");
