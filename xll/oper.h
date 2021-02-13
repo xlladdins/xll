@@ -571,7 +571,15 @@ namespace xll {
 		}
 
 		// xltypeMissing - predefined as Missing
+		bool is_missing() const
+		{
+			return type() == xltypeMissing;
+		}
 		// xltypeNil - predefined as Nil
+		bool is_nil() const
+		{
+			return type() == xltypeNil;
+		}
 
 		// xltypeSRef - reference to a single range
 		XOPER(xrw row, xcol col, xrw height, xcol width)
@@ -763,6 +771,10 @@ namespace xll {
 					new (tmp.val.array.lparray + i) XOPER{};
 				}
 				swap(tmp);
+			}
+			else {
+				val.array.rows = static_cast<xrw>(r);
+				val.array.columns = static_cast<xcol>(c);
 			}
 		}
 		void multi_free()

@@ -27,16 +27,16 @@ inline Args* xll_arguments(const OPER& xRef = Excel(xlfActiveCell))
 }
 
 AddIn xai_paste_args(
-	Macro("xll_paste_args", "XLL.PASTE.ARGS")
+	Macro(XLL_DECORATE("_xll_paste_args", 0), "XLL.PASTE.ARGS")
 	.FunctionHelp("Paste function using default arguments.")
 	.Category("XLL")
-	.ShortcutText(ON_CTRL ON_SHIFT "2")
+	//.ShortcutText(ON_CTRL ON_SHIFT "2")
 	.Documentation(R"(
 This macro works like <c>Ctrl-Shift-A</c> except it pastes argument defaults
 instead of argument names.
 )")
 );
-int WINAPI xll_paste_args()
+extern "C" __declspec(dllexport) int WINAPI xll_paste_args()
 {
 #pragma XLLEXPORT
 	int result = FALSE;
@@ -58,20 +58,8 @@ int WINAPI xll_paste_args()
 
 	return result;
 }
-
 // Ctrl-Alt-@ is like Ctrl-Shift-A but paste default values.
-Auto<Open> xaoa_paste_args([]() {
-	try {
-		On<Key> xok_paste_args(ON_CTRL ON_SHIFT "2", "XLL.PASTE.ARGS");
-	}
-	catch (...) {
-		XLL_ERROR("On<Key> failed to assign Ctrl-Shift-2 to XLL.PASTE.ARGS");
-
-		return FALSE;
-	}
-
-	return TRUE;
-});
+On<Key> xok_paste_args(ON_CTRL ON_SHIFT "2", "XLL.PASTE.ARGS");
 
 
 #if 0
@@ -315,18 +303,7 @@ xll_paste_basic(void)
 	return result;
 }
 // Ctrl-Shift-B
-Auto<Open> xaoa_paste_basic([]() {
-	try {
-		On<Key> xok_paste_basic(ON_CTRL ON_SHIFT "B", "XLL.PASTE.BASIC");
-	}
-	catch (...) {
-		XLL_ERROR("On<Key> failed to assign Ctrl-Shift-B to XLL.PASTE.BASIC");
-
-		return FALSE;
-	}
-
-	return TRUE;
-	});
+On<Key> xok_paste_basic(ON_CTRL ON_SHIFT "B", "XLL.PASTE.BASIC");
 
 #if 0
 // create named ranges for arguments
@@ -442,7 +419,8 @@ xll_paste_create(void)
 }
 
 // Ctrl-Shift-C
-Auto<Open> xaoa_paste_create([]() {
+/*
+Auto<OpenAfter> xaoa_paste_create([]() {
 	try {
 		On<Key> xok_paste_create(ON_CTRL ON_SHIFT "C", "XLL.PASTE.CREATE");
 	}
@@ -454,5 +432,5 @@ Auto<Open> xaoa_paste_create([]() {
 
 	return TRUE;
 });
-
+*/
 #endif // 0

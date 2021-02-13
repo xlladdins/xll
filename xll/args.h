@@ -26,6 +26,8 @@ namespace xll {
 		cstr name;
 		cstr help;
 		cstr init;
+		Arg()
+		{ }
 		Arg(cstr type, cstr name, cstr help, cstr init = nullptr)
 			: type(type), name(name), help(help), init(init)
 		{
