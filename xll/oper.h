@@ -711,7 +711,7 @@ namespace xll {
 			ensure(c <= (unsigned)(std::numeric_limits<xcol>::max)());
 
 			if (r * c == 0) {
-				xltype = XOPER().xltype;
+				operator=(XOPER{});
 
 				return;
 			}
@@ -723,7 +723,9 @@ namespace xll {
 			if (!val.array.lparray) {
 				throw std::bad_alloc{};
 			}
-			std::fill(begin(), end(), XOPER{});
+			for (unsigned i = 0; i < size(); ++i) {
+				new (val.array.lparray + i) XOPER{};
+			}
 		}
 		void multi_realloc(unsigned r, unsigned c)
 		{
@@ -731,40 +733,36 @@ namespace xll {
 			ensure(c <= (unsigned)(std::numeric_limits<xcol>::max)());
 
 			if (!(xltype & xltypeMulti)) {
-				auto tmp = *this;
-				oper_free();
+				XOPER tmp = std::move(*this);
 				multi_alloc(r, c);
-				operator[](0) = tmp;
+				operator[](0) = std::move(tmp);
 
 				return;
 			}
 
 			if (r * c == 0) {
 				multi_free();
-				operator=(XOPER{});
+				ensure(xltype == XOPER{}.xltype);
 
 				return;
 			}
 	
 			// current size
 			auto n = size();
-			val.array.rows = static_cast<xrw>(r);
-			val.array.columns = static_cast<xcol>(c);
-			if (n > size()) {
+			if (n > r*c) {
 				std::for_each(end(), begin() + n, [](auto& o) { o.oper_free(); });
-				X* tmp = (X*)realloc(val.array.lparray, size() * sizeof(X));
-				if (!tmp) {
-					throw std::bad_alloc{};
-				}
-				val.array.lparray = tmp;
+				val.array.rows = static_cast<xrw>(r);
+				val.array.columns = static_cast<xcol>(c);
 			}
-			else if (n < size()) {
-				X* tmp = (X*)realloc(val.array.lparray, size() * sizeof(X));
-				if (!tmp) {
-					throw std::bad_alloc{};
+			else if (n < r*c) {
+				XOPER tmp(r, c);
+				for (unsigned i = 0; i < n; ++i) {
+					tmp[i] = std::move(operator[](i));
 				}
-				val.array.lparray = tmp;
-				std::fill(begin() + n, end(), XOPER{});
+				for (unsigned i = n; i < size(); ++i) {
+					new (tmp.val.array.lparray + i) XOPER{};
+				}
+				swap(tmp);
 			}
 		}
 		void multi_free()

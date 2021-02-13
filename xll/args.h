@@ -70,6 +70,8 @@ namespace xll {
 		{ }
 		Args(const Args&) = default;
 		Args& operator=(const Args&) = default;
+		Args(Args&&) = default;
+		Args& operator=(Args&&) = default;
 		~Args()
 		{ }
 		// Function
