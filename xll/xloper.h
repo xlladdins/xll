@@ -29,72 +29,99 @@ namespace xll {
 	inline static const int xlbitmask = ~(xlbitXLFree | xlbitDLLFree);
 
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline int type(const X& x)
+	{
+		return x.xltype & xlbitmask;
+	}
+		
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline unsigned rows(const X& x)
 	{
-		// xltypeRef type???
-		return (x.xltype & xltypeMulti) ? x.val.array.rows
-			  : x.xltype == xltypeSRef ? height(x.val.sref.ref)
-			  : x.xltype == xltypeNil ? 0
-		      : (x.xltype & xltypeRef) ? x.val.mref.lpmref->count // number of references
-			  : 1;
+		switch (type(x)) {
+		case xltypeMulti:
+			return x.val.array.rows;
+		case xltypeSRef:
+			return height(x.val.sref.ref);
+		case xltypeNil:
+			return 0;
+		}
+		
+		return 1;
 	}
 
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline unsigned columns(const X& x)
 	{
-		return (x.xltype & xltypeMulti) ? x.val.array.columns 
-			  : x.xltype == xltypeSRef ? width(x.val.sref.ref)
-		      : x.xltype == xltypeNil ? 0
-			  : 1;
+		switch (type(x)) {
+		case xltypeMulti:
+			return x.val.array.columns;
+		case xltypeSRef:
+			return width(x.val.sref.ref);
+		case xltypeNil:
+			return 0;
+		}
+
+		return 1;
 	}
+
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline unsigned size(const X& x)
 	{
 		return rows(x) * columns(x);
 	}
-	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline X* begin(X& x)
-	{
-		return (x.xltype & xltypeMulti) ? static_cast<X*>(x.val.array.lparray) : &x;
-	}
-	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline const X* begin(const X& x)
-	{
-		return (x.xltype & xltypeMulti) ? static_cast<const X*>(x.val.array.lparray) : &x;
-	}
-	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline X * end(X & x)
-	{
-		return (x.xltype & xltypeMulti) ? static_cast<X*>(x.val.array.lparray + size(x)) : &x + 1;
-	}
-	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline const X* end(const X & x)
-	{
-		return (x.xltype & xltypeMulti) ? static_cast<const X*>(x.val.array.lparray + size(x)) : &x + 1;
-	}
 
-	// str iterator
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline typename traits<X>::xcstr str_begin(const X& x)
+	inline X* multi_begin(X& x)
 	{
-		return (x.xltype & xltypeStr) ? x.val.str + 1 : nullptr;
+		return type(x) == xltypeMulti ? static_cast<X*>(x.val.array.lparray) : &x;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline typename traits<X>::xcstr str_end(const X& x)
+	inline const X* multi_begin(const X& x)
 	{
-		return (x.xltype & xltypeStr) ? x.val.str + 1 + x.val.str[0] : nullptr;
+		return type(x) == xltypeMulti ? static_cast<const X*>(x.val.array.lparray) : &x;
+	}
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline X * multi_end(X & x)
+	{
+		return type(x) == xltypeMulti ? static_cast<X*>(x.val.array.lparray + size(x)) : &x + 1;
+	}
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline const X* multi_end(const X & x)
+	{
+		return type(x) == xltypeMulti ? static_cast<const X*>(x.val.array.lparray + size(x)) : &x + 1;
 	}
 
 	// ref iterator
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline typename const traits<X>::xref* ref_begin(const X& x)
 	{
-		return (x.xltype & xltypeRef) ? x.val.mref.lpmref->reftbl : nullptr;
+		return type(x) == xltypeRef ? x.val.mref.lpmref->reftbl : nullptr;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline typename const traits<X>::xref* ref_end(const X& x)
 	{
-		return (x.xltype & xltypeRef) ? x.val.mref.lpmref->reftbl + x.val.mref.lpmref->count : nullptr;
+		return type(x) == xltypeRef ? x.val.mref.lpmref->reftbl + x.val.mref.lpmref->count : nullptr;
+	}
+
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline X* begin(X& x)
+	{
+		return multi_begin(x);
+	}
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline const X* begin(const X& x)
+	{
+		return multi_begin(x);
+	}
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline X* end(X& x)
+	{
+		return multi_end(x);
+	}
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline const X* end(const X& x)
+	{
+		return multi_end(x);
 	}
 
 	// one-dimensional index

@@ -51,6 +51,7 @@ namespace xll {
 			swap(val, x.val);
 		}
 
+		// xltype without xllbitXXX flags
 		auto type() const
 		{
 			return xltype & xlbitmask;
@@ -66,7 +67,7 @@ namespace xll {
 		XOPER(const X& x)
 		{
 			if (x.xltype & xltypeScalar) {
-				xltype = x.xltype;
+				xltype = (x.xltype & xltypeScalar);
 				val = x.val;
 			}
 			else if (x.xltype & xltypeStr) {
@@ -120,7 +121,7 @@ namespace xll {
 		//
 		XOPER& operator=(const XOPER& o)
 		{
-			return *this = XOPER(o);
+			return operator=(static_cast<const X&>(o));
 		}
 		XOPER& operator=(XOPER&& o) noexcept
 		{
