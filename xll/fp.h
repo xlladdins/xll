@@ -57,24 +57,9 @@ namespace xll {
 		double array[R*C];
 		FP_()
 			: rows(R), columns(C)
-		{ }
-		operator ::FP&()
 		{
-			return reinterpret_cast<::FP&>(this);
 		}
-		operator const ::FP& () const
-		{
-			return reinterpret_cast<const ::FP&>(this);
-		}
-		::FP* operator&()
-		{
-			return reinterpret_cast<::FP*>(this);
-		}
-		const ::FP* operator&() const
-		{
-			return reinterpret_cast<const ::FP*>(this);
-		}
-		unsigned size() const
+		auto size() const
 		{
 			return rows * columns;
 		}
@@ -89,7 +74,8 @@ namespace xll {
 		}
 		double& operator[](unsigned short int i)
 		{
-			return array[xmod<unsigned>(i, size())];
+			return index(*this);
+			//return array[xmod<unsigned>(i, size())];
 		}
 		const double& operator[](unsigned short int i) const
 		{
@@ -99,28 +85,12 @@ namespace xll {
 
 	template<unsigned R, unsigned C = 1>
 	struct FP12_ {
-		signed int rows;
-		signed int columns;
+		INT32 rows;
+		INT32 columns;
 		double array[R*C];
 		FP12_()
 			: rows(R), columns(C)
 		{ }
-		operator ::FP12& ()
-		{
-			return reinterpret_cast<::FP12&>(this);
-		}
-		operator const ::FP12& () const
-		{
-			return reinterpret_cast<const ::FP12&>(this);
-		}
-		::FP12* operator&()
-		{
-			return reinterpret_cast<::FP12*>(this);
-		}
-		const ::FP12* operator&() const
-		{
-			return reinterpret_cast<const ::FP12*>(this);
-		}
 		unsigned size() const
 		{
 			return rows * columns;
@@ -134,18 +104,18 @@ namespace xll {
 
 			return *this;
 		}
-		double& operator[](int i)
+		double& operator[](INT32 i)
 		{
-			return array[xmod<unsigned>(i, size())];
+			return array[xmod<INT32>(i, size())];
 		}
-		const double& operator[](int i) const
+		const double& operator[](INT32 i) const
 		{
-			return array[xmod<unsigned>(i, size())];
-	}
-};
+			return array[xmod<INT32>(i, size())];
+		}
+	};
 
 	template<unsigned R, unsigned C = 1>
-#if XLOPERX == XLOPER12
+#if XLL_VERSION == 12
 	using FPX_ = FP12_<R,C>;
 #else
 	using FPX_ = FP_<R,C>;
