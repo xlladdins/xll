@@ -41,6 +41,7 @@
     <ClInclude Include="xll\sref.h" />
     <ClInclude Include="xll\traits.h" />
     <ClInclude Include="xll\utf8.h" />
+    <ClInclude Include="xll\win.h" />
     <ClInclude Include="xll\XLCALL.H" />
     <ClInclude Include="xll\xll.h" />
     <ClInclude Include="xll\xloper.h" />

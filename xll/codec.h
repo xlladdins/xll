@@ -1,5 +1,5 @@
 // codec.h - encoder/decoder for XLOPERs
-// XLOPER is a variant type num|str|multi|...
+// XLOPER is a variant type num|str|err|multi|...
 #pragma once
 #include <concepts>
 #include <iostream>
