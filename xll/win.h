@@ -16,6 +16,39 @@ namespace Win {
 		return buf;
 	}
 
+	template<class H, BOOL(*D)(H)>
+	class Hnd {
+		H h;
+	public:
+		Hnd(H h = INVALID_HANDLE_VALUE)
+			: h(h)
+		{ }
+		Hnd(const Hnd&) = delete;
+		Hnd& operator=(const Hnd&) = delete;
+		Hnd(Hnd&& h) noexcept
+			: h(std::exchange(h.h, INVALID_HANDLE_VALUE))
+		{ }
+		Hnd& operator=(Hnd&& h_) noexcept
+		{
+			if (this != &h_) {
+				h = std::exchange(h_.h, INVALID_HANDLE_VALUE);
+			}
+
+			return *this;
+		}
+		~Hnd()
+		{
+			D(h);
+		}
+		operator H()
+		{
+			return h;
+		}
+	};
+
+	using Handle = Hnd<HANDLE, CloseHandle>;
+
+	/*
 	class Handle {
 		HANDLE h;
 	public:
@@ -44,5 +77,5 @@ namespace Win {
 			return h;
 		}
 	};
-
+	*/
 }

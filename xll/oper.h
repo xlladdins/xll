@@ -659,7 +659,7 @@ namespace xll {
 			xltype = xltypeStr;
 
 			if (n == -1) {
-				// str was allocated by mallc
+				// str was allocated by malloc
 				val.str = const_cast<xchar*>(str);
 			}
 			else {
@@ -668,7 +668,9 @@ namespace xll {
 					throw std::bad_alloc{};
 				}
 				// first character is count
-				memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+				if (str) {
+					memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+				}
 				// ensure (n <= ...MAX);
 				val.str[0] = static_cast<xchar>(n);
 			}
