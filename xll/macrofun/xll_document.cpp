@@ -20,12 +20,16 @@ namespace xll {
 		border-padding: 5px;
 		border-collapse: collapse;
 	}
+	th {
+		color: white;
+		background-color: #00a1f1;
+	}
 	th:first-child, td:first-child {
 		padding-right: 1em;
 		text-align: right;
 		font-weight: bold;
 	}
-		tbody>tr:nth-child(odd) {
+	tbody>tr:nth-child(odd) {
 		background-color: #f2f2f2;
 	}
 	td:first-child {
