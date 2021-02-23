@@ -3,7 +3,7 @@
 
 using namespace xll;
 
-static AddIn xai_range_set(
+AddIn xai_range_set(
 	Function(XLL_HANDLEX, "xll_range_set", "\\RANGE.SET")
 	.Arguments({
 		Arg(XLL_LPOPER, "range", "is the range to set.")
@@ -21,7 +21,7 @@ HANDLEX WINAPI xll_range_set(LPOPER px)
 	return h.get();
 }
 
-static AddIn xai_range_get(
+AddIn xai_range_get(
 	Function(XLL_LPOPER, "xll_range_get", "RANGE.GET")
 	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by RANGE.SET.")
@@ -36,8 +36,33 @@ LPOPER WINAPI xll_range_get(HANDLEX h)
 	handle<OPER> h_(h, false);
 
 	if (!h_) {
-		XLL_WARNING("RANGE.GET: unknown handle");
+		XLL_ERROR("RANGE.GET: unknown handle");
+
+		return nullptr;
 	}
 
 	return h_.ptr();
 }
+
+#ifdef _DEBUG
+
+int xll_test_range()
+{
+	try {
+		OPER o({ OPER(1), OPER("a"), OPER(true), ErrNA });
+		HANDLEX h = xll_range_set(&o);
+		LPOPER po = xll_range_get(h);
+		const OPER& o = *po;
+		ensure(o == *po);
+	}
+	catch (const std::exception& ex) {
+		XLL_ERROR(ex.what());
+
+		return FALSE;
+	}
+
+	return TRUE;
+}
+Auto<OpenAfter> xaoa_test_range([]() { return xll_test_range(); });
+
+#endif // _DEBUG

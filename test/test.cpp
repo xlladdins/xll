@@ -122,11 +122,10 @@ double WINAPI xll_jn(LONG n, double x)
 	return result;
 }
 
+#if 0
 // lambda gets called on open
 Auto<Open> xai_open([]() {
-	Excel(xlcAlert, OPER("Auto<Open> called"));
-
-	return TRUE;
+	return !Excel(xlcAlert, OPER("Auto<Open> called")).is_err();
 });
 
 Auto<Close> xai_close([]() {
@@ -134,16 +133,6 @@ Auto<Close> xai_close([]() {
 
 	return TRUE;
 });
-
-AddIn xai_onkey(Macro("xll_onkey", "XLL.ONKEY").FunctionHelp("Called when Ctrl-Alt-a is pressed."));
-int WINAPI xll_onkey(void)
-{
-#pragma XLLEXPORT
-	Excel(xlcAlert, OPER("You pressed Ctrl-Alt-a"));
-
-	return TRUE;
-}
-On<Key> xon_key(ON_CTRL ON_ALT "a", "XLL.ONKEY");
 
 AddIn xai_onwindow(Macro("xll_onwindow", "XLL.ONWINDOW"));
 int WINAPI xll_onwindow(void)
@@ -164,6 +153,17 @@ int WINAPI xll_onsheet(void)
 	return TRUE;
 }
 On<Sheet> xon_sheet("", "XLL.ONSHEET", true);
+#endif
+
+AddIn xai_onkey(Macro("xll_onkey", "XLL.ONKEY").FunctionHelp("Called when Ctrl-Alt-a is pressed."));
+int WINAPI xll_onkey(void)
+{
+#pragma XLLEXPORT
+	Excel(xlcAlert, OPER("You pressed Ctrl-Alt-a"));
+
+	return TRUE;
+}
+On<Key> xon_key(ON_CTRL ON_ALT "a", "XLL.ONKEY");
 
 AddIn xai_get_workspace(
 	Function(XLL_LPOPER, "xll_get_workspace", "GET_WORKSPACE")

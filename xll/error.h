@@ -3,7 +3,7 @@
 #pragma once
 //#include <Windows.h>
 
-enum { 
+enum /*!!! class*/ { 
 	XLL_ALERT_ERROR   = 1,
 	XLL_ALERT_WARNING = 2, 
 	XLL_ALERT_INFO    = 4,

@@ -535,20 +535,21 @@ namespace xll {
 				}
 				unsigned r = rows();
 				unsigned c = columns();
+				unsigned n = r * c;
 				if (side == Side::Bottom) {
 					ensure(c == o.columns());
 					multi_realloc(r + o.rows(), c);
-					std::copy(o.begin(), o.end(), begin() + r * c);
+					std::copy(o.begin(), o.end(), begin() + n);
 				}
 				else if (side == Side::Right) {
 					ensure(r == o.rows());
 					multi_realloc(r, c + o.columns());
 					// copy to back of old range
-					std::copy(o.begin(), o.end(), begin() + r * c);
+					std::copy(o.begin(), o.end(), begin() + n);
 					// rotate new rows into place
 					auto b = begin() + c;
 					auto m = b + o.columns();
-					auto e = begin() + r * c + o.columns();
+					auto e = begin() + n + o.columns();
 					while (--r) {
 						std::rotate(b, m, e);
 						b += o.columns();

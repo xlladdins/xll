@@ -8,27 +8,22 @@
 using namespace xll;
 
 class reg_alert_level {
+	Reg::Key key; 
 	DWORD value;
 public:
-	// default to ERROR, WARNING, INFORMATION on
+	// default to ERROR, WARNING, and INFO on
 	reg_alert_level()
-		: value(0x7)
+		: key(HKEY_CURRENT_USER, TEXT("Software\\KALX\\xll")), value(0x7)
 	{
-		DWORD size = sizeof(DWORD);
-		LSTATUS status = RegGetValue(
-			HKEY_CURRENT_USER, 
-			TEXT("Software\\KALX\\xll"),
-			TEXT("xll_alert_level"), 
-			RRF_RT_REG_DWORD, 0,
-			&value, &size);
-		if (ERROR_SUCCESS != status) 
-		{
-			operator=(value); // override if in registry
+		try {
+			value = key[TEXT("xll_alert_level")];
+		}
+		catch (...) {
+			; // value gets set to default
 		}
 	}
 	reg_alert_level& operator=(DWORD level)
 	{
-		Reg::Key key(HKEY_CURRENT_USER, TEXT("Software\\KALX\\xll"));
 		key[TEXT("xll_alert_level")] = level;
         value = level;
 
@@ -81,13 +76,25 @@ XLL_INFO(const char* e, bool force)
 	return XLL_ALERT(e, "Information", XLL_ALERT_INFO, MB_ICONINFORMATION, force);
 }
 
+XLL_CONST(WORD, XLL_ALERT_ERROR, XLL_ALERT_ERROR,
+	"ALERT.LEVEL flag for errors[1].", "XLL", "")
+XLL_CONST(WORD, XLL_ALERT_WARNING, XLL_ALERT_WARNING,
+	"ALERT.LEVEL flag for warnings[2].", "XLL", "")
+XLL_CONST(WORD, XLL_ALERT_INFO, XLL_ALERT_INFO,
+	"ALERT.LEVEL flag for information[4].", "XLL", "")
+
 AddIn xai_alert_level(
-	Function(XLL_WORD, "xll_alert_level_", "XLL_ALERT_LEVEL")
+	Function(XLL_WORD, "xll_alert_level_", "ALERT.LEVEL")
 	.Arguments({
 		Arg(XLL_WORD, "level", "is the alert level mask to set."),
 	})
-	.FunctionHelp("Set the current alert level using a mask having bits for ERROR(1), WARNING(2), and INFORMATION(4).")
+	.FunctionHelp("Set the current alert level using a mask and return the old mask.")
 	.Category("XLL")
+	.Documentation(R"(
+The xll library can report errors, warnings, and information using pop-up alerts.
+These can be turned on or off using the XLL_ALERT_* flags.
+The value is stored in the registry to persist across Excel sessions.
+)")
 );
 DWORD WINAPI xll_alert_level_(DWORD w)
 {
@@ -119,26 +126,5 @@ struct test_dword {
 	}
 };
 test_dword test_dword_{};
-#if 0
-struct test_registry {
-    Reg::Key key;
-	test_registry()
-	{
-		key = Reg::Key(HKEY_CURRENT_USER, TEXT("tmp\\key"));
-        LSTATUS status;
-        status = RegDeleteKey(key, TEXT("tmp\\key"));
-        using SZ = std::basic_string<TCHAR>;
-        Reg::Key key2(HKEY_CURRENT_USER, TEXT("tmp\\string"));
-        Reg::Entry<SZ> value(key2, TEXT("value"));
-        SZ s = value;
-        value = TEXT("text");
-        s = value;
-        s = s;
-    }
-	~test_registry()
-	{
-	}
-};
-test_registry _{};
-#endif // 0
+
 #endif // _DEBUG
