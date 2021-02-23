@@ -42,6 +42,8 @@ namespace xll {
 			return x.val.array.rows;
 		case xltypeSRef:
 			return height(x.val.sref.ref);
+		case xltypeRef:
+			return x.val.mref.lpmref->count;
 		case xltypeNil:
 			return 0;
 		}
@@ -57,6 +59,8 @@ namespace xll {
 			return x.val.array.columns;
 		case xltypeSRef:
 			return width(x.val.sref.ref);
+		case xltypeRef:
+			return 1;
 		case xltypeNil:
 			return 0;
 		}

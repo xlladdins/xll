@@ -4,7 +4,7 @@
 using namespace xll;
 
 static AddIn xai_range_set(
-	Function(XLL_HANDLEX, "xll_range_set", "RANGE.SET")
+	Function(XLL_HANDLEX, "xll_range_set", "\\RANGE.SET")
 	.Arguments({
 		Arg(XLL_LPOPER, "range", "is the range to set.")
 		})
@@ -33,7 +33,7 @@ static AddIn xai_range_get(
 LPOPER WINAPI xll_range_get(HANDLEX h)
 {
 #pragma XLLEXPORT
-	handle<OPER> h_(h);
+	handle<OPER> h_(h, false);
 
 	if (!h_) {
 		XLL_WARNING("RANGE.GET: unknown handle");

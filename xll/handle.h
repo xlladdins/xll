@@ -1,6 +1,5 @@
 // handle.h - handles to C++ objects
 #pragma once
-#include <any>
 #include <limits>
 #include <map>
 #include <memory>
