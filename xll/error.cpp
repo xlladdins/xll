@@ -84,9 +84,9 @@ XLL_CONST(WORD, XLL_ALERT_INFO, XLL_ALERT_INFO,
 	"ALERT.LEVEL flag for information[4].", "XLL", "")
 
 AddIn xai_alert_level(
-	Function(XLL_WORD, "xll_alert_level_", "ALERT.LEVEL")
+	Function(XLL_WORD, "xll_alert_level_", "XLL.ALERT.LEVEL")
 	.Arguments({
-		Arg(XLL_WORD, "level", "is the alert level mask to set."),
+		Arg(XLL_WORD, "level", "is the alert level mask to set.", "XLL_ALERT_ERROR()"),
 	})
 	.FunctionHelp("Set the current alert level using a mask and return the old mask.")
 	.Category("XLL")

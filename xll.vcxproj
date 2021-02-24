@@ -52,11 +52,17 @@
     <ClCompile Include="xll\defines.c" />
     <ClCompile Include="xll\dllmain.cpp" />
     <ClCompile Include="xll\error.cpp" />
-    <ClCompile Include="xll\macrofun\xll_addin.cpp" />
+    <ClCompile Include="xll\macrofun\xll_addin.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="xll\macrofun\xll_document.cpp" />
     <ClCompile Include="xll\macrofun\xll_function.cpp" />
     <ClCompile Include="xll\macrofun\xll_macrofun.cpp" />
     <ClCompile Include="xll\macrofun\xll_paste.cpp" />
+    <ClCompile Include="xll\macrofun\xll_spreadsheet.cpp" />
     <ClCompile Include="xll\macrofun\xll_utility.cpp" />
     <ClCompile Include="xll\XLCALL.CPP" />
     <ClCompile Include="xll\xll_range.cpp" />

@@ -38,7 +38,6 @@ instead of argument names.
 );
 extern "C" __declspec(dllexport) int WINAPI xll_paste_args()
 {
-#pragma XLLEXPORT
 	int result = FALSE;
 
 	try {
@@ -60,7 +59,12 @@ extern "C" __declspec(dllexport) int WINAPI xll_paste_args()
 }
 // Ctrl-Alt-@ is like Ctrl-Shift-A but paste default values.
 On<Key> xok_paste_args(ON_CTRL ON_SHIFT "2", "XLL.PASTE.ARGS");
-
+/*
+Auto<OpenAfter> xaoa_paste_args([]() {
+	On<Key> xok_paste_args(ON_CTRL ON_SHIFT "2", "XLL.PASTE.ARGS");
+	return TRUE;
+	});
+*/
 
 #if 0
 

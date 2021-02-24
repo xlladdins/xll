@@ -9,8 +9,8 @@ namespace xll{
 	{
 		args.key("moduleText") = Excel(xlGetName);
 
-		unsigned count = 10 + static_cast<int>(args.ArgumentCount());
-		std::vector<const XLOPERX*> oper(count + 1);
+		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
+		std::vector<const XLOPERX*> oper(count);
 
 		OPER procedure = args.Procedure();
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
@@ -69,14 +69,14 @@ namespace xll{
 		oper[8] = &helpTopic;
 		oper[9] = &args.FunctionHelp();
 		for (unsigned i = 1; i <= args.ArgumentCount(); ++i) {
-			oper[9 + i] = &args.ArgumentHelp(i);
+			oper[9u + i] = &args.ArgumentHelp(i);
 		}
 		// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#argument-description-string-truncation-in-the-function-wizard
 		OPER xEmpty("");
-		oper[count] = &xEmpty;
+		oper.back() = &xEmpty;
 
 		XLOPERX registerId = { .xltype = xltypeNil };
-		int ret = traits<XLOPERX>::Excelv(xlfRegister, &registerId, count + 1, (XLOPERX**)&oper[0]);
+		int ret = traits<XLOPERX>::Excelv(xlfRegister, &registerId, count, (XLOPERX**)&oper[0]);
 		if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
 			OPER xMsg("Failed to register: ");
 			Excel(xlcAlert, xMsg & args.FunctionText(), OPER(2));

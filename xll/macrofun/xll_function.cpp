@@ -6,9 +6,9 @@ using namespace xll;
 using xchar = traits<XLOPERX>::xchar;
 
 AddIn xai_eval(
-	Function(XLL_LPOPER, "xll_eval", "XLL.EVALUATE")
+	Function(XLL_LPOPER, "xll_eval", "EVAL")
 	.Arguments({
-		{XLL_PSTRING, "str", "is a string to be evaluated.", "\"abc\""}
+		{XLL_PSTRING, "str", "is a string to be evaluated.", "=\"1 + 2\""}
 		})
 	.FunctionHelp("Call xlfEvaluate on string.")
 	.Category("XLL")
@@ -19,8 +19,8 @@ in the formula bar. A naked string like <c>"abc"</c> is interpreted as
 the named range <c>abc</c>. To get <code>EVAL</code> to treat it like
 a string it must be enclosed in quotes, <c>"\"abc\""</c>.
 <p>
-Two dimensional ranges are enclosed in curly braces using commas for
-field seperators and semi-colons for record seperators, <c>"{1,\"a\";FALSE,2.34}"</c>.
+Two dimensional ranges must start with an equal sign (<code> =</code>) then curly braces using commas for
+field seperators and semi-colons for record seperators, <c>"={1,\"a\";FALSE,2.34}"</c>.
 )")
 );
 LPOPER WINAPI xll_eval(xchar* str)
@@ -47,10 +47,11 @@ LPOPER WINAPI xll_eval(xchar* str)
 	return &result;
 }
 
+#if 0
 AddIn xai_absref(
 	Function(XLL_LPOPER, "xll_absref", "XLL.ABSREF")
 	.Arguments({
-		{XLL_PSTRING, "R1C1", "an R1C1-style relative reference in the form of text", "R[1]C[1]"},
+		{XLL_PSTRING, "R1C1", "an R1C1-style relative reference in the form of text", "\"A1\""},
 		{XLL_LPXLOPER, "ref", "is a reference.", "$A$1"}
 		})
 	.Uncalced()
@@ -86,12 +87,11 @@ LPOPER WINAPI xll_absref(xchar* r1c1, LPOPER pref)
 
 	return &result;
 }
-
 AddIn xai_reftext(
 	Function(XLL_LPOPER, "xll_reftext", "XLL.REFTEXT")
 	.Arguments({
-		{XLL_LPXLOPER, "ref", "is a cell reference.", "A1"},
-		{XLL_BOOL, "A1", "is a boolean specifying A1 or R1C1-style references.", "FALSE"}
+		{XLL_LPXLOPER, "ref", "is a cell reference.", "\"A1\""},
+		{XLL_BOOL, "A1", "is a boolean specifying A1 or R1C1-style references.", "=\"FALSE\""}
 		})
 	.Uncalced()
 	.FunctionHelp("Converts a reference to an absolute reference in the form of text.")
@@ -122,3 +122,4 @@ LPOPER WINAPI xll_reftext(LPOPER pref, BOOL a1)
 
 	return &result;
 }
+#endif // 0
