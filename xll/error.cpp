@@ -86,7 +86,7 @@ XLL_CONST(WORD, XLL_ALERT_INFO, XLL_ALERT_INFO,
 AddIn xai_alert_level(
 	Function(XLL_WORD, "xll_alert_level_", "XLL.ALERT.LEVEL")
 	.Arguments({
-		Arg(XLL_WORD, "level", "is the alert level mask to set.", "XLL_ALERT_ERROR()"),
+		Arg(XLL_LPOPER, "level", "is the alert level mask to set.", "XLL_ALERT_ERROR()"),
 	})
 	.FunctionHelp("Set the current alert level using a mask and return the old mask.")
 	.Category("XLL")
@@ -96,12 +96,14 @@ These can be turned on or off using the XLL_ALERT_* flags.
 The value is stored in the registry to persist across Excel sessions.
 )")
 );
-DWORD WINAPI xll_alert_level_(DWORD w)
+DWORD WINAPI xll_alert_level_(LPOPER plevel)
 {
 #pragma XLLEXPORT
 	DWORD oal = xll_alert_level;
 
-	xll_alert_level = w;
+	if (plevel->is_num()) {
+		xll_alert_level = static_cast<DWORD>(plevel->as_num());
+	}
 
 	return oal;
 }
