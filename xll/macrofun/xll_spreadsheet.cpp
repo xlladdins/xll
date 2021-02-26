@@ -161,7 +161,6 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	}
 
 	// move main sheet to first position
-	//Workbook::Move(Name, 1);
 	Workbook::Select(Name);
 	Workbook::Move(Name, 1);
 
@@ -205,7 +204,8 @@ bool Spreadsheet(const char* description = "", bool release = false)
 				// table row
 				OPER ft = args->FunctionText();
 				if (args->isFunction()) {
-					OPER hl = OPER("=HYPERLINK(CELL(\"address\", ") & ft & OPER("!") & ft & OPER(")");
+					OPER safeft = Excel(xlfSubstitute, ft, OPER("\\"), OPER(""));
+					OPER hl = OPER("=HYPERLINK(CELL(\"address\", ") & safeft & OPER("!") & ft & OPER(")");
 					Excel(xlcFormula, hl & OPER(", \"") & ft & OPER("\")"));
 				}
 				else {
