@@ -13,7 +13,7 @@ const OPER xWhite(2);
 // custom colors
 const EditColor grey(0xF0, 0xF0, 0xF0);
 static OPER xGrey;
-const EditColor green(0x00, 0xD1, 0xB1);
+const EditColor green(0x00, 0xA1, 0x81);
 static OPER xGreen;
 const EditColor blue(0x31, 0x8B, 0xCE);
 static OPER xBlue;
@@ -78,7 +78,9 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	// custom colors
 	xGrey = grey.Color();
 	xGreen = green.Color();
+	//xGreen = Excel(xlfGetWorkbook, OPER(12));
 	xBlue = blue.Color();
+
 
 	// get dir and filename extension
 	splitpath sp(Excel4(xlGetName).to_string().c_str());
@@ -169,9 +171,9 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 	sel = Select(REF(0, 1)); // B1
 	// "=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
-	//sel.Formula(OPER("=HYPERLINK(\"") & dir & OPER(sp.fname) & OPER(" & WinXX() & ") & OPER(sp.ext) & OPER("\", \"") & Name & OPER("\")"));
-	//Excel(xlcNote, OPER("user: addinuser pass: @addm3"));
-	sel.Set(Name);
+	sel.Formula(OPER("=HYPERLINK(\"") & dir & OPER(sp.fname) & OPER(" & Bits() & ") & OPER(sp.ext) & OPER("\", \"") & Name & OPER("\")"));
+	Excel(xlcNote, OPER("user: addinuser pass: @addm3"));
+	//sel.Set(Name);
 
 	sel.Down();
 	sel.Set(OPER(description));
