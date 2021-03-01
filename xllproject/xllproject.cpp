@@ -10,7 +10,7 @@ AddIn xai_tgamma(
 	// Return double, C++ name of function, Excel name.
 	Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
 	// Array of function arguments.
-	.Args({
+	.Arguments({
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.")
 	})
 	// Function Wizard help.

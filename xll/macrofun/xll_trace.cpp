@@ -22,8 +22,8 @@ xll_trace(LPXLOPERX px)
         s =  OPER("Reference: ") & Excel(xlfReftext, *px, OPER(true));
         s &= OPER("\nFormula: ") & Excel(xlfGetCell, OPER(6), *px);
         s &= OPER("\nContents: ") & Excel(xlfText, Excel(xlfGetCell, OPER(5), *px), OPER("General"));
-        
-        Excel(xlcAlert, s, OPER(2)); // info
+
+        MessageBoxA(GetActiveWindow(), s.to_string().c_str(), "TRACE", MB_OK);
     }
 
     return px;
