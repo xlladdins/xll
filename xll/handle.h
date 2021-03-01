@@ -133,14 +133,14 @@ namespace xll {
 		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
 		{
-			if (p and check) {
+			if (check and p) {
 				if (ps.find(p) == ps.end()) {
 					// unknown handle
 					p = nullptr;
 				}
 			}
 			// handle was created by a function argument
-			if (caller[p] == Excel(xlfCaller)) {
+			if (check and caller[p] == Excel(xlfCaller)) {
 				caller[p] = ErrNA; // mark for erasure
 			}
 		}

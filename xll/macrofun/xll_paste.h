@@ -15,8 +15,11 @@ namespace xll {
 		ensure(x.is_str());
 		OPER ref = Excel(xlfActiveCell);
 
+		if (x.val.str[0] == 0) {
+			return ref; // missing
+		}
+
 		OPER xi = Excel(xlfEvaluate, x);
-		ensure(xi);
 		if (size(xi) == 1) {
 			ensure(Excel(xlcFormula, xi, ref));
 		}
