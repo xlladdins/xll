@@ -120,6 +120,12 @@ XLL_ARG_TYPE(X)
 #endif
 
 #define XLL_CONST(type, name, value, help, cat, topic) \
-AddIn xai_ ## name (Function(XLL_##type, "_xll_" #name , #name).FunctionHelp(help).Category(cat).HelpTopic(topic)); \
-extern "C" _declspec(dllexport) auto WINAPI xll_ ## name () { return value; }
+AddIn xai_ ## name (Function(XLL_##type, XLL_DECORATE("_xll_" #name, 0) , #name) \
+.FunctionHelp(help).Category(cat).HelpTopic(topic)); \
+extern "C" _declspec(dllexport) type WINAPI xll_ ## name () { return value; }
+
+#define XLL_CONST_DOC(type, name, value, help, cat, topic, doc) \
+AddIn xai_ ## name (Function(XLL_##type, XLL_DECORATE("_xll_" #name, 0) , #name) \
+.FunctionHelp(help).Category(cat).HelpTopic(topic).Documentation(doc)); \
+extern "C" _declspec(dllexport) type WINAPI xll_ ## name () { return value; }
 

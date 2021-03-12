@@ -51,7 +51,7 @@ namespace xll {
 			swap(val, x.val);
 		}
 
-		// xltype without xllbitXXX flags
+		// xltype without xlbitXXX flags
 		auto type() const
 		{
 			return xltype & xlbitmask;

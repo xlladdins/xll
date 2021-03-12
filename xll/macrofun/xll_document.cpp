@@ -1,7 +1,7 @@
 // document.cpp - generate add-in documentaton
 #include <fstream>
-#include "../splitpath.h"
 #include "xll_macrofun.h"
+#include "../splitpath.h"
 
 namespace xll {
 
@@ -62,7 +62,7 @@ namespace xll {
 				= arg.FunctionText().to_string();
 
 			// factor out!!!
-			splitpath sp(Excel4(xlGetName).to_string().c_str());
+			path sp(Excel4(xlGetName).to_string().c_str());
 			std::string ofile(sp.dirname() + functionText + ".html");
 			std::ofstream ofs(ofile, std::ios::out);
 
@@ -118,7 +118,8 @@ ofs << "</tbody>\n</table>\n</blockquote>\n"
 	// Generate documentation for add-ins;
 	bool Documentation(const char* category, const char* description)
 	{
-		splitpath sp(Excel4(xlGetName).to_string().c_str());
+		path<char> sp;
+		sp.split(Excel4(xlGetName).to_string().c_str());
 		std::string ofile(sp.dirname() + "index.html");
 		std::ofstream ofs(ofile, std::ios::out);
 
