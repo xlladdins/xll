@@ -59,7 +59,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="xll\macrofun\xll_addin_manager.cpp" />
     <ClCompile Include="xll\macrofun\xll_document.cpp" />
     <ClCompile Include="xll\macrofun\xll_function.cpp" />
     <ClCompile Include="xll\macrofun\xll_macrofun.cpp" />

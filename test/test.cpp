@@ -2,6 +2,7 @@
 // Uncomment to use Excel4 API. Default is XLOPER12.
 //#define XLL_VERSION 4
 #include "../xll/xll.h"
+#include "../xll/macrofun/xll_addin_manager.h"
 
 using namespace xll;
 
@@ -10,6 +11,12 @@ Auto<OpenAfter> xaoa_test_doc([]() {
 	return Documentation("TEST", "Excel test functions");
 });
 #endif
+
+Auto<OpenAfter> xaoa_aim([]() {
+	AddinManager aim(false, true);
+	
+	return TRUE;
+});
 
 static LSTATUS reg_query = []() {
 

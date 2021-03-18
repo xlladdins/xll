@@ -718,6 +718,9 @@ namespace xll {
 			// ensure(tmp);
 			val.str = tmp;
 			memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
+			if (n == 1 and *str == 0) {
+				--n; // don't count null terminator
+			}
 			val.str[0] = static_cast<xchar>(val.str[0] + n);
 
 			if (counted) {

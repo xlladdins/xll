@@ -1,8 +1,8 @@
 // addin_manager.h - manage add-in lifecycle
 #pragma once
-#include "xll/xll/registry.h"
-#include "xll/xll/splitpath.h"
-#include "xll/xll/macrofun/xll_macrofun.h"
+#include "../registry.h"
+#include "../splitpath.h"
+#include "xll_macrofun.h"
 
 namespace xll {
 
@@ -19,10 +19,48 @@ namespace xll {
 	/// Remove removes the OPEN<n> entry and shifts keys
 	/// with larger <n> down and adds the full path under Aim().
 	/// </remarks>
+	/// https://xlladdins.github.io/Excel4Macros/addin.manager.html
 	struct AddinManager {
-//			path<char> sp;
-//			sp.split(Excel4(xlGetName).to_string().c_str());
-//			name = sp.fname;
+
+		// Copy add-in to Aim() and inform Excel
+		AddinManager(bool prompt = false, bool add = false)
+		{
+			OPER name(Excel(xlGetName));
+			path sp(name.as_cstr());
+			OPER fname(sp.fname); // descriptive name
+			OPER remove = Remove(fname); // move to Aim()
+
+			if (remove) {
+				if (prompt) { // check file times???
+					OPER msg = OPER("Replace ") & fname & OPER("?");
+					OPER result = Excel(xlcAlert, msg, OPER(1));
+					if (!result) {
+						Add(fname); // put it back
+						return;
+					}
+				}
+				Reg::Key aim(HKEY_CURRENT_USER, Aim());
+				RegDeleteKey(aim, name.as_cstr());
+			}
+
+			OPER tpl(Template());
+			tpl.append(sp.basename().c_str());
+			// copy and overwrite
+			CopyFile(name.as_cstr(), tpl.as_cstr(), FALSE);
+			New(tpl);
+
+			if (add) {
+				if (prompt) {
+					OPER msg = OPER("Load ") & fname & OPER(" when Excel starts?");
+					OPER result = Excel(xlcAlert, msg, OPER(1));
+					if (!result) {
+						return;
+					}
+				}
+				Add(fname);
+			}
+		}
+
 		// Adds an add-in to the working set using the descriptive name in the Add-Ins dialog box.
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
 		static OPER Add(const OPER& name)
@@ -46,37 +84,52 @@ namespace xll {
 			return Excel(xlcAddinManager, OPER(3), get_name);
 		}
 
-		// Remove registry entries.
-		static OPER Delete(void)
+		// full path if in Aim()
+		static OPER Exists(const OPER& name)
 		{
-			// Remove();
-			// iterate over Add-in Manager entries
-			// and match name
+			Reg::Key aim(HKEY_CURRENT_USER, Aim());
+
+			for (const auto& key : aim.Keys()) {
+				path sp(key);
+				if (name == OPER(sp.fname)) {
+					return OPER(key);
+				}
+			}
+
+			return ErrNA;
+		}
+
+		// Remove registry entries.
+		static OPER Delete(const OPER& name)
+		{
+			try {
+				Remove(name); // move from Open() to Aim()
+				OPER key = Exists(name);
+				if (key) {
+					Reg::Key aim(HKEY_CURRENT_USER, Aim());
+					RegDeleteKey(aim, key.as_cstr());
+				}
+			}
+			catch (const std::exception& ex) {
+				XLL_ERROR(ex.what());
+
+				return OPER(false);
+			}
+			catch (...) {
+				XLL_ERROR("AddinManager::Delete: unknown exception");
+
+				return OPER(false);
+			}
 			
 			return OPER(true);
 		}
-	private:
+
 		inline static const TCHAR OFFICE[] = TEXT("Software\\Microsoft\\Office\\");
-		inline static const TCHAR OPEN[] = TEXT("\\Excel\\Options\\Open");
 		inline static const TCHAR AIM[] = TEXT("\\Excel\\Add-in Manager");
 		
 		static OPER Version()
 		{
 			return Excel(xlfGetWorkspace, OPER(2));
-		}
-		// Add/Remove registery key
-		static const TCHAR* Open()
-		{
-			static std::basic_string<TCHAR> open;
-
-			if (open.length() == 0) {
-				open = OFFICE;
-				const OPER& ver = Version();
-				open.append(ver.val.str + 1, ver.val.str[0]);
-				open.append(OPEN);
-			}
-
-			return open.c_str();
 		}
 
 		// Add-in Manager registry key
@@ -93,8 +146,8 @@ namespace xll {
 
 			return aim.c_str();
 		}
-	public:
-		// Excel template directory
+
+		// Excel template directory is trusted location.
 		static const TCHAR* Template()
 		{
 			static OPER tpl;
