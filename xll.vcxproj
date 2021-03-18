@@ -31,6 +31,7 @@
     <ClInclude Include="xll\exports.h" />
     <ClInclude Include="xll\fp.h" />
     <ClInclude Include="xll\handle.h" />
+    <ClInclude Include="xll\macrofun\xll_addin_manager.h" />
     <ClInclude Include="xll\macrofun\xll_macrofun.h" />
     <ClInclude Include="xll\macrofun\xll_paste.h" />
     <ClInclude Include="xll\on.h" />
@@ -58,6 +59,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_addin_manager.cpp" />
     <ClCompile Include="xll\macrofun\xll_document.cpp" />
     <ClCompile Include="xll\macrofun\xll_function.cpp" />
     <ClCompile Include="xll\macrofun\xll_macrofun.cpp" />

@@ -96,6 +96,9 @@
     <ClInclude Include="xll\win.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="xll\macrofun\xll_addin_manager.h">
+      <Filter>macrofun</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">
@@ -141,6 +144,9 @@
       <Filter>macrofun</Filter>
     </ClCompile>
     <ClCompile Include="xll\macrofun\xll_trace.cpp">
+      <Filter>macrofun</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_addin_manager.cpp">
       <Filter>macrofun</Filter>
     </ClCompile>
   </ItemGroup>
