@@ -276,7 +276,18 @@ namespace xll {
 
 			return val.str;
 		}
-		// xcstr& as_str() not provided
+		// pointer to null terminated string
+		xcstr as_cstr()
+		{
+			ensure(is_str());
+
+			if (0 != val.str[val.str[0]]) {
+				append();
+			}
+
+			return val.str + 1;
+		}
+		// cstrx& as_str() not provided
 		std::string to_string() const
 		{
 			if (xltype == xltypeNil) {

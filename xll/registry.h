@@ -1,4 +1,5 @@
 // registry.h - Windows registry wrappers
+#pragma once
 #include <algorithm>
 #include <iterator>
 #include <stdexcept>
@@ -167,6 +168,7 @@ namespace Reg {
 			: hkey(nullptr), disp(0)
 		{ }
 		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM sam = KEY_ALL_ACCESS | KEY_WOW64_64KEY, bool open = false)
+			: disp(0)
 		{
 			SZ subKey(lpSubKey);
 			LSTATUS status;
