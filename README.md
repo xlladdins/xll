@@ -443,10 +443,11 @@ can be used to call User-Defined Functions.
 
 ## Documentation
 
-You can automatically generate documentation for your add-in by calling `Documentation("NAME")` anywhere
+You can automatically generate documentation for your add-in by calling `Documentation("NAME", "Description...)` anywhere
 in your add-in. This creates an `index.html` file with links to all the functions and macros that
 have a `.Documentation()` argument. The files are created in the directory the add-in is run from
-and only works when compiled in debug mode.
+and only works when compiled in debug mode. There is an experimental macro called `DOC` that
+will create a workbook with one sheet per add-in function and provide an index page.
 
 Math is rendered using [KaTeX](https://katex.org/). Inline formulas use `\(...\)` and displayed formulas
 use `\[...]\`. I like to use 
@@ -560,9 +561,8 @@ When the `HANDLEX` is passed back from Excel as an add-in function argument the
 `handle<T>(HANDLEX)` constructor converts the `HANDLEX` back to a `T*` pointer.
 By default it checks to see if this has been constructed by a call to `handle<T>(T*)`,
 but this can be turned off. If the check fails a `nullptr` is returned.
-Use `handle<T>::operator bool() const` to chech for this.
 
-If any arguments to a function call another function that created a handle, then the handle
+If any arguments to a function call a function that creates a handle, then the handle
 gets deleted after the outer function returns. To avoid repeated calls to `new` and `delete`
 put handles in their own cell and pass a reference to that as an argument.
 

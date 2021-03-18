@@ -16,16 +16,17 @@ namespace xll {
         AddIn(const Args& args) noexcept
         {
             const auto& key = args.FunctionText();
-            Map.emplace(key, args);
-            //auto [_, inserted] = Map.try_emplace(key, args);
-            /*
-            // warn if it already exists
-            if (!inserted) {
+            if (Map.find(key) != Map.end()) {
                 std::basic_string<TCHAR> msg{ TEXT("AddIn previously defined: ") };
                 msg.append(key.val.str + 1, key.val.str[0]);
                 MessageBox(GetForegroundWindow(), msg.c_str(), 0, MB_OK);
             }
-            */
+            Map[key] = args;
+        }
+
+        static size_t Erase(const OPER& key)
+        {
+            return Map.erase(key);
         }
 
         // Get arguments using Excel function text name.

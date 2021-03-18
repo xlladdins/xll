@@ -853,15 +853,11 @@ namespace xll {
 	};
 
 	struct Workbook {
-		static OPER Rename(const OPER& name)
+		// https://xlladdins.github.io/Excel4Macros/workbook.delete.html
+		static OPER Delete(const OPER& name = Document::Sheet())
 		{
-			return Excel(xlcWorkbookName, Document::Book(), name);
+			return Excel(xlcWorkbookDelete, name);
 		}
-		static OPER Select(const OPER& name = Document::Sheet())
-		{
-			return Excel(xlcWorkbookSelect, name);
-		}
-		// https://xlladdins.github.io/Excel4Macros/workbook.insert.html
 		enum class Type {
 			Worksheet = 1,
 			Chart = 2,
@@ -870,13 +866,25 @@ namespace xll {
 			VisualBasicModule = 6,
 			Dialog = 7
 		};
+		// https://xlladdins.github.io/Excel4Macros/workbook.insert.html
 		static OPER Insert(enum Type type = Type::Worksheet)
 		{
 			return Excel(xlcWorkbookInsert, OPER((int)type));
 		}
+		// https://xlladdins.github.io/Excel4Macros/workbook.move.html
 		static OPER Move(const OPER& name, int position = 1)
 		{
 			return Excel(xlcWorkbookMove, name, Document::Sheet(), OPER(position));
+		}
+		// https://xlladdins.github.io/Excel4Macros/workbook.name.html
+		static OPER Rename(const OPER& name)
+		{
+			return Excel(xlcWorkbookName, Document::Sheet(), name);
+		}
+		// https://xlladdins.github.io/Excel4Macros/workbook.select.html
+		static OPER Select(const OPER& name = Document::Sheet())
+		{
+			return Excel(xlcWorkbookSelect, name);
 		}
 	};
 }

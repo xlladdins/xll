@@ -129,7 +129,7 @@ namespace xll {
 	class XFP {
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xfp xfp;
-		void* fp;
+		xfp* fp;
 	public:
 		XFP(xint r = 0, xint c = 0)
 		{
@@ -141,11 +141,11 @@ namespace xll {
 			std::copy(::begin(a), ::end(a), begin());
 		}
 		XFP(const XFP& a)
-		{
-			fp_alloc(a.rows(), a.columns());
-			std::copy(a.begin(), a.end(), begin());
-		}
-		XFP(XFP&& a) = default;
+			: XFP(a.fp)
+		{ }
+		XFP(XFP&& a) noexcept
+			: fp(std::exchange(a.fp, nullptr))
+		{ }
 		XFP& operator=(const XFP& a)
 		{
 			if (this != &a) {
@@ -155,25 +155,32 @@ namespace xll {
 
 			return *this;
 		}
-		XFP& operator=(XFP&& a) = default;
+		XFP& operator=(XFP&& a) noexcept
+		{
+			fp = std::exchange(a.fp, nullptr);
+
+			return *this;
+		}
 		~XFP()
 		{
-			free(fp);
+			fp_free();
 		}
 
 		// Convert to native Excel FP type pointer.
 		xfp* get()
 		{
-			return reinterpret_cast<xfp*>(fp);
+			return fp;
 		}
 		const xfp* get() const
 		{
-			return reinterpret_cast<const xfp*>(fp);
+			return fp;
 		}
+		/*
 		xfp* operator&()
 		{
 			return get();
 		}
+		*/
 
 		bool operator==(const XFP& a) const
 		{
@@ -196,11 +203,11 @@ namespace xll {
 
 		xint rows() const
 		{
-			return get()->rows;
+			return fp ? fp->rows : 0;
 		}
 		xint columns() const
 		{
-			return get()->columns;
+			return fp ? fp->columns : 0;
 		}
 		xint size() const
 		{
@@ -208,23 +215,27 @@ namespace xll {
 		}
 		bool is_empty() const
 		{
-			return rows() == 0 && columns() == 0;
+			return fp == nullptr;
 		}
 		double* array()
 		{
-			return get()->array;
+			return fp->array;
 		}
 		const double* array() const
 		{
-			return get()->array;
+			return fp->array;
 		}
 		double& operator[](xint i)
 		{
-			return array()[xmod(i, size())];
+			ensure(fp != nullptr);
+
+			return fp->array[xmod(i, size())];
 		}
 		const double& operator[](xint i) const
 		{
-			return array()[xmod(i, size())];
+			ensure(fp != nullptr);
+
+			return fp->array[xmod(i, size())];
 		}
 		double& operator()(xint i, xint j)
 		{
@@ -236,47 +247,60 @@ namespace xll {
 		}
 		double* begin()
 		{
-			return array();
+			return fp ? fp->array : nullptr;
 		}
 		double* end()
 		{
-			return array() + size();
+			return fp ? fp->array() + size() : nullptr;
 		}
 		const double* begin() const
 		{
-			return array();
+			return fp ? fp->array : nullptr;
 		}
 		const double* end() const
 		{
-			return array() + size();
+			return fp ? fp->array() + size() : nullptr;
 		}
 	private:
 		void fp_alloc(xint r, xint c)
 		{
-			auto n = r * c;
-			fp = malloc(sizeof(xfp) + n * sizeof(double));
-			if (fp) {
-				xfp* pfx = get();
-				pfx->rows = r;
-				pfx->columns = c;
+			ensure(r >= 0 and c >= 0);
+			xint n = r * c;
+			if (n == 0) {
+				fp = nullptr;
+			}
+			else {
+				fp = (xfp*)malloc(sizeof(xfp) + n * sizeof(double));
+				if (!fp) {
+					throw std::bad_alloc{};
+				}
+				fp->rows = r;
+				fp->columns = c;
 			}
 		}
 		void fp_realloc(xint r, xint c)
 		{
+			ensure(r >= 0 and c >= 0);
 			xint n = r * c;
-			if (n != size()) {
-				void* tmp = realloc(fp, sizeof(xfp) + n * sizeof(double));
-				if (tmp) {
+			if (n == 0) {
+				fp_free();
+			}
+			else {
+				if (n != size()) {
+					void* tmp = realloc(fp, sizeof(xfp) + n * sizeof(double));
+					if (!tmp) {
+						throw std::bad_alloc{};
+					}
 					fp = (xfp*)tmp;
 				}
+				fp->rows = r;
+				fp->columns = c;
 			}
-			xfp* pfx = get();
-			pfx->rows = r;
-			pfx->columns = c;
 		}
 		void fp_free()
 		{
 			free(fp);
+			fp = nullptr;
 		}
 	};
 

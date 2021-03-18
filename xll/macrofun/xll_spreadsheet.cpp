@@ -83,7 +83,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 
 	// get dir and filename extension
-	splitpath sp(Excel4(xlGetName).to_string().c_str());
+	path sp(Excel4(xlGetName).to_string().c_str());
 	OPER dir(release ? ADDIN_URL : sp.dirname().c_str());
 	OPER Name(Excel(xlfUpper, OPER(sp.fname)));
 
