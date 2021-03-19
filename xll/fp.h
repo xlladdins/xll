@@ -251,7 +251,7 @@ namespace xll {
 		}
 		double* end()
 		{
-			return fp ? fp->array() + size() : nullptr;
+			return fp ? fp->array + size() : nullptr;
 		}
 		const double* begin() const
 		{
