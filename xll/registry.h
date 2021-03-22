@@ -34,7 +34,7 @@ namespace Reg {
 		return s;
 	}
 	
-
+	// Look up system error message from id.
 	inline char* GetFormatMessage(DWORD id)
 	{
 		// not thread safe
@@ -46,7 +46,7 @@ namespace Reg {
 		return buf;
 	}
 
-#define REG_KEY(X) \
+#define REG_HKEY(X) \
 	X(HKCR, CLASSES_ROOT, "Defines types (or classes) of documents and the properties associated with those types.") \
 	X(HKCC, CURRENT_CONFIG, "Contains information about the current hardware profile of the local computer system.") \
 	X(HKCU, CURRENT_USER, "Defines the preferences of the current user.") \
@@ -57,7 +57,7 @@ namespace Reg {
 	X(HKPT, PERFORMANCE_TEXT, "References the text strings that describe counters in US English.") \
 	X(HKUS, USERS, "Defines the default user configuration for new users on the local computer and the user configuration for the current user.") \
 
-#define REG_SAM(X) \
+#define REG_KEY(X) \
 	X(ALL_ACCESS, "Combines the STANDARD_RIGHTS_REQUIRED, KEY_QUERY_VALUE, KEY_SET_VALUE, KEY_CREATE_SUB_KEY, KEY_ENUMERATE_SUB_KEYS, KEY_NOTIFY, and KEY_CREATE_LINK access rights.") \
 	X(CREATE_LINK, "Reserved for system use.") \
 	X(CREATE_SUB_KEY, "Required to create a subkey of a registry key.") \
@@ -71,11 +71,11 @@ namespace Reg {
 	X(WOW64_64KEY, "Indicates that an application on 64-bit Windows should operate on the 64-bit registry view. This flag is ignored by 32-bit Windows. For more information, see Accessing an Alternate Registry View.") \
 	X(WRITE, "Combines the STANDARD_RIGHTS_WRITE, KEY_SET_VALUE, and KEY_CREATE_SUB_KEY access rights.") \
 
-#define REG_SAM_ENUM(a,b) a = KEY_##a,
+#define REG_KEY_ENUM(a,b) a = KEY_##a,
 	enum KEY {
-		REG_SAM(REG_SAM_ENUM)
+		REG_KEY(REG_KEY_ENUM)
 	};
-#undef REG_SAM_ENUM
+#undef REG_KEY_ENUM
 
 #define REG_TYPES(X) \
 	X(NONE,      void,     "No defined value type.") \
@@ -108,9 +108,15 @@ namespace Reg {
 		DWORD type;
 		std::vector<BYTE> data;
 
-		// Defaults to default value.
-		Value(PCTSTR name = TEXT(""), DWORD type = REG_NONE, PBYTE data = nullptr, DWORD len = 0)
+		// Defaults to default value name.
+		Value(PCTSTR name = TEXT(""), DWORD type = REG_NONE, PBYTE data = nullptr, size_t len = 0)
 			: name(name), index((DWORD)-1), type(type), data(data, data + len)
+		{ }
+		Value(PCTSTR name, DWORD dw)
+			: Value(name, REG_DWORD, (PBYTE)&dw, sizeof(DWORD))
+		{ }
+		Value(PCTSTR name, PCTSTR psz, size_t len = 0)
+			: Value(name, REG_SZ, (PBYTE)psz, (1 + (len ? len : _tcslen(psz)))*sizeof(TCHAR))
 		{ }
 		Value(const Value&) = default;
 		Value& operator=(const Value&) = default;
@@ -119,7 +125,7 @@ namespace Reg {
 
 		explicit operator bool() const
 		{
-			return index == (DWORD)-1 or type == REG_NONE;
+			return type != REG_NONE;
 		}
 
 		// generates only == and !=
@@ -133,30 +139,30 @@ namespace Reg {
 
 			return *this;
 		}
-		operator const DWORD() const
+		operator DWORD() const
 		{
 			if (type != REG_DWORD) {
-				throw std::runtime_error("Reg::Value: wrong type for DWORD");
+				throw std::runtime_error("Reg::Value: wrong type for REG_DWORD");
 			}
 
-			return static_cast<DWORD>(*data.data());
+			return *(DWORD*)data.data();
 		}
 
 		Value& operator=(PCTSTR sz)
 		{
 			type = REG_SZ;
 			data.resize((1 + _tcsclen(sz)) * sizeof(TCHAR));
-			CopyMemory(data.data(), sz, data.size());
+			CopyMemory(data.data(), sz, data.size()); // includes NULL
 
 			return *this;
 		}
-		operator const TCHAR* () const
+		operator PCTSTR() const
 		{
 			if (type != REG_SZ) { // multi,...
 				throw std::runtime_error("Reg::Value: wrong type for REG_SZ");
 			}
 
-			return (const TCHAR*)(data.data());
+			return (PCTSTR)data.data();
 		}
 		// QWORD, BINARY, ...
 
@@ -166,14 +172,14 @@ namespace Reg {
 
 			DWORD datalen = 0;
 			DWORD namelen = MAX_PATH;
-			name.reserve(MAX_PATH);
+			name.resize(MAX_PATH);
 			status = RegEnumValue(hkey, index, name.data(), &namelen, 0, &type, NULL, &datalen);
 			if (ERROR_NO_MORE_ITEMS == status) {
-				index = (DWORD)-1;
-				type = REG_NONE;
+				operator=(Value{});
 			}
 			else {
-				name.resize(namelen + 1);
+				name.resize(namelen);
+				++namelen; // include terminating null
 				data.resize(datalen);
 
 				status = RegEnumValue(hkey, index, name.data(), &namelen, NULL, &type, data.data(), &datalen);
@@ -184,6 +190,7 @@ namespace Reg {
 		LSTATUS Query(HKEY hKey)
 		{
 			LSTATUS status;
+
 			DWORD len;
 			status = RegQueryValueEx(hKey, name.c_str(), NULL, &type, NULL, &len);
 			if (ERROR_SUCCESS == status) {
@@ -256,21 +263,48 @@ namespace Reg {
 			Proxy(Key& key, PCTSTR value)
 				: key(key), value(value)
 			{ }
-			template<class T>
-			Key& operator=(const T& t)
+			Key& operator=(const DWORD& dw)
 			{
-				value = t;
+				value = dw;
 				value.Set(key);
 
 				return key;
 			}
-			template<class T>
-			operator T&()
+			operator DWORD()
 			{
 				value.Query(key);
 
-				return (T&)value;
+				return (DWORD)value;
 			}
+			Key& operator=(PCTSTR sz)
+			{
+				value = sz;
+				value.Set(key);
+
+				return key;
+			}
+			operator PCTSTR()
+			{
+				value.Query(key);
+
+				return (PCTSTR)value;
+			}
+			/*
+			Key& operator=(const std::basic_string<TCHAR>& s)
+			{
+				value = s;
+				value.Set(key);
+
+				return key;
+			}
+			
+			operator std::basic_string<TCHAR>()
+			{
+				value.Query(key);
+
+				return (std::basic_string<TCHAR>)value;
+			}
+			*/
 		};
 		Proxy operator[](PCTSTR value)
 		{
@@ -287,8 +321,8 @@ namespace Reg {
 			using iterator_category = std::forward_iterator_tag;
 			using value_type = PCTSTR;
 
-			KeyIterator(HKEY hkey)
-				: hkey(hkey), index(0)
+			KeyIterator(HKEY hkey, DWORD index = 0)
+				: hkey(hkey), index(index)
 			{
 				Enum();
 			}
@@ -310,10 +344,7 @@ namespace Reg {
 			}
 			KeyIterator end() const
 			{
-				KeyIterator ki(*this);
-				ki.index = (DWORD)-1;
-
-				return ki;
+				return KeyIterator(hkey, (DWORD)-1);
 			}
 			// key name
 			value_type operator*() const
@@ -322,7 +353,7 @@ namespace Reg {
 			}
 			DWORD length() const
 			{
-				return name.length();
+				return static_cast<DWORD>(name.length());
 			}
 			
 			KeyIterator& operator++()
@@ -337,13 +368,17 @@ namespace Reg {
 		private:
 			LSTATUS Enum()
 			{
-				name.reserve(MAX_PATH);
+				if (index == (DWORD)-1) {
+					return ERROR_NO_MORE_ITEMS;
+				}
+
+				name.resize(MAX_PATH);
 				DWORD namelen = MAX_PATH;
 				LSTATUS status = RegEnumKeyEx(hkey, index, name.data(), &namelen, NULL, NULL, NULL, NULL);
-				if (ERROR_SUCCESS != status) {
-					index = (DWORD)-1;
+				if (ERROR_NO_MORE_ITEMS == status) {
+					operator=(end());
 				}
-				else {
+				else if (ERROR_SUCCESS == status) {
 					name.resize(namelen);
 				}
 
@@ -364,8 +399,7 @@ namespace Reg {
 			using iterator_category = std::forward_iterator_tag;
 			using value_type = Value;
 
-			ValueIterator(HKEY hkey, const Value& value)
-				: hkey(hkey), value(value)
+			ValueIterator()
 			{ }
 			ValueIterator(HKEY hkey)
 				: hkey(hkey)
@@ -386,7 +420,10 @@ namespace Reg {
 			}
 			ValueIterator end() const
 			{
-				return ValueIterator(hkey, Value{});
+				ValueIterator vi;
+				vi.hkey = hkey;
+
+				return vi;
 			}
 
 			explicit operator bool() const
@@ -401,8 +438,10 @@ namespace Reg {
 
 			ValueIterator& operator++()
 			{
-				++value.index;
-				value.Enum(hkey);
+				if (value) {
+					++value.index;
+					value.Enum(hkey);
+				}
 
 				return *this;
 			}

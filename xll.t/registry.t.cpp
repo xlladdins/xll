@@ -46,9 +46,8 @@ int test_registry()
 			v = _T("bar");
 			assert(v.name == _T("foo"));
 			assert(v.type == REG_SZ);
-			PCTSTR pv = v;
-			assert(0 == _tcsncmp(pv, _T("bar"), 3));
-			assert(0 == _tcscmp(pv, _T("bar")));
+			PCTSTR s = v;
+			assert(0 == _tcscmp(s, _T("bar")));
 		}
 		{
 			Value v(_T("foo"));
@@ -94,25 +93,37 @@ int test_registry()
 		{
 			Key key(HKEY_CURRENT_USER, TEXT("Console"));
 			Key::ValueIterator vi(key);
+			int icount = 0;
 			while (vi) {
 				auto v = *vi;
 				if (v.type == REG_DWORD) {
-					DWORD dw;
-					dw = v;
-				}
-				if (v.type == REG_SZ) {
-					PCTSTR s;
-					s = v;
+					++icount;
 				}
 				++vi;
 			}
+			int ecount = 0;
+			for (const auto& v : key.Values()) {
+				if (v.type == REG_DWORD) {
+					++ecount;
+				}
+			}
+			assert(icount == ecount);
+			assert(icount > 0);
 		}
 		{
 			Key key(HKEY_CURRENT_USER, _T("foo"));
 			key[_T("bar")] = 123;
 			DWORD dw;
 			dw = key[_T("bar")];
+			assert(dw == 123);
 			key[_T("baz")] = _T("blah");
+			auto p = key[_T("baz")];
+			PCTSTR ps = p;
+			// ps = key[_T("baz")]; // calls Proxy destructor
+			assert(0 == _tcscmp(ps, _T("blah")));
+			std::basic_string<TCHAR> s(key[_T("baz")]);
+			assert(s == _T("blah"));
+
 			RegDeleteKeyValue(HKEY_CURRENT_USER, _T("foo"), _T("bar"));
 			RegDeleteKeyValue(HKEY_CURRENT_USER, _T("foo"), _T("baz"));
 			RegDeleteKey(HKEY_CURRENT_USER, _T("foo"));

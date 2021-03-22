@@ -160,10 +160,10 @@ namespace xll {
 			Reg::Key aim(HKEY_CURRENT_USER, Aim());
 			for (const auto& val : aim.Values()) {
 				if (val.type == REG_SZ) {
-					const TCHAR* sz = val;
-					path sp(sz);
+					// value name is the full path to add-in
+					path sp(val.name.c_str());
 					if (OPER(sp.fname) == name) {
-						get_name = sz;
+						get_name = val.name.c_str();
 
 						break;
 					}
