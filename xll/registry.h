@@ -114,6 +114,17 @@ namespace Reg {
 		{ }
 		Value(const Value&) = default;
 		Value& operator=(const Value&) = default;
+		~Value()
+		{ }
+
+		explicit operator bool() const
+		{
+			return index == (DWORD)-1 or type == REG_NONE;
+		}
+
+		// generates only == and !=
+		auto operator<=>(const Value&) const = default;
+
 		Value& operator=(DWORD dw)
 		{
 			type = REG_DWORD;
@@ -122,46 +133,6 @@ namespace Reg {
 
 			return *this;
 		}
-		Value& operator=(PCTSTR sz)
-		{
-			type = REG_SZ;
-			data.resize((1 + _tcsclen(sz)) * sizeof(TCHAR));
-			CopyMemory(data.data(), sz, data.size());
-
-			return *this;
-		}
-		~Value()
-		{ }
-
-		auto operator<=>(const Value&) const = default;
-
-		Value& Query(HKEY hKey)
-		{
-			LSTATUS status;
-			DWORD len;
-			status = RegQueryValueEx(hKey, name.c_str(), NULL, &type, NULL, &len);
-			if (ERROR_SUCCESS != status) {
-				throw std::runtime_error(GetFormatMessage(status));
-			}
-			data.resize(len);
-			status = RegQueryValueEx(hKey, name.c_str(), NULL, &type, data.data(), &len);
-			if (ERROR_SUCCESS != status) {
-				throw std::runtime_error(GetFormatMessage(status));
-			}
-
-			return *this;
-		}
-
-		Value& Set(HKEY hKey)
-		{
-			LSTATUS status = RegSetValueEx(hKey, name.c_str(), 0, type, data.data(), (DWORD)data.size());
-			if (ERROR_SUCCESS != status) {
-				throw std::runtime_error(GetFormatMessage(status));
-			}
-
-			return *this;
-		}
-
 		operator const DWORD() const
 		{
 			if (type != REG_DWORD) {
@@ -170,7 +141,16 @@ namespace Reg {
 
 			return static_cast<DWORD>(*data.data());
 		}
-		operator const TCHAR*() const
+
+		Value& operator=(PCTSTR sz)
+		{
+			type = REG_SZ;
+			data.resize((1 + _tcsclen(sz)) * sizeof(TCHAR));
+			CopyMemory(data.data(), sz, data.size());
+
+			return *this;
+		}
+		operator const TCHAR* () const
 		{
 			if (type != REG_SZ) { // multi,...
 				throw std::runtime_error("Reg::Value: wrong type for REG_SZ");
@@ -179,6 +159,46 @@ namespace Reg {
 			return (const TCHAR*)(data.data());
 		}
 		// QWORD, BINARY, ...
+
+		LSTATUS Enum(HKEY hkey)
+		{
+			LSTATUS status;
+
+			DWORD datalen = 0;
+			DWORD namelen = MAX_PATH;
+			name.reserve(MAX_PATH);
+			status = RegEnumValue(hkey, index, name.data(), &namelen, 0, &type, NULL, &datalen);
+			if (ERROR_NO_MORE_ITEMS == status) {
+				index = (DWORD)-1;
+				type = REG_NONE;
+			}
+			else {
+				name.resize(namelen + 1);
+				data.resize(datalen);
+
+				status = RegEnumValue(hkey, index, name.data(), &namelen, NULL, &type, data.data(), &datalen);
+			}
+
+			return status;
+		}
+		LSTATUS Query(HKEY hKey)
+		{
+			LSTATUS status;
+			DWORD len;
+			status = RegQueryValueEx(hKey, name.c_str(), NULL, &type, NULL, &len);
+			if (ERROR_SUCCESS == status) {
+				data.resize(len);
+				status = RegQueryValueEx(hKey, name.c_str(), NULL, &type, data.data(), &len);
+			}
+
+			return status;
+		}
+
+		LSTATUS Set(HKEY hKey) noexcept
+		{
+			return RegSetValueEx(hKey, name.c_str(), 0, type, data.data(), (DWORD)data.size());
+		}
+
 	};
 
 	// create or open key
@@ -232,25 +252,24 @@ namespace Reg {
 
 		struct Proxy {
 			Key& key;
-			PCTSTR value;
+			Value value;
 			Proxy(Key& key, PCTSTR value)
 				: key(key), value(value)
 			{ }
 			template<class T>
 			Key& operator=(const T& t)
 			{
-				Value val(value);
-				val = t;
-				val.Set(key);
+				value = t;
+				value.Set(key);
 
 				return key;
 			}
 			template<class T>
-			operator T() const
+			operator T&()
 			{
-				Value val(value);
+				value.Query(key);
 
-				return val.Query(key);
+				return (T&)value;
 			}
 		};
 		Proxy operator[](PCTSTR value)
@@ -261,76 +280,74 @@ namespace Reg {
 		// iterator over key names
 		// ??? may want to use RegNotifyChangeKeyValue 
 		class KeyIterator {
-			DWORD index;
 			HKEY hkey;
-			TCHAR name[MAX_PATH] = TEXT(""); // name of current index
-			DWORD namelen = MAX_PATH;
+			DWORD index;
+			std::basic_string<TCHAR> name; // subkey name
 		public:
 			using iterator_category = std::forward_iterator_tag;
 			using value_type = PCTSTR;
 
-			KeyIterator(HKEY hkey, bool end = false)
-				: index((DWORD)-1), hkey(hkey)
-			{	
-				if (end) {
-					name[0] = 0;
-				}
-				else {
-					next();
-				}
+			KeyIterator(HKEY hkey)
+				: hkey(hkey), index(0)
+			{
+				Enum();
 			}
+			KeyIterator(const KeyIterator&) = default;
+			KeyIterator& operator=(const KeyIterator&) = default;
+			~KeyIterator()
+			{ }
+
+			auto operator<=>(const KeyIterator&) const = default;
+
+			explicit operator bool() const
+			{
+				return index != (DWORD)-1;
+			}
+
 			KeyIterator begin() const
 			{
-				return KeyIterator(hkey);
+				return *this;
 			}
 			KeyIterator end() const
 			{
-				return KeyIterator(hkey, true);
-			}
-			explicit operator bool() const
-			{
-				return index != -1;
-			}
-			bool operator==(const KeyIterator& k) const
-			{
-				if (hkey != k.hkey) {
-					return false;
-				}
-				if (index == -1 or k.index == -1) {
-					return index == k.index; // ends compare equal
-				}
+				KeyIterator ki(*this);
+				ki.index = (DWORD)-1;
 
-				return 0 == std::lexicographical_compare(name, name + namelen, k.name, k.name + k.namelen);
+				return ki;
 			}
 			// key name
 			value_type operator*() const
 			{
-				return name;
+				return name.c_str();
 			}
 			DWORD length() const
 			{
-				return namelen;
+				return name.length();
 			}
 			
 			KeyIterator& operator++()
 			{
-				return next();
-			};
-		private:
-			KeyIterator& next()
-			{
-				++index;
-				name[0] = 0;
-				namelen = MAX_PATH;
-				LSTATUS status = RegEnumKeyEx(hkey, index, name, &namelen, NULL, NULL, NULL, NULL);
-				if (ERROR_NO_MORE_ITEMS == status) {
-					index = (DWORD)-1;
-				}
-				else if (ERROR_SUCCESS != status) {
-					throw std::runtime_error(GetFormatMessage(status));
+				if (index != (DWORD)-1) {
+					++index;
+					Enum();
 				}
 
 				return *this;
+			};
+		private:
+			LSTATUS Enum()
+			{
+				name.reserve(MAX_PATH);
+				DWORD namelen = MAX_PATH;
+				LSTATUS status = RegEnumKeyEx(hkey, index, name.data(), &namelen, NULL, NULL, NULL, NULL);
+				if (ERROR_SUCCESS != status) {
+					index = (DWORD)-1;
+				}
+				else {
+					name.resize(namelen);
+				}
+
+				return status;
 			}
 		};
 
@@ -342,16 +359,19 @@ namespace Reg {
 		// iterator over key values
 		class ValueIterator {
 			HKEY hkey;
-			Value val;
+			Value value;
 		public:
 			using iterator_category = std::forward_iterator_tag;
 			using value_type = Value;
 
+			ValueIterator(HKEY hkey, const Value& value)
+				: hkey(hkey), value(value)
+			{ }
 			ValueIterator(HKEY hkey)
 				: hkey(hkey)
 			{
-				val.index = 0;
-				EnumValue();
+				value.index = 0;
+				value.Enum(hkey);
 			}
 			ValueIterator(const ValueIterator&) = default;
 			ValueIterator& operator=(const ValueIterator&) = default;
@@ -366,48 +386,25 @@ namespace Reg {
 			}
 			ValueIterator end() const
 			{
-				ValueIterator v(*this);
-				v.val.index = (DWORD)-1;
-
-				return v;
+				return ValueIterator(hkey, Value{});
 			}
 
 			explicit operator bool() const
 			{
-				return val.index != -1;
+				return !!value;
 			}
 
 			const value_type& operator*() const
 			{
-				return val;
+				return value;
 			}
 
 			ValueIterator& operator++()
 			{
-				++val.index;
-				EnumValue();
+				++value.index;
+				value.Enum(hkey);
 
 				return *this;
-			}
-		private:
-			LSTATUS EnumValue()
-			{
-				LSTATUS status;
-				
-				DWORD datalen = 0;
-				DWORD namelen = 0x3ff;
-				val.name.resize(0x3ff);
-				status = RegEnumValue(hkey, val.index, val.name.data(), &namelen, 0, &val.type, NULL, &datalen);
-				val.name.resize(namelen);
-				if (ERROR_NO_MORE_ITEMS == status) {
-					val.index = (DWORD)-1;
-				}
-				else {
-					val.data.resize(datalen);
-					status = RegEnumValue(hkey, val.index, val.name.data(), &namelen, NULL, &val.type, val.data.data(), &datalen);
-				}
-
-				return status;
 			}
 		};
 

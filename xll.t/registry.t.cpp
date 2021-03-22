@@ -71,8 +71,8 @@ int test_registry()
 			Key::KeyIterator ki(key);
 			assert(ki == ki);
 			assert(!(ki != ki));
-			Key::KeyIterator ke(key, true);
-			assert(ki != ke);
+			Key::KeyIterator ke(key);
+			assert(ki == ke);
 			PCTSTR s;
 			s = *ki;
 			int icount = 0;
@@ -110,7 +110,12 @@ int test_registry()
 		{
 			Key key(HKEY_CURRENT_USER, _T("foo"));
 			key[_T("bar")] = 123;
+			DWORD dw;
+			dw = key[_T("bar")];
 			key[_T("baz")] = _T("blah");
+			RegDeleteKeyValue(HKEY_CURRENT_USER, _T("foo"), _T("bar"));
+			RegDeleteKeyValue(HKEY_CURRENT_USER, _T("foo"), _T("baz"));
+			RegDeleteKey(HKEY_CURRENT_USER, _T("foo"));
 		}
 	}
 	catch (const std::exception& ex) {
