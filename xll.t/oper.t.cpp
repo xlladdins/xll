@@ -499,10 +499,6 @@ int test_fp()
  		ensure(a.rows() == 0);
 		ensure(a.columns() == 0);
 		ensure(a.size() == 0);
-
-		FPX a2{ a };
-		a = a2;
-		ensure(a == a2);
 	}
 	{
 		FPX a(2,3);

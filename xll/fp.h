@@ -141,7 +141,7 @@ namespace xll {
 			std::copy(::begin(a), ::end(a), begin());
 		}
 		XFP(const XFP& a)
-			: XFP(a.fp)
+			: XFP(*a.fp)
 		{ }
 		XFP(XFP&& a) noexcept
 			: fp(std::exchange(a.fp, nullptr))
@@ -259,7 +259,7 @@ namespace xll {
 		}
 		const double* end() const
 		{
-			return fp ? fp->array() + size() : nullptr;
+			return fp ? fp->array + size() : nullptr;
 		}
 	private:
 		void fp_alloc(xint r, xint c)

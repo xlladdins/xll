@@ -1,6 +1,7 @@
 // registry.h - Windows registry wrappers
 #pragma once
 #include <algorithm>
+#include <compare>
 #include <iterator>
 #include <stdexcept>
 #include <string>
@@ -8,13 +9,12 @@
 #include <type_traits>
 #include <vector>
 #include <Windows.h>
+#include <tchar.h>
 
 namespace Reg {
 
-	using SZ = std::basic_string<TCHAR>;
-
-	// remove characters including and trailing c
-	inline SZ chop(SZ& s, TCHAR c = TEXT('\0'))
+	// remove characters from first c to end
+	inline std::basic_string<TCHAR> chop(std::basic_string<TCHAR>& s, TCHAR c = TEXT('\0'))
 	{
 		auto i = s.find(c);
 		if (i != s.npos) {
@@ -25,7 +25,7 @@ namespace Reg {
 	}
 
 	// add trailing character if missing
-	inline SZ tack(SZ& s, TCHAR c = TEXT('\\'))
+	inline std::basic_string<TCHAR> tack(std::basic_string<TCHAR>& s, TCHAR c = TEXT('\\'))
 	{
 		if (s.length() != 0 and s.back() != c) {
 			s.push_back(c);
@@ -33,6 +33,7 @@ namespace Reg {
 
 		return s;
 	}
+	
 
 	inline char* GetFormatMessage(DWORD id)
 	{
@@ -76,90 +77,111 @@ namespace Reg {
 	};
 #undef REG_SAM_ENUM
 
-#define REG_TYPE(X) \
+#define REG_TYPES(X) \
+	X(NONE,      void,     "No defined value type.") \
 	X(BINARY,    PBYTE,    "Binary data in any form.") \
 	X(DWORD,     DWORD,    "A 32-bit number.") \
 	X(EXPAND_SZ, PCTSTR,   "A null-terminated string that contains unexpanded references to environment variables") \
 	X(LINK,      PCTSTR,   "A null-terminated Unicode string that contains the target path of a symbolic link that was created by calling the RegCreateKeyEx function with REG_OPTION_CREATE_LINK.") \
 	X(MULTI_SZ,  PCTSTR,   "A sequence of null-terminated strings, terminated by an empty string.") \
-	X(NONE,      void,     "No defined value type.") \
 	X(QWORD,     LONGLONG, "A 64-bit number.") \
 	X(SZ,        PCTSTR,   "A null-terminated string. This will be either a Unicode or an ANSI string, depending on whether you use the Unicode or ANSI functions.") \
 
-	template<DWORD T> 
+#define REG_TYPE_ENUM(a, b, c) a = REG_##a,
+	enum class REG_TYPE {
+		REG_TYPES(REG_TYPE_ENUM)
+	};
+#undef REG_TYPE_ENUM
+
+	/*
+	template<REG_TYPE T> 
 	struct reg_traits { };
 #define REG_TYPE_TRAITS(a, b, c) template<> struct reg_traits<REG_##a> { typedef b type; };
-	REG_TYPE(REG_TYPE_TRAITS)
+	REG_TYPE(REG_TYPE_TRAITS);
 #undef REG_TYPE_TRAITS
+	*/
 
-	// get value using subkey
-	template<class T>
-	inline typename T GetValue(HKEY hKey, PCTSTR lpSubKey, PCTSTR lpValue = 0);
-	// set value for key opened with subkey specified
-	template<class T>
-	inline void SetValue(const T& t, HKEY hKey, PCTSTR lpValue = 0);
+	// Registry value variant type
+	struct Value {
+		std::basic_string<TCHAR> name;
+		DWORD index;
+		DWORD type;
+		std::vector<BYTE> data;
 
-	template<>
-	inline DWORD GetValue<DWORD>(HKEY hKey, PCTSTR lpSubKey, PCTSTR lpValue)
-	{
-		DWORD value;
-		DWORD type = REG_DWORD;
+		// Defaults to default value.
+		Value(PCTSTR name = TEXT(""), DWORD type = REG_NONE, PBYTE data = nullptr, DWORD len = 0)
+			: name(name), index((DWORD)-1), type(type), data(data, data + len)
+		{ }
+		Value(const Value&) = default;
+		Value& operator=(const Value&) = default;
+		Value& operator=(DWORD dw)
+		{
+			type = REG_DWORD;
+			data.resize(sizeof(DWORD));
+			CopyMemory(data.data(), &dw, data.size());
 
-		LSTATUS status = RegGetValue(hKey, lpSubKey, lpValue, RRF_RT_REG_DWORD, &type, (LPBYTE)&value, 0);
-		if (ERROR_SUCCESS != status) {
-			throw std::runtime_error(GetFormatMessage(status));
+			return *this;
+		}
+		Value& operator=(PCTSTR sz)
+		{
+			type = REG_SZ;
+			data.resize((1 + _tcsclen(sz)) * sizeof(TCHAR));
+			CopyMemory(data.data(), sz, data.size());
+
+			return *this;
+		}
+		~Value()
+		{ }
+
+		auto operator<=>(const Value&) const = default;
+
+		Value& Query(HKEY hKey)
+		{
+			LSTATUS status;
+			DWORD len;
+			status = RegQueryValueEx(hKey, name.c_str(), NULL, &type, NULL, &len);
+			if (ERROR_SUCCESS != status) {
+				throw std::runtime_error(GetFormatMessage(status));
+			}
+			data.resize(len);
+			status = RegQueryValueEx(hKey, name.c_str(), NULL, &type, data.data(), &len);
+			if (ERROR_SUCCESS != status) {
+				throw std::runtime_error(GetFormatMessage(status));
+			}
+
+			return *this;
 		}
 
-		return value;
-	}
-	template<>
-	inline void SetValue<DWORD>(const DWORD& dw, HKEY hKey, PCTSTR lpValue)
-	{
-		LSTATUS status = RegSetValueEx(hKey, lpValue, 0, REG_DWORD, (const BYTE*)&dw, sizeof(DWORD));
-		if (ERROR_SUCCESS != status) {
-			throw std::runtime_error(GetFormatMessage(status));
-		}
-	}
-	// enable if convertible to DWORD???
-	template<>
-	inline void SetValue<int>(const int& i, HKEY hKey, PCTSTR lpValue)
-	{
-		SetValue(static_cast<DWORD>(i), hKey, lpValue);
-	}
+		Value& Set(HKEY hKey)
+		{
+			LSTATUS status = RegSetValueEx(hKey, name.c_str(), 0, type, data.data(), (DWORD)data.size());
+			if (ERROR_SUCCESS != status) {
+				throw std::runtime_error(GetFormatMessage(status));
+			}
 
-	template<>
-	inline SZ GetValue<SZ>(HKEY hKey, PCTSTR lpSubKey, PCTSTR lpValue)
-	{
-		SZ value;
-		DWORD type = REG_SZ;
-		DWORD data = 0;
-
-		LSTATUS status = RegGetValue(hKey, lpSubKey, lpValue, RRF_RT_REG_SZ, &type, NULL, &data);
-		if (ERROR_SUCCESS != status) {
-			throw std::runtime_error(GetFormatMessage(status));
-		}
-		size_t n = data / sizeof(TCHAR);
-		value.resize(n);
-		status = RegGetValue(hKey, lpSubKey, lpValue, RRF_RT_REG_SZ, &type, (LPBYTE)value.data(), &data);
-		if (ERROR_SUCCESS != status) {
-			throw std::runtime_error(GetFormatMessage(status));
+			return *this;
 		}
 
-		return chop(value);
-	}
-	template<>
-	inline void SetValue<SZ>(const SZ& sz, HKEY hKey, PCTSTR lpValue)
-	{
-		LSTATUS status = RegSetValueEx(hKey, lpValue, 0, REG_DWORD, (const BYTE*)sz.data(), (DWORD)sz.size());
-		if (ERROR_SUCCESS != status) {
-			throw std::runtime_error(GetFormatMessage(status));
+		operator const DWORD() const
+		{
+			if (type != REG_DWORD) {
+				throw std::runtime_error("Reg::Value: wrong type for DWORD");
+			}
+
+			return static_cast<DWORD>(*data.data());
 		}
-	}
+		operator const TCHAR*() const
+		{
+			if (type != REG_SZ) { // multi,...
+				throw std::runtime_error("Reg::Value: wrong type for REG_SZ");
+			}
 
-	//!!! REG_BINARY
-	//!!! std::vector<SZ> REG_MULTI_SZ
+			return (const TCHAR*)(data.data());
+		}
+		// QWORD, BINARY, ...
+	};
 
-	// create or open key if it already exists
+	// create or open key
 	class Key {
 		HKEY hkey = nullptr;
 		DWORD disp = 0;
@@ -167,17 +189,10 @@ namespace Reg {
 		Key() noexcept
 			: hkey(nullptr), disp(0)
 		{ }
-		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM sam = KEY_ALL_ACCESS | KEY_WOW64_64KEY, bool open = false)
+		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM sam = KEY_ALL_ACCESS | KEY_WOW64_64KEY)
 			: disp(0)
 		{
-			SZ subKey(lpSubKey);
-			LSTATUS status;
-			if (open) {
-				status = RegOpenKeyEx(hKey, tack(subKey).c_str(), 0, sam, &hkey);
-			}
-			else {
-				status = RegCreateKeyEx(hKey, tack(subKey).c_str(), 0, 0, 0, sam, 0, &hkey, &disp);
-			}
+			LSTATUS status = RegCreateKeyEx(hKey, lpSubKey, 0, 0, 0, sam, 0, &hkey, &disp);
 			if (status != ERROR_SUCCESS) {
 				throw std::runtime_error(GetFormatMessage(status));
 			}
@@ -215,62 +230,6 @@ namespace Reg {
 			return disp;
 		}
 
-		// get value given its name
-		template<class T>
-		T QueryValue(PCTSTR value);
-		template<>
-		DWORD QueryValue<DWORD>(PCTSTR value)
-		{
-			DWORD dw;
-			DWORD type = REG_DWORD;
-			DWORD size = sizeof(DWORD);
-
-			LSTATUS status = RegQueryValueEx(hkey, value, 0, &type, (LPBYTE)&dw, &size);
-			if (type != REG_DWORD) {
-				throw std::runtime_error("Reg::Key::QueryVaue<DWORD>: type mismatch");
-			}
-			if (ERROR_SUCCESS != status)
-			{
-				throw std::runtime_error(GetFormatMessage(status));
-			}
-
-			return dw;
-		}
-		template<>
-		int QueryValue<int>(PCTSTR value)
-		{
-			return static_cast<int>(QueryValue<DWORD>(value));
-		}
-
-		template<class T>
-		void SetValue(const T& t, PCTSTR value)
-		{
-			Reg::SetValue(t, hkey, value);
-		}
-		template<>
-		SZ QueryValue<SZ>(PCTSTR value)
-		{
-			SZ tstr;
-			DWORD type = REG_SZ;
-			DWORD size = 0;
-
-			LSTATUS status = RegQueryValueEx(hkey, value, 0, &type, NULL, &size);
-			if (type != REG_SZ) {
-				throw std::runtime_error("Reg::Key::QueryVaue<SZ>: type mismatch");
-			}
-			if (ERROR_SUCCESS != status) {
-				throw std::runtime_error(GetFormatMessage(status));
-			}
-			size_t n = size / sizeof(TCHAR);
-			tstr.resize(n);
-			status = RegQueryValueEx(hkey, value, 0, &type, (LPBYTE)tstr.data(), &size);
-			if (ERROR_SUCCESS != status) {
-				throw std::runtime_error(GetFormatMessage(status));
-			}
-
-			return chop(tstr);
-		}
-
 		struct Proxy {
 			Key& key;
 			PCTSTR value;
@@ -280,14 +239,18 @@ namespace Reg {
 			template<class T>
 			Key& operator=(const T& t)
 			{
-				key.SetValue(t, value);
+				Value val(value);
+				val = t;
+				val.Set(key);
 
 				return key;
 			}
 			template<class T>
 			operator T() const
 			{
-				return key.QueryValue<T>(value);
+				Value val(value);
+
+				return val.Query(key);
 			}
 		};
 		Proxy operator[](PCTSTR value)
@@ -379,92 +342,72 @@ namespace Reg {
 		// iterator over key values
 		class ValueIterator {
 			HKEY hkey;
-			DWORD index;
-			DWORD type;
-			DWORD len;
-			DWORD namelen = 0x3FF;
-			TCHAR name[0x3FF] = TEXT(""); // name of current index
+			Value val;
 		public:
 			using iterator_category = std::forward_iterator_tag;
-			using value_type = std::tuple<PCTSTR,DWORD,DWORD,DWORD>; // name, index, type, len
+			using value_type = Value;
 
-			ValueIterator(HKEY hkey, DWORD index = 0)
-				: hkey(hkey), index(index)
+			ValueIterator(HKEY hkey)
+				: hkey(hkey)
 			{
-				if (index != -1) {
-					LSTATUS status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, NULL, &len);
-					if (ERROR_NO_MORE_ITEMS == status) {
-						index = (DWORD)-1;
-					}
-					else if (ERROR_SUCCESS != status) {
-						throw std::runtime_error(GetFormatMessage(status));
-					}
-				}
+				val.index = 0;
+				EnumValue();
 			}
+			ValueIterator(const ValueIterator&) = default;
 			ValueIterator& operator=(const ValueIterator&) = default;
-			ValueIterator(ValueIterator&&) = default;
-			ValueIterator& operator=(ValueIterator&&) = default;
 			~ValueIterator()
 			{ }
 
+			auto operator<=>(const ValueIterator&) const = default;
+
 			ValueIterator begin() const
 			{
-				return ValueIterator(hkey, 0);
+				return *this;
 			}
 			ValueIterator end() const
 			{
-				return ValueIterator(hkey, (DWORD)-1);
+				ValueIterator v(*this);
+				v.val.index = (DWORD)-1;
+
+				return v;
 			}
 
 			explicit operator bool() const
 			{
-				return index != -1;
+				return val.index != -1;
 			}
 
-			bool operator==(const ValueIterator& k) const
+			const value_type& operator*() const
 			{
-				if (hkey != k.hkey) {
-					return false;
-				}
-				if (index == -1 or k.index == -1) {
-					return index == k.index; // ends compare equal
-				}
-				// same name, same value
-				return 0 == std::lexicographical_compare(name, name + namelen, k.name, k.name + k.namelen);
-			}
-
-			value_type operator*() const
-			{
-				return std::tuple(name,index,type,len);
+				return val;
 			}
 
 			ValueIterator& operator++()
 			{
-				if (index != -1) {
-					++index;
-					namelen = 0x3FF;
-					LSTATUS status = RegEnumValue(hkey, index, name, &namelen, NULL, &type, NULL, &len);
-					if (ERROR_NO_MORE_ITEMS == status) {
-						index = (DWORD)-1;
-					}
-					else if (ERROR_SUCCESS != status) {
-						throw std::runtime_error(GetFormatMessage(status));
-					}
-				}
+				++val.index;
+				EnumValue();
 
 				return *this;
 			}
-
-			// stuff bits into data
-			LSTATUS Value(PBYTE data)
+		private:
+			LSTATUS EnumValue()
 			{
-				if (index == (DWORD)-1) {
-					return ERROR_NO_MORE_ITEMS;
+				LSTATUS status;
+				
+				DWORD datalen = 0;
+				DWORD namelen = 0x3ff;
+				val.name.resize(0x3ff);
+				status = RegEnumValue(hkey, val.index, val.name.data(), &namelen, 0, &val.type, NULL, &datalen);
+				val.name.resize(namelen);
+				if (ERROR_NO_MORE_ITEMS == status) {
+					val.index = (DWORD)-1;
+				}
+				else {
+					val.data.resize(datalen);
+					status = RegEnumValue(hkey, val.index, val.name.data(), &namelen, NULL, &val.type, val.data.data(), &datalen);
 				}
 
-				namelen = 0x3FF;
-
-				return RegEnumValue(hkey, index, name, &namelen, NULL, &type, data, &len);
+				return status;
 			}
 		};
 

@@ -7,19 +7,56 @@ using namespace Reg;
 int test_registry()
 {
 	try {
+		using SZ = std::basic_string<TCHAR>;
 		{
-			Reg::SZ s(TEXT("abc"));
+			SZ s(TEXT("abc"));
 			chop(s, TEXT('b'));
 			assert(s == TEXT("a"));
 			chop(s, TEXT('b'));
 			assert(s == TEXT("a"));
 		}
 		{
-			Reg::SZ s(TEXT("abc"));
+			SZ s(TEXT("abc"));
 			tack(s, TEXT('d'));
 			assert(s == TEXT("abcd"));
 			tack(s, TEXT('d'));
 			assert(s == TEXT("abcd"));
+		}
+		{
+			Value v;
+			assert(v.name == _T(""));
+			assert(v.index == -1);
+			assert(v.type == REG_NONE);
+			assert(v.data.size() == 0);
+
+			assert(v == v);
+			assert(!(v != v));
+
+			Value v2(v);
+			v = v2;
+			assert(v == v2);
+		}
+		{
+			Value v(_T("foo"));
+			assert(v.name == _T("foo"));
+			assert(v.type == REG_NONE);
+		}
+		{
+			Value v(_T("foo"));
+			v = _T("bar");
+			assert(v.name == _T("foo"));
+			assert(v.type == REG_SZ);
+			PCTSTR pv = v;
+			assert(0 == _tcsncmp(pv, _T("bar"), 3));
+			assert(0 == _tcscmp(pv, _T("bar")));
+		}
+		{
+			Value v(_T("foo"));
+			v = 123;
+			assert(v.type == REG_DWORD);
+			DWORD dw;
+			dw = v;
+			assert(v == 123);
 		}
 		{
 			Key hkcu(HKEY_CURRENT_USER, TEXT("Software"));
@@ -52,22 +89,28 @@ int test_registry()
 				++ecount;
 			}
 			assert(icount == ecount);
+			assert(icount > 0);
 		}
 		{
 			Key key(HKEY_CURRENT_USER, TEXT("Console"));
 			Key::ValueIterator vi(key);
 			while (vi) {
-				auto [name, index, type, len] = *vi;
-				if (type == REG_DWORD) {
+				auto v = *vi;
+				if (v.type == REG_DWORD) {
 					DWORD dw;
-					vi.Value((PBYTE)&dw);
+					dw = v;
 				}
-				if (type == REG_SZ) {
-					//PCTSTR s;
-					//s = vi.data()
+				if (v.type == REG_SZ) {
+					PCTSTR s;
+					s = v;
 				}
 				++vi;
 			}
+		}
+		{
+			Key key(HKEY_CURRENT_USER, _T("foo"));
+			key[_T("bar")] = 123;
+			key[_T("baz")] = _T("blah");
 		}
 	}
 	catch (const std::exception& ex) {
