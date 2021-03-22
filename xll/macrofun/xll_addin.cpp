@@ -6,6 +6,8 @@ using namespace xll;
 
 #define ARGS_HELP_URL "XLL.ARGS.html"
 
+typedef const TCHAR* CSTRING;
+
 XLL_CONST(CSTRING, XLL_ARGS_PROCEDURE, 
 	_T("Procedure"),"Return \"Procedure\"", "XLL", ARGS_HELP_URL);
 XLL_CONST(CSTRING, XLL_ARGS_TYPE_TEXT, 

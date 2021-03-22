@@ -51,7 +51,7 @@ namespace xll {
 			swap(val, x.val);
 		}
 
-		// xltype without xllbitXXX flags
+		// xltype without xlbitXXX flags
 		auto type() const
 		{
 			return xltype & xlbitmask;
@@ -276,7 +276,18 @@ namespace xll {
 
 			return val.str;
 		}
-		// xcstr& as_str() not provided
+		// pointer to null terminated string
+		xcstr as_cstr()
+		{
+			ensure(is_str());
+
+			if (0 != val.str[val.str[0]]) {
+				append();
+			}
+
+			return val.str + 1;
+		}
+		// cstrx& as_str() not provided
 		std::string to_string() const
 		{
 			if (xltype == xltypeNil) {
@@ -337,7 +348,7 @@ namespace xll {
 				xchar null[1] = { 0 };
 				str_append(null, 1);
 			}
-			else {
+			else if (*str) {
 				str_append(str, traits<X>::len(str));
 			}
 
@@ -664,49 +675,56 @@ namespace xll {
 				val.str = const_cast<xchar*>(str);
 			}
 			else {
-				val.str = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
-				if (!val.str) {
+				xchar* tmp = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
+				if (!tmp) {
 					throw std::bad_alloc{};
 				}
 				// first character is count
 				if (str) {
-					memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+					memcpy_s(tmp + 1, n * sizeof(xchar), str, n * sizeof(xchar));
 				}
-				// ensure (n <= ...MAX);
-				val.str[0] = static_cast<xchar>(n);
+				ensure (n <= traits<X>::charmax);
+				tmp[0] = static_cast<xchar>(n);
+				val.str = tmp;
 			}
 		}
 		void str_append(xcstr str, int n)
 		{
 			if (xltype == xltypeNil) {
 				str_alloc(str, n);
-			}
-			else if (xltype == (xltypeStr & xlbitXLFree)) {
-				*this = XExcel<X>(xlfConcatenate, *this, XOPER<X>(str));
-			}
-			else {
-				ensure(xltype == xltypeStr);
-				bool counted = false;
-				if (n == -1) {
-					counted = true;
-					n = str[0];
-				}
-				if (n == 0) {
-					n = traits<X>::len(str);
-				}
 
-				xchar* tmp = (xchar*)realloc(val.str, ((size_t)val.str[0] + n + 1) * sizeof(xchar));
-				if (!tmp) {
-					throw std::bad_alloc{};
-				}
-				// ensure(tmp);
-				val.str = tmp;
-				memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
-				val.str[0] = static_cast<xchar>(val.str[0] + n);
+				return;
+			}
 
-				if (counted) {
-					free(const_cast<xchar*>(str));
-				}
+			if (xltype == (xltypeStr | xlbitXLFree)) {
+				str_alloc(val.str + 1, val.str[0]);
+			}
+			ensure(xltype == xltypeStr);
+			bool counted = false;
+			if (n == -1) {
+				counted = true;
+				n = str[0];
+			}
+			if (n == 0) {
+				n = traits<X>::len(str);
+			}
+
+			ensure(val.str[0] + n < traits<X>::charmax);
+
+			xchar* tmp = (xchar*)realloc(val.str, ((size_t)val.str[0] + n + 1) * sizeof(xchar));
+			if (!tmp) {
+				throw std::bad_alloc{};
+			}
+			// ensure(tmp);
+			val.str = tmp;
+			memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
+			if (n == 1 and *str == 0) {
+				--n; // don't count null terminator
+			}
+			val.str[0] = static_cast<xchar>(val.str[0] + n);
+
+			if (counted) {
+				free(const_cast<xchar*>(str));
 			}
 		}
 		void str_free()
