@@ -8,8 +8,29 @@
 inline auto operator<=>(const FILETIME& a, const FILETIME& b)
 {
 	auto cmp = a.dwHighDateTime <=> b.dwHighDateTime;
-	if (cmp != 0) return cmp;
+	if (cmp != 0) {
+		return cmp;
+	}
+
 	return a.dwLowDateTime <=> b.dwLowDateTime;
+}
+
+// date and time the file or directory was last written to, truncated, or overwritten 
+inline FILETIME FileWriteTime(const TCHAR* file)
+{
+	HANDLE hFile = CreateFile(file, 0, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_READONLY, NULL);
+	if (hFile == INVALID_HANDLE_VALUE) {
+		throw std::runtime_error(__FUNCTION__ ": CreateFile failed");
+	}
+	
+	FILETIME write;
+	auto b = GetFileTime(hFile, NULL, NULL, &write);
+	CloseHandle(hFile);
+	if (!b) {
+		throw std::runtime_error(__FUNCTION__ ": GetFileTime failed");
+	}
+
+	return write;
 }
 
 namespace xll {
@@ -35,8 +56,19 @@ namespace xll {
 		/// </summary>
 		/// <remarks>
 		/// </remarks>
-		AddinManager(bool prompt = false, bool add = false)
+		
+		OPER xll; // full path to add-in
+		path<TCHAR> split;
+		FILETIME write = { 0, 0 };
+		AddinManager()
+		{ }
+		AddinManager(const OPER& get_name)
+			: xll(get_name), split(xll.as_cstr()), write(FileWriteTime(xll.as_cstr()))
 		{
+		}
+		/*
+			path_name
+
 			OPER name(Excel(xlGetName));
 			path sp(name.as_cstr());
 			OPER fname(sp.fname); // descriptive name
@@ -44,17 +76,8 @@ namespace xll {
 			tpl.append(sp.basename().c_str());
 
 			// check file times
-			HANDLE hName = CreateFile(name.as_cstr(), 0, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_READONLY, NULL);
-			ensure(hName != INVALID_HANDLE_VALUE);
-			FILETIME create, access, write;
-			ensure(GetFileTime(hName, &create, &access, &write));
-			CloseHandle(hName);
-
-			HANDLE hTpl = CreateFile(tpl.as_cstr(), 0, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_READONLY, NULL);
-			if (hTpl != INVALID_HANDLE_VALUE) {
-				//FILETIME create, access, write;
-				ensure(GetFileTime(hTpl, &create, &access, &write));
-				CloseHandle(hTpl);
+			if (FileWriteTime(name.as_cstr()) <= FileWriteTime(tpl.as_cstr())) {
+				return;
 			}
 
 			OPER loaded = Remove(fname); // move to Aim() if loaded
@@ -69,9 +92,7 @@ namespace xll {
 				CopyFile(name.as_cstr(), tpl.as_cstr(), FALSE);
 				New(tpl); // add to Aim()
 			}
-			else {
-				// loaded
-
+			else { // loaded
 				if (prompt) {
 					OPER msg = OPER("Replace ") & fname & OPER("?");
 					OPER result = Excel(xlcAlert, msg, OPER(1));
@@ -96,47 +117,64 @@ namespace xll {
 				Add(fname);
 			}
 		}
-
+		*/
 		// Adds an add-in to the working set using the descriptive name in the Add-Ins dialog box.
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
-		static OPER Add(const OPER& name)
+		OPER Add(const OPER& name = OPER())
 		{
-			return Excel(xlcAddinManager, OPER(1), name);
+			return Excel(xlcAddinManager, OPER(1), name ? name : OPER(split.fname));
 		}
 
 		// Removes an add-in from the working set using the descriptive name in the Add-Ins dialog box.
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
-		static OPER Remove(const OPER& name)
+		OPER Remove(const OPER& name = OPER())
 		{
 			// throws an exception!!!
 			// do by editing registry
-			return Excel(xlcAddinManager, OPER(2), name);
+			return Excel(xlcAddinManager, OPER(2), name ? name : OPER(split.fname));
 		}
 
 		// Adds a new add-in to the list of add-ins that Microsoft Excel knows about. 
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Add-in Manager 
-		static OPER New(const OPER& get_name = Excel(xlGetName))
+		OPER New(const OPER& get_name = OPER())
 		{
-			return Excel(xlcAddinManager, OPER(3), get_name);
+			return Excel(xlcAddinManager, OPER(3), get_name ? get_name : xll);
+		}
+
+		// get_name more recently written
+		bool Newer(OPER get_name) const
+		{
+			return FileWriteTime(get_name.as_cstr()) >= write;
 		}
 
 		// full path if in Aim()
-		static OPER Exists(const OPER& name)
+		OPER Exists(OPER name = OPER())
 		{
-			Reg::Key aim(HKEY_CURRENT_USER, Aim());
+			OPER get_name = ErrNA;
 
-			for (const auto& key : aim.Keys()) {
-				path sp(key);
-				if (name == OPER(sp.fname)) {
-					return OPER(key);
+			if (!name) {
+				name = OPER(split.fname);
+			}
+
+			// all known add-ins
+			Reg::Key aim(HKEY_CURRENT_USER, Aim());
+			for (const auto& val : aim.Values()) {
+				if (val.type == REG_SZ) {
+					const TCHAR* sz = val;
+					path sp(sz);
+					if (OPER(sp.fname) == name) {
+						get_name = sz;
+
+						break;
+					}
 				}
 			}
 
-			return ErrNA;
+			return get_name;
 		}
 
 		// Remove registry entries.
-		static OPER Delete(const OPER& name)
+		OPER Delete(const OPER& name)
 		{
 			try {
 				Remove(name); // move from Open() to Aim()
@@ -191,10 +229,9 @@ namespace xll {
 			if (!tpl) {
 				tpl = getenv("AppData");
 				tpl.append("\\Microsoft\\Templates\\");
-				tpl.append();
 			}
 
-			return tpl.val.str + 1;
+			return tpl.as_cstr();
 		}
 
 	};

@@ -12,11 +12,36 @@ Auto<OpenAfter> xaoa_test_doc([]() {
 });
 #endif
 
-Auto<OpenAfter> xaoa_aim([]() {
-	AddinManager aim(false, true);
+AddIn xai_rm(Macro("xll_rm", "REMOVE"));
+int WINAPI xll_rm()
+{
+#pragma XLLEXPORT
+	AddinManager aim; // (Excel(xlGetName));
+
+	aim.Delete(OPER("test"));
 	
 	return TRUE;
-});
+}
+/*
+AddIn xai_pfa(Macro("xll_pfa", "PFA"));
+int WINAPI xll_pfa()
+{
+#pragma XLLEXPORT
+	OPER pf("ExcelPriceFeed-AddIn64");
+	AddinManager::Add(pf);
+
+	return TRUE;
+}
+AddIn xai_pfr(Macro("xll_pfr", "PFR"));
+int WINAPI xll_pfr()
+{
+#pragma XLLEXPORT
+	OPER pf("ExcelPriceFeed-AddIn64");
+	AddinManager::Remove(pf);
+
+	return TRUE;
+}
+*/
 
 static LSTATUS reg_query = []() {
 
