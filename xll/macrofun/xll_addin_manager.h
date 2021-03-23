@@ -60,9 +60,7 @@ namespace xll {
 		OPER xll; // full path to add-in
 		path<TCHAR> split;
 		FILETIME write = { 0, 0 };
-		AddinManager()
-		{ }
-		AddinManager(const OPER& get_name)
+		AddinManager(const OPER& get_name = Excel(xlGetName))
 			: xll(get_name), split(xll.as_cstr()), write(FileWriteTime(xll.as_cstr()))
 		{
 		}
@@ -120,41 +118,37 @@ namespace xll {
 		*/
 		// Adds an add-in to the working set using the descriptive name in the Add-Ins dialog box.
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
-		OPER Add(const OPER& name = OPER())
+		OPER Add()
 		{
-			return Excel(xlcAddinManager, OPER(1), name ? name : OPER(split.fname));
+			return Excel(xlcAddinManager, OPER(1), OPER(split.fname));
 		}
 
 		// Removes an add-in from the working set using the descriptive name in the Add-Ins dialog box.
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
-		OPER Remove(const OPER& name = OPER())
+		OPER Remove()
 		{
 			// throws an exception!!!
 			// do by editing registry
-			return Excel(xlcAddinManager, OPER(2), name ? name : OPER(split.fname));
+			return Excel(xlcAddinManager, OPER(2), OPER(split.fname));
 		}
 
 		// Adds a new add-in to the list of add-ins that Microsoft Excel knows about. 
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Add-in Manager 
-		OPER New(const OPER& get_name = OPER())
+		OPER New()
 		{
-			return Excel(xlcAddinManager, OPER(3), get_name ? get_name : xll);
+			return Excel(xlcAddinManager, OPER(3), OPER(xll));
 		}
 
-		// get_name more recently written
-		bool Newer(OPER get_name) const
+		// file more recently written
+		bool Newer(OPER file) const
 		{
-			return FileWriteTime(get_name.as_cstr()) >= write;
+			return FileWriteTime(file.as_cstr()) >= write;
 		}
 
-		// full path if in Aim()
-		OPER Exists(OPER name = OPER())
+		// full path if name in Aim()
+		OPER Exists(OPER name)
 		{
 			OPER get_name = ErrNA;
-
-			if (!name) {
-				name = OPER(split.fname);
-			}
 
 			// all known add-ins
 			Reg::Key aim(HKEY_CURRENT_USER, Aim());
@@ -174,14 +168,17 @@ namespace xll {
 		}
 
 		// Remove registry entries.
-		OPER Delete(const OPER& name)
+		OPER Delete()
 		{
 			try {
-				Remove(name); // move from Open() to Aim()
-				OPER key = Exists(name);
+				Remove(); // move from Open() to Aim()
+				OPER key = Exists(OPER(split.fname));
 				if (key) {
 					Reg::Key aim(HKEY_CURRENT_USER, Aim());
-					RegDeleteKey(aim, key.as_cstr());
+					LSTATUS status = RegDeleteValue(aim, key.as_cstr());
+					if (ERROR_SUCCESS != status) {
+						throw std::runtime_error(Reg::GetFormatMessage(status));
+					}
 				}
 			}
 			catch (const std::exception& ex) {

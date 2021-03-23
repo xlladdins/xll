@@ -18,7 +18,9 @@ int WINAPI xll_rm()
 #pragma XLLEXPORT
 	AddinManager aim; // (Excel(xlGetName));
 
-	aim.Delete(OPER("test"));
+	aim.Delete();
+	aim.New();
+	aim.Add();
 	
 	return TRUE;
 }
