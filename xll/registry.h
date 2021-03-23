@@ -109,7 +109,10 @@ namespace Reg {
 		std::vector<BYTE> data;
 
 		// Defaults to default value name.
-		Value(PCTSTR name = TEXT(""), DWORD type = REG_NONE, PBYTE data = nullptr, size_t len = 0)
+		Value(PCTSTR name = TEXT(""))
+			: name(name), index((DWORD)-1), type(REG_NONE)
+		{ }
+		Value(PCTSTR name, DWORD type, PBYTE data, size_t len)
 			: name(name), index((DWORD)-1), type(type), data(data, data + len)
 		{ }
 		Value(PCTSTR name, DWORD dw)
@@ -120,6 +123,8 @@ namespace Reg {
 		{ }
 		Value(const Value&) = default;
 		Value& operator=(const Value&) = default;
+		Value(Value&&) = default;
+		Value& operator=(Value&&) = default;
 		~Value()
 		{ }
 
@@ -216,10 +221,15 @@ namespace Reg {
 		Key() noexcept
 			: hkey(nullptr), disp(0)
 		{ }
-		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM sam = KEY_ALL_ACCESS | KEY_WOW64_64KEY)
-			: disp(0)
+		Key(HKEY hKey, PCTSTR lpSubKey, REGSAM sam = KEY_ALL_ACCESS | KEY_WOW64_64KEY, bool open = false)
 		{
-			LSTATUS status = RegCreateKeyEx(hKey, lpSubKey, 0, 0, 0, sam, 0, &hkey, &disp);
+			LSTATUS status;
+			if (open) {
+				status = RegOpenKeyEx(hKey, lpSubKey, 0, sam, &hkey);
+			}
+			else {
+				status = RegCreateKeyEx(hKey, lpSubKey, 0, 0, 0, sam, 0, &hkey, &disp);
+			}
 			if (status != ERROR_SUCCESS) {
 				throw std::runtime_error(GetFormatMessage(status));
 			}
@@ -385,7 +395,6 @@ namespace Reg {
 				return status;
 			}
 		};
-
 		KeyIterator Keys()
 		{
 			return KeyIterator(*this);
@@ -400,6 +409,7 @@ namespace Reg {
 			using value_type = Value;
 
 			ValueIterator()
+				: hkey(nullptr)
 			{ }
 			ValueIterator(HKEY hkey)
 				: hkey(hkey)
@@ -446,7 +456,6 @@ namespace Reg {
 				return *this;
 			}
 		};
-
 		ValueIterator Values() const
 		{
 			return ValueIterator(*this);
