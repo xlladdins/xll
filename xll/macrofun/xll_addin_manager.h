@@ -64,58 +64,7 @@ namespace xll {
 			: xll(get_name), split(xll.as_cstr()), write(FileWriteTime(xll.as_cstr()))
 		{
 		}
-		/*
-			path_name
 
-			OPER name(Excel(xlGetName));
-			path sp(name.as_cstr());
-			OPER fname(sp.fname); // descriptive name
-			OPER tpl(Template()); // Excel template folder
-			tpl.append(sp.basename().c_str());
-
-			// check file times
-			if (FileWriteTime(name.as_cstr()) <= FileWriteTime(tpl.as_cstr())) {
-				return;
-			}
-
-			OPER loaded = Remove(fname); // move to Aim() if loaded
-			if (!loaded) {
-				if (prompt) {
-					OPER msg = OPER("Install ") & fname & OPER("?");
-					OPER result = Excel(xlcAlert, msg, OPER(1));
-					if (!result) {
-						return;
-					}
-				}
-				CopyFile(name.as_cstr(), tpl.as_cstr(), FALSE);
-				New(tpl); // add to Aim()
-			}
-			else { // loaded
-				if (prompt) {
-					OPER msg = OPER("Replace ") & fname & OPER("?");
-					OPER result = Excel(xlcAlert, msg, OPER(1));
-					if (!result) {
-						return;
-					}
-				}
-				CopyFile(name.as_cstr(), tpl.as_cstr(), FALSE);
-				Reg::Key aim(HKEY_CURRENT_USER, Aim());
-				RegDeleteKey(aim, tpl.as_cstr());
-				New(tpl); // add to Aim()
-			}
-
-			if (add) {
-				if (prompt) {
-					OPER msg = OPER("Load ") & fname & OPER(" when Excel starts?");
-					OPER result = Excel(xlcAlert, msg, OPER(1));
-					if (!result) {
-						return;
-					}
-				}
-				Add(fname);
-			}
-		}
-		*/
 		// Adds an add-in to the working set using the descriptive name in the Add-Ins dialog box.
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
 		OPER Add()

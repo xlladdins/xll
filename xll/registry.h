@@ -13,6 +13,8 @@
 
 namespace Reg {
 
+	using SZ = std::basic_string<TCHAR>;
+
 	// remove characters from first c to end
 	inline std::basic_string<TCHAR> chop(std::basic_string<TCHAR>& s, TCHAR c = TEXT('\0'))
 	{
@@ -103,7 +105,7 @@ namespace Reg {
 
 	// Registry value variant type
 	struct Value {
-		std::basic_string<TCHAR> name;
+		SZ name;
 		DWORD index;
 		DWORD type;
 		std::vector<BYTE> data;
@@ -273,6 +275,7 @@ namespace Reg {
 			Proxy(Key& key, PCTSTR value)
 				: key(key), value(value)
 			{ }
+
 			Key& operator=(const DWORD& dw)
 			{
 				value = dw;
@@ -286,6 +289,7 @@ namespace Reg {
 
 				return (DWORD)value;
 			}
+
 			Key& operator=(PCTSTR sz)
 			{
 				value = sz;
@@ -299,8 +303,9 @@ namespace Reg {
 
 				return (PCTSTR)value;
 			}
+
 			/*
-			Key& operator=(const std::basic_string<TCHAR>& s)
+			Key& operator=(const SZ& s)
 			{
 				value = s;
 				value.Set(key);
@@ -308,11 +313,11 @@ namespace Reg {
 				return key;
 			}
 			
-			operator std::basic_string<TCHAR>()
+			operator SZ()
 			{
 				value.Query(key);
 
-				return (std::basic_string<TCHAR>)value;
+				return (SZ)value;
 			}
 			*/
 		};
@@ -326,7 +331,7 @@ namespace Reg {
 		class KeyIterator {
 			HKEY hkey;
 			DWORD index;
-			std::basic_string<TCHAR> name; // subkey name
+			SZ name; // subkey name
 		public:
 			using iterator_category = std::forward_iterator_tag;
 			using value_type = PCTSTR;
