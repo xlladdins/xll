@@ -4,43 +4,6 @@
 
 using namespace xll;
 
-int xll_test_handle()
-{
-	try {
-		handle<int> h(new int(2));
-		ensure(*h.ptr() == 2);
-		ensure(*h == 2);
-		//handle<int> h2(h); // deleted
-		handle<int> h2(std::move(h));
-		ensure(*h == 2);
-		ensure(*h2 == 2);
-		//h = h2; // deleted
-		h = std::move(h2);
-		ensure(*h == 2);
-		ensure(*h2 == 2);
-		h2.swap(h);
-		ensure(*h == 2);
-		ensure(*h2 == 2);
-
-		handle<int> h3(new int(3));
-		ensure(*h == 2);
-		ensure(*h3 == 3);
-		{
-			handle<int>::codec<XLOPERX> hc(OPER("foo[0x"), OPER("]"));
-			handle<int> _h(new int{ 123 });
-			OPER H = hc.encode(_h.get());
-			HANDLEX h_ = hc.decode(H);
-			ensure(h_ == _h.get());
-		}
-	}
-	catch (const std::exception& ex) {
-		XLL_ERROR(ex.what());
-	}
-
-	return TRUE;
-}
-Auto<OpenAfter> xao_test_handle(xll_test_handle);
-
 template<class X = OPER>
 class base {
 	X x;
@@ -152,6 +115,7 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 
 	return _h;
 }
+
 AddIn xai_derived(
 	Function(XLL_HANDLEX, "xll_derived", "XLL.DERIVED")
 	.Arguments({
@@ -196,3 +160,46 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 
 	return &result;
 }
+
+static handle<base<>>::codec<XLOPERX> base_codec(OPER("base[0x"), OPER("]"));
+
+AddIn xai_ebase(
+	Function(XLL_LPOPER, "xll_ebase", "XLL.EBASE")
+	.Arguments({
+		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
+	})
+	.FunctionHelp("Return a handle to a base object.")
+	.Uncalced() // required for functions creating handles
+);
+LPOPER WINAPI xll_ebase(const LPOPER px)
+{
+#pragma XLLEXPORT
+	xll::handle<base<>> h(new base<>(*px));
+
+	return (LPOPER)&base_codec.encode(h.get());
+}
+
+// also works for any derived class
+AddIn xai_ebase_get(
+	Function(XLL_LPOPER, "xll_ebase_get", "XLL.EBASE.GET")
+	.Arguments({
+		Arg(XLL_LPOPER, "handle", "is a handle returned by XLL.BASE")
+	})
+	.FunctionHelp("Return the value stored in base.")
+);
+LPOPER WINAPI xll_ebase_get(const LPOPER ph)
+{
+#pragma XLLEXPORT
+	static OPER result;
+	xll::handle<base<>> h(base_codec.decode(*ph));
+
+	if (h) {
+		result = h->get();
+	}
+	else {
+		result = ErrNA;
+	}
+
+	return &result;
+}
+

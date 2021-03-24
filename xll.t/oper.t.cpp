@@ -550,7 +550,39 @@ int test_handle()
 		delete pi;
 	}
 	{
-		//handle<int> h(new int(2));
+		handle<int> h(new int(2));
+		ensure(*h.ptr() == 2);
+		ensure(*h == 2);
+		//handle<int> h2(h); // deleted
+		handle<int> h2(std::move(h));
+		ensure(*h == 2);
+		ensure(*h2 == 2);
+		//h = h2; // deleted
+		h = std::move(h2);
+		ensure(*h == 2);
+		ensure(*h2 == 2);
+		h2.swap(h);
+		ensure(*h == 2);
+		ensure(*h2 == 2);
+
+		handle<int> h3(new int(3));
+		ensure(*h == 2);
+		ensure(*h3 == 3);
+	}
+	{
+		OPER pre("foo[0x");
+		OPER suf("]");
+		handle<int>::codec<XLOPERX> hc(pre, suf);
+		handle<int> _h(new int{ 123 });
+		OPER H = hc.encode(_h.get());
+		ensure(0 == _tcsncmp(H.val.str + 1, pre.val.str + 1, pre.val.str[0]));
+		ensure(0 == _tcsncmp(H.val.str + 1 + pre.val.str[0] + 16, suf.val.str + 1, suf.val.str[0]));
+		/*
+		ensure(pre == Excel(xlfLeft, H, Excel(xlfLen, pre)));
+		ensure(suf == Excel(xlfRight, H, Excel(xlfLen, suf)));
+		*/
+		HANDLEX h_ = hc.decode(H);
+		ensure(h_ == _h.get());
 	}
 
 	return 0;

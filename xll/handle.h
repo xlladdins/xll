@@ -225,7 +225,9 @@ namespace xll {
 			unsigned off;
 		public:
 			// e.g., codec c(OPER("\\MyClass["), OPER("]"));
-			codec(const XOPER<X>& prefix, const XOPER<X>& suffix)
+			template<class X_>
+				requires std::is_base_of_v<X, X_>
+			codec(const X_& prefix, const X_& suffix)
 				: H(prefix), off(prefix.val.str[0])
 			{
 				ensure(prefix.is_str() and suffix.is_str());
