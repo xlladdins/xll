@@ -155,13 +155,13 @@ namespace xll {
 				return val.w != 0;
 			case xltypeBigData:
 				return val.bigdata.cbData != 0;
-			case xltypeMissing: case xltypeSRef: case xltypeRef:
+			case xltypeSRef: case xltypeRef:
 				return true;
 			}
 
-			return false; // xltypeErr, xltypeNil
+			return false; // xltypeErr, xltypeNil, xltypeMissing
 		}
-		/**/
+		
 		// IEEE 64-bit floating point number
 		template<class T> 
 			requires std::is_convertible_v<T,double>
@@ -212,8 +212,7 @@ namespace xll {
 		// xltypeStr from NULL terminated string
 		explicit XOPER(xcstr str)
 			: XOPER(str, traits<X>::len(str))
-		{
-		}
+		{ }
 		// xltypeStr from string literal
 		template<size_t N>
 		XOPER(xcstr(&str)[N])
@@ -222,12 +221,12 @@ namespace xll {
 		}
 		bool operator==(xcstr str) const
 		{
-			if (!(xltype & xltypeStr)) {
+			if (type() != xltypeStr) {
 				return false;
 			}
 
 			unsigned n = traits<X>::len(str);
-			//ensure(n < static_cast<size_t>(std::numeric_limits<xchar>::max()));
+			ensure(n < static_cast<unsigned>(std::numeric_limits<xchar>::max()));
 			
 			if (val.str[0] != static_cast<xchar>(n))
 				return false;

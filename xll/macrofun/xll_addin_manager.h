@@ -40,23 +40,17 @@ namespace xll {
 	/// </summary>
 	/// <remarks>
 	/// Excel uses two registry keys for the Add-in Manager.
-	/// New keys are put under Aim() with key the <full path>
+	/// New keys are put under Aim() with key the full path
 	/// to the add-in and no value
-	/// Add/Remove puts keys under Open() with key OPEN<n>
-	/// and value <code>/R "<full path>"</code>.
-	/// Add increments <n> by 1 and removes the Aim() entry.
-	/// Remove removes the OPEN<n> entry and shifts keys
-	/// with larger <n> down and adds the full path under Aim().
+	/// Add/Remove puts keys under Open() with key OPEN<i>n</i>
+	/// and value <code>/R "<i>full path</i>"</code>.
+	/// Add increments <i>n</i> by 1 and removes the Aim() entry.
+	/// Remove removes the OPEN<i>n</i> entry and shifts keys
+	/// with larger <i>n</i> down and adds the full path under Aim().
 	/// </remarks>
 	/// https://xlladdins.github.io/Excel4Macros/addin.manager.html
 	struct AddinManager {
 
-		/// <summary>
-		/// Check if newer add-in is available and install.
-		/// </summary>
-		/// <remarks>
-		/// </remarks>
-		
 		OPER xll; // full path to add-in
 		path<TCHAR> split;
 		FILETIME write = { 0, 0 };
@@ -72,12 +66,22 @@ namespace xll {
 			return Excel(xlcAddinManager, OPER(1), OPER(split.fname));
 		}
 
+		// Copy and overwrite to dir
+		OPER Install(OPER dir = OPER(Template()))
+		{
+			dir.append(split.basename().c_str());
+
+			if (!CopyFile(xll.as_cstr(), dir.as_cstr(), FALSE)) {
+				dir = ErrNA;
+			}
+
+			return dir;
+		}
+
 		// Removes an add-in from the working set using the descriptive name in the Add-Ins dialog box.
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
 		OPER Remove()
 		{
-			// throws an exception!!!
-			// do by editing registry
 			return Excel(xlcAddinManager, OPER(2), OPER(split.fname));
 		}
 
@@ -85,7 +89,7 @@ namespace xll {
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Add-in Manager 
 		OPER New()
 		{
-			return Excel(xlcAddinManager, OPER(3), OPER(xll));
+			return Excel(xlcAddinManager, OPER(3), xll);
 		}
 
 		// file more recently written
@@ -94,10 +98,14 @@ namespace xll {
 			return FileWriteTime(file.as_cstr()) >= write;
 		}
 
-		// full path if name in Aim()
-		OPER Exists(OPER name)
+		// full path if descriptive name in Aim()
+		OPER Exists(OPER name = Missing)
 		{
 			OPER get_name = ErrNA;
+
+			if (!name) {
+				name = split.fname;
+			}
 
 			// all known add-ins
 			Reg::Key aim(HKEY_CURRENT_USER, Aim());
@@ -116,7 +124,7 @@ namespace xll {
 			return get_name;
 		}
 
-		// Remove registry entries.
+		// Remove all registry entries.
 		OPER Delete()
 		{
 			try {

@@ -12,7 +12,7 @@ Auto<OpenAfter> xaoa_test_doc([]() {
 });
 #endif
 
-AddIn xai_rm(Macro("xll_rm", "REMOVE"));
+AddIn xai_rm(Macro("xll_rm", "TEST.OPEN"));
 int WINAPI xll_rm()
 {
 #pragma XLLEXPORT
