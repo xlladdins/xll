@@ -52,10 +52,10 @@ namespace xll {
 	struct AddinManager {
 
 		OPER xll; // full path to add-in
-		path<TCHAR> split;
+		xll::path<TCHAR> path;
 		FILETIME write = { 0, 0 };
 		AddinManager(const OPER& get_name = Excel(xlGetName))
-			: xll(get_name), split(xll.as_cstr()), write(FileWriteTime(xll.as_cstr()))
+			: xll(get_name), path(xll.as_cstr()), write(FileWriteTime(xll.as_cstr()))
 		{
 		}
 
@@ -63,13 +63,13 @@ namespace xll {
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
 		OPER Add()
 		{
-			return Excel(xlcAddinManager, OPER(1), OPER(split.fname));
+			return Excel(xlcAddinManager, OPER(1), OPER(path.fname));
 		}
 
 		// Copy and overwrite to dir
 		OPER Install(OPER dir = OPER(Template()))
 		{
-			dir.append(split.basename().c_str());
+			dir.append(path.basename().c_str());
 
 			if (!CopyFile(xll.as_cstr(), dir.as_cstr(), FALSE)) {
 				dir = ErrNA;
@@ -82,7 +82,7 @@ namespace xll {
 		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
 		OPER Remove()
 		{
-			return Excel(xlcAddinManager, OPER(2), OPER(split.fname));
+			return Excel(xlcAddinManager, OPER(2), OPER(path.fname));
 		}
 
 		// Adds a new add-in to the list of add-ins that Microsoft Excel knows about. 
@@ -95,7 +95,7 @@ namespace xll {
 		// file more recently written
 		bool Newer(OPER file) const
 		{
-			return FileWriteTime(file.as_cstr()) >= write;
+			return FileWriteTime(file.as_cstr()) > write;
 		}
 
 		// full path if descriptive name in Aim()
@@ -104,7 +104,7 @@ namespace xll {
 			OPER get_name = ErrNA;
 
 			if (!name) {
-				name = split.fname;
+				name = path.fname;
 			}
 
 			OPER remove = Remove(); // move to aim if loaded
@@ -114,7 +114,7 @@ namespace xll {
 			for (const auto& value : aim.Values()) {
 				if (value.type == REG_SZ) {
 					// value name is the full path to add-in
-					path sp(value.name.c_str());
+					xll::path sp(value.name.c_str());
 					if (OPER(sp.fname) == name) {
 						get_name = value.name.c_str();
 
@@ -135,7 +135,7 @@ namespace xll {
 		{
 			try {
 				Remove(); // move from Open() to Aim()
-				OPER key = Exists(OPER(split.fname));
+				OPER key = Exists(OPER(path.fname));
 				if (key) {
 					Reg::Key aim(HKEY_CURRENT_USER, Aim());
 					LSTATUS status = RegDeleteValue(aim, key.as_cstr());

@@ -203,12 +203,72 @@ namespace xll {
 			return p;
 		}
 
-		// downcast to U
-		template<class U> requires std::is_base_of_v<T,U>
+		// upcast to U
+		template<class U> 
+			requires std::is_base_of_v<T,U>
 		U* as()
 		{
 			return dynamic_cast<U*>(p);
 		}
+
+		// encode/decode handles to strings
+		template<class X>
+		class codec {
+			using xchar = traits<X>::xchar;
+			inline static xchar tab[] = TEXT("0123456789ABCDEF");
+			static uint8_t c2h(xchar c)
+			{
+				return static_cast<uint8_t>(c <= '9' ? c - '0' : 10 + c - 'A');
+			}
+			inline static traits<X>::xchar buf[16];
+			XOPER<X> H;
+			unsigned off;
+		public:
+			// e.g., codec c(OPER("\\MyClass["), OPER("]"));
+			codec(const XOPER<X>& prefix, const XOPER<X>& suffix)
+				: H(prefix), off(prefix.val.str[0])
+			{
+				ensure(prefix.is_str() and suffix.is_str());
+				
+				H.append(OPER(buf, 16)); // 64 bits
+				H.append(suffix);
+			}
+
+			// h -> "prefix01..Fsuffix"
+			const XOPER<X>& encode(HANDLEX h)
+			{
+				union {
+					T* h;
+					uint8_t c[8];
+				} hc;
+				static_assert(sizeof(hc) == sizeof(HANDLEX));
+				hc.h = to_pointer<T>(h);
+				xchar* pc = H.val.str + 1 + off;
+				for (unsigned i = 0; i < 8; ++i) {
+					pc[2 * i] = tab[(hc.c[7 - i] >> 4) & 0x0F];
+					pc[2 * i + 1] = tab[hc.c[7 - i] & 0x0F];
+				}
+
+				return H;
+			}
+			HANDLEX decode(const XOPER<X>& _H)
+			{
+				ensure(_H.is_str());
+				ensure(H.val.str[0] == _H.val.str[0]);
+				// starts with prefix, ends with suffix?
+				union {
+					T* h;
+					uint8_t c[8];
+				} hc;
+				xchar* pc = _H.val.str + 1 + off;
+				for (unsigned i = 0; i < 8; ++i) {
+					
+					hc.c[7 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
+				}
+
+				return to_handle<T>(hc.h);
+			}
+		};
 	};
 
 	template<class T>
@@ -217,7 +277,5 @@ namespace xll {
 		h.swap(k);
 	}
 
-
-	// encode/decode???
 
 }

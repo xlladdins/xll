@@ -18,19 +18,28 @@ int WINAPI xll_rm()
 #pragma XLLEXPORT
 	AddinManager aim; // (Excel(xlGetName));
 
-	// does add-in manager know about this
+	// Does add-in manager know aim.split.fname?
 	OPER exists = aim.Exists();
-	if (exists) {
-		if (aim.Newer(exists)) {
-			// prompt to replace
-			OPER result = Excel(xlcAlert, OPER("replace with newer?"));
-			if (result) {
-				aim.Install();
-			}
-			result = Excel(xlcAlert, OPER("load on startup?"));
-			if (result) {
-				aim.Add();
-			}
+	if (exists and aim.Newer(exists)) {
+		// prompt to replace
+		OPER result = Excel(xlcAlert, OPER("replace with newer?"));
+		if (result) {
+			aim.Install();
+		}
+		result = Excel(xlcAlert, OPER("load on startup?"));
+		if (result) {
+			aim.New();
+			aim.Add();
+		}
+	}
+	else {
+		OPER result = Excel(xlcAlert, OPER("install?"));
+		if (result) {
+			aim.Install();
+		}
+		result = Excel(xlcAlert, OPER("load on startup?"));
+		if (result) {
+			aim.Add();
 		}
 	}
 	

@@ -7,6 +7,7 @@
 
 namespace xll {
 
+
 	template<class X, class C = traits<X>::xchar>
 	std::basic_ostream<C>& encode(std::basic_ostream<C>& os, const X& x)
 	{

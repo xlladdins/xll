@@ -29,10 +29,10 @@ namespace xll {
 	template<class T>
 		requires (std::is_same_v<T, char> || std::is_same_v<T, wchar_t>)
 	struct path {
-		T drive[_MAX_DRIVE];
-		T dir[_MAX_DIR];
-		T fname[_MAX_FNAME];
-		T ext[_MAX_EXT];
+		T drive[_MAX_DRIVE] = {0};
+		T dir[_MAX_DIR] = { 0 };
+		T fname[_MAX_FNAME] = { 0 };
+		T ext[_MAX_EXT] = { 0 };
 
 		path() noexcept
 		{ }
@@ -69,7 +69,10 @@ namespace xll {
 		{
 			return string(fname).append(ext);
 		}
-
+		string file() const
+		{
+			return dirname().append(basename());
+		}
 	};
 
 }

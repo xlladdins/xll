@@ -25,6 +25,13 @@ int xll_test_handle()
 		handle<int> h3(new int(3));
 		ensure(*h == 2);
 		ensure(*h3 == 3);
+		{
+			handle<int>::codec<XLOPERX> hc(OPER("foo[0x"), OPER("]"));
+			handle<int> _h(new int{ 123 });
+			OPER H = hc.encode(_h.get());
+			HANDLEX h_ = hc.decode(H);
+			ensure(h_ == _h.get());
+		}
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
