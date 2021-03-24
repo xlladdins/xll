@@ -50,6 +50,22 @@ typedef struct _FP12 _FPX;
 typedef struct _FP _FPX;
 #endif
 
+#ifdef __cplusplus
+#include <type_traits>
+#pragma warning(push)
+#pragma warning(disable: 4724)
+// mod with 0 <= x < y 
+template<typename T>
+	requires std::is_integral_v<T>
+inline T xmod(T x, T y)
+{
+	T z = x % y;
+
+	return z >= 0 ? z : z + y;
+}
+#pragma warning(pop)
+#endif
+
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \
 	X(Nil,     "empty cell")                \

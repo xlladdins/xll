@@ -107,18 +107,24 @@ namespace xll {
 				name = split.fname;
 			}
 
+			OPER remove = Remove(); // move to aim if loaded
+
 			// all known add-ins
 			Reg::Key aim(HKEY_CURRENT_USER, Aim());
-			for (const auto& val : aim.Values()) {
-				if (val.type == REG_SZ) {
+			for (const auto& value : aim.Values()) {
+				if (value.type == REG_SZ) {
 					// value name is the full path to add-in
-					path sp(val.name.c_str());
+					path sp(value.name.c_str());
 					if (OPER(sp.fname) == name) {
-						get_name = val.name.c_str();
+						get_name = value.name.c_str();
 
 						break;
 					}
 				}
+			}
+
+			if (remove) {
+				Add(); // reload
 			}
 
 			return get_name;

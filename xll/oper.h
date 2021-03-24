@@ -226,7 +226,7 @@ namespace xll {
 			}
 
 			unsigned n = traits<X>::len(str);
-			ensure(n < static_cast<unsigned>(std::numeric_limits<xchar>::max()));
+			///ensure(n < static_cast<unsigned>(std::numeric_limits<xchar>::(max)()));
 			
 			if (val.str[0] != static_cast<xchar>(n))
 				return false;

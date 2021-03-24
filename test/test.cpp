@@ -18,9 +18,21 @@ int WINAPI xll_rm()
 #pragma XLLEXPORT
 	AddinManager aim; // (Excel(xlGetName));
 
-	aim.Delete();
-	aim.New();
-	aim.Add();
+	// does add-in manager know about this
+	OPER exists = aim.Exists();
+	if (exists) {
+		if (aim.Newer(exists)) {
+			// prompt to replace
+			OPER result = Excel(xlcAlert, OPER("replace with newer?"));
+			if (result) {
+				aim.Install();
+			}
+			result = Excel(xlcAlert, OPER("load on startup?"));
+			if (result) {
+				aim.Add();
+			}
+		}
+	}
 	
 	return TRUE;
 }
@@ -258,5 +270,80 @@ LPOPER WINAPI xll_file(const LPOPER po)
 	return &f;
 }
 
+// ma_n = (x_1 + ... + x_n)/n
+//      = (ma_{n-1} + x_n)/n
+//      = ma_{n-1} + (- ma_{n-1} + x)/n
+class MA {
+	size_t n;
+	double ma;
+public:
+	MA()
+		: n(0), ma(0)
+	{ }
+	size_t count() const 
+	{
+		return n;
+	}
+	double value() const
+	{
+		return ma;
+	}
+	MA& next(double x)
+	{
+		++n;
+		ma += (x - ma) / n;
 
+		return *this;
+	}
+};
 
+AddIn xai_ma(
+	Function(XLL_HANDLEX, "xll_ma", "\\XLL.MA")
+	.Arguments({
+		Arg(XLL_FP, "init", "array of initial data for moving averate."),
+	})
+	.Uncalced()
+	.Category("XLL")
+	.FunctionHelp("Compute a moving average.")
+);
+HANDLEX WINAPI xll_ma(_FPX *px)
+{
+#pragma XLLEXPORT
+	handle<MA> ma(new MA{});
+
+	for (unsigned i = 0; i < size(*px); ++i) {
+		ma->next(px->array[i]);
+	}
+
+	return ma.get();
+}
+
+AddIn xai_ma_next(
+	Function(XLL_FP, "xll_ma_next", "XLL.MA.NEXT")
+	.Arguments({
+		Arg(XLL_HANDLEX, "handle", "is a handle to a moving average."),
+		Arg(XLL_DOUBLE, "x", "is the value whos moving averate is to be computed."),
+		Arg(XLL_BOOL, "reset", "reset the moving average computation."),
+		})
+	.Category("XLL")
+	.FunctionHelp("Compute a moving average.")
+);
+_FPX* WINAPI xll_ma_next(HANDLEX ma, double x, BOOL reset)
+{
+#pragma XLLEXPORT
+	static xll::FPX_<1, 2> result;
+
+	handle<MA> ma_(ma);
+	ensure(ma_);
+	if (reset) {
+		*ma_ = MA{};
+	}
+	else {
+		ma_->next(x);
+	}
+
+	result[0] = ma_->value();
+	result[1] = static_cast<double>(ma_->count());
+
+	return (_FPX*)&result;
+}
