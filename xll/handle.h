@@ -240,11 +240,11 @@ namespace xll {
 			const XOPER<X>& encode(HANDLEX h)
 			{
 				union {
-					T* h;
+					HANDLEX h;
 					uint8_t c[8];
 				} hc;
 				static_assert(sizeof(hc) == sizeof(HANDLEX));
-				hc.h = to_pointer<T>(h);
+				hc.h = h;
 				xchar* pc = H.val.str + 1 + off;
 				for (unsigned i = 0; i < 8; ++i) {
 					pc[2 * i] = tab[(hc.c[7 - i] >> 4) & 0x0F];
@@ -259,7 +259,7 @@ namespace xll {
 				ensure(H.val.str[0] == _H.val.str[0]);
 				// starts with prefix, ends with suffix?
 				union {
-					T* h;
+					HANDLEX h;
 					uint8_t c[8];
 				} hc;
 				xchar* pc = _H.val.str + 1 + off;
@@ -268,7 +268,7 @@ namespace xll {
 					hc.c[7 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
 				}
 
-				return to_handle<T>(hc.h);
+				return hc.h;
 			}
 		};
 	};
