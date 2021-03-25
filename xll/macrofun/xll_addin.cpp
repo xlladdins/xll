@@ -42,7 +42,7 @@ AddIn xai_addin(
 	.Category("XLL")
 	.Documentation(R"(
 Return a one column array of all registered add-ins. These can
-be used as the first argument to <c>XLL.ARGS</c> or <c>XLL.ARGS.ARGUMENTS</c>.
+be used as the first argument to <code>XLL.ARGS</code> or <code>XLL.ARGS.ARGUMENTS</code>.
 )")
 );
 LPOPER WINAPI xll_addin(void)
@@ -76,8 +76,8 @@ AddIn xai_addin_args(
 	.FunctionHelp("Return information about an add-in.")
 	.Category("XLL")
 	.Documentation(R"(
-Return members of <c>xll::Args</c> for an add-in given its <c>name</c> or register id.
-The <c>keys</c> are an array of strings. You can use <c>XLL_ARGS_*</c> to discover
+Return members of <code>xll::Args</code> for an add-in given its <code>name</code> or register id.
+The <code>keys</code> are an array of strings. You can use <code>XLL_ARGS_*</code> to discover
 known keys.
 If called with no arguments, return the default list of keys. If the second
 argument is missing it will return the known keys of the first argument.
@@ -157,8 +157,8 @@ AddIn xai_addin_args_arguments(
 	.Category("XLL")
 	.Documentation(R"(
 Return information about individual arguments. for an add-in given 
-its <c>name</c> or register id and 1-based index.
-The <c>keys</c> are an array of strings. You can use <c>XLL_ARGS_ARGUMENTS_*</c> to discover
+its <code>name</code> or register id and 1-based index.
+The <code>keys</code> are an array of strings. You can use <code>XLL_ARGS_ARGUMENTS_*</code> to discover
 known keys.
 If called with no arguments return the known list of keys. If the third
 argument is missing it will return all known keys of the first argument.
