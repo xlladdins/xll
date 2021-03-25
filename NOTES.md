@@ -100,6 +100,8 @@ bool called_from_paste_fn_dlg(void)
 
 ## AddinManager
 
+states: uninstalled, known, installed, loaded
+
 AIM: HKCU\Software\Microsoft\Office\<version>\Excel\Add-in Manager
     - value name: full path
 OPENn: HKCU\Software\Microsoft\Office\<version>\Excel\Options\Open<n>
@@ -109,11 +111,20 @@ DIR: %AppData%\Microsoft\Templates\
 
 AddinManager uses AIM or OPENn but never both
 
-New puts full path in AIM
-Add moves AIM\full_path to OPENn
-Remove moves `OPENn ` to AIM\full_path
-Delete erases AIM registry entry
+New() puts full path in AIM
+Add() moves AIM\full_path to OPENn
+Remove() moves `OPENn ` to AIM\full_path
+Delete() remove and then delete AIM registry entry
+Install() copy to DIR
 
+## Auto<OpenAfter>
+
+Status of add-in manager.
+
+If in OPENn check for newer.
+
+
+## First Use
 AIM and OPENn not set
     Prompt to install xlGetName in Template
     Prompt for New to add to AIM

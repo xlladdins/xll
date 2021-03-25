@@ -51,12 +51,12 @@ typedef struct _FP _FPX;
 #endif
 
 #ifdef __cplusplus
-#include <type_traits>
+//#include <type_traits>
 #pragma warning(push)
 #pragma warning(disable: 4724)
 // mod with 0 <= x < y 
 template<typename T>
-	requires std::is_integral_v<T>
+//	requires std::is_integral_v<T>
 inline T xmod(T x, T y)
 {
 	T z = x % y;

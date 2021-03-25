@@ -61,6 +61,7 @@
     </ClCompile>
     <ClCompile Include="xll\macrofun\xll_document.cpp" />
     <ClCompile Include="xll\macrofun\xll_function.cpp" />
+    <ClCompile Include="xll\macrofun\xll_install.cpp" />
     <ClCompile Include="xll\macrofun\xll_macrofun.cpp" />
     <ClCompile Include="xll\macrofun\xll_paste.cpp" />
     <ClCompile Include="xll\macrofun\xll_spreadsheet.cpp" />

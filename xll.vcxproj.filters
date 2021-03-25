@@ -146,6 +146,9 @@
     <ClCompile Include="xll\macrofun\xll_trace.cpp">
       <Filter>macrofun</Filter>
     </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_install.cpp">
+      <Filter>macrofun</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="xll\XLCALL32.LIB" />

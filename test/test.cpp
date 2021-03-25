@@ -2,7 +2,6 @@
 // Uncomment to use Excel4 API. Default is XLOPER12.
 //#define XLL_VERSION 4
 #include "../xll/xll.h"
-#include "../xll/macrofun/xll_addin_manager.h"
 
 using namespace xll;
 
@@ -12,62 +11,7 @@ Auto<OpenAfter> xaoa_test_doc([]() {
 });
 #endif
 
-AddIn xai_rm(Macro("xll_rm", "TEST.OPEN"));
-int WINAPI xll_rm()
-{
-#pragma XLLEXPORT
-	AddinManager aim; // (Excel(xlGetName));
-
-	// Does add-in manager know aim.path.fname?
-	OPER exists = aim.Exists();
-	if (exists and aim.Newer(exists)) {
-		// prompt to replace
-		OPER result = Excel(xlcAlert, OPER("replace with newer?"));
-		if (result) {
-			aim.Install();
-		}
-		result = Excel(xlcAlert, OPER("load on startup?"));
-		if (result) {
-			aim.New();
-			aim.Add();
-		}
-	}
-	else {
-		OPER result = Excel(xlcAlert, OPER("install?"));
-		if (result) {
-			OPER install = aim.Install();
-			AddinManager aim_(install);
-			aim_.New();
-		}
-		result = Excel(xlcAlert, OPER("load on startup?"));
-		if (result) {
-			aim.Add();
-		}
-	}
-	
-	return TRUE;
-}
-/*
-AddIn xai_pfa(Macro("xll_pfa", "PFA"));
-int WINAPI xll_pfa()
-{
-#pragma XLLEXPORT
-	OPER pf("ExcelPriceFeed-AddIn64");
-	AddinManager::Add(pf);
-
-	return TRUE;
-}
-AddIn xai_pfr(Macro("xll_pfr", "PFR"));
-int WINAPI xll_pfr()
-{
-#pragma XLLEXPORT
-	OPER pf("ExcelPriceFeed-AddIn64");
-	AddinManager::Remove(pf);
-
-	return TRUE;
-}
-*/
-
+// test for 64-bit excel?
 static LSTATUS reg_query = []() {
 
 	LSTATUS status;
