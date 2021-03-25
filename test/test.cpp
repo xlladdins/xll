@@ -18,7 +18,7 @@ int WINAPI xll_rm()
 #pragma XLLEXPORT
 	AddinManager aim; // (Excel(xlGetName));
 
-	// Does add-in manager know aim.split.fname?
+	// Does add-in manager know aim.path.fname?
 	OPER exists = aim.Exists();
 	if (exists and aim.Newer(exists)) {
 		// prompt to replace
@@ -35,7 +35,9 @@ int WINAPI xll_rm()
 	else {
 		OPER result = Excel(xlcAlert, OPER("install?"));
 		if (result) {
-			aim.Install();
+			OPER install = aim.Install();
+			AddinManager aim_(install);
+			aim_.New();
 		}
 		result = Excel(xlcAlert, OPER("load on startup?"));
 		if (result) {

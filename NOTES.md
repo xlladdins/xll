@@ -97,3 +97,24 @@ bool called_from_paste_fn_dlg(void)
     EnumWindows((WNDENUMPROC)xldlg_enum_proc, (LPARAM)&es);
     return es.is_dlg;
 }
+
+## AddinManager
+
+AIM: HKCU\Software\Microsoft\Office\<version>\Excel\Add-in Manager
+    - value name: full path
+OPENn: HKCU\Software\Microsoft\Office\<version>\Excel\Options\Open<n>
+    - value name: OPENn  data: "/R full_path" 
+DIR: %AppData%\Microsoft\Templates\ 
+    - trusted location;
+
+AddinManager uses AIM or OPENn but never both
+
+New puts full path in AIM
+Add moves AIM\full_path to OPENn
+Remove moves `OPENn ` to AIM\full_path
+Delete erases AIM registry entry
+
+AIM and OPENn not set
+    Prompt to install xlGetName in Template
+    Prompt for New to add to AIM
+    Prompt to Add (does not work?)
