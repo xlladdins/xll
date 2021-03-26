@@ -12,14 +12,18 @@ Auto<OpenAfter> xaoa_test_doc([]() {
 });
 #endif
 
+/*
 Auto<OpenAfter> xaoa_test([]() {
 	OPER o;
-	o = Workbook::New();
+	o = Workbook::Select();
+	o = Workbook::Insert();
+	o = Workbook::Select();
 
 	o = OPER{};
 
 	return TRUE;
 });
+*/
 
 // test for 64-bit excel?
 static LSTATUS reg_query = []() {
