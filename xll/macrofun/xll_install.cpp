@@ -23,7 +23,7 @@ int WINAPI xll_install()
 		return FALSE;
 	}
 
-	return install.State() & Installer::EXISTS;
+	return install.State() == Installer::EXISTS + Installer::KNOWN;
 }
 
 AddIn xai_uninstall(Macro("xll_uninstall", "XLL.UNINSTALL"));
@@ -49,5 +49,5 @@ int WINAPI xll_uninstall()
 		return FALSE;
 	}
 
-	return install.State() & ~Installer::EXISTS;
+	return install.State() == Installer::INIT;
 }

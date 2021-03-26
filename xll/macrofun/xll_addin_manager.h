@@ -210,7 +210,8 @@ namespace xll {
 
 		Installer(const OPER& dir = OPER(Template()))
 			: state(INIT), dir(dir)
-		{ }
+		{
+		}
 		STATE State() const
 		{
 			return state;
@@ -218,8 +219,9 @@ namespace xll {
 		// Install xll in dir
 		STATE Install(OPER xll = Excel(xlGetName))
 		{
+			// ensure(DirExists(dir));
 			xll::path path(xll.as_cstr());
-			OPER install = dir & OPER("\\") & OPER(path.basename().c_str());
+			OPER install = dir & OPER(path.basename().c_str());
 			AddinManager aim(install);
 
 			if (FileExists(install.as_cstr())) {
@@ -235,7 +237,7 @@ namespace xll {
 			if (state & EXISTS) {
 				if (GetFileWriteTime(xll.as_cstr()) > GetFileWriteTime(install.as_cstr())) {
 					OPER msg = OPER("Replace ") & OPER(path.fname) & OPER(" with new version?");
-					OPER result = Excel(xlcAlert, msg, OPER(2));
+					OPER result = Excel(xlcAlert, msg, OPER(1));
 					if (result) {
 						ensure(CopyFile(xll.as_cstr(), install.as_cstr(), FALSE));
 					}
@@ -246,19 +248,24 @@ namespace xll {
 				state |= EXISTS;
 			}
 
+			if ((state & EXISTS) and aim.New()) {
+				state |= KNOWN;
+			}
+
+			// Use Excel Add-in Manager to load.
+
 			return state; // == EXISTS + KNOWN if new install
 		}
 
 		STATE Uninstall(const OPER& name)
 		{
-			AddinManager aim(dir);
+			AddinManager aim(dir & OPER("\\") & name & OPER(".xll"));
 
-			OPER file = aim.Delete(name);
-			if (file) {
-				if (FileExists(file.as_cstr())) {
-					state |= EXISTS;
-				}
-				if (DeleteFile(file.as_cstr())) {
+			aim.Delete();
+
+			if (FileExists(aim.xll.as_cstr())) {
+				state |= EXISTS;
+				if (DeleteFile(aim.xll.as_cstr())) {
 					state &= ~EXISTS;
 				}
 			}
