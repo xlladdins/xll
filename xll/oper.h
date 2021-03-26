@@ -367,6 +367,23 @@ namespace xll {
 		{
 			return append(str);
 		}
+		// replace non alphanumeric with underscore
+		XOPER& safe()
+		{
+			if (is_str()) {
+				for (int i = 1; i <= val.str[0]; ++i) {
+					if (!_istalnum(val.str[i])) {
+						val.str[i] = _T('_');
+					}
+				}
+			}
+
+			return *this;
+		}
+		XOPER safe() const
+		{
+			return XOPER(*this).safe();
+		}
 
 		// xltypeBool
 		explicit XOPER(bool xbool)
@@ -849,6 +866,7 @@ namespace xll {
 	typedef OPER* LPOPER;
 
 }
+
 
 // Just like Excel concatenation
 inline xll::OPER4 operator&(const XLOPER& x, const XLOPER& y)

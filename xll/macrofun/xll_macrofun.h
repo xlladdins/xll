@@ -869,12 +869,23 @@ namespace xll {
 		// https://xlladdins.github.io/Excel4Macros/workbook.insert.html
 		static OPER Insert(enum Type type = Type::Worksheet)
 		{
-			return Excel(xlcWorkbookInsert, OPER((int)type));
+			OPER insert = Excel(xlcWorkbookInsert, OPER((int)type));
+			if (!insert) {
+				// empty workbook
+				insert = New(type);
+			}
+
+			return insert;
 		}
 		// https://xlladdins.github.io/Excel4Macros/workbook.move.html
 		static OPER Move(const OPER& name, int position = 1)
 		{
 			return Excel(xlcWorkbookMove, name, Document::Sheet(), OPER(position));
+		}
+		// https://xlladdins.github.io/Excel4Macros/new.html
+		static OPER New(enum Type type = Type::Worksheet)
+		{
+			return Excel(xlcNew, OPER((int)type), Missing, Missing);
 		}
 		// https://xlladdins.github.io/Excel4Macros/workbook.name.html
 		static OPER Rename(const OPER& name)

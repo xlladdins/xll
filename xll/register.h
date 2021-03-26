@@ -31,7 +31,7 @@ namespace xll{
 		OPER helpTopic = args.HelpTopic();
 		if (!helpTopic and args.Documentation().length() > 0) {
 			OPER name = args.key("moduleText");
-			name.append(); // null terminate
+			name.as_cstr(); // NULL terminate
 
 			xll::traits<XLOPERX>::xchar buf[2048];
 			DWORD len = 2048;
@@ -45,15 +45,13 @@ namespace xll{
 				}
 			}
 			helpTopic = Excel(xlfLeft, helpTopic, OPER(slash));
-			// remove unsafe character
-			helpTopic = Excel(xlfSubstitute, helpTopic, OPER("\\"), OPER(""));
-			helpTopic.append(args.FunctionText());
+			helpTopic.append(args.FunctionText().safe());
 			helpTopic.append(".html");
 		}
 		// Help URLs must end with "!0"
 		if (helpTopic.xltype & xltypeStr) { 
 			XOPER xFind = Excel(xlfFind, OPER("!"), helpTopic);
-			if (xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
+			if (xFind == ErrValue) { //xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
 				helpTopic &= OPER("!0");
 			}
 		}

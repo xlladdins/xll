@@ -3,7 +3,11 @@
 
 using namespace xll;
 
-AddIn xai_install(Macro("xll_install", "XLL.INSTALL"));
+AddIn xai_install(
+	Macro("xll_install", "XLL.INSTALL")
+	.Category("XLL")
+	.Documentation(Installer::install_doc)
+);
 int WINAPI xll_install()
 {
 #pragma XLLEXPORT

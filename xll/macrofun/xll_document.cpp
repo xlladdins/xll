@@ -58,12 +58,13 @@ namespace xll {
 	bool Document(const Args& arg)
 	{
 		try {
+			OPER safe = arg.FunctionText().safe();
 			std::string functionText
 				= arg.FunctionText().to_string();
 
 			// factor out!!!
 			path sp(Excel4(xlGetName).to_string().c_str());
-			std::string ofile(sp.dirname() + functionText + ".html");
+			std::string ofile(sp.dirname() + safe.to_string() + ".html");
 			std::ofstream ofs(ofile, std::ios::out);
 
 ofs << R"xyzyx(<!DOCTYPE html>

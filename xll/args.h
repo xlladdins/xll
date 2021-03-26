@@ -202,6 +202,7 @@ namespace xll {
 		{
 			return key("functionText");
 		}
+
 		// Key used in AddIn::Map.
 		const OPER& Key() const
 		{

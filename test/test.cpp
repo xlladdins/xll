@@ -2,6 +2,7 @@
 // Uncomment to use Excel4 API. Default is XLOPER12.
 //#define XLL_VERSION 4
 #include "../xll/xll.h"
+#include "../xll/macrofun/xll_macrofun.h"
 
 using namespace xll;
 
@@ -10,6 +11,15 @@ Auto<OpenAfter> xaoa_test_doc([]() {
 	return Documentation("TEST", "Excel test functions");
 });
 #endif
+
+Auto<OpenAfter> xaoa_test([]() {
+	OPER o;
+	o = Workbook::New();
+
+	o = OPER{};
+
+	return TRUE;
+});
 
 // test for 64-bit excel?
 static LSTATUS reg_query = []() {
@@ -260,6 +270,7 @@ AddIn xai_ma(
 	.Uncalced()
 	.Category("XLL")
 	.FunctionHelp("Compute a moving average.")
+	.Documentation("Initialize moving average.")
 );
 HANDLEX WINAPI xll_ma(_FPX *px)
 {
@@ -282,6 +293,7 @@ AddIn xai_ma_next(
 		})
 	.Category("XLL")
 	.FunctionHelp("Compute a moving average.")
+	.Documentation("Update moving average.")
 );
 _FPX* WINAPI xll_ma_next(HANDLEX ma, double x, BOOL reset)
 {

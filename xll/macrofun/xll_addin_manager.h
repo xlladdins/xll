@@ -1,50 +1,14 @@
 // addin_manager.h - manage add-in lifecycle
 #pragma once
 #include <compare>
+#include "xll_macrofun.h"
+#include "../win.h"
 #include "../registry.h"
 #include "../splitpath.h"
-#include "xll_macrofun.h"
-
-inline auto operator<=>(const FILETIME& a, const FILETIME& b)
-{
-	auto cmp = a.dwHighDateTime <=> b.dwHighDateTime;
-
-	return cmp != 0 ? cmp : a.dwLowDateTime <=> b.dwLowDateTime;
-}
-
-// date and time the file or directory was last written to, truncated, or overwritten 
-inline FILETIME GetFileWriteTime(PCTSTR file)
-{
-	FILETIME write = { 0, 0 };
-
-	HANDLE hFile = CreateFile(file, 0, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_READONLY, NULL);
-	if (hFile != INVALID_HANDLE_VALUE) {
-		GetFileTime(hFile, NULL, NULL, &write);
-		CloseHandle(hFile);
-	}
-
-	return write;
-}
-
-inline bool FileExists(PCTSTR file)
-{
-	DWORD dwAttrib = GetFileAttributes(file);
-	
-	return dwAttrib != INVALID_FILE_ATTRIBUTES and !(dwAttrib & FILE_ATTRIBUTE_DIRECTORY);
-}
 
 namespace xll {
 
-	/// <summary>
-	/// Manage add-in lifecycle
-	/// </summary>
-	/// <remarks>
-	/// Excel uses two registry keys for the Add-in Manager:
-	/// AIM: HKCU\Software\Microsoft\Office\<version>\Excel\Add-in Manager
-	///   with values in AIM having name the <full path> to the add-in.
-	/// OPT: HKCU\Software\Microsoft\Office\<version>\Excel\Options
-	///   with values in OPT having name OPEN<n> and data "/R <full path>"
-	/// </remarks>
+	/// Manage Excel add-in lifecycle.
 	/// https://xlladdins.github.io/Excel4Macros/addin.manager.html
 	struct AddinManager {
 
@@ -94,12 +58,13 @@ namespace xll {
 
 			OPER open = Open(name);
 			if (open) {
-				Remove(name); // move from OPT to AIM
+				ensure(Remove(name)); // move from OPT to AIM
 			}
 			OPER known = Known(name);
 			if (known) {
+				// There is no Excel function for this.
 				Reg::Key aim(HKEY_CURRENT_USER, Aim());
-				ensure(ERROR_SUCCESS == RegDeleteValue(aim, known.as_cstr()));
+				ensure(aim and ERROR_SUCCESS == RegDeleteValue(aim, known.as_cstr()));
 			}
 
 			return known;
@@ -195,7 +160,7 @@ namespace xll {
 		}
 	};
 
-	// copy to installation dir and let add-in manager know
+
 	class Installer {
 		typedef int STATE;
 		STATE state;
@@ -208,58 +173,91 @@ namespace xll {
 			EXISTS = 4,// in dir
 		};
 
-		Installer(const OPER& dir = OPER(Template()))
-			: state(INIT), dir(dir)
+		Installer(const OPER& _dir = OPER(Template()))
+			: state(INIT), dir(_dir)
 		{
+			if (dir.val.str[dir.val.str[0]] != '\\') {
+				dir.append("\\");
+			}
+			ensure(DirExists(dir.as_cstr()));
 		}
 		STATE State() const
 		{
 			return state;
 		}
-		// Install xll in dir
+		static inline const char* install_doc = R"(
+The Excel add-in manager uses two registry keys to manage the add-in lifecycle
+<dl>
+<dt>AIM: <code>HKCU\Software\Microsoft\Office\<i>version</i>\Excel\Add-in Manager</code></dt>
+<dd>
+Values in AIM have name the <i>full path</i> to the add-in and no data.
+</dd>
+<dt>OPT: <code>HKCU\Software\Microsoft\Office\<i>version</i>\Excel\Options</code></dt>
+<dd>
+Values in OPT have name <code>OPEN<i>n</i></code> 
+and data <code>"/R \"<i>full path</i>\""</code> where <i>n</i>
+is computed by Excel.
+</dd>
+</dl>
+Excel does not write these values to the registry until the Excel session is terminated.
+)";
+		// copy to installation dir and let add-in manager know
 		STATE Install(OPER xll = Excel(xlGetName))
 		{
+			using Win::File;
+			using Win::WriteTime;
+
 			// ensure(DirExists(dir));
 			xll::path path(xll.as_cstr());
+			OPER name(path.fname); // descriptive name
 			OPER install = dir & OPER(path.basename().c_str());
 			AddinManager aim(install);
 
+			OPER copy = OPER(true);
 			if (FileExists(install.as_cstr())) {
 				state |= EXISTS;
-			}
-			if (aim.Known()) {
-				state |= KNOWN;
-			}
-			else if (aim.Open()) {
-				state |= OPEN;
-			}
-
-			if (state & EXISTS) {
-				if (GetFileWriteTime(xll.as_cstr()) > GetFileWriteTime(install.as_cstr())) {
+				// ask before clobbering
+				if (WriteTime(File(xll.as_cstr())) > WriteTime(File(install.as_cstr()))) {
 					OPER msg = OPER("Replace ") & OPER(path.fname) & OPER(" with new version?");
-					OPER result = Excel(xlcAlert, msg, OPER(1));
-					if (result) {
-						ensure(CopyFile(xll.as_cstr(), install.as_cstr(), FALSE));
-					}
+					copy = Excel(xlcAlert, msg, OPER(1));
 				}
 			}
-			else {
+			if (copy) {
 				ensure(CopyFile(xll.as_cstr(), install.as_cstr(), FALSE));
 				state |= EXISTS;
 			}
+			ensure(state & EXISTS);
 
-			if ((state & EXISTS) and aim.New()) {
-				state |= KNOWN;
+			// Addin-manager state
+			OPER open = aim.Open(name);
+			if (open) {
+				ensure(aim.Remove(name)); // move from OPT to AIM
+			}
+			OPER known = aim.Known(name); // existing add-in
+			if (!known or known != install) {
+				ensure(aim.New()); // replace AIM entry
+			}
+			if (open) {
+				ensure(aim.Add()); // move from AIM to OPT
 			}
 
-			// Use Excel Add-in Manager to load.
+			// Installer state
+			if (aim.Open()) {
+				state |= OPEN;
+			}
+			else if (aim.Known()) {
+				state |= KNOWN;
+			}
 
 			return state; // == EXISTS + KNOWN if new install
 		}
 
+		static inline const char* uninstall_doc = R"(
+Delete add-in manager entries and installed add-in.
+)";
 		STATE Uninstall(const OPER& name)
 		{
-			AddinManager aim(dir & OPER("\\") & name & OPER(".xll"));
+			AddinManager aim(dir & name & OPER(".xll"));
 
 			aim.Delete();
 
@@ -270,7 +268,7 @@ namespace xll {
 				}
 			}
 
-			return state;
+			return state; // should == INIT
 		}
 
 		// Excel template directory is trusted location.
