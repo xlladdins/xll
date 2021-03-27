@@ -148,7 +148,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 				ArgumentName();
 
 				sel.Right();
-				OPER ref = paste_default(args->ArgumentDefault(i));
+				OPER ref = paste_default(*args, i);
 				xll::Name namei(args->ArgumentName(i));
 				namei.Define(ref, true); // local name
 

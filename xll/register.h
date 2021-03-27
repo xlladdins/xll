@@ -45,6 +45,7 @@ namespace xll{
 				}
 			}
 			helpTopic = Excel(xlfLeft, helpTopic, OPER(slash));
+			helpTopic = Excel(xlfSubstitute, helpTopic, OPER("\\"), OPER(""));
 			helpTopic.append(args.FunctionText().safe());
 			helpTopic.append(".html");
 		}
@@ -56,15 +57,18 @@ namespace xll{
 			}
 		}
 
+		args.Procedure(procedure);
+		args.HelpTopic(helpTopic);
+
 		oper[0] = &args.ModuleText();
-		oper[1] = &procedure;
+		oper[1] = &args.Procedure();
 		oper[2] = &args.TypeText();
 		oper[3] = &args.FunctionText();
 		oper[4] = &args.ArgumentText();
 		oper[5] = &args.MacroType();
 		oper[6] = &args.Category();
 		oper[7] = &args.ShortcutText();
-		oper[8] = &helpTopic;
+		oper[8] = &args.HelpTopic();
 		oper[9] = &args.FunctionHelp();
 		for (unsigned i = 1; i <= args.ArgumentCount(); ++i) {
 			oper[9u + i] = &args.ArgumentHelp(i);

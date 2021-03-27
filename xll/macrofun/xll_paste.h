@@ -6,11 +6,11 @@ namespace xll {
 
 	using xll::Excel;
 
-	// Paste argument at active cell and return a reference to what was pasted.
-	// Default arguments are always strings. 
-	// Arguments of the form "{a,...;b,...}" get pasted as arrays.
-	// Arguments that are strings must be quoted, "\"abc\"".
-	inline OPER paste_default(const OPER& x)
+	// Paste formula into active cell and return a reference to what was pasted.
+	// Argument is a string that get evaluated.
+	// String arguments must be quoted, "\"abc\"".
+	// Array arguments have the form "={a,...;b,...}".
+	inline OPER paste_formula(const OPER& x)
 	{
 		ensure(x.is_str());
 		OPER ref = Excel(xlfActiveCell);
@@ -21,15 +21,21 @@ namespace xll {
 
 		OPER xi = Excel(xlfEvaluate, x);
 		if (size(xi) == 1) {
-			ensure(Excel(xlcFormula, xi, ref));
+			ensure(Excel(xlcFormula, x, ref));
 		}
 		else {
 			auto rw = rows(xi);
 			auto col = columns(xi);
 			ref = Excel(xlfOffset, ref, OPER(0), OPER(0), OPER(rw), OPER(col));
-			ensure(Excel(xlcFormulaArray, xi, ref));
+			ensure(Excel(xlcFormulaArray, x, ref));
 		}
 
 		return ref;
 	}
+
+	inline OPER paste_default(const Args& args, unsigned i)
+	{
+		return paste_formula(args.ArgumentDefault(i));
+	}
+
 } // namespace xll

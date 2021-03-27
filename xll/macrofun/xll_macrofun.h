@@ -817,6 +817,12 @@ namespace xll {
 		}
 	};
 
+	// expand selection by range
+	inline OPER Offset(const OPER& selection, const OPER& range)
+	{
+		return Excel(xlfOffset, selection, OPER(0), OPER(0), OPER(rows(range)), OPER(columns(range)));
+	}
+
 	struct Name {
 		OPER name;
 		Name(const OPER& name)

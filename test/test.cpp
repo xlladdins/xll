@@ -69,7 +69,7 @@ AddIn xai_tgamma(
 	Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
 	// Args are an array of one Arg that is a double. 
 	.Arguments({
-		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.", "3")
+		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.", "10*rand()")
 	})
 	.FunctionHelp("Return the Gamma function value.")
 	.Category("CMATH")
@@ -107,7 +107,7 @@ AddIn xai_jn(
 	Function(XLL_DOUBLE, "xll_jn", "JN")
 	.Arguments({
 		Arg(XLL_LONG, "n", "is the order of the Bessel function.", "1"),
-		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate the Bessel function.", "1+.1")
+		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate the Bessel function.", "=1+.1")
 	})
 	.FunctionHelp("Return the value of the n-th order Bessel function of the first kind.")
 	.Category("CMATH")

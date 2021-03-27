@@ -190,6 +190,12 @@ namespace xll {
 		{
 			return key("procedure");
 		}
+		Args& Procedure(const OPER& procedure)
+		{
+			key("procedure") = procedure;
+
+			return *this;
+		}
 
 		// Excel SDK signature
 		const OPER& TypeText() const
@@ -265,6 +271,12 @@ namespace xll {
 		{
 			return key("helpTopic");
 		}
+		Args& HelpTopic(const OPER& helpTopic)
+		{
+			key("helpTopic") = helpTopic;
+
+			return *this;
+		}
 		Args& HelpTopic(cstr helpTopic)
 		{
 			key("helpTopic") = helpTopic;
@@ -314,7 +326,6 @@ namespace xll {
 
 			return key("argumentHelp")[i - 1];
 		}
-
 
 		// Default value for argument.
 		const OPER& ArgumentDefault(unsigned i) const
