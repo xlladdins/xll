@@ -65,7 +65,7 @@ int WINAPI xll_paste_args()
 	try {
 		Args* pargs = xll_args(Excel(xlfActiveCell));
 		ensure(pargs || !"XLL.PASTE.ARGS: name or register id not found");
-		paste_default(*pargs, 0);
+		paste_formula(pargs->ArgumentDefault(0));
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());

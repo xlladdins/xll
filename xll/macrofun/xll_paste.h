@@ -10,6 +10,7 @@ namespace xll {
 	// Argument is a string that get evaluated.
 	// String arguments must be quoted, "\"abc\"".
 	// Array arguments have the form "={a,...;b,...}".
+	// Formula arguments must start with an equal sign "=1 + rand()".
 	inline OPER paste_formula(const OPER& x)
 	{
 		ensure(x.is_str());
