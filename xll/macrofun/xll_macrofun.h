@@ -20,6 +20,203 @@ namespace xll {
 
 	using xll::Excel;
 
+	// https://support.microsoft.com/en-us/office/offset-function-c8de19ae-dd79-4b9b-a14e-b4d906d11b66	
+	inline OPER Offset(const REF& ref, const REF& off)
+	{
+		return Excel(xlfOffset, OPER(ref), 
+			OPER(off.rwFirst), OPER(off.colFirst), 
+			OPER(height(off)), OPER(width(off))
+		);
+	}
+
+	// https://xlladdins.github.io/Excel4Macros/selection.html
+	// https://xlladdins.github.io/Excel4Macros/select.html
+	struct Select {
+		OPER selection; 
+		Select(const OPER& _selection = Excel(xlfActiveCell))
+			: selection(_selection)
+		{
+			select();
+		}
+		Select(const REF& selection)
+			: Select(OPER(selection))
+		{ }
+		// selection is A1 by default
+		Select(const char* selection, bool r1c1 = false)
+			: Select(Excel(xlfTextref, OPER(selection), OPER(r1c1)))
+		{ }
+		Select(const Select&) = delete;
+		Select& operator=(const Select&) = delete;
+		~Select()
+		{ }
+
+		operator const OPER& () const
+		{
+			return selection;
+		}
+
+		Select& select()
+		{
+			ensure(Excel(xlcSelect, selection));
+
+			return *this;
+		}
+		Select& select(const REF& ref)
+		{
+			selection = Select(ref);
+
+			return *this;
+		}
+		Select& select(int r, int c, unsigned h = 0, unsigned w = 0)
+		{
+			if (h == 0) {
+				h = selection.rows();
+			}
+			if (w == 0) {
+				w = selection.columns();
+			}
+
+			return select(REF(r, c, h, w));
+		}
+
+		Select& Offset(const REF& ref)
+		{
+			selection = Select(xll::Offset(selection.as_sref(), ref));
+
+			return *this;
+		}
+		Select& Offset(int r, int c, unsigned h = 0, unsigned w = 0)
+		{
+			if (h == 0) {
+				h = selection.rows();
+			}
+			if (w == 0) {
+				w = selection.columns();
+			}
+
+			return Offset(REF(r, c, h, w));
+		}
+
+		// move r rows and c columns
+		Select& Move(int r, int c)
+		{
+			return Offset(r, c);
+		}
+		Select& Down(int r = 1)
+		{
+			return Move(r, 0);
+		}
+		Select& Up(int r = 1)
+		{
+			return Move(-r, 0);
+		}
+		Select& Right(int c = 1)
+		{
+			return Move(0, c);
+		}
+		Select& Left(int c = 1)
+		{
+			return Move(0, -c);
+		}
+
+		// Enters numbers, text, references, and formulas in a worksheet
+		OPER Formula(const OPER& formula) const
+		{
+			return Excel(selection.size() == 1 ? xlcFormula : xlcFormulaArray, formula, selection);
+		}
+
+		// https://xlladdins.github.io/Excel4Macros/relref.html
+		OPER Relref(const OPER& rel)
+		{
+			return Excel(xlfRelref, rel, selection);
+		}
+		// https://xlladdins.github.io/Excel4Macros/absref.html
+		OPER Absref(const OPER& rel)
+		{
+			return Excel(xlfAbsref, rel, selection);
+		}
+
+		// https://docs.microsoft.com/en-us/office/client-developer/excel/xlset
+		OPER Set(const OPER& set)
+		{
+			return Excel(xlSet, selection, set);
+		}
+		// class Row, Column
+		OPER RowHeight(int points)
+		{
+			return Excel(xlcRowHeight, OPER(points), selection);
+		}
+		OPER RowVisible(bool visible = true)
+		{
+			return Excel(xlcRowHeight, OPER(), selection, OPER(), OPER(visible ? 2 : 1));
+		}
+		// Sets the row selection to a best-fit height
+		OPER RowFit()
+		{
+			return Excel(xlcRowHeight, OPER(), selection, OPER(), OPER(3));
+		}
+		OPER ColumnWidth(int points)
+		{
+			return Excel(xlcColumnWidth, OPER(points), selection);
+		}
+		OPER ColumnVisible(bool visible = true)
+		{
+			return Excel(xlcColumnWidth, OPER(), selection, OPER(), OPER(visible ? 2 : 1));
+		}
+		// Sets the column selection to a best-fit width
+		OPER ColumnFit()
+		{
+			return Excel(xlcColumnWidth, OPER(), selection, OPER(), OPER(3));
+		}
+		// Creates a comment 
+		OPER Note(const char* note)
+		{
+			return Excel(xlcNote, OPER(note), selection);
+		}
+		enum class Type {
+			Notes = 1,
+			Constants = 2,
+			Formulas = 3,
+			Blanks = 4,
+			Current = 5, // region
+			CurrentArray = 6,
+			RowDifferences = 7,
+			ColumnDifferences = 8,
+			Precedents = 9,
+			Dependents = 10,
+			LastCell = 11,
+			VisibleCellsOnly = 12, // (outlining)
+			AllObjects = 13
+		};
+		enum class ValueType {
+			Numbers = 1,
+			Text = 2,
+			Logical = 4,
+			Error = 16,
+			Default = Numbers + Text + Logical + Error
+		};
+		enum class Level {
+			Direct = 1,
+			All = 2
+		};
+		// uses active cell implicitly
+		static OPER Special(Type type, ValueType value = ValueType::Default, Level level = Level::Direct)
+		{
+			OPER type_num = OPER((int)type);
+			OPER value_type = Missing;
+			OPER levels = Missing;
+
+			if (type == Type::Constants or type == Type::Formulas) {
+				value_type = OPER((int)value);
+			}
+			else if (type == Type::Precedents or type == Type::Dependents) {
+				levels = OPER((int)level);
+			}
+
+			return Excel(xlcSelectSpecial, type_num, value_type, levels);
+		}
+	};
+
 	//
 	// Parameterized functions
 	//
@@ -27,11 +224,7 @@ namespace xll {
 	// move relative to active cell
 	inline OPER Move(int r, int c)
 	{
-		return Excel(xlcSelect,
-			Excel(xlfOffset, 
-				Excel(xlfActiveCell), OPER(r), OPER(c)
-			)
-		);
+		return Excel(xlcSelect, OPER(translate(Excel(xlfActiveCell).as_sref(), r, c)));
 	}
 	// move down r rows
 	inline OPER Down(int r = 1)
@@ -681,147 +874,6 @@ namespace xll {
 		return Excel(xlcPatterns, OPER(1), fore, back);
 	}
 
-	// https://xlladdins.github.io/Excel4Macros/selection.html
-	// https://xlladdins.github.io/Excel4Macros/select.html
-	struct Select {
-		OPER selection; // ??? must be an sref 
-		Select(const OPER& _selection = Excel(xlfActiveCell))
-			: selection(_selection)
-		{
-			if (selection.xltype & xltypeRef) {
-				selection = OPER(selection.val.mref.lpmref->reftbl[0]);
-			}
-
-			ensure(Excel(xlcSelect, selection));
-		}
-		Select(const REF& selection)
-			: Select(OPER(selection))
-		{ }
-		Select(const char* selection)
-			: Select(Excel(xlfTextref, OPER(selection), OPER(false))) // R1C1
-		{ }
-
-		OPER Offset(int r, int c, int h = 1, int w = 1) const
-		{
-			return Excel(xlfOffset, selection, OPER(r), OPER(c), OPER(h), OPER(w));
-		}
-
-		// move r rows and c columns
-		Select& Move(int r, int c)
-		{
-			selection = Offset(r, c);
-
-			ensure(Excel(xlcSelect, selection));
-
-			return *this;
-		}
-		Select& Down(int r = 1)
-		{
-			return Move(r, 0);
-		}
-		Select& Up(int r = 1)
-		{
-			return Move(-r, 0);
-		}
-		Select& Right(int c = 1)
-		{
-			return Move(0, c);
-		}
-		Select& Left(int c = 1)
-		{
-			return Move(0, -c);
-		}
-
-		// Enters numbers, text, references, and formulas in a worksheet
-		OPER Formula(const OPER& formula)
-		{
-			return Excel(xlcFormula, formula, selection);
-		}
-		// https://docs.microsoft.com/en-us/office/client-developer/excel/xlset
-		OPER Set(const OPER& set)
-		{
-			return Excel(xlSet, selection, set);
-		}
-		OPER RowHeight(int points)
-		{
-			return Excel(xlcRowHeight, OPER(points), selection);
-		}
-		OPER RowVisible(bool visible = true)
-		{
-			return Excel(xlcRowHeight, OPER(), selection, OPER(), OPER(visible ? 2 : 1));
-		}
-		// Sets the row selection to a best-fit height
-		OPER RowFit()
-		{
-			return Excel(xlcRowHeight, OPER(), selection, OPER(), OPER(3));
-		}
-		OPER ColumnWidth(int points)
-		{
-			return Excel(xlcColumnWidth, OPER(points), selection);
-		}
-		OPER ColumnVisible(bool visible = true)
-		{
-			return Excel(xlcColumnWidth, OPER(), selection, OPER(), OPER(visible ? 2 : 1));
-		}
-		// Sets the column selection to a best-fit width
-		OPER ColumnFit()
-		{
-			return Excel(xlcColumnWidth, OPER(), selection, OPER(), OPER(3));
-		}
-		// Creates a comment 
-		OPER Note(const char* note)
-		{
-			return Excel(xlcNote, OPER(note), selection);
-		}
-		enum class Type {
-			Notes = 1,
-			Constants = 2,
-			Formulas = 3,
-			Blanks = 4,
-			Current = 5, // region
-			CurrentArray = 6,
-			RowDifferences = 7,
-			ColumnDifferences = 8,
-			Precedents = 9,
-			Dependents = 10,
-			LastCell = 11,
-			VisibleCellsOnly = 12, // (outlining)
-			AllObjects = 13
-		};
-		enum class ValueType {
-			Numbers = 1,
-			Text = 2,
-			Logical = 4,
-			Error = 16,
-			Default = Numbers + Text + Logical + Error
-		};
-		enum class Level {
-			Direct = 1,
-			All = 2
-		};
-		// uses active cell implicitly
-		static OPER Special(Type type, ValueType value = ValueType::Default, Level level = Level::Direct)
-		{
-			OPER type_num = OPER((int)type);
-			OPER value_type = Missing;
-			OPER levels = Missing;
-
-			if (type == Type::Constants or type == Type::Formulas) {
-				value_type = OPER((int)value);
-			}
-			else if (type == Type::Precedents or type == Type::Dependents) {
-				levels = OPER((int)level);
-			}
-
-			return Excel(xlcSelectSpecial, type_num, value_type, levels);
-		}
-	};
-
-	// expand selection by range
-	inline OPER Offset(const OPER& selection, const OPER& range)
-	{
-		return Excel(xlfOffset, selection, OPER(0), OPER(0), OPER(rows(range)), OPER(columns(range)));
-	}
 
 	struct Name {
 		OPER name;

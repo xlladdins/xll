@@ -58,6 +58,10 @@ namespace xll {
 		{
 			return strncmp(dest, src, n);
 		}
+		static int alnum(int c)
+		{
+			return ::isalnum(c);
+		}
 		// return counted string that must be free'd
 		static char* cvt(const wchar_t* ws, int wn = -1)
 		{
@@ -110,6 +114,10 @@ namespace xll {
 		static int cmp(const xchar* dest, const xchar* src, unsigned n)
 		{
 			return wcsncmp(dest, src, n);
+		}
+		static int alnum(wint_t c)
+		{
+			return ::iswalnum(c);
 		}
 		// return counted string that must be free'd
 		static wchar_t* cvt(const char* s, int n = -1)

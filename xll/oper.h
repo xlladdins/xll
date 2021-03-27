@@ -372,8 +372,8 @@ namespace xll {
 		{
 			if (is_str()) {
 				for (int i = 1; i <= val.str[0]; ++i) {
-					if (!_istalnum(val.str[i])) {
-						val.str[i] = _T('_');
+					if (!traits<X>::alnum(val.str[i])) {
+						val.str[i] = '_';
 					}
 				}
 			}
@@ -631,10 +631,12 @@ namespace xll {
 		{
 			return val.sref.ref;
 		}
+		/*
 		xref& as_sref()
 		{
 			return val.sref.ref;
 		}
+		*/
 		// xltypeInt. Excel usually converts this to num.
 		bool is_int() const
 		{

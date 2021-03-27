@@ -4,22 +4,6 @@
 #include "traits.h"
 #include "concepts.h"
 
-template<class X> requires either_base_of_v<XLREF,XLREF12,X>
-inline unsigned height(const X& x)
-{
-	return x.rwLast - x.rwFirst + 1;
-}
-template<class X> requires either_base_of_v<XLREF, XLREF12, X>
-inline unsigned width(const X& x)
-{
-	return x.colLast - x.colFirst + 1;
-}
-template<class X> requires either_base_of_v<XLREF, XLREF12, X>
-inline unsigned size(const X& x) // extent???
-{
-	return height(x) * width(x);
-}
-
 //!!! should be a partial order
 template<class X> requires std::is_same_v<XLREF, X> || std::is_same_v<XLREF12,X>
 inline auto operator<=>(const X & x, const X & y)
@@ -51,6 +35,47 @@ REF_CTW(<=)
 
 namespace xll {
 
+	using XLREFX = traits<XLOPERX>::xref;
+
+	template<class X> requires either_base_of_v<XLREF, XLREF12, X>
+	inline unsigned height(const X& x)
+	{
+		return x.rwLast - x.rwFirst + 1;
+	}
+
+	template<class X> requires either_base_of_v<XLREF, XLREF12, X>
+	inline unsigned width(const X& x)
+	{
+		return x.colLast - x.colFirst + 1;
+	}
+
+	template<class X> requires either_base_of_v<XLREF, XLREF12, X>
+	inline unsigned area(const X& x) 
+	{
+		return height(x) * width(x);
+	}
+
+	// Translate ref by rows and columns
+	template<class X> requires either_base_of_v<XLREF, XLREF12, X>
+	inline X translate(X ref, int r, int c)
+	{
+		ref.rwFirst += r;
+		ref.rwLast += r;
+		ref.colFirst += c;
+		ref.colLast += c;
+
+		return ref;
+	}
+
+	template<class X> requires either_base_of_v<XLREF, XLREF12, X>
+	inline X reshape(X ref, unsigned h, unsigned w)
+	{
+		ref.rwLast = ref.rwFirst + h - 1;
+		ref.colLast = ref.colFirst + w - 1;
+
+		return ref;
+	}
+
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	class XREF : public traits<X>::xref {
 		using xrw = typename traits<X>::xrw;
@@ -59,11 +84,20 @@ namespace xll {
 	public:
 		XREF()
 		{ }
-		XREF(xrw row, xcol col, xrw height = 1, xcol width = 1)
-			: xref{ row, static_cast<xrw>(row + height - 1), col, static_cast<xcol>(col + width - 1) }
+		XREF(xrw row, xcol col, unsigned height = 1, unsigned width = 1)
+			: xref { 
+				.rwFirst = row,
+				.rwLast = static_cast<xrw>(row + height - 1),
+				.colFirst = col, 
+				.colLast = static_cast<xcol>(col + width - 1)
+			}
 		{ }
-		explicit XREF(const xref& r)
+		XREF(const xref& r)
 			: xref{ r }
+		{ }
+		XREF(const XREF&) = default;
+		XREF& operator=(const XREF&) = default;
+		~XREF()
 		{ }
 	};
 

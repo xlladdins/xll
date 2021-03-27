@@ -116,14 +116,14 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		if (!args->isFunction()) {
 			continue;
 		}
-		Workbook::Select();
+		//!!!Workbook::Select();
 		Workbook::Insert();
 		Workbook::Rename(Excel(xlfSubstitute, tab, OPER("\\"), OPER("")));
 
 		Select sel("R1:R1");
 		Header();
 
-		sel = Select(REF(0, 1)); // B1
+		sel.select(0, 1); // B1
 		sel.Set(tab & OPER(" ") & args->Type());
 
 		sel.Down();
@@ -169,7 +169,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	Select sel("R1:R1");
 	Header();
 
-	sel = Select(REF(0, 1)); // B1
+	sel.select(0, 1); // B1
 	// "=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
 	sel.Formula(OPER("=HYPERLINK(\"") & dir & OPER(sp.fname) & OPER(" & Bits() & ") & OPER(sp.ext) & OPER("\", \"") & Name & OPER("\")"));
 	Excel(xlcNote, OPER("user: addinuser pass: @addm3"));

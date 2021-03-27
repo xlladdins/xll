@@ -101,51 +101,46 @@ default arguments.
 int WINAPI xll_paste_basic(void)
 {
 #pragma XLLEXPORT
+	int result = TRUE;
+
+	Excel(xlcEcho, OPER(false));
 	try {
-		Args* pargs = xll_args(Excel(xlfActiveCell));
+		// paste formula here after args are pasted
+		Select xAct; // = Excel(xlfActiveCell);
+		Args* pargs = xll_args(xAct);
 		ensure(pargs || !"XLL.PASTE.ARGS: name or register id not found");
 
 		// call with defaults arguments to get size of output
-		OPER xVal;
-		ensure (xVal = Excel(xlfEvaluate, pargs->ArgumentDefault(0)));
-
-		// paste formula here after args are pasted
-		OPER xAct = Excel(xlfActiveCell);
+		OPER xVal = Excel(xlfEvaluate, pargs->ArgumentDefault(0));
 		OPER xFor = OPER("=") & pargs->FunctionText() & OPER("(");
-
 		Down(rows(xVal));
-		for (unsigned short i = 1; i <= pargs->ArgumentCount(); ++i) {
+
+		for (unsigned i = 1; i <= pargs->ArgumentCount(); ++i) {
 			OPER xRel = paste_default(*pargs, i);
 			if (i > 1) {
-				xFor.append(OPER(", "));
+				xFor.append(", ");
 			}
-			xFor.append(Excel(xlfRelref, xRel, xAct));
+			xFor.append(xAct.Relref(xRel));
 			Down(rows(xRel));
 		}
 
-		xFor.append(OPER(")"));
-		
-		if (xVal.size() == 1) {
-			Excel(xlcFormula, xFor, xAct);
-		}
-		else {
-			Excel(xlcFormulaArray, xFor, Offset(xAct, xVal));
-		}
-
-		Excel(xlcSelect, xAct);
+		xFor.append(")");
+		xAct.Formula(xFor);
+		xAct.select();
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
 
-		return FALSE;
+		result = FALSE;
 	}
 	catch (...) {
 		XLL_ERROR("XLL.PASTE.ARGS: unknown exception");
 
-		return FALSE;
+		result = FALSE;
 	}
+	Excel(xlcEcho, OPER(true));
 
-	return TRUE;
+	return result;
 }
 
 #if 0
