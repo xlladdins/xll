@@ -119,7 +119,7 @@ int WINAPI xll_paste_basic(void)
 			if (i > 1) {
 				xFor.append(OPER(", "));
 			}
-			xFor.append(Excel(xlfReftext, xRel));
+			xFor.append(Excel(xlfRelref, xRel, xAct));
 			Down(rows(xRel));
 		}
 
@@ -131,6 +131,8 @@ int WINAPI xll_paste_basic(void)
 		else {
 			Excel(xlcFormulaArray, xFor, Offset(xAct, xVal));
 		}
+
+		Excel(xlcSelect, xAct);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
