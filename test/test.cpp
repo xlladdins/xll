@@ -266,6 +266,7 @@ public:
 	}
 };
 
+#if 0
 AddIn xai_ma(
 	Function(XLL_HANDLEX, "xll_ma", "\\XLL.MA")
 	.Arguments({
@@ -318,3 +319,4 @@ _FPX* WINAPI xll_ma_next(HANDLEX ma, double x, BOOL reset)
 
 	return (_FPX*)&result;
 }
+#endif

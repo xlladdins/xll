@@ -7,27 +7,6 @@
 using namespace xll;
 using xll::Excel;
 
-/*
-AddIn xai_paste_test(Macro("xll_paste_test", "PASTE.TEST"));
-int WINAPI xll_paste_test()
-{
-#pragma XLLEXPORT
-	try {
-		OPER ac = Excel(xlCoerce, Excel(xlfActiveCell));
-		Down();
-		paste_formula(ac);
-	}
-	catch (const std::exception& ex) {
-		XLL_ERROR(ex.what());
-
-		return FALSE;
-	}
-
-	return TRUE;
-}
-On<Key> xok_paste_test(ON_CTRL "T", "PASTE.TEST");
-*/
-
 // Lookup Args using name or register id.
 inline Args* xll_args(const OPER& xRef = Excel(xlfActiveCell))
 {
@@ -41,7 +20,7 @@ inline Args* xll_args(const OPER& xRef = Excel(xlfActiveCell))
 		pargs = AddIn::Arguments(xCaller.as_num());
 	}
 	else {
-		XLL_ERROR(__FUNCTION__ ": cell must contain string or number");
+		ensure(!__FUNCTION__ ": cell must contain string or number");
 	}
 
 	return pargs;
@@ -64,7 +43,7 @@ int WINAPI xll_paste_args()
 #pragma XLLEXPORT
 	try {
 		Args* pargs = xll_args(Excel(xlfActiveCell));
-		ensure(pargs || !"XLL.PASTE.ARGS: name or register id not found");
+
 		paste_formula(pargs->ArgumentDefault(0));
 	}
 	catch (const std::exception& ex) {
@@ -73,7 +52,7 @@ int WINAPI xll_paste_args()
 		return FALSE;
 	}
 	catch (...) {
-		XLL_ERROR("XLL.PASTE.ARGS: unknown exception");
+		XLL_ERROR(__FUNCTION__ ": unknown exception");
 
 		return FALSE;
 	}
@@ -105,28 +84,10 @@ int WINAPI xll_paste_basic(void)
 
 	Excel(xlcEcho, OPER(false));
 	try {
-		// paste formula here after args are pasted
-		Select xAct; // = Excel(xlfActiveCell);
-		Args* pargs = xll_args(xAct);
-		ensure(pargs || !"XLL.PASTE.ARGS: name or register id not found");
+		Select xAct; // active cell
+		const Args* pargs = xll_args(xAct);
 
-		// call with defaults arguments to get size of output
-		OPER xVal = Excel(xlfEvaluate, pargs->ArgumentDefault(0));
-		OPER xFor = OPER("=") & pargs->FunctionText() & OPER("(");
-		Down(rows(xVal));
-
-		for (unsigned i = 1; i <= pargs->ArgumentCount(); ++i) {
-			OPER xRel = paste_default(*pargs, i);
-			if (i > 1) {
-				xFor.append(", ");
-			}
-			xFor.append(xAct.Relref(xRel));
-			Down(rows(xRel));
-		}
-
-		xFor.append(")");
-		xAct.Formula(xFor);
-		xAct.select();
+		xll_paste_default_args(*pargs);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
@@ -134,7 +95,7 @@ int WINAPI xll_paste_basic(void)
 		result = FALSE;
 	}
 	catch (...) {
-		XLL_ERROR("XLL.PASTE.ARGS: unknown exception");
+		XLL_ERROR(__FUNCTION__ ": unknown exception");
 
 		result = FALSE;
 	}

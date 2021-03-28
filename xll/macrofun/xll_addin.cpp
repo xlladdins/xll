@@ -70,7 +70,7 @@ LPOPER WINAPI xll_addin(void)
 AddIn xai_addin_args(
 	Function(XLL_LPOPER, "xll_addin_args", "XLL.ADDIN.ARGS")
 	.Arguments({
-		{XLL_LPOPER, "name", "is a function name or register id.", "=\"XLL.ADDIN.ARGS()\""},
+		{XLL_LPOPER, "name", "is a function name or register id.", "\"XLL.ADDIN.ARGS\""},
 		{XLL_LPOPER, "keys", "is an array of keys from XLL_ARGS_*.", ""},
 	})
 	.FunctionHelp("Return information about an add-in.")
@@ -117,7 +117,7 @@ LPOPER WINAPI xll_addin_args(LPOPER pname, LPOPER pkeys)
 		else {
 			XLL_ERROR("XLL.ARGS: name must be a string or number");
 		}
-		ensure(pargs || !"XLL.ADDIN.ARGS: failed to find find function");
+		ensure(pargs || !__FUNCTION__ ": failed to find find function");
 
 		if (pkeys->xltype == xltypeMissing or !*pkeys) {
 			pkeys = &keys;
@@ -126,7 +126,7 @@ LPOPER WINAPI xll_addin_args(LPOPER pname, LPOPER pkeys)
 		for (unsigned i = 0; i < result.size(); ++i) {
 			const OPER& key = index(*pkeys, i);
 			ensure(Excel(xlfMatch, key, keys, OPER(0))
-				|| !"XLL.ADDIN.ARGS: failed to find exact case insensitive match");
+				|| !__FUNCTION__ ": failed to find exact case insensitive match");
 			if (key == "ArgumentCount") {
 				result[i] = pargs->ArgumentCount();
 			}
@@ -149,7 +149,7 @@ LPOPER WINAPI xll_addin_args(LPOPER pname, LPOPER pkeys)
 AddIn xai_addin_args_arguments(
 	Function(XLL_LPOPER, "xll_addin_args_arguments", "XLL.ADDIN.ARGS.ARGUMENTS")
 	.Arguments({
-		{XLL_LPOPER, "name", "is a function name or register id.", "=\"XLL.ADDIN.ARGS()\""},
+		{XLL_LPOPER, "name", "is a function name or register id.", "=XLL.ADDIN.ARGS"},
 		{XLL_WORD, "index", "is the 1-based index of the individual function argument", "1"},
 		{XLL_LPOPER, "keys", "is an array of keys from XLL_ARGS_ARGUMENTS_*.", "\"ArgumentHelp\""},
 		})
@@ -189,9 +189,9 @@ LPOPER WINAPI xll_addin_args_arguments(LPOPER pname, WORD i, LPOPER pkeys)
 			pargs = AddIn::Arguments(pname->as_num());
 		}
 		else {
-			XLL_ERROR("XLL.ADDIN.ARGS.ARGUMENTS: name must be a string or number");
+			XLL_ERROR(__FUNCTION__ ": name must be a string or number");
 		}
-		ensure(pargs || !"XLL.ADDIN.ARGS.ARGUMENTS: failed to find find function");
+		ensure(pargs || !__FUNCTION__ ": failed to find find function");
 
 		if (i == 0) {
 			result = pargs->ArgumentDefault(0);
@@ -207,7 +207,7 @@ LPOPER WINAPI xll_addin_args_arguments(LPOPER pname, WORD i, LPOPER pkeys)
 		for (unsigned j = 0; j < result.size(); ++j) {
 			const OPER& key = index(*pkeys, j);
 			ensure(Excel(xlfMatch, key, keys, OPER(0))
-				|| !"XLL.ADDIN.ARGS.ARGUMENTS: failed to find exact case insensitive match");
+				|| !__FUNCTION__ ": failed to find exact case insensitive match");
 			result[j] = (*pargs)[key][i];
 		}
 	}
@@ -215,7 +215,7 @@ LPOPER WINAPI xll_addin_args_arguments(LPOPER pname, WORD i, LPOPER pkeys)
 		XLL_ERROR(ex.what());
 	}
 	catch (...) {
-		XLL_ERROR("XLL.ADDIN.ARGS.ARGUMENTS: unknown exception");
+		XLL_ERROR(__FUNCTION__ ": unknown exception");
 	}
 
 	return &result;

@@ -367,12 +367,12 @@ namespace xll {
 		{
 			return append(str);
 		}
-		// replace non alphanumeric with underscore
+		// replace non alphanumeric or period '.' with underscore
 		XOPER& safe()
 		{
 			if (is_str()) {
 				for (int i = 1; i <= val.str[0]; ++i) {
-					if (!traits<X>::alnum(val.str[i])) {
+					if (val.str[i] != '.' and !traits<X>::alnum(val.str[i])) {
 						val.str[i] = '_';
 					}
 				}
@@ -627,16 +627,30 @@ namespace xll {
 		{
 			return type() == xltypeSRef;
 		}
-		const xref& as_sref() const
+		xref& as_sref(unsigned i = 0)
 		{
+			if (type() == xltypeRef) {
+				ensure(i < val.mref.lpmref->count);
+
+				return val.mref.lpmref->reftbl[i];
+			}
+
+			ensure(i == 0 and type() == xltypeSRef);
+
 			return val.sref.ref;
 		}
-		/*
-		xref& as_sref()
+		const xref& as_sref(unsigned i = 0) const
 		{
+			if (type() == xltypeRef) {
+				ensure(i < val.mref.lpmref->count);
+
+				return val.mref.lpmref->reftbl[i];
+			}
+
+			ensure(i == 0 and type() == xltypeSRef);
+
 			return val.sref.ref;
 		}
-		*/
 		// xltypeInt. Excel usually converts this to num.
 		bool is_int() const
 		{
