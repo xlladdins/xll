@@ -96,24 +96,48 @@ namespace xll {
 		XOPER(XOPER&& o) noexcept
 			: XOPER()
 		{
+			swap(o);
+			/*
 			xltype = std::exchange(o.xltype, xltype);
 			val = std::exchange(o.val, val);
+			*/
 		}
 		// convert from other type of OPER
 		XOPER(const X_& x)
 		{
+			xltype = (WORD)x.xltype;
 			switch (x.xltype & xlbitmask) {
+			case xltypeNum:
+				val.num = x.val.num;
+				break;
 			case xltypeStr:
 				str_alloc(traits<X>::cvt(x.val.str + 1, x.val.str[0]), -1);
 				break;
+			case xltypeBool:
+				val.xbool = static_cast<traits<X>::xbool>(x.val.xbool);
+				break;
+			//case xltypeRef: //!!! not implemented
+			case xltypeErr:
+				val.err = static_cast<traits<X>::xerr>(x.val.err);
+				break;
 			case xltypeMulti:
-				multi_alloc(rows(x), columns(x));
+				multi_alloc(x.val.array.rows, x.val.array.columns);
 				for (unsigned i = 0; i < size(); ++i)
 					val.array.lparray[i] = XOPER(x.val.array.lparray[i]);
 				break;
+			case xltypeSRef:
+				val.sref.count = x.val.sref.count;
+				val.sref.ref.rwFirst = static_cast<traits<X>::xrw>(val.sref.ref.rwFirst);
+				val.sref.ref.rwLast = static_cast<traits<X>::xrw>(val.sref.ref.rwLast);
+				val.sref.ref.colFirst = static_cast<traits<X>::xcol>(val.sref.ref.colFirst);
+				val.sref.ref.colLast = static_cast<traits<X>::xcol>(val.sref.ref.colLast);
+				break;
+			case xltypeInt:
+				val.w = static_cast<traits<X>::xint>(x.val.w);
+				break;
 			default:
-				xltype = x.xltype;
-				val = x.val; //???
+				xltype = xltypeErr;
+				val.err = xlerrNA;
 			}
 		}
 		//
@@ -163,7 +187,11 @@ namespace xll {
 		}
 		
 		// IEEE 64-bit floating point number
-		template<class T> 
+		bool is_num() const
+		{
+			return type() == xltypeNum;
+		}
+		template<class T>
 			requires std::is_convertible_v<T,double>
 		XOPER(T num)
 		{
@@ -187,10 +215,6 @@ namespace xll {
 		{
 			return xltype == xltypeNum && val.num == static_cast<double>(num);
 		}
-		bool is_num() const
-		{
-			return type() == xltypeNum;
-		}
 		const double& as_num() const
 		{
 			ensure(is_num());
@@ -205,6 +229,10 @@ namespace xll {
 		}
 
 		// xltypeStr given length
+		bool is_str() const
+		{
+			return type() == xltypeStr;
+		}
 		XOPER(xcstr str, int n)
 		{
 			str_alloc(str, n);
@@ -264,9 +292,50 @@ namespace xll {
 		{
 			return *this == XOPER(str);
 		}
-		bool is_str() const
+
+		// string building
+		XOPER& append(xcstr str, int n = 0)
 		{
-			return type() == xltypeStr;
+			str_append(str, n);
+
+			return *this;
+		}
+		XOPER& append(cstrx str)
+		{
+			return append(traits<X>::cvt(str), -1);
+		}
+		XOPER& append(const X& x)
+		{
+			if (x.xltype == xltypeNil) {
+				return *this;
+			}
+
+			ensure(x.xltype & xltypeStr);
+
+			return xltype == xltypeNil
+				? operator=(x)
+				: append(x.val.str + 1, x.val.str[0]);
+		}
+		XOPER& append(const X_& x)
+		{
+			return append(XOPER(x));
+		}
+		// Like the Excel ampersand operator
+		XOPER& operator&=(const X& x)
+		{
+			return append(x);
+		}
+		XOPER& operator&=(const X_& x)
+		{
+			return append(x);
+		}
+		XOPER& operator&=(xcstr str)
+		{
+			return append(str);
+		}
+		XOPER& operator&=(cstrx str)
+		{
+			return append(str);
 		}
 		// reference to counted string
 		const xcstr& as_str() const
@@ -280,20 +349,24 @@ namespace xll {
 		{
 			ensure(is_str());
 
-			if (0 != val.str[val.str[0]]) {
-				append();
-			}
+			xchar c(0);
+			append(&c, 1);
 
 			return val.str + 1;
 		}
 		// cstrx& as_str() not provided
+
 		std::string to_string() const
 		{
 			if (xltype == xltypeNil) {
 				return "";
 			}
 
-			ensure(is_str());
+			ensure(xltype & xltypeStr);
+			
+			if (val.str[0] == 0) {
+				return "";
+			}
 
 			if constexpr (std::is_same_v<X, XLOPER>) {
 				return std::string(val.str + 1, val.str[0]);
@@ -302,71 +375,7 @@ namespace xll {
 				return utf8::wcstostring(val.str + 1, val.str[0]);
 			}
 		}
-		// string building
-		XOPER& append(const X& x)
-		{
-			if (x.xltype == xltypeNil) {
-				return *this;
-			}
 
-			ensure(x.xltype & xltypeStr);
-			
-			if (xltype & xlbitXLFree) {
-				XOPER tmp(*this);
-				oper_free();
-				swap(tmp);
-			}
-			str_append(x.val.str + 1, x.val.str[0]);
-
-			return *this;
-		}
-		XOPER& append(const X_& x)
-		{
-			if (x.xltype == xltypeNil) {
-				return *this;
-			}
-
-			ensure(x.is_str());
-			str_append(traits<X>::cvt(x.val.str + 1, x.val.str[0]), (unsigned)-1);
-
-			return *this;
-		}
-		// Like the Excel ampersand operator
-		XOPER& operator&=(const X& x)
-		{
-			return append(x);
-		}
-		XOPER& operator&=(const X_& x)
-		{
-			return append(x);
-		}
-		XOPER& append(xcstr str = nullptr)
-		{
-			if (!str) {
-				// null terminate a string
-				xchar null[1] = { 0 };
-				str_append(null, 1);
-			}
-			else if (*str) {
-				str_append(str, traits<X>::len(str));
-			}
-
-			return *this;
-		}
-		XOPER& append(cstrx str)
-		{
-			str_append(traits<X>::cvt(str), -1);
-
-			return *this;
-		}
-		XOPER& operator&=(xcstr str)
-		{
-			return append(str);
-		}
-		XOPER& operator&=(cstrx str)
-		{
-			return append(str);
-		}
 		// replace non alphanumeric or period '.' with underscore
 		XOPER& safe()
 		{
@@ -703,22 +712,26 @@ namespace xll {
 			xltype = xltypeStr;
 
 			if (n == -1) {
-				// str was allocated by malloc
+				// str is counted string allocated by malloc
 				val.str = const_cast<xchar*>(str);
+
+				return;
 			}
-			else {
-				xchar* tmp = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
-				if (!tmp) {
-					throw std::bad_alloc{};
-				}
-				// first character is count
-				if (str) {
-					memcpy_s(tmp + 1, n * sizeof(xchar), str, n * sizeof(xchar));
-				}
-				ensure (n <= traits<X>::charmax);
-				tmp[0] = static_cast<xchar>(n);
-				val.str = tmp;
+
+			if (n == 0) {
+				n = traits<X>::len(str);
 			}
+			xchar* tmp = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
+			if (!tmp) {
+				throw std::bad_alloc{};
+			}
+			// first character is count
+			if (str) {
+				memcpy_s(tmp + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+			}
+			ensure (n <= traits<X>::charmax);
+			tmp[0] = static_cast<xchar>(n);
+			val.str = tmp;
 		}
 		void str_append(xcstr str, int n)
 		{
@@ -729,7 +742,8 @@ namespace xll {
 			}
 
 			if (xltype == (xltypeStr | xlbitXLFree)) {
-				str_alloc(val.str + 1, val.str[0]);
+				XOPER tmp(val.str + 1, val.str[0]);
+				swap(tmp);
 			}
 			ensure(xltype == xltypeStr);
 			bool counted = false;

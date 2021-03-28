@@ -70,7 +70,7 @@ LPOPER WINAPI xll_addin(void)
 AddIn xai_addin_args(
 	Function(XLL_LPOPER, "xll_addin_args", "XLL.ADDIN.ARGS")
 	.Arguments({
-		{XLL_LPOPER, "name", "is a function name or register id.", "\"XLL.ADDIN.ARGS\""},
+		{XLL_LPOPER, "name", "is a function name or register id.", "XLL.ADDIN.ARGS"},
 		{XLL_LPOPER, "keys", "is an array of keys from XLL_ARGS_*.", ""},
 	})
 	.FunctionHelp("Return information about an add-in.")
@@ -149,9 +149,9 @@ LPOPER WINAPI xll_addin_args(LPOPER pname, LPOPER pkeys)
 AddIn xai_addin_args_arguments(
 	Function(XLL_LPOPER, "xll_addin_args_arguments", "XLL.ADDIN.ARGS.ARGUMENTS")
 	.Arguments({
-		{XLL_LPOPER, "name", "is a function name or register id.", "=XLL.ADDIN.ARGS"},
+		{XLL_LPOPER, "name", "is a function name or register id.", "=XLL.ADDIN.ARGS()"},
 		{XLL_WORD, "index", "is the 1-based index of the individual function argument", "1"},
-		{XLL_LPOPER, "keys", "is an array of keys from XLL_ARGS_ARGUMENTS_*.", "\"ArgumentHelp\""},
+		{XLL_LPOPER, "keys", "is an array of keys from XLL_ARGS_ARGUMENTS_*.", "ArgumentHelp"},
 		})
 		.FunctionHelp("Return information about individual add-in arguments.")
 	.Category("XLL")

@@ -25,6 +25,7 @@ namespace xll {
 		typedef typename WORD xrw;
 		typedef typename BYTE xcol;
 		typedef typename BYTE xbool;
+		typedef typename WORD xerr;
 		typedef typename _FP xfp;
 		typedef typename std::basic_string<xchar> xstring;
 		static const int argmax = 255;
@@ -50,8 +51,8 @@ namespace xll {
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, unsigned n)
 		{
-			ensure (0 == strncpy_s(dest, n, src, n));
-
+			ensure(0 == strncpy_s(dest, n, src, n));
+	
 			return dest;
 		}
 		static int cmp(const xchar* dest, const xchar* src, unsigned n)
@@ -82,6 +83,7 @@ namespace xll {
 		typedef typename RW xrw;
 		typedef typename COL xcol;
 		typedef typename INT32 xbool;
+		typedef typename int xerr;
 		typedef typename _FP12 xfp;
 		typedef typename std::basic_string<xchar> xstring;
 		static const int argmax = 255;
@@ -107,7 +109,7 @@ namespace xll {
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, unsigned n)
 		{
-			ensure (0 == wcsncpy_s(dest, n, src, n));
+			ensure(0 == wcsncpy_s(dest, n, src, n));
 
 			return dest;
 		}

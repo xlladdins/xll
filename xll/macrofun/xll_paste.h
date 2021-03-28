@@ -8,8 +8,7 @@ namespace xll {
 
 	// Paste formula into active cell and return a reference to what was pasted.
 	// Argument is a string that gets evaluated.
-	// String arguments must be quoted, "\"abc\"".
-	// Array arguments have the form "={a,...;b,...}".
+	// Range arguments must start with left bracket "{1,2;3,4}"
 	// Formula arguments must start with an equal sign "=1 + rand()".
 	inline OPER paste_formula(const OPER& x, Select ref = Select{})
 	{
@@ -20,8 +19,21 @@ namespace xll {
 		}
 
 		OPER xi = Excel(xlfEvaluate, x);
-		ref.Reshape(xi);
-		ref.Formula(x); // check if string or range???
+		if (x.val.str[1] != '=' and x.val.str[1] != '{') {
+			ensure(xi.size() <= 1);
+			ref.Set(xi ? xi : x);
+		}
+		else {
+			ref.Reshape(xi);
+			if (x.val.str[1] == '=') {
+				ref.Formula(x);
+			}
+			else {
+				ensure(xi.size() > 1);
+				ref.Set(xi);
+			}
+		}
+			
 
 		return ref;
 	}

@@ -232,7 +232,7 @@ namespace xll {
 			{
 				ensure(prefix.is_str() and suffix.is_str());
 				
-				H.append(OPER(buf, 16)); // 64 bits for pointer
+				H.append(buf, 16); // 64 bits for pointer
 				H.append(suffix);
 			}
 
@@ -240,10 +240,10 @@ namespace xll {
 			const XOPER<X>& encode(HANDLEX h)
 			{
 				union {
-					HANDLEX h;
+					T* h;
 					uint8_t c[8];
 				} hc;
-				hc.h = h;
+				hc.h = to_pointer<T>(h);
 
 				// h -> "prefix01..Fsuffix"
 				xchar* pc = H.val.str + 1 + off;
@@ -267,7 +267,7 @@ namespace xll {
 				// No prefix or suffix check.It will fail when used.
 				
 				union {
-					HANDLEX h;
+					T* h;
 					uint8_t c[8];
 				} hc;
 				// "prefix01..Fsuffix" -> h
@@ -276,7 +276,7 @@ namespace xll {
 					hc.c[7 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
 				}
 
-				return hc.h;
+				return to_handle<T>(hc.h);
 			}
 		};
 	};

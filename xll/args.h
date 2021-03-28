@@ -339,12 +339,7 @@ namespace xll {
 					if (j > 1) {
 						arg0 &= c_;
 					}
-					OPER argj = ArgumentDefault(j);
-					if (argj.val.str[1] == '=') {
-						// strip initial equal sign
-						argj = OPER(argj.val.str + 2, argj.val.str[0] - 1);
-					}
-					arg0 &= argj;
+					arg0 &= ArgumentDefault(j);
 				}
 				arg0 &= rp;
 

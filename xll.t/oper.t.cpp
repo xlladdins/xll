@@ -20,6 +20,30 @@ int test_defines_ = test_defines();
 int test_oper_adt()
 {
 	{
+		OPER o;
+		o = "";
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 0);
+		o.append("");
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 0);
+	}
+	{
+		OPER o("abc");
+		o.as_cstr();
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[3] == 'c');
+		ensure(o.val.str[4] == 0);
+
+		o.as_cstr();
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[3] == 'c');
+		ensure(o.val.str[4] == 0);
+
+	}
+	{
 		OPER4 o("abc");
 		OPER4 o2(o);
 		o = o2;
@@ -239,6 +263,27 @@ int test_oper_str()
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == (char)strlen("abc"));
 		ensure(0 == strncmp("abc", o.val.str + 1, o.val.str[0]));
+	}
+	{
+		OPER o;
+		o.append(OPER{});
+		ensure(o.xltype == xltypeNil);
+		OPER foo("foo");
+		o.append(foo);
+		ensure(o == foo);
+	}
+	{
+		OPER o("foo");
+		o.append(OPER{});
+		ensure(o == "foo");
+	}
+	{
+		OPER4 o4("foo");
+		OPER12 o12(L"bar");
+		o4.append(o12);
+		ensure(o4 == "foobar");
+		o12.append(o4);
+		ensure(o12 == "barfoobar");
 	}
 
 	return 0;
