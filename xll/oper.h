@@ -457,7 +457,7 @@ namespace xll {
 		// xltypeErr - predifined as ErrXXX
 #define XLL_ERR_ENUM(a, b, c) a = xlerr##a,
 		enum class Err {
-			XLL_ERR_TYPE(XLL_ERR_ENUM) // Err::NA, etc
+			XLL_ERR(XLL_ERR_ENUM) // Err::NA, etc
 		};
 #undef XLL_ERR_ENUM
 		XOPER(enum Err err)

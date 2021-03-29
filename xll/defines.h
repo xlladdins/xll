@@ -50,6 +50,7 @@ typedef struct _FP12 _FPX;
 typedef struct _FP _FPX;
 #endif
 
+//??? where should this go
 #ifdef __cplusplus
 //#include <type_traits>
 #pragma warning(push)
@@ -66,12 +67,32 @@ inline T xmod(T x, T y)
 #pragma warning(pop)
 #endif
 
+// xltypeX, XLOPER::val.X, XLL_X, desc
+#define XLL_TYPE(X) \
+    X(Num,     num,     DOUBLE,  "IEEE 64-bit floating point")          \
+    X(Str,     str,     PSTRING, "Pointer to a counted Pascal string")  \
+    X(Bool,    xbool,   BOOL,    "Boolean value")                       \
+    X(Ref,     mref,    LPOPER,  "Multiple reference")                  \
+    X(Err,     err,     WORD,    "Error type")                          \
+    X(Flow,    flow,    LPOPER,  "Flow type")                           \
+    X(Multi,   array,   LPOPER,  "Two dimensional array of OPER types") \
+    X(Missing, missing, LPOPER,  "Missing argument to function call")   \
+    X(Nil,     nil,     LPOPER,  "Default XLOPER value")                \
+    X(SRef,    sref,    LPOPER,  "Single refernce")                     \
+    X(Int,     w,       LONG,    "32-bit signed integer")               \
+    X(BigData, bigdata, LPOPER,  "Blob of binary data")                 \
+
+// xllbitX, desc
+#define XLL_BIT(X) \
+	X(XLFree,  "Excel owns memory")    \
+	X(DLLFree, "AutoFree owns memory") \
+
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \
 	X(Nil,     "empty cell")                \
 
-// xlerrXXX, Excel error string, error description
-#define XLL_ERR_TYPE(X)                                                     \
+// xlerrX, Excel error string, error description
+#define XLL_ERR(X)                                                     \
 	X(Null,  "#NULL!",  "intersection of two ranges that do not intersect") \
 	X(Div0,  "#DIV/0!", "formula divides by zero")                          \
 	X(Value, "#VALUE!", "variable in formula has wrong type")               \

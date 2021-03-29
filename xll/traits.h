@@ -18,8 +18,10 @@ namespace xll {
 		typedef typename XLOPER12 typex;
 		typedef typename XLREF xref;
 		typedef typename XLMREF xmref;
-		typedef typename CHAR xchar;
+		typedef decltype(XLOPER::val.num) xnum;
+		typedef decltype(XLOPER::val.str) xstr;
 		typedef typename const CHAR* xcstr;
+		typedef typename CHAR xchar;
 		typedef typename short int xint;
 		typedef typename WORD xword;
 		typedef typename WORD xrw;

@@ -159,7 +159,7 @@ namespace xll {
 	inline constexpr XLOPER12 Err##a##12 = XErr##a<XLOPER12>; \
 	inline constexpr XLOPERX Err##a = XErr##a<XLOPERX>;       \
 
-	XLL_ERR_TYPE(X)
+	XLL_ERR(X)
 #undef X
 }
 
