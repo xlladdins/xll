@@ -18,7 +18,7 @@ inline auto operator<=>(const X & x, const X & y)
 	return x.colLast <=> y.colLast;
 }
 
-// operator<=> only generates two way comparisons for C++ classes
+// operator<=> only generates comparisons for C++ classes
 // inheriting from extern "C" XLREF subverts auto genereration
 #define REF_CTW(op) \
 	inline bool operator ## op(const XLREF& x, const XLREF& y) { return x <=> y op 0; } \

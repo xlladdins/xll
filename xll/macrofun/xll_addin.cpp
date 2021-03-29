@@ -70,17 +70,16 @@ LPOPER WINAPI xll_addin(void)
 AddIn xai_addin_args(
 	Function(XLL_LPOPER, "xll_addin_args", "XLL.ADDIN.ARGS")
 	.Arguments({
-		{XLL_LPOPER, "name", "is a function name or register id.", "XLL.ADDIN.ARGS"},
+		{XLL_LPOPER, "name", "is a function name or register id.", "'XLL.ADDIN.ARGS"},
 		{XLL_LPOPER, "keys", "is an array of keys from XLL_ARGS_*.", ""},
 	})
 	.FunctionHelp("Return information about an add-in.")
 	.Category("XLL")
 	.Documentation(R"(
 Return members of <code>xll::Args</code> for an add-in given its <code>name</code> or register id.
-The <code>keys</code> are an array of strings. You can use <code>XLL_ARGS_*</code> to discover
-known keys.
-If called with no arguments, return the default list of keys. If the second
-argument is missing it will return the known keys of the first argument.
+The <code>keys</code> are an array of strings from the <code>XLL_ARGS_*</code> constants.
+If called with <code>name</code> missing return the default list of keys.
+If called eith <code>keys</code> missing return all known keys.
 )")
 );
 LPOPER WINAPI xll_addin_args(LPOPER pname, LPOPER pkeys)

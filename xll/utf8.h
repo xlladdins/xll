@@ -12,33 +12,19 @@
 #include "ensure.h"
 
 namespace utf8 {
+		
 	// Multi-byte character string to counted wide character string allocated by malloc.
-	// n = -1 means null terminated, just like MultiByteToWideChar
 	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, int n = -1)
 	{
+		ensure(0 != n);
 		wchar_t* ws = nullptr;
 
-		if (nullptr == s) {
-			n = 0;
-		}
-		if (n == 0) {
-			// zero means one null character
-			ws = (wchar_t*)malloc(sizeof(wchar_t));
-			if (ws != nullptr) {
-				*ws = 0;
-			}
-
-			return ws;
-		}
-
 		int wn = 0;
-		if (n != 0) {
-			ensure(0 != (wn = MultiByteToWideChar(CP_UTF8, 0, s, (int)n, nullptr, 0)));
-		}
+		ensure(0 != (wn = MultiByteToWideChar(CP_UTF8, 0, s, n, nullptr, 0)));
 
 		ws = (wchar_t*)malloc((static_cast<size_t>(wn) + 1) * sizeof(wchar_t));
 		if (ws) {
-			ensure(wn == MultiByteToWideChar(CP_UTF8, 0, s ? s : "", (int)n, ws + 1, wn));
+			ensure(wn == MultiByteToWideChar(CP_UTF8, 0, s, n, ws + 1, wn));
 			ensure(wn <= WCHAR_MAX);
 			// MBTWC includes terminating null
 			ws[0] = static_cast<wchar_t>(wn - (n == -1));
@@ -51,6 +37,7 @@ namespace utf8 {
 		std::wstring ws;
 
 		wchar_t* pws = mbstowcs(s, n);
+		ensure(pws);
 		if (pws) {
 			ws.assign(pws + 1, pws[0]);
 			free(pws);
@@ -60,31 +47,17 @@ namespace utf8 {
 	}
 
 	// Wide character string to counted multi-byte character string allocated by malloc
-	inline /*_Post_ _Notnull_*/ char* wcstombs(const wchar_t* ws, size_t wn = -1)
+	inline /*_Post_ _Notnull_*/ char* wcstombs(const wchar_t* ws, int wn = -1)
 	{
+		ensure(0 != wn);
 		char* s = nullptr;
 
-		if (nullptr == ws) {
-			wn = 0;
-		}
-		// n = -1 means null terminated, just like MultiByteToWideChar
-		if (wn == 0) {
-			s = (char*)malloc(sizeof(char));
-			if (s != nullptr) {
-				*s = 0;
-			}
-
-			return s;
-		}
-
 		int n = 0;
-		if (wn != 0) {
-			ensure(0 != (n = WideCharToMultiByte(CP_UTF8, 0, ws, (int)wn, NULL, 0, NULL, NULL)));
-		}
+		ensure(0 != (n = WideCharToMultiByte(CP_UTF8, 0, ws, wn, NULL, 0, NULL, NULL)));
 
 		s = (char*)malloc(static_cast<size_t>(n) + 1);
 		if (nullptr != s) {
-			ensure(n == WideCharToMultiByte(CP_UTF8, 0, ws ? ws : L"", (int)wn, s + 1, n, NULL, NULL));
+			ensure(n == WideCharToMultiByte(CP_UTF8, 0, ws, wn, s + 1, n, NULL, NULL));
 			// ???NormalizeString
 			ensure(n <= UCHAR_MAX);
 			// WCTMBS includes terminating null

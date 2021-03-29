@@ -10,7 +10,7 @@ namespace xll {
 	// Argument is a string that gets evaluated.
 	// Range arguments must start with left bracket "{1,2;3,4}"
 	// Formula arguments must start with an equal sign "=1 + rand()".
-	inline OPER paste_formula(const OPER& x, Select ref = Select{})
+	inline OPER paste_default(const OPER& x, Select ref = Select{})
 	{
 		ensure(x.is_str());
 
@@ -19,6 +19,7 @@ namespace xll {
 		}
 
 		OPER xi = Excel(xlfEvaluate, x);
+		ensure(xi);
 		if (x.val.str[1] != '=' and x.val.str[1] != '{') {
 			ensure(xi.size() <= 1);
 			ref.Set(xi ? xi : x);
@@ -45,12 +46,13 @@ namespace xll {
 
 		// call with defaults arguments to get size of output
 		OPER xVal = Excel(xlfEvaluate, args.ArgumentDefault(0));
+		ensure(xVal);
 		OPER xFor = OPER("=") & args.FunctionText() & OPER("(");
 		Select sel;
 		sel.Move(rows(xVal), 0);
 
 		for (unsigned i = 1; i <= args.ArgumentCount(); ++i) {
-			OPER xRel = paste_formula(args.ArgumentDefault(i));
+			OPER xRel = paste_default(args.ArgumentDefault(i));
 			if (i > 1) {
 				xFor.append(", ");
 			}

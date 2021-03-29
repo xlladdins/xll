@@ -44,7 +44,7 @@ int WINAPI xll_paste_args()
 	try {
 		Args* pargs = xll_args(Excel(xlfActiveCell));
 
-		paste_formula(pargs->ArgumentDefault(0));
+		paste_default(pargs->ArgumentDefault(0));
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());

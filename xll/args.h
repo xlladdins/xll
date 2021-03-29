@@ -29,7 +29,7 @@ namespace xll {
 		Arg()
 			: type(nullptr), name(nullptr), help(nullptr), init(nullptr)
 		{ }
-		Arg(cstr type, cstr name, cstr help, cstr init = nullptr)
+		Arg(cstr type, cstr name, cstr help, cstr init = "")
 			: type(type), name(name), help(help), init(init)
 		{
 			if (!xll_arg_types.contains(type)) {
@@ -345,8 +345,9 @@ namespace xll {
 
 				return arg0;
 			}
-
-			return key("argumentDefault")[i - 1];
+			else {
+				return key("argumentDefault")[i - 1];
+			}
 		}
 
 		Args& Documentation(const std::string& s)

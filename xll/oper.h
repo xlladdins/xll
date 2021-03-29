@@ -709,6 +709,7 @@ namespace xll {
 		// allocate unless counted
 		void str_alloc(xcstr str, int n)
 		{
+			ensure(str);
 			xltype = xltypeStr;
 
 			if (n == -1) {
@@ -721,18 +722,15 @@ namespace xll {
 			if (n == 0) {
 				n = traits<X>::len(str);
 			}
-			xchar* tmp = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
-			if (!tmp) {
-				throw std::bad_alloc{};
-			}
+			ensure (n < traits<X>::charmax);
+
+			val.str = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
+			ensure(val.str);
+			memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
 			// first character is count
-			if (str) {
-				memcpy_s(tmp + 1, n * sizeof(xchar), str, n * sizeof(xchar));
-			}
-			ensure (n <= traits<X>::charmax);
-			tmp[0] = static_cast<xchar>(n);
-			val.str = tmp;
+			val.str[0] = static_cast<xchar>(n);
 		}
+
 		void str_append(xcstr str, int n)
 		{
 			if (xltype == xltypeNil) {
@@ -745,26 +743,23 @@ namespace xll {
 				XOPER tmp(val.str + 1, val.str[0]);
 				swap(tmp);
 			}
+
 			ensure(xltype == xltypeStr);
 			bool counted = false;
 			if (n == -1) {
 				counted = true;
 				n = str[0];
 			}
-			if (n == 0) {
+			else if (n == 0) {
 				n = traits<X>::len(str);
 			}
-
 			ensure(val.str[0] + n < traits<X>::charmax);
 
 			xchar* tmp = (xchar*)realloc(val.str, ((size_t)val.str[0] + n + 1) * sizeof(xchar));
-			if (!tmp) {
-				throw std::bad_alloc{};
-			}
-			// ensure(tmp);
+			ensure(tmp);
 			val.str = tmp;
 			memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
-			if (n == 1 and *str == 0) {
+			if (n == 1 and *str == 0) { //??? str[n-1] == 0
 				--n; // don't count null terminator
 			}
 			val.str[0] = static_cast<xchar>(val.str[0] + n);
