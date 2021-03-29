@@ -67,20 +67,21 @@ inline T xmod(T x, T y)
 #pragma warning(pop)
 #endif
 
-// xltypeX, XLOPER::val.X, XLL_X, desc
-#define XLL_TYPE(X) \
-    X(Num,     num,     DOUBLE,  "IEEE 64-bit floating point")          \
-    X(Str,     str,     PSTRING, "Pointer to a counted Pascal string")  \
-    X(Bool,    xbool,   BOOL,    "Boolean value")                       \
-    X(Ref,     mref,    LPOPER,  "Multiple reference")                  \
-    X(Err,     err,     WORD,    "Error type")                          \
-    X(Flow,    flow,    LPOPER,  "Flow type")                           \
-    X(Multi,   array,   LPOPER,  "Two dimensional array of OPER types") \
-    X(Missing, missing, LPOPER,  "Missing argument to function call")   \
-    X(Nil,     nil,     LPOPER,  "Default XLOPER value")                \
-    X(SRef,    sref,    LPOPER,  "Single refernce")                     \
-    X(Int,     w,       LONG,    "32-bit signed integer")               \
-    X(BigData, bigdata, LPOPER,  "Blob of binary data")                 \
+// xltypeX, XLOPERX::val.X, xX, XLL_X, desc
+#define XLL_TYPE_SCALAR(X) \
+    X(Num,     num,      num,  DOUBLE,  "IEEE 64-bit floating point")          \
+    X(Bool,    xbool,    bool, BOOL,    "Boolean value")                       \
+    X(Err,     err,      err,  WORD,    "Error type")                          \
+    X(SRef,    sref.ref, ref,  LPOPER,  "Single refernce")                     \
+    X(Int,     w,        int,  LONG,    "32-bit signed integer")               \
+
+// types requiring allocation where xX is pointer to data
+// xltypeX, XLOPERX::val.X, xX, XLL_X, desck
+#define XLL_TYPE_ALLOC(X) \
+    X(Str,     str,     str, PSTRING, "Pointer to a counted Pascal string")  \
+    X(Ref,     mref.lpmref,    lpmref, LPOPER,  "Multiple reference")                  \
+    X(Multi,   array,   multi, LPOPER,  "Two dimensional array of OPER types") \
+    X(BigData, bigdata.h.lpbData, bigdata, LPOPER,  "Blob of binary data")                 \
 
 // xllbitX, desc
 #define XLL_BIT(X) \
