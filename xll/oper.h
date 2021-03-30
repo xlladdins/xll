@@ -760,15 +760,15 @@ namespace xll {
 				counted = true;
 				n = str[0];
 			}
-			while (n > 0 and str[n - 1] == 0) {
-				--n; // don't count trailing nulls
-			}
 			ensure(val.str[0] + n < traits<X>::charmax);
 
 			xchar* tmp = (xchar*)realloc(val.str, ((size_t)val.str[0] + n + 1) * sizeof(xchar));
 			ensure(tmp);
 			val.str = tmp;
 			memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
+			if (n == 1 and str[0] == 0) {
+				--n; // don't count null terminator
+			}
 			val.str[0] = static_cast<xchar>(val.str[0] + n);
 
 			if (counted) {

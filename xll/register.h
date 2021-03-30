@@ -1,6 +1,7 @@
 // register.h - Register an add-in
 #pragma once
 #include "shlwapi.h"
+#include "splitpath.h"
 #include "args.h"
 
 namespace xll{
@@ -30,28 +31,22 @@ namespace xll{
 
 		OPER helpTopic = args.HelpTopic();
 		if (!helpTopic and args.Documentation().length() > 0) {
-			OPER name = args.key("moduleText");
-			name.as_cstr(); // NULL terminate
+			path sp(args.key("moduleText").as_cstr());
+			OPER name(sp.dirname().c_str());
+			name.append(args.FunctionText().safe());
+			name.append(".html!0");
+			name.as_cstr(); // null terminate
 
 			xll::traits<XLOPERX>::xchar buf[2048];
 			DWORD len = 2048;
 			ensure(S_OK == UrlCreateFromPath(name.val.str + 1, buf, &len, 0));
 
-			helpTopic = buf;
-			unsigned slash = 0; // last index of slash
-			for (unsigned i = 1; i <= helpTopic.val.str[0]; ++i) {
-				if (helpTopic.val.str[i] == '/') {
-					slash = i;
-				}
-			}
-			helpTopic = Excel(xlfLeft, helpTopic, OPER(slash));
-			helpTopic.append(args.FunctionText().safe());
-			helpTopic.append(".html");
+			helpTopic = OPER(buf, len);
 		}
 		// Help URLs must end with "!0"
-		if (helpTopic.xltype & xltypeStr) { 
-			XOPER xFind = Excel(xlfFind, OPER("!"), helpTopic);
-			if (xFind == ErrValue) { //xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
+		else if (helpTopic.is_str()) {
+			const auto& ht = helpTopic.val.str;
+			if (ht[0] > 2 and ht[ht[0]] != '0' and ht[ht[0] - 1] != '!') {
 				helpTopic &= OPER("!0");
 			}
 		}
