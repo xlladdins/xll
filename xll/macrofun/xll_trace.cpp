@@ -11,6 +11,7 @@ static AddIn xai_trace(
     .Category("XLL")
     .FunctionHelp("Alert when cell is called in a calculation.")
     .Uncalced()
+    .Documentation(R"()")
 );
 LPXLOPERX WINAPI
 xll_trace(LPXLOPERX px)

@@ -77,6 +77,7 @@ namespace xll {
 		Args& operator=(Args&&) = default;
 		~Args()
 		{ }
+
 		// Function
 		Args(cstr type, cstr procedure, cstr functionText)
 		{
@@ -332,16 +333,14 @@ namespace xll {
 		{
 			if (i == 0) {
 				// function call with default arguments
-				static OPER eq("="), lp("("), rp(")"), c_(", ");
-
-				OPER arg0 = eq & FunctionText() & lp;
+				OPER arg0 = FunctionText() & OPER("(");
 				for (unsigned j = 1; j <= ArgumentCount(); ++j) {
 					if (j > 1) {
-						arg0 &= c_;
+						arg0 &= OPER(", ");
 					}
 					arg0 &= ArgumentDefault(j);
 				}
-				arg0 &= rp;
+				arg0 &= OPER(")");
 
 				return arg0;
 			}

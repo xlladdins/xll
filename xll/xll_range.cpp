@@ -6,7 +6,7 @@ using namespace xll;
 AddIn xai_range_set(
 	Function(XLL_HANDLEX, "xll_range_set_", "\\RANGE.SET")
 	.Arguments({
-		Arg(XLL_LPOPER, "range", "is the range to set.", "={1,2;3,4}")
+		Arg(XLL_LPOPER, "range", "is the range to set.", "{1,2;3,4}")
 		})
 	.Uncalced()
 	.FunctionHelp("Return a handle to a range.")
@@ -24,7 +24,7 @@ HANDLEX WINAPI xll_range_set_(LPOPER px)
 AddIn xai_range_get(
 	Function(XLL_LPOPER, "xll_range_get", "RANGE.GET")
 	.Arguments({
-		Arg(XLL_HANDLEX, "handle", "is a handle returned by RANGE.SET.", "=\\RANGE.SET({0,1;2,3})")
+		Arg(XLL_HANDLEX, "handle", "is a handle returned by RANGE.SET.", "\\RANGE.SET({0,1;2,3})")
 	})
 	.FunctionHelp("Return the range held by a handle.")
 	.Category("XLL")

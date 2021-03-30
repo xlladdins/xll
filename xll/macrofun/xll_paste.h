@@ -6,7 +6,7 @@ namespace xll {
 
 	using xll::Excel;
 
-	// Paste formula into referece and return a reference to what was pasted.
+	// Paste formula into reference and return a reference to what was pasted.
 	// Argument is a string that gets evaluated.
 	// String arguments must be quoted "\"a string\"".
 	// Range arguments must start with left bracket "{1,2;3,4}".
@@ -21,8 +21,12 @@ namespace xll {
 		OPER xi = Excel(xlfEvaluate, x);
 		ensure(xi);
 		ref.Reshape(xi);
-		// Evaluate strips off string quotes
-		ref.Formula(x.val.str[0] and x.val.str[1] == '"' ? xi : x);
+		if (x.val.str[0] > 1 and x.val.str[1] == '"') {
+			ref.Set(xi); // string
+		}
+		else {
+			ref.Formula(OPER("=") & x); // formula
+		}
 
 		return ref;
 	}

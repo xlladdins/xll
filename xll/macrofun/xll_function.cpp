@@ -8,19 +8,24 @@ using xchar = traits<XLOPERX>::xchar;
 AddIn xai_eval(
 	Function(XLL_LPOPER, "xll_eval", "EVAL")
 	.Arguments({
-		{XLL_PSTRING, "str", "is a string to be evaluated.", "=\"1 + 2\""}
+		{XLL_PSTRING, "str", "is a string to be evaluated.", "1 + 2*rand()"}
 		})
 	.FunctionHelp("Call xlfEvaluate on string.")
 	.Category("XLL")
 	.Documentation(R"(
-The Excel function <c>xlfEvaluate</c> uses the Excel engine to evaluate
-its argument, just like pressing <c>F9</c> evaluates selected text
-in the formula bar. A naked string like <c>"abc"</c> is interpreted as
-the named range <c>abc</c>. To get <code>EVAL</code> to treat it like
-a string it must be enclosed in quotes, <c>"\"abc\""</c>.
+The function <code>xlfEvaluate</code> evaluates
+its string argument, just like pressing <code>F9</code> evaluates selected text
+in the formula bar. A naked string like <code>abc</code> is interpreted as
+a named range and returns <code>#NAME?</code> if it is not defined.
+To get <code>EVAL</code> to treat it like
+a string it must be enclosed in quotes, <code>"abc"</code>. The naked
+string without quotes is the result.
 <p>
-Two dimensional ranges must start with an equal sign (<code> =</code>) then curly braces using commas for
-field seperators and semi-colons for record seperators, <c>"={1,\"a\";FALSE,2.34}"</c>.
+Two dimensional ranges start with curly braces and use commas for
+field separators and semi-colons for record separators, 
+for example <code>{1,\"a\";FALSE,2.34}</code>.
+The range can only contain constants, not formulas, just like
+<a href="https://docs.microsoft.com/en-us/office/client-developer/excel/xlset"><code>xlSet</code></a>.
 )")
 );
 LPOPER WINAPI xll_eval(xchar* str)
@@ -40,7 +45,7 @@ LPOPER WINAPI xll_eval(xchar* str)
 		result = ErrNA;
 	}
 	catch (...) {
-		XLL_ERROR("unknown error");
+		XLL_ERROR(__FUNCTION__ "unknown error");
 		result = ErrNA;
 	}
 
@@ -51,7 +56,7 @@ LPOPER WINAPI xll_eval(xchar* str)
 AddIn xai_absref(
 	Function(XLL_LPOPER, "xll_absref", "XLL.ABSREF")
 	.Arguments({
-		{XLL_PSTRING, "R1C1", "an R1C1-style relative reference in the form of text", "\"A1\""},
+		{XLL_PSTRING, "R1C1", "an R1C1-style relative reference in the form of text", "\"R[1]C[-1]\""},
 		{XLL_LPXLOPER, "ref", "is a reference.", "$A$1"}
 		})
 	.Uncalced()
@@ -60,15 +65,15 @@ AddIn xai_absref(
 	.Category("XLL")
 	.Documentation(R"(
 Returns the absolute reference of the cells that are offset from a reference 
-by a specified amount. The offset is relative to the upper-left corner of <c>ref</c>. 
-You should generally use <c>OFFSET</c> instead of <c>ABSREF</c>. 
+by a specified amount. The offset is relative to the upper-left corner of <code>ref</code>. 
+You should generally use <code>OFFSET</code> instead of <code>ABSREF</code>. 
 This function is provided for users who prefer to supply an absolute reference in text form.
 )")
 );
-LPOPER WINAPI xll_absref(xchar* r1c1, LPOPER pref)
+LPXLOPERX WINAPI xll_absref(xchar* r1c1, LPXLOPERX pref)
 {
 #pragma XLLEXPORT
-	static OPER result;
+	static XLOPERX result;
 
 	try {
 		XLOPERX R1C1;
@@ -81,7 +86,7 @@ LPOPER WINAPI xll_absref(xchar* r1c1, LPOPER pref)
 		result = ErrNA;
 	}
 	catch (...) {
-		XLL_ERROR("unknown exception");
+		XLL_ERROR(__FUNCTION__ ": unknown exception");
 		result = ErrNA;
 	}
 

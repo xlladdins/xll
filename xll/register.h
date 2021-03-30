@@ -23,11 +23,7 @@ namespace xll{
 			// C++ mangled name must start with '?'
 			procedure = OPER("?") & procedure;
 		}
-
-		// indicates function returns a handle
-		if (args.FunctionText().val.str[1] == '\\') {
-			ensure(args.isUncalced());
-		}
+		args.Procedure(procedure);
 
 		OPER helpTopic = args.HelpTopic();
 		if (!helpTopic and args.Documentation().length() > 0) {
@@ -50,9 +46,12 @@ namespace xll{
 				helpTopic &= OPER("!0");
 			}
 		}
-
-		args.Procedure(procedure);
 		args.HelpTopic(helpTopic);
+
+		// indicates function returns a handle
+		if (args.FunctionText().val.str[1] == '\\') {
+			ensure(args.isUncalced());
+		}
 
 		oper[0] = &args.ModuleText();
 		oper[1] = &args.Procedure();
