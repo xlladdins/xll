@@ -722,6 +722,9 @@ namespace xll {
 
 				return;
 			}
+			while (n > 0 and str[n - 1] == 0) {
+				--n; // don't count trailing nulls
+			}
 
 			ensure (n < traits<X>::charmax);
 
@@ -741,19 +744,24 @@ namespace xll {
 				return;
 			}
 
-			if (xltype == (xltypeStr | xlbitXLFree)) {
+			ensure(type() == xltypeStr);
+
+			if (n == 0) {
+				return; // noop
+			}
+
+			if (xltype & xlbitXLFree) {
 				XOPER tmp(val.str + 1, val.str[0]);
 				swap(tmp);
 			}
 
-			ensure(xltype == xltypeStr);
 			bool counted = false;
 			if (n == -1) {
 				counted = true;
 				n = str[0];
 			}
-			else if (n == 0) {
-				n = traits<X>::len(str);
+			while (n > 0 and str[n - 1] == 0) {
+				--n; // don't count trailing nulls
 			}
 			ensure(val.str[0] + n < traits<X>::charmax);
 
@@ -761,9 +769,6 @@ namespace xll {
 			ensure(tmp);
 			val.str = tmp;
 			memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
-			if (n == 1 and *str == 0) { //??? str[n-1] == 0
-				--n; // don't count null terminator
-			}
 			val.str[0] = static_cast<xchar>(val.str[0] + n);
 
 			if (counted) {

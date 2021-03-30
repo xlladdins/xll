@@ -220,7 +220,6 @@ namespace xll {
 			{
 				return static_cast<uint8_t>(c <= '9' ? c - '0' : 10 + c - 'A');
 			}
-			inline static traits<X>::xchar buf[16];
 			XOPER<X> H;
 			unsigned off;
 		public:
@@ -232,7 +231,7 @@ namespace xll {
 			{
 				ensure(prefix.is_str() and suffix.is_str());
 				
-				H.append(buf, 16); // 64 bits for pointer
+				H.append(tab, 16); // 64 bits for pointer
 				H.append(suffix);
 			}
 
