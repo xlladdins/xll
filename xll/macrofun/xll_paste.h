@@ -6,10 +6,10 @@ namespace xll {
 
 	using xll::Excel;
 
-	// Paste formula into active cell and return a reference to what was pasted.
+	// Paste formula into referece and return a reference to what was pasted.
 	// Argument is a string that gets evaluated.
-	// Range arguments must start with left bracket "{1,2;3,4}"
-	// Formula arguments must start with an equal sign "=1 + rand()".
+	// String arguments must be quoted "\"a string\"".
+	// Range arguments must start with left bracket "{1,2;3,4}".
 	inline OPER paste_default(const OPER& x, Select ref = Select{})
 	{
 		ensure(x.is_str());
@@ -20,21 +20,9 @@ namespace xll {
 
 		OPER xi = Excel(xlfEvaluate, x);
 		ensure(xi);
-		if (x.val.str[1] != '=' and x.val.str[1] != '{') {
-			ensure(xi.size() <= 1);
-			ref.Set(xi ? xi : x);
-		}
-		else {
-			ref.Reshape(xi);
-			if (x.val.str[1] == '=') {
-				ref.Formula(x);
-			}
-			else {
-				ensure(xi.size() > 1);
-				ref.Set(xi);
-			}
-		}
-			
+		ref.Reshape(xi);
+		// Evaluate strips off string quotes
+		ref.Formula(x.val.str[0] and x.val.str[1] == '"' ? xi : x);
 
 		return ref;
 	}

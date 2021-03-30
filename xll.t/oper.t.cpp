@@ -113,6 +113,15 @@ int test_oper_num_ = test_oper_num();
 int test_oper_str()
 {
 	{
+		OPER4 o4("");
+		ensure(o4.is_str());
+		ensure(o4.val.str[0] == 0);
+
+		OPER12 o12("");
+		ensure(o12.is_str());
+		ensure(o12.val.str[0] == 0);
+	}
+	{
 		OPER o;
 		o = "";
 		ensure(o.xltype == xltypeStr);

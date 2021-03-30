@@ -228,7 +228,7 @@ namespace xll {
 			return val.num;
 		}
 
-		// xltypeStr given length
+		// xltypeStr
 		bool is_str() const
 		{
 			return type() == xltypeStr;
@@ -278,7 +278,7 @@ namespace xll {
 		template<size_t N>
 		XOPER(cstrx(&str)[N])
 		{
-			str_alloc(traits<X>::cvt(str), -1);
+			str_alloc(traits<X>::cvt(str, N), -1);
 		}
 		XOPER operator=(cstrx str)
 		{
@@ -294,11 +294,15 @@ namespace xll {
 		}
 
 		// string building
-		XOPER& append(xcstr str, int n = 0)
+		XOPER& append(xcstr str, int n)
 		{
 			str_append(str, n);
 
 			return *this;
+		}
+		XOPER& append(xcstr str)
+		{
+			return append(str, traits<X>::len(str));
 		}
 		XOPER& append(cstrx str)
 		{
@@ -719,15 +723,13 @@ namespace xll {
 				return;
 			}
 
-			if (n == 0) {
-				n = traits<X>::len(str);
-			}
 			ensure (n < traits<X>::charmax);
 
-			val.str = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
-			ensure(val.str);
-			memcpy_s(val.str + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+			xchar* tmp = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
+			ensure(tmp);
+			memcpy_s(tmp + 1, n * sizeof(xchar), str, n * sizeof(xchar));
 			// first character is count
+			val.str = tmp;
 			val.str[0] = static_cast<xchar>(n);
 		}
 
