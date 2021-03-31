@@ -39,7 +39,7 @@ namespace Win {
 	}
 
 	// Parameterized handle class
-	template<class H, BOOL(*D)(H)>
+	template<class H, BOOL(WINAPI *D)(H)>
 	class Hnd {
 		H h;
 	public:
