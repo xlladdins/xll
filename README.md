@@ -16,68 +16,18 @@ to simplify interfaces.
   The Excel SDK is not supported on MacOS.
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)  
-  Use the Community Edition and install the `Desktop development with C++` workload.
+  Use the Community Edition and install the `Desktop development with C++` and 
+  [`GitHub Extension for Visual Studio`](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio)
+  workload.
 
 [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)  
   Install the 64-bit version of ~~Office~~ Microsoft 365 for the best experience.
 
 ## Get Started
 
-Run the [installer](https://xladdins.com/xll.msi). Save the `xll.msi` file and open it.
-You will see a popup claiming 
-<span title="Where by 'protect' Microsoft means they now require an Extended Validation certificate to extract more money out of software providers.">
-'Windows protected your PC'</span> and a link to 'More info'.
-That link should show you `xll.msi` was signed by Publisher KALX, LLC. Run anyway.
-
-This places the xll project template in your `Documents\Visual Studio 2019` folder 
-and include visualizers for debugging.
-
-Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and select `xllproject`. 
-You will need to add a git submodule for `xll` because Visual Studio doesn't know about submodules.
-Run `Tools ► Command Line ► Developer Command Prompt`
-from the Visual Studio menu and add a [submodule](https://github.blog/2016-02-01-working-with-submodules/).
-
-> `git init`  
-> `git submodule add https://github.com/xlladdins/xll.git`  
-
-Copy the debugger setup from `xll\test`.
-
-> `copy xll\test\test.vcxproj.user %projectname%.vcxproj.user`
-
-Where `%projectname%` is the name of the project you created.
-These steps can be perfomed by running the `setup.bat` in your project folder.
-Type `type setup.bat` from the command prompt to see what will be executed
-and `.\setup.bat` to run them.
-
-In Solution Explorer right click on the Solution and add `xll.vcxproj` from the `xll` subfolder
-of your project folder using Add ► Existing Project...
-At this point you can compile and run the add-in[1]
-using `Debug ► Start Debugging` (`F5`). This compiles the dll, (with
-file extension `.xll`), and starts Excel with the add-in loaded.
-
-The git repository you created has a snapshot of the xll library at the time you add it as a submodule.
-Your copy of the xll submodule will not change if the original xll repository changes.
-To get the latest copy start a Developer Command Prompt and pull.
-
-> `cd xll`  
-> `git pull`  
-
-[1] You may have to restart Visual Studio to have it recognize the `.user` file.
-
-The program that the debugger starts and the arguments to use are specified in _project properties_.
-Right click on a project and select `Properties` (`Alt-Enter`) at the bottom of the popup menu.
-Navigate to `Debugging` in `Configuration Properties`.
-
-![debug properties](images/debug.png)
-
-The `Command` `$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\excel.exe)`
-looks in the registry for the full path of the Excel executable.
-The `Command Arguments` `"$(TargetPath)" /p "$(ProjectDir)"` are passed to
-Excel when the debugger starts. The variable `$(TargetPath)` is the
-full path to the xll that was built and is opened by Excel. 
-The `/p` flag to Excel sets the
-default directory so `Ctrl-O` opens to the project directory.
-
+Clone <a href="https://github.com/xlladdins/xllproject1.git">project1</code>,
+open `project1.sln`, and press `F5` to build and start Excel in the debugger.
+It's that simple!
 
 ## AddIn
 
@@ -440,6 +390,22 @@ have side-effects, they take no arguments and return `TRUE` if they run successf
 function numbers are special to the C API. 
 For example, [`xlUDF`](https://docs.microsoft.com/en-us/office/client-developer/excel/xludf)
 can be used to call User-Defined Functions.
+
+## Debugging
+
+The program that the debugger starts and the arguments to use are specified in _project properties_.
+Right click on a project and select `Properties` (`Alt-Enter`) at the bottom of the popup menu.
+Navigate to `Debugging` in `Configuration Properties`.
+
+![debug properties](images/debug.png)
+
+The `Command` `$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\excel.exe)`
+looks in the registry for the full path of the Excel executable.
+The `Command Arguments` `"$(TargetPath)" /p "$(ProjectDir)"` are passed to
+Excel when the debugger starts. The variable `$(TargetPath)` is the
+full path to the xll that was built and is opened by Excel. 
+The `/p` flag to Excel sets the
+default directory so `Ctrl-O` opens to the project directory.
 
 ## Documentation
 
