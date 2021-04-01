@@ -9,6 +9,7 @@
 
 using namespace xll;
 
+#pragma region xlAutoOpen
 // Called by Excel when the xll is opened.
 extern "C" int __declspec(dllexport) WINAPI
 xlAutoOpen(void)
@@ -39,6 +40,7 @@ xlAutoOpen(void)
 
 	return TRUE;
 }
+#pragma endregion xlAutoOpen
 
 // Called by Microsoft Excel when the xll is deactivated.
 extern "C" int __declspec(dllexport) WINAPI

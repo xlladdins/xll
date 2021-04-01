@@ -26,12 +26,14 @@ to simplify interfaces.
 ## Get Started
 
 Clone <a href="https://github.com/xlladdins/xllproject1.git">project1</a>,
-open `project1.sln`, and press `F5` to build and start Excel in the debugger.
-If you want to create your own project, fork the code and rename it before cloning to your computer.
+open the `xllproject1.sln` solution, and press `F5` to build and run Excel in 
+the Visual Studio debugger.
+If you want to create your own project, fork the repository and rename it before 
+cloning to your computer. 
 
 ## AddIn
 
-The `xll::AddIn` class is used register Excel functions and macros.
+The `xll::AddIn` class is used to register Excel functions and macros.
 `AddIn` objects should be defined at the 
 [global scope](https://docs.microsoft.com/en-us/cpp/cpp/scope-visual-cpp)
 so they will be 
