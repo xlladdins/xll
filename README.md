@@ -27,7 +27,7 @@ to simplify interfaces.
 
 Clone <a href="https://github.com/xlladdins/xllproject1.git">project1</a>,
 open `project1.sln`, and press `F5` to build and start Excel in the debugger.
-If you want to create your own project then fork the code and rename it.
+If you want to create your own project, fork the code and rename it before cloning to your computer.
 
 ## AddIn
 
