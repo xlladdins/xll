@@ -22,14 +22,18 @@ namespace xll {
 		}
 
 		// Adds an add-in to the working set using the descriptive name in the Add-Ins dialog box.
-		// Move AIM value to OPT and add OPEN<n+1> value to load at startup.
+		// Excel moves AIM value to OPT and add OPEN<n+1> value to load at startup.
 		OPER Add(OPER name = Missing) const
 		{
 			if (name.is_missing()) {
 				name = OPER(path.fname);
 			}
 
-			return Excel(xlcAddinManager, OPER(1), name);
+			if (Known(name)) {
+				ensure(Excel(xlcAddinManager, OPER(1), name));
+			}
+
+			return Open(name);
 		}
 
 		// Removes an add-in from the working set using the descriptive name in the Add-Ins dialog box.
@@ -39,7 +43,12 @@ namespace xll {
 			if (name.is_missing()) {
 				name = OPER(path.fname);
 			}
-			return Excel(xlcAddinManager, OPER(2), name);
+
+			if (Open(name)) {
+				ensure(Excel(xlcAddinManager, OPER(2), name));
+			}
+
+			return Known();
 		}
 
 		// Adds a new add-in to the list of add-ins that Microsoft Excel knows about. 
@@ -73,7 +82,7 @@ namespace xll {
 		// Full path if descriptive name matches AIM value.
 		OPER Known(OPER name = Missing) const
 		{
-			OPER aim_value = ErrNA;
+			OPER known = ErrNA;
 
 			if (!name) {
 				name = OPER(path.fname);
@@ -86,14 +95,14 @@ namespace xll {
 					// value name is the full path to add-in
 					xll::path split(value.name.c_str());
 					if (OPER(split.fname) == name) {
-						aim_value = value.name.c_str();
+						known = value.name.c_str();
 
 						break;
 					}
 				}
 			}
 
-			return aim_value;
+			return known;
 		}
 
 		// OPT value OPEN<n> name if loaded on startup
@@ -123,7 +132,7 @@ namespace xll {
 		// Registry entries used by add-in manager.
 		inline static const TCHAR OFFICE[] = TEXT("Software\\Microsoft\\Office\\");
 		inline static const TCHAR AIM[] = TEXT("\\Excel\\Add-in Manager");
-		inline static const TCHAR OPT[] = TEXT("Excel\\Options");
+		inline static const TCHAR OPT[] = TEXT("\\Excel\\Options");
 		
 		static OPER Version()
 		{
@@ -162,9 +171,9 @@ namespace xll {
 
 
 	class Installer {
+		OPER dir; // installation directory
 		typedef int STATE;
 		STATE state;
-		OPER dir; // installation directory
 	public:
 		enum {
 			INIT = 0,
@@ -172,19 +181,6 @@ namespace xll {
 			OPEN = 2,  // in OPT
 			EXISTS = 4,// in dir
 		};
-
-		Installer(const OPER& _dir = OPER(Template()))
-			: state(INIT), dir(_dir)
-		{
-			if (dir.val.str[dir.val.str[0]] != '\\') {
-				dir.append("\\");
-			}
-			ensure(DirExists(dir.as_cstr()));
-		}
-		STATE State() const
-		{
-			return state;
-		}
 		static inline const char* install_doc = R"(
 The Excel add-in manager uses two registry keys to manage the add-in lifecycle
 <dl>
@@ -201,52 +197,67 @@ is computed by Excel.
 </dl>
 Excel does not write these values to the registry until the Excel session is terminated.
 )";
+		Installer(const OPER& _dir = OPER(Template()))
+			: state(INIT), dir(_dir)
+		{
+			if (dir.val.str[dir.val.str[0]] != '\\') {
+				dir.append("\\");
+			}
+			ensure(DirExists(dir.as_cstr()));
+		}
+		STATE State() const
+		{
+			return state;
+		}
+
 		// copy to installation dir and let add-in manager know
 		STATE Install(OPER xll = Excel(xlGetName))
 		{
 			using Win::File;
 			using Win::WriteTime;
 
-			// ensure(DirExists(dir));
 			xll::path path(xll.as_cstr());
 			OPER name(path.fname); // descriptive name
 			OPER install = dir & OPER(path.basename().c_str());
 			AddinManager aim(install);
 
-			OPER copy = OPER(true);
+			// existing state
+			OPER known = aim.Known();
+			OPER open = aim.Open();
+			if (open) {
+				// move from OPT to AIM
+				known = aim.Remove();
+				ensure(known);
+			}
+
 			if (FileExists(install.as_cstr())) {
 				state |= EXISTS;
 				// ask before clobbering
 				if (WriteTime(File(xll.as_cstr())) > WriteTime(File(install.as_cstr()))) {
-					OPER msg = OPER("Replace ") & OPER(path.fname) & OPER(" with new version?");
-					copy = Excel(xlcAlert, msg, OPER(1));
+					OPER msg = OPER("Replace ") & OPER(path.fname) & OPER(".xll with new version?");
+					OPER copy = Excel(xlcAlert, msg, OPER(1));
+					if (copy) {
+						ensure(CopyFile(xll.as_cstr(), install.as_cstr(), FALSE));
+						state |= EXISTS;
+					}
 				}
 			}
-			if (copy) {
+			else {
 				ensure(CopyFile(xll.as_cstr(), install.as_cstr(), FALSE));
 				state |= EXISTS;
 			}
 			ensure(state & EXISTS);
 
-			// Addin-manager state
-			OPER open = aim.Open(name);
-			if (open) {
-				ensure(aim.Remove(name)); // move from OPT to AIM
-			}
-			OPER known = aim.Known(name); // existing add-in
-			if (!known or known != install) {
-				ensure(aim.New()); // replace AIM entry
-			}
-			if (open) {
-				ensure(aim.Add()); // move from AIM to OPT
+			if (known) {
+				ensure(aim.Delete()); // remove old registry entries
 			}
 
-			// Installer state
-			if (aim.Open()) {
+			ensure(aim.New()); // add to AIM
+			state |= KNOWN;
+			if (open) {
+				ensure(aim.Add()); // move to OPT
 				state |= OPEN;
-			}
-			else if (aim.Known()) {
-				state |= KNOWN;
+				state &= ~KNOWN;
 			}
 
 			return state; // == EXISTS + KNOWN if new install

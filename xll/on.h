@@ -88,9 +88,11 @@ namespace xll {
 			Auto<OpenAfter> xao([text, macro]() {
 				return Excel(Key::On, OPER(text), OPER(macro)) == true;
 			});
+			/* This seems to cause memory leaks!!!
 			Auto<CloseBefore> xac([text]() {
 				return Excel(Key::On, OPER(text)) == true;
 			});
+			*/
 		}
 		On(cstr text, cstr macro, bool activate)
 		{

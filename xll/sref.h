@@ -83,6 +83,7 @@ namespace xll {
 		using xref = typename traits<X>::xref;
 	public:
 		XREF()
+			: xref{}
 		{ }
 		XREF(xrw row, xcol col, unsigned height = 1, unsigned width = 1)
 			: xref { 

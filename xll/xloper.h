@@ -189,7 +189,11 @@ inline auto operator<=>(const X& x, const X& y)
 		return std::lexicographical_compare_three_way(
 			x.val.str + 1, x.val.str + 1 + x.val.str[0],
 			y.val.str + 1, y.val.str + 1 + y.val.str[0],
-			[](auto cx, auto cy) { return std::toupper(cx) <=> std::toupper(cy); }
+			[](int cx, int cy) {
+				int ux = std::toupper(cx);
+				int uy = std::toupper(cy);
+				return ux <=> uy;
+			}
 		);
 	}
 	case xltypeErr:
@@ -226,7 +230,9 @@ inline auto operator<=>(const X& x, const X& y)
 		if (x.val.bigdata.cbData != y.val.bigdata.cbData)
 			return x.val.bigdata.cbData <=> y.val.bigdata.cbData;
 
-		return std::memcmp(x.val.bigdata.h.lpbData, y.val.bigdata.h.lpbData, x.val.bigdata.cbData) <=> 0;
+		int cmp = std::memcmp(x.val.bigdata.h.lpbData, y.val.bigdata.h.lpbData, x.val.bigdata.cbData);
+		
+		return cmp <=> 0;
 	}
 
 	return xtype <=> ytype;
