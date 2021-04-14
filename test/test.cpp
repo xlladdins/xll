@@ -241,6 +241,13 @@ public:
 	MA()
 		: n(0), ma(0)
 	{ }
+	MA(size_t n_, const double* x)
+		: MA()
+	{
+		while (n_--) {
+			next(*x++);
+		}
+	}
 	size_t count() const 
 	{
 		return n;
@@ -253,6 +260,25 @@ public:
 	{
 		++n;
 		ma += (x - ma) / n;
+
+		return *this;
+	}
+};
+template<class X, class Y>
+struct compose {
+	const X& x;
+	const Y& y;
+	compose(const X& x, const Y& y)
+		: x(x), y(y)
+	{ }
+	double value() const
+	{
+		return y.value();
+	}
+	compose& next(double z)
+	{
+		x.next(z);
+		y.next(x.value());
 
 		return *this;
 	}

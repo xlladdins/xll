@@ -8,11 +8,6 @@ namespace xll{
 
 	inline OPER Register(Args& args)
 	{
-		args.key("moduleText") = Excel(xlGetName);
-
-		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
-		std::vector<const XLOPERX*> oper(count);
-
 		OPER procedure = args.Procedure();
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
 		if (procedure.val.str[1] == '_') {
@@ -23,11 +18,11 @@ namespace xll{
 			// C++ mangled name must start with '?'
 			procedure = OPER("?") & procedure;
 		}
-		args.Procedure(procedure);
 
+		OPER moduleText = Excel(xlGetName);
 		OPER helpTopic = args.HelpTopic();
 		if (!helpTopic and args.Documentation().length() > 0) {
-			path sp(args.key("moduleText").as_cstr());
+			path sp(moduleText.as_cstr());
 			OPER name(sp.dirname().c_str());
 			name.append(args.FunctionText().safe());
 			name.append(".html!0");
@@ -46,13 +41,18 @@ namespace xll{
 				helpTopic &= OPER("!0");
 			}
 		}
-		args.HelpTopic(helpTopic);
 
 		// indicates function returns a handle
 		if (args.FunctionText().val.str[1] == '\\') {
 			ensure(args.isUncalced());
 		}
 
+		args.key("moduleText") = moduleText;
+		args.key("procedure") = procedure;
+		args.key("helpTopic") = helpTopic;
+
+		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
+		std::vector<const XLOPERX*> oper(count);
 		oper[0] = &args.ModuleText();
 		oper[1] = &args.Procedure();
 		oper[2] = &args.TypeText();

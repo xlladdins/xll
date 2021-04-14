@@ -11,9 +11,13 @@ AddIn xai_install(
 int WINAPI xll_install()
 {
 #pragma XLLEXPORT
+
 	Installer install(Installer::Template());
 
 	try {
+		if (!Document::Sheet()) {
+			Workbook::New();
+		}
 		install.Install(Excel(xlGetName));
 	}
 	catch (const std::exception& ex) {
