@@ -99,6 +99,9 @@
     <ClInclude Include="xll\macrofun\xll_addin_manager.h">
       <Filter>macrofun</Filter>
     </ClInclude>
+    <ClInclude Include="xll\platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">
