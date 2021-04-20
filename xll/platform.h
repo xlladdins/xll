@@ -7,9 +7,10 @@ namespace xll {
 	// return "x64" or "x84", or "" on failure
 	inline const char* Platform(void)
 	{
-		static char platform[4] = { 0 };
+		static char platform[4] = { 1 };
 
-		if (!platform[0]) {
+		if (platform[0] == 1) {
+			platform[0] = 0;
 			LPCSTR key = "SOFTWARE\\Microsoft\\Office\\ClickToRun\\Configuration";
 			LPCSTR value = "Platform";
 			DWORD len = sizeof(platform);
