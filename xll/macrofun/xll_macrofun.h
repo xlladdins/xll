@@ -240,9 +240,14 @@ namespace xll {
 	// move relative to active cell
 	inline OPER Move(int r, int c)
 	{
-		Select sel; // active cell
+		OPER ac = Excel(xlfActiveCell);
 
-		return sel.Move(r, c);
+		ac.as_sref().colFirst += c;
+		ac.as_sref().colLast += c;
+		ac.as_sref().rwFirst += r;
+		ac.as_sref().rwLast += r;
+
+		return Excel(xlcSelect, ac);
 	}
 	// move down r rows
 	inline OPER Down(int r = 1)

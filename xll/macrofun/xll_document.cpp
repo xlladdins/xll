@@ -17,7 +17,7 @@ namespace xll {
 	}
 	table {
 		text-align: left;
-		border-padding: 5px;
+		padding: 5px;
 		border-collapse: collapse;
 	}
 	th {
