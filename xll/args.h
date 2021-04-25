@@ -355,6 +355,22 @@ namespace xll {
 
 			return *this;
 		}
+		Args& SeeAlso(std::initializer_list<std::string_view> items)
+		{
+			documentation += "<h2>See Also</h2>\n";
+			const char* comma = "";
+			for (const auto& item : items) {
+				documentation += comma;
+				documentation += "<a href=\"";
+				documentation += OPER(item.data()).safe().to_string();
+				documentation += ".html\">";
+				documentation += item;
+				documentation += "</a>\n";
+				comma = ", ";
+			}
+
+			return *this;
+		}
 		const std::string& Documentation() const
 		{
 			return documentation;

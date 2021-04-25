@@ -34,11 +34,10 @@ namespace xll {
 	class Select {
 		OPER selection; 
 	public:
-		// selection must be sref or ref
 		Select(const OPER& sel = Excel(xlfActiveCell))
-			: selection(sel.as_sref())
+			: selection(sel)
 		{
-			Excel(xlcSelect, selection);
+			Excel(xlcSelect, OPER(selection.as_sref()));
 		}
 		/*
 		Select(const REF& ref)
@@ -236,6 +235,18 @@ namespace xll {
 	//
 	// Parameterized functions
 	//
+
+	inline OPER Home()
+	{
+		OPER ac = Excel(xlfActiveCell);
+
+		ac.as_sref().colFirst = 0;
+		ac.as_sref().colLast = 0;
+		ac.as_sref().rwFirst = 0;
+		ac.as_sref().rwLast = 0;
+
+		return Excel(xlcSelect, ac);
+	}
 
 	// move relative to active cell
 	inline OPER Move(int r, int c)
