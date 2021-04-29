@@ -58,13 +58,12 @@ namespace xll {
 	bool Document(const Args& arg)
 	{
 		try {
-			OPER safe = arg.FunctionText().safe();
-			std::string functionText
-				= arg.FunctionText().to_string();
+			OPER functionText = arg.FunctionText();
+			std::string safe = functionText.safe().to_string();
 
 			// factor out!!!
 			path sp(Excel4(xlGetName).to_string().c_str());
-			std::string ofile(sp.dirname() + safe.to_string() + ".html");
+			std::string ofile(sp.dirname() + safe + ".html");
 			std::ofstream ofs(ofile, std::ios::out);
 
 ofs << R"xyzyx(<!DOCTYPE html>
@@ -73,14 +72,14 @@ ofs << R"xyzyx(<!DOCTYPE html>
     <meta charset="UTF-8" />
 )xyzyx"
     << html_style_css
-    << "<title>" << functionText << "</title>\n"
+    << "<title>" << functionText.to_string() << "</title>\n"
     << html_head_post;
 
 			std::string macroType(" ");
 			macroType.append(arg.Type().to_string());
-ofs << "<body>\n\t<h1>" << functionText << macroType << "</h1>\n\t"
+ofs << "<body>\n\t<h1>" << functionText.to_string() << macroType << "</h1>\n\t"
     << "<p>This article describes the formula syntax of the " 
-    << functionText << macroType << "</p>\n\t";
+    << functionText.to_string() << macroType << "</p>\n\t";
 
 			std::string functionHelp
 				= arg.FunctionHelp().to_string();
@@ -88,17 +87,19 @@ ofs << "<h2>Description</h2>\n\t<p>\n" << functionHelp << "\n\t</p>\n\t";
 
 			std::string argumentText
 				= arg.ArgumentText().to_string();
-ofs << "<h2>Syntax</h2>\n\t<p>" << functionText << "(" << argumentText << ")</p>\n\t"
-    << "<blockquote>\n\t<table>\n\t<tbody>\n\t";
+			if (arg.isFunction()) {
+				ofs << "<h2>Syntax</h2>\n\t<p>" << functionText.to_string() << "(" << argumentText << ")</p>\n\t"
+					<< "<blockquote>\n\t<table>\n\t<tbody>\n\t";
 
-			for (unsigned i = 1; i <= arg.ArgumentCount(); ++i) {
-ofs << "\t<tr>\n\t\t"
-	<< "<td>" << arg.ArgumentName(i).to_string() << "</td>\n\t\t"
-	<< "<td>" << arg.ArgumentHelp(i).to_string() << "</td>\n\t\t"
-	<< "</tr>\n\t";
+				for (unsigned i = 1; i <= arg.ArgumentCount(); ++i) {
+					ofs << "\t<tr>\n\t\t"
+						<< "<td>" << arg.ArgumentName(i).to_string() << "</td>\n\t\t"
+						<< "<td>" << arg.ArgumentHelp(i).to_string() << "</td>\n\t\t"
+						<< "</tr>\n\t";
+				}
+				ofs << "</tbody>\n</table>\n</blockquote>\n";
 			}
-ofs << "</tbody>\n</table>\n</blockquote>\n"
-	<< "<p>" << arg.Documentation() << "</p>\n"
+	ofs << "<p>" << arg.Documentation() << "</p>\n"
 	<< R"(
 	<footer>
 		Return to <a href="index.html">index</a>.
@@ -117,20 +118,27 @@ ofs << "</tbody>\n</table>\n</blockquote>\n"
 	}
 
 	// Generate documentation for add-ins;
-	bool Documentation(const char* category, const char* description)
+	bool Documentation(const char* module, const char* description)
 	{
 		path<char> sp;
 		sp.split(Excel4(xlGetName).to_string().c_str());
 		std::string ofile(sp.dirname() + "index.html");
 		std::ofstream ofs(ofile, std::ios::out);
 
-		// sort by Category then by FunctionText
-		std::map<OPER, std::map<OPER, OPER>> cat_text; // Category -> FunctionText -> FunctionHelp
-
+		// sort by Category, Type, FunctionText
+		std::map<OPER, std::map<OPER, std::map<OPER, Args*>>> cat_type_text;
+		
 		try {
 			for (auto& [key, arg] : AddIn::Map) {
 				if (arg.Documentation().length() != 0) {
-					cat_text[arg.Category()][arg.FunctionText()] = arg.FunctionHelp();
+					OPER cat = arg.Category();
+					OPER type = arg.Type();
+					OPER text = arg.FunctionText();
+					if (arg.isHandle()) {
+						// strip off leading '\\'
+						text = Excel(xlfRight, text, OPER(text.val.str[0] - 1));
+					}
+					cat_type_text[cat][type][text] = &arg;
 					Document(arg);
 				}
 			}
@@ -141,38 +149,36 @@ ofs << R"(<!DOCTYPE html>
     <meta charset="UTF-8" />
 	)"
 	<< html_style_css
-	<< "<title>" << category << "</title>"
+	<< "<title>" << module << "</title>"
 	<< R"(
 </head>
 <body>
 <h1>)"
-<< category
+<< module
 << R"(</h1>
 	<p>
-		Functions and macros of the )" << category << R"( add-in.
+		Functions and macros of the )" << module << R"( add-in.
 	</p>
 	<p>
 	)"
 << description << "</p>\n";
 
 			// categories and all functions belonging the to each category
-			for (const auto& [cat, text_help] : cat_text) {
-ofs << "<h2>Category " << cat.to_string() << "</h2>\n"
-	<< "<table>\n<tbody>\n";
-				for (const auto& [text, help] : text_help) {
-					std::string functionText = text.to_string();
-					std::string functionHelp = help.to_string();
-					std::string href = functionText;
-					//!!! use isHandle ???
-					if (href[0] == '\\') {
-						href.erase(0, 1);
+			for (const auto& [cat, type_text_parg] : cat_type_text) {
+				for (const auto& [type, text_parg] : type_text_parg) {
+					ofs << "<h2>" << cat.to_string() << " " << type.to_string() << "s</h2>\n"
+						<< "<table>\n<tbody>\n";
+					for (const auto& [text, parg] : text_parg) {
+						std::string functionText = parg->FunctionText().to_string();
+						std::string functionHelp = parg->FunctionHelp().to_string();
+						std::string href = parg->FunctionText().safe().to_string();
+						ofs << "<tr>\n\t"
+							<< "<td><a href=\"" << href << ".html\">" << functionText << "</a></td>\n"
+							<< "<td>" << functionHelp << "</td>\n"
+							<< "</tr>\n";
 					}
-ofs << "<tr>\n\t"
-	<< "<td><a href=\"" << href << ".html\">" << functionText << "</a></td>\n"
-	<< "<td>" << functionHelp << "</td>\n"
-	<< "</tr>\n";
+					ofs << "</tbody>\n</table>\n";
 				}
-ofs << "</tbody>\n</table>\n";
 			}
 		}
 		catch (const std::exception& ex) {

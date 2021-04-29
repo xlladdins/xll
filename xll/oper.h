@@ -381,21 +381,19 @@ namespace xll {
 		}
 
 		// replace non alphanumeric or period '.' with underscore
-		XOPER& safe()
+		XOPER safe() const
 		{
-			if (is_str()) {
-				for (int i = 1; i <= val.str[0]; ++i) {
-					if (val.str[i] != '.' and !traits<X>::alnum(val.str[i])) {
-						val.str[i] = '_';
+			XOPER s(*this);
+
+			if (s.is_str()) {
+				for (int i = 1; i <= s.val.str[0]; ++i) {
+					if (s.val.str[i] != '.' and !traits<X>::alnum(s.val.str[i])) {
+						s.val.str[i] = '_';
 					}
 				}
 			}
 
-			return *this;
-		}
-		XOPER safe() const
-		{
-			return XOPER(*this).safe();
+			return s;
 		}
 
 		// xltypeBool

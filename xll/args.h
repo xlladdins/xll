@@ -140,6 +140,12 @@ namespace xll {
 			return !Excel(xlfFind, OPER(XLL_VOLATILE), TypeText()).is_err();
 		}
 
+		// Arbitrary convention for function names returning a handle.
+		bool isHandle() const
+		{
+			return key("functionText").val.str[1] == '\\';
+		}
+
 		Args& ThreadSafe()
 		{
 			key("typeText") &= XLL_THREAD_SAFE;

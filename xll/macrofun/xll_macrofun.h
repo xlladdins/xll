@@ -184,7 +184,7 @@ namespace xll {
 		// Creates a comment 
 		OPER Note(const char* note)
 		{
-			return Excel(xlcNote, OPER(note), selection);
+			return Excel(xlcNote, OPER(note), OPER(selection.as_sref()));
 		}
 
 		// https://xlladdins.github.io/Excel4Macros/select.special.html

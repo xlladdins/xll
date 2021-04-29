@@ -22,20 +22,24 @@ namespace xll{
 		OPER moduleText = Excel(xlGetName);
 		OPER helpTopic = args.HelpTopic();
 		if (!helpTopic and args.Documentation().length() > 0) {
+			/*
 			path sp(moduleText.as_cstr());
 			OPER name(sp.dirname().c_str());
+			*/
+			OPER name(XLL_URL);
 			name.append(args.FunctionText().safe());
 			name.append(".html!0");
 			name.as_cstr(); // null terminate
 
 			xll::traits<XLOPERX>::xchar buf[2048];
 			DWORD len = 2048;
-			ensure(S_OK == UrlCreateFromPath(name.val.str + 1, buf, &len, 0));
+			HRESULT result = UrlCreateFromPath(name.val.str + 1, buf, &len, 0);
+			ensure(S_OK == result or S_FALSE == result);
 
 			helpTopic = OPER(buf, len);
 		}
-		// Help URLs must end with "!0"
 		else if (helpTopic.is_str()) {
+			// Help URLs must end with "!0"
 			const auto& ht = helpTopic.val.str;
 			if (ht[0] > 2 and ht[ht[0]] != '0' and ht[ht[0] - 1] != '!') {
 				helpTopic &= OPER("!0");
@@ -43,7 +47,7 @@ namespace xll{
 		}
 
 		// indicates function returns a handle
-		if (args.FunctionText().val.str[1] == '\\') {
+		if (args.isHandle()) {
 			ensure(args.isUncalced());
 		}
 
