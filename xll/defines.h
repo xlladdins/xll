@@ -159,6 +159,9 @@ XLL_ARG_TYPE(X)
 #define X(a,b,c,d) extern const LPCSTR XLL_##a;
 XLL_ARG_TYPE(X)
 #undef X
+#define X(a,b,c,d) extern const LPCSTR XLL_##a##X;
+XLL_ARG_TYPE(X)
+#undef X
 #ifdef __cplusplus
 }
 #endif
