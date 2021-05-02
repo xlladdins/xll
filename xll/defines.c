@@ -29,3 +29,11 @@ XLL_ARG_TYPE(X)
 #endif
 XLL_ARG_TYPE(X)
 #undef X
+
+#if XLL_VERSION == 12
+#define X(a,b,c,d) const LPCSTR XLL_##a##X = c;
+#else
+#define X(a,b,c,d) const LPCSTR XLL_##a##X = b;
+#endif
+XLL_ARG_TYPE(X)
+#undef X
