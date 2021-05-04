@@ -215,17 +215,13 @@ namespace xll {
 		{
 			return xltype == xltypeNum && val.num == static_cast<double>(num);
 		}
-		const double& as_num() const
-		{
-			ensure(is_num());
-
-			return val.num;
-		}
 		double& as_num()
 		{
-			ensure(is_num());
-
-			return val.num;
+			return operator[](0).val.num;
+		}
+		double as_num() const
+		{
+			return operator[](0).val.num;
 		}
 
 		// xltypeStr
