@@ -17,7 +17,7 @@ as your first line of defense against them taking up your precious time.
 
 The major usability enhancement for devlopers in the latest version is that all strings are now UTF-8. 
 They are a L"ot" nicer to use than wide character strings.
-The library still provides high performance access to [numeric arrays](#the-fp-data-type) and have
+The library still provides high performance access to [numeric arrays](#the-fp-data-type) and lets you easily create
 [handles](#handles) for embedding C++ objects that can use
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
 to simplify interfaces.
