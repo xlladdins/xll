@@ -11,7 +11,7 @@ writing a thin wrapper that gathers data from Excel, calls any function, and ret
 Use the full power of Excel to explore and perfect your code. Anyone can use your
 handiwork by opening the self-contained `.xll` file you produce.
 The xll library can also generate documentation integrated into Excel's help system.
-Hopefully, you will get to the quality problem of others using your product and
+Hopefully you will get to the quality problem of others using your product and
 you can tell them to go to the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277)
 as your first line of defense against them taking up your precious time.
 
