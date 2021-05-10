@@ -1,11 +1,23 @@
 ﻿# xll - a library for creating Excel add-ins
 
-This library makes it simple to call C++ functions and macros from Excel.
+This library makes it simple to call C, C++, or even Fortran code from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
+There are newer technologies available using C# and JavaScript that are appropriate for certain problems, but if you need the highest
+possible numerical performance from Excel this library is for you.
 
-The major usability enhancement is strings are now UTF-8. They are a L"ot" nicer to use than wide character strings.
-We still provides high performance access to [numeric arrays](#the-fp-data-type) and have
+Plug your code, or a third party library, into Excel by
+writing a thin wrapper that gathers data from Excel, calls any function, and returns the result.
+Use the full power of Excel to explore and perfect your code. Anyone can use your
+handiwork by opening the self-contained `.xll` file you produce.
+The xll library can also generate documentation integrated into Excel's help system.
+Hopefully, you will get to the quality problem of others using your product and
+you can tell them to go to the Function Wizard and click on <u>Help with this function</u>
+as your first line of defense against them taking up your precious time.
+
+The major usability enhancement for devlopers in the latest version is that all strings are now UTF-8. 
+They are a L"ot" nicer to use than wide character strings.
+The library still provides high performance access to [numeric arrays](#the-fp-data-type) and have
 [handles](#handles) for embedding C++ objects that can use
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
 to simplify interfaces.
