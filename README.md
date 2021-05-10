@@ -484,7 +484,7 @@ There is also [Office 365](https://www.microsoft.com/en-US/microsoft-365),
 now called Microsoft 365, which should not be confused with Office 2019.
 It has features not available in Office 2019, in particular 
 [dynamic arrays](https://insider.office.com/en-us/blog/dynamic-arrays-and-new-functions-in-excel). 
-No need for `Ctrl-Alt=Enter` and trying to guess the size of ranges returned by functions.
+No need for `Ctrl-Alt-Enter` and trying to guess the size of ranges returned by functions.
 The entire range gets plopped into the spreadsheet and you will see a 
 [`#SPILL!`](https://support.microsoft.com/en-us/office/-spill-errors-in-excel-ffe0f555-b479-4a17-a6e2-ef9cc9ad4023)
 error if that would clobber existing cells.
