@@ -379,7 +379,7 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 For a production quality version of this example see 
 [handle.cpp](https://github.com/xlladdins/xll/blob/master/test/handle.cpp).
 That file also has examples illustrating how single inheritance can be used in Excel
-using `dynamic_cast`. Tha `handle` class has a member `template<class U> U* as()`
+using `dynamic_cast`. The `handle` class has a member `template<class U> U* as()`
 to do this for you and ensure `U` is derived from `T`.
 
 When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
