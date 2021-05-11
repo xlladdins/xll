@@ -10,6 +10,10 @@ int XLL_ERROR(const char*, bool)
 {
 	return 0;
 }
+int XLL_INFO(const char*, bool)
+{
+	return 0;
+}
 
 int test_defines()
 {
@@ -541,7 +545,7 @@ int test_fp()
 		ensure(ax[0] == 1.23);
 		ensure(ax(0,0) == 1.23);
 		double s = 0;
-		for (const auto& i : a) {
+		for (const auto& i : ax) {
 			s += i;
 		}
 		ensure(s == 1.23);
@@ -553,9 +557,9 @@ int test_fp()
 	}
 	{
 		FPX a;
- 		ensure(a.rows() == 0);
-		ensure(a.columns() == 0);
-		ensure(a.size() == 0);
+ 		ensure(a.rows() == 1);
+		ensure(a.columns() == 1);
+		ensure(a.size() == 1);
 	}
 	{
 		FPX a(2,3);
@@ -708,7 +712,7 @@ int test_mref()
 	{
 		REF r(1, 1);
 		OPER mr({ r,r,r });
-		assert(mr.size() == 3);
+		assert(mr.size() == 1);
 		assert(mr.type() == xltypeRef);
 		assert(mr == mr);
 		OPER mr2(mr);
@@ -718,7 +722,7 @@ int test_mref()
 	{
 		REF12 r(1, 1);
 		OPER12 mr({ r,r,r });
-		assert(mr.size() == 3);
+		assert(mr.size() == 1);
 		assert(mr == mr);
 		OPER12 mr2(mr);
 		mr = mr2;
