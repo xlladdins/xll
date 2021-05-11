@@ -34,11 +34,10 @@ namespace xll {
 	class Select {
 		OPER selection; 
 	public:
-		// selection must be sref or ref
 		Select(const OPER& sel = Excel(xlfActiveCell))
-			: selection(sel.as_sref())
+			: selection(sel)
 		{
-			Excel(xlcSelect, selection);
+			Excel(xlcSelect, OPER(selection.as_sref()));
 		}
 		/*
 		Select(const REF& ref)
@@ -185,7 +184,7 @@ namespace xll {
 		// Creates a comment 
 		OPER Note(const char* note)
 		{
-			return Excel(xlcNote, OPER(note), selection);
+			return Excel(xlcNote, OPER(note), OPER(selection.as_sref()));
 		}
 
 		// https://xlladdins.github.io/Excel4Macros/select.special.html
@@ -237,12 +236,29 @@ namespace xll {
 	// Parameterized functions
 	//
 
+	inline OPER Home()
+	{
+		OPER ac = Excel(xlfActiveCell);
+
+		ac.as_sref().colFirst = 0;
+		ac.as_sref().colLast = 0;
+		ac.as_sref().rwFirst = 0;
+		ac.as_sref().rwLast = 0;
+
+		return Excel(xlcSelect, ac);
+	}
+
 	// move relative to active cell
 	inline OPER Move(int r, int c)
 	{
-		Select sel; // active cell
+		OPER ac = Excel(xlfActiveCell);
 
-		return sel.Move(r, c);
+		ac.as_sref().colFirst += c;
+		ac.as_sref().colLast += c;
+		ac.as_sref().rwFirst += r;
+		ac.as_sref().rwLast += r;
+
+		return Excel(xlcSelect, ac);
 	}
 	// move down r rows
 	inline OPER Down(int r = 1)

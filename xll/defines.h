@@ -2,6 +2,12 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 
+// Help topic location
+#ifndef XLL_URL
+#define XLL_URL "https://xllmonte.com/xllmonte/"
+#endif
+
+
 // Parameterize by XLL_VERSION
 // Define to be 12 for Excel 2007 and later or 4 otherwise
 #ifndef XLL_VERSION
@@ -153,11 +159,25 @@ XLL_ARG_TYPE(X)
 #define X(a,b,c,d) extern const LPCSTR XLL_##a;
 XLL_ARG_TYPE(X)
 #undef X
+#define X(a,b,c,d) extern const LPCSTR XLL_##a##X;
+XLL_ARG_TYPE(X)
+#undef X
 #ifdef __cplusplus
 }
 #endif
 
+// 64-bit uses different symbol name decoration
+#ifdef _M_X64 
+#define XLL_DECORATE(s,n) s
+#define XLL_X64(x) x
+#define XLL_X32(x)
+#else
+#define XLL_DECORATE(s,n) "_" s "@" #n
+#define XLL_X64(x)	
+#define XLL_X32(x) x
+#endif
+
 #define XLL_CONST(type, name, value, help, cat, topic) \
 AddIn xai_ ## name (Function(XLL_##type, XLL_DECORATE("_xll_" #name, 0) , #name).FunctionHelp(help).Category(cat).HelpTopic(topic)); \
-extern "C" _declspec(dllexport) auto WINAPI xll_ ## name () { return value; }
+extern "C" _declspec(dllexport) type WINAPI xll_ ## name () { return value; }
 

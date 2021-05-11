@@ -2,70 +2,70 @@
 #pragma once
 #include "traits.h"
 
-inline unsigned short size(const _FP& a)
-{
-	return a.rows * a.columns;
-}
-
-inline double& index(_FP& a, unsigned short i)
-{
-	return a.array[xmod<unsigned short>(i, size(a))];
-}
-inline double& index(_FP& a, unsigned short i, unsigned short j)
-{
-	return index(a, a.columns * xmod<unsigned short>(i, a.rows) + xmod<unsigned short>(j, a.columns));
-}
-
-// Make FP STL friendly.
-inline double* begin(_FP& a)
-{
-	return a.array;
-}
-inline const double* begin(const _FP& a)
-{
-	return a.array;
-}
-inline double* end(_FP& a)
-{
-	return a.array + size(a);
-}
-inline const double* end(const _FP& a)
-{
-	return a.array + size(a);
-}
-
-inline unsigned size(const _FP12& a)
-{
-	return a.rows * a.columns;
-}
-
-inline double& index(_FP12& a, unsigned i)
-{
-	return a.array[xmod<unsigned>(i, size(a))];
-}
-inline double& index(_FP12& a, unsigned i, unsigned j)
-{
-	return index(a, a.columns * xmod<unsigned>(i, a.rows) + xmod<unsigned>(j, a.columns));
-}
-
-inline double* begin(_FP12& a)
-{
-	return a.array;
-}
-inline const double* begin(const _FP12& a)
-{
-	return a.array;
-}
-inline double* end(_FP12& a)
-{
-	return a.array + size(a);
-}
-inline const double* end(const _FP12& a)
-{
-	return a.array + size(a);
-}
-
 namespace xll {
+
+	inline unsigned short size(const _FP& a)
+	{
+		return a.rows * a.columns;
+	}
+
+	inline double& index(_FP& a, unsigned short i)
+	{
+		return a.array[xmod<unsigned short>(i, size(a))];
+	}
+	inline double& index(_FP& a, unsigned short i, unsigned short j)
+	{
+		return index(a, a.columns * xmod<unsigned short>(i, a.rows) + xmod<unsigned short>(j, a.columns));
+	}
+
+	// Make FP STL friendly.
+	inline double* begin(_FP& a)
+	{
+		return a.array;
+	}
+	inline const double* begin(const _FP& a)
+	{
+		return a.array;
+	}
+	inline double* end(_FP& a)
+	{
+		return a.array + size(a);
+	}
+	inline const double* end(const _FP& a)
+	{
+		return a.array + size(a);
+	}
+
+	inline unsigned size(const _FP12& a)
+	{
+		return a.rows * a.columns;
+	}
+
+	inline double& index(_FP12& a, unsigned i)
+	{
+		return a.array[xmod<unsigned>(i, size(a))];
+	}
+	inline double& index(_FP12& a, unsigned i, unsigned j)
+	{
+		return index(a, a.columns * xmod<unsigned>(i, a.rows) + xmod<unsigned>(j, a.columns));
+	}
+
+	inline double* begin(_FP12& a)
+	{
+		return a.array;
+	}
+	inline const double* begin(const _FP12& a)
+	{
+		return a.array;
+	}
+	inline double* end(_FP12& a)
+	{
+		return a.array + size(a);
+	}
+	inline const double* end(const _FP12& a)
+	{
+		return a.array + size(a);
+	}
 
 	// fixed size FP types
 	template<unsigned R, unsigned C = 1>
@@ -148,7 +148,7 @@ namespace xll {
 		typedef typename traits<X>::xfp xfp;
 		xfp* fp;
 	public:
-		XFP(xint r = 0, xint c = 0)
+		XFP(xint r = 1, xint c = 1)
 		{
 			fp_alloc(r, c);
 		}
@@ -169,6 +169,13 @@ namespace xll {
 				fp_realloc(a.rows(), a.columns());
 				std::copy(a.begin(), a.end(), begin());
 			}
+
+			return *this;
+		}
+		XFP& operator=(const xfp& a)
+		{
+			fp_realloc(a.rows, a.columns);
+			std::copy(xll::begin(a), xll::end(a), begin());
 
 			return *this;
 		}

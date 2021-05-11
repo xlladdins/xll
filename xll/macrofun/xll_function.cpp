@@ -21,7 +21,7 @@ To get <code>EVAL</code> to treat it like
 a string it must be enclosed in quotes, <code>"abc"</code>. The naked
 string without quotes is the result.
 <p>
-Two dimensional ranges start with curly braces and use commas for
+Two dimensional ranges are enclosed in curly braces and use commas for
 field separators and semi-colons for record separators, 
 for example <code>{1,\"a\";FALSE,2.34}</code>.
 The range can only contain constants, not formulas, just like
