@@ -1,6 +1,6 @@
 ﻿# xll - a library for creating Excel add-ins
  
- ![example workflow](https://github.com/github/docs/actions/workflows/msbuild.yml/badge.svg)
+ ![build workflow](https://github.com/xlladdins/xll/actions/workflows/msbuild.yml/badge.svg)
 
 This library makes it simple to call C, C++, or even Fortran code from Excel.
 It is much easier to use than the Microsoft
