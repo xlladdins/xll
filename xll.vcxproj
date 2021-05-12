@@ -286,6 +286,8 @@
       </AdditionalLibraryDirectories>
       <ExportNamedFunctions>
       </ExportNamedFunctions>
+      <LinkTimeCodeGeneration>
+      </LinkTimeCodeGeneration>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
