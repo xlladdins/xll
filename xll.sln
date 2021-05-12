@@ -9,6 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xll.t", "xll.t\xll.t.vcxpro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFC96634-06B3-4799-A5C5-D9C9D26204FE}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\msbuild.yml = .github\workflows\msbuild.yml
 		NOTES.md = NOTES.md
 		Visualizers\oper.natvis = Visualizers\oper.natvis
 		README.md = README.md
