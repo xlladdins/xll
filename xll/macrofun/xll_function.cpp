@@ -84,9 +84,9 @@ int test_eval()
 			OPER e = *xll_eval(&o);
 			ensure(e == false);
 		}
-		// error strings evaluate to corresponding errors
+		// error strings evaluate to corresponding error values
 #define X(a,b,c) { OPER o(b); OPER e = *xll_eval(&o); ensure(e.val.err == xlerr##a); } 
-		XLL_ERR_TYPE(X)
+		XLL_ERR(X)
 #undef X
 		{
 			// error strings in multis evaluate to errors
