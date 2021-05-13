@@ -8,44 +8,67 @@ using xchar = traits<XLOPERX>::xchar;
 AddIn xai_eval(
 	Function(XLL_LPOPER, "xll_eval", "EVAL")
 	.Arguments({
-		{XLL_PSTRING, "str", "is a string to be evaluated.", "=\"1 + 2\""}
+		{XLL_LPOPER, "cell", "is a cell to be evaluated.", "=\"1 + 2\""}
 		})
-	.FunctionHelp("Call xlfEvaluate on string.")
+	.FunctionHelp("Call xlfEvaluate on cell.")
 	.Category("XLL")
 	.Documentation(R"(
-The Excel function <c>xlfEvaluate</c> uses the Excel engine to evaluate
-its argument, just like pressing <c>F9</c> evaluates selected text
-in the formula bar. A naked string like <c>"abc"</c> is interpreted as
-the named range <c>abc</c>. To get <code>EVAL</code> to treat it like
-a string it must be enclosed in quotes, <c>"\"abc\""</c>.
+<code>EVAL</code> calls the Excel function <code>xlfEvaluate</code> 
+to use the Excel engine to evaluate its argument. 
+A naked string like <code>abc</code> is interpreted as
+a named range. To get <code>EVAL</code> to treat it like
+a string it must be enclosed in quotes, <code>\"abc\"</code>.
 <p>
-Two dimensional ranges must start with an equal sign (<code> =</code>) then curly braces using commas for
-field seperators and semi-colons for record seperators, <c>"={1,\"a\";FALSE,2.34}"</c>.
+Two dimensional ranges are enclosed in curly braces using commas for
+field seperators and semi-colons for record seperators. 
+For example <code>"{1,\"a\";FALSE,2.34}"</code>.
+Individual range elements are not evaluated.
 )")
 );
-LPOPER WINAPI xll_eval(xchar* str)
+LPOPER WINAPI xll_eval(const LPOPER pcell)
 {
 #pragma XLLEXPORT
 	static OPER result;
 
 	try {
-		XLOPERX Str;
-		Str.val.str = str;
-		Str.xltype = xltypeStr;
-
-		result = Excel(xlfEvaluate, Str);
+		result = Excel(xlfEvaluate, *pcell);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
+
 		result = ErrNA;
 	}
 	catch (...) {
 		XLL_ERROR("unknown error");
+
 		result = ErrNA;
 	}
 
 	return &result;
 }
+
+#ifdef _DEBUG
+
+int test_eval()
+{
+	try {
+		{
+			OPER o(1.23);
+			OPER e = *xll_eval(&o);
+			ensure(e == 1.23);
+		}
+	}
+	catch (const std::exception& ex) {
+		XLL_ERROR(ex.what());
+
+		return FALSE;
+	}
+
+	return TRUE;
+}
+Auto<OpenAfter> xaoa_test_eval(test_eval);
+
+#endif // _DEBUG
 
 #if 0
 AddIn xai_absref(

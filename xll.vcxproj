@@ -67,7 +67,6 @@
     <ClCompile Include="xll\macrofun\xll_trace.cpp" />
     <ClCompile Include="xll\macrofun\xll_utility.cpp" />
     <ClCompile Include="xll\XLCALL.CPP" />
-    <ClCompile Include="xll\xll_range.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="xll\x64\XLCALL32.LIB">
