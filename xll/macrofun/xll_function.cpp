@@ -5,6 +5,10 @@ using namespace xll;
 
 using xchar = traits<XLOPERX>::xchar;
 
+#ifdef _DEBUG
+// int breakme = []() { return _crtBreakAlloc = 1295; }();
+#endif 
+
 AddIn xai_eval(
 	Function(XLL_LPOPER, "xll_eval", "EVAL")
 	.Arguments({
@@ -56,6 +60,53 @@ int test_eval()
 			OPER o(1.23);
 			OPER e = *xll_eval(&o);
 			ensure(e == 1.23);
+		}
+		bool fail = false;
+		try {
+			{
+				OPER o("abc");
+				ensure(*xll_eval(&o)); // should fail
+			}
+		}
+		catch (const std::exception&) {
+			fail = true;
+		}
+		ensure(fail);
+		{
+			OPER o("\"abc\"");
+			OPER e = *xll_eval(&o);
+			ensure(e == OPER("abc"));
+		}
+		{
+			OPER o(true);
+			OPER e = *xll_eval(&o);
+			ensure(e == true);
+		}
+		{
+			OPER o(false);
+			OPER e = *xll_eval(&o);
+			ensure(e == false);
+		}
+		// error strings evaluate to corresponding errors
+#define X(a,b,c) { OPER o(b); OPER e = *xll_eval(&o); ensure(e.val.err == xlerr##a); } 
+		XLL_ERR_TYPE(X)
+#undef X
+		{
+			// error strings in multis evaluate to errors
+			OPER o("{1.23, \"foo\";TRUE, #N/A}");
+			OPER e = *xll_eval(&o);
+			ensure(e.rows() == 2);
+			ensure(e.columns() == 2);
+			ensure(e(0, 0) == 1.23);
+			ensure(e(0, 1) == "foo");
+			ensure(e(1, 0) == true);
+			ensure(e(1, 1).xltype == xltypeErr);
+			ensure(e(1, 1).val.err == xlerrNA);
+		}
+		{
+			OPER o("=SIN(0)");
+			OPER e = *xll_eval(&o);
+			ensure(e == 0);
 		}
 	}
 	catch (const std::exception& ex) {
