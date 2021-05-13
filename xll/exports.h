@@ -10,7 +10,6 @@
 // Put '#pragma XLLEXPORT' in every add-in function body.
 #define XLLEXPORT comment(linker, "/export:" __FUNCDNAME__ "=" __FUNCTION__)
 
-
 #pragma comment(lib, "Shlwapi.lib")
 // xlAuto functions required by Excel
 #pragma comment(linker, "/include:" XLL_DECORATE("DllMain", 12))

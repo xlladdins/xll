@@ -122,9 +122,6 @@
     <ClCompile Include="xll\defines.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="xll\xll_range.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="xll\macrofun\xll_addin.cpp">
       <Filter>macrofun</Filter>
     </ClCompile>
