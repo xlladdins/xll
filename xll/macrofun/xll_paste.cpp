@@ -8,7 +8,7 @@ using namespace xll;
 using xll::Excel;
 
 // Lookup Args using name or register id.
-inline Args* xll_arguments(const OPER& xRef = Excel(xlfActiveCell))
+inline Args* xll_args(const OPER& xRef = Excel(xlfActiveCell))
 {
 	Args* pargs = nullptr;
 
@@ -20,15 +20,17 @@ inline Args* xll_arguments(const OPER& xRef = Excel(xlfActiveCell))
 		pargs = AddIn::Arguments(xCaller.as_num());
 	}
 	else {
-		XLL_ERROR("xll_arguments: cell must contain string or number");
+		ensure(!__FUNCTION__ ": cell must contain string or number");
 	}
 
 	return pargs;
 }
 
+// Ctrl-@ is like Ctrl-Shift-A but paste default values.
+On<Key> xok_paste_args(ON_CTRL "@", "XLL.PASTE.ARGS");
 AddIn xai_paste_args(
-	Macro(XLL_DECORATE("_xll_paste_args", 0), "XLL.PASTE.ARGS")
-	.FunctionHelp("Paste function using default arguments.")
+	Macro("xll_paste_args", "XLL.PASTE.ARGS")
+	.FunctionHelp("Paste function using default arguments. (Ctrl-Shift-@)")
 	.Category("XLL")
 	//.ShortcutText(ON_CTRL ON_SHIFT "2")
 	.Documentation(R"(
@@ -36,35 +38,71 @@ This macro works like <c>Ctrl-Shift-A</c> except it pastes argument defaults
 instead of argument names.
 )")
 );
-extern "C" __declspec(dllexport) int WINAPI xll_paste_args()
+int WINAPI xll_paste_args()
 {
-	int result = FALSE;
-
+#pragma XLLEXPORT
 	try {
-		const OPER& xRef = Excel(xlfActiveCell);
-		Args* pargs = xll_arguments(xRef);
-		ensure(pargs || !"XLL.PASTE.ARGS: name or register id not found");
-		const OPER& xDef0 = pargs->ArgumentDefault(0);
-		ensure(Excel(xlcFormula, xDef0, xRef)); // FormulaArray???
-		result = TRUE;
+		Args* pargs = xll_args(Excel(xlfActiveCell));
+
+		paste_default(pargs->ArgumentDefault(0));
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
+
+		return FALSE;
 	}
 	catch (...) {
-		XLL_ERROR("XLL.PASTE.ARGS: unknown exception");
+		XLL_ERROR(__FUNCTION__ ": unknown exception");
+
+		return FALSE;
 	}
+
+	return TRUE;
+}
+
+On<Key> xok_paste_basic(ON_CTRL "B", "XLL.PASTE.BASIC");
+static AddIn xai_paste_basic(
+	Macro("xll_paste_basic", "XLL.PASTE.BASIC")
+	.FunctionHelp("Paste a function with default arguments. (Ctrl-Shift-B)")
+	.Category("XLL")
+	//.ShortcutText("^+B")
+	.Documentation(R"xyzyx(
+Excel's built-in Ctrl-Shift-A shortcut pastes the function argument text after typing 
+<code>=FUNCTION</code>while in edit mode.
+This macro requires you to first enter <code>=FUNCTION&lt;Enter&gt;</code> in the cell to get the
+<a href="https://docs.microsoft.com/en-us/office/client-developer/excel/xlfregister-form-1#property-valuereturn-value">register id</a>
+of the function. Ctrl-Shift-B uses the register id to look up the function, paste the default
+arguments in the cells below, and replace the register id with a call to the function using the 
+default arguments. 
+</p>
+)xyzyx")
+);
+int WINAPI xll_paste_basic(void)
+{
+#pragma XLLEXPORT
+	int result = TRUE;
+
+	Excel(xlcEcho, OPER(false));
+	try {
+		Select xAct; // active cell
+		const Args* pargs = xll_args(xAct);
+
+		xll_paste_default_args(*pargs);
+	}
+	catch (const std::exception& ex) {
+		XLL_ERROR(ex.what());
+
+		result = FALSE;
+	}
+	catch (...) {
+		XLL_ERROR(__FUNCTION__ ": unknown exception");
+
+		result = FALSE;
+	}
+	Excel(xlcEcho, OPER(true));
 
 	return result;
 }
-// Ctrl-Alt-@ is like Ctrl-Shift-A but paste default values.
-On<Key> xok_paste_args(ON_CTRL ON_SHIFT "2", "XLL.PASTE.ARGS");
-/*
-Auto<OpenAfter> xaoa_paste_args([]() {
-	On<Key> xok_paste_args(ON_CTRL ON_SHIFT "2", "XLL.PASTE.ARGS");
-	return TRUE;
-	});
-*/
 
 #if 0
 
@@ -207,7 +245,6 @@ xll_paste_open(void)
 static Auto<Open> xao_paste(xll_paste_open);
 */
 
-#endif // 0
 
 // paste basic function call in active cell and arguments below
 void xll_paste_regid(const Args* args)
@@ -225,7 +262,7 @@ void xll_paste_regid(const Args* args)
 
 	Down(rows(xVal));
 	for (unsigned short i = 1; i <= args->ArgumentCount(); ++i) {
-		OPER xRel = paste_default(args->ArgumentDefault(i));
+		OPER xRel = paste_default(*args, i);
 		/*
 		OPER xDefi = args->ArgumentDefault(i);
 		ensure(xDefi.is_str());
@@ -307,9 +344,9 @@ xll_paste_basic(void)
 	return result;
 }
 // Ctrl-Shift-B
-On<Key> xok_paste_basic(ON_CTRL ON_SHIFT "B", "XLL.PASTE.BASIC");
+//On<Key> xok_paste_basic(ON_CTRL ON_SHIFT "B", "XLL.PASTE.BASIC");
 
-#if 0
+
 // create named ranges for arguments
 static AddIn xai_paste_create(
 	Macro(XLL_DECORATE("_xll_paste_create", 0), "XLL.PASTE.CREATE")

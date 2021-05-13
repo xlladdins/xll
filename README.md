@@ -1,11 +1,25 @@
 ﻿# xll - a library for creating Excel add-ins
+ 
+ ![build workflow](https://github.com/xlladdins/xll/actions/workflows/msbuild.yml/badge.svg)
 
-This library makes it simple to call C++ functions and macros from Excel.
+This library makes it simple to call C, C++, or even Fortran code from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
+There are newer technologies available using C# and JavaScript that are appropriate for certain problems, but if you need the highest
+possible numerical performance from Excel this library is for you.
 
-The major usability enhancement is strings are now UTF-8. They are a L"ot" nicer to use than wide character strings.
-We still provides high performance access to [numeric arrays](#the-fp-data-type) and have
+Plug your code, or a third party library, into Excel by
+writing a thin wrapper that gathers data from Excel, calls any function, and returns the result.
+Use the full power of Excel to explore and perfect your code. Anyone can use your
+handiwork by opening the self-contained `.xll` file you produce.
+The xll library can also generate documentation integrated into Excel's help system.
+Hopefully you will get to the quality problem of others using your product and
+you can tell them to go to the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277)
+as your first line of defense against them taking up your precious time.
+
+The major usability enhancement for devlopers in the latest version is that all strings are now UTF-8. 
+They are a L"ot" nicer to use than wide character strings.
+The library still provides high performance access to [numeric arrays](#the-fp-data-type) and lets you easily create
 [handles](#handles) for embedding C++ objects that can use
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
 to simplify interfaces.
@@ -16,72 +30,24 @@ to simplify interfaces.
   The Excel SDK is not supported on MacOS.
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)  
-  Use the Community Edition and install the `Desktop development with C++` workload.
+  Use the Community Edition and install the `Desktop development with C++` and 
+  [`GitHub Extension for Visual Studio`](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio)
+  workload.
 
 [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel)  
   Install the 64-bit version of ~~Office~~ Microsoft 365 for the best experience.
 
 ## Get Started
 
-Run the [installer](https://xladdins.com/xll.msi). Save the `xll.msi` file and open it.
-You will see a popup claiming 
-<span title="Where by 'protect' Microsoft means they now require an Extended Validation certificate to extract more money out of software providers.">
-'Windows protected your PC'</span> and a link to 'More info'.
-That link should show you `xll.msi` was signed by Publisher KALX, LLC. Run anyway.
-
-This places the xll project template in your `Documents\Visual Studio 2019` folder 
-and include visualizers for debugging.
-
-Create a new project using `File ► New ► Project...` (`Ctrl-Shift-N`) and select `xllproject`. 
-You will need to add a git submodule for `xll` because Visual Studio doesn't know about submodules.
-Run `Tools ► Command Line ► Developer Command Prompt`
-from the Visual Studio menu and add a [submodule](https://github.blog/2016-02-01-working-with-submodules/).
-
-> `git init`  
-> `git submodule add https://github.com/xlladdins/xll.git`  
-
-Copy the debugger setup from `xll\test`.
-
-> `copy xll\test\test.vcxproj.user %projectname%.vcxproj.user`
-
-Where `%projectname%` is the name of the project you created.
-These steps can be perfomed by running the `setup.bat` in your project folder.
-Type `type setup.bat` from the command prompt to see what will be executed
-and `.\setup.bat` to run them.
-
-In Solution Explorer right click on the Solution and add `xll.vcxproj` from the `xll` subfolder
-of your project folder using Add ► Existing Project...
-At this point you can compile and run the add-in[1]
-using `Debug ► Start Debugging` (`F5`). This compiles the dll, (with
-file extension `.xll`), and starts Excel with the add-in loaded.
-
-The git repository you created has a snapshot of the xll library at the time you add it as a submodule.
-Your copy of the xll submodule will not change if the original xll repository changes.
-To get the latest copy start a Developer Command Prompt and pull.
-
-> `cd xll`  
-> `git pull`  
-
-[1] You may have to restart Visual Studio to have it recognize the `.user` file.
-
-The program that the debugger starts and the arguments to use are specified in _project properties_.
-Right click on a project and select `Properties` (`Alt-Enter`) at the bottom of the popup menu.
-Navigate to `Debugging` in `Configuration Properties`.
-
-![debug properties](images/debug.png)
-
-The `Command` `$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\excel.exe)`
-looks in the registry for the full path of the Excel executable.
-The `Command Arguments` `"$(TargetPath)" /p "$(ProjectDir)"` are passed to
-Excel when the debugger starts. The variable `$(TargetPath)` is the
-full path to the xll that was built and is opened by Excel. 
-The `/p` flag to Excel sets the
-default directory so `Ctrl-O` opens to the project directory.
-
+Clone <a href="https://github.com/xlladdins/xllproject1.git">project1</a>,
+open the `xllproject1.sln` solution, and press `F5` to build and run Excel in 
+the Visual Studio debugger.
+If you want to create your own project, fork the repository and rename it before 
+cloning to your computer. 
 
 ## AddIn
 
-The `xll::AddIn` class is used register Excel functions and macros.
+The `xll::AddIn` class is used to register Excel functions and macros.
 `AddIn` objects should be defined at the 
 [global scope](https://docs.microsoft.com/en-us/cpp/cpp/scope-visual-cpp)
 so they will be 
@@ -415,7 +381,7 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 For a production quality version of this example see 
 [handle.cpp](https://github.com/xlladdins/xll/blob/master/test/handle.cpp).
 That file also has examples illustrating how single inheritance can be used in Excel
-using `dynamic_cast`. Tha `handle` class has a member `template<class U> U* as()`
+using `dynamic_cast`. The `handle` class has a member `template<class U> U* as()`
 to do this for you and ensure `U` is derived from `T`.
 
 When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
@@ -440,6 +406,22 @@ have side-effects, they take no arguments and return `TRUE` if they run successf
 function numbers are special to the C API. 
 For example, [`xlUDF`](https://docs.microsoft.com/en-us/office/client-developer/excel/xludf)
 can be used to call User-Defined Functions.
+
+## Debugging
+
+The program that the debugger starts and the arguments to use are specified in _project properties_.
+Right click on a project and select `Properties` (`Alt-Enter`) at the bottom of the popup menu.
+Navigate to `Debugging` in `Configuration Properties`.
+
+![debug properties](images/debug.png)
+
+The `Command` `$(registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\excel.exe)`
+looks in the registry for the full path of the Excel executable.
+The `Command Arguments` `"$(TargetPath)" /p "$(ProjectDir)"` are passed to
+Excel when the debugger starts. The variable `$(TargetPath)` is the
+full path to the xll that was built and is opened by Excel. 
+The `/p` flag to Excel sets the
+default directory so `Ctrl-O` opens to the project directory.
 
 ## Documentation
 
@@ -504,7 +486,7 @@ There is also [Office 365](https://www.microsoft.com/en-US/microsoft-365),
 now called Microsoft 365, which should not be confused with Office 2019.
 It has features not available in Office 2019, in particular 
 [dynamic arrays](https://insider.office.com/en-us/blog/dynamic-arrays-and-new-functions-in-excel). 
-No need for `Ctrl-Alt=Enter` and trying to guess the size of ranges returned by functions.
+No need for `Ctrl-Alt-Enter` and trying to guess the size of ranges returned by functions.
 The entire range gets plopped into the spreadsheet and you will see a 
 [`#SPILL!`](https://support.microsoft.com/en-us/office/-spill-errors-in-excel-ffe0f555-b479-4a17-a6e2-ef9cc9ad4023)
 error if that would clobber existing cells.

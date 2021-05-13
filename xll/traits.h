@@ -12,19 +12,19 @@ namespace xll {
 	template<class X> requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	struct traits { };
 	
+#define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER::val. ## b) x##c;
 	template<>
 	struct traits<XLOPER> {
 		typedef typename XLOPER xtype;
-		typedef typename XLOPER12 typex;
-		typedef typename XLREF xref;
+		typedef typename XLOPER12 typex; // the other type
 		typedef typename XLMREF xmref;
-		typedef typename CHAR xchar;
+		XLL_TYPE_SCALAR(XLL_TYPE_TRAITS)
+		XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
 		typedef typename const CHAR* xcstr;
-		typedef typename short int xint;
+		typedef typename CHAR xchar;
 		typedef typename WORD xword;
 		typedef typename WORD xrw;
 		typedef typename BYTE xcol;
-		typedef typename BYTE xbool;
 		typedef typename _FP xfp;
 		typedef typename std::basic_string<xchar> xstring;
 		static const int argmax = 255;
@@ -50,13 +50,17 @@ namespace xll {
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, unsigned n)
 		{
-			ensure (0 == strncpy_s(dest, n, src, n));
-
+			ensure(0 == strncpy_s(dest, n, src, n));
+	
 			return dest;
 		}
 		static int cmp(const xchar* dest, const xchar* src, unsigned n)
 		{
 			return strncmp(dest, src, n);
+		}
+		static int alnum(int c)
+		{
+			return ::isalnum(c);
 		}
 		// return counted string that must be free'd
 		static char* cvt(const wchar_t* ws, int wn = -1)
@@ -64,20 +68,25 @@ namespace xll {
 			return utf8::wcstombs(ws, wn);
 		}
 	};
-	
+#undef XLL_TYPE_TRAITS
+
+#define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER12::val. ## b) x##c;
 	template<>
 	struct traits<XLOPER12> {
 		typedef typename XLOPER12 xtype;
 		typedef typename XLOPER typex; // not XLOPER12
-		typedef typename XLREF12 xref;
+		//typedef typename XLREF12 xref;
 		typedef typename XLMREF12 xmref;
+		XLL_TYPE_SCALAR(XLL_TYPE_TRAITS)
+		XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
 		typedef typename XCHAR xchar;
 		typedef typename const XCHAR* xcstr;
-		typedef typename INT32 xint;
+		//typedef typename INT32 xint;
 		typedef typename WORD xword;
 		typedef typename RW xrw;
 		typedef typename COL xcol;
-		typedef typename INT32 xbool;
+		//typedef typename INT32 xbool;
+		//typedef typename int xerr;
 		typedef typename _FP12 xfp;
 		typedef typename std::basic_string<xchar> xstring;
 		static const int argmax = 255;
@@ -103,7 +112,7 @@ namespace xll {
 		}
 		static xchar* cpy(xchar* dest, const xchar* src, unsigned n)
 		{
-			ensure (0 == wcsncpy_s(dest, n, src, n));
+			ensure(0 == wcsncpy_s(dest, n, src, n));
 
 			return dest;
 		}
@@ -111,12 +120,17 @@ namespace xll {
 		{
 			return wcsncmp(dest, src, n);
 		}
+		static int alnum(wint_t c)
+		{
+			return ::iswalnum(c);
+		}
 		// return counted string that must be free'd
 		static wchar_t* cvt(const char* s, int n = -1)
 		{
 			return utf8::mbstowcs(s, n);
 		}
 	};
+#undef XLL_TYPE_TRAITS
 
 }
 

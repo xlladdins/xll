@@ -2,6 +2,12 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 
+// Help topic location
+#ifndef XLL_URL
+#define XLL_URL "https://xllmonte.com/xllmonte/"
+#endif
+
+
 // Parameterize by XLL_VERSION
 // Define to be 12 for Excel 2007 and later or 4 otherwise
 #ifndef XLL_VERSION
@@ -50,13 +56,14 @@ typedef struct _FP12 _FPX;
 typedef struct _FP _FPX;
 #endif
 
+//??? where should this go
 #ifdef __cplusplus
-#include <type_traits>
+//#include <type_traits>
 #pragma warning(push)
 #pragma warning(disable: 4724)
 // mod with 0 <= x < y 
 template<typename T>
-	requires std::is_integral_v<T>
+//	requires std::is_integral_v<T>
 inline T xmod(T x, T y)
 {
 	T z = x % y;
@@ -66,12 +73,33 @@ inline T xmod(T x, T y)
 #pragma warning(pop)
 #endif
 
+// xltypeX, XLOPERX::val.X, xX, XLL_X, desc
+#define XLL_TYPE_SCALAR(X) \
+    X(Num,     num,      num,  DOUBLE,  "IEEE 64-bit floating point")          \
+    X(Bool,    xbool,    bool, BOOL,    "Boolean value")                       \
+    X(Err,     err,      err,  WORD,    "Error type")                          \
+    X(SRef,    sref.ref, ref,  LPOPER,  "Single refernce")                     \
+    X(Int,     w,        int,  LONG,    "32-bit signed integer")               \
+
+// types requiring allocation where xX is pointer to data
+// xltypeX, XLOPERX::val.X, xX, XLL_X, desck
+#define XLL_TYPE_ALLOC(X) \
+    X(Str,     str,     str, PSTRING, "Pointer to a counted Pascal string")  \
+    X(Ref,     mref.lpmref,    lpmref, LPOPER,  "Multiple reference")                  \
+    X(Multi,   array,   multi, LPOPER,  "Two dimensional array of OPER types") \
+    X(BigData, bigdata.h.lpbData, bigdata, LPOPER,  "Blob of binary data")                 \
+
+// xllbitX, desc
+#define XLL_BIT(X) \
+	X(XLFree,  "Excel owns memory")    \
+	X(DLLFree, "AutoFree owns memory") \
+
 #define XLL_NULL_TYPE(X)                    \
 	X(Missing, "missing function argument") \
 	X(Nil,     "empty cell")                \
 
-// xlerrXXX, Excel error string, error description
-#define XLL_ERR_TYPE(X)                                                     \
+// xlerrX, Excel error string, error description
+#define XLL_ERR(X)                                                     \
 	X(Null,  "#NULL!",  "intersection of two ranges that do not intersect") \
 	X(Div0,  "#DIV/0!", "formula divides by zero")                          \
 	X(Value, "#VALUE!", "variable in formula has wrong type")               \
@@ -129,6 +157,9 @@ XLL_ARG_TYPE(X)
 XLL_ARG_TYPE(X)
 #undef X
 #define X(a,b,c,d) extern const LPCSTR XLL_##a;
+XLL_ARG_TYPE(X)
+#undef X
+#define X(a,b,c,d) extern const LPCSTR XLL_##a##X;
 XLL_ARG_TYPE(X)
 #undef X
 #ifdef __cplusplus

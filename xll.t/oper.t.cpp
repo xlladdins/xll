@@ -10,6 +10,10 @@ int XLL_ERROR(const char*, bool)
 {
 	return 0;
 }
+int XLL_INFO(const char*, bool)
+{
+	return 0;
+}
 
 int test_defines()
 {
@@ -17,72 +21,28 @@ int test_defines()
 }
 int test_defines_ = test_defines();
 
-int test_oper_adt()
-{
-	{
-		OPER4 o("abc");
-		OPER4 o2(o);
-		o = o2;
-		ensure(o.xltype == xltypeStr);
-		ensure(o.val.str[0] == 3);
-		ensure(o.val.str[3] == 'c');
-		std::string s = o.to_string();
-		assert(s == "abc");
-	}
-	{
-		const char* abc = "abc";
-		OPER4 o(abc);
-		ensure(o.xltype == xltypeStr);
-		ensure(o.val.str[0] == 3);
-		ensure(o.val.str[3] == 'c');
-		const char* de = "de";
-		o = de;
-		ensure(o.xltype == xltypeStr);
-		ensure(o.val.str[0] == 2);
-		ensure(o.val.str[2] == 'e');
-	}
-	{
-		OPER12 o(L"abc");
-		OPER12 o2(o);
-		o = o2;
-		ensure(o.xltype == xltypeStr);
-		ensure(o.val.str[0] == 3);
-		ensure(o.val.str[3] == 'c');
-		std::string s = o.to_string();
-		assert(s == "abc");
-	}
-	{
-		const wchar_t* abc = L"abc";
-		OPER12 o(abc);
-		ensure(o.xltype == xltypeStr);
-		ensure(o.val.str[0] == 3);
-		ensure(o.val.str[3] == 'c');
-		const wchar_t* de = L"de";
-		o = de;
-		ensure(o.xltype == xltypeStr);
-		ensure(o.val.str[0] == 2);
-		ensure(o.val.str[2] == 'e');
-	}
-	{
-		const char* s = nullptr;
-		OPER o(s);
-		ensure(o.xltype == xltypeStr);
-		ensure(o.val.str[0] == 0);
-	}
-
-	return 0;
-}
-int test_oper_adt_ = test_oper_adt();
-
 int test_oper_default()
 {
 	{
 		OPER4 o;
 		ensure(o.xltype == xltypeNil);
+		OPER4 o2(o);
+		ensure(o2.xltype == xltypeNil);
+		o = o2;
+		ensure(o.xltype == xltypeNil);
 	}
 	{
 		OPER12 o;
 		ensure(o.xltype == xltypeNil);
+		OPER12 o2(o);
+		ensure(o2.xltype == xltypeNil);
+		o = o2;
+		ensure(o.xltype == xltypeNil);
+	}
+	{
+		OPER o;
+		ensure(o.xltype == xltypeNil);
+		ensure(o.is_nil());
 	}
 
 	return 0;
@@ -156,6 +116,86 @@ int test_oper_num_ = test_oper_num();
 
 int test_oper_str()
 {
+	{
+		OPER4 o4("");
+		ensure(o4.is_str());
+		ensure(o4.val.str[0] == 0);
+
+		OPER12 o12("");
+		ensure(o12.is_str());
+		ensure(o12.val.str[0] == 0);
+	}
+	{
+		OPER o;
+		o = "";
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 0);
+		o.append("");
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 0);
+	}
+	{
+		OPER o("abc");
+		auto s = o.as_cstr();
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[3] == 'c');
+		ensure(o.val.str[4] == 0);
+		ensure(s[0] == 'a');
+		ensure(3 == traits<XLOPERX>::len(s));
+
+		s = o.as_cstr();
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[3] == 'c');
+		ensure(o.val.str[4] == 0);
+		ensure(s[0] == 'a');
+		ensure(3 == traits<XLOPERX>::len(s));
+	}
+	{
+		OPER4 o("abc");
+		OPER4 o2(o);
+		o = o2;
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[3] == 'c');
+		std::string s = o.to_string();
+		assert(s == "abc");
+	}
+	{
+		const char* abc = "abc";
+		OPER4 o(abc);
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[3] == 'c');
+		const char* de = "de";
+		o = de;
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 2);
+		ensure(o.val.str[2] == 'e');
+	}
+	{
+		OPER12 o(L"abc");
+		OPER12 o2(o);
+		o = o2;
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[3] == 'c');
+		std::string s = o.to_string();
+		assert(s == "abc");
+	}
+	{
+		const wchar_t* abc = L"abc";
+		OPER12 o(abc);
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[3] == 'c');
+		const wchar_t* de = L"de";
+		o = de;
+		ensure(o.xltype == xltypeStr);
+		ensure(o.val.str[0] == 2);
+		ensure(o.val.str[2] == 'e');
+	}
 	{
 		OPER4 o("abc");
 		ensure(o.xltype == xltypeStr);
@@ -239,6 +279,27 @@ int test_oper_str()
 		ensure(o.xltype == xltypeStr);
 		ensure(o.val.str[0] == (char)strlen("abc"));
 		ensure(0 == strncmp("abc", o.val.str + 1, o.val.str[0]));
+	}
+	{
+		OPER o;
+		o.append(OPER{});
+		ensure(o.xltype == xltypeNil);
+		OPER foo("foo");
+		o.append(foo);
+		ensure(o == foo);
+	}
+	{
+		OPER o("foo");
+		o.append(OPER{});
+		ensure(o == "foo");
+	}
+	{
+		OPER4 o4("foo");
+		OPER12 o12(L"bar");
+		o4.append(o12);
+		ensure(o4 == "foobar");
+		o12.append(o4);
+		ensure(o12 == "barfoobar");
 	}
 
 	return 0;
@@ -484,7 +545,7 @@ int test_fp()
 		ensure(ax[0] == 1.23);
 		ensure(ax(0,0) == 1.23);
 		double s = 0;
-		for (const auto& i : a) {
+		for (const auto& i : ax) {
 			s += i;
 		}
 		ensure(s == 1.23);
@@ -496,9 +557,9 @@ int test_fp()
 	}
 	{
 		FPX a;
- 		ensure(a.rows() == 0);
-		ensure(a.columns() == 0);
-		ensure(a.size() == 0);
+ 		ensure(a.rows() == 1);
+		ensure(a.columns() == 1);
+		ensure(a.size() == 1);
 	}
 	{
 		FPX a(2,3);
@@ -651,7 +712,7 @@ int test_mref()
 	{
 		REF r(1, 1);
 		OPER mr({ r,r,r });
-		assert(mr.size() == 3);
+		assert(mr.size() == 1);
 		assert(mr.type() == xltypeRef);
 		assert(mr == mr);
 		OPER mr2(mr);
@@ -661,7 +722,7 @@ int test_mref()
 	{
 		REF12 r(1, 1);
 		OPER12 mr({ r,r,r });
-		assert(mr.size() == 3);
+		assert(mr.size() == 1);
 		assert(mr == mr);
 		OPER12 mr2(mr);
 		mr = mr2;

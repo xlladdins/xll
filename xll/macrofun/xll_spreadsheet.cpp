@@ -116,47 +116,47 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		if (!args->isFunction()) {
 			continue;
 		}
-		Workbook::Select();
+		//!!!Workbook::Select();
 		Workbook::Insert();
-		Workbook::Rename(Excel(xlfSubstitute, tab, OPER("\\"), OPER("")));
+		Workbook::Rename(tab.safe());
 
 		Select sel("R1:R1");
 		Header();
 
-		sel = Select(REF(0, 1)); // B1
+		sel(REF(0, 1)); // B1
 		sel.Set(tab & OPER(" ") & args->Type());
 
-		sel.Down();
+		sel.Move(1,0);
 		sel.Set(args->FunctionHelp());
 		Subheader();
-		sel.Down();
+		sel.Move(1,0);
 
 		if (args->isFunction()) {
-			sel.Down();
+			sel.Move(1,0);
 			sel.Set(args->FunctionText());
 			Alignment::Align(Alignment::Horizontal::Right);
 
-			sel.Right();
+			sel.Move(0,1);
 			sel.Formula(OPER("=") & args->FunctionText() & OPER("(") & args->ArgumentText() & OPER(")"));
 			xll::Name name0(args->FunctionText());
-			name0.Define(sel.selection, true);
-			OPER xFunctionText = sel.selection;
+			name0.Define(sel, true);
+			OPER xFunctionText = sel;
 
-			sel.Left().Down();
+			sel.Move(0,-1); sel.Move(1,0);
 			for (unsigned i = 1; i <= args->ArgumentCount(); ++i) {
 				sel.Set(args->ArgumentName(i));
 				ArgumentName();
 
-				sel.Right();
+				sel.Move(0,1);
 				OPER ref = paste_default(args->ArgumentDefault(i));
 				xll::Name namei(args->ArgumentName(i));
 				namei.Define(ref, true); // local name
 
-				sel.Right(ref.columns());
+				sel.Move(0, ref.columns());
 				sel.Set(args->ArgumentHelp(i));
-				sel.Left(ref.columns());
+				sel.Move(0, -static_cast<int>(ref.columns()));
 
-				sel.Left().Down(rows(ref));
+				sel.Move(rows(ref),-1);
 			}
 			Excel(xlcSelect, xFunctionText);
 		}
@@ -169,16 +169,16 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	Select sel("R1:R1");
 	Header();
 
-	sel = Select(REF(0, 1)); // B1
+	sel(REF(0, 1)); // B1
 	// "=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
 	sel.Formula(OPER("=HYPERLINK(\"") & dir & OPER(sp.fname) & OPER(" & Bits() & ") & OPER(sp.ext) & OPER("\", \"") & Name & OPER("\")"));
 	Excel(xlcNote, OPER("user: addinuser pass: @addm3"));
 	//sel.Set(Name);
 
-	sel.Down();
+	sel.Move(1,0);
 	sel.Set(OPER(description));
 
-	sel.Down(2);
+	sel.Move(2, 0);
 
 	for (auto& [cat, type_text] : cat_type_text) {
 		if (type_text.size() == 0) {
@@ -187,17 +187,17 @@ bool Spreadsheet(const char* description = "", bool release = false)
 		sel.Set(OPER("Category ") & cat);
 		Category();
 
-		sel.Down();
+		sel.Move(1,0);
 		for (auto& [type, text] : type_text) {
 			// Function/Macro
 			sel.Set(Excel(xlfProper, type));
 			TableHeader();
 
-			sel.Right();
+			sel.Move(0,1);
 			sel.Set(OPER("Description"));
 			TableHeader();
 
-			sel.Left().Down();
+			sel.Move(1,-1);
 			int i = 0;
 			for (auto& [key, args] : text) {
 				if (!args->FunctionHelp()) {
@@ -206,7 +206,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 				// table row
 				OPER ft = args->FunctionText();
 				if (args->isFunction()) {
-					OPER safeft = Excel(xlfSubstitute, ft, OPER("\\"), OPER(""));
+					OPER safeft = ft.safe();
 					OPER hl = OPER("=HYPERLINK(CELL(\"address\", ") & safeft & OPER("!") & ft & OPER(")");
 					Excel(xlcFormula, hl & OPER(", \"") & ft & OPER("\")"));
 				}
@@ -216,12 +216,12 @@ bool Spreadsheet(const char* description = "", bool release = false)
 				Alignment::Align(Alignment::Horizontal::Right);
 				FormatFont::Bold();
 
-				sel.Right();
+				sel.Move(0,1);
 				Excel(xlcFormula, args->FunctionHelp());
 				if (i % 2 == 1) {
 					Patterns(xGrey, xWhite);
 				}
-				sel.Left().Down();
+				sel.Move(1,-1);
 				++i;
 			}
 		}
@@ -229,10 +229,11 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	}
 	// select column C and fit text width
 	// COLUMN.WIDTH(width_num, reference, standard, type_num, standard_num)
+	//??? Column col(3); col.FitWidth();
 	Excel(xlcColumnWidth, OPER(), OPER("C3:C3"), OPER(), OPER(3));
 
 	// select cell containing the hyperlink
-	Excel(xlcSelect, OPER(REF(1, 1)));
+	sel(REF(1, 1));
 
 	return true;
 }
@@ -247,7 +248,7 @@ xll_spreadsheet_doc(void)
 	int result = FALSE;
 
 	//Excel(xlcEcho, OPER(false));
-	DWORD olevel = XLL_ALERT_LEVEL(0);
+	//DWORD olevel = XLL_ALERT_LEVEL(0);
 	OptionsCalculation oc;
 	oc.type_num = OPER((int)OptionsCalculation::Type::Manual);
 	oc.Calculation();
@@ -262,7 +263,7 @@ xll_spreadsheet_doc(void)
 	}
 	oc.type_num = OPER((int)OptionsCalculation::Type::Automatic);
 	oc.Calculation();
-	XLL_ALERT_LEVEL(olevel);
+	//XLL_ALERT_LEVEL(olevel);
 	//Excel(xlcEcho, OPER(true));
 
 	return result;

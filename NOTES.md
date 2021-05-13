@@ -26,8 +26,14 @@ Use xlfRegister("file.xll") to require add-in. Versions?
 
 Create zip file for visualizers and project template to replace msi.
 
+https://docs.microsoft.com/en-us/office/troubleshoot/office-suite-issues/click-hyperlink-to-sso-website
+Add a custom HTTP header to the GET response for the Office file contents. "Content-Disposition: Attachment"
+
+https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-mso_winother-mso_2013_release/excel-keeps-crashing-with-a-acces-violation-error/68c00399-7055-4359-94ea-0b8e4091f8c0
+
 https://www.drdobbs.com/architecture-and-design/faking-dde-with-private-servers/184409151?pgno=3
 
+Exception thrown at ... in EXCEL.EXE: 0xC0000005:
 https://docs.microsoft.com/en-us/office/client-developer/excel/how-to-call-xll-functions-from-the-function-wizard-or-replace-dialog-boxes?redirectedfrom=MSDN
 
 #define CLASS_NAME_BUFFSIZE  50
@@ -97,3 +103,35 @@ bool called_from_paste_fn_dlg(void)
     EnumWindows((WNDENUMPROC)xldlg_enum_proc, (LPARAM)&es);
     return es.is_dlg;
 }
+
+## AddinManager
+
+states: uninstalled, known, installed, loaded
+
+AIM: HKCU\Software\Microsoft\Office\<version>\Excel\Add-in Manager
+    - value name: full path
+OPENn: HKCU\Software\Microsoft\Office\<version>\Excel\Options\Open<n>
+    - value name: OPENn  data: "/R full_path" 
+DIR: %AppData%\Microsoft\Templates\ 
+    - trusted location;
+
+AddinManager uses AIM or OPENn but never both
+
+New() puts full path in AIM
+Add() moves AIM\full_path to OPENn
+Remove() moves `OPENn ` to AIM\full_path
+Delete() remove and then delete AIM registry entry
+Install() copy to DIR
+
+## Auto<OpenAfter>
+
+Status of add-in manager.
+
+If in OPENn check for newer.
+
+
+## First Use
+AIM and OPENn not set
+    Prompt to install xlGetName in Template
+    Prompt for New to add to AIM
+    Prompt to Add (does not work?)

@@ -7,7 +7,8 @@
 using std::unique_ptr;
 using namespace utf8;
 
-int test_utf8 = []() {
+int test_utf8()
+{
 	{
 		char s[] = "abc";
 		unique_ptr<wchar_t> ws(mbstowcs(s));
@@ -45,5 +46,6 @@ int test_utf8 = []() {
 	}
 
 	return 0;
-}();
+};
+int test_utf8_ = test_utf8();
 

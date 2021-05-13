@@ -20,18 +20,245 @@ namespace xll {
 
 	using xll::Excel;
 
+	// https://support.microsoft.com/en-us/office/offset-function-c8de19ae-dd79-4b9b-a14e-b4d906d11b66	
+	inline OPER Offset(const REF& ref, const REF& off)
+	{
+		return Excel(xlfOffset, OPER(ref), 
+			OPER(off.rwFirst), OPER(off.colFirst), 
+			OPER(height(off)), OPER(width(off))
+		);
+	}
+
+	// https://xlladdins.github.io/Excel4Macros/selection.html
+	// https://xlladdins.github.io/Excel4Macros/select.html
+	class Select {
+		OPER selection; 
+	public:
+		Select(const OPER& sel = Excel(xlfActiveCell))
+			: selection(sel)
+		{
+			Excel(xlcSelect, OPER(selection.as_sref()));
+		}
+		/*
+		Select(const REF& ref)
+			: Select(OPER(ref))
+		{ }
+		*/
+		// selection is R1C1 by default
+		Select(const char* selection, bool A1 = false)
+			: Select(Excel(xlfTextref, OPER(selection), OPER(A1)))
+		{ }
+		Select(const Select&) = delete;
+		Select& operator=(const Select&) = delete;
+		~Select()
+		{ }
+
+		operator const OPER& () const
+		{
+			return selection;
+		}
+
+		// select selection
+		Select& operator()()
+		{
+			ensure(Excel(xlcSelect, selection));
+
+			return *this;
+		}
+		// select ref
+		Select& operator()(const REF& ref)
+		{
+			selection = Select(ref);
+
+			return *this;
+		}
+		// select row r column c
+		Select& operator()(int r, int c, unsigned h = 0, unsigned w = 0)
+		{
+			if (h == 0) {
+				h = selection.rows();
+			}
+			if (w == 0) {
+				w = selection.columns();
+			}
+
+			return operator()(REF(r, c, h, w));
+		}
+
+		/*
+		Select& Offset(const REF& ref)
+		{
+			selection = Select(xll::Offset(selection.as_sref(), ref));
+
+			return *this;
+		}
+		Select& Offset(int r, int c, unsigned h = 0, unsigned w = 0)
+		{
+			if (h == 0) {
+				h = selection.rows();
+			}
+			if (w == 0) {
+				w = selection.columns();
+			}
+
+			return Offset(REF(r, c, h, w));
+		}
+		*/
+
+		// preserves upper left corner
+		Select& Reshape(unsigned h, unsigned w)
+		{
+			selection = Select(reshape(selection.as_sref(), h, w));
+
+			return *this;
+		}
+		Select& Reshape(const OPER& ref)
+		{
+			return Reshape(rows(ref), columns(ref));
+		}
+
+		// translate by r rows and c columns
+		Select& Move(int r, int c)
+		{
+			selection = Select(translate(selection.as_sref(), r, c));
+
+			return *this;
+		}
+
+		// Enters numbers, text, references, and formulas in a worksheet
+		// https://xlladdins.github.io/Excel4Macros/formula.html
+		// https://xlladdins.github.io/Excel4Macros/formula.array.html
+		OPER Formula(const OPER& formula) const
+		{
+			return Excel(selection.size() == 1 ? xlcFormula : xlcFormulaArray, formula, selection);
+		}
+
+		// The reference is given as an R1C1-style relative reference in the form of text, such as "R[1]C[1]".
+		// https://xlladdins.github.io/Excel4Macros/relref.html
+		OPER Relref(const OPER& ref)
+		{
+			return Excel(xlfRelref, ref, selection);
+		}
+		// The reference must be an R1C1-style relative reference in the form of text, such as "R[1]C[1]".
+		// https://xlladdins.github.io/Excel4Macros/absref.html
+		OPER Absref(const OPER& ref)
+		{
+			return Excel(xlfAbsref, ref, selection);
+		}
+
+		// https://docs.microsoft.com/en-us/office/client-developer/excel/xlset
+		OPER Set(const OPER& set)
+		{
+			return Excel(xlSet, selection, set);
+		}
+
+		// class Row, Column
+		// https://xlladdins.github.io/Excel4Macros/row.height.html
+		OPER RowHeight(int points)
+		{
+			return Excel(xlcRowHeight, OPER(points), selection);
+		}
+		OPER RowVisible(bool visible = true)
+		{
+			return Excel(xlcRowHeight, OPER(), selection, OPER(), OPER(visible ? 2 : 1));
+		}
+		// Sets the row selection to a best-fit height
+		OPER RowFit()
+		{
+			return Excel(xlcRowHeight, OPER(), selection, OPER(), OPER(3));
+		}
+		// https://xlladdins.github.io/Excel4Macros/column.width.html
+		OPER ColumnWidth(int points)
+		{
+			return Excel(xlcColumnWidth, OPER(points), selection);
+		}
+		OPER ColumnVisible(bool visible = true)
+		{
+			return Excel(xlcColumnWidth, OPER(), selection, OPER(), OPER(visible ? 2 : 1));
+		}
+		// Sets the column selection to a best-fit width
+		OPER ColumnFit()
+		{
+			return Excel(xlcColumnWidth, OPER(), selection, OPER(), OPER(3));
+		}
+		// Creates a comment 
+		OPER Note(const char* note)
+		{
+			return Excel(xlcNote, OPER(note), OPER(selection.as_sref()));
+		}
+
+		// https://xlladdins.github.io/Excel4Macros/select.special.html
+		enum class Type {
+			Notes = 1,
+			Constants = 2,
+			Formulas = 3,
+			Blanks = 4,
+			Current = 5, // region
+			CurrentArray = 6,
+			RowDifferences = 7,
+			ColumnDifferences = 8,
+			Precedents = 9,
+			Dependents = 10,
+			LastCell = 11,
+			VisibleCellsOnly = 12, // (outlining)
+			AllObjects = 13
+		};
+		enum class ValueType {
+			Numbers = 1,
+			Text = 2,
+			Logical = 4,
+			Error = 16,
+			Default = Numbers + Text + Logical + Error
+		};
+		enum class Level {
+			Direct = 1,
+			All = 2
+		};
+		// Uses active cell implicitly. Select sel; sel().Special(...);
+		static OPER Special(Type type, ValueType value = ValueType::Default, Level level = Level::Direct)
+		{
+			OPER type_num = OPER((int)type);
+			OPER value_type = Missing;
+			OPER levels = Missing;
+
+			if (type == Type::Constants or type == Type::Formulas) {
+				value_type = OPER((int)value);
+			}
+			else if (type == Type::Precedents or type == Type::Dependents) {
+				levels = OPER((int)level);
+			}
+
+			return Excel(xlcSelectSpecial, type_num, value_type, levels);
+		}
+	};
+
 	//
 	// Parameterized functions
 	//
 
+	inline OPER Home()
+	{
+		OPER ac = Excel(xlfActiveCell);
+
+		ac.as_sref().colFirst = 0;
+		ac.as_sref().colLast = 0;
+		ac.as_sref().rwFirst = 0;
+		ac.as_sref().rwLast = 0;
+
+		return Excel(xlcSelect, ac);
+	}
+
 	// move relative to active cell
 	inline OPER Move(int r, int c)
 	{
-		return Excel(xlcSelect,
-			Excel(xlfOffset, 
-				Excel(xlfActiveCell), OPER(r), OPER(c)
-			)
-		);
+		OPER ac = Excel(xlfActiveCell);
+
+		ac.as_sref().colFirst += c;
+		ac.as_sref().colLast += c;
+		ac.as_sref().rwFirst += r;
+		ac.as_sref().rwLast += r;
+
+		return Excel(xlcSelect, ac);
 	}
 	// move down r rows
 	inline OPER Down(int r = 1)
@@ -681,141 +908,6 @@ namespace xll {
 		return Excel(xlcPatterns, OPER(1), fore, back);
 	}
 
-	// https://xlladdins.github.io/Excel4Macros/selection.html
-	// https://xlladdins.github.io/Excel4Macros/select.html
-	struct Select {
-		OPER selection; // ??? must be an sref 
-		Select(const OPER& _selection = Excel(xlfActiveCell))
-			: selection(_selection)
-		{
-			if (selection.xltype & xltypeRef) {
-				selection = OPER(selection.val.mref.lpmref->reftbl[0]);
-			}
-
-			ensure(Excel(xlcSelect, selection));
-		}
-		Select(const REF& selection)
-			: Select(OPER(selection))
-		{ }
-		Select(const char* selection)
-			: Select(Excel(xlfTextref, OPER(selection), OPER(false))) // R1C1
-		{ }
-
-		OPER Offset(int r, int c, int h = 1, int w = 1) const
-		{
-			return Excel(xlfOffset, selection, OPER(r), OPER(c), OPER(h), OPER(w));
-		}
-
-		// move r rows and c columns
-		Select& Move(int r, int c)
-		{
-			selection = Offset(r, c);
-
-			ensure(Excel(xlcSelect, selection));
-
-			return *this;
-		}
-		Select& Down(int r = 1)
-		{
-			return Move(r, 0);
-		}
-		Select& Up(int r = 1)
-		{
-			return Move(-r, 0);
-		}
-		Select& Right(int c = 1)
-		{
-			return Move(0, c);
-		}
-		Select& Left(int c = 1)
-		{
-			return Move(0, -c);
-		}
-
-		// Enters numbers, text, references, and formulas in a worksheet
-		OPER Formula(const OPER& formula)
-		{
-			return Excel(xlcFormula, formula, selection);
-		}
-		// https://docs.microsoft.com/en-us/office/client-developer/excel/xlset
-		OPER Set(const OPER& set)
-		{
-			return Excel(xlSet, selection, set);
-		}
-		OPER RowHeight(int points)
-		{
-			return Excel(xlcRowHeight, OPER(points), selection);
-		}
-		OPER RowVisible(bool visible = true)
-		{
-			return Excel(xlcRowHeight, OPER(), selection, OPER(), OPER(visible ? 2 : 1));
-		}
-		// Sets the row selection to a best-fit height
-		OPER RowFit()
-		{
-			return Excel(xlcRowHeight, OPER(), selection, OPER(), OPER(3));
-		}
-		OPER ColumnWidth(int points)
-		{
-			return Excel(xlcColumnWidth, OPER(points), selection);
-		}
-		OPER ColumnVisible(bool visible = true)
-		{
-			return Excel(xlcColumnWidth, OPER(), selection, OPER(), OPER(visible ? 2 : 1));
-		}
-		// Sets the column selection to a best-fit width
-		OPER ColumnFit()
-		{
-			return Excel(xlcColumnWidth, OPER(), selection, OPER(), OPER(3));
-		}
-		// Creates a comment 
-		OPER Note(const char* note)
-		{
-			return Excel(xlcNote, OPER(note), selection);
-		}
-		enum class Type {
-			Notes = 1,
-			Constants = 2,
-			Formulas = 3,
-			Blanks = 4,
-			Current = 5, // region
-			CurrentArray = 6,
-			RowDifferences = 7,
-			ColumnDifferences = 8,
-			Precedents = 9,
-			Dependents = 10,
-			LastCell = 11,
-			VisibleCellsOnly = 12, // (outlining)
-			AllObjects = 13
-		};
-		enum class ValueType {
-			Numbers = 1,
-			Text = 2,
-			Logical = 4,
-			Error = 16,
-			Default = Numbers + Text + Logical + Error
-		};
-		enum class Level {
-			Direct = 1,
-			All = 2
-		};
-		// uses active cell implicitly
-		static OPER Special(Type type, ValueType value = ValueType::Default, Level level = Level::Direct)
-		{
-			OPER type_num = OPER((int)type);
-			OPER value_type = Missing;
-			OPER levels = Missing;
-
-			if (type == Type::Constants or type == Type::Formulas) {
-				value_type = OPER((int)value);
-			}
-			else if (type == Type::Precedents or type == Type::Dependents) {
-				levels = OPER((int)level);
-			}
-
-			return Excel(xlcSelectSpecial, type_num, value_type, levels);
-		}
-	};
 
 	struct Name {
 		OPER name;
@@ -869,12 +961,23 @@ namespace xll {
 		// https://xlladdins.github.io/Excel4Macros/workbook.insert.html
 		static OPER Insert(enum Type type = Type::Worksheet)
 		{
-			return Excel(xlcWorkbookInsert, OPER((int)type));
+			OPER insert = Excel(xlcWorkbookInsert, OPER((int)type));
+			if (!insert) {
+				// empty workbook
+				insert = New(type);
+			}
+
+			return insert;
 		}
 		// https://xlladdins.github.io/Excel4Macros/workbook.move.html
 		static OPER Move(const OPER& name, int position = 1)
 		{
 			return Excel(xlcWorkbookMove, name, Document::Sheet(), OPER(position));
+		}
+		// https://xlladdins.github.io/Excel4Macros/new.html
+		static OPER New(enum Type type = Type::Worksheet)
+		{
+			return Excel(xlcNew, OPER((int)type), Missing, Missing);
 		}
 		// https://xlladdins.github.io/Excel4Macros/workbook.name.html
 		static OPER Rename(const OPER& name)

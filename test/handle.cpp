@@ -57,9 +57,9 @@ public:
 };
 
 AddIn xai_base(
-	Function(XLL_HANDLEX, "xll_base", "XLL.BASE")
+	Function(XLL_HANDLEX, "xll_base", "\\XLL.BASE")
 	.Arguments({
-		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
+		Arg(XLL_LPOPER, "cell", "is a cell or range of cells", "{\"a\",\"range\";\"of\",\"cells\"}")
 	})
 	.FunctionHelp("Return a handle to a base object.")
 	.Uncalced() // required for functions creating handles
@@ -76,7 +76,7 @@ HANDLEX WINAPI xll_base(const LPOPER px)
 AddIn xai_base_get(
 	Function(XLL_LPOPER, "xll_base_get", "XLL.BASE.GET")
 	.Arguments({
-		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE")
+		Arg(XLL_HANDLEX, "handle", "is a handle returned by \\XLL.BASE", "\\XLL.BASE(TRUE)")
 	})
 	.FunctionHelp("Return the value stored in base.")
 );
@@ -99,7 +99,7 @@ LPOPER WINAPI xll_base_get(HANDLEX _h)
 AddIn xai_base_set(
 	Function(XLL_HANDLEX, "xll_base_set", "XLL.BASE.SET")
 	.Arguments({
-		Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE"),
+		Arg(XLL_HANDLEX, "handle", "is a handle returned by \\XLL.BASE"),
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
 	})
 	.FunctionHelp("Set the value of base to cell.")
@@ -117,7 +117,7 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 }
 
 AddIn xai_derived(
-	Function(XLL_HANDLEX, "xll_derived", "XLL.DERIVED")
+	Function(XLL_HANDLEX, "xll_derived", "\\XLL.DERIVED")
 	.Arguments({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells"),
 		Arg(XLL_LPOPER, "cell2", "is a cell or range of cells")
@@ -161,6 +161,7 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 	return &result;
 }
 
+// convert pointers to "base[0x<hexdigits>]"
 static handle<base<>>::codec<XLOPERX> base_codec(OPER("base[0x"), OPER("]"));
 
 AddIn xai_ebase(
@@ -179,7 +180,6 @@ LPOPER WINAPI xll_ebase(const LPOPER px)
 	return (LPOPER)&base_codec.encode(h.get());
 }
 
-// also works for any derived class
 AddIn xai_ebase_get(
 	Function(XLL_LPOPER, "xll_ebase_get", "XLL.EBASE.GET")
 	.Arguments({

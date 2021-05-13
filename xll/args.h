@@ -29,7 +29,7 @@ namespace xll {
 		Arg()
 			: type(nullptr), name(nullptr), help(nullptr), init(nullptr)
 		{ }
-		Arg(cstr type, cstr name, cstr help, cstr init = nullptr)
+		Arg(cstr type, cstr name, cstr help, cstr init = "")
 			: type(type), name(name), help(help), init(init)
 		{
 			if (!xll_arg_types.contains(type)) {
@@ -77,6 +77,7 @@ namespace xll {
 		Args& operator=(Args&&) = default;
 		~Args()
 		{ }
+
 		// Function
 		Args(cstr type, cstr procedure, cstr functionText)
 		{
@@ -139,6 +140,12 @@ namespace xll {
 			return !Excel(xlfFind, OPER(XLL_VOLATILE), TypeText()).is_err();
 		}
 
+		// Arbitrary convention for function names returning a handle.
+		bool isHandle() const
+		{
+			return key("functionText").val.str[1] == '\\';
+		}
+
 		Args& ThreadSafe()
 		{
 			key("typeText") &= XLL_THREAD_SAFE;
@@ -190,6 +197,12 @@ namespace xll {
 		{
 			return key("procedure");
 		}
+		Args& Procedure(const OPER& procedure)
+		{
+			key("procedure") = procedure;
+
+			return *this;
+		}
 
 		// Excel SDK signature
 		const OPER& TypeText() const
@@ -202,6 +215,7 @@ namespace xll {
 		{
 			return key("functionText");
 		}
+
 		// Key used in AddIn::Map.
 		const OPER& Key() const
 		{
@@ -264,6 +278,12 @@ namespace xll {
 		{
 			return key("helpTopic");
 		}
+		Args& HelpTopic(const OPER& helpTopic)
+		{
+			key("helpTopic") = helpTopic;
+
+			return *this;
+		}
 		Args& HelpTopic(cstr helpTopic)
 		{
 			key("helpTopic") = helpTopic;
@@ -314,32 +334,46 @@ namespace xll {
 			return key("argumentHelp")[i - 1];
 		}
 
-
 		// Default value for argument.
-		const OPER& ArgumentDefault(unsigned i) const
+		OPER ArgumentDefault(unsigned i) const
 		{
 			if (i == 0) {
 				// function call with default arguments
-				static OPER arg0, eq("="), lp("("), rp(")"), c(", ");
-
-				arg0 = eq & FunctionText() & lp;
+				OPER arg0 = FunctionText() & OPER("(");
 				for (unsigned j = 1; j <= ArgumentCount(); ++j) {
 					if (j > 1) {
-						arg0 &= c;
+						arg0 &= OPER(", ");
 					}
 					arg0 &= ArgumentDefault(j);
 				}
-				arg0 &= rp;
+				arg0 &= OPER(")");
 
 				return arg0;
 			}
-
-			return key("argumentDefault")[i - 1];
+			else {
+				return key("argumentDefault")[i - 1];
+			}
 		}
 
 		Args& Documentation(const std::string& s)
 		{
 			documentation = s;
+
+			return *this;
+		}
+		Args& SeeAlso(std::initializer_list<std::string_view> items)
+		{
+			documentation += "<h2>See Also</h2>\n";
+			const char* comma = "";
+			for (const auto& item : items) {
+				documentation += comma;
+				documentation += "<a href=\"";
+				documentation += OPER(item.data()).safe().to_string();
+				documentation += ".html\">";
+				documentation += item;
+				documentation += "</a>\n";
+				comma = ", ";
+			}
 
 			return *this;
 		}

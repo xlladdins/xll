@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- save into %USERPROFILE%\My Documents\Visual Studio 20xx\Visualizers\ -->
+<!-- save into %USERPROFILE%\My Documents\Visual Studio 2019\Visualizers\ -->
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
   <Type Name="xlref">
     <AlternativeType Name="xlref12"/>

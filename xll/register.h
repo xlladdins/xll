@@ -1,17 +1,13 @@
 // register.h - Register an add-in
 #pragma once
 #include "shlwapi.h"
+#include "splitpath.h"
 #include "args.h"
 
 namespace xll{
 
 	inline OPER Register(Args& args)
 	{
-		args.key("moduleText") = Excel(xlGetName);
-
-		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
-		std::vector<const XLOPERX*> oper(count);
-
 		OPER procedure = args.Procedure();
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
 		if (procedure.val.str[1] == '_') {
@@ -23,53 +19,56 @@ namespace xll{
 			procedure = OPER("?") & procedure;
 		}
 
-		// indicates function returns a handle
-		if (args.FunctionText().val.str[1] == '\\') {
-			ensure(args.isUncalced());
-		}
-
+		OPER moduleText = Excel(xlGetName);
 		OPER helpTopic = args.HelpTopic();
 		if (!helpTopic and args.Documentation().length() > 0) {
-			OPER name = args.key("moduleText");
-			name.append(); // null terminate
+			/*
+			path sp(moduleText.as_cstr());
+			OPER name(sp.dirname().c_str());
+			*/
+			OPER name(XLL_URL);
+			name.append(args.FunctionText().safe());
+			name.append(".html!0");
+			name.as_cstr(); // null terminate
 
 			xll::traits<XLOPERX>::xchar buf[2048];
 			DWORD len = 2048;
-			ensure(S_OK == UrlCreateFromPath(name.val.str + 1, buf, &len, 0));
+			HRESULT result = UrlCreateFromPath(name.val.str + 1, buf, &len, 0);
+			ensure(S_OK == result or S_FALSE == result);
 
-			helpTopic = buf;
-			unsigned slash = 0; // last index of slash
-			for (unsigned i = 1; i <= helpTopic.val.str[0]; ++i) {
-				if (helpTopic.val.str[i] == '/') {
-					slash = i;
-				}
-			}
-			helpTopic = Excel(xlfLeft, helpTopic, OPER(slash));
-			// remove unsafe character
-			helpTopic = Excel(xlfSubstitute, helpTopic, OPER("\\"), OPER(""));
-			helpTopic.append(args.FunctionText());
-			helpTopic.append(".html");
+			helpTopic = OPER(buf, len);
 		}
-		// Help URLs must end with "!0"
-		if (helpTopic.xltype & xltypeStr) { 
-			XOPER xFind = Excel(xlfFind, OPER("!"), helpTopic);
-			if (xFind.xltype == xltypeErr && xFind.val.err == xlerrValue) {
+		else if (helpTopic.is_str()) {
+			// Help URLs must end with "!0"
+			const auto& ht = helpTopic.val.str;
+			if (ht[0] > 2 and ht[ht[0]] != '0' and ht[ht[0] - 1] != '!') {
 				helpTopic &= OPER("!0");
 			}
 		}
 
+		// indicates function returns a handle
+		if (args.isHandle()) {
+			ensure(args.isUncalced());
+		}
+
+		args.key("moduleText") = moduleText;
+		args.key("procedure") = procedure;
+		args.key("helpTopic") = helpTopic;
+
+		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
+		std::vector<const XLOPERX*> oper(count);
 		oper[0] = &args.ModuleText();
-		oper[1] = &procedure;
+		oper[1] = &args.Procedure();
 		oper[2] = &args.TypeText();
 		oper[3] = &args.FunctionText();
 		oper[4] = &args.ArgumentText();
 		oper[5] = &args.MacroType();
 		oper[6] = &args.Category();
 		oper[7] = &args.ShortcutText();
-		oper[8] = &helpTopic;
+		oper[8] = &args.HelpTopic();
 		oper[9] = &args.FunctionHelp();
 		for (unsigned i = 1; i <= args.ArgumentCount(); ++i) {
-			oper[9u + i] = &args.ArgumentHelp(i);
+			oper[9 + i] = &args.ArgumentHelp(i);
 		}
 		// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#argument-description-string-truncation-in-the-function-wizard
 		OPER xEmpty("");

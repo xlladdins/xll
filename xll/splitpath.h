@@ -27,7 +27,7 @@ namespace xll {
 	}
 
 	template<class T>
-		requires (std::is_same_v<T, char> || std::is_same_v<T, wchar_t>)
+		// requires (std::is_same_v<T, char> || std::is_same_v<T, wchar_t>)
 	struct path {
 		T drive[_MAX_DRIVE] = {0};
 		T dir[_MAX_DIR] = { 0 };
@@ -39,15 +39,18 @@ namespace xll {
 		path(const T* p)
 		{ 
 			if (p) {
-				if (0 != split(p)) {
-					throw std::runtime_error(__FUNCTION__ ": splitpath failed");
-				}
+				split(p);
 			}
 		}
 		path(const path&) = delete;
 		path& operator=(const path&) = delete;
 		~path()
 		{ }
+
+		explicit operator bool() const
+		{
+			return drive[0];
+		}
 
 		errno_t split(const T* path)
 		{

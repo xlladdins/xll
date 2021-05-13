@@ -17,16 +17,14 @@ AddIn xai_eval(
 	.FunctionHelp("Call xlfEvaluate on cell.")
 	.Category("XLL")
 	.Documentation(R"(
-<code>EVAL</code> calls the Excel function <code>xlfEvaluate</code> 
-to use the Excel engine to evaluate its argument. 
-A naked string like <code>abc</code> is interpreted as
-a named range. To get <code>EVAL</code> to treat it like
-a string it must be enclosed in quotes, <code>\"abc\"</code>.
+The Excel function <c>xlfEvaluate</c> uses the Excel engine to evaluate
+its argument, just like pressing <c>F9</c> evaluates selected text
+in the formula bar. A naked string like <c>"abc"</c> is interpreted as
+the named range <c>abc</c>. To get <code>EVAL</code> to treat it like
+a string it must be enclosed in quotes, <c>"\"abc\""</c>.
 <p>
-Two dimensional ranges are enclosed in curly braces using commas for
-field seperators and semi-colons for record seperators. 
-For example <code>"{1,\"a\";FALSE,2.34}"</code>.
-Individual range elements are not evaluated.
+Two dimensional ranges must start with an equal sign (<code> =</code>) then curly braces using commas for
+field seperators and semi-colons for record seperators, <c>"={1,\"a\";FALSE,2.34}"</c>.
 )")
 );
 LPOPER WINAPI xll_eval(const LPOPER pcell)
@@ -44,7 +42,6 @@ LPOPER WINAPI xll_eval(const LPOPER pcell)
 	}
 	catch (...) {
 		XLL_ERROR("unknown error");
-
 		result = ErrNA;
 	}
 
@@ -125,7 +122,7 @@ Auto<OpenAfter> xaoa_test_eval(test_eval);
 AddIn xai_absref(
 	Function(XLL_LPOPER, "xll_absref", "XLL.ABSREF")
 	.Arguments({
-		{XLL_PSTRING, "R1C1", "an R1C1-style relative reference in the form of text", "\"A1\""},
+		{XLL_PSTRING, "R1C1", "an R1C1-style relative reference in the form of text", "\"R[1]C[-1]\""},
 		{XLL_LPXLOPER, "ref", "is a reference.", "$A$1"}
 		})
 	.Uncalced()
@@ -134,15 +131,15 @@ AddIn xai_absref(
 	.Category("XLL")
 	.Documentation(R"(
 Returns the absolute reference of the cells that are offset from a reference 
-by a specified amount. The offset is relative to the upper-left corner of <c>ref</c>. 
-You should generally use <c>OFFSET</c> instead of <c>ABSREF</c>. 
+by a specified amount. The offset is relative to the upper-left corner of <code>ref</code>. 
+You should generally use <code>OFFSET</code> instead of <code>ABSREF</code>. 
 This function is provided for users who prefer to supply an absolute reference in text form.
 )")
 );
-LPOPER WINAPI xll_absref(xchar* r1c1, LPOPER pref)
+LPXLOPERX WINAPI xll_absref(xchar* r1c1, LPXLOPERX pref)
 {
 #pragma XLLEXPORT
-	static OPER result;
+	static XLOPERX result;
 
 	try {
 		XLOPERX R1C1;
@@ -155,7 +152,7 @@ LPOPER WINAPI xll_absref(xchar* r1c1, LPOPER pref)
 		result = ErrNA;
 	}
 	catch (...) {
-		XLL_ERROR("unknown exception");
+		XLL_ERROR(__FUNCTION__ ": unknown exception");
 		result = ErrNA;
 	}
 

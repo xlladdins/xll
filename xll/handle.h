@@ -216,11 +216,10 @@ namespace xll {
 		class codec {
 			using xchar = traits<X>::xchar;
 			inline static xchar tab[] = TEXT("0123456789ABCDEF");
-			static uint8_t c2h(xchar c)
+			static uint8_t c2h(xchar c) // assumes ASCII
 			{
 				return static_cast<uint8_t>(c <= '9' ? c - '0' : 10 + c - 'A');
 			}
-			inline static traits<X>::xchar buf[16];
 			XOPER<X> H;
 			unsigned off;
 		public:
@@ -232,19 +231,20 @@ namespace xll {
 			{
 				ensure(prefix.is_str() and suffix.is_str());
 				
-				H.append(OPER(buf, 16)); // 64 bits
+				H.append(tab, 16); // 64 bits for pointer
 				H.append(suffix);
 			}
 
-			// h -> "prefix01..Fsuffix"
+			// does not allocate memory
 			const XOPER<X>& encode(HANDLEX h)
 			{
 				union {
-					HANDLEX h;
+					T* h;
 					uint8_t c[8];
 				} hc;
-				static_assert(sizeof(hc) == sizeof(HANDLEX));
-				hc.h = h;
+				hc.h = to_pointer<T>(h);
+
+				// h -> "prefix01..Fsuffix"
 				xchar* pc = H.val.str + 1 + off;
 				for (unsigned i = 0; i < 8; ++i) {
 					pc[2 * i] = tab[(hc.c[7 - i] >> 4) & 0x0F];
@@ -253,22 +253,29 @@ namespace xll {
 
 				return H;
 			}
+
+			// does not allocate memory
 			HANDLEX decode(const XOPER<X>& _H)
 			{
 				ensure(_H.is_str());
-				ensure(H.val.str[0] == _H.val.str[0]);
-				// starts with prefix, ends with suffix?
+
+				// Extra chars appended to suffix ok.
+				// Could use this to add, e.g., a timestamp.
+				ensure(_H.val.str[0] >= H.val.str[0]);
+				
+				// No prefix or suffix check.It will fail when used.
+				
 				union {
-					HANDLEX h;
+					T* h;
 					uint8_t c[8];
 				} hc;
+				// "prefix01..Fsuffix" -> h
 				xchar* pc = _H.val.str + 1 + off;
 				for (unsigned i = 0; i < 8; ++i) {
-					
 					hc.c[7 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
 				}
 
-				return hc.h;
+				return to_handle<T>(hc.h);
 			}
 		};
 	};

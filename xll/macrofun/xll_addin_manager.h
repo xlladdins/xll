@@ -1,165 +1,138 @@
 // addin_manager.h - manage add-in lifecycle
 #pragma once
 #include <compare>
+#include "xll_macrofun.h"
+#include "../win.h"
 #include "../registry.h"
 #include "../splitpath.h"
-#include "xll_macrofun.h"
-
-inline auto operator<=>(const FILETIME& a, const FILETIME& b)
-{
-	auto cmp = a.dwHighDateTime <=> b.dwHighDateTime;
-	if (cmp != 0) {
-		return cmp;
-	}
-
-	return a.dwLowDateTime <=> b.dwLowDateTime;
-}
-
-// date and time the file or directory was last written to, truncated, or overwritten 
-inline FILETIME FileWriteTime(const TCHAR* file)
-{
-	HANDLE hFile = CreateFile(file, 0, 0, 0, OPEN_EXISTING, FILE_ATTRIBUTE_READONLY, NULL);
-	if (hFile == INVALID_HANDLE_VALUE) {
-		throw std::runtime_error(__FUNCTION__ ": CreateFile failed");
-	}
-	
-	FILETIME write;
-	auto b = GetFileTime(hFile, NULL, NULL, &write);
-	CloseHandle(hFile);
-	if (!b) {
-		throw std::runtime_error(__FUNCTION__ ": GetFileTime failed");
-	}
-
-	return write;
-}
 
 namespace xll {
 
-	/// <summary>
-	/// Manage add-in lifecycle
-	/// </summary>
-	/// <remarks>
-	/// Excel uses two registry keys for the Add-in Manager.
-	/// New keys are put under Aim() with key the full path
-	/// to the add-in and no value
-	/// Add/Remove puts keys under Open() with key OPEN<i>n</i>
-	/// and value <code>/R "<i>full path</i>"</code>.
-	/// Add increments <i>n</i> by 1 and removes the Aim() entry.
-	/// Remove removes the OPEN<i>n</i> entry and shifts keys
-	/// with larger <i>n</i> down and adds the full path under Aim().
-	/// </remarks>
+	/// Manage Excel add-in lifecycle.
 	/// https://xlladdins.github.io/Excel4Macros/addin.manager.html
 	struct AddinManager {
 
 		OPER xll; // full path to add-in
-		xll::path<TCHAR> path;
-		FILETIME write = { 0, 0 };
-		AddinManager(const OPER& get_name = Excel(xlGetName))
-			: xll(get_name), path(xll.as_cstr()), write(FileWriteTime(xll.as_cstr()))
+		xll::path<TCHAR> path; // split path
+		
+		AddinManager(const OPER& _xll = Excel(xlGetName))
+			: xll(_xll), path(xll.as_cstr())
 		{
+			// xll is NULL terminated
 		}
 
 		// Adds an add-in to the working set using the descriptive name in the Add-Ins dialog box.
-		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
-		OPER Add()
+		// Excel moves AIM value to OPT and add OPEN<n+1> value to load at startup.
+		OPER Add(OPER name = Missing) const
 		{
-			return Excel(xlcAddinManager, OPER(1), OPER(path.fname));
-		}
-
-		// Copy and overwrite to dir
-		OPER Install(OPER dir = OPER(Template()))
-		{
-			dir.append(path.basename().c_str());
-
-			if (!CopyFile(xll.as_cstr(), dir.as_cstr(), FALSE)) {
-				dir = ErrNA;
+			if (name.is_missing()) {
+				name = OPER(path.fname);
 			}
 
-			return dir;
+			if (Known(name)) {
+				ensure(Excel(xlcAddinManager, OPER(1), name));
+			}
+
+			return Open(name);
 		}
 
 		// Removes an add-in from the working set using the descriptive name in the Add-Ins dialog box.
-		// HKCU\Software\Microsoft\Office\_version_\Excel\Options\Open<N>
-		OPER Remove()
+		// Move OPT value to AIM. This function is not fast.
+		OPER Remove(OPER name = Missing) const
 		{
-			return Excel(xlcAddinManager, OPER(2), OPER(path.fname));
+			if (name.is_missing()) {
+				name = OPER(path.fname);
+			}
+
+			if (Open(name)) {
+				ensure(Excel(xlcAddinManager, OPER(2), name));
+			}
+
+			return Known();
 		}
 
 		// Adds a new add-in to the list of add-ins that Microsoft Excel knows about. 
-		// HKCU\Software\Microsoft\Office\_version_\Excel\Add-in Manager 
-		OPER New()
+		// Create AIM value using xll.
+		OPER New() const 
 		{
 			return Excel(xlcAddinManager, OPER(3), xll);
 		}
 
-		// file more recently written
-		bool Newer(OPER file) const
+		// Remove all registry entries. Does not uninstall.
+		OPER Delete(OPER name = Missing) const
 		{
-			return FileWriteTime(file.as_cstr()) > write;
-		}
-
-		// full path if descriptive name in Aim()
-		OPER Exists(OPER name = Missing)
-		{
-			OPER get_name = ErrNA;
-
-			if (!name) {
-				name = path.fname;
+			if (name.is_missing()) {
+				name = OPER(path.fname);
 			}
 
-			OPER remove = Remove(); // move to aim if loaded
+			OPER open = Open(name);
+			if (open) {
+				ensure(Remove(name)); // move from OPT to AIM
+			}
+			OPER known = Known(name);
+			if (known) {
+				// There is no Excel function for this.
+				Reg::Key aim(HKEY_CURRENT_USER, Aim());
+				ensure(aim and ERROR_SUCCESS == RegDeleteValue(aim, known.as_cstr()));
+			}
+
+			return known;
+		}
+
+		// Full path if descriptive name matches AIM value.
+		OPER Known(OPER name = Missing) const
+		{
+			OPER known = ErrNA;
+
+			if (!name) {
+				name = OPER(path.fname);
+			}
 
 			// all known add-ins
 			Reg::Key aim(HKEY_CURRENT_USER, Aim());
-			for (const auto& value : aim.Values()) {
+			for (const Reg::Value& value : aim.Values()) {
 				if (value.type == REG_SZ) {
 					// value name is the full path to add-in
-					xll::path sp(value.name.c_str());
-					if (OPER(sp.fname) == name) {
-						get_name = value.name.c_str();
+					xll::path split(value.name.c_str());
+					if (OPER(split.fname) == name) {
+						known = value.name.c_str();
 
 						break;
 					}
 				}
 			}
 
-			if (remove) {
-				Add(); // reload
-			}
-
-			return get_name;
+			return known;
 		}
 
-		// Remove all registry entries.
-		OPER Delete()
+		// OPT value OPEN<n> name if loaded on startup
+		OPER Open(OPER name = Missing) const
 		{
-			try {
-				Remove(); // move from Open() to Aim()
-				OPER key = Exists(OPER(path.fname));
-				if (key) {
-					Reg::Key aim(HKEY_CURRENT_USER, Aim());
-					LSTATUS status = RegDeleteValue(aim, key.as_cstr());
-					if (ERROR_SUCCESS != status) {
-						throw std::runtime_error(Reg::GetFormatMessage(status));
+			OPER open = ErrNA;
+
+			if (name.is_missing()) {
+				name = path.basename().c_str();
+			}
+
+			Reg::Key opt(HKEY_CURRENT_USER, Opt());
+			for (const Reg::Value& value : opt.Values()) {
+				if (value.type == REG_SZ) {
+					PCTSTR match = _tcsstr(value, name.as_cstr());
+					if (match and 0 == _tcsncmp(match, name.val.str + 1, name.val.str[0])) {
+						open = value.name.c_str();
+
+						break;
 					}
 				}
 			}
-			catch (const std::exception& ex) {
-				XLL_ERROR(ex.what());
 
-				return OPER(false);
-			}
-			catch (...) {
-				XLL_ERROR("AddinManager::Delete: unknown exception");
-
-				return OPER(false);
-			}
-			
-			return OPER(true);
+			return open;
 		}
 
+		// Registry entries used by add-in manager.
 		inline static const TCHAR OFFICE[] = TEXT("Software\\Microsoft\\Office\\");
 		inline static const TCHAR AIM[] = TEXT("\\Excel\\Add-in Manager");
+		inline static const TCHAR OPT[] = TEXT("\\Excel\\Options");
 		
 		static OPER Version()
 		{
@@ -181,17 +154,146 @@ namespace xll {
 			return aim.c_str();
 		}
 
+		static const TCHAR* Opt()
+		{
+			static std::basic_string<TCHAR> opt;
+
+			if (opt.length() == 0) {
+				opt = OFFICE;
+				const OPER& ver = Version();
+				opt.append(ver.val.str + 1, ver.val.str[0]);
+				opt.append(OPT);
+			}
+
+			return opt.c_str();
+		}
+	};
+
+
+	class Installer {
+		OPER dir; // installation directory
+		typedef int STATE;
+		STATE state;
+	public:
+		enum {
+			INIT = 0,
+			KNOWN = 1, // in AIM
+			OPEN = 2,  // in OPT
+			EXISTS = 4,// in dir
+		};
+		static inline const char* install_doc = R"(
+The Excel add-in manager uses two registry keys to manage the add-in lifecycle
+<dl>
+<dt>AIM: <code>HKCU\Software\Microsoft\Office\<i>version</i>\Excel\Add-in Manager</code></dt>
+<dd>
+Values in AIM have name the <i>full path</i> to the add-in and no data.
+</dd>
+<dt>OPT: <code>HKCU\Software\Microsoft\Office\<i>version</i>\Excel\Options</code></dt>
+<dd>
+Values in OPT have name <code>OPEN<i>n</i></code> 
+and data <code>"/R \"<i>full path</i>\""</code> where <i>n</i>
+is computed by Excel.
+</dd>
+</dl>
+Excel does not write these values to the registry until the Excel session is terminated.
+)";
+		Installer(const OPER& _dir = OPER(Template()))
+			: state(INIT), dir(_dir)
+		{
+			if (dir.val.str[dir.val.str[0]] != '\\') {
+				dir.append("\\");
+			}
+			ensure(DirExists(dir.as_cstr()));
+		}
+		STATE State() const
+		{
+			return state;
+		}
+
+		// copy to installation dir and let add-in manager know
+		STATE Install(OPER xll = Excel(xlGetName))
+		{
+			using Win::File;
+			using Win::WriteTime;
+
+			xll::path path(xll.as_cstr());
+			OPER name(path.fname); // descriptive name
+			OPER install = dir & OPER(path.basename().c_str());
+			AddinManager aim(install);
+
+			// existing state
+			OPER known = aim.Known();
+			OPER open = aim.Open();
+			if (open) {
+				// move from OPT to AIM
+				known = aim.Remove();
+				ensure(known);
+			}
+
+			if (FileExists(install.as_cstr())) {
+				state |= EXISTS;
+				// ask before clobbering
+				if (WriteTime(File(xll.as_cstr())) > WriteTime(File(install.as_cstr()))) {
+					OPER msg = OPER("Replace ") & OPER(path.fname) & OPER(".xll with new version?");
+					OPER copy = Excel(xlcAlert, msg, OPER(1));
+					if (copy) {
+						ensure(CopyFile(xll.as_cstr(), install.as_cstr(), FALSE));
+						state |= EXISTS;
+					}
+				}
+			}
+			else {
+				ensure(CopyFile(xll.as_cstr(), install.as_cstr(), FALSE));
+				state |= EXISTS;
+			}
+			ensure(state & EXISTS);
+
+			if (known) {
+				ensure(aim.Delete()); // remove old registry entries
+			}
+
+			ensure(aim.New()); // add to AIM
+			state |= KNOWN;
+			if (open) {
+				ensure(aim.Add()); // move to OPT
+				state |= OPEN;
+				state &= ~KNOWN;
+			}
+
+			return state; // == EXISTS + KNOWN if new install
+		}
+
+		static inline const char* uninstall_doc = R"(
+Delete add-in manager entries and installed add-in.
+)";
+		STATE Uninstall(const OPER& name)
+		{
+			AddinManager aim(dir & name & OPER(".xll"));
+
+			aim.Delete();
+
+			if (FileExists(aim.xll.as_cstr())) {
+				state |= EXISTS;
+				if (DeleteFile(aim.xll.as_cstr())) {
+					state &= ~EXISTS;
+				}
+			}
+
+			return state; // should == INIT
+		}
+
 		// Excel template directory is trusted location.
-		static const TCHAR* Template()
+		static const OPER& Template()
 		{
 			static OPER tpl;
-			
+
 			if (!tpl) {
 				tpl = getenv("AppData");
 				tpl.append("\\Microsoft\\Templates\\");
+				tpl.as_cstr(); // add NULL
 			}
 
-			return tpl.as_cstr();
+			return tpl;
 		}
 
 	};

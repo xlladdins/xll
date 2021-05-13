@@ -99,6 +99,9 @@
     <ClInclude Include="xll\macrofun\xll_addin_manager.h">
       <Filter>macrofun</Filter>
     </ClInclude>
+    <ClInclude Include="xll\platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">
@@ -143,13 +146,15 @@
     <ClCompile Include="xll\macrofun\xll_trace.cpp">
       <Filter>macrofun</Filter>
     </ClCompile>
+    <ClCompile Include="xll\macrofun\xll_install.cpp">
+      <Filter>macrofun</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Library Include="xll\XLCALL32.LIB" />
     <Library Include="xll\x64\XLCALL32.LIB" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="xll-msvc16-x64.nuspec" />
     <None Include="xll\documentation.html">
       <Filter>Resource Files</Filter>
     </None>
