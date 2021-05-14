@@ -43,7 +43,7 @@ xlAutoOpen(void)
 #pragma endregion xlAutoOpen
 
 #pragma region xlAutoClose
-// Called by Microsoft Excel when the xll is deactivated.
+// Called by Microsoft Excel when the xll is unregistered.
 extern "C" int __declspec(dllexport) WINAPI
 xlAutoClose(void)
 {
@@ -52,9 +52,11 @@ xlAutoClose(void)
 			return FALSE;
 		}
 
-		// No need to call xlfUnregister, just delete names.
+		// No need to call xlfUnregister, just set name to nothing.
+		// Does not remove from Function Wizard!
+		// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#unregistering-xll-commands-and-functions
 		for (const auto& [key, args] : AddIn::Map) {
-			Excel12(xlfSetName, key);
+			Excel(xlfSetName, key);
 		}
 
 		if (!Auto<Close>::Call()) {
@@ -140,6 +142,9 @@ xlAutoFree(LPXLOPER px)
 			}
 			else if (px->xltype & xltypeMulti) {
 				free(px->val.array.lparray);
+			}
+			else if (px->xltype & xltypeRef) {
+				free(px->val.mref.lpmref);
 			}
 		}
 	}

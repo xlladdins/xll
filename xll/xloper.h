@@ -8,12 +8,11 @@
 
 namespace xll {
 
-
 	// convertible to double
 	inline static const int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
 	// do not involve memory allocation
 	inline static const int xltypeScalar = (xltypeNumeric | xltypeErr | xltypeMissing | xltypeNil | xltypeSRef);
-	// turn off xlbit flats
+	// turn off xlbit flags
 	inline static const int xlbitmask = ~(xlbitXLFree | xlbitDLLFree);
 
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
@@ -120,8 +119,6 @@ namespace xll {
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	X& index(X& x, unsigned i)
 	{
-		ensure(i < size(x));
-
 		if (x.xltype & xltypeMulti) {
 			return static_cast<X&>(x.val.array.lparray[xmod(i, size(x))]);
 		}
@@ -130,6 +127,7 @@ namespace xll {
 			return x;
 		}
 	}
+
 	// two-dimensional index
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	X& index(X& x, unsigned rw, unsigned col)
@@ -166,8 +164,8 @@ namespace xll {
 template<typename X> requires std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>
 inline auto operator<=>(const X& x, const X& y)
 {
-	auto xtype = (x.xltype & ~(xlbitDLLFree | xlbitXLFree));
-	auto ytype = (y.xltype & ~(xlbitDLLFree | xlbitXLFree));
+	auto xtype = xll::type(x);
+	auto ytype = xll::type(y);
 
 	if (xtype != ytype) {
 		return xtype <=> ytype;
@@ -227,15 +225,15 @@ inline auto operator<=>(const X& x, const X& y)
 	case xltypeBool:
 		return x.val.xbool <=> y.val.xbool;
 	case xltypeBigData: // ??? what is bidata.cbData if HANDLE
-		if (x.val.bigdata.cbData != y.val.bigdata.cbData)
-			return x.val.bigdata.cbData <=> y.val.bigdata.cbData;
+		if (auto cmp = x.val.bigdata.cbData <=> y.val.bigdata.cbData; cmp != 0)
+			return cmp;
 
 		int cmp = std::memcmp(x.val.bigdata.h.lpbData, y.val.bigdata.h.lpbData, x.val.bigdata.cbData);
 		
 		return cmp <=> 0;
 	}
 
-	return xtype <=> ytype;
+	return std::strong_ordering::equal;
 }
 
 #define XLOPER_CMP(op) \
