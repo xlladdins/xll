@@ -167,6 +167,11 @@ inline auto operator<=>(const X& x, const X& y)
 	auto xtype = xll::type(x);
 	auto ytype = xll::type(y);
 
+	// xltypeNil is least type
+	if (xtype == xltypeNil or ytype == xltypeNil) {
+		return (xtype != xltypeNil) <=> (ytype != xltypeNil);
+	}
+
 	if (xtype != ytype) {
 		return xtype <=> ytype;
 	}

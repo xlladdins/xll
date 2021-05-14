@@ -132,5 +132,5 @@ namespace xll {
 	};
 #undef XLL_TYPE_TRAITS
 
-}
+} // namespace xll
 
