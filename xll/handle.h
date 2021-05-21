@@ -286,5 +286,47 @@ namespace xll {
 		h.swap(k);
 	}
 
+	// view of contiguous memory
+	template<class T>
+	class view {
+		T* p;
+		DWORD n;
+	public:
+		view(T* p = nullptr, DWORD n = 0)
+			: p(p), n(n)
+		{ }
+		virtual ~view()
+		{ }
 
+		operator T* ()
+		{
+			return p;
+		}
+		operator const T* () const
+		{
+			return p;
+		}
+
+		T* ptr()
+		{
+			return p;
+		}
+		const T* ptr() const
+		{
+			return p;
+		}
+		void ptr(T* p_)
+		{
+			p = p_;
+		}
+
+		void size(DWORD n_)
+		{
+			n = n_;
+		}
+		DWORD size() const
+		{
+			return n;
+		}
+	};
 }
