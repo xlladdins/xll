@@ -295,8 +295,15 @@ namespace xll {
 		view(T* p = nullptr, DWORD n = 0)
 			: p(p), n(n)
 		{ }
+		view(const view&) = default;
+		view& operator=(const view&) = default;
 		virtual ~view()
 		{ }
+
+		explicit operator bool() const
+		{
+			return n != 0;
+		}
 
 		operator T* ()
 		{
@@ -307,10 +314,6 @@ namespace xll {
 			return p;
 		}
 
-		T* ptr()
-		{
-			return p;
-		}
 		const T* ptr() const
 		{
 			return p;
@@ -320,13 +323,13 @@ namespace xll {
 			p = p_;
 		}
 
-		void size(DWORD n_)
-		{
-			n = n_;
-		}
 		DWORD size() const
 		{
 			return n;
+		}
+		void size(DWORD n_)
+		{
+			n = n_;
 		}
 	};
 }
