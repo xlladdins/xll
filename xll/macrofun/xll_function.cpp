@@ -16,7 +16,7 @@ AddIn xai_eval(
 		})
 	.FunctionHelp("Call xlfEvaluate on cell.")
 	.Category("XLL")
-	.Documentation(R"(
+	.Documentation(R"xyzyx(
 The Excel function <code>xlfEvaluate</code> uses the Excel engine to evaluate
 its argument, just like pressing <code>F9</code> evaluates selected text
 in the formula bar. A naked string like <code>abc</code> is interpreted as
@@ -37,7 +37,7 @@ results in the 2x2 range consisting of the number <code>1.23</code>,
 the string <code>abc</code>, the boolean <code>FALSE</code> value,
 and a "not available" error type. Excel will not attempt to evaluate
 any item in a multi-dimensional range as a function.
-)")
+)xyzyx")
 );
 LPOPER WINAPI xll_eval(const LPOPER pcell)
 {

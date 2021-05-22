@@ -6,12 +6,17 @@ using namespace xll;
 static AddIn xai_trace(
     Function(XLL_LPXLOPER, "xll_trace", "TRACE")
     .Arguments({
-        Arg(XLL_LPXLOPER, "cell", "is the cell to trace."),
+        Arg(XLL_LPXLOPER, "ref", "is a reference to a cell to trace."),
     })
     .Category("XLL")
-    .FunctionHelp("Alert when cell is called in a calculation.")
+    .FunctionHelp("Alert when a cell is evaluated in a calculation.")
     .Uncalced()
-    .Documentation(R"()")
+    .Documentation(R"(
+The <code>TRACE(ref)</code> function displays a popup dialog when the cell being referenced
+is evaluated during a calculation. The dialog displays the
+name of the cell reference in A1 format, the formula in the cell that is being
+evaluated, and the current contents of the cell.
+)")
 );
 LPXLOPERX WINAPI
 xll_trace(LPXLOPERX px)
