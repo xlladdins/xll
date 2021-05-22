@@ -25,6 +25,10 @@ namespace utf8 {
 		view(T* p = nullptr, DWORD n = 0)
 			: p(p), n(n)
 		{ }
+		template<size_t N>
+		view(const T (&p)[N])
+			: view(p, static_cast<DWORD>(N))
+		{ }
 		view(const view&) = default;
 		view& operator=(const view&) = default;
 		virtual ~view()
@@ -53,15 +57,53 @@ namespace utf8 {
 		{
 			n = n_;
 		}
-		// subclasses override and do checking
-		virtual view& append(const T* p_, DWORD n_)
-		{
-			std::copy(p_, p_ + n_, p + n);
-			n += n_;
 
-			return *this;
+		T& back()
+		{
+			return p[n - 1];
+		}
+		const T& back() const
+		{
+			return p[n - 1];
 		}
 	};
+
+	template<class T>
+	view<T>& append(view<T>& v, const T* p_, DWORD n_)
+	{
+		std::copy(p_, p_ + n_, v.ptr() + v.size());
+		v.size(v.size() + n_);
+
+		return v;
+	}
+
+	template<class T>
+	inline view<T> trim_front(view<T> v, T c = ' ')
+	{
+		view<T> w{ v };
+
+		while (*w == c) {
+			w.ptr(w + 1);
+			w.size(w.size() - 1);
+		}
+
+		return w;
+	}
+	template<class T>
+	inline view<T> trim_back(view<T> v, T c = ' ')
+	{
+		view<T> w{ v };
+		while (w.back() == c) {
+			w.size(w.size() - 1);
+		}
+
+		return w;
+	}
+	template<class T>
+	inline view<T> trim(view<T> v, T c = ' ')
+	{
+		return trim_front<T>(trim_back<T>(v, c), c);
+	}
 
 	/// <summary>
 	/// Memory mapped file class
@@ -112,15 +154,6 @@ namespace utf8 {
 			return N;
 		}
 
-		str_view& append(const char* str, DWORD len) override
-		{
-			if (len + size() > N) {
-				len = N - size(); // ??? throw
-			}
-			view::append(str, len);
-
-			return *this;
-		}
 	};
 
 	// Multi-byte character string to counted wide character string allocated by malloc.
