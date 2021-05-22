@@ -18,7 +18,7 @@ int test_utf8()
 	}
 	{
 		char buf[4];
-		str_view sv(buf, 4);
+		cyclic_view sv(buf, 4);
 		assert(sv.size() == 0);
 		assert(sv.capacity() == 4);
 		sv.append("a", 1);
@@ -33,7 +33,7 @@ int test_utf8()
 	}
 	{
 		char buf[4];
-		str_view sv(buf);
+		cyclic_view sv(buf);
 		assert(sv.size() == 0);
 		assert(sv.capacity() == 4);
 		sv.append("a", 1);

@@ -66,16 +66,15 @@ namespace utf8 {
 		{
 			return p[n - 1];
 		}
+
+		virtual view& append(const T* p_, DWORD n_)
+		{
+			std::copy(p_, p_ + n_, p + n);
+			n += n_;
+
+			return *this;
+		}
 	};
-
-	template<class T>
-	view<T>& append(view<T>& v, const T* p_, DWORD n_)
-	{
-		std::copy(p_, p_ + n_, v.ptr() + v.size());
-		v.size(v.size() + n_);
-
-		return v;
-	}
 
 	template<class T>
 	inline view<T> trim_front(view<T> v, T c = ' ')
@@ -133,25 +132,38 @@ namespace utf8 {
 		}
 	};
 
-	class str_view : public view<char>
+	template<class T>
+	class cyclic_view : public view<T>
 	{
 		DWORD N; // maximum string length
 	public:
-		str_view(char* p, DWORD N)
-			: view(p, 0), N(N)
+		cyclic_view(T* p, DWORD N)
+			: view<T>(p, 0), N(N)
 		{ }
 		template<size_t N>
-		str_view(char (&p)[N])
-			: str_view(p, N)
+		cyclic_view(T (&p)[N])
+			: cyclic_view(p, N)
 		{ }
-		str_view(const str_view&) = delete;
-		str_view& operator=(const str_view&) = delete;
-		~str_view()
+		cyclic_view(const cyclic_view&) = delete;
+		cyclic_view& operator=(const cyclic_view&) = delete;
+		~cyclic_view()
 		{ }
 
 		DWORD capacity() const
 		{
 			return N;
+		}
+
+		cyclic_view& append(const T* p_, DWORD n_) override
+		{
+			// !!! add cyclic logic
+			// use std::rotate
+			if (view<T>::size() + n_ > N) {
+				n_ = N - view<T>::size();
+			}
+			view<T>::append(p_, n_);
+
+			return *this;
 		}
 
 	};
