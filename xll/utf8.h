@@ -12,7 +12,117 @@
 #include "ensure.h"
 
 namespace utf8 {
-		
+
+	/// <summary>
+	/// View of contiguous memory.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	template<class T>
+	class view {
+		T* p;
+		DWORD n;
+	public:
+		view(T* p = nullptr, DWORD n = 0)
+			: p(p), n(n)
+		{ }
+		view(const view&) = default;
+		view& operator=(const view&) = default;
+		virtual ~view()
+		{ }
+
+		explicit operator bool() const
+		{
+			return n != 0;
+		}
+
+		operator T* ()
+		{
+			return p;
+		}
+
+		void ptr(T* p_)
+		{
+			p = p_;
+		}
+
+		DWORD size() const
+		{
+			return n;
+		}
+		void size(DWORD n_)
+		{
+			n = n_;
+		}
+		// subclasses override and do checking
+		virtual view& append(const T* p_, DWORD n_)
+		{
+			std::copy(p_, p_ + n_, p + n);
+			n += n_;
+
+			return *this;
+		}
+	};
+
+	/// <summary>
+	/// Memory mapped file class
+	/// </summary>
+	class mem_view : public view<char> {
+		HANDLE h;
+	public:
+		/// <summary>
+		/// Map file or temporary anonymous memory.
+		/// </summary>
+		/// <param name="h"></param>
+		/// <param name="len"></param>
+		mem_view(HANDLE h_ = INVALID_HANDLE_VALUE, DWORD len = 1 << 20)
+			: h(CreateFileMapping(h_, 0, PAGE_READWRITE, 0, len, nullptr))
+		{
+			if (h == NULL) {
+				throw std::runtime_error("mem_view: CreateFileMapping failed");
+			}
+			ptr((char*)MapViewOfFile(h, FILE_MAP_ALL_ACCESS, 0, 0, len));
+		}
+		mem_view(const mem_view&) = delete;
+		mem_view& operator=(const mem_view&) = delete;
+		~mem_view()
+		{
+			UnmapViewOfFile(*this);
+			CloseHandle(h);
+		}
+	};
+
+	class str_view : public view<char>
+	{
+		DWORD N; // maximum string length
+	public:
+		str_view(char* p, DWORD N)
+			: view(p, 0), N(N)
+		{ }
+		template<size_t N>
+		str_view(char (&p)[N])
+			: str_view(p, N)
+		{ }
+		str_view(const str_view&) = delete;
+		str_view& operator=(const str_view&) = delete;
+		~str_view()
+		{ }
+
+		DWORD capacity() const
+		{
+			return N;
+		}
+
+		str_view& append(const char* str, DWORD len) override
+		{
+			if (len + size() > N) {
+				len = N - size(); // ??? throw
+			}
+			view::append(str, len);
+
+			return *this;
+		}
+	};
+
 	// Multi-byte character string to counted wide character string allocated by malloc.
 	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, int n = -1)
 	{
