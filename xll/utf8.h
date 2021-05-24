@@ -12,7 +12,162 @@
 #include "ensure.h"
 
 namespace utf8 {
-		
+
+	/// <summary>
+	/// View of contiguous memory.
+	/// </summary>
+	/// <typeparam name="T"></typeparam>
+	template<class T>
+	class view {
+		T* p;
+		DWORD n;
+	public:
+		view(T* p = nullptr, DWORD n = 0)
+			: p(p), n(n)
+		{ }
+		template<size_t N>
+		view(const T (&p)[N])
+			: view(p, static_cast<DWORD>(N))
+		{ }
+		view(const view&) = default;
+		view& operator=(const view&) = default;
+		virtual ~view()
+		{ }
+
+		explicit operator bool() const
+		{
+			return n != 0;
+		}
+
+		operator T* ()
+		{
+			return p;
+		}
+
+		void ptr(T* p_)
+		{
+			p = p_;
+		}
+
+		DWORD size() const
+		{
+			return n;
+		}
+		void size(DWORD n_)
+		{
+			n = n_;
+		}
+
+		T& back()
+		{
+			return p[n - 1];
+		}
+		const T& back() const
+		{
+			return p[n - 1];
+		}
+
+		virtual view& append(const T* p_, DWORD n_)
+		{
+			std::copy(p_, p_ + n_, p + n);
+			n += n_;
+
+			return *this;
+		}
+	};
+
+	template<class T>
+	inline view<T> trim_front(view<T> v, T c = ' ')
+	{
+		view<T> w{ v };
+
+		while (*w == c) {
+			w.ptr(w + 1);
+			w.size(w.size() - 1);
+		}
+
+		return w;
+	}
+	template<class T>
+	inline view<T> trim_back(view<T> v, T c = ' ')
+	{
+		view<T> w{ v };
+		while (w.back() == c) {
+			w.size(w.size() - 1);
+		}
+
+		return w;
+	}
+	template<class T>
+	inline view<T> trim(view<T> v, T c = ' ')
+	{
+		return trim_front<T>(trim_back<T>(v, c), c);
+	}
+
+	/// <summary>
+	/// Memory mapped file class
+	/// </summary>
+	class mem_view : public view<char> {
+		HANDLE h;
+	public:
+		/// <summary>
+		/// Map file or temporary anonymous memory.
+		/// </summary>
+		/// <param name="h"></param>
+		/// <param name="len"></param>
+		mem_view(HANDLE h_ = INVALID_HANDLE_VALUE, DWORD len = 1 << 20)
+			: h(CreateFileMapping(h_, 0, PAGE_READWRITE, 0, len, nullptr))
+		{
+			if (h == NULL) {
+				throw std::runtime_error("mem_view: CreateFileMapping failed");
+			}
+			ptr((char*)MapViewOfFile(h, FILE_MAP_ALL_ACCESS, 0, 0, len));
+		}
+		mem_view(const mem_view&) = delete;
+		mem_view& operator=(const mem_view&) = delete;
+		~mem_view()
+		{
+			UnmapViewOfFile(*this);
+			CloseHandle(h);
+		}
+	};
+
+	template<class T>
+	class cyclic_view : public view<T>
+	{
+		DWORD N; // maximum string length
+	public:
+		cyclic_view(T* p, DWORD N)
+			: view<T>(p, 0), N(N)
+		{ }
+		template<size_t N>
+		cyclic_view(T (&p)[N])
+			: cyclic_view(p, N)
+		{ }
+		cyclic_view(const cyclic_view&) = delete;
+		cyclic_view& operator=(const cyclic_view&) = delete;
+		~cyclic_view()
+		{ }
+
+		DWORD capacity() const
+		{
+			return N;
+		}
+
+		cyclic_view& append(const T* p_, DWORD n_) override
+		{
+			// !!! add cyclic logic
+			// use std::rotate
+			if (view<T>::size() + n_ > N) {
+				n_ = N - view<T>::size();
+			}
+			view<T>::append(p_, n_);
+
+			return *this;
+		}
+
+	};
+
 	// Multi-byte character string to counted wide character string allocated by malloc.
 	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, int n = -1)
 	{

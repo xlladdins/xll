@@ -16,16 +16,28 @@ AddIn xai_eval(
 		})
 	.FunctionHelp("Call xlfEvaluate on cell.")
 	.Category("XLL")
-	.Documentation(R"(
-The Excel function <c>xlfEvaluate</c> uses the Excel engine to evaluate
-its argument, just like pressing <c>F9</c> evaluates selected text
-in the formula bar. A naked string like <c>"abc"</c> is interpreted as
-the named range <c>abc</c>. To get <code>EVAL</code> to treat it like
-a string it must be enclosed in quotes, <c>"\"abc\""</c>.
+	.Documentation(R"xyzyx(
+The Excel function <code>xlfEvaluate</code> uses the Excel engine to evaluate
+its argument, just like pressing <code>F9</code> evaluates selected text
+in the formula bar. A naked string like <code>abc</code> is interpreted as
+a named range and it's corresponding value is returned. 
+To get <code>EVAL</code> to treat it like
+a string it must be enclosed in quotes, <code>"abc"</code>.
+If a string is a case-insensitive match with <code>TRUE</code> or <code>FALSE</code>
+it is converted to the appropriate boolean value. If the string matches a known
+Excel error then the string is converted to an error type. If the string
+looks like a function call then Excel calls the function and returns the result.
+Use an initial equal sign (<code>=</code>) to force Excel to evaluate the
+string as a function. To parse a string as a date use the <code>VALUE()</code> function.
 <p>
-Two dimensional ranges must start with an equal sign (<code> =</code>) then curly braces using commas for
-field seperators and semi-colons for record seperators, <c>"={1,\"a\";FALSE,2.34}"</c>.
-)")
+Two dimensional ranges are enclosed in curly braces, use commas for
+field seperators, and semi-colons for record seperators. 
+For example, evaluating the string <code>{1.23,"abc";fAlSe,#N/A}</code>
+results in the 2x2 range consisting of the number <code>1.23</code>,
+the string <code>abc</code>, the boolean <code>FALSE</code> value,
+and a "not available" error type. Excel will not attempt to evaluate
+any item in a multi-dimensional range as a function.
+)xyzyx")
 );
 LPOPER WINAPI xll_eval(const LPOPER pcell)
 {
