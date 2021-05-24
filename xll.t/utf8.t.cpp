@@ -10,6 +10,43 @@ using namespace utf8;;
 int test_utf8()
 {
 	{
+		mem_view mv;
+		assert(mv.size() == 0);
+		mv.append("test", 4);
+		assert(mv.size() == 4);
+		assert(0 == strncmp(mv, "test", 4));
+	}
+	{
+		char buf[4];
+		cyclic_view sv(buf, 4);
+		assert(sv.size() == 0);
+		assert(sv.capacity() == 4);
+		sv.append("a", 1);
+		assert(sv.size() == 1);
+		assert(*sv == 'a');
+		sv.append("bc", 2);
+		assert(sv.size() == 3);
+		assert(0 == strncmp(sv, "abc", sv.size()));
+		sv.append("de", 2);
+		assert(sv.size() == sv.capacity());
+		assert(0 == strncmp(sv, "abcd", 4));
+	}
+	{
+		char buf[4];
+		cyclic_view sv(buf);
+		assert(sv.size() == 0);
+		assert(sv.capacity() == 4);
+		sv.append("a", 1);
+		assert(sv.size() == 1);
+		assert(*sv == 'a');
+		sv.append("bc", 2);
+		assert(sv.size() == 3);
+		assert(0 == strncmp(sv, "abc", sv.size()));
+		sv.append("de", 2);
+		assert(sv.size() == sv.capacity());
+		assert(0 == strncmp(sv, "abcd", 4));
+	}
+	{
 		char s[] = "abc";
 		unique_ptr<wchar_t> ws(mbstowcs(s));
 		assert(0 == wcsncmp(ws.get() + 1, L"abc", 3));
