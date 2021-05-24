@@ -6,7 +6,8 @@
 
 using namespace xll;
 
-//int break_me = []() { return _crtBreakAlloc = 1178; }()
+//int break_me = []() { return _crtBreakAlloc = 1178; }();
+
 
 #ifdef _DEBUG
 Auto<OpenAfter> xaoa_test_doc([]() {

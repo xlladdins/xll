@@ -26,6 +26,9 @@ Use xlfRegister("file.xll") to require add-in. Versions?
 
 Create zip file for visualizers and project template to replace msi.
 
+Add signing certificate
+https://github.com/actions/starter-workflows/blob/main/ci/dotnet-desktop.yml
+
 https://docs.microsoft.com/en-us/office/troubleshoot/office-suite-issues/click-hyperlink-to-sso-website
 Add a custom HTTP header to the GET response for the Office file contents. "Content-Disposition: Attachment"
 

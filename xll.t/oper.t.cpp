@@ -732,3 +732,47 @@ int test_mref()
 	return 0;
 }
 int test_mref_ = test_mref();
+/*
+int test_max()
+{
+	{
+		OPER x(1.23);
+		OPER u = xll::max(x);
+		assert(x == (std::max)(x, u));
+		assert(x == (std::max)(u, x));
+	}
+	{
+		OPER x("abc");
+		OPER u = xll::max(x);
+		assert(u <= x);
+		assert(x >= u);
+	}
+	{
+		OPER x(true);
+		OPER u = xll::max(x);
+		assert(u <= x);
+		assert(x >= u);
+	}
+	{
+		OPER x(false);
+		OPER u = xll::max(x);
+		assert(u <= x);
+		assert(x >= u);
+	}
+	{
+		XLOPERX x = { .val = {.w = 123}, .xltype = xltypeInt };
+		OPER u = xll::max(x);
+		assert(u <= x);
+		assert(x >= u);
+	}
+	{
+		OPER x(2, 3);
+		OPER u = xll::max(x);
+		assert(u <= x);
+		assert(x >= u);
+	}
+
+	return 0;
+}
+int test_max_ = test_max();
+*/

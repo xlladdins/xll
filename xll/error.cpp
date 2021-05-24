@@ -92,8 +92,11 @@ AddIn xai_alert_level(
 	.Category("XLL")
 	.Documentation(R"(
 The xll library can report errors, warnings, and information using pop-up alerts.
-These can be turned on or off using the XLL_ALERT_* flags.
-The value is stored in the registry to persist across Excel sessions.
+These can be turned on or off using any sum of <code>XLL_ALERT_ERROR()</code>,
+<code>XLL_ALERT_WARNING()</code>, or <code>XLL_ALERT_INFO()</code> flags.
+The function returns the previous mask and the argument
+is stored at <code>HKEY_CURRENT_USER\Software\KALX\xll\xll_alert_level</code>
+in the registry to persist across Excel sessions.
 )")
 );
 DWORD WINAPI xll_alert_level_(LPOPER plevel)
