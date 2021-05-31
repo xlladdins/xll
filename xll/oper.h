@@ -266,20 +266,23 @@ namespace xll {
 		}
 
 		// convert to type appropriate for X
-		explicit XOPER(cstrx str)
+		XOPER(cstrx str, int len = -1)
 		{
-			str_alloc(traits<X>::cvt(str), -1);
+			xltype = xltypeStr;
+			val.str = traits<X>::cvt(str, len);
 		}
 		// Construct from string literal
 		template<size_t N>
 		XOPER(cstrx(&str)[N])
+			: XOPER(str, N)
 		{
-			str_alloc(traits<X>::cvt(str, N), -1);
 		}
 		XOPER operator=(cstrx str)
 		{
 			oper_free();
-			str_alloc(traits<X>::cvt(str), -1);
+
+			xltype = xltypeStr;
+			val.str = traits<X>::cvt(str, -1);
 
 			return *this;
 		}

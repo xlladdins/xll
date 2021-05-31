@@ -25,7 +25,9 @@ AddIn xai_collect(
 	.Category("XLL")
 	.FunctionHelp("Collect cells into a range")
 	.Documentation(R"(
-Assemble up to 30 spreadsheet cells into a range.
+Assemble up to 30 spreadsheet cells into a range. If all arguments to
+<code>COLLECT</code> have the same number of columns then the
+ranges are stacked.
 )")
 );
 LPOPER WINAPI xll_collect(LPOPER po,
@@ -66,7 +68,12 @@ AddIn xai_depends(
 		})
 		.FunctionHelp("Return cell after dependent is calculated.")
 	.Category("XLL")
-	.Documentation(R"(Force the calculation order of cells.)")
+	.Documentation(R"(
+The <code>DEPENDS</code> function is used to force the calculation order of cells.
+The first argument <code>cell</code> will be calculated after the <code>dependent</code>
+cell is evaluated. This is useful when using handles since some functions return
+unchanged handles so Excel cannot keep track of dependencies in the usual way.
+)")
 );
 LPXLOPER WINAPI xll_depends(LPXLOPER cell, LPXLOPER)
 {
@@ -79,7 +86,7 @@ AddIn xai_replace_eq_by_eq(
 	.FunctionHelp("Recalculate all formulas in a workbook. (Ctrl-Shift-F9)")
 	.Category("XLL")
 	.Documentation(R"(
-Calls Find and Replace (<code>Ctrl-H</code>) to replace '=' by '=' in all formulas.
+Calls Find and Replace (<code>Ctrl-h</code>) to replace '=' by '=' in all formulas.
 This causes Excel to recalculate all formulas in the workbook.
 )")
 );
@@ -108,7 +115,6 @@ LPXLOPERX WINAPI xll_this(void)
 	static XLOPERX x;
 
 	x = Excel(xlCoerce, Excel(xlfCaller));
-	x.xltype |= xlbitXLFree;
 
 	return &x;
 }

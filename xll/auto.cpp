@@ -52,11 +52,8 @@ xlAutoClose(void)
 			return FALSE;
 		}
 
-		// No need to call xlfUnregister, just set name to nothing.
-		// Does not remove from Function Wizard!
-		// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#unregistering-xll-commands-and-functions
 		for (const auto& [key, args] : AddIn::Map) {
-			Excel(xlfSetName, key);
+			Unregister(key);
 		}
 
 		if (!Auto<Close>::Call()) {
