@@ -53,7 +53,7 @@ xlAutoClose(void)
 		}
 
 		for (const auto& [key, args] : AddIn::Map) {
-			Unregister(key);
+			Excel12(xlfSetName, key);
 		}
 
 		if (!Auto<Close>::Call()) {

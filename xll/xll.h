@@ -11,6 +11,7 @@
 #include "handle.h"
 #include "fp.h"
 #include "platform.h"
+#include "view.h"
 
 namespace xll {
 	bool Documentation(const char* category, const char* description);
