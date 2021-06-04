@@ -110,13 +110,10 @@ namespace xll {
 
 			return *this;
 		}
-		/*
-		// list of typeText arguments
-		Args& Arguments(const std::vector<cstr>& args)
+		Args& Arguments(const std::vector<Arg>& args)
 		{
-			return Arguments(std::initializer_list<Arg>(args.begin(), args.end()));
+			return Arguments(std::initializer_list<Arg>(&args[0], &args[0] + args.size()));
 		}
-		*/
 
 		Args& Uncalced()
 		{
