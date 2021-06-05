@@ -52,6 +52,12 @@ LPOPER WINAPI xll_eval(xchar* str)
 	return &result;
 }
 
+struct lambda {
+	double regid;
+};
+
+// XLL.CALL / INVOKE / APPLY
+
 #if 0
 AddIn xai_absref(
 	Function(XLL_LPOPER, "xll_absref", "XLL.ABSREF")

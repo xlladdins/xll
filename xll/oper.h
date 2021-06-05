@@ -682,6 +682,15 @@ namespace xll {
 			return val.w;
 		}
 
+		// xltypeBigData
+		bool is_binary() const
+		{
+			return xltype == xltypeBigData;
+		}
+		// Used to allocate persistent storage for an xltypeBigData XLOPER/ XLOPER12. 
+		// Data with a defined binary name is saved with the workbook, and can be accessed by name at any time. 
+		// xlDefineBinaryName, xlGetBinaryName
+
 	private:
 		// true if memory overlaps with x
 		bool overlap(const X& x) const

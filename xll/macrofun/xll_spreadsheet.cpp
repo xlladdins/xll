@@ -109,6 +109,7 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	//global.gridlines = false;
 	//global.View();
 
+	Workbook::Insert();
 	Workbook::Rename(Name);
 
 	// insert sheets with sample call
@@ -164,7 +165,6 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 	// move main sheet to first position
 	Workbook::Select(Name);
-	Workbook::Move(Name, 1);
 
 	Select sel("R1:R1");
 	Header();
@@ -234,17 +234,18 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 	// select cell containing the hyperlink
 	sel(REF(1, 1));
+	Excel(xlcWorkbookMove, Document::Sheet(), Document::Book(), OPER(1));
 
 	return true;
 }
 
 static AddIn xai_spreadsheet_doc(
-	Macro(XLL_DECORATE("_xll_spreadsheet_doc", 0), "DOC")
+	Macro("xll_spreadsheet_doc", "DOC")
 	.Category("XLL")
 );
-extern "C" __declspec(dllexport) int WINAPI
-xll_spreadsheet_doc(void)
+int WINAPI xll_spreadsheet_doc(void)
 {
+#pragma XLLEXPORT
 	int result = FALSE;
 
 	//Excel(xlcEcho, OPER(false));

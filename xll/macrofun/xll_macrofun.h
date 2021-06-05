@@ -956,7 +956,7 @@ namespace xll {
 		// https://xlladdins.github.io/Excel4Macros/workbook.move.html
 		static OPER Move(const OPER& name, int position = 1)
 		{
-			return Excel(xlcWorkbookMove, name, Document::Sheet(), OPER(position));
+			return Excel(xlcWorkbookMove, name, Document::Book(), OPER(position));
 		}
 		// https://xlladdins.github.io/Excel4Macros/new.html
 		static OPER New(enum Type type = Type::Worksheet)
@@ -972,6 +972,27 @@ namespace xll {
 		static OPER Select(const OPER& name = Document::Sheet())
 		{
 			return Excel(xlcWorkbookSelect, name);
+		}
+	};
+
+	// Store binary data in a workbook.
+	// https://docs.microsoft.com/en-us/office/client-developer/excel/xldefinebinaryname
+	struct BinaryName {
+		static XLOPERX Define(const OPER& name, LONG len = 0, BYTE* data = nullptr)
+		{
+			XLOPERX x = { .xltype = xltypeMissing };
+
+			if (len and data) {
+				x.xltype = xltypeBigData;
+				x.val.bigdata.cbData = len;
+				x.val.bigdata.h.lpbData = data;
+			}
+
+			return Excel(xlDefineBinaryName, name, x);
+		}
+		static XLOPERX Get(const OPER& name)
+		{
+			return Excel(xlGetBinaryName, name);
 		}
 	};
 }
