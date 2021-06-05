@@ -3,6 +3,7 @@
 #include <compare>
 #include <utility>
 #include <Windows.h>
+#include <WinBase.h>
 
 inline auto operator<=>(const FILETIME& a, const FILETIME& b)
 {
@@ -27,7 +28,7 @@ inline bool DirExists(PCTSTR file)
 
 namespace Win {
 
-	inline char* GetFormatMessage(DWORD id)
+	inline char* GetFormatMessage(DWORD id = GetLastError())
 	{
 		// not thread safe
 		static constexpr DWORD size = 1024;

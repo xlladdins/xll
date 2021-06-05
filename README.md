@@ -1,11 +1,25 @@
 ﻿# xll - a library for creating Excel add-ins
+ 
+ ![build workflow](https://github.com/xlladdins/xll/actions/workflows/msbuild.yml/badge.svg)
 
-This library makes it simple to call C++ functions and macros from Excel.
+This library makes it simple to call C, C++, or even Fortran code from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
+There are newer technologies available using C# and JavaScript that are appropriate for certain problems, but if you need the highest
+possible numerical performance from Excel this library is for you.
 
-The major usability enhancement is strings are now UTF-8. They are a L"ot" nicer to use than wide character strings.
-We still provides high performance access to [numeric arrays](#the-fp-data-type) and have
+Plug your code, or a third party library, into Excel by
+writing a thin wrapper that gathers data from Excel, calls any function, and returns the result.
+Use the full power of Excel to explore and perfect your code. Anyone can use your
+handiwork by opening the self-contained `.xll` file you produce.
+The xll library can also generate documentation integrated into Excel's help system.
+Hopefully you will get to the quality problem of others using your product and
+you can tell them to go to the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277)
+as your first line of defense against them taking up your precious time.
+
+The major usability enhancement for devlopers in the latest version is that all strings are now UTF-8. 
+They are a L"ot" nicer to use than wide character strings.
+The library still provides high performance access to [numeric arrays](#the-fp-data-type) and lets you easily create
 [handles](#handles) for embedding C++ objects that can use
 [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
 to simplify interfaces.
@@ -25,7 +39,7 @@ to simplify interfaces.
 
 ## Get Started
 
-Clone <a href="https://github.com/xlladdins/xllproject1.git">project1</a>,
+Clone <a href="https://github.com/xlladdins/xllproject1.git">xllproject1</a>,
 open the `xllproject1.sln` solution, and press `F5` to build and run Excel in 
 the Visual Studio debugger.
 If you want to create your own project, fork the repository and rename it before 
@@ -367,7 +381,7 @@ LPOPERX WINAPI xll_base_get(HANDLEX _h)
 For a production quality version of this example see 
 [handle.cpp](https://github.com/xlladdins/xll/blob/master/test/handle.cpp).
 That file also has examples illustrating how single inheritance can be used in Excel
-using `dynamic_cast`. Tha `handle` class has a member `template<class U> U* as()`
+using `dynamic_cast`. The `handle` class has a member `template<class U> U* as()`
 to do this for you and ensure `U` is derived from `T`.
 
 When a spreadsheet containing handles is reopened you must 'refresh' the handles using `Ctrl-Alt-F9`. 
@@ -472,7 +486,7 @@ There is also [Office 365](https://www.microsoft.com/en-US/microsoft-365),
 now called Microsoft 365, which should not be confused with Office 2019.
 It has features not available in Office 2019, in particular 
 [dynamic arrays](https://insider.office.com/en-us/blog/dynamic-arrays-and-new-functions-in-excel). 
-No need for `Ctrl-Alt=Enter` and trying to guess the size of ranges returned by functions.
+No need for `Ctrl-Alt-Enter` and trying to guess the size of ranges returned by functions.
 The entire range gets plopped into the spreadsheet and you will see a 
 [`#SPILL!`](https://support.microsoft.com/en-us/office/-spill-errors-in-excel-ffe0f555-b479-4a17-a6e2-ef9cc9ad4023)
 error if that would clobber existing cells.

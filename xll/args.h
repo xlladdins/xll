@@ -110,13 +110,10 @@ namespace xll {
 
 			return *this;
 		}
-		/*
-		// list of typeText arguments
-		Args& Arguments(const std::vector<cstr>& args)
+		Args& Arguments(const std::vector<Arg>& args)
 		{
-			return Arguments(std::initializer_list<Arg>(args.begin(), args.end()));
+			return Arguments(std::initializer_list<Arg>(&args[0], &args[0] + args.size()));
 		}
-		*/
 
 		Args& Uncalced()
 		{
@@ -138,6 +135,12 @@ namespace xll {
 		bool isVolatile() const
 		{
 			return !Excel(xlfFind, OPER(XLL_VOLATILE), TypeText()).is_err();
+		}
+
+		// Arbitrary convention for function names returning a handle.
+		bool isHandle() const
+		{
+			return key("functionText").val.str[1] == '\\';
 		}
 
 		Args& ThreadSafe()
@@ -352,6 +355,22 @@ namespace xll {
 		Args& Documentation(const std::string& s)
 		{
 			documentation = s;
+
+			return *this;
+		}
+		Args& SeeAlso(std::initializer_list<std::string_view> items)
+		{
+			documentation += "<h2>See Also</h2>\n";
+			const char* comma = "";
+			for (const auto& item : items) {
+				documentation += comma;
+				documentation += "<a href=\"";
+				documentation += OPER(item.data()).safe().to_string();
+				documentation += ".html\">";
+				documentation += item;
+				documentation += "</a>\n";
+				comma = ", ";
+			}
 
 			return *this;
 		}

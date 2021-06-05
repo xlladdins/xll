@@ -12,7 +12,7 @@
 #include "ensure.h"
 
 namespace utf8 {
-		
+
 	// Multi-byte character string to counted wide character string allocated by malloc.
 	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, int n = -1)
 	{

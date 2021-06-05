@@ -8,5 +8,6 @@
     <ClCompile Include="xll.t.cpp" />
     <ClCompile Include="sref.t.cpp" />
     <ClCompile Include="registry.t.cpp" />
+    <ClCompile Include="view.t.cpp" />
   </ItemGroup>
 </Project>

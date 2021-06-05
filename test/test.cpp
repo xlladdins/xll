@@ -6,41 +6,16 @@
 
 using namespace xll;
 
+//int break_me = []() { return _crtBreakAlloc = 1178; }();
+
+
 #ifdef _DEBUG
 Auto<OpenAfter> xaoa_test_doc([]() {
+	const char* platform;
+	platform = Platform();
 	return Documentation("TEST", "Excel test functions");
 });
 #endif
-
-/*
-Auto<OpenAfter> xaoa_test([]() {
-	OPER o;
-	o = Workbook::Select();
-	o = Workbook::Insert();
-	o = Workbook::Select();
-
-	o = OPER{};
-
-	return TRUE;
-});
-*/
-
-// test for 64-bit excel?
-static LSTATUS reg_query = []() {
-
-	LSTATUS status;
-	auto HKLM = HKEY_LOCAL_MACHINE;
-	LPCSTR key = "SOFTWARE\\Microsoft\\Office\\ClickToRun\\Configuration";
-	LPCSTR val = "Platform";
-	DWORD flags = RRF_RT_REG_SZ;
-	DWORD type;
-	char data[1024];
-	DWORD len = 1023;
-	status = RegGetValueA(HKLM, key, val, flags, &type, (PVOID)data, &len);
-
-	return status;
-
-}();
 
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
 // See https://xlladdins.github.io/Excel4Macros/
@@ -67,7 +42,7 @@ int WINAPI xll_macro(void)
 AddIn xai_tgamma(
 	// Return a double by calling xll_tgamma using TGAMMA in Excel.
 	Function(XLL_DOUBLE, "xll_tgamma", "TGAMMA")
-	// Args are an array of one Arg that is a double. 
+	// Arguments are an array of one Arg that is a double. 
 	.Arguments({
 		Arg(XLL_DOUBLE, "x", "is the value for which you want to calculate Gamma.", "10*rand()")
 	})
@@ -75,7 +50,8 @@ AddIn xai_tgamma(
 	.Category("CMATH")
 	.HelpTopic("https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/tgamma-tgammaf-tgammal")
 	.Documentation(R"xyz(
-The Gamma function is \(\Gamma(\alpha) = \int_0^\infty x^{\alpha - 1} e^{-x}\,dx\).
+The Gamma function is \(\Gamma(\alpha) = \int_0^\infty x^{\alpha - 1} e^{-x}\,dx\)
+for \(\alpha > 0\).
 It satisfies \(\Gamma(n + 1) = n!\) if \(n\) is a natural number.
 )xyz")
 );
@@ -170,7 +146,9 @@ int WINAPI xll_onsheet(void)
 On<Sheet> xon_sheet("", "XLL.ONSHEET", true);
 #endif
 
-AddIn xai_onkey(Macro("xll_onkey", "XLL.ONKEY").FunctionHelp("Called when Ctrl-Alt-a is pressed."));
+AddIn xai_onkey(Macro("xll_onkey", "XLL.ONKEY")
+	.FunctionHelp("Called when Ctrl-Alt-a is pressed.")
+);
 int WINAPI xll_onkey(void)
 {
 #pragma XLLEXPORT
@@ -249,6 +227,13 @@ public:
 	MA()
 		: n(0), ma(0)
 	{ }
+	MA(size_t n_, const double* x)
+		: MA()
+	{
+		while (n_--) {
+			next(*x++);
+		}
+	}
 	size_t count() const 
 	{
 		return n;
@@ -261,6 +246,25 @@ public:
 	{
 		++n;
 		ma += (x - ma) / n;
+
+		return *this;
+	}
+};
+template<class X, class Y>
+struct compose {
+	const X& x;
+	const Y& y;
+	compose(const X& x, const Y& y)
+		: x(x), y(y)
+	{ }
+	double value() const
+	{
+		return y.value();
+	}
+	compose& next(double z)
+	{
+		x.next(z);
+		y.next(x.value());
 
 		return *this;
 	}

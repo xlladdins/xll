@@ -99,6 +99,12 @@
     <ClInclude Include="xll\macrofun\xll_addin_manager.h">
       <Filter>macrofun</Filter>
     </ClInclude>
+    <ClInclude Include="xll\platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xll\view.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">
@@ -117,9 +123,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="xll\defines.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="xll\xll_range.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="xll\macrofun\xll_addin.cpp">

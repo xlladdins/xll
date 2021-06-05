@@ -215,17 +215,13 @@ namespace xll {
 		{
 			return xltype == xltypeNum && val.num == static_cast<double>(num);
 		}
-		const double& as_num() const
-		{
-			ensure(is_num());
-
-			return val.num;
-		}
 		double& as_num()
 		{
-			ensure(is_num());
-
-			return val.num;
+			return operator[](0).val.num;
+		}
+		double as_num() const
+		{
+			return operator[](0).val.num;
 		}
 
 		// xltypeStr
@@ -270,20 +266,23 @@ namespace xll {
 		}
 
 		// convert to type appropriate for X
-		explicit XOPER(cstrx str)
+		XOPER(cstrx str, int len = -1)
 		{
-			str_alloc(traits<X>::cvt(str), -1);
+			xltype = xltypeStr;
+			val.str = traits<X>::cvt(str, len);
 		}
 		// Construct from string literal
 		template<size_t N>
 		XOPER(cstrx(&str)[N])
+			: XOPER(str, N)
 		{
-			str_alloc(traits<X>::cvt(str, N), -1);
 		}
 		XOPER operator=(cstrx str)
 		{
 			oper_free();
-			str_alloc(traits<X>::cvt(str), -1);
+
+			xltype = xltypeStr;
+			val.str = traits<X>::cvt(str, -1);
 
 			return *this;
 		}
@@ -381,21 +380,19 @@ namespace xll {
 		}
 
 		// replace non alphanumeric or period '.' with underscore
-		XOPER& safe()
+		XOPER safe() const
 		{
-			if (is_str()) {
-				for (int i = 1; i <= val.str[0]; ++i) {
-					if (val.str[i] != '.' and !traits<X>::alnum(val.str[i])) {
-						val.str[i] = '_';
+			XOPER s(*this);
+
+			if (s.is_str()) {
+				for (int i = 1; i <= s.val.str[0]; ++i) {
+					if (s.val.str[i] != '.' and !traits<X>::alnum(s.val.str[i])) {
+						s.val.str[i] = '_';
 					}
 				}
 			}
 
-			return *this;
-		}
-		XOPER safe() const
-		{
-			return XOPER(*this).safe();
+			return s;
 		}
 
 		// xltypeBool

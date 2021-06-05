@@ -5,58 +5,130 @@ using namespace xll;
 
 using xchar = traits<XLOPERX>::xchar;
 
+#ifdef _DEBUG
+// int breakme = []() { return _crtBreakAlloc = 1295; }();
+#endif 
+
 AddIn xai_eval(
 	Function(XLL_LPOPER, "xll_eval", "EVAL")
 	.Arguments({
-		{XLL_PSTRING, "str", "is a string to be evaluated.", "1 + 2*rand()"}
+		{XLL_LPOPER, "cell", "is a cell to be evaluated.", "=\"1 + 2\""}
 		})
-	.FunctionHelp("Call xlfEvaluate on string.")
+	.FunctionHelp("Call xlfEvaluate on cell.")
 	.Category("XLL")
-	.Documentation(R"(
-The function <code>xlfEvaluate</code> evaluates
-its string argument, just like pressing <code>F9</code> evaluates selected text
+	.Documentation(R"xyzyx(
+The Excel function <code>xlfEvaluate</code> uses the Excel engine to evaluate
+its argument, just like pressing <code>F9</code> evaluates selected text
 in the formula bar. A naked string like <code>abc</code> is interpreted as
-a named range and returns <code>#NAME?</code> if it is not defined.
+a named range and it's corresponding value is returned. 
 To get <code>EVAL</code> to treat it like
-a string it must be enclosed in quotes, <code>"abc"</code>. The naked
-string without quotes is the result.
+a string it must be enclosed in quotes, <code>"abc"</code>.
+If a string is a case-insensitive match with <code>TRUE</code> or <code>FALSE</code>
+it is converted to the appropriate boolean value. If the string matches a known
+Excel error then the string is converted to an error type. If the string
+looks like a function call then Excel calls the function and returns the result.
+Use an initial equal sign (<code>=</code>) to force Excel to evaluate the
+string as a function. To parse a string as a date use the <code>VALUE()</code> function.
 <p>
-Two dimensional ranges start with curly braces and use commas for
-field separators and semi-colons for record separators, 
-for example <code>{1,\"a\";FALSE,2.34}</code>.
-The range can only contain constants, not formulas, just like
-<a href="https://docs.microsoft.com/en-us/office/client-developer/excel/xlset"><code>xlSet</code></a>.
-)")
+Two dimensional ranges are enclosed in curly braces, use commas for
+field seperators, and semi-colons for record seperators. 
+For example, evaluating the string <code>{1.23,"abc";fAlSe,#N/A}</code>
+results in the 2x2 range consisting of the number <code>1.23</code>,
+the string <code>abc</code>, the boolean <code>FALSE</code> value,
+and a "not available" error type. Excel will not attempt to evaluate
+any item in a multi-dimensional range as a function.
+)xyzyx")
 );
-LPOPER WINAPI xll_eval(xchar* str)
+LPOPER WINAPI xll_eval(const LPOPER pcell)
 {
 #pragma XLLEXPORT
 	static OPER result;
 
 	try {
-		XLOPERX Str;
-		Str.val.str = str;
-		Str.xltype = xltypeStr;
-
-		result = Excel(xlfEvaluate, Str);
+		result = Excel(xlfEvaluate, *pcell);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
+
 		result = ErrNA;
 	}
 	catch (...) {
-		XLL_ERROR(__FUNCTION__ "unknown error");
+		XLL_ERROR("unknown error");
 		result = ErrNA;
 	}
 
 	return &result;
 }
 
-struct lambda {
-	double regid;
-};
+#ifdef _DEBUG
 
-// XLL.CALL / INVOKE / APPLY
+int test_eval()
+{
+	try {
+		{
+			OPER o(1.23);
+			OPER e = *xll_eval(&o);
+			ensure(e == 1.23);
+		}
+		bool fail = false;
+		try {
+			{
+				OPER o("abc");
+				ensure(*xll_eval(&o)); // should fail
+			}
+		}
+		catch (const std::exception&) {
+			fail = true;
+		}
+		ensure(fail);
+		{
+			OPER o("\"abc\"");
+			OPER e = *xll_eval(&o);
+			ensure(e == OPER("abc"));
+		}
+		{
+			OPER o(true);
+			OPER e = *xll_eval(&o);
+			ensure(e == true);
+		}
+		{
+			OPER o(false);
+			OPER e = *xll_eval(&o);
+			ensure(e == false);
+		}
+		// error strings evaluate to corresponding error values
+#define X(a,b,c) { OPER o(b); OPER e = *xll_eval(&o); ensure(e.val.err == xlerr##a); } 
+		XLL_ERR(X)
+#undef X
+		{
+			// error strings in multis evaluate to errors
+			OPER o("{1.23, \"foo\";TRUE, #N/A}");
+			OPER e = *xll_eval(&o);
+			ensure(e.rows() == 2);
+			ensure(e.columns() == 2);
+			ensure(e(0, 0) == 1.23);
+			ensure(e(0, 1) == "foo");
+			ensure(e(1, 0) == true);
+			ensure(e(1, 1).xltype == xltypeErr);
+			ensure(e(1, 1).val.err == xlerrNA);
+		}
+		{
+			OPER o("=SIN(0)");
+			OPER e = *xll_eval(&o);
+			ensure(e == 0);
+		}
+	}
+	catch (const std::exception& ex) {
+		XLL_ERROR(ex.what());
+
+		return FALSE;
+	}
+
+	return TRUE;
+}
+Auto<OpenAfter> xaoa_test_eval(test_eval);
+
+#endif // _DEBUG
 
 #if 0
 AddIn xai_absref(

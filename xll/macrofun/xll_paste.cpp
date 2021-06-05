@@ -30,7 +30,7 @@ inline Args* xll_args(const OPER& xRef = Excel(xlfActiveCell))
 On<Key> xok_paste_args(ON_CTRL "@", "XLL.PASTE.ARGS");
 AddIn xai_paste_args(
 	Macro("xll_paste_args", "XLL.PASTE.ARGS")
-	.FunctionHelp("Paste function using default arguments.")
+	.FunctionHelp("Paste function using default arguments. (Ctrl-Shift-@)")
 	.Category("XLL")
 	//.ShortcutText(ON_CTRL ON_SHIFT "2")
 	.Documentation(R"(
@@ -63,7 +63,7 @@ int WINAPI xll_paste_args()
 On<Key> xok_paste_basic(ON_CTRL "B", "XLL.PASTE.BASIC");
 static AddIn xai_paste_basic(
 	Macro("xll_paste_basic", "XLL.PASTE.BASIC")
-	.FunctionHelp("Paste a function with default arguments. Shortcut Ctrl-Shift-B.")
+	.FunctionHelp("Paste a function with default arguments. (Ctrl-Shift-B)")
 	.Category("XLL")
 	//.ShortcutText("^+B")
 	.Documentation(R"xyzyx(

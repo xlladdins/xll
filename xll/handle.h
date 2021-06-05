@@ -286,5 +286,4 @@ namespace xll {
 		h.swap(k);
 	}
 
-
 }

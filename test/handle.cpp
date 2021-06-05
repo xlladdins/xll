@@ -161,6 +161,7 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 	return &result;
 }
 
+// convert pointers to "base[0x<hexdigits>]"
 static handle<base<>>::codec<XLOPERX> base_codec(OPER("base[0x"), OPER("]"));
 
 AddIn xai_ebase(
@@ -179,7 +180,6 @@ LPOPER WINAPI xll_ebase(const LPOPER px)
 	return (LPOPER)&base_codec.encode(h.get());
 }
 
-// also works for any derived class
 AddIn xai_ebase_get(
 	Function(XLL_LPOPER, "xll_ebase_get", "XLL.EBASE.GET")
 	.Arguments({

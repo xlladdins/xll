@@ -8,11 +8,6 @@ namespace xll{
 
 	inline OPER Register(Args& args)
 	{
-		args.key("moduleText") = Excel(xlGetName);
-
-		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
-		std::vector<const XLOPERX*> oper(count);
-
 		OPER procedure = args.Procedure();
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
 		if (procedure.val.str[1] == '_') {
@@ -23,36 +18,45 @@ namespace xll{
 			// C++ mangled name must start with '?'
 			procedure = OPER("?") & procedure;
 		}
-		args.Procedure(procedure);
 
+		OPER moduleText = Excel(xlGetName);
 		OPER helpTopic = args.HelpTopic();
 		if (!helpTopic and args.Documentation().length() > 0) {
-			path sp(args.key("moduleText").as_cstr());
+			/*
+			path sp(moduleText.as_cstr());
 			OPER name(sp.dirname().c_str());
+			*/
+			OPER name(XLL_URL);
 			name.append(args.FunctionText().safe());
 			name.append(".html!0");
 			name.as_cstr(); // null terminate
 
 			xll::traits<XLOPERX>::xchar buf[2048];
 			DWORD len = 2048;
-			ensure(S_OK == UrlCreateFromPath(name.val.str + 1, buf, &len, 0));
+			HRESULT result = UrlCreateFromPath(name.val.str + 1, buf, &len, 0);
+			ensure(S_OK == result or S_FALSE == result);
 
 			helpTopic = OPER(buf, len);
 		}
-		// Help URLs must end with "!0"
 		else if (helpTopic.is_str()) {
+			// Help URLs must end with "!0"
 			const auto& ht = helpTopic.val.str;
 			if (ht[0] > 2 and ht[ht[0]] != '0' and ht[ht[0] - 1] != '!') {
 				helpTopic &= OPER("!0");
 			}
 		}
-		args.HelpTopic(helpTopic);
 
 		// indicates function returns a handle
-		if (args.FunctionText().val.str[1] == '\\') {
+		if (args.isHandle()) {
 			ensure(args.isUncalced());
 		}
 
+		args.key("moduleText") = moduleText;
+		args.key("procedure") = procedure;
+		args.key("helpTopic") = helpTopic;
+
+		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
+		std::vector<const XLOPERX*> oper(count);
 		oper[0] = &args.ModuleText();
 		oper[1] = &args.Procedure();
 		oper[2] = &args.TypeText();
@@ -78,5 +82,24 @@ namespace xll{
 		}
 
 		return registerId;
+	}
+
+	// Really unregister a function.
+	// https://docs.microsoft.com/en-us/office/client-developer/excel/known-issues-in-excel-xll-development#unregistering-xll-commands-and-functions
+	// https://stackoverflow.com/questions/15343282/how-to-remove-an-excel-udf-programmatically
+	inline OPER Unregister(const OPER& key)
+	{
+		OPER regid = Excel(xlfEvaluate, key);
+		if (!regid) {
+			return ErrValue;
+		}
+		Excel(xlfSetName, key);
+		Excel(xlfUnregister, regid);
+
+		regid = Excel(xlfRegister, Excel(xlGetName), 
+			OPER("xlAutoRemove"), OPER(XLL_SHORT), key, Missing, OPER(2));
+		Excel(xlfSetName, key);
+		
+		return Excel(xlfUnregister, regid);
 	}
 }

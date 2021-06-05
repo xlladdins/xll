@@ -26,8 +26,17 @@ Use xlfRegister("file.xll") to require add-in. Versions?
 
 Create zip file for visualizers and project template to replace msi.
 
+Add signing certificate
+https://github.com/actions/starter-workflows/blob/main/ci/dotnet-desktop.yml
+
+https://docs.microsoft.com/en-us/office/troubleshoot/office-suite-issues/click-hyperlink-to-sso-website
+Add a custom HTTP header to the GET response for the Office file contents. "Content-Disposition: Attachment"
+
+https://answers.microsoft.com/en-us/msoffice/forum/msoffice_excel-mso_winother-mso_2013_release/excel-keeps-crashing-with-a-acces-violation-error/68c00399-7055-4359-94ea-0b8e4091f8c0
+
 https://www.drdobbs.com/architecture-and-design/faking-dde-with-private-servers/184409151?pgno=3
 
+Exception thrown at ... in EXCEL.EXE: 0xC0000005:
 https://docs.microsoft.com/en-us/office/client-developer/excel/how-to-call-xll-functions-from-the-function-wizard-or-replace-dialog-boxes?redirectedfrom=MSDN
 
 #define CLASS_NAME_BUFFSIZE  50
