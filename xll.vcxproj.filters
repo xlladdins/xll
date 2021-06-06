@@ -16,6 +16,9 @@
     <Filter Include="macrofun">
       <UniqueIdentifier>{e31853b1-2776-4569-b116-5b1b8316a693}</UniqueIdentifier>
     </Filter>
+    <Filter Include="docs">
+      <UniqueIdentifier>{e7aeeab2-741f-45a5-adf6-a240f7fb0fbf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xll\xll.h">
@@ -161,10 +164,16 @@
     <None Include="xll\documentation.html">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="docs\xll.css" />
+    <None Include="docs\xll.css">
+      <Filter>docs</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="docs\xll.xml" />
-    <Xml Include="docs\xll.xslt" />
+    <Xml Include="docs\xll.xml">
+      <Filter>docs</Filter>
+    </Xml>
+    <Xml Include="docs\xll.xslt">
+      <Filter>docs</Filter>
+    </Xml>
   </ItemGroup>
 </Project>

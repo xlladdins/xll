@@ -6,23 +6,39 @@
 namespace xll {
 
 	// Args data as xml
-	inline std::ostream& to_xml(std::ostream& os, const Args& args)
+	inline std::ostream& to_xml(std::ostream& os, const Args& args,
+		const std::string& xslt = "xll.xslt")
 	{
-		os << "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-		os << "<?xml-stylesheet href=\"xll.xslt\" type=\"text/xsl\"?>\n";
+		os << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		os << "<?xml-stylesheet href=\"" << xslt << "\" type=\"text/xsl\"?>\n";
 
-		for (const auto& [key, val] : args.argMap) {
+		// <key>val</key>
+		auto element = [&os](const OPER& key, const OPER& val) {
 			os << "<" << key.to_string() << ">";
 			if (val.is_str()) {
 				os << val.to_string();
 			}
-			else if (val.is_multi()) {
-				for (const auto& item : val) {
-					os << "<p>" << item.to_string() << "</p>\n";
-				}
-			}
 			os << "</" << key.to_string() << ">\n";
+		};
+
+		for (const auto& [key, val] : args.argMap) {
+			element(key, val);
 		}
+		// arguments
+		const OPER& type = args["argumentType"];
+		const OPER& name = args["argumentName"];
+		const OPER& desc = args["argumentDesc"];
+		const OPER& init = args["argumentDefault"];
+		os << "<arguments>\n";
+		for (unsigned i = 0; i < type.size(); ++i) {
+			os << "<arg>\n";
+			element(OPER("type"), type);
+			element(OPER("name"), name);
+			element(OPER("desc"), desc);
+			element(OPER("init"), init);
+			os << "</arg>\n";
+		}
+		os << "</arguments>\n";
 
 		return os;
 	}
