@@ -44,7 +44,7 @@ namespace xll {
 	/// <summary>
 	/// Everything needed to register an add-in.
 	/// </summary>
-	class Args {
+	struct Args {
 		using cstr = const char*;
 
 		std::map<OPER, OPER> argMap;
@@ -100,6 +100,7 @@ namespace xll {
 			const char* comma = "";
 			for (const auto& arg : args) {
 				key("typeText") &= arg.type;
+				key("argumentType").push_back(OPER(arg.type));
 				key("argumentName").push_back(OPER(arg.name));
 				key("argumentHelp").push_back(OPER(arg.help));
 				key("argumentDefault").push_back(OPER(arg.init));

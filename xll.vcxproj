@@ -91,7 +91,12 @@
     </Library>
   </ItemGroup>
   <ItemGroup>
+    <None Include="docs\xll.css" />
     <None Include="xll\documentation.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="docs\xll.xml" />
+    <Xml Include="docs\xll.xslt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

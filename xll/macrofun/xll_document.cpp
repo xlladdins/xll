@@ -5,6 +5,38 @@
 
 namespace xll {
 
+	// Args data as xml
+	inline std::ostream& to_xml(std::ostream& os, const Args& args)
+	{
+		os << "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+		os << "<?xml-stylesheet href=\"xll.xslt\" type=\"text/xsl\"?>\n";
+
+		for (const auto& [key, val] : args.argMap) {
+			os << "<" << key.to_string() << ">";
+			if (val.is_str()) {
+				os << val.to_string();
+			}
+			else if (val.is_multi()) {
+				for (const auto& item : val) {
+					os << "<p>" << item.to_string() << "</p>\n";
+				}
+			}
+			os << "</" << key.to_string() << ">\n";
+		}
+
+		return os;
+	}
+
+	// AddIn data as xml
+	inline std::ostream& to_xml(std::ostream& os, const AddIn& ai)
+	{
+		for (const auto& [key, arg] : ai.Map) {
+			// os << ...
+		}
+
+		return os;
+	}
+
 	// CSS style
 	static const char* html_style_css = R"xyzyx(
 	<style>

@@ -161,5 +161,10 @@
     <None Include="xll\documentation.html">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="docs\xll.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="docs\xll.xml" />
+    <Xml Include="docs\xll.xslt" />
   </ItemGroup>
 </Project>

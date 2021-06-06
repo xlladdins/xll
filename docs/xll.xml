@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="xll.xslt" type="text/xsl"?>
+<data>
+  <title>Title</title>
+  <functionText>functionText</functionText>
+  <arguments>
+    <arg>
+      <type>double</type>
+      <name>x</name>
+      <help>help</help>
+      <init>init</init>
+    </arg>
+  </arguments>
+</data>
