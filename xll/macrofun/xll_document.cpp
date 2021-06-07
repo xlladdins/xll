@@ -65,55 +65,6 @@ namespace xll {
 		return os;
 	}
 
-	// CSS style
-	static const char* html_style_css = R"xyzyx(
-	<style>
-	body{
-		background-color: #fff;
-		color: #363636;
-		font-family: 'Segoe UI',Calibri,Arial,'Helvetica Neue',Verdana,Helvetica,Sans-Serif;
-		margin: 0.5in;
-		padding: 0;
-	}
-	table {
-		text-align: left;
-		padding: 5px;
-		border-collapse: collapse;
-	}
-	th {
-		color: white;
-		background-color: #00a1f1;
-	}
-	th:first-child, td:first-child {
-		padding-right: 1em;
-		text-align: right;
-		font-weight: bold;
-	}
-	tbody>tr:nth-child(odd) {
-		background-color: #f2f2f2;
-	}
-	td:first-child {
-		background-color: #fff;
-	}
-	.katex{
-		font-size: 1em !important;
-		font-weight: 200 !important;
-	}
-	</style>
-)xyzyx";
-
-	// load katex
-	inline const char* html_head_post = R"xyzyx(
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" 
-		integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
-		integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" 
-		integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-        onload="renderMathInElement(document.body, {fleqn: true});"></script>
-</head>
-)xyzyx";
-
 	// Write html documentation given Args.
 	bool Document(const Args& args)
 	{
@@ -139,8 +90,20 @@ namespace xll {
 	// Generate documentation for add-ins;
 	bool Documentation(const char* module, const char* description)
 	{
+		module = module;
+		description = description;
+
 		path<char> sp;
 		sp.split(Excel4(xlGetName).to_string().c_str());
+
+		for (auto& [key, arg] : AddIn::Map) {
+			if (arg.Documentation().length() != 0) {
+				std::string file = key.safe().to_string();
+				std::ofstream xml(sp.dirname() + file + ".xml", std::ios::out);
+				to_xml(xml, arg);
+			}
+		}
+
 		std::string ofile(sp.dirname() + "index.html");
 		std::ofstream ofs(ofile, std::ios::out);
 
@@ -163,12 +126,12 @@ namespace xll {
 			}
 
 			// index.html preamble
-ofs << R"(<!DOCTYPE html>
+			ofs << R"(<!DOCTYPE html>
 <head>
-    <meta charset="UTF-8" />
-	)"
-	<< html_style_css
-	<< "<title>" << module << "</title>"
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="xll.css" rel="stylesheet" type="text/css" />
+)";
+	ofs << "<title>" << module << "</title>"
 	<< R"(
 </head>
 <body>
@@ -192,7 +155,7 @@ ofs << R"(<!DOCTYPE html>
 						std::string functionHelp = parg->FunctionHelp().to_string();
 						std::string href = parg->FunctionText().safe().to_string();
 						ofs << "<tr>\n\t"
-							<< "<td><a href=\"" << href << ".html\">" << functionText << "</a></td>\n"
+							<< "<td><a href=\"" << href << ".xml\">" << functionText << "</a></td>\n"
 							<< "<td>" << functionHelp << "</td>\n"
 							<< "</tr>\n";
 					}

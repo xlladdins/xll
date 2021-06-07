@@ -95,6 +95,7 @@
     <None Include="xll\documentation.html" />
   </ItemGroup>
   <ItemGroup>
+    <Xml Include="docs\index.xslt" />
     <Xml Include="docs\xll.xml" />
     <Xml Include="docs\xll.xslt" />
   </ItemGroup>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:output method="html"
               encoding="utf-8"
               version="4.0"
               doctype-public="-//W3C//DTD HTML 4.01//EN"
               omit-xml-declaration="yes"
-              indent="no"
+              indent="yes"
   />
   <xsl:template match="/args">
     <html lang="en">
@@ -14,9 +13,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="xll.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous"/>
-        <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
-        <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
-            onload="renderMathInElement(document.body);"></script>
+        <xsl:element name="script">
+          <xsl:attribute name="defer"></xsl:attribute>
+          <xsl:attribute name="src">https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js</xsl:attribute>
+          <xsl:attribute name="integrity">sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp</xsl:attribute>
+          <xsl:attribute name="crossorigin">anonymous</xsl:attribute>
+        </xsl:element>
+        <xsl:element name="script">
+          <xsl:attribute name="defer"></xsl:attribute>
+          <xsl:attribute name="src">https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js</xsl:attribute>
+          <xsl:attribute name="integrity">sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl</xsl:attribute>
+          <xsl:attribute name="crossorigin">anonymous</xsl:attribute>
+          <xsl:attribute name="onload">renderMathInElement(document.body, {fleqn: true});</xsl:attribute>
+        </xsl:element>
         <title>
           <xsl:value-of select="title"/>
         </title>

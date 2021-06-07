@@ -175,5 +175,8 @@
     <Xml Include="docs\xll.xslt">
       <Filter>docs</Filter>
     </Xml>
+    <Xml Include="docs\index.xslt">
+      <Filter>docs</Filter>
+    </Xml>
   </ItemGroup>
 </Project>
