@@ -21,24 +21,36 @@ namespace xll {
 			os << "</" << key.to_string() << ">\n";
 		};
 
+		os << "<args>\n";
+
 		for (const auto& [key, val] : args.argMap) {
 			element(key, val);
 		}
+
 		// arguments
 		const OPER& type = args["argumentType"];
 		const OPER& name = args["argumentName"];
-		const OPER& desc = args["argumentDesc"];
+		const OPER& help = args["argumentHelp"];
 		const OPER& init = args["argumentDefault"];
+		
 		os << "<arguments>\n";
 		for (unsigned i = 0; i < type.size(); ++i) {
 			os << "<arg>\n";
-			element(OPER("type"), type);
-			element(OPER("name"), name);
-			element(OPER("desc"), desc);
-			element(OPER("init"), init);
+			element(OPER("type"), type[i]);
+			element(OPER("name"), name[i]);
+			element(OPER("help"), help[i]);
+			element(OPER("init"), init[i]);
 			os << "</arg>\n";
 		}
 		os << "</arguments>\n";
+
+		element(OPER("functionTextSafe"), args.FunctionText().safe());
+		element(OPER("type"), args.Type());
+		os << "<documentation>\n";
+		os << args.documentation;
+		os << "</documentation>\n";
+
+		os << "</args>\n";
 
 		return os;
 	}
@@ -103,58 +115,17 @@ namespace xll {
 )xyzyx";
 
 	// Write html documentation given Args.
-	bool Document(const Args& arg)
+	bool Document(const Args& args)
 	{
 		try {
-			OPER functionText = arg.FunctionText();
+			OPER functionText = args.FunctionText();
 			std::string safe = functionText.safe().to_string();
 
 			// factor out!!!
 			path sp(Excel4(xlGetName).to_string().c_str());
-			std::string ofile(sp.dirname() + safe + ".html");
+			std::string ofile(sp.dirname() + safe + ".xml");
 			std::ofstream ofs(ofile, std::ios::out);
-
-ofs << R"xyzyx(<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8" />
-)xyzyx"
-    << html_style_css
-    << "<title>" << functionText.to_string() << "</title>\n"
-    << html_head_post;
-
-			std::string macroType(" ");
-			macroType.append(arg.Type().to_string());
-ofs << "<body>\n\t<h1>" << functionText.to_string() << macroType << "</h1>\n\t"
-    << "<p>This article describes the formula syntax of the " 
-    << functionText.to_string() << macroType << "</p>\n\t";
-
-			std::string functionHelp
-				= arg.FunctionHelp().to_string();
-ofs << "<h2>Description</h2>\n\t<p>\n" << functionHelp << "\n\t</p>\n\t";
-
-			std::string argumentText
-				= arg.ArgumentText().to_string();
-			if (arg.isFunction()) {
-				ofs << "<h2>Syntax</h2>\n\t<p>" << functionText.to_string() << "(" << argumentText << ")</p>\n\t"
-					<< "<blockquote>\n\t<table>\n\t<tbody>\n\t";
-
-				for (unsigned i = 1; i <= arg.ArgumentCount(); ++i) {
-					ofs << "\t<tr>\n\t\t"
-						<< "<td>" << arg.ArgumentName(i).to_string() << "</td>\n\t\t"
-						<< "<td>" << arg.ArgumentHelp(i).to_string() << "</td>\n\t\t"
-						<< "</tr>\n\t";
-				}
-				ofs << "</tbody>\n</table>\n</blockquote>\n";
-			}
-	ofs << "<p>" << arg.Documentation() << "</p>\n"
-	<< R"(
-	<footer>
-		Return to <a href="index.html">index</a>.
-	</footer>
-</body>
-</html>
-)";
+			to_xml(ofs, args);
 		}
 		catch (const std::exception& ex) {
 			XLL_ERROR(ex.what());

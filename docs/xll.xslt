@@ -6,27 +6,17 @@
               version="4.0"
               doctype-public="-//W3C//DTD HTML 4.01//EN"
               omit-xml-declaration="yes"
-              indent="no"/>
-  <xsl:template match="/data">
+              indent="no"
+  />
+  <xsl:template match="/args">
     <html lang="en">
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="xll.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-              integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
-              crossorigin="anonymous" />
-        <script defer=""
-                src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js"
-                integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4"
-                crossorigin="anonymous">
-        </script>
-        <script defer=""
-                src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
-                integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"
-                crossorigin="anonymous"
-                onload="renderMathInElement(document.body, {fleqn: true});">
-        </script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous"/>
+        <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script>
+        <script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
         <title>
           <xsl:value-of select="title"/>
         </title>
@@ -34,12 +24,14 @@
       <body>
         <h1>
           <xsl:value-of select="functionText"/>
+          <xsl:text> </xsl:text>
           <xsl:value-of select="type"/>
         </h1>
         <p>
           This article describes the formula syntax of the
           <xsl:value-of select="functionText"/>
-          <xsl:value-of select="type"/>
+          <xsl:text> </xsl:text>
+          <xsl:value-of select="type"/>.
         </p>
         <h2>Description</h2>
         <p>
@@ -68,6 +60,9 @@
         <p>
           <xsl:value-of select="documentation"/>
         </p>
+        <footer>
+          Return to <a href="index.html">index</a>.
+        </footer>
       </body>
     </html>
   </xsl:template>
