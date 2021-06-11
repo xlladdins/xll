@@ -91,7 +91,9 @@ bool Spreadsheet(const char* description = "", bool release = false)
 	cat_type_text_map cat_type_text;
 	for (auto& [key, args] : AddIn::Map) {
 		if (args.Documentation().size() > 0) {
-			cat_type_text[args.Category()][args.Type()][args.FunctionText()] = &args;
+			if (args.Category() != OPER("XLL")) {
+				cat_type_text[args.Category()][args.Type()][args.FunctionText()] = &args;
+			}
 		}
 	}
 

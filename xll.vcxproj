@@ -72,7 +72,6 @@
     <ClCompile Include="xll\macrofun\xll_macrofun.cpp" />
     <ClCompile Include="xll\macrofun\xll_paste.cpp" />
     <ClCompile Include="xll\macrofun\xll_spreadsheet.cpp" />
-    <ClCompile Include="xll\macrofun\xll_trace.cpp" />
     <ClCompile Include="xll\macrofun\xll_utility.cpp" />
     <ClCompile Include="xll\XLCALL.CPP" />
   </ItemGroup>
