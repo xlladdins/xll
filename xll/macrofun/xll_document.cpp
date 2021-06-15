@@ -1,5 +1,6 @@
 // document.cpp - generate add-in documentaton
 #include <fstream>
+#include <filesystem>
 #include "xll_macrofun.h"
 #include "../splitpath.h"
 
@@ -90,9 +91,6 @@ namespace xll {
 	// Generate documentation for add-ins;
 	bool Documentation(const char* module, const char* description)
 	{
-		module = module;
-		description = description;
-
 		path<char> sp;
 		sp.split(Excel4(xlGetName).to_string().c_str());
 

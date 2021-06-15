@@ -90,13 +90,15 @@
     </Library>
   </ItemGroup>
   <ItemGroup>
-    <None Include="docs\xll.css" />
-    <None Include="xll\documentation.html" />
+    <None Include="docs\xll.css">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="docs\index.xslt" />
-    <Xml Include="docs\xll.xml" />
-    <Xml Include="docs\xll.xslt" />
+    <Xml Include="docs\xll.xslt">
+      <DeploymentContent>true</DeploymentContent>
+    </Xml>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -196,6 +198,9 @@
       <ExportNamedFunctions>
       </ExportNamedFunctions>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy $(ProjectDir)docs\xll.css $(ProjectDir)docs\xll.xslt $(TargetDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -259,6 +264,10 @@
       <ExportNamedFunctions>
       </ExportNamedFunctions>
     </Lib>
+    <PostBuildEvent>
+      <Command>copy $(ProjectDir)docs\xll.css  $(TargetDir)
+copy $(ProjectDir)docs\xll.xslt $(TargetDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
