@@ -14,6 +14,7 @@ namespace xll {
 	/// <typeparam name="T">type of data</typeparam>
 	template<class T>
 	struct view {
+		using view_type = T;
 		T* buf;
 		DWORD len;
 
@@ -26,7 +27,9 @@ namespace xll {
 		template<size_t N>
 		view(T(&buf)[N])
 			: view(buf, static_cast<DWORD>(N))
-		{ }
+		{
+			if (len) --len; // ignore terminating null
+		}
 		view(const view&) = default;
 		view& operator=(const view&) = default;
 		virtual ~view()
@@ -36,21 +39,26 @@ namespace xll {
 		{
 			return len != 0;
 		}
-		bool operator==(const view& v) const
+		auto operator<=>(const view& v) const = default;
+		bool equal(const view& v) const
 		{
-			return len == v.len and std::equal(buf, buf + len, v.buf);
+			return len == v.len and len == 0 or std::equal(buf, buf + len, v.buf);
 		}
 
 		T back() const
 		{
 			return buf[len - 1];
 		}
+		T front() const
+		{
+			return buf[0];
+		}
 	};
 
 	template<class T>
 	inline view<T> trim_front(view<T> v, T t)
 	{
-		while (*v.buf == t) {
+		while (v.front() == t) {
 			++v.buf;
 			--v.len;
 		}
