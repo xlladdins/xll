@@ -1,5 +1,6 @@
 // view.h - view of contiguous memory
 #pragma once
+#include <compare>
 #include <stdexcept>
 #define NOMINMAX
 #define WIN32_LEAN_AND_MEAN
@@ -39,7 +40,7 @@ namespace xll {
 		{
 			return len != 0;
 		}
-		auto operator<=>(const view& v) const = default;
+		auto operator<=>(const view&) const = default;
 		bool equal(const view& v) const
 		{
 			return len == v.len and len == 0 or std::equal(buf, buf + len, v.buf);
@@ -75,7 +76,7 @@ namespace xll {
 		return v;
 	}
 	template<class T>
-	inline view<T> trim(view<T> v, T c = ' ')
+	inline view<T> trim(view<T> v, T c)
 	{
 		return trim_front<T>(trim_back<T>(v, c), c);
 	}

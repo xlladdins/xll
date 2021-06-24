@@ -20,6 +20,13 @@ int test_xll_view()
 		view v("abc");
 		assert(v.len == 4);
 		assert(0 == strcmp(v.buf, "abc"));
+		assert(v.equal(view("abc")));
+	}
+	{
+		view v(L"abc");
+		assert(v.len == 4);
+		assert(0 == wcscmp(v.buf, L"abc"));
+		assert(v.equal(view(L"abc")));
 	}
 	{
 		mem_view mv;
