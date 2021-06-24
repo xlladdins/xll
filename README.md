@@ -456,7 +456,7 @@ You can use any valid HTML in your documentation.
 
 ## Remarks
 
-This section contains miscellaneous remarks.
+Things you should be aware of but don't need to know to use the xll library.
 
 ### Bits, bits everywhere
 
