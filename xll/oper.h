@@ -585,13 +585,13 @@ namespace xll {
 					std::copy(o.begin(), o.end(), begin() + n);
 					// rotate new rows into place
 					auto b = begin() + c;
-					auto m = b + o.columns();
-					auto e = begin() + n + o.columns();
+					auto m = b + c;
+					auto e = m + o.columns();
 					while (--r) {
 						std::rotate(b, m, e);
-						b += o.columns();
-						m += o.columns();
-						e += o.columns();
+						b += columns();
+						m += columns();
+						e += columns();
 					}
 				}
 				// else if (side == Side::Top) { ... }
