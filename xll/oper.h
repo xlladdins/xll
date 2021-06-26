@@ -556,27 +556,26 @@ namespace xll {
 
 		XOPER<X>& drop(int n)
 		{
-			X x = drop<X>(*this, n);
+			X x = xll::drop(*this, n);
 			if (n > 0) {
-				std::copy_backward(begin(x), end(x), begin());
+				std::copy_backward(xll::begin(x), xll::end(x), begin());
 			}
-			val.array.rows = rows(x);
-			val.array.coumns = columns(x);
+			val.array.rows = xll::rows(x);
+			val.array.columns = xll::columns(x);
 			
 			return *this;
 		}
 		XOPER<X>& take(int n)
 		{
-			X x = take<X>(*this, n);
+			X x = xll::take(*this, n);
 			if (n < 0) {
-				std::copy_backward(begin(x), end(x), begin());
+				std::copy_backward(xll::begin(x), xll::end(x), begin());
 			}
-			val.array.rows = rows(x);
-			val.array.coumns = columns(x);
+			val.array.rows = xll::rows(x);
+			val.array.coumns = xll::columns(x);
 
 			return *this;
 		}
-
 
 		enum class Side {
 			Bottom, Right, Top, Left

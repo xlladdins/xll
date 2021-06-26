@@ -147,7 +147,8 @@ namespace xll {
 			return x;
 		}
 
-		if (abs(n) >= size(x) or rows(x) > 1 and abs(n) >= rows(x)) {
+		unsigned n_ = static_cast<unsigned>(n);
+		if (n_ >= size(x) or rows(x) > 1 and n_ >= rows(x)) {
 			x.xltype = xltypeMulti;
 			x.val.array.rows = 0;
 			x.val.array.columns = 0;
@@ -202,7 +203,8 @@ namespace xll {
 
 			return x;
 		}
-		if (abs(n) >= size(x) or rows(x) > 1 and abs(n) >= rows(x)) {
+		unsigned n_ = static_cast<unsigned>(n);
+		if (n_ >= size(x) or rows(x) > 1 and n_ >= rows(x)) {
 
 			return x;
 		}
