@@ -448,6 +448,20 @@ int test_oper_multi()
 }
 int test_oper_multi_ = test_oper_multi();
 
+int test_oper_drop()
+{
+	OPER o(3, 2);
+	for (unsigned i = 0; i < 6; ++i) {
+		o[i] = i;
+	}
+
+	auto o1 = o.drop(0);
+	assert(o1 == o);
+
+	return 0;
+}
+int test_oper_drop_ = test_oper_drop();
+
 int test_oper_bool()
 {
 	{

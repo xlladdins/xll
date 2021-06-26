@@ -141,21 +141,24 @@ namespace xll {
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline X drop(X x, int n)
 	{
-		static X null = { 
-			.val = {.array = {.rows = 0}},
-			.val = {.array = {.columns = 0}},
-			.val = {.array = {.lparray = nullptr}},
-			.xltype = xltypeMulti };
-
 		ensure(x.xltype == xltypeMulti);
 
-		if ((unsigned)-n <= size(x) or size(x) <= (unsigned)n) {
-			return null;
+		if (n == 0) {
+			return x;
+		}
+
+		if (abs(n) >= size(x) or rows(x) > 1 and abs(n) >= rows(x)) {
+			x.xltype = xltypeMulti;
+			x.val.array.rows = 0;
+			x.val.array.columns = 0;
+			x.val.array.lparray = nullptr;
+
+			return x;
 		}
 
 		if (rows(x) == 1 or columns(x) == 1) {
 			if (n > 0) { // front
-				val.array.lparray -= n;
+				x.val.array.lparray -= n;
 				if (rows(x) == 1) {
 					x.val.array.columns -= n;
 				}
@@ -173,7 +176,64 @@ namespace xll {
 			}
 		}
 		else {
+			if (n > 0) { // top
+				x.val.array.lparray -= n * columns(x);
+				x.val.array.rows -= n;
+			}
+			else if (n < 0) { // bottom
+				x.val.array.rows += n;
+			}
+		}
 
+		return x;
+	}
+
+	// take from front (n > 0) or back (n < 0)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline X take(X x, int n)
+	{
+		ensure(x.xltype == xltypeMulti);
+
+		if (n == 0) {
+			x.xltype = xltypeMulti;
+			x.val.array.rows = 0;
+			x.val.array.columns = 0;
+			x.val.array.lparray = nullptr;
+
+			return x;
+		}
+		if (abs(n) >= size(x) or rows(x) > 1 and abs(n) >= rows(x)) {
+
+			return x;
+		}
+
+		if (rows(x) == 1 or columns(x) == 1) {
+			if (n > 0) { // front
+				if (rows(x) == 1) {
+					x.val.array.columns = n;
+				}
+				else {
+					x.val.array.rows = n;
+				}
+			}
+			else if (n < 0) { // back
+				x.val.array.lparray += size(x) + n;
+				if (rows(x) == 1) {
+					x.val.array.columns = -n;
+				}
+				else {
+					x.val.array.rows = -n;
+				}
+			}
+		}
+		else {
+			if (n > 0) { // top
+				x.val.array.rows = n;
+			}
+			else if (n < 0) { // bottom
+				x.val.array.rows += n;
+				x.val.array.lparray += rows(x) * columsn(x);
+			}
 		}
 
 		return x;

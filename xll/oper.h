@@ -556,63 +556,27 @@ namespace xll {
 
 		XOPER<X>& drop(int n)
 		{
-			ensure(is_multi());
-
-			if (rows() == 1 or columns() == 1) {
-				if (n > 0) { // front
-					unsigned n_ = n;
-					if (n_ >= size()) {
-						operator=(XOPER<X>{});
-					}
-					else {
-						std::copy_backward(begin() + n_, end(), begin());
-						if (rows() == 1) {
-							resize(1, size() - n_);
-						}
-						else {
-							resize(size() - n_, 1);
-						}
-					}
-				}
-				else if (n < 0) { // back
-					unsigned n_ = -n;
-					if (n_ >= size()) {
-						operator=(XOPER<X>{});
-					}
-					else {
-						if (rows() == 1) {
-							resize(1, size() - n_);
-						}
-						else {
-							resize(size() - n_, 1);
-						}
-					}
-				}
+			X x = drop<X>(*this, n);
+			if (n > 0) {
+				std::copy_backward(begin(x), end(x), begin());
 			}
-			else {
-				if (n > 0) { // top
-					unsigned n_ = n * columns();
-					if (n_ >= size()) {
-						operator=(XOPER<X>{});
-					}
-					else {
-						std::copy_backward(begin() + n_, end(), begin());
-						resize(size() - n, columns());
-					}
-				}
-				else if (n < 0) { // back
-					unsigned n_ = -n * columns();
-					if (n_ >= size()) {
-						operator=(XOPER<X>{});
-					}
-					else {
-						resize(size() + n, columns());
-					}
-				}
-			}
+			val.array.rows = rows(x);
+			val.array.coumns = columns(x);
 			
 			return *this;
 		}
+		XOPER<X>& take(int n)
+		{
+			X x = take<X>(*this, n);
+			if (n < 0) {
+				std::copy_backward(begin(x), end(x), begin());
+			}
+			val.array.rows = rows(x);
+			val.array.coumns = columns(x);
+
+			return *this;
+		}
+
 
 		enum class Side {
 			Bottom, Right, Top, Left
