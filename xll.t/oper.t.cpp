@@ -448,19 +448,73 @@ int test_oper_multi()
 }
 int test_oper_multi_ = test_oper_multi();
 
+OPER iota(unsigned a, unsigned n)
+{
+	OPER o(1, n);
+
+	for (unsigned i = 0; i < n; ++i)
+		o[i] = a + i;
+	
+	return o;
+}
+
 int test_oper_drop()
 {
-	OPER o(3, 2);
-	for (unsigned i = 0; i < 6; ++i) {
-		o[i] = i;
+	{
+		auto o1 = iota(0, 6);
+		o1.drop(0);
+		assert(o1 == iota(0, 6));
+		o1.resize(2, 3);
+		o1.drop(0);
+		assert(o1 == iota(0, 6).resize(2,3));
 	}
-
-	auto o1 = o.drop(0);
-	assert(o1 == o);
+	{
+		assert(iota(0, 2).drop(2).size() == 0);
+		assert(iota(0, 2).drop(-2).size() == 0);
+		assert(iota(0, 2).drop(3).size() == 0);
+		assert(iota(0, 2).drop(-3).size() == 0);
+	}
+	{
+		assert(iota(0, 6).drop(1) == iota(1, 5));
+		assert(iota(0, 6).drop(-1) == iota(0, 5));
+		assert(iota(0, 6).resize(3, 2).drop(1) == iota(2, 4).resize(2,2));
+		assert(iota(0, 6).resize(3, 2).drop(-1) == iota(0, 4).resize(2,2));
+		assert(iota(0, 6).resize(3, 2).drop(3).size() == 0);
+		assert(iota(0, 6).resize(3, 2).drop(-3).size() == 0);
+	}
 
 	return 0;
 }
 int test_oper_drop_ = test_oper_drop();
+
+int test_oper_take()
+{
+	{
+		auto o1 = iota(0, 6);
+		o1.take(0);
+		assert(o1.size() == 0);
+		o1.resize(2, 3);
+		o1.take(0);
+		assert(o1.size() == 0);
+	}
+	{
+		assert(iota(0, 2).take(2) == iota(0, 2));
+		assert(iota(0, 2).take(-2) == iota(0, 2));
+		assert(iota(0, 2).take(3) == iota(0, 2));
+		assert(iota(0, 2).take(-3) == iota(0, 2));
+	}
+	{
+		assert(iota(0, 6).take(1) == iota(0, 1));
+		assert(iota(0, 6).take(-1) == iota(5, 1));
+		assert(iota(0, 6).resize(3, 2).take(2) == iota(0, 4).resize(2, 2));
+		assert(iota(0, 6).resize(3, 2).take(-2) == iota(2, 4).resize(2, 2));
+		assert(iota(0, 6).resize(3, 2).take(3) == iota(0, 6).resize(3, 2));
+		assert(iota(0, 6).resize(3, 2).take(-3) == iota(0, 6).resize(3, 2));
+	}
+
+	return 0;
+}
+int test_oper_take_ = test_oper_take();
 
 int test_oper_bool()
 {

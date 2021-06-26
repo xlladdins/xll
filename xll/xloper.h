@@ -139,49 +139,49 @@ namespace xll {
 
 	// drop from front (n > 0) or back (n < 0)
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline X drop(X x, int n)
+	inline X drop(const X& x_, int n)
 	{
+		static X null = {
+			.val = { .array = { .lparray = nullptr, .rows = 0, .columns = 0 }},
+			.xltype = xltypeMulti
+		};
+	
+		X x = x_;
+
 		ensure(x.xltype == xltypeMulti);
 
 		if (n == 0) {
 			return x;
 		}
 
-		unsigned n_ = static_cast<unsigned>(n);
-		if (n_ >= size(x) or rows(x) > 1 and n_ >= rows(x)) {
-			x.xltype = xltypeMulti;
-			x.val.array.rows = 0;
-			x.val.array.columns = 0;
-			x.val.array.lparray = nullptr;
-
-			return x;
-		}
-
-		if (rows(x) == 1 or columns(x) == 1) {
-			if (n > 0) { // front
-				x.val.array.lparray -= n;
-				if (rows(x) == 1) {
-					x.val.array.columns -= n;
-				}
-				else {
-					x.val.array.rows -= n;
-				}
+		if (n > 0) { // front}
+			if (rows(x) == 1) {
+				if ((unsigned)n >= columns(x)) return null;
+				x.val.array.lparray += n;
+				x.val.array.columns -= n;
 			}
-			else if (n < 0) { // back
-				if (rows(x) == 1) {
-					x.val.array.columns += n;
-				}
-				else {
-					x.val.array.rows += n;
-				}
-			}
-		}
-		else {
-			if (n > 0) { // top
-				x.val.array.lparray -= n * columns(x);
+			else if (columns(x) == 1) {
+				if ((unsigned)n >= rows(x)) return null;
+				x.val.array.lparray += n;
 				x.val.array.rows -= n;
 			}
-			else if (n < 0) { // bottom
+			else { // top
+				if ((unsigned)n >= rows(x)) return null;
+				x.val.array.lparray += n * columns(x);
+				x.val.array.rows -= n;
+			}
+		}
+		else if (n < 0) { // back
+			if (rows(x) == 1) {
+				if ((unsigned)-n > columns(x)) return null;
+				x.val.array.columns += n;
+			}
+			else if (columns(x) == 1) {
+				if ((unsigned)-n > rows(x)) return null;
+				x.val.array.rows += n;
+			}
+			else {
+				if ((unsigned)-n > rows(x)) return null;
 				x.val.array.rows += n;
 			}
 		}
@@ -191,8 +191,10 @@ namespace xll {
 
 	// take from front (n > 0) or back (n < 0)
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline X take(X x, int n)
+	inline X take(const X& x_, int n)
 	{
+		X x = x_;
+
 		ensure(x.xltype == xltypeMulti);
 
 		if (n == 0) {
@@ -203,38 +205,36 @@ namespace xll {
 
 			return x;
 		}
-		unsigned n_ = static_cast<unsigned>(n);
-		if (n_ >= size(x) or rows(x) > 1 and n_ >= rows(x)) {
 
-			return x;
-		}
-
-		if (rows(x) == 1 or columns(x) == 1) {
-			if (n > 0) { // front
-				if (rows(x) == 1) {
-					x.val.array.columns = n;
-				}
-				else {
-					x.val.array.rows = n;
-				}
+		if (n > 0) { // front
+			if (rows(x) == 1) {
+				if ((unsigned)n > columns(x)) n = columns(x);
+				x.val.array.columns = n;
 			}
-			else if (n < 0) { // back
-				x.val.array.lparray += size(x) + n;
-				if (rows(x) == 1) {
-					x.val.array.columns = -n;
-				}
-				else {
-					x.val.array.rows = -n;
-				}
-			}
-		}
-		else {
-			if (n > 0) { // top
+			else if (columns(x) == 1) {
+				if ((unsigned)n > rows(x)) n = rows(x);
 				x.val.array.rows = n;
 			}
-			else if (n < 0) { // bottom
-				x.val.array.rows += n;
-				x.val.array.lparray += rows(x) * columsn(x);
+			else {
+				if ((unsigned)n > rows(x)) n = rows(x);
+				x.val.array.rows = n;
+			}
+		}
+		else if (n < 0) { // back
+			if (rows(x) == 1) {
+				if ((unsigned)-n > columns(x)) n = -(int)columns(x);
+				x.val.array.lparray = end(x) + n;
+				x.val.array.columns = -n;
+			}
+			else if (columns(x) == 1) {
+				if ((unsigned)-n > rows(x)) n = -(int)rows(x);
+				x.val.array.lparray = end(x) + n;
+				x.val.array.rows = -n;
+			}
+			else {
+				if ((unsigned)-n > rows(x)) n = -(int)rows(x);
+				x.val.array.lparray = end(x) + n * columns(x);
+				x.val.array.rows = -n;
 			}
 		}
 
