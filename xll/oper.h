@@ -554,6 +554,66 @@ namespace xll {
 			return xll::index(*this, rw, col);
 		}
 
+		XOPER<X>& drop(int n)
+		{
+			ensure(is_multi());
+
+			if (rows() == 1 or columns() == 1) {
+				if (n > 0) { // front
+					unsigned n_ = n;
+					if (n_ >= size()) {
+						operator=(XOPER<X>{});
+					}
+					else {
+						std::copy_backward(begin() + n_, end(), begin());
+						if (rows() == 1) {
+							resize(1, size() - n_);
+						}
+						else {
+							resize(size() - n_, 1);
+						}
+					}
+				}
+				else if (n < 0) { // back
+					unsigned n_ = -n;
+					if (n_ >= size()) {
+						operator=(XOPER<X>{});
+					}
+					else {
+						if (rows() == 1) {
+							resize(1, size() - n_);
+						}
+						else {
+							resize(size() - n_, 1);
+						}
+					}
+				}
+			}
+			else {
+				if (n > 0) { // top
+					unsigned n_ = n * columns();
+					if (n_ >= size()) {
+						operator=(XOPER<X>{});
+					}
+					else {
+						std::copy_backward(begin() + n_, end(), begin());
+						resize(size() - n, columns());
+					}
+				}
+				else if (n < 0) { // back
+					unsigned n_ = -n * columns();
+					if (n_ >= size()) {
+						operator=(XOPER<X>{});
+					}
+					else {
+						resize(size() + n, columns());
+					}
+				}
+			}
+			
+			return *this;
+		}
+
 		enum class Side {
 			Bottom, Right, Top, Left
 		};
