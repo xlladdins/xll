@@ -117,7 +117,7 @@ namespace xll {
 
 	// one-dimensional index
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	X& index(X& x, unsigned i)
+	inline X& index(X& x, unsigned i)
 	{
 		if (x.xltype & xltypeMulti) {
 			return static_cast<X&>(x.val.array.lparray[xmod(i, size(x))]);
@@ -130,9 +130,53 @@ namespace xll {
 
 	// two-dimensional index
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	X& index(X& x, unsigned rw, unsigned col)
+	inline X& index(X& x, unsigned rw, unsigned col)
 	{
 		return index(x, columns(x) * xmod(rw, rows(x)) + xmod(col, columns(x)));
+	}
+
+	// multi-dimensional index???
+
+	// drop from front (n > 0) or back (n < 0)
+	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
+	inline X drop(X x, int n)
+	{
+		static X null = { 
+			.val = {.array = {.rows = 0}},
+			.val = {.array = {.columns = 0}},
+			.val = {.array = {.lparray = nullptr}},
+			.xltype = xltypeMulti };
+
+		ensure(x.xltype == xltypeMulti);
+
+		if ((unsigned)-n <= size(x) or size(x) <= (unsigned)n) {
+			return null;
+		}
+
+		if (rows(x) == 1 or columns(x) == 1) {
+			if (n > 0) { // front
+				val.array.lparray -= n;
+				if (rows(x) == 1) {
+					x.val.array.columns -= n;
+				}
+				else {
+					x.val.array.rows -= n;
+				}
+			}
+			else if (n < 0) { // back
+				if (rows(x) == 1) {
+					x.val.array.columns += n;
+				}
+				else {
+					x.val.array.rows += n;
+				}
+			}
+		}
+		else {
+
+		}
+
+		return x;
 	}
 
 	// Missing and Nil
