@@ -355,7 +355,7 @@ namespace xll {
 
 		Args& Documentation(const std::string& s)
 		{
-			documentation = s;
+			documentation.append(s);
 
 			return *this;
 		}
