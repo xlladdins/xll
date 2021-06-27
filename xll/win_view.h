@@ -6,9 +6,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <handleapi.h>
-#include "view.h"
+#include "fms_view.h"
 
-namespace xll {
+namespace win {
 
 	/// <summary>
 	/// Memory mapped file class
@@ -18,7 +18,7 @@ namespace xll {
 	/// Default size is 2^20 = 10^6 = 1MB, but does not
 	/// allocate memory until used.
 	/// </remarks>
-	class mem_view : public view<char> {
+	class mem_view : public fms::view<char> {
 		HANDLE h;
 	public:
 		/// <summary>

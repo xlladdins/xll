@@ -8,7 +8,6 @@ using namespace xll;
 
 //int break_me = []() { return _crtBreakAlloc = 1178; }();
 
-
 #ifdef _DEBUG
 Auto<OpenAfter> xaoa_test_doc([]() {
 	const char* platform;
@@ -16,6 +15,10 @@ Auto<OpenAfter> xaoa_test_doc([]() {
 	return Documentation("TEST", "Excel test functions");
 });
 #endif
+
+Auto<OpenAfter> xaoa_test_codec([]() {
+	return xll::codec_test();
+});
 
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
 // See https://xlladdins.github.io/Excel4Macros/

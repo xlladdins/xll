@@ -1,8 +1,9 @@
-// view.t.cpp - test xll::view
+// view.t.cpp - test view
 #include <cassert>
 #include "../xll/win_view.h"
 
-using namespace xll;
+using namespace fms;
+using namespace win;
 
 int test_xll_view()
 {

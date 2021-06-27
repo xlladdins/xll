@@ -105,7 +105,7 @@
     <ClInclude Include="xll\platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="xll\view.h">
+    <ClInclude Include="xll\fms_view.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="xll\xll_codec.h">

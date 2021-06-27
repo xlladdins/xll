@@ -3,4 +3,5 @@
 
 using namespace xll;
 
-int xll_codec_test_ = xll::codec_test();
+// does not work in console
+//int xll_codec_test_ = xll::codec_test();

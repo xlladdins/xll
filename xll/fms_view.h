@@ -1,14 +1,15 @@
-// view.h - view of contiguous memory
+// fms_view.h - Platform independent view of contiguous memory
 #pragma once
 #include <cstdint>
 #include <cctype>
 #include <compare>
 #include <stdexcept>
+#include <utility>
 
-namespace xll {
+namespace fms {
 
 	/// <summary>
-	/// Bare bones view of contiguous memory.
+	/// View of contiguous memory.
 	/// </summary>
 	/// <typeparam name="T">type of data</typeparam>
 	template<class T>
@@ -39,10 +40,11 @@ namespace xll {
 		{
 			return len != 0;
 		}
-		// compare view
+
+		// compare views
 		auto operator<=>(const view&) const = default;
 
-		// conpare contents
+		// compare contents
 		bool equal(const view& v) const
 		{
 			return len == v.len and len == 0 or std::equal(buf, buf + len, v.buf);
@@ -94,29 +96,5 @@ namespace xll {
 			return *this;
 		}
 	};
-
-	template<class T>
-	inline view<T> trim_front(view<T> v, T t)
-	{
-		while (v.front() == t) {
-			v.advance(1);
-		}
-
-		return v;
-	}
-	template<class T>
-	inline view<T> trim_back(view<T> v, T c)
-	{
-		while (v.back() == c) {
-			--v.len;
-		}
-
-		return v;
-	}
-	template<class T>
-	inline view<T> trim(view<T> v, T c)
-	{
-		return trim_front<T>(trim_back<T>(v, c), c);
-	}
 
 } // namespace xll
