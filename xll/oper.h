@@ -622,7 +622,7 @@ namespace xll {
 				// else if (side == Side::Top) { ... }
 				// else if (side == Side::Left) { ... }
 				else {
-					ensure(!"OPER::push_back: dimension mismatch");
+					ensure(!"XOPER::push_back: unimplimented Side");
 				}
 			}
 			else {
