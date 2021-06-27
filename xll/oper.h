@@ -556,15 +556,25 @@ namespace xll {
 
 		XOPER<X>& drop(int n)
 		{
-			X x = *this; // copy bits
-			operator=(xll::drop(x, n));
-			
+			X x_ = *this; // copy bits
+			X x = xll::drop(x_, n);
+			if (xll::size(x) != size()) {
+				std::copy(xll::begin(x), xll::end(x), begin());
+			}
+			val.array.rows = x.val.array.rows;
+			val.array.columns = x.val.array.columns;
+
 			return *this;
 		}
 		XOPER<X>& take(int n)
 		{
-			X x = *this; // copy bits
-			operator=(xll::take(*this, n));
+			X x_ = *this; // copy bits
+			X x = xll::take(x_, n);
+			if (xll::size(x) != size()) {
+				std::copy(xll::begin(x), xll::end(x), begin());
+			}
+			val.array.rows = x.val.array.rows;
+			val.array.columns = x.val.array.columns;
 
 			return *this;
 		}

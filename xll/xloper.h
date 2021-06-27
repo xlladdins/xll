@@ -138,51 +138,34 @@ namespace xll {
 	// multi-dimensional index???
 
 	// drop from front (n > 0) or back (n < 0)
-	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline X drop(const X& x_, int n)
+	template<class X>
+		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
+	inline X drop(X x, int n)
 	{
-		static X null = {
-			.val = { .array = { .lparray = nullptr, .rows = 0, .columns = 0 }},
-			.xltype = xltypeMulti
-		};
-	
-		X x = x_;
-
 		ensure(x.xltype == xltypeMulti);
 
-		if (n == 0) {
-			return x;
-		}
-
 		if (n > 0) { // front}
+			unsigned n_ = n;
 			if (rows(x) == 1) {
-				if ((unsigned)n >= columns(x)) return null;
-				x.val.array.lparray += n;
-				x.val.array.columns -= n;
-			}
-			else if (columns(x) == 1) {
-				if ((unsigned)n >= rows(x)) return null;
-				x.val.array.lparray += n;
-				x.val.array.rows -= n;
+				if (n_ >= columns(x)) n_ = columns(x);
+				x.val.array.lparray += n_;
+				x.val.array.columns -= n_;
 			}
 			else { // top
-				if ((unsigned)n >= rows(x)) return null;
-				x.val.array.lparray += n * columns(x);
-				x.val.array.rows -= n;
+				if (n_ >= rows(x)) n_ = rows(x);
+				x.val.array.lparray += n_ * columns(x);
+				x.val.array.rows -= n_;
 			}
 		}
 		else if (n < 0) { // back
+			unsigned n_ = -n;
 			if (rows(x) == 1) {
-				if ((unsigned)-n > columns(x)) return null;
-				x.val.array.columns += n;
+				if (n_ >= columns(x)) n_ = columns(x);
+				x.val.array.columns -= n_;
 			}
-			else if (columns(x) == 1) {
-				if ((unsigned)-n > rows(x)) return null;
-				x.val.array.rows += n;
-			}
-			else {
-				if ((unsigned)-n > rows(x)) return null;
-				x.val.array.rows += n;
+			else { // bottom
+				if (n_ >= rows(x)) n_ = rows(x);
+				x.val.array.rows -= n_;
 			}
 		}
 
@@ -190,51 +173,34 @@ namespace xll {
 	}
 
 	// take from front (n > 0) or back (n < 0)
-	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline X take(const X& x_, int n)
+	template<class X> 
+		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
+	inline X take(X x, int n)
 	{
-		X x = x_;
-
 		ensure(x.xltype == xltypeMulti);
 
-		if (n == 0) {
-			x.xltype = xltypeMulti;
-			x.val.array.rows = 0;
-			x.val.array.columns = 0;
-			x.val.array.lparray = nullptr;
-
-			return x;
-		}
-
-		if (n > 0) { // front
+		if (n >= 0) { // front
+			unsigned n_ = n;
 			if (rows(x) == 1) {
-				if ((unsigned)n > columns(x)) n = columns(x);
-				x.val.array.columns = n;
+				if (n_ > columns(x)) n_ = columns(x);
+				x.val.array.columns = n_;
 			}
-			else if (columns(x) == 1) {
-				if ((unsigned)n > rows(x)) n = rows(x);
-				x.val.array.rows = n;
-			}
-			else {
-				if ((unsigned)n > rows(x)) n = rows(x);
-				x.val.array.rows = n;
+			else { // top
+				if (n_ > rows(x)) n_ = rows(x);
+				x.val.array.rows = n_;
 			}
 		}
 		else if (n < 0) { // back
+			unsigned n_ = -n;
 			if (rows(x) == 1) {
-				if ((unsigned)-n > columns(x)) n = -(int)columns(x);
-				x.val.array.lparray = end(x) + n;
-				x.val.array.columns = -n;
+				if (n_ > columns(x)) n_ = columns(x);
+				x.val.array.lparray = end(x) - n_;
+				x.val.array.columns = n_;
 			}
-			else if (columns(x) == 1) {
-				if ((unsigned)-n > rows(x)) n = -(int)rows(x);
-				x.val.array.lparray = end(x) + n;
-				x.val.array.rows = -n;
-			}
-			else {
-				if ((unsigned)-n > rows(x)) n = -(int)rows(x);
-				x.val.array.lparray = end(x) + n * columns(x);
-				x.val.array.rows = -n;
+			else { // bottom
+				if (n_ > rows(x)) n_ = rows(x);
+				x.val.array.lparray = end(x) - n_ * columns(x);
+				x.val.array.rows = n_;
 			}
 		}
 
