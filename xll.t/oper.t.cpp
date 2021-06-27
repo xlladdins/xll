@@ -309,6 +309,12 @@ int test_oper_str_ = test_oper_str();
 int test_oper_multi()
 {
 	{
+		OPER m(1, 1);
+		m[0] = "abc";
+		ensure(m[0] == "abc");
+		ensure(m != "abc");
+	}
+	{
 		OPER m(2, 3);
 		ensure(m.xltype == xltypeMulti);
 		ensure(m.rows() == 2);

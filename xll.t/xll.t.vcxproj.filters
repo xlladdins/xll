@@ -9,5 +9,6 @@
     <ClCompile Include="sref.t.cpp" />
     <ClCompile Include="registry.t.cpp" />
     <ClCompile Include="view.t.cpp" />
+    <ClCompile Include="codec.t.cpp" />
   </ItemGroup>
 </Project>

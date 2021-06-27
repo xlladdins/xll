@@ -1,6 +1,6 @@
 // view.t.cpp - test xll::view
 #include <cassert>
-#include "../xll/view.h"
+#include "../xll/win_view.h"
 
 using namespace xll;
 

@@ -108,6 +108,12 @@
     <ClInclude Include="xll\view.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="xll\xll_codec.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="xll\win_view.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xll\auto.cpp">

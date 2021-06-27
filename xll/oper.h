@@ -455,7 +455,7 @@ namespace xll {
 			return val.mref.lpmref->reftbl;
 		}
 
-		// xltypeErr - predifined as ErrXXX
+		// xltypeErr - predefined as ErrXXX
 #define XLL_ERR_ENUM(a, b, c) a = xlerr##a,
 		enum class Err {
 			XLL_ERR(XLL_ERR_ENUM) // Err::NA, etc
@@ -474,7 +474,7 @@ namespace xll {
 	
 			return *this;
 		}
-		// xltypeErr - predifined as ErrXXX
+		// xltypeErr - predefined as ErrXXX
 		bool is_err() const
 		{
 			return xltype == xltypeErr;

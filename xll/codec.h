@@ -1,33 +1,34 @@
 // codec.h - encoder/decoder for XLOPERs
 // XLOPER is a variant type num|str|err|multi|...
 #pragma once
+#include <charconv>
 #include <concepts>
-#include <iostream>
-#include "excel.h"
+#include <chrono>
+#include <cstring>
+#include "view.h"
 
 namespace xll {
 
+	// decode string of T to X
 	template<class X>
-	inline XOPER<X> decode(const typename traits<X>::xcstr str, DWORD len = 0)
-	{
-		XOPER<X> o = len == 0 ? XOPER<X>(str) : XOPER<X>(str, len);
-		
-		// date or boolean
-		XOPER<X> o_ = Excel(xlfValue, o);
-		if (!o_.is_err()) {
-			o = o_;
+	struct decoder {
+		virtual ~decoder()
+		{ }
+		/*
+		static X convert(view<const T>& v)
+		{
+			auto [ptr, err] = std::from_chars(str, str + len, num.val.num);
+			if (ptr != str and err == std::errc()) {
+				v = v.advance(static_cast<DWORD>(ptr - str));
+
 		}
+		// to_bool
+		// to_date
+		// ...
+	private:
+		virtual X to_num_(view<const T>& v) = 0;
+		*/
+	};
 
-		// convert to number, boolean, or error
-		o_ = XExcel<X>(xlfEvaluate, o);
 
-		// error strings evaluate to xltypeErr
-		if (!o_.is_err() or o == XOPER<X>(xll_err_str[o_.val.err])) {
-			o = o_;
-		}
-
-
-		return o;
-	}
-
-}
+} // namespace xll

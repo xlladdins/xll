@@ -45,8 +45,10 @@
     <ClInclude Include="xll\utf8.h" />
     <ClInclude Include="xll\view.h" />
     <ClInclude Include="xll\win.h" />
+    <ClInclude Include="xll\win_view.h" />
     <ClInclude Include="xll\XLCALL.H" />
     <ClInclude Include="xll\xll.h" />
+    <ClInclude Include="xll\xll_codec.h" />
     <ClInclude Include="xll\xloper.h" />
   </ItemGroup>
   <ItemGroup>
