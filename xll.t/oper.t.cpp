@@ -505,6 +505,9 @@ int test_oper_take()
 	}
 	{
 		assert(iota(0, 6).take(1) == iota(0, 1));
+		auto a = iota(0, 6).take(-1);
+		auto b = iota(5, 1);
+		assert(a == b);
 		assert(iota(0, 6).take(-1) == iota(5, 1));
 		assert(iota(0, 6).resize(3, 2).take(2) == iota(0, 4).resize(2, 2));
 		assert(iota(0, 6).resize(3, 2).take(-2) == iota(2, 4).resize(2, 2));
