@@ -43,6 +43,7 @@ namespace xll {
 	X("TRUE", true) \
 	X("fAlSe", false) \
 	X("2001-2-3", Excel(xlfDate, OPER(2001), OPER(2), OPER(3))) \
+	X("Feb 3, 2001", Excel(xlfDate, OPER(2001), OPER(2), OPER(3))) \
 
 	inline int codec_test()
 	{
