@@ -4,6 +4,7 @@
 #include <map>
 #include <memory>
 #include <set>
+#include <typeinfo>
 #include <utility>
 #include "excel.h"
 
@@ -45,6 +46,8 @@ namespace xll {
 		return (T*)((uint64_t)h);
 	}
 
+	// typeid<T>.name() given HANDLEX
+	inline static std::map<HANDLEX, const char*> handle_name;
 
 	// compare underlying raw pointers
 	template<class T>
@@ -101,6 +104,11 @@ namespace xll {
 				if (pi != ps.end()) {
 					ps.erase(pi);
 				}
+				HANDLEX h = to_handle<T>(p);
+				auto pt = handle_name.find(h);
+				if (pt != handle_name.end()) {
+					handle_name.erase(pt);
+				}
 			}
 		}
 
@@ -126,6 +134,7 @@ namespace xll {
 			erase(coerce<T>(caller[p] = Excel(xlfCaller)));
 
 			ps.emplace(std::unique_ptr<T>(p));
+			handle_name[to_handle<T>(p)] = typeid(T).name();
 		}
 		/// <summary>
 		/// Lookup an existing handle.

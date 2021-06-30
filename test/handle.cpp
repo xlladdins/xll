@@ -4,6 +4,25 @@
 
 using namespace xll;
 
+AddIn xai_handle_name(
+	Function(XLL_CSTRING4, "xll_handle_name", "HANDLE.NAME")
+	.Arguments({
+		Arg(XLL_HANDLEX, "handle", "is a handle."),
+		})
+	.FunctionHelp("Return name of type corresponding to a handle.")
+	.Category("XLL")
+);
+const char* WINAPI xll_handle_name(HANDLEX h)
+{
+#pragma XLLEXPORT
+	auto hn = handle_name.find(h);
+	if (hn != handle_name.end()) {
+		return hn->second;
+	}
+
+	return "unknown";
+}
+
 template<class X = OPER>
 class base {
 	X x;
