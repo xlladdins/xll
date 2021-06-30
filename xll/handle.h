@@ -46,8 +46,8 @@ namespace xll {
 		return (T*)((uint64_t)h);
 	}
 
-	// typeid<T>.name() given HANDLEX
-	inline static std::map<HANDLEX, const char*> handle_name;
+	// typeid<T>.name() given pointer
+	inline std::map<void*, const char*> handle_name;
 
 	// compare underlying raw pointers
 	template<class T>
@@ -100,14 +100,13 @@ namespace xll {
 		static void erase(T* p) noexcept
 		{
 			if (p != nullptr) {
-				auto pi = ps.find(p);
-				if (pi != ps.end()) {
-					ps.erase(pi);
+				auto p_ = ps.find(p);
+				if (p_ != ps.end()) {
+					ps.erase(p_);
 				}
-				HANDLEX h = to_handle<T>(p);
-				auto pt = handle_name.find(h);
-				if (pt != handle_name.end()) {
-					handle_name.erase(pt);
+				auto ph = handle_name.find(p);
+				if (ph != handle_name.end()) {
+					handle_name.erase(ph);
 				}
 			}
 		}
@@ -134,7 +133,7 @@ namespace xll {
 			erase(coerce<T>(caller[p] = Excel(xlfCaller)));
 
 			ps.emplace(std::unique_ptr<T>(p));
-			handle_name[to_handle<T>(p)] = typeid(T).name();
+			handle_name[p] = typeid(*p).name();
 		}
 		/// <summary>
 		/// Lookup an existing handle.

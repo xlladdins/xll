@@ -163,3 +163,29 @@ LPXLOPERX WINAPI xll_this(void)
 
 	return &x;
 }
+
+AddIn xai_handle_name(
+	Function(XLL_CSTRING4, "xll_handle_name", "HANDLE.NAME")
+	.Arguments({
+		Arg(XLL_HANDLEX, "handle", "is a handle."),
+		})
+	//.Uncalced()
+	.FunctionHelp("Return name of type corresponding to a handle.")
+	.Category("XLL")
+	.HelpTopic("https://docs.microsoft.com/en-us/cpp/cpp/typeid-operator")
+	.Documentation(R"(
+Return the C++ RTTI <code>typeid(T).name()</code> of a handle created with <code>xll::handle&lt;T&gt;</code>.
+This uses runtime type information to return the name of the derived class of <code>T</code> used to initialize the handle.
+If the handle is not found then <code>#NUM!</code> is returned.
+)")
+);
+const char* WINAPI xll_handle_name(HANDLEX h)
+{
+#pragma XLLEXPORT
+	auto hn = handle_name.find(to_pointer<void*>(h));
+	if (hn != handle_name.end()) {
+		return hn->second;
+	}
+
+	return nullptr;
+}
