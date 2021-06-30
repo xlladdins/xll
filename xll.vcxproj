@@ -201,7 +201,8 @@
       </ExportNamedFunctions>
     </Lib>
     <PostBuildEvent>
-      <Command>copy $(ProjectDir)docs\xll.css $(ProjectDir)docs\xll.xslt $(TargetDir)</Command>
+      <Command>copy $(ProjectDir)docs\xll.css  $(TargetDir)
+copy $(ProjectDir)docs\xll.xslt $(TargetDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -48,7 +48,7 @@ namespace xll {
 		element(OPER("functionTextSafe"), args.FunctionText().safe());
 		element(OPER("type"), args.Type());
 		os << "<documentation>\n";
-		os << args.documentation;
+		os << "<![CDATA[" << args.documentation << "]]>";
 		os << "</documentation>\n";
 
 		os << "</args>\n";
