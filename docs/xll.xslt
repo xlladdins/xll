@@ -67,7 +67,7 @@
           </table>
         </blockquote>
         <p>
-          <xsl:value-of select="documentation"/>
+          <xsl:value-of select="documentation" disable-output-escaping="yes" />
         </p>
         <footer>
           Return to <a href="index.html">index</a>.
