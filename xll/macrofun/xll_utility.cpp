@@ -165,12 +165,12 @@ LPXLOPERX WINAPI xll_this(void)
 }
 
 AddIn xai_handle_name(
-	Function(XLL_CSTRING4, "xll_handle_name", "HANDLE.NAME")
+	Function(XLL_CSTRING4, "xll_handle_name", "HANDLE.TYPENAME")
 	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle."),
 		})
 	//.Uncalced()
-	.FunctionHelp("Return name of type corresponding to a handle.")
+	.FunctionHelp("Return name of type corresponding to handle.")
 	.Category("XLL")
 	.HelpTopic("https://docs.microsoft.com/en-us/cpp/cpp/typeid-operator")
 	.Documentation(R"(

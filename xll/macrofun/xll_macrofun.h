@@ -20,6 +20,19 @@ namespace xll {
 
 	using xll::Excel;
 
+	// string to column offset
+	template<class T>
+	inline unsigned C1(const T* a1)
+	{
+		unsigned c1 = toupper(*a1) - 'A';
+		
+		while (*++a1) {
+			c1 = 26 * c1 + toupper(*a1) - 'A';
+		}
+
+		return c1;
+	}
+
 	// https://support.microsoft.com/en-us/office/offset-function-c8de19ae-dd79-4b9b-a14e-b4d906d11b66	
 	inline OPER Offset(const REF& ref, const REF& off)
 	{
@@ -31,9 +44,9 @@ namespace xll {
 
 	// https://xlladdins.github.io/Excel4Macros/selection.html
 	// https://xlladdins.github.io/Excel4Macros/select.html
-	class Select {
+	struct Select {
 		OPER selection; 
-	public:
+
 		Select(const OPER& sel = Excel(xlfActiveCell))
 			: selection(sel)
 		{
@@ -48,10 +61,12 @@ namespace xll {
 		Select(const char* selection, bool A1 = false)
 			: Select(Excel(xlfTextref, OPER(selection), OPER(A1)))
 		{ }
+		/*
 		Select(const Select&) = delete;
 		Select& operator=(const Select&) = delete;
 		~Select()
 		{ }
+		*/
 
 		operator const OPER& () const
 		{

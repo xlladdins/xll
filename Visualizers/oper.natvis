@@ -2,7 +2,7 @@
 <!-- save into %USERPROFILE%\My Documents\Visual Studio 2019\Visualizers\ -->
 <AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
   <Type Name="fms::view&lt;*&gt;">
-    <DisplayString>{{view[{len}] = {buf,[len]na}}} </DisplayString>
+    <DisplayString>{{view[{len}] = {buf,[len]na}}} </DisplayString> 
   </Type>
   <Type Name="xlref">
     <AlternativeType Name="xlref12"/>
@@ -59,4 +59,4 @@
       </ArrayItems>
     </Expand>
   </Type>
-</AutoVisualizer>
+ </AutoVisualizer>

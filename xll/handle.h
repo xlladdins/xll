@@ -211,7 +211,7 @@ namespace xll {
 			return p;
 		}
 
-		// upcast to U
+		// downcast to U
 		template<class U> 
 			requires std::is_base_of_v<T,U>
 		U* as()
@@ -223,13 +223,16 @@ namespace xll {
 		template<class X>
 		class codec {
 			using xchar = traits<X>::xchar;
-			inline static xchar tab[] = TEXT("0123456789ABCDEF");
 			static uint8_t c2h(xchar c) // assumes ASCII
 			{
 				return static_cast<uint8_t>(c <= '9' ? c - '0' : 10 + c - 'A');
 			}
-			XOPER<X> H;
-			unsigned off;
+			static xchar h2c(uint8_t h) // assumes ASCII
+			{
+				return static_cast<xchar>(h <= 9 ? '0' + h : 'A' + h - 10);
+			}
+			XOPER<X> H;  // "prefix0123456789ABCDEFsuffix
+			unsigned off; // size of prefix
 		public:
 			// e.g., codec c(OPER("\\MyClass["), OPER("]"));
 			template<class X_>
@@ -237,9 +240,7 @@ namespace xll {
 			codec(const X_& prefix, const X_& suffix)
 				: H(prefix), off(prefix.val.str[0])
 			{
-				ensure(prefix.is_str() and suffix.is_str());
-				
-				H.append(tab, 16); // 64 bits for pointer
+				H.append("0123456789ABCDEF");
 				H.append(suffix);
 			}
 
@@ -255,8 +256,8 @@ namespace xll {
 				// h -> "prefix01..Fsuffix"
 				xchar* pc = H.val.str + 1 + off;
 				for (unsigned i = 0; i < 8; ++i) {
-					pc[2 * i] = tab[(hc.c[7 - i] >> 4) & 0x0F];
-					pc[2 * i + 1] = tab[hc.c[7 - i] & 0x0F];
+					pc[2 * i] = h2c(hc.c[7 - i] >> 4);
+					pc[2 * i + 1] = h2c(hc.c[7 - i] & 0x0F);
 				}
 
 				return H;
