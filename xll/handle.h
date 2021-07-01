@@ -46,6 +46,25 @@ namespace xll {
 		return (T*)((uint64_t)h);
 	}
 
+	// keep track of handles returned to Excel
+	inline std::set<void*> safe_pointers;
+	
+	template<class T>
+	inline HANDLEX safe_handle(T* p)
+	{
+		safe_pointers.insert(p);
+
+		return to_handle<T>(p);
+	}
+
+	template<class T>
+	inline T* safe_pointer(HANDLEX h)
+	{
+		T* p = to_pointer<T>(h);
+
+		return safe_pointers.contains(p) ? p : nullptr;
+	}
+
 	// typeid<T>.name() given pointer
 	inline std::map<void*, const char*> handle_name;
 
