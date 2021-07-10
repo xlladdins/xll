@@ -196,7 +196,7 @@ int WINAPI xll_handle_test()
 		// enter data in cell RiCj
 		// https://xlladdins.github.io/Excel4Macros/formula.html
 		auto Formula = [](unsigned i, unsigned j, auto data) {
-			ensure (Excel(xlcFormula, OPER(data), OPER(REF(i,j))));
+			return Excel(xlcFormula, OPER(data), OPER(REF(i,j)));
 		};
 
 		// get contents of cell RiCj;
