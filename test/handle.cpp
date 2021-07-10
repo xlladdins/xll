@@ -4,27 +4,26 @@
 
 using namespace xll;
 
-// get and set an OPER
+// get and set a type
+template<class T>
 class base {
-	OPER x;
+	T x;
 public:
 	base() { }
-	base(const OPER& x) 
+	base(const T& x) 
 		: x(x) 
 	{ }
 	base(const base&) = default;
 	base& operator=(const base&) = default;
 	virtual ~base()
 	{ }
-	OPER& get() 
+	T& get()
 	{ 
 		return x; 
 	}
-	base& set(const OPER& _x)
+	void set(const T& _x)
 	{
 		x = _x;
-
-		return *this;
 	}
 };
 
@@ -40,7 +39,7 @@ AddIn xai_base(
 HANDLEX WINAPI xll_base(const LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base> h(new base(*px));
+	xll::handle<base<OPER>> h(new base<OPER>(*px));
 
 	return h.get();
 }
@@ -56,17 +55,9 @@ AddIn xai_base_get(
 LPOPER WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
-	static OPER result;
-	xll::handle<base> h(_h);
+	xll::handle<base<OPER>> h(_h);
 
-	if (h) {
-		result = h->get();
-	}
-	else {
-		result = ErrNA;
-	}
-
-	return &result;
+	return h ? &h->get() : (LPOPER)&ErrNA;
 }
 
 AddIn xai_base_set(
@@ -80,7 +71,7 @@ AddIn xai_base_set(
 HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base> h(_h);
+	xll::handle<base<OPER>> h(_h);
 
 	if (h) {
 		h->set(*px);
@@ -90,21 +81,22 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 }
 
 // single inheritance
-class derived : public base {
-	OPER x2;
+template<class T>
+class derived : public base<T> {
+	T x2;
 public:
 	derived()
 	{ }
-	// put x in base and x2 n derived
-	derived(const OPER& x, const OPER& x2)
-		: base(x), x2(x2)
+	// put x in base and x2 in derived
+	derived(const T& x, const T& x2)
+		: base<T>(x), x2(x2)
 	{ }
 	derived(const derived&) = default;
 	derived& operator=(const derived&) = default;
 	~derived()
 	{ }
 
-	OPER& get2()
+	T& get2()
 	{
 		return x2;
 	}
@@ -123,7 +115,7 @@ HANDLEX WINAPI xll_derived(LPOPER px, LPOPER px2)
 {
 #pragma XLLEXPORT
 	// derived isa base
-	xll::handle<base> h(new derived(*px, *px2));
+	xll::handle<base<OPER>> h(new derived<OPER>(*px, *px2));
 
 	return h.get();
 }
@@ -140,24 +132,16 @@ AddIn xai_derived_get(
 LPOPER WINAPI xll_derived_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
-	static OPER result;
 	// get handle to base class
-	xll::handle<base> h(_h);
+	xll::handle<base<OPER>> h(_h);
 	// downcast to derived
-	auto pd = h.as<derived>();
+	auto pd = h.as<derived<OPER>>();
 
-	if (pd) {
-		result = pd->get2();
-	}
-	else {
-		result = ErrNA;
-	}
-
-	return &result;
+	return pd ? &pd->get2() : (LPOPER)&ErrNA;
 }
 
 // convert pointers to "\\base[0x<hexdigits>]"
-static handle<base>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
+static handle<base<OPER>>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
 
 AddIn xai_ebase(
 	Function(XLL_LPOPER, "xll_ebase", "\\XLL.EBASE")
@@ -170,7 +154,7 @@ AddIn xai_ebase(
 LPOPER WINAPI xll_ebase(const LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base> h(new base(*px));
+	xll::handle<base<OPER>> h(new base<OPER>(*px));
 
 	return (LPOPER)&base_codec.encode(h.get());
 }
@@ -186,7 +170,7 @@ LPOPER WINAPI xll_ebase_get(const LPOPER ph)
 {
 #pragma XLLEXPORT
 	static OPER result;
-	xll::handle<base> h(base_codec.decode(*ph));
+	xll::handle<base<OPER>> h(base_codec.decode(*ph));
 
 	if (h) {
 		result = h->get();
@@ -199,6 +183,9 @@ LPOPER WINAPI xll_ebase_get(const LPOPER ph)
 }
 
 #ifdef _DEBUG
+
+// Documentation for the Excel() function.
+// https://xlladdins.github.io/Excel4Macros/
 
 AddIn xai_handle_test(Macro("xll_handle_test", "HANDLE.TEST"));
 int WINAPI xll_handle_test()
