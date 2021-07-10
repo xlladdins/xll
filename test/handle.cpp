@@ -1,26 +1,26 @@
-// handle.cpp - Embed C++ in Excel using xll::handle<T>
+// handle.cpp - Embed C++ objects in Excel using xll::handle<T>
 //#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
 
-template<class X = OPER>
+// get and set an OPER
 class base {
-	X x;
+	OPER x;
 public:
 	base() { }
-	base(const X& x) 
+	base(const OPER& x) 
 		: x(x) 
 	{ }
 	base(const base&) = default;
 	base& operator=(const base&) = default;
 	virtual ~base()
 	{ }
-	X& get() 
+	OPER& get() 
 	{ 
 		return x; 
 	}
-	base& set(const X& _x)
+	base& set(const OPER& _x)
 	{
 		x = _x;
 
@@ -28,56 +28,36 @@ public:
 	}
 };
 
-template<class X = OPER>
-class derived : public base<X> {
-	X x2;
-public:
-	derived()
-	{ }
-	// put x in base and x2 n derived
-	derived(const X& x, const X& x2)
-		: base<X>(x), x2(x2)
-	{ }
-	derived(const derived&) = default;
-	derived& operator=(const derived&) = default;
-	~derived()
-	{ }
-
-	X& get2()
-	{
-		return x2;
-	}
-};
-
+// embed base in Excel
 AddIn xai_base(
 	Function(XLL_HANDLEX, "xll_base", "\\XLL.BASE")
 	.Arguments({
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
-	})
+		})
 	.Uncalced() // required for functions creating handles
 	.FunctionHelp("Return a handle to a base object.")
 );
 HANDLEX WINAPI xll_base(const LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base<>> h(new base<>(*px));
+	xll::handle<base> h(new base(*px));
 
 	return h.get();
 }
 
-// also works for any derived class
+// call base member function
 AddIn xai_base_get(
 	Function(XLL_LPOPER, "xll_base_get", "XLL.BASE.GET")
 	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by \\XLL.BASE")
-	})
+		})
 	.FunctionHelp("Return the value stored in base.")
 );
 LPOPER WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
 	static OPER result;
-	xll::handle<base<>> h(_h);
+	xll::handle<base> h(_h);
 
 	if (h) {
 		result = h->get();
@@ -94,13 +74,13 @@ AddIn xai_base_set(
 	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by \\XLL.BASE."),
 		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
-	})
+		})
 	.FunctionHelp("Set the value of base to cell.")
 );
 HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base<>> h(_h);
+	xll::handle<base> h(_h);
 
 	if (h) {
 		h->set(*px);
@@ -108,6 +88,27 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 
 	return _h;
 }
+
+// single inheritance
+class derived : public base {
+	OPER x2;
+public:
+	derived()
+	{ }
+	// put x in base and x2 n derived
+	derived(const OPER& x, const OPER& x2)
+		: base(x), x2(x2)
+	{ }
+	derived(const derived&) = default;
+	derived& operator=(const derived&) = default;
+	~derived()
+	{ }
+
+	OPER& get2()
+	{
+		return x2;
+	}
+};
 
 AddIn xai_derived(
 	Function(XLL_HANDLEX, "xll_derived", "\\XLL.DERIVED")
@@ -122,7 +123,7 @@ HANDLEX WINAPI xll_derived(LPOPER px, LPOPER px2)
 {
 #pragma XLLEXPORT
 	// derived isa base
-	xll::handle<base<>> h(new derived<>(*px, *px2));
+	xll::handle<base> h(new derived(*px, *px2));
 
 	return h.get();
 }
@@ -141,9 +142,9 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 #pragma XLLEXPORT
 	static OPER result;
 	// get handle to base class
-	xll::handle<base<>> h(_h);
+	xll::handle<base> h(_h);
 	// downcast to derived
-	auto pd = h.as<derived<>>();
+	auto pd = h.as<derived>();
 
 	if (pd) {
 		result = pd->get2();
@@ -156,7 +157,7 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 }
 
 // convert pointers to "\\base[0x<hexdigits>]"
-static handle<base<>>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
+static handle<base>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
 
 AddIn xai_ebase(
 	Function(XLL_LPOPER, "xll_ebase", "\\XLL.EBASE")
@@ -169,7 +170,7 @@ AddIn xai_ebase(
 LPOPER WINAPI xll_ebase(const LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base<>> h(new base<>(*px));
+	xll::handle<base> h(new base(*px));
 
 	return (LPOPER)&base_codec.encode(h.get());
 }
@@ -185,7 +186,7 @@ LPOPER WINAPI xll_ebase_get(const LPOPER ph)
 {
 #pragma XLLEXPORT
 	static OPER result;
-	xll::handle<base<>> h(base_codec.decode(*ph));
+	xll::handle<base> h(base_codec.decode(*ph));
 
 	if (h) {
 		result = h->get();
