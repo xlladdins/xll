@@ -229,20 +229,38 @@ namespace xll {
 		{
 			return type() == xltypeStr;
 		}
+
 		XOPER(xcstr str, int n)
 		{
 			str_alloc(str, n);
 		}
-		// xltypeStr from NULL terminated string
-		explicit XOPER(xcstr str)
-			: XOPER(str, traits<X>::len(str))
-		{ }
 		// xltypeStr from string literal
 		template<size_t N>
 		XOPER(xcstr(&str)[N])
 			: XOPER(str, N)
 		{
 		}
+		// xltypeStr from NULL terminated string
+		/*explicit*/ XOPER(xcstr str)
+			: XOPER(str, traits<X>::len(str))
+		{ }
+
+		// convert to type appropriate for X
+		XOPER(cstrx str, int len)
+		{
+			xltype = xltypeStr;
+			val.str = traits<X>::cvt(str, len);
+		}
+		// Construct from string literal
+		template<size_t N>
+		XOPER(cstrx(&str)[N])
+			: XOPER(str, N)
+		{ }
+		// convert to type appropriate for X
+		/*explicit*/ XOPER(cstrx str)
+			: XOPER(str, traits<X_>::len(str))
+		{ }
+
 		bool operator==(xcstr str) const
 		{
 			if (type() != xltypeStr) {
@@ -265,18 +283,6 @@ namespace xll {
 			return *this;
 		}
 
-		// convert to type appropriate for X
-		XOPER(cstrx str, int len = -1)
-		{
-			xltype = xltypeStr;
-			val.str = traits<X>::cvt(str, len);
-		}
-		// Construct from string literal
-		template<size_t N>
-		XOPER(cstrx(&str)[N])
-			: XOPER(str, N)
-		{
-		}
 		XOPER operator=(cstrx str)
 		{
 			oper_free();
@@ -365,6 +371,10 @@ namespace xll {
 				return "";
 			}
 
+			if (!(xltype & xltypeStr)) {
+				int err;
+				err = 0;
+			}
 			ensure(xltype & xltypeStr);
 			
 			if (val.str[0] == 0) {
@@ -632,6 +642,14 @@ namespace xll {
 			}
 
 			return *this;
+		}
+		const XOPER& push_bottom(const X& x)
+		{
+			return push_back(x, Side::Bottom);
+		}
+		const XOPER& push_right(const X& x)
+		{
+			return push_back(x, Side::Right);
 		}
 
 		// xltypeMissing - predefined as Missing
