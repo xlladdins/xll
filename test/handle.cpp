@@ -1,107 +1,77 @@
-// handle.cpp - Embed C++ in Excel using xll::handle<T>
-// https://xlladdins.com
-//#define XLOPERX XLOPER // uncomment to build for pre Excel 2007
+// handle.cpp - Embed C++ objects in Excel using xll::handle<T>
+//#define XLOPERX XLOPER
 #include "../xll/xll.h"
 
 using namespace xll;
 
-template<class X = OPER>
+// get and set a type
+template<class T>
 class base {
-	X x;
+	T x;
 public:
 	base() { }
-	base(const X& x) 
+	base(const T& x) 
 		: x(x) 
 	{ }
 	base(const base&) = default;
 	base& operator=(const base&) = default;
 	virtual ~base()
 	{ }
-
-	X& get() 
+	T& get()
 	{ 
 		return x; 
 	}
-	base& set(const X& _x)
+	void set(const T& _x)
 	{
 		x = _x;
-
-		return *this;
 	}
 };
 
-template<class X = OPER>
-class derived : public base<X> {
-	X x2;
-public:
-	derived()
-	{ }
-	// put x in base and x2 in derived
-	derived(const X& x, const X& x2)
-		: base<X>(x), x2(x2)
-	{ }
-	derived(const derived&) = default;
-	derived& operator=(const derived&) = default;
-	~derived()
-	{ }
-
-	X& get2()
-	{
-		return x2;
-	}
-};
-
+// embed base in Excel
 AddIn xai_base(
 	Function(XLL_HANDLEX, "xll_base", "\\XLL.BASE")
 	.Arguments({
-		Arg(XLL_LPOPER, "cell", "is a cell or range of cells.")
-	})
+		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
+		})
 	.Uncalced() // required for functions creating handles
 	.FunctionHelp("Return a handle to a base object.")
 );
 HANDLEX WINAPI xll_base(const LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base<>> h(new base<>(*px));
+	xll::handle<base<OPER>> h(new base<OPER>(*px));
 
 	return h.get();
 }
 
+// call base member function
 AddIn xai_base_get(
 	Function(XLL_LPOPER, "xll_base_get", "XLL.BASE.GET")
 	.Arguments({
-		Arg(XLL_HANDLEX, "handle", "is a handle returned by \\XLL.BASE.")
-	})
+		Arg(XLL_HANDLEX, "handle", "is a handle returned by \\XLL.BASE")
+		})
 	.FunctionHelp("Return the value stored in base.")
 );
 LPOPER WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
-	static OPER result;
+	xll::handle<base<OPER>> h(_h);
 
-	xll::handle<base<>> h(_h);
-	if (h) {
-		result = h->get();
-	}
-	else {
-		result = ErrNA;
-	}
-
-	return &result;
+	return h ? &h->get() : (LPOPER)&ErrNA;
 }
 
 AddIn xai_base_set(
 	Function(XLL_HANDLEX, "xll_base_set", "XLL.BASE.SET")
 	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle returned by \\XLL.BASE."),
-		Arg(XLL_LPOPER, "cell", "is a cell or range of cells.")
-	})
+		Arg(XLL_LPOPER, "cell", "is a cell or range of cells")
+		})
 	.FunctionHelp("Set the value of base to cell.")
 );
 HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base<>> h(_h);
+	xll::handle<base<OPER>> h(_h);
 
 	if (h) {
 		h->set(*px);
@@ -109,6 +79,28 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 
 	return _h;
 }
+
+// single inheritance
+template<class T>
+class derived : public base<T> {
+	T x2;
+public:
+	derived()
+	{ }
+	// put x in base and x2 in derived
+	derived(const T& x, const T& x2)
+		: base<T>(x), x2(x2)
+	{ }
+	derived(const derived&) = default;
+	derived& operator=(const derived&) = default;
+	~derived()
+	{ }
+
+	T& get2()
+	{
+		return x2;
+	}
+};
 
 AddIn xai_derived(
 	Function(XLL_HANDLEX, "xll_derived", "\\XLL.DERIVED")
@@ -123,7 +115,7 @@ HANDLEX WINAPI xll_derived(LPOPER px, LPOPER px2)
 {
 #pragma XLLEXPORT
 	// derived isa base
-	xll::handle<base<>> h(new derived<>(*px, *px2));
+	xll::handle<base<OPER>> h(new derived<OPER>(*px, *px2));
 
 	return h.get();
 }
@@ -140,23 +132,16 @@ AddIn xai_derived_get(
 LPOPER WINAPI xll_derived_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
-	static OPER result;
-	
-	xll::handle<base<>> h(_h); // get handle to base class	
-	derived<>* pd = h.as<derived<>>(); // downcast to derived
+	// get handle to base class
+	xll::handle<base<OPER>> h(_h);
+	// downcast to derived
+	auto pd = h.as<derived<OPER>>();
 
-	if (pd) {
-		result = pd->get2();
-	}
-	else {
-		result = ErrNA;
-	}
-
-	return &result;
+	return pd ? &pd->get2() : (LPOPER)&ErrNA;
 }
 
-// convert pointers to "\base[0x<hexdigits>]"
-static handle<base<>>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
+// convert pointers to "\\base[0x<hexdigits>]"
+static handle<base<OPER>>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
 
 AddIn xai_ebase(
 	Function(XLL_LPOPER, "xll_ebase", "\\XLL.EBASE")
@@ -169,7 +154,7 @@ AddIn xai_ebase(
 LPOPER WINAPI xll_ebase(const LPOPER px)
 {
 #pragma XLLEXPORT
-	xll::handle<base<>> h(new base<>(*px));
+	xll::handle<base<OPER>> h(new base<OPER>(*px));
 
 	return (LPOPER)&base_codec.encode(h.get());
 }
@@ -185,7 +170,7 @@ LPOPER WINAPI xll_ebase_get(const LPOPER ph)
 {
 #pragma XLLEXPORT
 	static OPER result;
-	xll::handle<base<>> h(base_codec.decode(*ph));
+	xll::handle<base<OPER>> h(base_codec.decode(*ph));
 
 	if (h) {
 		result = h->get();
@@ -198,6 +183,9 @@ LPOPER WINAPI xll_ebase_get(const LPOPER ph)
 }
 
 #ifdef _DEBUG
+
+// Documentation for the Excel() function.
+// https://xlladdins.github.io/Excel4Macros/
 
 AddIn xai_handle_test(Macro("xll_handle_test", "HANDLE.TEST"));
 int WINAPI xll_handle_test()
