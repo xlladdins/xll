@@ -1,5 +1,6 @@
 // fms_view.h - Platform independent view of contiguous memory
 #pragma once
+#include <algorithm>
 #include <cstdint>
 #include <cctype>
 #include <compare>
