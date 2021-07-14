@@ -1,7 +1,8 @@
 #TYPE = s5
-TYPE = slidy
+#TYPE = slidy
 #TYPE = slideous 
 #TYPE = dzslides 
+TYPE = html5
 
-talk:
+%.html: %.md
 	pandoc -t $(TYPE) -s talk.md -o talk.html
