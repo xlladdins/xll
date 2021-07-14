@@ -192,14 +192,14 @@ namespace xll {
 			return type() == xltypeNum;
 		}
 		template<class T>
-			requires std::is_convertible_v<T,double>
+			requires std::is_arithmetic_v<T>
 		XOPER(T num)
 		{
 			xltype = xltypeNum;
 			val.num = static_cast<double>(num);
 		}
 		template<class T>
-			requires std::is_convertible_v<T, double>
+			requires std::is_arithmetic_v<T>
 		XOPER& operator=(T num)
 		{
 			oper_free();
