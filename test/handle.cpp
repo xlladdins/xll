@@ -105,8 +105,8 @@ public:
 AddIn xai_derived(
 	Function(XLL_HANDLEX, "xll_derived", "\\XLL.DERIVED")
 	.Arguments({
-		Arg(XLL_LPOPER, "cell", "is a cell or range of cells"),
-		Arg(XLL_LPOPER, "cell2", "is a cell or range of cells")
+		Arg(XLL_LPOPER, "cell", "is a cell or range of cells."),
+		Arg(XLL_LPOPER, "cell2", "is a cell or range of cells.")
 	})
 	.Uncalced() // required for functions creating handles
 	.FunctionHelp("Return a handle to a derived object.")
@@ -162,7 +162,7 @@ LPOPER WINAPI xll_ebase(const LPOPER px)
 AddIn xai_ebase_get(
 	Function(XLL_LPOPER, "xll_ebase_get", "XLL.EBASE.GET")
 	.Arguments({
-		Arg(XLL_LPOPER, "handle", "is a handle returned by XLL.BASE")
+		Arg(XLL_LPOPER, "handle", "is a handle returned by \\XLL.EBASE")
 	})
 	.FunctionHelp("Return the value stored in base.")
 );
@@ -196,7 +196,7 @@ int WINAPI xll_handle_test()
 		// enter data in cell RiCj
 		// https://xlladdins.github.io/Excel4Macros/formula.html
 		auto Formula = [](unsigned i, unsigned j, auto data) {
-			ensure (Excel(xlcFormula, OPER(data), OPER(REF(i,j))));
+			ensure (Excel(xlcFormula, OPER(data), OPER(REF(i, j))));
 		};
 
 		// get contents of cell RiCj;
@@ -206,7 +206,7 @@ int WINAPI xll_handle_test()
 		};
 
 		// https://xlladdins.github.io/Excel4Macros/new.html
-		Excel(xlcNew, OPER(1), Missing, Missing); // worksheet
+		Excel(xlcNew, OPER(1), Missing, Missing); // 1 means worksheet
 
 		// test base
 		Formula(0, 0, 1.23);
@@ -232,17 +232,19 @@ int WINAPI xll_handle_test()
 		ensure(Contents(7, 0) == ErrNA);
 		ensure(Contents(8, 0) == "bar");
 		Formula(5, 0, "baz");
+		ensure(Contents(7, 0) == ErrNA);
 		ensure(Contents(8, 0) == "baz");
 
 		// use pretty handles
 		auto R1C1 = Contents(0, 0);
 		Formula(10, 0, "=\\XLL.EBASE(R1C1)");
 		auto base = Contents(10, 0); // pretty name
+		ensure(Excel(xlfLeft, base, OPER(8)) == "\\base[0x"); // check prefix
+
 		Formula(11, 0, "=XLL.EBASE.GET(R[-1]C[0])");
 		ensure(Contents(11, 0) == R1C1);
 		ensure(Contents(2, 0) = R1C1); // XLL.BASE.GET also called
 
-		ensure(Excel(xlfLeft, base, OPER(8)) == "\\base[0x"); // check prefix
 		Formula(0, 0, true);
 		ensure(Contents(11, 0) == true);
 	}

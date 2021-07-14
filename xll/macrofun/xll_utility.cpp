@@ -182,8 +182,9 @@ If the handle is not found then <code>#NUM!</code> is returned.
 const char* WINAPI xll_handle_name(HANDLEX h)
 {
 #pragma XLLEXPORT
-	auto hn = handle_name.find(to_pointer<void*>(h));
-	if (hn != handle_name.end()) {
+	auto hn = handle_typename.find(to_pointer<void*>(h));
+
+	if (hn != handle_typename.end()) {
 		return hn->second;
 	}
 
