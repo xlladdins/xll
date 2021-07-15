@@ -192,14 +192,14 @@ namespace xll {
 			return type() == xltypeNum;
 		}
 		template<class T>
-			requires std::is_convertible_v<T,double>
+			requires std::is_arithmetic_v<T>
 		XOPER(T num)
 		{
 			xltype = xltypeNum;
 			val.num = static_cast<double>(num);
 		}
 		template<class T>
-			requires std::is_convertible_v<T, double>
+			requires std::is_arithmetic_v<T>
 		XOPER& operator=(T num)
 		{
 			oper_free();
@@ -230,6 +230,7 @@ namespace xll {
 			return type() == xltypeStr;
 		}
 
+		// Use, e.g., OPER("", 255) to allocate a string buffer
 		XOPER(xcstr str, int n)
 		{
 			str_alloc(str, n);
@@ -354,12 +355,9 @@ namespace xll {
 			return val.str;
 		}
 		// pointer to null terminated string
-		xcstr as_cstr()
+		xcstr as_cstr() const
 		{
 			ensure(is_str());
-
-			xchar c(0);
-			append(&c, 1);
 
 			return val.str + 1;
 		}
@@ -368,16 +366,6 @@ namespace xll {
 		std::string to_string() const
 		{
 			if (xltype == xltypeNil) {
-				return "";
-			}
-
-			if (!(xltype & xltypeStr)) {
-				int err;
-				err = 0;
-			}
-			ensure(xltype & xltypeStr);
-			
-			if (val.str[0] == 0) {
 				return "";
 			}
 
@@ -390,14 +378,14 @@ namespace xll {
 		}
 
 		// replace non alphanumeric or period '.' with underscore
-		XOPER safe() const
+		XOPER safe(xchar u = '_') const
 		{
 			XOPER s(*this);
 
 			if (s.is_str()) {
 				for (int i = 1; i <= s.val.str[0]; ++i) {
 					if (s.val.str[i] != '.' and !traits<X>::alnum(s.val.str[i])) {
-						s.val.str[i] = '_';
+						s.val.str[i] = u;
 					}
 				}
 			}
@@ -771,20 +759,25 @@ namespace xll {
 
 				return;
 			}
-			while (n > 0 and str[n - 1] == 0) {
-				--n; // don't count trailing nulls
-			}
 
 			ensure (n < traits<X>::charmax);
 
-			xchar* tmp = (xchar*)malloc(((size_t)n + 1) * sizeof(xchar));
+			xchar* tmp = (xchar*)malloc(((size_t)n + 2) * sizeof(xchar));
 			ensure(tmp);
-			memcpy_s(tmp + 1, n * sizeof(xchar), str, n * sizeof(xchar));
+			// always null terminate
+			if (n != 0) {
+				traits<X>::cpy(tmp + 1, n + 1, str, _TRUNCATE);
+			}
+			else {
+				tmp[0] = tmp[1] = 0;
+			}
 			// first character is count
+			tmp[0] = static_cast<xchar>(n);
 			val.str = tmp;
-			val.str[0] = static_cast<xchar>(n);
 		}
 
+		// append str up to null and always allocate n more chars
+		// if n == -1 then str is counted and will be freed
 		void str_append(xcstr str, int n)
 		{
 			if (xltype == xltypeNil) {
@@ -795,30 +788,37 @@ namespace xll {
 
 			ensure(type() == xltypeStr);
 
-			if (n == 0) {
+			bool counted = (n == -1);
+			if (counted) {
+				n = str[0];
+				if (n == 0 or str[1] == 0) {
+					free(const_cast<xchar*>(str));
+
+					return; // noop
+				}
+			}
+			else if (n == 0 or str[0] == 0) {
 				return; // noop
 			}
 
 			if (xltype & xlbitXLFree) {
 				XOPER tmp(val.str + 1, val.str[0]);
 				swap(tmp);
+				//swap(XOPER(val.str + 1, val.str[0]));
 			}
 
-			bool counted = false;
-			if (n == -1) {
-				counted = true;
-				n = str[0];
-			}
 			ensure(val.str[0] + n < traits<X>::charmax);
 
-			xchar* tmp = (xchar*)realloc(val.str, ((size_t)val.str[0] + n + 1) * sizeof(xchar));
+			xchar* tmp = (xchar*)realloc(val.str, ((size_t)val.str[0] + n + 2) * sizeof(xchar));
 			ensure(tmp);
+			traits<X>::cpy(tmp + 1 + tmp[0], n + 1, str + counted, _TRUNCATE);
+			tmp[0] = static_cast<xchar>(val.str[0] + n);
 			val.str = tmp;
-			memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
-			if (n == 1 and str[0] == 0) {
-				--n; // don't count null terminator
-			}
-			val.str[0] = static_cast<xchar>(val.str[0] + n);
+			//memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
+			//if (n == 1 and str[0] == 0) {
+			//	--n; // don't count null terminator
+			//}
+			//val.str[0] = static_cast<xchar>(val.str[0] + n);
 
 			if (counted) {
 				free(const_cast<xchar*>(str));

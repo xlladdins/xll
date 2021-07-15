@@ -1,7 +1,9 @@
 // fms_view.h - Platform independent view of contiguous memory
 #pragma once
+#include <algorithm>
 #include <cstdint>
 #include <cctype>
+#include <algorithm>
 #include <compare>
 #include <stdexcept>
 #include <utility>
@@ -50,13 +52,31 @@ namespace fms {
 			return len == v.len and len == 0 or std::equal(buf, buf + len, v.buf);
 		}
 
-		// do not advance past end
-		view& advance(uint32_t n)
+		view& drop(int32_t n)
 		{
-			if (n > len) 
-				n = len;
-			buf += n;
-			len -= n;
+			n = std::clamp(n, -(int32_t)len, (int32_t)len);
+
+			if (n > 0) {
+				buf += n;
+				len -= n;
+			}
+			else if (n < 0) {
+				len += n;
+			}
+
+			return *this;
+		}
+		view& take(int32_t n)
+		{
+			n = std::clamp(n, -(int32_t)len, (int32_t)len);
+
+			if (n >= 0) {
+				len = n;
+			}
+			else {
+				buf += len + n;
+				len = -n;
+			}
 
 			return *this;
 		}
@@ -75,15 +95,15 @@ namespace fms {
 			if (front() != c) {
 				throw std::runtime_error("view: eat cannot digest character");
 			}
-			advance(1);
+			drop(1);
 
 			return *this;
 		}
 
 		view& skipws()
 		{
-			while (std::isspace(front()))
-				advance(1);
+			while (len and std::isspace(front()))
+				drop(1);
 
 			return *this;
 		}
