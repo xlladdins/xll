@@ -135,6 +135,11 @@ int test_oper_str()
 		ensure(o.val.str[0] == 0);
 	}
 	{
+		OPER o(_T(""), 3);
+		ensure(o.val.str[0] == 3);
+		ensure(o.val.str[1] == 0);
+	}
+	{
 		OPER o("abc");
 		auto s = o.as_cstr();
 		ensure(o.xltype == xltypeStr);

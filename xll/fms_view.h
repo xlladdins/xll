@@ -2,6 +2,7 @@
 #pragma once
 #include <cstdint>
 #include <cctype>
+#include <algorithm>
 #include <compare>
 #include <stdexcept>
 #include <utility>
@@ -100,7 +101,7 @@ namespace fms {
 
 		view& skipws()
 		{
-			while (std::isspace(front()))
+			while (len and std::isspace(front()))
 				drop(1);
 
 			return *this;

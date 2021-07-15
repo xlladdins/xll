@@ -48,9 +48,9 @@ namespace xll {
 		{
 			return s ? static_cast<int>(strlen(s)) : 0;
 		}
-		static xchar* cpy(xchar* dest, const xchar* src, unsigned n)
+		static xchar* cpy(xchar* dest, size_t ndest, const xchar* src, size_t nsrc)
 		{
-			ensure(0 == strncpy_s(dest, n, src, n));
+			ensure(0 == strncpy_s(dest, ndest, src, nsrc));
 	
 			return dest;
 		}
@@ -110,9 +110,9 @@ namespace xll {
 		{
 			return s ? static_cast<int>(wcslen(s)) : 0;
 		}
-		static xchar* cpy(xchar* dest, const xchar* src, unsigned n)
+		static xchar* cpy(xchar* dest, size_t ndest, const xchar* src, size_t nsrc)
 		{
-			ensure(0 == wcsncpy_s(dest, n, src, n));
+			ensure(0 == wcsncpy_s(dest, ndest, src, nsrc));
 
 			return dest;
 		}

@@ -14,6 +14,7 @@
 namespace utf8 {
 
 	// Multi-byte character string to counted wide character string allocated by malloc.
+	// Returned string is null terminated.
 	inline /*_Post_ _Notnull_*/ wchar_t* mbstowcs(const char* s, int n = -1)
 	{
 		//ensure(0 != n);
@@ -24,12 +25,13 @@ namespace utf8 {
 			ensure(0 != (wn = MultiByteToWideChar(CP_UTF8, 0, s, n, nullptr, 0)));
 		}
 
-		ws = (wchar_t*)malloc((static_cast<size_t>(wn) + 1) * sizeof(wchar_t));
+		ws = (wchar_t*)malloc((static_cast<size_t>(wn) + 2) * sizeof(wchar_t));
 		if (ws) {
 			ensure(!n or wn == MultiByteToWideChar(CP_UTF8, 0, s, n, ws + 1, wn));
 			ensure(wn <= WCHAR_MAX);
-			// MBTWC includes terminating null
+			// MBTWC includes terminating null if n == -1
 			ws[0] = static_cast<wchar_t>(wn - (n == -1));
+			ws[ws[0] + 1] = 0;
 		}
 
 		return ws;
@@ -49,6 +51,7 @@ namespace utf8 {
 	}
 
 	// Wide character string to counted multi-byte character string allocated by malloc
+	// Returned string is null terminated.
 	inline /*_Post_ _Notnull_*/ char* wcstombs(const wchar_t* ws, int wn = -1)
 	{
 		//ensure(0 != wn);
@@ -59,13 +62,14 @@ namespace utf8 {
 			ensure(0 != (n = WideCharToMultiByte(CP_UTF8, 0, ws, wn, NULL, 0, NULL, NULL)));
 		}
 
-		s = (char*)malloc(static_cast<size_t>(n) + 1);
+		s = (char*)malloc(static_cast<size_t>(n) + 2);
 		if (nullptr != s) {
 			ensure(!wn or n == WideCharToMultiByte(CP_UTF8, 0, ws, wn, s + 1, n, NULL, NULL));
 			// ???NormalizeString
 			ensure(n <= UCHAR_MAX);
-			// WCTMBS includes terminating null
+			// WCTMBS includes terminating null if wn == -1
 			s[0] = static_cast<char>(n - (wn == -1));
+			s[s[0] + 1] = 0;
 		}
 
 		return s;
