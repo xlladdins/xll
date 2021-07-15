@@ -766,7 +766,8 @@ namespace xll {
 			ensure(tmp);
 			// always null terminate
 			if (n != 0) {
-				traits<X>::cpy(tmp + 1, n + 1, str, _TRUNCATE);
+				traits<X>::cpy(tmp + 1, n + 1, str, n);
+				tmp[n + 1] = 0;
 			}
 			else {
 				tmp[0] = tmp[1] = 0;
