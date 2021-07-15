@@ -17,6 +17,7 @@ public:
 	base& operator=(const base&) = default;
 	virtual ~base()
 	{ }
+
 	T& get()
 	{ 
 		return x; 
@@ -140,7 +141,7 @@ LPOPER WINAPI xll_derived_get(HANDLEX _h)
 	return pd ? &pd->get2() : (LPOPER)&ErrNA;
 }
 
-// convert pointers to "\\base[0x<hexdigits>]"
+// convert pointers to and from "\\base[0x<hexdigits>]"
 static handle<base<OPER>>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
 
 AddIn xai_ebase(
@@ -169,17 +170,9 @@ AddIn xai_ebase_get(
 LPOPER WINAPI xll_ebase_get(const LPOPER ph)
 {
 #pragma XLLEXPORT
-	static OPER result;
 	xll::handle<base<OPER>> h(base_codec.decode(*ph));
 
-	if (h) {
-		result = h->get();
-	}
-	else {
-		result = ErrNA;
-	}
-
-	return &result;
+	return xll_base_get(h.get());
 }
 
 #ifdef _DEBUG
@@ -196,20 +189,23 @@ int WINAPI xll_handle_test()
 		// enter data in cell RiCj
 		// https://xlladdins.github.io/Excel4Macros/formula.html
 		auto Formula = [](unsigned i, unsigned j, auto data) {
-			ensure (Excel(xlcFormula, OPER(data), OPER(REF(i, j))));
+			return Excel(xlcFormula, OPER(data), OPER(REF(i,j)));
 		};
 
 		// get contents of cell RiCj;
 		// https://xlladdins.github.io/Excel4Macros/get.cell.html
 		auto Contents = [](unsigned i, unsigned j) {
+			// 5 - contents
 			return Excel(xlfGetCell, OPER(5), OPER(REF(i, j)));
 		};
 
 		// https://xlladdins.github.io/Excel4Macros/new.html
-		Excel(xlcNew, OPER(1), Missing, Missing); // 1 means worksheet
+		// 1 - worksheet
+		Excel(xlcNew, OPER(1), Missing, Missing); // worksheet
 
 		// test base
 		Formula(0, 0, 1.23);
+		ensure(Contents(0, 0) == 1.23);
 		Formula(1, 0, "=\\XLL.BASE(R[-1]C[0])");
 		Formula(2, 0, "=XLL.BASE.GET(R[-1]C[0])");
 		
