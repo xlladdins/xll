@@ -164,8 +164,31 @@ LPXLOPERX WINAPI xll_this(void)
 	return &x;
 }
 
+static AddIn xai_throttle(
+	Function(XLL_LPXLOPERX, "xll_throttle", "THROTTLE")
+	.Arguments({
+		Arg(XLL_LPXLOPERX, "formula", "is a formula.")
+		})
+	.Uncalced()
+	.Category("XLL")
+	.FunctionHelp("Evaluate formula only if F2, Enter is used on the cell.")
+	.Documentation(
+		"Block a formula from being called."
+	)
+);
+LPXLOPERX WINAPI xll_throttle(LPXLOPERX px)
+{
+#pragma XLLEXPORT
+	OPER o = Excel(xlCoerce, Excel(xlfCaller));
+	if (Excel(xlCoerce, Excel(xlfCaller)).as_num() == 0) {
+		*(LPOPER)px = Excel(xlfEvaluate, *(LPOPER)px);
+	}
+
+	return px;
+}
+
 AddIn xai_handle_name(
-	Function(XLL_CSTRING4, "xll_handle_name", "HANDLE.TYPENAME")
+	Function(XLL_CSTRING4, "xll_handle_typename", "HANDLE.TYPENAME")
 	.Arguments({
 		Arg(XLL_HANDLEX, "handle", "is a handle."),
 		})
@@ -179,7 +202,7 @@ This uses runtime type information to return the name of the derived class of <c
 If the handle is not found then <code>#NUM!</code> is returned.
 )")
 );
-const char* WINAPI xll_handle_name(HANDLEX h)
+const char* WINAPI xll_handle_typename(HANDLEX h)
 {
 #pragma XLLEXPORT
 	auto hn = handle_typename.find(to_pointer<void*>(h));

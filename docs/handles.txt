@@ -1,0 +1,180 @@
+Let's talk about how to embed C++ into Excel.
+
+Plopping a C++ object into Excel is easy.
+Write an add-in that takes arguments for the appropriate constructor and return a handle to the new pointer.
+What is not so easy is calling delete when Excel is done with the object.
+The xll::handle class solves this problem.
+
+Include the xll.h header 
+
+use everything in the xll namespace
+
+You can include header files for any any C++ library,
+but let's define a simple base class for storing a C++ type. [require semiregular = morally equivalent to built-in type]
+
+
+
+
+The base class constructor takes a type and tucks it away.
+It can be accessed using get and set.
+The destructor is virtual because we want to inherit from base.
+
+
+
+
+
+The AddIn class specifies information Excel needs to register a function.
+The \XLL.BASE Excel function returns a handle by calling the xll_base C++ function.
+The function has one argument that is a pointer to an OPER.
+An OPER is a cell in an Excel spreadsheet. It can be a number, string, error, boolean, ...and some other thing... or a 2-dimensional range of cells.
+Functions that returns a handle must be uncalced.
+This tells Excel the function has side effects. In this case, creating a C++ object.
+Excel function names starting with a backslash indicate a handle will be returned.
+But this is a convention, not a requirement.
+
+All C++ functions registered with Excel must be declared WINAPI.
+This is an artifact of the original versions of Excel being written in Pascal.
+If you forget to do this you will get no warnings, only strange crashes that are difficult to debug. 
+
+The first line of the body of the function implementation requires pragma XLLEXPORT.
+Unlike Unix, Windows does not make functions visible outside of shared libraries by default.
+If you forget to do this you *will* get a warning when you load the xll in Excel.
+
+The xll::handle class is similar to a std::unique_ptr.
+Handles reference exactly one object and the object is deleted when the handle goes out of scope.
+The handle member function `get` returns the handle of the object.
+
+
+
+
+
+
+To call a member function of a C++ object you must provide a handle.
+The handle constructor converts it to a pointer to the object.
+Bogus handles are converted to null pointers that can be detected with operator bool.
+The handle arrow operator returns a pointer that is used to call get.
+The xll library has a predefined object ErrNA corresponding to #N/A.
+Use this to communicate to Excel that something went wrong.
+
+If you are nervous about returning the address of an object from a function, you should be.
+If the object only exists in the call stack of the function its destructor will be called on function exit, and the caller will get a pointer to garbage.
+In our case, the OPER has been tucked away in the base<OPER> object created by \XLL.BASE.
+It exists as long as the handle is in scope. 
+Note h.get() returns a handle to base<OPER> but h arrow get() returns a reference to the OPER stored in base.
+
+
+
+
+
+XLL.BASE.SET illustrates how to call a member function that takes arguments.
+Note that add-in functions always take and return *pointers* to OPER's.
+base::set has void return but Excel wants a cookie so we return the handle.
+We could use this as an argument to XLL.BASE.GET to return the value that was just set.
+
+
+
+
+
+The derived class inherits from base and stores a second item of a generic type.
+Note neither class involves any Excel specifics. 
+
+
+
+
+
+
+
+The add-in for \XLL.DERIVED creates a derived object taking two arguments.
+The pointer from the new derived constructor is stored as a base handle.
+
+The handle can be used in calls to XLL.BASE.GET and XLL.BASE.GET.
+
+
+
+
+
+
+
+To call a member function of a derived class use the handle<base> constructor to get the pointer.
+The handle member function `as<derived>` calls dynamic_cast to detect if it is a pointer to a derived class.
+
+
+
+
+
+As you've probably figured out by now, handles are 64-bit floating point doubles.
+The bits in the double are the same as the bits in the pointer.
+This reduces the conversion to a couple of machine instructions.
+ 
+Some people don't like seeing funny looking floating point numbers in their spreadsheet.
+You can use handle<T>::codec to encode and decode handles to more pleasant looking strings.
+The codec specifies a prefix and suffix string. The handle is converted to a 16 character
+hexidecimal string sandwitched beteen them.
+Use encode to convert handles to a string and decode to convert strings to handles.
+
+
+
+
+
+
+Anything you can do in Excel by hand can be done using the Excel function.
+The first argument to Excel() is the function or macro number
+The subsequent arguments are described in the documenation.
+
+Create an Excel AddIn macro called HANDLE.TEST that calls xll_handle_test.
+Macros return an int they should be TRUE on success or FALSE if something goes wrong.
+
+
+
+
+The macro command xl*c*Formula enters OPER values and formulas into a cell..
+
+The macro function xl*f*GetCell gets information about cells.
+You must read the documentation for GET.CELL to determine the magic number 5 retrieves the cell contents 
+
+Likewise the magic number 1 creates a new worksheet.
+
+
+
+
+Enter 1.23 in cell A1
+Create a handle to a base pointer using the cell above.
+Get its value using the handle.
+
+Note: xlfFormula requires R1C1 references.
+
+Replace 1.23 in A1 by the string foo and make sure the call to \xll.base and xll.base.get work.
+
+
+
+
+
+Add two argument for the call to \XLL.DERIVED in A5 and A6,
+Call \xll.derived
+Make sure xll.base.get works with derived.
+and Make sure xll.derived.get2 works.
+
+
+
+
+
+
+Create a base object with an encoded handle.
+Make sure the prefix is correct.
+Note xlfLeft is the Excel LEFT function.
+
+Call base.get to check decoding works.
+
+
+
+
+This is everything you need to know to embed C++ in Excel using handles.
+
+
+
+
+Let's step though the macro using the debugger.
+
+If you're still here, let's do a code review on the details of how xll::handle works.
+
+The xll:handle class only depends on xlCoerce and xlfCaller.

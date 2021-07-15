@@ -169,17 +169,9 @@ AddIn xai_ebase_get(
 LPOPER WINAPI xll_ebase_get(const LPOPER ph)
 {
 #pragma XLLEXPORT
-	static OPER result;
 	xll::handle<base<OPER>> h(base_codec.decode(*ph));
 
-	if (h) {
-		result = h->get();
-	}
-	else {
-		result = ErrNA;
-	}
-
-	return &result;
+	return xll_base_get(h.get());
 }
 
 #ifdef _DEBUG
@@ -228,25 +220,15 @@ int WINAPI xll_handle_test()
 		ensure(Contents(7, 0) == 4.56); // derived isa base
 		ensure(Contents(8, 0) == "bar");
 
-		Formula(4, 0, "=NA()");
-		ensure(Contents(7, 0) == ErrNA);
-		ensure(Contents(8, 0) == "bar");
-		Formula(5, 0, "baz");
-		ensure(Contents(7, 0) == ErrNA);
-		ensure(Contents(8, 0) == "baz");
-
 		// use pretty handles
-		auto R1C1 = Contents(0, 0);
 		Formula(10, 0, "=\\XLL.EBASE(R1C1)");
 		auto base = Contents(10, 0); // pretty name
 		ensure(Excel(xlfLeft, base, OPER(8)) == "\\base[0x"); // check prefix
 
 		Formula(11, 0, "=XLL.EBASE.GET(R[-1]C[0])");
+		auto R1C1 = Contents(0, 0);
 		ensure(Contents(11, 0) == R1C1);
 		ensure(Contents(2, 0) = R1C1); // XLL.BASE.GET also called
-
-		Formula(0, 0, true);
-		ensure(Contents(11, 0) == true);
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
