@@ -6,3 +6,6 @@ TYPE = html5
 
 %.html: %.md
 	pandoc -t $(TYPE) -s talk.md -o talk.html
+
+%.pdf: %.md
+	pandoc talk.md -o talk.pdf
