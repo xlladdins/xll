@@ -55,7 +55,7 @@ double WINAPI xll_tgamma(double x)
 }
 ```
 
-Use `WINAPI` for functions called by Excel if you don't like debugging mysterious call stack crashes.
+Use `WINAPI` for functions called by Excel if you don't like debugging mysterious corrupt call stack crashes.
 
 Export functions from the dll with `#pragma XLLEXPORT`. If you forget you will get a warning when the add-in is opened.
 
@@ -95,10 +95,10 @@ documentation to discern the appropriate arguments.
 An `OPER` is an Excel cell. It can be a number, string, boolean, ...,
 or a 2-dimensional range of cells.
 
-It is a variant type that acts like a built-in type. 
+It is a variant that acts like a built-in type. 
 `OPER o(1.23)` is the number `1.23`. 
 Assigning a string, `o = "foo"`, or boolean, `o = true`, turns it into a string or boolean. 
-The `OPER` `xltype` member indicates the type.
+The `xltype` member of `OPER` indicates the type.
 These are defined in the
 [Microsoft Excel SDK header file](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
 as `xltypeNum`, `xltypeStr`, `xltypeBool`, ..., `xltypeMulti`.
@@ -108,27 +108,28 @@ as `xltypeNum`, `xltypeStr`, `xltypeBool`, ..., `xltypeMulti`.
 A `xll::handle<T>` has a pointer to an object of type `T` and behaves like `std::unique_ptr<T>`.
 The constructor `xll::handle<T> h(new T(args...))` stores the pointer returned by `new`.
 It refers to exactly one object and calls `delete` on the object when it goes out of scope.
-Its `ptr()` member function returns the pointer to the object.
-The arrow `operator->()` also returns the pointer.
+Its `ptr()` and arrow `operator->()` member function return the pointer to the object.
 Use the `get()` member function to return a `HANDLEX` value that can be used in Excel.
 
 # `HANDLEX`
 
 A `HANDLEX` is a double. Its bits are the same bits as the pointer.
-Converting a `HANDLEX` to a pointer and back is just a cast. 
-It only takes a few machine instructions instead of a lookup in an associative array.
+Converting a `HANDLEX` to a pointer and back is a cast
+that only takes a few machine instructions instead of a lookup in an associative array.
 On 64-bit Windows 10 the first 16-bits of a pointer are zero so we only need the remaining 48-bits.
 Doubles can exactly represent integers less than 2<sup>53</sup> so there is plenty of room to spare.
 
 The constructor `xll::handle<T>(HANDLEX)` converts a `HANDLEX` to a pointer.
 It also checks if the `HANDLEX` was created by a prior call to `xll::handle<T>(T*)`.
-Use `explicit operator bool() const` to detect that.
+Use `explicit xll::handle<T>::operator bool() const` to detect that.
 
 # Example
 
 ```C++
 // base.h
-template<class T>
+#include <concepts>
+
+template<std::semiregular T>
 class base {
 	T t;
 public:
@@ -151,16 +152,16 @@ public:
 using namespace xll;
 
 AddIn xai_base(
-	Function(XLL_LPOPER, "xll_base", "\\XLL.BASE")
+	Function(XLL_HANDLEX, "xll_base", "\\XLL.BASE")
 	.Arguments({
 		Arg(XLL_LPOPER, "cell", "is a cell."))
 	})
 	.Uncalced() // \XLL.BASE has a side effect
 );
-LPOPER WINAPI xll_base(LPOPER po)
+HANDLEX WINAPI xll_base(LPOPER po)
 {
 #pragma XLLEXPORT
-	handle<base<OPER>> h(new OPER(*po));
+	handle<base<OPER>> h(new base(*po));
 	
 	return h.get();
 }
@@ -184,18 +185,75 @@ Note `h.get()` returns the `HANDLEX` that `h_->get()` uses to call the member fu
 If the handle did not come from a previous call to `\XLL.BASE` then `#VALUE!`
 is returned.
 
-
 # Single inheritence
 
 When creating a handle to an object `U` that is derived from `T`
 use `xll::handle<T> h(new U(args...))` and return the `HANDLEX` with `h.get()`.
 The handle can be used to call any member function of `T`.
 To call member functions of `U` use `dynamic_cast`.
-The convenience function `xll::handle<T>.as<U>()` also does this.
+The convenience function `xll::handle<T>::as<U>()` does the dynamic cast for you.
+
+```C++
+// derived.h
+#include "base.h"
+
+template<std::semiregular T>
+class derived : public base<T> {
+	T t2;
+public:
+	derived(const T& t, const T& t2) 
+		: base<T>(t), t2(t2)
+	{ }
+	~derived() 
+	{ }
+	T get2() const
+	{
+		return t2; 
+	}
+};
+```
+```C++
+// xll_derived.cpp
+#include "derived.h"
+#include "xll/xll.h"
+
+using namespace xll;
+
+AddIn xai_derived(
+	Function(XLL_LPOPER, "xll_derived", "\\XLL.DERIVED")
+	.Arguments({
+		Arg(XLL_LPOPER, "cell", "is a cell passed to base<OPER>. ))
+		Arg(XLL_LPOPER, "cell2", "is a cell passed to derived<OPER>."))
+	})
+	.Uncalced() // \XLL.DERIVED has a side effect
+);
+LPOPER WINAPI xll_derived(LPOPER po, LPOPER po2)
+{
+#pragma XLLEXPORT
+	handle<base<OPER>> h(new derived<OPER>(*po, *po2));
+	
+	return h.get();
+}
+
+AddIn xai_derived_get2(
+	Function(XLL_LPOPER, "xll_derived_get2, "XLL.DERIVED.GET2")
+	.Arguments({
+		Arg(XLL_HANDLEX, "handle", "is a handle to a derived<OPER> object."))
+	})
+);
+LPOPER WINAPI xll_derived_get2(HANDLEX h)
+{
+#pragma XLLEXPORT
+	handle<base<OPER>> h_(h);
+	auto h2 = h_.as<derived<OPER>>();
+	
+	return h2 ? h2->get2() : (LPOPER)ErrValue;
+}
+```
 
 # Calling `delete`
 
-Excel add-ins dealing with C++ objects typically have an "object manager".
+Excel add-ins dealing with C++ objects typically have an "object manager."
 Excel knows nothing about when `new` is called to create an object so the
 manager tries to keep track of objects that are being used and do garbage collection.
 
@@ -204,5 +262,13 @@ The simplest C++ garbage collector is `}`.  The `xll::handle` class will call
 containing a `HANDLEX` from a previous call. The constructor is being provided
 with new arguments so the old object is no longer required.
 
-This can leak if the cell containing the handle is deleted. Moving and copying...
+This can leak if the cell containing the handle is deleted but not
+when the cell is copied or moved.
 
+## Remarks
+
+It only takes a couple of lines of code to call or embed C++ in Excel.
+
+Once you do this all of the functionality of Excel is available to you.
+You can copy and paste to your heart's content and insert graphs
+to get a better picture of data being returned by your code.
