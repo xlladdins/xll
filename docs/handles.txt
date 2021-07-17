@@ -1,21 +1,24 @@
-Let's talk about how to embed C++ into Excel.
+Let's talk about embedding C++ into Excel using the xll add-in library
 
-Plopping a C++ object into Excel is easy.
-Write an add-in that takes arguments for the appropriate constructor and return a handle to the new pointer.
-What is not so easy is calling delete when Excel is done with the object.
-The xll::handle class solves this problem.
+The basic idea is to write an add-in that takes arguments for a constructor
+and return the pointer provided by new. If any of the constructor arguments
+change the function will be called again and a different pointer will be returned.
+The original object should be deleted, but how?
 
-Include the xll.h header 
+We could write another add-in function that calls delete and try to remember to call that before changing any of the constructor arguments, but that is too error prone. 
 
-use everything in the xll namespace
+The xll::handle class solves this problem by calling delete for you.
+
+Start by including the xll.h header and use everything in the xll namespace
 
 You can include header files for any any C++ library,
-but let's define a simple base class for storing a C++ type. [require semiregular = morally equivalent to built-in type]
+but let's define a simple generic base class for storing a C++ type. 
 
 
 
 
-The base class constructor takes a type and tucks it away.
+
+The base class constructor takes a semiregular type and tucks it away.
 It can be accessed using get and set.
 The destructor is virtual because we want to inherit from base.
 
@@ -23,22 +26,26 @@ The destructor is virtual because we want to inherit from base.
 
 
 
-The AddIn class specifies information Excel needs to register a function.
-The \XLL.BASE Excel function returns a handle by calling the xll_base C++ function.
+Use the AddIn class to specify information Excel needs to register a function.
+We return a handle to Excel by calling the C++ function xll underscore base.
+and tell Excel to name it backslash XLL dot BASE 
+
 The function has one argument that is a pointer to an OPER.
-An OPER is a cell in an Excel spreadsheet. It can be a number, string, error, boolean, ...and some other thing... or a 2-dimensional range of cells.
-Functions that returns a handle must be uncalced.
-This tells Excel the function has side effects. In this case, creating a C++ object.
+
+An OPER is a cell in an Excel spreadsheet. It can be a number, string, error, boolean, ...and some other things... or a 2-dimensional range of cells.
+
+Functions that return a handle must be uncalced.
+This tells Excel the function has side effects. In our case, creating a C++ object.
 Excel function names starting with a backslash indicate a handle will be returned.
 But this is a convention, not a requirement.
 
 All C++ functions registered with Excel must be declared WINAPI.
 This is an artifact of the original versions of Excel being written in Pascal.
-If you forget to do this you will get no warnings, only strange crashes that are difficult to debug. 
+If you forget to do this you will get no warnings, only strange crashes that involving call stack corruption.
 
 The first line of the body of the function implementation requires pragma XLLEXPORT.
 Unlike Unix, Windows does not make functions visible outside of shared libraries by default.
-If you forget to do this you *will* get a warning when you load the xll in Excel.
+If you forget to do this you *will* get a warning when you load the add-in.
 
 The xll::handle class is similar to a std::unique_ptr.
 Handles reference exactly one object and the object is deleted when the handle goes out of scope.
