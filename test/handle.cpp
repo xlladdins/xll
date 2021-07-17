@@ -1,11 +1,13 @@
 // handle.cpp - Embed C++ objects in Excel using xll::handle<T>
+// https://xlladdins.com
 //#define XLOPERX XLOPER
+#include <concepts>
 #include "../xll/xll.h"
 
 using namespace xll;
 
 // get and set a type
-template<class T>
+template<std::semiregular T>
 class base {
 	T x;
 public:
@@ -82,7 +84,7 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 }
 
 // single inheritance
-template<class T>
+template<std::semiregular T>
 class derived : public base<T> {
 	T x2;
 public:
