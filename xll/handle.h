@@ -148,10 +148,13 @@ namespace xll {
 		handle(T* p) noexcept
 			: p{ p }
 		{
-			// caller has previously created handle
+			// store unique_ptr
+			ps.emplace(std::unique_ptr<T>(p));
+		
+			// delete and erase if calling cell has a valid pointer to T
 			erase(coerce<T>(caller[p] = Excel(xlfCaller)));
 
-			ps.emplace(std::unique_ptr<T>(p));
+			// returned by HANDLE.TYPENAME(handle)
 			handle_typename[p] = typeid(*p).name();
 		}
 		/// <summary>
@@ -167,8 +170,8 @@ namespace xll {
 				}
 			}
 			// handle was created by a function argument
-			if (check and caller[p] == Excel(xlfCaller)) {
-				caller[p] = ErrNA; // mark for erasure
+			if (p and caller[p] == Excel(xlfCaller)) {
+				is_temporary(p);
 			}
 		}
 		handle(const handle&) = delete;
@@ -186,10 +189,20 @@ namespace xll {
 		}
 		~handle()
 		{
-			// temporary handle
-			if (caller[p] == ErrNA) {
+			if (is_temporary()) {
 				erase(p);
 			}
+		}
+
+		// mark p_ as temporary
+		void is_temporary(T* p_)
+		{
+			caller[p_] = ErrNA;
+		}
+
+		bool is_temporary() const
+		{
+			return caller[p] == ErrNA;
 		}
 
 		void swap(handle& h)
@@ -242,6 +255,7 @@ namespace xll {
 		template<class X>
 		class codec {
 			using xchar = traits<X>::xchar;
+			using xcstr = traits<X>::xcstr;
 			static uint8_t c2h(xchar c) // assumes ASCII
 			{
 				return static_cast<uint8_t>(c <= '9' ? c - '0' : 10 + c - 'A');
@@ -250,14 +264,41 @@ namespace xll {
 			{
 				return static_cast<xchar>(h <= 9 ? '0' + h : 'A' + h - 10);
 			}
-			XOPER<X> H;  // "prefix0123456789ABCDEFsuffix
+			// "01..F" -> h
+			static HANDLEX decode_(xcstr pc)
+			{
+				union {
+					T* h;
+					uint8_t c[8];
+				} hc;
+
+				for (unsigned i = 0; i < 8; ++i) {
+					hc.c[7 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
+				}
+
+				return to_handle<T>(hc.h);
+			}
+			// h -> "01..F"
+			static void encode_(HANDLEX h, xchar* pc)
+			{
+				union {
+					T* h;
+					uint8_t c[8];
+				} hc;
+				hc.h = to_pointer<T>(h);
+
+				for (unsigned i = 0; i < 8; ++i) {
+					pc[2 * i] = h2c(hc.c[7 - i] >> 4);
+					pc[2 * i + 1] = h2c(hc.c[7 - i] & 0x0F);
+				}
+			}
+
+			XOPER<X> H;  // "prefix0123456789ABCDEFsuffix"
 			unsigned off; // size of prefix
 		public:
 			// e.g., codec c(OPER("\\MyClass["), OPER("]"));
-			template<class X_>
-				requires std::is_base_of_v<X, X_>
-			codec(const X_& prefix, const X_& suffix)
-				: H(prefix), off(prefix.val.str[0])
+			codec(const char* prefix, const char* suffix)
+				: H(prefix), off(H.val.str[0])
 			{
 				H.append("0123456789ABCDEF");
 				H.append(suffix);
@@ -266,18 +307,7 @@ namespace xll {
 			// does not allocate memory
 			const XOPER<X>& encode(HANDLEX h)
 			{
-				union {
-					T* h;
-					uint8_t c[8];
-				} hc;
-				hc.h = to_pointer<T>(h);
-
-				// h -> "prefix01..Fsuffix"
-				xchar* pc = H.val.str + 1 + off;
-				for (unsigned i = 0; i < 8; ++i) {
-					pc[2 * i] = h2c(hc.c[7 - i] >> 4);
-					pc[2 * i + 1] = h2c(hc.c[7 - i] & 0x0F);
-				}
+				encode_(h, H.val.str + 1 + off);
 
 				return H;
 			}
@@ -287,23 +317,12 @@ namespace xll {
 			{
 				ensure(_H.is_str());
 
+				// No prefix or suffix check. It will fail when used.
 				// Extra chars appended to suffix ok.
 				// Could use this to add, e.g., a timestamp.
 				ensure(_H.val.str[0] >= H.val.str[0]);
-				
-				// No prefix or suffix check.It will fail when used.
-				
-				union {
-					T* h;
-					uint8_t c[8];
-				} hc;
-				// "prefix01..Fsuffix" -> h
-				xchar* pc = _H.val.str + 1 + off;
-				for (unsigned i = 0; i < 8; ++i) {
-					hc.c[7 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
-				}
-
-				return to_handle<T>(hc.h);
+								
+				return decode_(_H.val.str + 1 + off);
 			}
 		};
 	};

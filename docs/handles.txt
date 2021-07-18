@@ -5,7 +5,8 @@ and return the pointer provided by new. If any of the constructor arguments
 change the function will be called again and a different pointer will be returned.
 The original object should be deleted, but how?
 
-We could write another add-in function that calls delete and try to remember to call that before changing any of the constructor arguments, but that is too error prone. 
+We could write another add-in function that calls delete and try to remember to call that before changing any of the constructor arguments.
+Good luck with that. 
 
 The xll::handle class solves this problem by calling delete for you.
 
@@ -27,20 +28,21 @@ The destructor is virtual because we want to inherit from base.
 
 
 Use the AddIn class to specify information Excel needs to register a function.
-We return a handle to Excel by calling the C++ function xll underscore base.
-and tell Excel to name it backslash XLL dot BASE 
+The function returns a handle by calling the C++ function xll underscore base
+that will be called backslash XLL dot BASE in Excel. 
 
-The function has one argument that is a pointer to an OPER.
+The function has one argument that is a pointer to an OPER. full stop
 
-An OPER is a cell in an Excel spreadsheet. It can be a number, string, error, boolean, ...and some other things... or a 2-dimensional range of cells.
+An OPER a C++ class that correspoinds to a cell in an Excel spreadsheet. It can be a number, string, error, boolean, ... some other things... or a 2-dimensional range of cells.
 
 Functions that return a handle must be uncalced.
-This tells Excel the function has side effects. In our case, creating a C++ object.
+This tells Excel the function has side effects. 
+In our case, we look at the value in the calling cell to get the old pointer and delete it before returning the new handle.
 Excel function names starting with a backslash indicate a handle will be returned.
 But this is a convention, not a requirement.
 
 All C++ functions registered with Excel must be declared WINAPI.
-This is an artifact of the original versions of Excel being written in Pascal.
+[This is an artifact of the original versions of Excel being written in Pascal.]
 If you forget to do this you will get no warnings, only strange crashes that involving call stack corruption.
 
 The first line of the body of the function implementation requires pragma XLLEXPORT.
@@ -48,7 +50,8 @@ Unlike Unix, Windows does not make functions visible outside of shared libraries
 If you forget to do this you *will* get a warning when you load the add-in.
 
 The xll::handle class is similar to a std::unique_ptr.
-Handles reference exactly one object and the object is deleted when the handle goes out of scope.
+It has a constructor taking a handle returned by new.
+The handle reference exactly one object and the object is deleted when the handle goes out of scope.
 The handle member function `get` returns the handle of the object.
 
 
@@ -57,9 +60,12 @@ The handle member function `get` returns the handle of the object.
 
 
 To call a member function of a C++ object you must provide a handle.
-The handle constructor converts it to a pointer to the object.
-Bogus handles are converted to null pointers that can be detected with operator bool.
-The handle arrow operator returns a pointer that is used to call get.
+The Excel function XLL dot base dot get calls xll underscore base underscore get and returns a pointer to the OPER it holds.
+The function takes one argument, the handle returned by backslash xll dot base.
+
+The handle constructor converts the handle to a pointer to the object.
+Unrecognized handles are converted to null pointers that can be detected with operator bool.
+The handle arrow operator returns a pointer to base that is used to call the get member function..
 The xll library has a predefined object ErrNA corresponding to #N/A.
 Use this to communicate to Excel that something went wrong.
 
@@ -67,7 +73,8 @@ If you are nervous about returning the address of an object from a function, you
 If the object only exists in the call stack of the function its destructor will be called on function exit, and the caller will get a pointer to garbage.
 In our case, the OPER has been tucked away in the base<OPER> object created by \XLL.BASE.
 It exists as long as the handle is in scope. 
-Note h.get() returns a handle to base<OPER> but h arrow get() returns a reference to the OPER stored in base.
+
+Note h.get() returns a handle to base<OPER> but h arrow get() returns a pointer to the base object.
 
 
 
@@ -172,6 +179,8 @@ Note xlfLeft is the Excel LEFT function.
 
 Call base.get to check decoding works.
 
+
+[Switch to spread sheet. Step through cells. Note leading 0's]
 
 
 

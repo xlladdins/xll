@@ -134,15 +134,7 @@ xlAutoFree(LPXLOPER px)
 {
 	try {
 		if (px->xltype & xlbitDLLFree) {
-			if (px->xltype & xltypeStr) {
-				free(px->val.str);
-			}
-			else if (px->xltype & xltypeMulti) {
-				free(px->val.array.lparray);
-			}
-			else if (px->xltype & xltypeRef) {
-				free(px->val.mref.lpmref);
-			}
+			reinterpret_cast<XOPER<XLOPER>*>(px)->~XOPER<XLOPER>();
 		}
 	}
 	catch (const std::exception& ex) {
@@ -160,12 +152,7 @@ extern "C" void __declspec(dllexport) WINAPI
 xlAutoFree12(LPXLOPER12 px)
 {
 	if (px->xltype & xlbitDLLFree) {
-		if (px->xltype & xltypeStr) {
-			free(px->val.str);
-		}
-		else if (px->xltype & xltypeMulti) {
-			free(px->val.array.lparray);
-		}
+		reinterpret_cast<XOPER<XLOPER12>*>(px)->~XOPER<XLOPER12>();
 	}
 }
 #pragma region xlAutoFree12
