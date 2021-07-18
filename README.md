@@ -39,8 +39,8 @@ to simplify interfaces.
 
 ## Get Started
 
-Clone <a href="https://github.com/xlladdins/xllproject1.git">xllproject1</a>,
-open the `xllproject1.sln` solution, and press `F5` to build and run Excel in 
+Clone <a href="https://github.com/xlladdins/xll_template.git">xll_template</a>,
+open the `xllxll_template.sln` solution, and press `F5` to build and run Excel in 
 the Visual Studio debugger.
 If you want to create your own project, fork the repository and rename it before 
 cloning to your computer. 
