@@ -713,13 +713,10 @@ int test_handle()
 		ensure(*h3 == 3);
 	}
 	{
-		OPER pre("foo[0x");
-		OPER suf("]");
-		handle<int>::codec<XLOPERX> hc(pre, suf);
+		handle<int>::codec<XLOPERX> hc("foo[0x", "]");
 		handle<int> _h(new int{ 123 });
 		OPER H = hc.encode(_h.get());
-		ensure(0 == _tcsncmp(H.val.str + 1, pre.val.str + 1, pre.val.str[0]));
-		ensure(0 == _tcsncmp(H.val.str + 1 + pre.val.str[0] + 16, suf.val.str + 1, suf.val.str[0]));
+		ensure(0 == _tcsncmp(H.val.str + 1, _T("foo[0x"), 6));
 		/*
 		ensure(pre == Excel(xlfLeft, H, Excel(xlfLen, pre)));
 		ensure(suf == Excel(xlfRight, H, Excel(xlfLen, suf)));
