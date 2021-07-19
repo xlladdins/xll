@@ -39,11 +39,9 @@ to simplify interfaces.
 
 ## Get Started
 
-Clone <a href="https://github.com/xlladdins/xll_template.git">xll_template</a>,
-open the `xllxll_template.sln` solution, and press `F5` to build and run Excel in 
-the Visual Studio debugger.
-If you want to create your own project, fork the repository and rename it before 
-cloning to your computer. 
+[Use this template](https://github.com/xlladdins/xll_template/generate) to generate a new repository.  
+Open in Visual Studio 2019 and double click on the solution (`.sln`).  
+Press `F5` to build the add-in and start Excel with it loaded in the debugger.
 
 ## AddIn
 
