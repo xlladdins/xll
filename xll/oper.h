@@ -812,8 +812,9 @@ namespace xll {
 
 			xchar* tmp = (xchar*)realloc(val.str, ((size_t)val.str[0] + n + 2) * sizeof(xchar));
 			ensure(tmp);
-			traits<X>::cpy(tmp + 1 + tmp[0], n + 1, str + counted, _TRUNCATE);
+			traits<X>::cpy(tmp + 1 + tmp[0], n + 1, str + counted, n);
 			tmp[0] = static_cast<xchar>(val.str[0] + n);
+			tmp[tmp[0] + 1] = 0;
 			val.str = tmp;
 			//memcpy_s(val.str + 1 + val.str[0], n * sizeof(xchar), str + counted, n * sizeof(xchar));
 			//if (n == 1 and str[0] == 0) {

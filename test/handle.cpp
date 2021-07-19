@@ -1,11 +1,13 @@
 // handle.cpp - Embed C++ objects in Excel using xll::handle<T>
+// https://xlladdins.com
 //#define XLOPERX XLOPER
+#include <concepts>
 #include "../xll/xll.h"
 
 using namespace xll;
 
 // get and set a type
-template<class T>
+template<std::semiregular T>
 class base {
 	T x;
 public:
@@ -56,9 +58,12 @@ AddIn xai_base_get(
 LPOPER WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
+	static OPER o;
 	xll::handle<base<OPER>> h(_h);
 
-	return h ? &h->get() : (LPOPER)&ErrNA;
+	o = h ? h->get() : ErrNA;
+
+	return &o;
 }
 
 AddIn xai_base_set(
@@ -82,7 +87,7 @@ HANDLEX WINAPI xll_base_set(HANDLEX _h, LPOPER px)
 }
 
 // single inheritance
-template<class T>
+template<std::semiregular T>
 class derived : public base<T> {
 	T x2;
 public:
@@ -133,16 +138,24 @@ AddIn xai_derived_get(
 LPOPER WINAPI xll_derived_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
+	static OPER o;
 	// get handle to base class
 	xll::handle<base<OPER>> h(_h);
-	// downcast to derived
-	auto pd = h.as<derived<OPER>>();
 
-	return pd ? &pd->get2() : (LPOPER)&ErrNA;
+	if (!h) {
+		o = ErrNA;
+	}
+	else {
+		// downcast to derived
+		auto pd = h.as<derived<OPER>>();
+		o = pd ? pd->get2() : ErrValue;
+	}
+
+	return &o;
 }
 
 // convert pointers to and from "\\base[0x<hexdigits>]"
-static handle<base<OPER>>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
+static handle<base<OPER>>::codec<XLOPERX> base_codec("\\base[0x", "]");
 
 AddIn xai_ebase(
 	Function(XLL_LPOPER, "xll_ebase", "\\XLL.EBASE")

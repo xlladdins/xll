@@ -39,11 +39,9 @@ to simplify interfaces.
 
 ## Get Started
 
-Clone <a href="https://github.com/xlladdins/xllproject1.git">xllproject1</a>,
-open the `xllproject1.sln` solution, and press `F5` to build and run Excel in 
-the Visual Studio debugger.
-If you want to create your own project, fork the repository and rename it before 
-cloning to your computer. 
+[Use this template](https://github.com/xlladdins/xll_template/generate) to generate a new repository.  
+Open in Visual Studio 2019 and double click on the solution (`.sln`).  
+Press `F5` to build the add-in and start Excel with it loaded in the debugger.
 
 ## AddIn
 
@@ -486,7 +484,7 @@ There is also [Office 365](https://www.microsoft.com/en-US/microsoft-365),
 now called Microsoft 365, which should not be confused with Office 2019.
 It has features not available in Office 2019, in particular 
 [dynamic arrays](https://insider.office.com/en-us/blog/dynamic-arrays-and-new-functions-in-excel). 
-No need for `Ctrl-Alt-Enter` and trying to guess the size of ranges returned by functions.
+No need for `Ctrl-Shift-Enter` and trying to guess the size of ranges returned by functions.
 The entire range gets plopped into the spreadsheet and you will see a 
 [`#SPILL!`](https://support.microsoft.com/en-us/office/-spill-errors-in-excel-ffe0f555-b479-4a17-a6e2-ef9cc9ad4023)
 error if that would clobber existing cells.

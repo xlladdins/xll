@@ -7,6 +7,8 @@
 using namespace xll;
 using xll::Excel;
 
+#if 0
+
 // Lookup Args using name or register id.
 inline Args* xll_args(const OPER& xRef = Excel(xlfActiveCell))
 {
@@ -103,8 +105,6 @@ int WINAPI xll_paste_basic(void)
 
 	return result;
 }
-
-#if 0
 
 template<class X>
 void xll_paste_name(const XArgs& args)
@@ -244,7 +244,6 @@ xll_paste_open(void)
 }
 static Auto<Open> xao_paste(xll_paste_open);
 */
-
 
 // paste basic function call in active cell and arguments below
 void xll_paste_regid(const Args* args)
@@ -474,4 +473,5 @@ Auto<OpenAfter> xaoa_paste_create([]() {
 	return TRUE;
 });
 */
+
 #endif // 0
