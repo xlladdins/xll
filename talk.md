@@ -312,6 +312,18 @@ Use `Ctrl-Alt-F9` to call `new` on all the handles.
 This can also be used for garbage collection in case you deleted
 a cell immediately after creating a handle.
 
+## Number Crunching
+
+The [`xll::FPX`](https://github.com/xlladdins/xll/blob/master/xll/fp.h)
+data type is a two dimensional array of floating point numbers.
+It is the fastest way of interacting with numerical data in Excel.
+All other APIs require the data to be copied out of Excel then back again.
+See [potrf.cpp](https://github.com/keithalewis/xlllapack/blob/master/potrf.cpp)
+for an example of how to use this.
+It calls the FORTRAN function `DPOTRF` from the
+[LAPACK](http://performance.netlib.org/lapack/)
+library to perform a Cholesky decomposition.
+
 ## Remarks
 
 It only takes a couple of lines of code to call functions or embed C++ objects in Excel
