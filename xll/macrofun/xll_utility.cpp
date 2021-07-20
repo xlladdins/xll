@@ -3,6 +3,75 @@
 
 using namespace xll;
 
+AddIn xai_depends(
+	Function(XLL_LPOPER, "xll_depends", "DEPENDS")
+	.Arguments({
+		Arg(XLL_LPXLOPER, "cell", "is the cell to return.", "A1"),
+		Arg(XLL_LPXLOPER, "dependent", "is the dependent cell.", "A2"),
+		})
+		.FunctionHelp("Return cell after dependent is calculated.")
+	.Category("XLL")
+	.Documentation(R"(
+The <code>DEPENDS</code> function is used to force the calculation order of cells.
+The first argument <code>cell</code> will be calculated after the <code>dependent</code>
+cell is evaluated. This is useful when using handles since some functions return
+unchanged handles so Excel cannot keep track of dependencies in the usual way.
+)")
+);
+LPXLOPER WINAPI xll_depends(LPXLOPER cell, LPXLOPER)
+{
+#pragma XLLEXPORT
+	return cell;
+}
+
+AddIn xai_replace_eq_by_eq(
+	Macro("xll_replace_eq_by_eq", "REPLACE.EQ.BY.EQ")
+	.FunctionHelp("Recalculate all formulas in a workbook. (Ctrl-Shift-F9)")
+	.Category("XLL")
+	.Documentation(R"(
+Calls Find and Replace (<code>Ctrl-h</code>) to replace '=' by '=' in all formulas.
+This causes Excel to recalculate all formulas in the workbook.
+)")
+);
+int WINAPI xll_replace_eq_by_eq()
+{
+#pragma XLLEXPORT
+	static OPER eq("=");
+
+	return Excel(xlcFormulaReplace, eq, eq) == true;
+}
+// Bind Ctrl-Shift-F9 to replace = by =
+On<Key> xok_replace_eq_by_eq(ON_CTRL ON_SHIFT ON_F9, "REPLACE.EQ.BY.EQ");
+
+AddIn xai_handle_name(
+	Function(XLL_CSTRING4, "xll_handle_typename", "HANDLE.TYPENAME")
+	.Arguments({
+		Arg(XLL_HANDLEX, "handle", "is a handle."),
+		})
+	//.Uncalced()
+	.FunctionHelp("Return name of type corresponding to handle.")
+	.Category("XLL")
+	.HelpTopic("https://docs.microsoft.com/en-us/cpp/cpp/typeid-operator")
+	.Documentation(R"(
+Return the C++ RTTI <code>typeid(T).name()</code> of a handle created with <code>xll::handle&lt;T&gt;</code>.
+This uses runtime type information to return the name of the derived class of <code>T</code> used to initialize the handle.
+If the handle is not found then <code>#NUM!</code> is returned.
+)")
+);
+const char* WINAPI xll_handle_typename(HANDLEX h)
+{
+#pragma XLLEXPORT
+	auto hn = handle_typename.find(to_pointer<void*>(h));
+
+	if (hn != handle_typename.end()) {
+		return hn->second;
+	}
+
+	return nullptr;
+}
+
+#if 0
+
 AddIn xai_range_set(
 	Function(XLL_HANDLEX, "xll_range_set_", "\\RANGE")
 	.Arguments({
@@ -105,45 +174,7 @@ LPOPER WINAPI xll_collect(LPOPER po,
 	return &o;
 }
 
-AddIn xai_depends(
-	Function(XLL_LPOPER, "xll_depends", "DEPENDS")
-	.Arguments({
-		Arg(XLL_LPXLOPER, "cell", "is the cell to return.", "A1"),
-		Arg(XLL_LPXLOPER, "dependent", "is the dependent cell.", "A2"),
-		})
-		.FunctionHelp("Return cell after dependent is calculated.")
-	.Category("XLL")
-	.Documentation(R"(
-The <code>DEPENDS</code> function is used to force the calculation order of cells.
-The first argument <code>cell</code> will be calculated after the <code>dependent</code>
-cell is evaluated. This is useful when using handles since some functions return
-unchanged handles so Excel cannot keep track of dependencies in the usual way.
-)")
-);
-LPXLOPER WINAPI xll_depends(LPXLOPER cell, LPXLOPER)
-{
-#pragma XLLEXPORT
-	return cell;
-}
 
-AddIn xai_replace_eq_by_eq(
-	Macro("xll_replace_eq_by_eq", "REPLACE.EQ.BY.EQ")
-	.FunctionHelp("Recalculate all formulas in a workbook. (Ctrl-Shift-F9)")
-	.Category("XLL")
-	.Documentation(R"(
-Calls Find and Replace (<code>Ctrl-h</code>) to replace '=' by '=' in all formulas.
-This causes Excel to recalculate all formulas in the workbook.
-)")
-);
-int WINAPI xll_replace_eq_by_eq()
-{
-#pragma XLLEXPORT
-	static OPER eq("=");
-
-	return Excel(xlcFormulaReplace, eq, eq) == true;
-}
-// Bind Ctrl-Shift-F9 to replace = by =
-On<Key> xok_replace_eq_by_eq(ON_CTRL ON_SHIFT ON_F9, "REPLACE.EQ.BY.EQ");
 
 static AddIn xai_this(
 	Function(XLL_LPXLOPER, "xll_this", "THIS")
@@ -187,29 +218,4 @@ LPXLOPERX WINAPI xll_throttle(LPXLOPERX px)
 	return px;
 }
 
-AddIn xai_handle_name(
-	Function(XLL_CSTRING4, "xll_handle_typename", "HANDLE.TYPENAME")
-	.Arguments({
-		Arg(XLL_HANDLEX, "handle", "is a handle."),
-		})
-	//.Uncalced()
-	.FunctionHelp("Return name of type corresponding to handle.")
-	.Category("XLL")
-	.HelpTopic("https://docs.microsoft.com/en-us/cpp/cpp/typeid-operator")
-	.Documentation(R"(
-Return the C++ RTTI <code>typeid(T).name()</code> of a handle created with <code>xll::handle&lt;T&gt;</code>.
-This uses runtime type information to return the name of the derived class of <code>T</code> used to initialize the handle.
-If the handle is not found then <code>#NUM!</code> is returned.
-)")
-);
-const char* WINAPI xll_handle_typename(HANDLEX h)
-{
-#pragma XLLEXPORT
-	auto hn = handle_typename.find(to_pointer<void*>(h));
-
-	if (hn != handle_typename.end()) {
-		return hn->second;
-	}
-
-	return nullptr;
-}
+#endif // 0

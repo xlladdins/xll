@@ -58,9 +58,12 @@ AddIn xai_base_get(
 LPOPER WINAPI xll_base_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
+	static OPER o;
 	xll::handle<base<OPER>> h(_h);
 
-	return h ? &h->get() : (LPOPER)&ErrNA;
+	o = h ? h->get() : ErrNA;
+
+	return &o;
 }
 
 AddIn xai_base_set(
@@ -135,16 +138,24 @@ AddIn xai_derived_get(
 LPOPER WINAPI xll_derived_get(HANDLEX _h)
 {
 #pragma XLLEXPORT
+	static OPER o;
 	// get handle to base class
 	xll::handle<base<OPER>> h(_h);
-	// downcast to derived
-	auto pd = h.as<derived<OPER>>();
 
-	return pd ? &pd->get2() : (LPOPER)&ErrNA;
+	if (!h) {
+		o = ErrNA;
+	}
+	else {
+		// downcast to derived
+		auto pd = h.as<derived<OPER>>();
+		o = pd ? pd->get2() : ErrValue;
+	}
+
+	return &o;
 }
 
 // convert pointers to and from "\\base[0x<hexdigits>]"
-static handle<base<OPER>>::codec<XLOPERX> base_codec(OPER("\\base[0x"), OPER("]"));
+static handle<base<OPER>>::codec<XLOPERX> base_codec("\\base[0x", "]");
 
 AddIn xai_ebase(
 	Function(XLL_LPOPER, "xll_ebase", "\\XLL.EBASE")

@@ -66,7 +66,7 @@ namespace xll {
 		return os;
 	}
 
-	// Write html documentation given Args.
+	// Write xml documentation given Args.
 	bool Document(const Args& args)
 	{
 		try {
@@ -153,7 +153,7 @@ namespace xll {
 						std::string functionHelp = parg->FunctionHelp().to_string();
 						std::string href = parg->FunctionText().safe().to_string();
 						ofs << "<tr>\n\t"
-							<< "<td><a href=\"" << href << ".xml\">" << functionText << "</a></td>\n"
+							<< "<td><a href=\"" << href << ".html\">" << functionText << "</a></td>\n"
 							<< "<td>" << functionHelp << "</td>\n"
 							<< "</tr>\n";
 					}
