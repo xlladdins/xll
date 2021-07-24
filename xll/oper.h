@@ -498,6 +498,12 @@ namespace xll {
 			multi_alloc(1, static_cast<xcol>(x.size()));
 			std::copy(x.begin(), x.end(), begin());
 		}
+		// XOPER(a, ...)
+		template<class... Os>
+		static XOPER make(const Os&... os)
+		{
+			return XOPER({ XOPER(os)... });
+		}
 		XOPER& resize(unsigned rw, unsigned col)
 		{
 			multi_realloc(rw, col);
@@ -566,17 +572,15 @@ namespace xll {
 			X x = *this; // copy bits
 			x = xll::drop(x, n);
 
-			if (xll::size(x) != size()) {
-				if (n > 0) {
-					for (int i = 0; i < n; ++i) {
-						operator[](i).oper_free();
-					}
-					MoveMemory(begin(), xll::begin(x), (size() - xll::size(x)) * sizeof(X));
+			if (n > 0) {
+				for (unsigned i = 0; i < size() - xll::size(x); ++i) {
+					operator[](i).oper_free();
 				}
-				else {
-					for (unsigned i = size() - xll::size(x); i < size(); ++i) {
-						operator[](i).oper_free();
-					}
+				MoveMemory(begin(), xll::begin(x), xll::size(x) * sizeof(X));
+			}
+			else {
+				for (unsigned i = xll::size(x); i < size(); ++i) {
+					operator[](i).oper_free();
 				}
 			}
 
@@ -599,18 +603,16 @@ namespace xll {
 			X x = *this; // copy bits
 			x = xll::take(x, n);
 
-			if (xll::size(x) != size()) {
-				if (n > 0) {
-					for (unsigned i = size() - xll::size(x); i < size(); ++i) {
-						operator[](i).oper_free();
-					}
+			if (n > 0) {
+				for (unsigned i = xll::size(x); i < size(); ++i) {
+					operator[](i).oper_free();
 				}
-				else if (n < 0) {
-					for (unsigned i = 0; i < size() - xll::size(x); ++i) {
-						operator[](i).oper_free();
-						MoveMemory(xll::begin(x), begin(), xll::size(x) * sizeof(X));
-					}
+			}
+			else {
+				for (unsigned i = 0; i < size() - xll::size(x); ++i) {
+					operator[](i).oper_free();
 				}
+				MoveMemory(begin(), xll::begin(x), xll::size(x) * sizeof(X));
 			}
 
 			val.array.rows = x.val.array.rows;
