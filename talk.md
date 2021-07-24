@@ -88,10 +88,10 @@ int WINAPI xll_macro(void)
     return TRUE;
 }
 ```
-`Excel(xlfFun, args, ...)` is equivalent to the <b>f</b>unction `=FUN(args, ...)` in Excel.
+`Excel(xlfFunction, args, ...)` calls the Excel <b>f</b>unction `=FUNCTION(args, ...)`.
 
-`Excel(xlcMacro, args, ...)` calls the <b>m</b>acro `MACRO(args, ...)`. This can only
-be called from macros, not functions.
+`Excel(xlcMacro, args, ...)` executes the <b>m</b>acro `MACRO(args, ...)`. This can only
+be used from macros, not functions.
 Consult the [Excel4Macros](https://xlladdins.github.io/Excel4Macros/)
 documentation to discern the appropriate arguments.
 
@@ -103,10 +103,13 @@ It can be a number, string, error, boolean, ..., or a 2-dimensional range of cel
 It is a variant that satisfies the [`std::regular`](https://en.cppreference.com/w/cpp/concepts/regular) concept.
 `OPER o(1.23)` is the number `1.23`. 
 Assigning a string, `o = "foo"`, or boolean, `o = true`, turns it into a string or boolean. 
-The `xltype` member of `OPER` indicates the type.
-These are defined in the
+The `xltype` member of `OPER` indicates the type defined in
 [Microsoft Excel SDK header file](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
 as `xltypeNum`, `xltypeStr`, `xltypeErr, xltypeBool`, ..., `xltypeMulti`.
+
+Excel is more [Postel](https://devopedia.org/postel-s-law) in what arguments it accepts
+and returns from functions. Any `XLL_`_TYPE_ can be used for those.
+
 
 # `xll::handle`
 
