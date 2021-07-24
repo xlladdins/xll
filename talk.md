@@ -88,10 +88,10 @@ int WINAPI xll_macro(void)
     return TRUE;
 }
 ```
-`Excel(xlfFun, args, ...)` is equivalent to the <b>f</b>unction `=FUN(args, ...)` in Excel.
+`Excel(xlfFunction, args, ...)` calls the Excel <b>f</b>unction `=FUNCTION(args, ...)`.
 
-`Excel(xlcMacro, args, ...)` calls the <b>m</b>acro `MACRO(args, ...)`. This can only
-be called from macros, not functions.
+`Excel(xlcMacro, args, ...)` executes the <b>m</b>acro `MACRO(args, ...)`. This can only
+be used from macros, not functions.
 Consult the [Excel4Macros](https://xlladdins.github.io/Excel4Macros/)
 documentation to discern the appropriate arguments.
 
@@ -103,10 +103,16 @@ It can be a number, string, error, boolean, ..., or a 2-dimensional range of cel
 It is a variant that satisfies the [`std::regular`](https://en.cppreference.com/w/cpp/concepts/regular) concept.
 `OPER o(1.23)` is the number `1.23`. 
 Assigning a string, `o = "foo"`, or boolean, `o = true`, turns it into a string or boolean. 
-The `xltype` member of `OPER` indicates the type.
-These are defined in the
+The `xltype` member of `OPER` indicates the type defined in
 [Microsoft Excel SDK header file](https://github.com/xlladdins/xll/blob/master/xll/XLCALL.H)
 as `xltypeNum`, `xltypeStr`, `xltypeErr, xltypeBool`, ..., `xltypeMulti`.
+
+Excel is [Postel](https://devopedia.org/postel-s-law) in what arguments it accepts
+from functions. Any `XLL_`_`TYPE`_ can be used to leverage Excel
+type checking. If there is an argument type mismatch `#VALUE!` will be returned
+by Excel before the function is called.
+
+!!! link to XLL_TYPE
 
 # `xll::handle`
 
@@ -311,18 +317,6 @@ When opened in a new Excel session the handles need to be refreshed.
 Use `Ctrl-Alt-F9` to call `new` on all the handles. 
 This can also be used for garbage collection in case you deleted
 a cell immediately after creating a handle.
-
-## Number Crunching
-
-The [`xll::FPX`](https://github.com/xlladdins/xll/blob/master/xll/fp.h)
-data type is a two dimensional array of floating point numbers.
-It is the fastest way of interacting with numerical data in Excel.
-All other APIs require the data to be copied out of Excel then back again.
-See [potrf.cpp](https://github.com/keithalewis/xlllapack/blob/master/potrf.cpp)
-for an example of how to use this.
-It calls the FORTRAN function `DPOTRF` from the
-[LAPACK](http://performance.netlib.org/lapack/)
-library to perform a Cholesky decomposition.
 
 ## Remarks
 

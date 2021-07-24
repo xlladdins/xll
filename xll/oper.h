@@ -554,11 +554,32 @@ namespace xll {
 
 		XOPER<X>& drop(int n)
 		{
-			X x_ = *this; // copy bits
-			X x = xll::drop(x_, n);
-			if (xll::size(x) != size()) {
-				std::copy(xll::begin(x), xll::end(x), begin());
+			if (static_cast<unsigned>(abs(n)) >= size()) {
+				oper_free();
+
+				return *this;
 			}
+			if (n == 0) {
+				return *this;
+			}
+
+			X x = *this; // copy bits
+			x = xll::drop(x, n);
+
+			if (xll::size(x) != size()) {
+				if (n > 0) {
+					for (int i = 0; i < n; ++i) {
+						operator[](i).oper_free();
+					}
+					MoveMemory(begin(), xll::begin(x), (size() - xll::size(x)) * sizeof(X));
+				}
+				else {
+					for (unsigned i = size() - xll::size(x); i < size(); ++i) {
+						operator[](i).oper_free();
+					}
+				}
+			}
+
 			val.array.rows = x.val.array.rows;
 			val.array.columns = x.val.array.columns;
 
@@ -566,11 +587,32 @@ namespace xll {
 		}
 		XOPER<X>& take(int n)
 		{
-			X x_ = *this; // copy bits
-			X x = xll::take(x_, n);
-			if (xll::size(x) != size()) {
-				std::copy(xll::begin(x), xll::end(x), begin());
+			if (static_cast<unsigned>(abs(n)) >= size()) {
+				return *this;
 			}
+			if (n == 0) {
+				oper_free();
+
+				return *this;
+			}
+
+			X x = *this; // copy bits
+			x = xll::take(x, n);
+
+			if (xll::size(x) != size()) {
+				if (n > 0) {
+					for (unsigned i = size() - xll::size(x); i < size(); ++i) {
+						operator[](i).oper_free();
+					}
+				}
+				else if (n < 0) {
+					for (unsigned i = 0; i < size() - xll::size(x); ++i) {
+						operator[](i).oper_free();
+						MoveMemory(xll::begin(x), begin(), xll::size(x) * sizeof(X));
+					}
+				}
+			}
+
 			val.array.rows = x.val.array.rows;
 			val.array.columns = x.val.array.columns;
 
