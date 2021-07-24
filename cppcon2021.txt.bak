@@ -1,0 +1,17 @@
+Bio:
+
+kalx.net
+
+Session Description
+
+As Bjarne said, "There are two kinds of languages..."
+Excel has far more users, and complainers, than C++.
+Like C++, it has been going through a renaisance.
+
+Microsoft hired some heavy-hitters from the Haskell community to enhance its purely functional nature.
+Dynamic 2-dimensional arrays are now first class objects in Excel. 
+LAMBDA creates handles to functions that can be called like built-in functions.
+
+C++ and Excel are complementary.
+This talk will show you how to embed C++ in Excel
+and create integrated documentation users can complain about.
