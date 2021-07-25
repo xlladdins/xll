@@ -67,6 +67,96 @@ namespace xll {
 		return a.array + size(a);
 	}
 
+	inline _FP12* drop(_FP12* pa, int n)
+	{
+		if (n == 0) {
+			return pa;
+		}
+		if (n >= static_cast<int>(size(*pa)) or n <= -static_cast<int>(size(*pa))) {
+			pa->rows = 0;
+			pa->columns = 0;
+			pa->array[0] = std::numeric_limits<double>::quiet_NaN();
+
+			return pa;
+		}
+
+		if (n > 0) {
+			if (pa->rows == 1) {
+				pa->columns -= n;
+				MoveMemory(begin(*pa), begin(*pa) + n, pa->columns * sizeof(double));
+			}
+			else {
+				pa->rows -= n;
+				MoveMemory(begin(*pa), begin(*pa) + n * pa->columns, pa->rows * pa->columns * sizeof(double));
+			}
+		}
+		else if (n < 0) {
+			if (pa->rows == 1) {
+				pa->columns += n;
+			}
+			else {
+				pa->rows += n;
+			}
+		}
+
+		return pa;
+	}
+
+	inline _FP12* take(_FP12* pa, int n)
+	{
+		if (n == 0) {
+			pa->rows = 0;
+			pa->columns = 0;
+			pa->array[0] = std::numeric_limits<double>::quiet_NaN();
+
+			return pa;
+		}
+		if (n >= static_cast<int>(size(*pa)) or n <= -static_cast<int>(size(*pa))) {
+			return pa;
+		}
+
+		if (n > 0) {
+			if (pa->rows == 1) {
+				pa->columns = n;
+			}
+			else {
+				pa->rows = n;
+			}
+		}
+		else if (n < 0) {
+			if (pa->rows == 1) {
+				pa->columns = -n;
+				MoveMemory(begin(*pa), end(*pa) + n, -n * sizeof(double));
+			}
+			else {
+				pa->rows = -n;
+				MoveMemory(begin(*pa), end(*pa) + n, -n * pa->columns * sizeof(double));
+			}
+		}
+
+		return pa;
+	}
+
+	template<class Op>
+	inline _FP12* scan(const Op& op, _FP12* pa)
+	{
+		if (pa->rows == 1) {
+			for (unsigned i = 1; i < pa->columns; ++i) {
+				pa->array[i] = op(pa->array[i - 1], pa->array[i]);
+			}
+		}
+		else {
+			// scan each column
+			for (unsigned j = 0; j < pa->columns; ++j) {
+				for (unsigned i = 1; i < pa->rows; ++i) {
+					index(*pa, i, j) = op(index(*pa, i - 1, j), index(*pa, i, j));
+				}
+			}
+		}
+
+		return *pa;
+	}
+
 	// fixed size FP types
 	template<unsigned R, unsigned C = 1>
 	struct FP_ {
