@@ -111,9 +111,9 @@ namespace xll {
 
 			return pa;
 		}
-		if (n >= static_cast<int>(size(*pa)) or n <= -static_cast<int>(size(*pa))) {
-			return pa;
-		}
+
+		int na = static_cast<int>(size(*pa));
+		n = std::clamp(n, -na, na);
 
 		if (n > 0) {
 			if (pa->rows == 1) {
