@@ -245,7 +245,7 @@ namespace xll {
 		XFP(const xfp& a)
 			: XFP(a.rows, a.columns)
 		{
-			std::copy(::begin(a), ::end(a), begin());
+			MoveMemory(begin(), a.array, size() * sizeof(double));
 		}
 		XFP(const XFP& a)
 			: XFP(*a.fp)
@@ -257,7 +257,7 @@ namespace xll {
 		{
 			if (this != &a) {
 				fp_realloc(a.rows(), a.columns());
-				std::copy(a.begin(), a.end(), begin());
+				MoveMemory(begin(), a.begin(), size() * sizeof(double));
 			}
 
 			return *this;
@@ -265,7 +265,7 @@ namespace xll {
 		XFP& operator=(const xfp& a)
 		{
 			fp_realloc(a.rows, a.columns);
-			std::copy(xll::begin(a), xll::end(a), begin());
+			MoveMemory(begin(), xll::begin(a), size() * sizeof(double));
 
 			return *this;
 		}
@@ -374,6 +374,48 @@ namespace xll {
 		const double* end() const
 		{
 			return fp ? fp->array + size() : nullptr;
+		}
+		XFP& drop(int n)
+		{
+			if (abs(n) >= size()) {
+				fp_free();
+
+				return *this;
+			}
+			if (n == 0) {
+				return *this;
+			}
+
+			xfp* px = xll::drop(get(), n);
+
+			if (n > 0) {
+				MoveMemory(begin(), xll::begin(*px), xll::size(*px) * sizeof(double));
+			}
+
+			fp->rows = px->rows;
+			fp->columns = px->columns;
+
+			return *this;
+		}
+		XFP& take(int n)
+		{
+			if (abs(n) >= size()) {
+				return *this;
+			}
+			if (n == 0) {
+				fp_free();
+
+				return *this;
+			}
+
+			xfp* px = xll::take(get(), n);
+
+			MoveMemory(begin(), xll::begin(*px), xll::size(*px) * sizeof(double));
+
+			fp->rows = px->rows;
+			fp->columns = px->columns;
+
+			return *this;
 		}
 	private:
 		void fp_alloc(xint r, xint c)
