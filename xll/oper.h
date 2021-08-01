@@ -741,17 +741,26 @@ namespace xll {
 		{
 			return type() == xltypeInt;
 		}
-		const xint& as_int() const
+		xint as_int() const
 		{
-			ensure(is_int());
+			int w = INT_MAX;
 
-			return val.w;
-		}
-		xint& as_int()
-		{
-			ensure(is_int());
-
-			return val.w;
+			switch (type()) {
+			case xltypeInt:
+				w = val.w;
+				break;
+			case xltypeBool:
+				w = val.xbool;
+				break;
+			case xltypeNum:
+				ensure(fabs(val.num) <= w);
+				w = static_cast<int>(val.num);
+				break;
+			default:
+				ensure(!"OPER::as_int: non-numeric type");
+			}
+			
+			return w;
 		}
 
 		// xltypeBigData
