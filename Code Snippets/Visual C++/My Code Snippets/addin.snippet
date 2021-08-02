@@ -2,8 +2,8 @@
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
 	<CodeSnippet Format="1.0.0">
 		<Header>
-			<Title>addin</Title>
-			<Shortcut>addin</Shortcut>
+			<Title>AddIn Function</Title>
+			<Shortcut>addinf</Shortcut>
 			<Description>Code snippet for xll::AddIn class</Description>
 			<Author>KALX, LLC</Author>
 			<SnippetTypes>
@@ -36,12 +36,13 @@
 				<Literal>
 					<ID>helpTopic</ID>
 					<ToolTip>URL of help for function</ToolTip>
-					<Default>https://google.com/search?q=name</Default>
+					<Default>https://google.com/search?q=$name$</Default>
 				</Literal>
 			</Declarations>
 			<Code Language="cpp"><![CDATA[AddIn xai_$name$(
 	Function(XLL_$return$ "xll_$name$", "XLL.$name$")
-	.Args({
+	.Arguments({
+		Arg(/*return*/, /*name*/, /*description*/),
 	})
 	.FunctionHelp("$functionHelp$")
 	.Category("$category$")
@@ -50,6 +51,16 @@
 $return$ WINAPI xll_$name$(...)
 {
 #pragma XLLEXPORT
+	try {
+		...
+  }
+  catch (const std::exception&amp; ex) {
+		XLL_ERROR(ex.what());
+    
+    return ...;
+  }
+  
+  return ...;
 }
 			</Code>
 		</Snippet>

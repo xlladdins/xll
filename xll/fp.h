@@ -375,6 +375,18 @@ namespace xll {
 		{
 			return fp ? fp->array + size() : nullptr;
 		}
+		XFP& drop(int n)
+		{
+			xll::drop(fp, n);
+
+			return *this;
+		}
+		XFP& take(int n)
+		{
+			xll::take(fp, n);
+
+			return *this;
+		}
 	private:
 		void fp_alloc(xint r, xint c)
 		{
