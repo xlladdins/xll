@@ -34,6 +34,7 @@ namespace win {
 			}
 			len = 0;
 			buf = (char*)MapViewOfFile(h, FILE_MAP_ALL_ACCESS, 0, 0, len);
+			buf += 2; // so first 2 chars can be overwritten for counted strings
 		}
 		mem_view(const mem_view&) = delete;
 		mem_view& operator=(const mem_view&) = delete;

@@ -498,10 +498,11 @@ namespace xll {
 			multi_alloc(1, static_cast<xcol>(x.size()));
 			std::copy(x.begin(), x.end(), begin());
 		}
-		template<class ...Args>
-		static XOPER<X> make(Args ...args)
+		// XOPER(a, ...)
+		template<class... Os>
+		static XOPER make(const Os&... os)
 		{
-			return XOPER<X>({ XOPER<X>(args)... });
+			return XOPER({ XOPER(os)... });
 		}
 		XOPER& resize(unsigned rw, unsigned col)
 		{
@@ -559,11 +560,30 @@ namespace xll {
 
 		XOPER<X>& drop(int n)
 		{
-			X x_ = *this; // copy bits
-			X x = xll::drop(x_, n);
-			if (xll::size(x) != size()) {
-				std::copy(xll::begin(x), xll::end(x), begin());
+			if (static_cast<unsigned>(abs(n)) >= size()) {
+				oper_free();
+
+				return *this;
 			}
+			if (n == 0) {
+				return *this;
+			}
+
+			X x = *this; // copy bits
+			x = xll::drop(x, n);
+
+			if (n > 0) {
+				for (unsigned i = 0; i < size() - xll::size(x); ++i) {
+					operator[](i).oper_free();
+				}
+				MoveMemory(begin(), xll::begin(x), xll::size(x) * sizeof(X));
+			}
+			else {
+				for (unsigned i = xll::size(x); i < size(); ++i) {
+					operator[](i).oper_free();
+				}
+			}
+
 			val.array.rows = x.val.array.rows;
 			val.array.columns = x.val.array.columns;
 
@@ -571,11 +591,30 @@ namespace xll {
 		}
 		XOPER<X>& take(int n)
 		{
-			X x_ = *this; // copy bits
-			X x = xll::take(x_, n);
-			if (xll::size(x) != size()) {
-				std::copy(xll::begin(x), xll::end(x), begin());
+			if (static_cast<unsigned>(abs(n)) >= size()) {
+				return *this;
 			}
+			if (n == 0) {
+				oper_free();
+
+				return *this;
+			}
+
+			X x = *this; // copy bits
+			x = xll::take(x, n);
+
+			if (n > 0) {
+				for (unsigned i = xll::size(x); i < size(); ++i) {
+					operator[](i).oper_free();
+				}
+			}
+			else {
+				for (unsigned i = 0; i < size() - xll::size(x); ++i) {
+					operator[](i).oper_free();
+				}
+				MoveMemory(begin(), xll::begin(x), xll::size(x) * sizeof(X));
+			}
+
 			val.array.rows = x.val.array.rows;
 			val.array.columns = x.val.array.columns;
 
@@ -702,17 +741,26 @@ namespace xll {
 		{
 			return type() == xltypeInt;
 		}
-		const xint& as_int() const
+		xint as_int() const
 		{
-			ensure(is_int());
+			int w = INT_MAX;
 
-			return val.w;
-		}
-		xint& as_int()
-		{
-			ensure(is_int());
-
-			return val.w;
+			switch (type()) {
+			case xltypeInt:
+				w = val.w;
+				break;
+			case xltypeBool:
+				w = val.xbool;
+				break;
+			case xltypeNum:
+				ensure(fabs(val.num) <= w);
+				w = static_cast<int>(val.num);
+				break;
+			default:
+				ensure(!"OPER::as_int: non-numeric type");
+			}
+			
+			return w;
 		}
 
 		// xltypeBigData

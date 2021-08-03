@@ -52,6 +52,19 @@ namespace fms {
 			return len == v.len and len == 0 or std::equal(buf, buf + len, v.buf);
 		}
 
+		// unsafe advance
+		view& advance(int32_t n)
+		{
+			buf += n;
+			len -= n;
+
+			return *this;
+		}
+		view& operator++()
+		{
+			return advance(1);
+		}
+
 		view& drop(int32_t n)
 		{
 			n = std::clamp(n, -(int32_t)len, (int32_t)len);

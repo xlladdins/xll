@@ -17,7 +17,7 @@ namespace xll {
 		auto element = [&os](const OPER& key, const OPER& val) {
 			os << "<" << key.to_string() << ">";
 			if (val.is_str()) {
-				os << val.to_string();
+				os << "<![CDATA[" << val.to_string() << "]]>";
 			}
 			os << "</" << key.to_string() << ">\n";
 		};
