@@ -498,6 +498,11 @@ namespace xll {
 			multi_alloc(1, static_cast<xcol>(x.size()));
 			std::copy(x.begin(), x.end(), begin());
 		}
+		template<class ...Args>
+		static XOPER<X> make(Args ...args)
+		{
+			return XOPER<X>({ XOPER<X>(args)... });
+		}
 		XOPER& resize(unsigned rw, unsigned col)
 		{
 			multi_realloc(rw, col);
