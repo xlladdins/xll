@@ -1,4 +1,4 @@
-// xll_project.h - xll_project header file
+// $projectname$.h - $projectname$ header file
 #include "xll/xll/xll.h"
 
 #ifndef CATEGORY

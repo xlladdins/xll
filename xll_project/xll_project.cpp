@@ -1,6 +1,6 @@
 // $projectname$.cpp - Sample xll project.
 #include <cmath>
-#include "xll_project.h"
+#include "$projectname$.h"
 
 using namespace xll;
 

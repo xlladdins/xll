@@ -11,11 +11,11 @@
 		<ProjectType>VC</ProjectType>
 	</TemplateData>
 	<TemplateContent>
-		<Project TargetFileName="$projectname$.vcxproj" File="xllproject.vcxproj" ReplaceParameters="true">
-			<ProjectItem ReplaceParameters="false" TargetFileName="$projectname$.vcxproj.filters">xllproject.vcxproj.filters</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.cpp">xllproject.cpp</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.h">xllproject.cpp</ProjectItem>
-			<ProjectItem ReplaceParameters="true" TargetFileName="setup.bat">setup.bat</ProjectItem>
+		<Project TargetFileName="$projectname$.vcxproj" File="xll_project.vcxproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="false" TargetFileName="$projectname$.vcxproj.filters">xll_project.vcxproj.filters</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.cpp">xll_project.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.h">xll_project.h</ProjectItem>
+ 	<ProjectItem ReplaceParameters="true" TargetFileName="setup.bat">setup.bat</ProjectItem>
 		</Project>
 	</TemplateContent>
 </VSTemplate>
