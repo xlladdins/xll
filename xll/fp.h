@@ -76,25 +76,18 @@ namespace xll {
 		int na = static_cast<int>(size(*pa));
 		n = std::clamp(n, -na, na);
 
-		if (n > 0) {
-			if (pa->rows == 1) {
-				pa->columns -= n;
-			}
-			else {
-				pa->rows -= n;
-			}
-			auto sz = xll::size(*pa);
-			if (sz != 0) {
-				MoveMemory(begin(*pa), begin(*pa) + sz, sz * sizeof(double));
-			}
+		int off;
+		if (pa->rows == 1) {
+			off = abs(n);
+			pa->columns -= abs(n);
 		}
-		else if (n < 0) {
-			if (pa->rows == 1) {
-				pa->columns += n;
-			}
-			else {
-				pa->rows += n;
-			}
+		else {
+			off = abs(n) * pa->columns;
+			pa->rows -= abs(n);
+		}
+
+		if (n > 0) {
+			MoveMemory(begin(*pa), begin(*pa) + off, size(*pa) * sizeof(double));
 		}
 
 		return pa;
@@ -112,24 +105,19 @@ namespace xll {
 		int na = static_cast<int>(size(*pa));
 		n = std::clamp(n, -na, na);
 
-		if (n > 0) {
-			if (pa->rows == 1) {
-				pa->columns = n;
-			}
-			else {
-				pa->rows = n;
-			}
+		int off;
+		auto e = end(*pa);
+		if (pa->rows == 1) {
+			off = abs(n);
+			pa->columns = abs(n);
 		}
-		else if (n < 0) {
-			auto e = end(*pa);
-			if (pa->rows == 1) {
-				pa->columns = -n;
-			}
-			else {
-				pa->rows = -n;
-			}
-			auto sz = xll::size(*pa);
-			MoveMemory(begin(*pa), e - sz, sz * sizeof(double));
+		else {
+			off = abs(n) * pa->columns;
+			pa->rows = abs(n);
+		}
+
+		if (n < 0) {
+			MoveMemory(begin(*pa), e - off, size(*pa) * sizeof(double));
 		}
 
 		return pa;
@@ -400,13 +388,13 @@ namespace xll {
 		}
 		XFP& drop(int n)
 		{
-			xll::drop(fp, n);
+			fp = xll::drop(fp, n);
 
 			return *this;
 		}
 		XFP& take(int n)
 		{
-			xll::take(fp, n);
+			fp = xll::take(fp, n);
 
 			return *this;
 		}
