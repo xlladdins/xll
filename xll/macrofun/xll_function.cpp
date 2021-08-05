@@ -9,8 +9,6 @@ using xchar = traits<XLOPERX>::xchar;
 // int breakme = []() { return _crtBreakAlloc = 1295; }();
 #endif 
 
-#if 0
-
 AddIn xai_eval(
 	Function(XLL_LPOPER, "xll_eval", "EVAL")
 	.Arguments({
@@ -129,6 +127,9 @@ int test_eval()
 	return TRUE;
 }
 Auto<OpenAfter> xaoa_test_eval(test_eval);
+
+#if 0
+
 
 #endif // _DEBUG
 

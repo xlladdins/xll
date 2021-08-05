@@ -20,7 +20,7 @@ xlAutoOpen(void)
 		}
 
 		for (auto& [key, arg] : AddIn::Map) {
-			Register(arg);
+			ensure(Register(arg));
 		}
 
 		if (!Auto<OpenAfter>::Call()) {
