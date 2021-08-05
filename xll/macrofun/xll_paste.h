@@ -19,13 +19,17 @@ namespace xll {
 		}
 
 		OPER xi = Excel(xlfEvaluate, x);
-		ensure(xi);
-		ref.Reshape(xi);
-		if (x.val.str[0] > 1 and x.val.str[1] == '"') {
-			ref.Set(xi); // string
+		if (xi) {
+			ref.Reshape(xi);
+			if (x.val.str[0] > 1 and x.val.str[1] == '=') {
+				ref.Formula(x); // formula
+			}
+			else {
+				ref.Set(xi);
+			}
 		}
 		else {
-			ref.Formula(OPER("=") & x); // formula
+			ref.Set(x);
 		}
 
 		return ref;
