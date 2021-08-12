@@ -11,7 +11,6 @@
 #include "handle.h"
 #include "fp.h"
 #include "platform.h"
-#include "xll_codec.h"
 
 namespace xll {
 	bool Documentation(const char* category, const char* description);
