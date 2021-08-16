@@ -87,9 +87,6 @@
     <ClInclude Include="xll\splitpath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="xll\codec.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="xll\macrofun\xll_macrofun.h">
       <Filter>macrofun</Filter>
     </ClInclude>
@@ -105,13 +102,7 @@
     <ClInclude Include="xll\platform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="xll\fms_view.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="xll\xll_codec.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="xll\win_view.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

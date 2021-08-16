@@ -16,11 +16,7 @@ Auto<OpenAfter> xaoa_test_doc([]() {
 });
 #endif
 
-#ifdef _DEBUG
-Auto<OpenAfter> xaoa_test_codec([]() {
-	return xll::codec_test();
-});
-#endif // _DEBUG
+XLL_CONST(LONG, CONST_NAME, 42, "a constant", "XLL", "https://google.com");
 
 // Use Alt-F8 then type 'XLL.MACRO' to call 'xll_macro'
 // See https://xlladdins.github.io/Excel4Macros/

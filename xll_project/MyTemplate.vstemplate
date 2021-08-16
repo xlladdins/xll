@@ -1,0 +1,21 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<TemplateData>
+		<Name>xll_project</Name>
+		<LocationField>Enabled</LocationField>
+		<SortOrder>1000</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>xll_project</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<Icon>__TemplateIcon.ico</Icon>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<ProjectType>VC</ProjectType>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="$projectname$.vcxproj" File="xll_project.vcxproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="false" TargetFileName="$projectname$.vcxproj.filters">xll_project.vcxproj.filters</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.cpp">xll_project.cpp</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="$projectname$.h">xll_project.h</ProjectItem>
+ 	<ProjectItem ReplaceParameters="true" TargetFileName="setup.bat">setup.bat</ProjectItem>
+		</Project>
+	</TemplateContent>
+</VSTemplate>

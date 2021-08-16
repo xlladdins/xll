@@ -72,31 +72,22 @@ namespace xll {
 		if (n == 0) {
 			return pa;
 		}
-		if (n >= static_cast<int>(size(*pa)) or n <= -static_cast<int>(size(*pa))) {
-			pa->rows = 0;
-			pa->columns = 0;
-			pa->array[0] = std::numeric_limits<double>::quiet_NaN();
 
-			return pa;
+		int na = static_cast<int>(size(*pa));
+		n = std::clamp(n, -na, na);
+
+		int off;
+		if (pa->rows == 1) {
+			off = abs(n);
+			pa->columns -= abs(n);
+		}
+		else {
+			off = abs(n) * pa->columns;
+			pa->rows -= abs(n);
 		}
 
 		if (n > 0) {
-			if (pa->rows == 1) {
-				pa->columns -= n;
-				MoveMemory(begin(*pa), begin(*pa) + n, pa->columns * sizeof(double));
-			}
-			else {
-				pa->rows -= n;
-				MoveMemory(begin(*pa), begin(*pa) + n * pa->columns, pa->rows * pa->columns * sizeof(double));
-			}
-		}
-		else if (n < 0) {
-			if (pa->rows == 1) {
-				pa->columns += n;
-			}
-			else {
-				pa->rows += n;
-			}
+			MoveMemory(begin(*pa), begin(*pa) + off, size(*pa) * sizeof(double));
 		}
 
 		return pa;
@@ -107,7 +98,6 @@ namespace xll {
 		if (n == 0) {
 			pa->rows = 0;
 			pa->columns = 0;
-			pa->array[0] = std::numeric_limits<double>::quiet_NaN();
 
 			return pa;
 		}
@@ -115,23 +105,19 @@ namespace xll {
 		int na = static_cast<int>(size(*pa));
 		n = std::clamp(n, -na, na);
 
-		if (n > 0) {
-			if (pa->rows == 1) {
-				pa->columns = n;
-			}
-			else {
-				pa->rows = n;
-			}
+		int off;
+		auto e = end(*pa);
+		if (pa->rows == 1) {
+			off = abs(n);
+			pa->columns = abs(n);
 		}
-		else if (n < 0) {
-			if (pa->rows == 1) {
-				pa->columns = -n;
-				MoveMemory(begin(*pa), end(*pa) + n, -n * sizeof(double));
-			}
-			else {
-				pa->rows = -n;
-				MoveMemory(begin(*pa), end(*pa) + n, -n * pa->columns * sizeof(double));
-			}
+		else {
+			off = abs(n) * pa->columns;
+			pa->rows = abs(n);
+		}
+
+		if (n < 0) {
+			MoveMemory(begin(*pa), e - off, size(*pa) * sizeof(double));
 		}
 
 		return pa;
@@ -155,6 +141,31 @@ namespace xll {
 		}
 
 		return *pa;
+	}
+
+	template<class Op>
+	inline _FP12* diff(_FP12* pa/*, const Op& op = std::minus<double>{}*/)
+	{
+		if (xll::size(*pa) <= 1) {
+			return pa;
+		}
+
+		Op op = Op{};
+		if (pa->rows == 1) {
+			for (unsigned i = pa->columns - 1; i; --i) {
+				pa->array[i] = op(pa->array[i], pa->array[i - 1]);
+			}
+		}
+		else {
+			// diff each column
+			for (int j = 0; j < pa->columns; ++j) {
+				for (int i = pa->rows - 1; i; --i) {
+					index(*pa, i, j) = op(index(*pa, i, j), index(*pa, i - 1, j));
+				}
+			}
+		}
+
+		return pa;
 	}
 
 	// fixed size FP types
@@ -245,7 +256,7 @@ namespace xll {
 		XFP(const xfp& a)
 			: XFP(a.rows, a.columns)
 		{
-			std::copy(::begin(a), ::end(a), begin());
+			MoveMemory(begin(), a.array, size() * sizeof(double));
 		}
 		XFP(const XFP& a)
 			: XFP(*a.fp)
@@ -257,7 +268,7 @@ namespace xll {
 		{
 			if (this != &a) {
 				fp_realloc(a.rows(), a.columns());
-				std::copy(a.begin(), a.end(), begin());
+				MoveMemory(begin(), a.begin(), size() * sizeof(double));
 			}
 
 			return *this;
@@ -265,7 +276,7 @@ namespace xll {
 		XFP& operator=(const xfp& a)
 		{
 			fp_realloc(a.rows, a.columns);
-			std::copy(xll::begin(a), xll::end(a), begin());
+			MoveMemory(begin(), xll::begin(a), size() * sizeof(double));
 
 			return *this;
 		}
@@ -374,6 +385,18 @@ namespace xll {
 		const double* end() const
 		{
 			return fp ? fp->array + size() : nullptr;
+		}
+		XFP& drop(int n)
+		{
+			fp = xll::drop(fp, n);
+
+			return *this;
+		}
+		XFP& take(int n)
+		{
+			fp = xll::take(fp, n);
+
+			return *this;
 		}
 	private:
 		void fp_alloc(xint r, xint c)

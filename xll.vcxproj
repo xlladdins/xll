@@ -22,7 +22,6 @@
     <ClInclude Include="xll\addin.h" />
     <ClInclude Include="xll\args.h" />
     <ClInclude Include="xll\auto.h" />
-    <ClInclude Include="xll\codec.h" />
     <ClInclude Include="xll\concepts.h" />
     <ClInclude Include="xll\defines.h" />
     <ClInclude Include="xll\ensure.h" />
@@ -48,9 +47,7 @@
     <ClInclude Include="xll\sref.h" />
     <ClInclude Include="xll\traits.h" />
     <ClInclude Include="xll\utf8.h" />
-    <ClInclude Include="xll\fms_view.h" />
     <ClInclude Include="xll\win.h" />
-    <ClInclude Include="xll\win_view.h" />
     <ClInclude Include="xll\XLCALL.H" />
     <ClInclude Include="xll\xll.h" />
     <ClInclude Include="xll\xll_codec.h" />

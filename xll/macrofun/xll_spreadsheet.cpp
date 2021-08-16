@@ -170,12 +170,13 @@ bool Spreadsheet(const char* description = "", bool release = false)
 
 	Select sel("R1:R1");
 	Header();
-
+	/*
 	sel(REF(0, 1)); // B1
 	// "=HYPERLINK(\"https://xlladdins.com/addins/xll_math.xll\", \"xll_math\")"));
 	sel.Formula(OPER("=HYPERLINK(\"") & dir & OPER(sp.fname) & OPER(" & Bits() & ") & OPER(sp.ext) & OPER("\", \"") & Name & OPER("\")"));
 	Excel(xlcNote, OPER("user: addinuser pass: @addm3"));
 	//sel.Set(Name);
+	*/
 
 	sel.Move(1,0);
 	sel.Set(OPER(description));

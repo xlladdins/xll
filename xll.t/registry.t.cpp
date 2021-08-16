@@ -58,59 +58,6 @@ int test_registry()
 			assert(v == 123);
 		}
 		{
-			Key hkcu(HKEY_CURRENT_USER, TEXT("Software"));
-			assert(hkcu.disposition() == REG_OPENED_EXISTING_KEY);
-			Key hkcc(HKEY_CURRENT_CONFIG, TEXT("Software"), KEY::READ);
-			assert(hkcu != hkcc);
-			Key hkcu2(HKEY_CURRENT_USER, TEXT("System"));
-			assert(hkcu != hkcu2);
-		}
-		{
-			Key key(HKEY_CURRENT_USER, TEXT("Microsoft"));
-			Key::KeyIterator ki(key);
-			assert(ki == ki);
-			assert(!(ki != ki));
-			Key::KeyIterator ke(key);
-			assert(ki == ke);
-			PCTSTR s;
-			s = *ki;
-			int icount = 0;
-			for (auto i : key.Keys()) {
-				s = i;
-				++icount;
-			}
-
-			Key key2(HKEY_CURRENT_USER, TEXT("Microsoft"));
-			Key::KeyIterator ki2(key2);
-			int ecount = 0;
-			while (ki2) {
-				++ki2;
-				++ecount;
-			}
-			assert(icount == ecount);
-			assert(icount > 0);
-		}
-		{
-			Key key(HKEY_CURRENT_USER, TEXT("Console"));
-			Key::ValueIterator vi(key);
-			int icount = 0;
-			while (vi) {
-				auto v = *vi;
-				if (v.type == REG_DWORD) {
-					++icount;
-				}
-				++vi;
-			}
-			int ecount = 0;
-			for (const auto& v : key.Values()) {
-				if (v.type == REG_DWORD) {
-					++ecount;
-				}
-			}
-			assert(icount == ecount);
-			assert(icount > 0);
-		}
-		{
 			Key key(HKEY_CURRENT_USER, _T("foo"));
 			key[_T("bar")] = 123;
 			DWORD dw;

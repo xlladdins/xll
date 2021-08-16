@@ -1,6 +1,7 @@
 // oper.t.cpp - test OPER type
 #undef NDEBUG
 #include <cassert>
+#include <algorithm>
 #include <functional>
 #include "../xll/xll.h"
 
@@ -459,7 +460,7 @@ int test_oper_multi()
 }
 int test_oper_multi_ = test_oper_multi();
 
-OPER iota(unsigned a, unsigned n)
+OPER oiota(unsigned a, unsigned n)
 {
 	OPER o(1, n);
 
@@ -472,26 +473,26 @@ OPER iota(unsigned a, unsigned n)
 int test_oper_drop()
 {
 	{
-		auto o1 = iota(0, 6);
+		auto o1 = oiota(0, 6);
 		o1.drop(0);
-		assert(o1 == iota(0, 6));
+		assert(o1 == oiota(0, 6));
 		o1.resize(2, 3);
 		o1.drop(0);
-		assert(o1 == iota(0, 6).resize(2,3));
+		assert(o1 == oiota(0, 6).resize(2,3));
 	}
 	{
-		assert(iota(0, 2).drop(2).size() == 0);
-		assert(iota(0, 2).drop(-2).size() == 0);
-		assert(iota(0, 2).drop(3).size() == 0);
-		assert(iota(0, 2).drop(-3).size() == 0);
+		assert(oiota(0, 2).drop(2).size() == 0);
+		assert(oiota(0, 2).drop(-2).size() == 0);
+		assert(oiota(0, 2).drop(3).size() == 0);
+		assert(oiota(0, 2).drop(-3).size() == 0);
 	}
 	{
-		assert(iota(0, 6).drop(1) == iota(1, 5));
-		assert(iota(0, 6).drop(-1) == iota(0, 5));
-		assert(iota(0, 6).resize(3, 2).drop(1) == iota(2, 4).resize(2,2));
-		assert(iota(0, 6).resize(3, 2).drop(-1) == iota(0, 4).resize(2,2));
-		assert(iota(0, 6).resize(3, 2).drop(3).size() == 0);
-		assert(iota(0, 6).resize(3, 2).drop(-3).size() == 0);
+		assert(oiota(0, 6).drop(1) == oiota(1, 5));
+		assert(oiota(0, 6).drop(-1) == oiota(0, 5));
+		assert(oiota(0, 6).resize(3, 2).drop(1) == oiota(2, 4).resize(2,2));
+		assert(oiota(0, 6).resize(3, 2).drop(-1) == oiota(0, 4).resize(2,2));
+		assert(oiota(0, 6).resize(3, 2).drop(3).size() == 0);
+		assert(oiota(0, 6).resize(3, 2).drop(-3).size() == 0);
 	}
 
 	return 0;
@@ -501,7 +502,7 @@ int test_oper_drop_ = test_oper_drop();
 int test_oper_take()
 {
 	{
-		auto o1 = iota(0, 6);
+		auto o1 = oiota(0, 6);
 		o1.take(0);
 		assert(o1.size() == 0);
 		o1.resize(2, 3);
@@ -509,21 +510,21 @@ int test_oper_take()
 		assert(o1.size() == 0);
 	}
 	{
-		assert(iota(0, 2).take(2) == iota(0, 2));
-		assert(iota(0, 2).take(-2) == iota(0, 2));
-		assert(iota(0, 2).take(3) == iota(0, 2));
-		assert(iota(0, 2).take(-3) == iota(0, 2));
+		assert(oiota(0, 2).take(2) == oiota(0, 2));
+		assert(oiota(0, 2).take(-2) == oiota(0, 2));
+		assert(oiota(0, 2).take(3) == oiota(0, 2));
+		assert(oiota(0, 2).take(-3) == oiota(0, 2));
 	}
 	{
-		assert(iota(0, 6).take(1) == iota(0, 1));
-		auto a = iota(0, 6).take(-1);
-		auto b = iota(5, 1);
+		assert(oiota(0, 6).take(1) == oiota(0, 1));
+		auto a = oiota(0, 6).take(-1);
+		auto b = oiota(5, 1);
 		assert(a == b);
-		assert(iota(0, 6).take(-1) == iota(5, 1));
-		assert(iota(0, 6).resize(3, 2).take(2) == iota(0, 4).resize(2, 2));
-		assert(iota(0, 6).resize(3, 2).take(-2) == iota(2, 4).resize(2, 2));
-		assert(iota(0, 6).resize(3, 2).take(3) == iota(0, 6).resize(3, 2));
-		assert(iota(0, 6).resize(3, 2).take(-3) == iota(0, 6).resize(3, 2));
+		assert(oiota(0, 6).take(-1) == oiota(5, 1));
+		assert(oiota(0, 6).resize(3, 2).take(2) == oiota(0, 4).resize(2, 2));
+		assert(oiota(0, 6).resize(3, 2).take(-2) == oiota(2, 4).resize(2, 2));
+		assert(oiota(0, 6).resize(3, 2).take(3) == oiota(0, 6).resize(3, 2));
+		assert(oiota(0, 6).resize(3, 2).take(-3) == oiota(0, 6).resize(3, 2));
 	}
 
 	return 0;
@@ -612,6 +613,16 @@ int test_compare()
 }
 int test_compare_ = test_compare();
 
+inline FPX aiota(double t, unsigned n) {
+	FPX a(1, n);
+
+	for (unsigned i = 0; i < n; ++i) {
+		a[i] = t + i;
+	}
+
+	return a;
+};
+
 int test_fp()
 {
 	using xll::FP4;
@@ -675,6 +686,43 @@ int test_fp()
 		ensure(a[3] == 1.23);
 
 		a.resize(0, 0);
+	}
+	{
+		FPX a = aiota(0, 3);
+		ensure(a.drop(1) == aiota(1, 2));
+	}
+	{
+		FPX a = aiota(0, 3);
+		ensure(a.drop(-1) == aiota(0, 2));
+	}
+	{
+		FPX a = aiota(0, 6);
+		a.resize(2, 3);
+		ensure(a.drop(1) == aiota(3, 3));
+	}
+	{
+		FPX a = aiota(0, 6);
+		a.resize(3, 2);
+		ensure(a.drop(-1) == aiota(0, 4).resize(2,2));
+	}
+
+	{
+		FPX a = aiota(0, 3);
+		ensure(a.take(1) == aiota(0, 1));
+	}
+	{
+		FPX a = aiota(0, 3);
+		ensure(a.take(-1) == aiota(2, 1));
+	}
+	{
+		FPX a = aiota(0, 6);
+		a.resize(2, 3);
+		ensure(a.take(1) == aiota(0, 3));
+	}
+	{
+		FPX a = aiota(0, 6);
+		a.resize(3, 2);
+		ensure(a.take(-1) == aiota(4, 2));
 	}
 
 	return 0;
