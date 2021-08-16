@@ -23,7 +23,7 @@ LPXLOPER WINAPI xll_depends(LPXLOPER cell, LPXLOPER)
 #pragma XLLEXPORT
 	return cell;
 }
-
+#if 0
 AddIn xai_replace_eq_by_eq(
 	Macro("xll_replace_eq_by_eq", "REPLACE.EQ.BY.EQ")
 	.FunctionHelp("Recalculate all formulas in a workbook. (Ctrl-Shift-F9)")
@@ -42,6 +42,7 @@ int WINAPI xll_replace_eq_by_eq()
 }
 // Bind Ctrl-Shift-F9 to replace = by =
 On<Key> xok_replace_eq_by_eq(ON_CTRL ON_SHIFT ON_F9, "REPLACE.EQ.BY.EQ");
+#endif // 0
 
 AddIn xai_handle_name(
 	Function(XLL_CSTRING4, "xll_handle_typename", "HANDLE.TYPENAME")
