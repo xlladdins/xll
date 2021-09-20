@@ -9,6 +9,9 @@ using namespace xll;
 //int break_me = []() { return _crtBreakAlloc = 1178; }();
 
 #ifdef _DEBUG
+
+xll_url_set xlladdins("https://xlladdins.com/");
+
 Auto<OpenAfter> xaoa_test_doc([]() {
 	const char* platform;
 	platform = Platform();

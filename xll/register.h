@@ -4,9 +4,19 @@
 #include "splitpath.h"
 #include "args.h"
 
+// HelpTopic url base
+extern const char* XLL_URL;
+
+struct xll_url_set {
+	xll_url_set(const char* url)
+	{
+		XLL_URL = url;
+	}
+};
+
 namespace xll{
 
-	inline OPER Register(Args& args)
+	inline OPER Register(const Args& args)
 	{
 		OPER procedure = args.Procedure();
 		ensure(procedure.xltype == xltypeStr && procedure.val.str[0] > 1);
@@ -51,21 +61,17 @@ namespace xll{
 			ensure(args.isUncalced());
 		}
 
-		args.key("moduleText") = moduleText;
-		args.key("procedure") = procedure;
-		args.key("helpTopic") = helpTopic;
-
 		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
 		std::vector<const XLOPERX*> oper(count);
-		oper[0] = &args.ModuleText();
-		oper[1] = &args.Procedure();
+		oper[0] = &moduleText;
+		oper[1] = &procedure;
 		oper[2] = &args.TypeText();
 		oper[3] = &args.FunctionText();
 		oper[4] = &args.ArgumentText();
 		oper[5] = &args.MacroType();
 		oper[6] = &args.Category();
 		oper[7] = &args.ShortcutText();
-		oper[8] = &args.HelpTopic();
+		oper[8] = &helpTopic;
 		oper[9] = &args.FunctionHelp();
 		for (unsigned i = 1; i <= args.ArgumentCount(); ++i) {
 			oper[9ul + i] = &args.ArgumentHelp(i);

@@ -2,11 +2,6 @@
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
 
-// Help topic location
-#ifndef XLL_URL
-#define XLL_URL "https://xllmonte.com/xllmonte/"
-#endif
-
 // Parameterize by XLL_VERSION
 // Define to be 12 for Excel 2007 and later or 4 otherwise
 #ifndef XLL_VERSION
@@ -179,5 +174,5 @@ extern "C" {
 #define XLL_CONST(type, name, value, help, cat, topic) \
 AddIn xai_ ## name (Function(XLL_##type, XLL_DECORATE("_xll_" #name, 0) , #name) \
 .FunctionHelp(help).Category(cat).HelpTopic(topic)); \
-extern "C" _declspec(dllexport) type WINAPI xll_ ## name () { return value; }
+extern "C" __declspec(dllexport) type WINAPI xll_ ## name () { return value; }
 
