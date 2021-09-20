@@ -13,7 +13,15 @@ namespace xll {
 	{
 		return a.array[xmod<unsigned short>(i, size(a))];
 	}
+	inline double index(const _FP& a, unsigned short i)
+	{
+		return a.array[xmod<unsigned short>(i, size(a))];
+	}
 	inline double& index(_FP& a, unsigned short i, unsigned short j)
+	{
+		return index(a, a.columns * xmod<unsigned short>(i, a.rows) + xmod<unsigned short>(j, a.columns));
+	}
+	inline double index(const _FP& a, unsigned short i, unsigned short j)
 	{
 		return index(a, a.columns * xmod<unsigned short>(i, a.rows) + xmod<unsigned short>(j, a.columns));
 	}
@@ -45,7 +53,15 @@ namespace xll {
 	{
 		return a.array[xmod<unsigned>(i, size(a))];
 	}
+	inline double index(const _FP12& a, unsigned i)
+	{
+		return a.array[xmod<unsigned>(i, size(a))];
+	}
 	inline double& index(_FP12& a, unsigned i, unsigned j)
+	{
+		return index(a, a.columns * xmod<unsigned>(i, a.rows) + xmod<unsigned>(j, a.columns));
+	}
+	inline double index(const _FP12& a, unsigned i, unsigned j)
 	{
 		return index(a, a.columns * xmod<unsigned>(i, a.rows) + xmod<unsigned>(j, a.columns));
 	}
@@ -65,6 +81,17 @@ namespace xll {
 	inline const double* end(const _FP12& a)
 	{
 		return a.array + size(a);
+	}
+
+	inline bool equal(const _FP* a, const _FP* b)
+	{
+		return a->rows == b->rows and a->columns == b->columns
+			and std::equal(begin(*a), end(*a), begin(*b));
+	}
+	inline bool equal(const _FP12* a, const _FP12* b)
+	{
+		return a->rows == b->rows and a->columns == b->columns
+			and std::equal(begin(*a), end(*a), begin(*b));
 	}
 
 	inline _FP12* drop(_FP12* pa, int n)
@@ -127,20 +154,20 @@ namespace xll {
 	inline _FP12* scan(const Op& op, _FP12* pa)
 	{
 		if (pa->rows == 1) {
-			for (unsigned i = 1; i < pa->columns; ++i) {
+			for (int i = 1; i < pa->columns; ++i) {
 				pa->array[i] = op(pa->array[i - 1], pa->array[i]);
 			}
 		}
 		else {
 			// scan each column
-			for (unsigned j = 0; j < pa->columns; ++j) {
-				for (unsigned i = 1; i < pa->rows; ++i) {
+			for (int j = 0; j < pa->columns; ++j) {
+				for (int i = 1; i < pa->rows; ++i) {
 					index(*pa, i, j) = op(index(*pa, i - 1, j), index(*pa, i, j));
 				}
 			}
 		}
 
-		return *pa;
+		return pa;
 	}
 
 	template<class Op>
@@ -163,6 +190,62 @@ namespace xll {
 					index(*pa, i, j) = op(index(*pa, i, j), index(*pa, i - 1, j));
 				}
 			}
+		}
+
+		return pa;
+	}
+
+	inline _FP12* mask(_FP12* pa, const _FP12* pm)
+	{
+		if (pa->rows == 1) {
+			int j = 0;
+			for (int i = 0; i < pa->columns; ++i) {
+				if (index(*pm, i)) {
+					pa->array[j] = pa->array[i];
+					++j;
+				}
+			}
+			pa->columns = j;
+		}
+		else {
+			int j = 0;
+			for (int i = 0; i < pa->rows; ++i) {
+				if (index(*pm, i)) {
+					CopyMemory(&index(*pa, j, 0), &index(*pa, i, 0), pa->columns * sizeof(double));
+					++j;
+				}
+			}
+			pa->rows = j;
+		}
+
+		return pa;
+	}
+
+	inline _FP12* rotate(_FP12* pa, int n)
+	{
+		n = n % (int)size(*pa);
+
+		if (n > 0) {
+			std::rotate(begin(*pa), begin(*pa) + n, end(*pa));
+		}
+		else if (n < 0) {
+			std::rotate(begin(*pa), end(*pa) + n, end(*pa));
+		}
+
+		return pa;
+	}
+
+	inline _FP12* shift(_FP12* pa, int n)
+	{
+		n = n % (int)size(*pa);
+
+		if (n > 0) {
+			std::rotate(begin(*pa), end(*pa) - n, end(*pa));
+			ZeroMemory(begin(*pa), n * sizeof(double));
+		}
+		else if (n < 0) {
+			std::rotate(begin(*pa), begin(*pa) - n, end(*pa));
+			ZeroMemory(end(*pa) + n, -n * sizeof(double));
 		}
 
 		return pa;

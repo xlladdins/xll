@@ -724,6 +724,62 @@ int test_fp()
 		a.resize(3, 2);
 		ensure(a.take(-1) == aiota(4, 2));
 	}
+	{
+		FPX a = aiota(1, 3);
+		scan(std::plus<double>{}, a.get());
+		ensure(a[0] == 1);
+		ensure(a[1] == 3);
+		ensure(a[2] == 6);
+	}
+	{
+		FPX a = aiota(1, 3); // {1,2,3}
+		FPX m = aiota(0, 2); // {0, 1, 0, 1, ...}
+		mask(a.get(), m.get());
+		ensure(a.size() == 1);
+		ensure(a[0] == 2);
+	}
+	{
+		FPX a = aiota(1, 6); // {1,2,3,4,5,6}
+		a.resize(3, 2);
+		FPX m = aiota(0, 2); // {0, 1, 0, 1, ...}
+		mask(a.get(), m.get());
+		ensure(a.rows() == 1);
+		ensure(a.columns() == 2);
+		ensure(a(0,0) == 3);
+		ensure(a(0, 1) == 4);
+	}
+	{
+		FPX a = aiota(1, 3);
+		rotate(a.get(), 1);
+		ensure(a.size() == 3);
+		ensure(a[0] == 2);
+		ensure(a[1] == 3);
+		ensure(a[2] == 1);
+	}
+	{
+		FPX a = aiota(1, 3);
+		rotate(a.get(), -1);
+		ensure(a.size() == 3);
+		ensure(a[0] == 3);
+		ensure(a[1] == 1);
+		ensure(a[2] == 2);
+	}
+	{
+		FPX a = aiota(1, 3);
+		shift(a.get(), 1);
+		ensure(a.size() == 3);
+		ensure(a[0] == 0);
+		ensure(a[1] == 1);
+		ensure(a[2] == 2);
+	}
+	{
+		FPX a = aiota(1, 3);
+		shift(a.get(), -1);
+		ensure(a.size() == 3);
+		ensure(a[0] == 2);
+		ensure(a[1] == 3);
+		ensure(a[2] == 0);
+	}
 
 	return 0;
 }

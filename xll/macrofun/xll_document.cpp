@@ -112,6 +112,9 @@ namespace xll {
 			for (auto& [key, arg] : AddIn::Map) {
 				if (arg.Documentation().length() != 0) {
 					OPER cat = arg.Category();
+					if (cat == "XLL") {
+						continue; // don't add XLL functions/macros to index
+					}
 					OPER type = arg.Type();
 					OPER text = arg.FunctionText();
 					if (arg.isHandle()) {

@@ -181,7 +181,6 @@
   <ItemGroup>
     <ClCompile Include="..\xll\debug.cpp" />
     <ClCompile Include="..\xll\defines.c" />
-    <ClCompile Include="codec.t.cpp" />
     <ClCompile Include="oper.t.cpp" />
     <ClCompile Include="registry.t.cpp" />
     <ClCompile Include="sref.t.cpp" />
