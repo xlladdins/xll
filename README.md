@@ -213,10 +213,18 @@ The destructor for `version` will release the memory when it goes out of scope.
 
 ### Excel Data Types
 
-Excel knows about floating point doubles, null terminate strings, and various integer types that it never uses internally. 
-These are indicated by, `XLL_DOUBLE`, `XLL_CSTRING`, `XLL_WORD`, ..., `XLL_LONG`. There is also`XLL_PSTRING` 
-for getting _counted strings_ where the first character is the length of the following
-string characters.
+Excel knows about floating point doubles and various integer types. These are indicated by, `XLL_DOUBLE`, 
+`XLL_WORD`, ..., `XLL_LONG`. The corresponding arguments in C functions can be declared as `DOUBLE`, `WORD`,
+..., `LONG` but you can use `double`, `unsigned`,  and `int` if you prefer. Integer and long types are both 32-bit.
+
+Excel has two flavors of strings: counted Pascal strings and null terminate C strings.
+Early versions of Excel involved Pascal which uses counted strings where the first character
+was the length of the string. Excel 2007 introduced wide character strings having 16-bit characters.
+The old limit was 255 characters to a string. The post Excel 2007 limit is 65535 characters.
+You can tell Excel to give you a `char*` counted or null terminated string by specifying the
+`XLL_PSTRING4` of `XLL_CSTRING4` data type in the `AddIn` constructor.
+Use `XLL_PSTRING12` or `XLL_CSTRING12` to tell Excel to give you a `wchar_t*`.
+For maximum portability use `XLL_PSTRINGX` or `XLL_CSTRINGX` with corresponding argument `TCHAR*`.
 
 A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPER` type
 defined in the `xll` namespace. It is a _variant_
