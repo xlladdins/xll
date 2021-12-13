@@ -317,7 +317,7 @@ Call `xll::handle<T>(T*)` using `new` to create an object of type `T`.
 The call `xll::handle<T> h(new T(...))` creates a handle `h` to 
 an object of type `T` using any constructor for `T`.
 If the cell a function is being called from contains a handle returned by
-a previous call, then the correspoding C++ object is `delete`d 
+a previous call, then the corresponding C++ object is `delete`d 
 and the new handle is returned to the cell. 
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
