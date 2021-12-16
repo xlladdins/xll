@@ -9,13 +9,13 @@ There are newer technologies available using C# and JavaScript that are appropri
 possible numerical performance from Excel this library is for you.
 
 Plug your code, or a third party library, into Excel by
-writing a thin wrapper that gathers data from Excel, calls any function, and returns the result.
+writing a thin wrapper that gathers arguments from Excel, call any function, and return the result.
 Use the full power of Excel to explore and perfect your code. Anyone can use your
 handiwork by opening the self-contained `.xll` file you produce.
 The xll library can also generate documentation integrated into Excel's help system.
 Hopefully you will get to the quality problem of others using your product and
 you can tell them to go to the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277)
-as your first line of defense against them taking up your precious time.
+so you can get back to writing more cool stuff.
 
 The major usability enhancement for developers in the latest version is that all strings are now UTF-8. 
 They are a L"ot" nicer to use than wide character strings.
