@@ -115,7 +115,7 @@ the built-in Excel functon
 
 <img src="images/gamma.png" width="450" height="250">
 
-_All functions called from Excel must be declared with_ `WINAPI` which is defined to be 
+All functions called from Excel must be declared `WINAPI` which is defined to be 
 [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 This is an artifact of the original versions of Excel being written in Pascal.
 The line `#pragma XLLEXPORT` causes the function to be exported
