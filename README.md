@@ -310,6 +310,17 @@ The `FPX` data type also has member functions for `rows`, `columns`, and `size`.
 To be STL friendly the member functions `begin` and `end` are provided for
 both `const` and non-const iterators over array elements.
 
+## String
+
+The `xll` library uses only UTF-8 strings but Excel (post 2007) uses either 8-bit ASCII `unsigned char*` or 
+16-bit wide character `unsigned short*` strings.
+The easiest way of getting strings in and out of Excel is to use an `OPER` of type `xltypeStr`. Use `OPER::is_str()` to detect if it is a string.
+The library will take care of encoding and decoding strings for you.
+
+To get strings directly from Excel specify the argument as `XLL_PSTRING`, `XLL_CSTRING`, `XLL_PSTRING12`, or `XLL_PSTRING12`.
+The `P` indicates the string is counted with the first character being its length. The `C` indicates the string will be null terminated
+as is the custom in C. You can return strings directly to Excel by specifying the appropriate return type in `Function`.
+
 ## Handle
 
 Handles are used to embed C++ objects in Excel. 
