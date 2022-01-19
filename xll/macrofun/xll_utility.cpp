@@ -175,8 +175,6 @@ LPOPER WINAPI xll_collect(LPOPER po,
 	return &o;
 }
 
-
-
 static AddIn xai_this(
 	Function(XLL_LPXLOPER, "xll_this", "THIS")
 	.Uncalced()
