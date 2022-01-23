@@ -20,8 +20,11 @@ LPXLOPERX WINAPI xll_throttle(LPXLOPERX px)
 #pragma XLLEXPORT
 	try {
 		OPER o = Excel(xlCoerce, Excel(xlfCaller));
-		if (Excel(xlCoerce, Excel(xlfCaller)).as_num() == 0) {
-			*(LPOPER)px = Excel(xlfEvaluate, *(LPOPER)px);
+		if (o.as_num() == 0) {
+			*(LPOPER)px = Excel(xlfEvaluate, *px);
+		}
+		else {
+			*px = o;
 		}
 	}
 	catch (const std::exception& ex) {
