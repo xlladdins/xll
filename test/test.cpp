@@ -37,7 +37,7 @@ int WINAPI xll_macro(void)
 			Excel(xlfReftext, Excel(xlfActiveCell), OPER(true))
 		),
 		OPER(2), // general information
-		OPER("https://xlladdins.github.io/Excel4Macros/alert.html!0") // help
+		OPER("https://xlladdins.github.io/Excel4Macros/alert.html") // help
 	);
 
 	return TRUE;

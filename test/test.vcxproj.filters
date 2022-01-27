@@ -25,4 +25,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="NOTES.md" />
+  </ItemGroup>
 </Project>
