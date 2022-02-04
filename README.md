@@ -27,7 +27,9 @@ to simplify interfaces.
 ## Prerequisites
 
 [Windows 10](https://www.microsoft.com/en-us/software-download/windows10)  
-  The Excel SDK is not supported on MacOS.
+  The Excel SDK is not supported on MacOS. You will have to install
+  a [Windows virtual machine](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/)
+  on your Mac. I've had success with VirtualBox.
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)  
   Use the Community Edition and install the `Desktop development with C++` and 
