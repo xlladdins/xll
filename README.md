@@ -20,9 +20,10 @@ so you can get back to writing more cool stuff.
 The major usability enhancement for developers in the latest version is that all strings are now UTF-8. 
 They are a L"ot" nicer to use than wide character strings.
 The library still provides high performance access to [numeric arrays](#the-fp-data-type) and lets you easily create
-[handles](#handles) for embedding C++ objects that can use
-[single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
-to simplify interfaces.
+[handles](#handles) for embedding C++ objects. This lets you use Excel to orchestrate code operating on memory up to
+machine limits that runs at native speed.
+You can also use [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
+to make your software more convenient to use.
 
 ## Prerequisites
 
