@@ -221,9 +221,9 @@ Excel knows about floating point doubles and various integer types. These are in
 
 Excel has two flavors of strings: counted Pascal strings and null terminate C strings.
 Early versions of Excel involved Pascal which uses counted strings where the first character
-was the length of the string. Excel 2007 introduced wide character strings having 16-bit characters.
+is the length of the string. Excel 2007 introduced wide character strings having 16-bit characters.
 The old limit was 255 characters to a string. The post Excel 2007 limit is 65535 characters.
-You can tell Excel to give you a `char*` counted or null terminated string by specifying the
+You can tell Excel to give you a counted or null terminated `char*` string by specifying the
 `XLL_PSTRING4` of `XLL_CSTRING4` data type in the `AddIn` constructor.
 Use `XLL_PSTRING12` or `XLL_CSTRING12` to tell Excel to give you a `wchar_t*`.
 For maximum portability use `XLL_PSTRINGX` or `XLL_CSTRINGX` with corresponding argument `TCHAR*`.
