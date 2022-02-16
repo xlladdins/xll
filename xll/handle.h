@@ -131,7 +131,6 @@ namespace xll {
 		}
 
 		// Convert handle in caller to pointer.
-		template<class T>
 		static T* coerce(const OPER& caller)
 		{
 			OPER o = Excel(xlCoerce, caller);
@@ -152,7 +151,7 @@ namespace xll {
 			ps.emplace(std::unique_ptr<T>(p));
 		
 			// delete and erase if calling cell has a valid pointer to T
-			erase(coerce<T>(caller[p] = Excel(xlfCaller)));
+			erase(coerce(caller[p] = Excel(xlfCaller)));
 
 			// returned by HANDLE.TYPENAME(handle)
 			handle_typename[p] = typeid(*p).name();
@@ -313,16 +312,16 @@ namespace xll {
 			}
 
 			// does not allocate memory
-			HANDLEX decode(const XOPER<X>& _H)
+			HANDLEX decode(const XOPER<X>& H_)
 			{
-				ensure(_H.is_str());
+				ensure(H_.is_str());
 
 				// No prefix or suffix check. It will fail when used.
 				// Extra chars appended to suffix ok.
 				// Could use this to add, e.g., a timestamp.
-				ensure(_H.val.str[0] >= H.val.str[0]);
+				ensure(H_.val.str[0] >= H.val.str[0]);
 								
-				return decode_(_H.val.str + 1 + off);
+				return decode_(H_.val.str + 1 + off);
 			}
 		};
 	};

@@ -214,7 +214,7 @@ AddIn xai_file(
 	.Category("XLL")
 	.FunctionHelp("Return contents of URL.")
 );
-LPOPER WINAPI xll_file(const LPOPER po)
+LPOPER WINAPI xll_file(LPOPER po)
 {
 #pragma XLLEXPORT
 	static OPER f;

@@ -20,7 +20,7 @@ namespace xll {
 	/// Individual argument for add-in function.
 	/// </summary>
 	struct Arg {
-		typedef typename const char* cstr;
+		using cstr = const char*;
 
 		cstr type;
 		cstr name;

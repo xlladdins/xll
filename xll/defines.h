@@ -76,12 +76,12 @@ inline T xmod(T x, T y)
     X(Err,     err,      err,  WORD,    "Error type")                          \
     X(SRef,    sref.ref, ref,  LPOPER,  "Single refernce")                     \
     X(Int,     w,        int,  LONG,    "32-bit signed integer")               \
+    X(Ref,     mref.lpmref,    lpmref, LPOPER,  "Multiple reference")                  \
 
 // types requiring allocation where xX is pointer to data
-// xltypeX, XLOPERX::val.X, xX, XLL_X, desck
+// xltypeX, XLOPERX::val.X, xX, XLL_X, desc
 #define XLL_TYPE_ALLOC(X) \
     X(Str,     str,     str, PSTRING, "Pointer to a counted Pascal string")  \
-    X(Ref,     mref.lpmref,    lpmref, LPOPER,  "Multiple reference")                  \
     X(Multi,   array,   multi, LPOPER,  "Two dimensional array of OPER types") \
     X(BigData, bigdata.h.lpbData, bigdata, LPOPER,  "Blob of binary data")                 \
 

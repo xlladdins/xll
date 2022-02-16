@@ -45,7 +45,7 @@ Return a one column array of all registered add-ins. These can
 be used as the first argument to <code>XLL.ADDIN.ARGS</code> or <code>XLL.ADDIN.ARGUMENTS</code>.
 )")
 );
-LPOPER WINAPI xll_addins(void)
+LPOPER WINAPI xll_addins()
 {
 #pragma XLLEXPORT
 	static OPER result;
