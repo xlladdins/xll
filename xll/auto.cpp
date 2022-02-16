@@ -7,8 +7,6 @@
 #include "excel.h"
 #include "addin.h"
 
-const char* XLL_URL = "";
-
 using namespace xll;
 
 #pragma region xlAutoOpen

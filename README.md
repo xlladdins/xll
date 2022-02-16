@@ -20,14 +20,17 @@ so you can get back to writing more cool stuff.
 The major usability enhancement for developers in the latest version is that all strings are now UTF-8. 
 They are a L"ot" nicer to use than wide character strings.
 The library still provides high performance access to [numeric arrays](#the-fp-data-type) and lets you easily create
-[handles](#handles) for embedding C++ objects that can use
-[single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
-to simplify interfaces.
+[handles](#handles) for embedding C++ objects. This lets you use Excel to orchestrate code operating on memory up to
+machine limits that runs at native speed.
+You can also use [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
+to make your software more convenient to use.
 
 ## Prerequisites
 
 [Windows 10](https://www.microsoft.com/en-us/software-download/windows10)  
-  The Excel SDK is not supported on MacOS.
+  The Excel SDK is not supported on MacOS. You will have to install
+  a [Windows virtual machine](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/)
+  on your Mac. I've had success with VirtualBox.
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)  
   Use the Community Edition and install the `Desktop development with C++` and 
@@ -219,9 +222,9 @@ Excel knows about floating point doubles and various integer types. These are in
 
 Excel has two flavors of strings: counted Pascal strings and null terminate C strings.
 Early versions of Excel involved Pascal which uses counted strings where the first character
-was the length of the string. Excel 2007 introduced wide character strings having 16-bit characters.
+is the length of the string. Excel 2007 introduced wide character strings having 16-bit characters.
 The old limit was 255 characters to a string. The post Excel 2007 limit is 65535 characters.
-You can tell Excel to give you a `char*` counted or null terminated string by specifying the
+You can tell Excel to give you a counted or null terminated `char*` string by specifying the
 `XLL_PSTRING4` of `XLL_CSTRING4` data type in the `AddIn` constructor.
 Use `XLL_PSTRING12` or `XLL_CSTRING12` to tell Excel to give you a `wchar_t*`.
 For maximum portability use `XLL_PSTRINGX` or `XLL_CSTRINGX` with corresponding argument `TCHAR*`.
@@ -320,6 +323,30 @@ The library will take care of encoding and decoding strings for you.
 To get strings directly from Excel specify the argument as `XLL_PSTRING`, `XLL_CSTRING`, `XLL_PSTRING12`, or `XLL_PSTRING12`.
 The `P` indicates the string is counted with the first character being its length. The `C` indicates the string will be null terminated
 as is the custom in C. You can return strings directly to Excel by specifying the appropriate return type in `Function`.
+
+When returning a pointer to an `OPER` that is a string you must indicate to Excel how the memory was allocated. If the `OPER` was
+allocated on the call stack then you must set the `xlbitDLLFree` bit using `o.xltype |= xlbitDLLFree`. If Excel
+allocated the string then you must set the `xlbitXLFree` bit. An `OPER` returned from a call to `Excel` has this
+bit set already. The easiest method is to declare the `OPER` as `static` so the memory will stick around
+after the function returns, however this is not thread safe.
+
+## Multi
+
+The `xltypeMulti` type is a two dimensional array of `OPER`s. Specify the type as `XLL_LPOPER` as the `AddIn` argument type.
+It has a `val.array.lparray` pointer to a row major array of `OPER`s having dimension `val.array.row` by `val.array.columns`.
+The constructor takes two integers indicating the number of rows and columns. It can be indexed linearly with
+`OPER::operator[](int i)` or `OPER::operator()(int row, int column)` for two dimensional arrays.
+
+If the argument type is specified to be `XLL_LPXLOPER` and the argument is a reference then Excel with provide you
+with a single reference type, `xltypeSRef`, or a multiple reference type, `xltypeRef`. If you specify
+`XLL_LPOPER` and the argument is a reference then Excel calls `xlCoerce` on the reference to get its value
+before handing it to you.
+
+When returning a pointer to an `OPER` that is a multi you must indicate to Excel how the memory was allocated. If the `OPER` was
+allocated on the call stack then you must set the `xlbitDLLFree` bit using `o.xltype |= xlbitDLLFree`. If Excel
+allocated the multi then you must set the `xlbitXLFree` bit. An `OPER` returned from a call to `Excel` has this
+bit set already. The easiest method is to declare the `OPER` as `static` so the memory will stick around
+after the function returns, however this is not thread safe.
 
 ## Handle
 
