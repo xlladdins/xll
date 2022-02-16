@@ -743,7 +743,7 @@ namespace xll {
 		}
 		xint as_int() const
 		{
-			int w = INT_MAX;
+			xint w = 0;
 
 			switch (type()) {
 			case xltypeInt:
@@ -753,8 +753,7 @@ namespace xll {
 				w = val.xbool;
 				break;
 			case xltypeNum:
-				ensure(fabs(val.num) <= w);
-				w = static_cast<int>(val.num);
+				w = static_cast<xint>(val.num);
 				break;
 			default:
 				ensure(!"OPER::as_int: non-numeric type");
