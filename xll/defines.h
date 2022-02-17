@@ -50,16 +50,19 @@ typedef struct _FP12 _FPX;
 typedef struct _FP _FPX;
 #endif
 
-//??? where should this go
 #ifdef __cplusplus
 //#include <type_traits>
 #pragma warning(push)
 #pragma warning(disable: 4724)
+//??? where should this go
 // mod with 0 <= x < y 
 template<typename T>
 //	requires std::is_integral_v<T>
 inline T xmod(T x, T y)
 {
+	if (y == 0) 
+		return 0;
+
 	T z = x % y;
 
 	return z >= 0 ? z : z + y;
@@ -76,14 +79,14 @@ inline T xmod(T x, T y)
     X(Err,     err,      err,  WORD,    "Error type")                          \
     X(SRef,    sref.ref, ref,  LPOPER,  "Single refernce")                     \
     X(Int,     w,        int,  LONG,    "32-bit signed integer")               \
-    X(Ref,     mref.lpmref,    lpmref, LPOPER,  "Multiple reference")                  \
+    X(Ref,     mref.lpmref,    lpmref, LPOPER,  "Multiple reference")          \
 
 // types requiring allocation where xX is pointer to data
 // xltypeX, XLOPERX::val.X, xX, XLL_X, desc
 #define XLL_TYPE_ALLOC(X) \
-    X(Str,     str,     str, PSTRING, "Pointer to a counted Pascal string")  \
+    X(Str,     str,     str, PSTRING, "Pointer to a counted Pascal string")    \
     X(Multi,   array,   multi, LPOPER,  "Two dimensional array of OPER types") \
-    X(BigData, bigdata.h.lpbData, bigdata, LPOPER,  "Blob of binary data")                 \
+    X(BigData, bigdata.h.lpbData, bigdata, LPOPER,  "Blob of binary data")     \
 
 // xllbitX, desc
 #define XLL_BIT(X) \
@@ -95,7 +98,7 @@ inline T xmod(T x, T y)
 	X(Nil,     "empty cell")                \
 
 // xlerrX, Excel error string, error description
-#define XLL_ERR(X)                                                     \
+#define XLL_ERR(X)                                                          \
 	X(Null,  "#NULL!",  "intersection of two ranges that do not intersect") \
 	X(Div0,  "#DIV/0!", "formula divides by zero")                          \
 	X(Value, "#VALUE!", "variable in formula has wrong type")               \
@@ -173,6 +176,7 @@ extern "C" {
 #define XLL_X32(x) x
 #endif
 
+// Function returning a constant value.
 #define XLL_CONST(type, name, value, help, cat, topic) \
 AddIn xai_ ## name (Function(XLL_##type, XLL_DECORATE("_xll_" #name, 0) , #name) \
 .FunctionHelp(help).Category(cat).HelpTopic(topic)); \

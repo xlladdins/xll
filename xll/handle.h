@@ -131,9 +131,9 @@ namespace xll {
 		}
 
 		// Convert handle in caller to pointer.
-		static T* coerce(const OPER& caller)
+		static T* coerce(const OPER& cell)
 		{
-			OPER o = Excel(xlCoerce, caller);
+			const OPER o = Excel(xlCoerce, cell);
 
 			return o.xltype == xltypeNum ? to_pointer<T>(o.val.num) : nullptr;
 		}
@@ -144,7 +144,7 @@ namespace xll {
 		/// <summary>
 		/// Add a handle to the collection.
 		/// </summary>
-		handle(T* p) noexcept
+		explicit handle(T* p) noexcept
 			: p{ p }
 		{
 			// store unique_ptr
@@ -163,7 +163,7 @@ namespace xll {
 			: p(to_pointer<T>(h))
 		{
 			if (check and p) {
-				if (ps.find(p) == ps.end()) {
+				if (!ps.contains(p)) {
 					// unknown handle
 					p = nullptr;
 				}
@@ -199,12 +199,12 @@ namespace xll {
 			caller[p_] = ErrNA;
 		}
 
-		bool is_temporary() const
+		[[nodiscard]] bool is_temporary() const
 		{
 			return caller[p] == ErrNA;
 		}
 
-		void swap(handle& h)
+		void swap(handle& h) noexcept
 		{
 			using std::swap;
 
@@ -218,18 +218,18 @@ namespace xll {
 		}
 
 		// return value for Excel
-		HANDLEX get() const
+		[[nodiscard]] HANDLEX get() const
 		{
 			return to_handle(p);
 		}
 		// underlying pointer
-		T* ptr() const
+		[[nodiscard]] T* ptr() const
 		{
 			return p;
 		}
 
 		// act like a unique pointer
-		typename std::add_lvalue_reference<T>::type operator*() const
+		typename std::add_lvalue_reference_t<T> operator*() const
 		{
 			return *p;
 		}
@@ -325,11 +325,12 @@ namespace xll {
 			}
 		};
 	};
-
+	/*!!!remove 
 	template<class T>
-	void swap(handle<T> &h, handle<T>& k)
+	void swap(handle<T> &h, handle<T>& k) noexcept
 	{
 		h.swap(k);
 	}
+	*/
 
 }

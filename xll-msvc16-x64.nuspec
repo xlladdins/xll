@@ -14,7 +14,7 @@
     </metadata>
     <files>
         <file src=".\README.md" target="README.md" />
-		<file src=".\xll.props" target="README.md" />
+		<file src=".\xll.props" target="build\native" />
 		<file src=".\xll\*.h" target="build\native\include" />
 		<file src=".\Debug\xll.lib" target="build\native\lib\x86\Debug" />
 		<file src=".\Release\xll.lib" target="build\native\lib\x86\Release" />
