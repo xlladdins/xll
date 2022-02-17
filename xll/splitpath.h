@@ -2,7 +2,7 @@
 #pragma once
 #include <stdexcept>
 #include <string>
-#include <windows.h>
+#include <Windows.h>
 #include <tchar.h>
 //#include <fileapi.h>
 

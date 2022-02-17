@@ -12,7 +12,6 @@
 
 #pragma warning(disable: 4996)
 
-
 namespace xll {
 
 	/// <summary>
@@ -52,7 +51,7 @@ namespace xll {
 		}
 
 		// xltype without xlbitXXX flags
-		auto type() const
+		[[nodiscard]] decltype(xltype) type() const
 		{
 			return xltype & xlbitmask;
 		}
@@ -77,11 +76,13 @@ namespace xll {
 				multi_alloc(xll::rows(x), xll::columns(x));
 				std::copy(xll::begin(x), xll::end(x), begin());
 			}
+			/*
 			else if (x.xltype & xltypeRef) {
 				ref_alloc(x.val.mref.lpmref->count);
 				val.mref.idSheet = x.val.mref.idSheet;
 				std::copy(ref_begin(x), ref_end(x), val.mref.lpmref->reftbl);
 			}
+			*/
 			else if (x.xltype & xltypeBigData) {
 				throw std::runtime_error("XOPER: xltypeBigData not supported yet");
 			}
@@ -105,7 +106,7 @@ namespace xll {
 		// convert from other type of OPER
 		XOPER(const X_& x)
 		{
-			xltype = (WORD)x.xltype;
+			xltype = static_cast<WORD>(x.xltype);
 			switch (x.xltype & xlbitmask) {
 			case xltypeNum:
 				val.num = x.val.num;
@@ -114,11 +115,11 @@ namespace xll {
 				str_alloc(traits<X>::cvt(x.val.str + 1, x.val.str[0]), -1);
 				break;
 			case xltypeBool:
-				val.xbool = static_cast<traits<X>::xbool>(x.val.xbool);
+				val.xbool = static_cast<typename traits<X>::xbool>(x.val.xbool);
 				break;
 			//case xltypeRef: //!!! not implemented
 			case xltypeErr:
-				val.err = static_cast<traits<X>::xerr>(x.val.err);
+				val.err = static_cast<typename traits<X>::xerr>(x.val.err);
 				break;
 			case xltypeMulti:
 				multi_alloc(x.val.array.rows, x.val.array.columns);
@@ -127,13 +128,13 @@ namespace xll {
 				break;
 			case xltypeSRef:
 				val.sref.count = x.val.sref.count;
-				val.sref.ref.rwFirst = static_cast<traits<X>::xrw>(val.sref.ref.rwFirst);
-				val.sref.ref.rwLast = static_cast<traits<X>::xrw>(val.sref.ref.rwLast);
-				val.sref.ref.colFirst = static_cast<traits<X>::xcol>(val.sref.ref.colFirst);
-				val.sref.ref.colLast = static_cast<traits<X>::xcol>(val.sref.ref.colLast);
+				val.sref.ref.rwFirst = static_cast<typename traits<X>::xrw>(x.val.sref.ref.rwFirst);
+				val.sref.ref.rwLast = static_cast<typename traits<X>::xrw>(x.val.sref.ref.rwLast);
+				val.sref.ref.colFirst = static_cast<typename traits<X>::xcol>(x.val.sref.ref.colFirst);
+				val.sref.ref.colLast = static_cast<typename traits<X>::xcol>(x.val.sref.ref.colLast);
 				break;
 			case xltypeInt:
-				val.w = static_cast<traits<X>::xint>(x.val.w);
+				val.w = static_cast<typename traits<X>::xint>(x.val.w);
 				break;
 			default:
 				xltype = xltypeErr;
@@ -145,7 +146,9 @@ namespace xll {
 		//
 		XOPER& operator=(const XOPER& o)
 		{
-			return operator=(static_cast<const X&>(o));
+			operator=(static_cast<const X&>(o));
+
+			return *this;
 		}
 		XOPER& operator=(XOPER&& o) noexcept
 		{
@@ -159,7 +162,7 @@ namespace xll {
 		}
 
 		// Does not involve memory needing to be freed.
-		bool is_scalar() const
+		[[nodiscard]] bool is_scalar() const
 		{
 			return xltype & xltypeScalar;
 		}
@@ -187,7 +190,7 @@ namespace xll {
 		}
 		
 		// IEEE 64-bit floating point number
-		bool is_num() const
+		[[nodiscard]] bool is_num() const
 		{
 			return type() == xltypeNum;
 		}
@@ -225,7 +228,7 @@ namespace xll {
 		}
 
 		// xltypeStr
-		bool is_str() const
+		[[nodiscard]] bool is_str() const
 		{
 			return type() == xltypeStr;
 		}
@@ -411,7 +414,7 @@ namespace xll {
 			return xltype == xltypeBool and val.xbool == static_cast<typename traits<X>::xbool>(xbool);
 		}
 
-		bool is_bool() const
+		[[nodiscard]] bool is_bool() const
 		{
 			return type() == xltypeBool;
 		}
@@ -428,6 +431,7 @@ namespace xll {
 			return val.xbool;
 		}
 
+		/*
 		// xltypeRef - reference to multiple refs
 		XOPER(const std::initializer_list<xref>& ref)
 		{
@@ -435,7 +439,8 @@ namespace xll {
 			ref_alloc(static_cast<WORD>(ref.size()));
 			std::copy(ref.begin(), ref.end(), val.mref.lpmref->reftbl);
 		}
-		bool is_ref() const
+		*/
+		[[nodiscard]] bool is_ref() const
 		{
 			return type() == xltypeRef;
 		}
@@ -473,7 +478,7 @@ namespace xll {
 			return *this;
 		}
 		// xltypeErr - predefined as ErrXXX
-		bool is_err() const
+		[[nodiscard]] bool is_err() const
 		{
 			return xltype == xltypeErr;
 		}
@@ -482,7 +487,7 @@ namespace xll {
 		// xltypeFlow - not used
 
 		// xltypeMulti
-		bool is_multi() const
+		[[nodiscard]] bool is_multi() const
 		{
 			return type() == xltypeMulti;
 		}
@@ -743,7 +748,7 @@ namespace xll {
 		}
 		xint as_int() const
 		{
-			int w = INT_MAX;
+			xint w = 0;
 
 			switch (type()) {
 			case xltypeInt:
@@ -753,8 +758,7 @@ namespace xll {
 				w = val.xbool;
 				break;
 			case xltypeNum:
-				ensure(fabs(val.num) <= w);
-				w = static_cast<int>(val.num);
+				w = static_cast<xint>(val.num);
 				break;
 			default:
 				ensure(!"OPER::as_int: non-numeric type");
@@ -793,9 +797,11 @@ namespace xll {
 			else if (xltype == xltypeMulti) {
 				multi_free();
 			}
+			/*
 			else if (xltype == xltypeRef) {
 				ref_free();
 			}
+			*/
 			
 			xltype = xltypeNil;
 		}
@@ -959,6 +965,7 @@ namespace xll {
 
 			xltype = xltypeNil;
 		}
+#if 0
 		void ref_alloc(WORD count)
 		{
 			using xref = typename traits<X>::xref;
@@ -991,6 +998,7 @@ namespace xll {
 
 			xltype = xltypeNil;
 		}
+#endif // 0
 	};
 
 	typedef XOPER<XLOPER> OPER4;

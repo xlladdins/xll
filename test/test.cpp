@@ -10,7 +10,10 @@ using namespace xll;
 
 #ifdef _DEBUG
 
-xll_url_set xlladdins("https://xlladdins.com/");
+Auto<Open> xao_test_doc([]() {
+	xll_url_base::set("https://xlladdins.com/");
+	return 1;
+});
 
 Auto<OpenAfter> xaoa_test_doc([]() {
 	const char* platform;
@@ -211,7 +214,7 @@ AddIn xai_file(
 	.Category("XLL")
 	.FunctionHelp("Return contents of URL.")
 );
-LPOPER WINAPI xll_file(const LPOPER po)
+LPOPER WINAPI xll_file(LPOPER po)
 {
 #pragma XLLEXPORT
 	static OPER f;

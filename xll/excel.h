@@ -29,7 +29,7 @@ namespace xll {
 	{
 		std::array<const X*,sizeof...(Args)> xargs = { &args... };
 
-		return xll::Excelv(xlfn, sizeof...(args), (X**)xargs.data());
+		return xll::Excelv(xlfn, sizeof...(args), const_cast<X**>(xargs.data()));
 	}
 
 	template<typename... Args>

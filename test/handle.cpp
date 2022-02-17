@@ -39,7 +39,7 @@ AddIn xai_base(
 	.Uncalced() // required for functions creating handles
 	.FunctionHelp("Return a handle to a base object.")
 );
-HANDLEX WINAPI xll_base(const LPOPER px)
+HANDLEX WINAPI xll_base(LPOPER px)
 {
 #pragma XLLEXPORT
 	xll::handle<base<OPER>> h(new base<OPER>(*px));
@@ -99,8 +99,7 @@ public:
 	{ }
 	derived(const derived&) = default;
 	derived& operator=(const derived&) = default;
-	~derived()
-	{ }
+	~derived() = default;
 
 	T& get2()
 	{
@@ -165,12 +164,14 @@ AddIn xai_ebase(
 	.Uncalced()
 	.FunctionHelp("Return a handle to a base object.")
 );
-LPOPER WINAPI xll_ebase(const LPOPER px)
+LPOPER WINAPI xll_ebase(LPOPER px)
 {
 #pragma XLLEXPORT
 	xll::handle<base<OPER>> h(new base<OPER>(*px));
 
-	return (LPOPER)&base_codec.encode(h.get());
+	auto& x = base_codec.encode(h.get());
+
+	return const_cast<LPOPER>(&x);
 }
 
 AddIn xai_ebase_get(
@@ -180,7 +181,7 @@ AddIn xai_ebase_get(
 	})
 	.FunctionHelp("Return the value stored in base.")
 );
-LPOPER WINAPI xll_ebase_get(const LPOPER ph)
+LPOPER WINAPI xll_ebase_get(LPOPER ph)
 {
 #pragma XLLEXPORT
 	xll::handle<base<OPER>> h(base_codec.decode(*ph));
@@ -201,13 +202,13 @@ int WINAPI xll_handle_test()
 
 		// enter data in cell RiCj
 		// https://xlladdins.github.io/Excel4Macros/formula.html
-		auto Formula = [](unsigned i, unsigned j, auto data) {
+		auto Formula = [](auto i, auto j, auto data) {
 			return Excel(xlcFormula, OPER(data), OPER(REF(i,j)));
 		};
 
 		// get contents of cell RiCj;
 		// https://xlladdins.github.io/Excel4Macros/get.cell.html
-		auto Contents = [](unsigned i, unsigned j) {
+		auto Contents = [](auto i, auto j) {
 			// 5 - contents
 			return Excel(xlfGetCell, OPER(5), OPER(REF(i, j)));
 		};

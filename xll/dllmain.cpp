@@ -1,6 +1,6 @@
 // dllmain.cpp
 // Copyright (c) KALX, LLC. All rights reserved. No warranty is made.
-#include <windows.h>
+#include <Windows.h>
 
 //HINSTANCE xll_hModule;
 

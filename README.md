@@ -324,6 +324,30 @@ To get strings directly from Excel specify the argument as `XLL_PSTRING`, `XLL_C
 The `P` indicates the string is counted with the first character being its length. The `C` indicates the string will be null terminated
 as is the custom in C. You can return strings directly to Excel by specifying the appropriate return type in `Function`.
 
+When returning a pointer to an `OPER` that is a string you must indicate to Excel how the memory was allocated. If the `OPER` was
+allocated on the call stack then you must set the `xlbitDLLFree` bit using `o.xltype |= xlbitDLLFree`. If Excel
+allocated the string then you must set the `xlbitXLFree` bit. An `OPER` returned from a call to `Excel` has this
+bit set already. The easiest method is to declare the `OPER` as `static` so the memory will stick around
+after the function returns, however this is not thread safe.
+
+## Multi
+
+The `xltypeMulti` type is a two dimensional array of `OPER`s. Specify the type as `XLL_LPOPER` as the `AddIn` argument type.
+It has a `val.array.lparray` pointer to a row major array of `OPER`s having dimension `val.array.row` by `val.array.columns`.
+The constructor takes two integers indicating the number of rows and columns. It can be indexed linearly with
+`OPER::operator[](int i)` or `OPER::operator()(int row, int column)` for two dimensional arrays.
+
+If the argument type is specified to be `XLL_LPXLOPER` and the argument is a reference then Excel with provide you
+with a single reference type, `xltypeSRef`, or a multiple reference type, `xltypeRef`. If you specify
+`XLL_LPOPER` and the argument is a reference then Excel calls `xlCoerce` on the reference to get its value
+before handing it to you.
+
+When returning a pointer to an `OPER` that is a multi you must indicate to Excel how the memory was allocated. If the `OPER` was
+allocated on the call stack then you must set the `xlbitDLLFree` bit using `o.xltype |= xlbitDLLFree`. If Excel
+allocated the multi then you must set the `xlbitXLFree` bit. An `OPER` returned from a call to `Excel` has this
+bit set already. The easiest method is to declare the `OPER` as `static` so the memory will stick around
+after the function returns, however this is not thread safe.
+
 ## Handle
 
 Handles are used to embed C++ objects in Excel. 

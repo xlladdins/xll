@@ -1,6 +1,6 @@
 // register.h - Register an add-in
 #pragma once
-#include "shlwapi.h"
+#include "Shlwapi.h"
 #include "splitpath.h"
 #include "args.h"
 
@@ -84,7 +84,7 @@ namespace xll {
 		oper.back() = &xEmpty;
 
 		XLOPERX registerId = { .xltype = xltypeNil };
-		int ret = traits<XLOPERX>::Excelv(xlfRegister, &registerId, count, (XLOPERX**)&oper[0]);
+		int ret = traits<XLOPERX>::Excelv(xlfRegister, &registerId, count, const_cast<XLOPERX**>(&oper[0]));
 		if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
 			OPER xMsg("Failed to register: ");
 			Excel(xlcAlert, xMsg & args.FunctionText(), OPER(2));
