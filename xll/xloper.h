@@ -11,7 +11,7 @@ namespace xll {
 	// convertible to double
 	inline static const int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
 	// do not involve memory allocation
-	inline static const int xltypeScalar = (xltypeNumeric | xltypeErr | xltypeMissing | xltypeNil | xltypeSRef);
+	inline static const int xltypeScalar = (xltypeNumeric | xltypeErr | xltypeMissing | xltypeNil | xltypeSRef | xltypeRef);
 	// turn off xlbit flags
 	inline static const int xlbitmask = ~(xlbitXLFree | xlbitDLLFree);
 

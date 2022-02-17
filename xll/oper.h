@@ -987,7 +987,7 @@ namespace xll {
 		void ref_free()
 		{
 			ensure(xltype == xltypeRef);
-			free(val.mref.lpmref);
+			//free(val.mref.lpmref);
 
 			xltype = xltypeNil;
 		}
