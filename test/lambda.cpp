@@ -43,7 +43,7 @@ private:
 AddIn xai_lambda(
 	Function(XLL_LPOPER, "xll_lambda", "\\")
 	.Arguments({
-		Arg(XLL_LPOPER, "body", "is the body or a handle"),
+		Arg(XLL_LPOPER, "body", "is a handle or a string expression using arguments _0, _1, ..."),
 		Arg(XLL_LPOPER, "_arg0", "is the optional first argument"),
 		Arg(XLL_LPOPER, "_arg1", "is the optional second argument"),
 		Arg(XLL_LPOPER, "_arg2", "is the optional third argument"),
@@ -53,7 +53,8 @@ AddIn xai_lambda(
 	.FunctionHelp("Return handle to a lambda or evaluate when supplied with arguments.")
 	.Category("XLL")
 	.Documentation(R"xyzyx(
-Call <code>\(body)<code> to create a handle to a function.
+Call <code>\(body)<code> where <code>body</code> is a string expression with arguments
+<code>_0</code>, <code>_1</code>, ...
 Call <code>\(lambda, args, ...)</code> to evaluate.
 )xyzyx")
 );
