@@ -269,10 +269,10 @@ namespace xll {
 				union {
 					T* h;
 					uint8_t c[8];
-				} hc;
+				} hc = { 0 };
 
-				for (unsigned i = 0; i < 8; ++i) {
-					hc.c[7 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
+				for (unsigned i = 0; i < 6; ++i) {
+					hc.c[5 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
 				}
 
 				return to_handle<T>(hc.h);
@@ -286,9 +286,9 @@ namespace xll {
 				} hc;
 				hc.h = to_pointer<T>(h);
 
-				for (unsigned i = 0; i < 8; ++i) {
-					pc[2 * i] = h2c(hc.c[7 - i] >> 4);
-					pc[2 * i + 1] = h2c(hc.c[7 - i] & 0x0F);
+				for (unsigned i = 0; i < 6; ++i) {
+					pc[2 * i] = h2c(hc.c[5 - i] >> 4);
+					pc[2 * i + 1] = h2c(hc.c[5 - i] & 0x0F);
 				}
 			}
 
@@ -299,9 +299,13 @@ namespace xll {
 			codec(const char* prefix, const char* suffix)
 				: H(prefix), off(H.val.str[0])
 			{
-				H.append("0123456789ABCDEF");
+				H.append("456789ABCDEF");
 				H.append(suffix);
 			}
+			// use 
+			codec()
+				: codec(typeid(T).name(), "")
+			{ }
 
 			// does not allocate memory
 			const XOPER<X>& encode(HANDLEX h)
