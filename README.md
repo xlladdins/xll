@@ -362,7 +362,7 @@ You can also use this to provide pointers to internal Excel data structures
 that can be passed to C++ functions and avoid copying data.
 
 The C SDK uses a [character string](https://docs.microsoft.com/en-us/office/client-developer/excel/data-types-used-by-excel#registration-data-type-codes)
-to indicate function signatures. The `xll` library defines `XLL_`_TYPE_ character
+to indicate function signatures. The `xll` library defines `XLL_`_type_ character
 strings to make these easier to use.
 
 ### FP Data Type
