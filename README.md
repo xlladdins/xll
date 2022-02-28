@@ -233,14 +233,14 @@ typedef struct xloper12
 {
 	union 
 	{
-		double num;				       	/* xltypeNum */
-		XCHAR *str;				       	/* xltypeStr */
-		BOOL xbool;				       	/* xltypeBool */
-		int err;				       	/* xltypeErr */
+		double num;				    /* xltypeNum */
+		XCHAR *str;				    /* xltypeStr */
+		BOOL xbool;				    /* xltypeBool */
+		int err;				    /* xltypeErr */
 		int w;
 		struct 
 		{
-			WORD count;			       	/* always = 1 */
+			WORD count;			    /* always = 1 */
 			XLREF12 ref;
 		} sref;						/* xltypeSRef */
 		struct 
@@ -260,18 +260,18 @@ typedef struct xloper12
 			{
 				int level;			/* xlflowRestart */
 				int tbctrl;			/* xlflowPause */
-				IDSHEET idSheet;		/* xlflowGoto */
+				IDSHEET idSheet;	/* xlflowGoto */
 			} valflow;
-			RW rw;				       	/* xlflowGoto */
-			COL col;			       	/* xlflowGoto */
+			RW rw;				    /* xlflowGoto */
+			COL col;			    /* xlflowGoto */
 			BYTE xlflow;
 		} flow;						/* xltypeFlow */
 		struct
 		{
 			union
 			{
-				BYTE *lpbData;			/* data passed to XL */
-				HANDLE hdata;			/* data returned from XL */
+				BYTE *lpbData;	    /* data passed to XL */
+				HANDLE hdata;		/* data returned from XL */
 			} h;
 			long cbData;
 		} bigdata;					/* xltypeBigData */
@@ -279,7 +279,7 @@ typedef struct xloper12
 	DWORD xltype;
 } XLOPER12, *LPXLOPER12;
 ```
-The burden is on you to set the appropriate `.val` members.
+The burden is on you to set the appropriate `.val` members for each `.xltype`.
 The `xll` library provides the C++ class `OPER` to help you with this.
 Although C++ is strongly typed the `OPER` class is designed
 to behave much like a cell in a spreadsheet. E.g., `OPER o = 1.23` results in `o.xltype == xltypeNum`
@@ -288,8 +288,14 @@ and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted str
 `OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
 'do the right thing' when you use it let me know because that would be a design flaw on my part.
 
+A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPER` type
+defined in the `xll` namespace. It is a _variant_
+type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
+nil, simple reference, multiple reference or integer. The `xltype` member indicates the type and can be one of
+`xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
+`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. 
 
-Excel knows about floating point doubles and various integer types. These are indicated by, `XLL_DOUBLE`, 
+Excel cells can be floating point doubles or various integer types. These are indicated by, `XLL_DOUBLE`, 
 `XLL_WORD`, ..., `XLL_LONG`. The corresponding arguments in C functions can be declared as `DOUBLE`, `WORD`,
 ..., `LONG` but you can use `double`, `unsigned`,  and `int` if you prefer. Integer and long types are both 32-bit.
 
@@ -301,13 +307,6 @@ You can tell Excel to give you a counted or null terminated `char*` string by sp
 `XLL_PSTRING4` of `XLL_CSTRING4` data type in the `AddIn` constructor.
 Use `XLL_PSTRING12` or `XLL_CSTRING12` to tell Excel to give you a `wchar_t*`.
 For maximum portability use `XLL_PSTRINGX` or `XLL_CSTRINGX` with corresponding argument `TCHAR*`.
-
-A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPER` type
-defined in the `xll` namespace. It is a _variant_
-type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
-nil, simple reference, multiple reference or integer. The `xltype` member indicates the type and can be one of
-`xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
-`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. 
 
 `OPER`s are specializations of the [`XOPER`](https://github.com/xlladdins/xll/blob/master/xll/oper.h#L27) 
 class which publicly inherits from the `XLOPERX` struct defined the header file

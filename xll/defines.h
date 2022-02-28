@@ -70,8 +70,6 @@ inline T xmod(T x, T y)
 #pragma warning(pop)
 #endif
 
-
-
 // xltypeX, XLOPERX::val.X, xX, XLL_X, desc
 #define XLL_TYPE_SCALAR(X) \
     X(Num,     num,      num,  DOUBLE,  "IEEE 64-bit floating point")          \
