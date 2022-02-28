@@ -53,7 +53,7 @@ The `xll::AddIn` class is used to register Excel functions and macros.
 [global scope](https://docs.microsoft.com/en-us/cpp/cpp/scope-visual-cpp)
 so they will be 
 [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
-when the xll is loaded. The contructors store information Excel needs when
+when the xll is loaded. The constructors store information Excel needs when
 [`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen)
 is called. 
 The xll library 
@@ -216,6 +216,79 @@ The destructor for `version` will release the memory when it goes out of scope.
 
 ### Excel Data Types
 
+At the C SDK level the fundamental data types are the `XLOPER` and `XLOPER12` 
+structs for pre and post Excel 2007 respectively.
+Each is a discriminated union where the `.xltype` member determines the type.
+
+```C++
+/*
+** XLOPER12 structure 
+**
+** Excel 12's fundamental data type: can hold data
+** of any type. Use "U" as the argument type in the 
+** REGISTER function.
+**/
+
+typedef struct xloper12 
+{
+	union 
+	{
+		double num;				       	/* xltypeNum */
+		XCHAR *str;				       	/* xltypeStr */
+		BOOL xbool;				       	/* xltypeBool */
+		int err;				       	/* xltypeErr */
+		int w;
+		struct 
+		{
+			WORD count;			       	/* always = 1 */
+			XLREF12 ref;
+		} sref;						/* xltypeSRef */
+		struct 
+		{
+			XLMREF12 *lpmref;
+			IDSHEET idSheet;
+		} mref;						/* xltypeRef */
+		struct 
+		{
+			struct xloper12 *lparray;
+			RW rows;
+			COL columns;
+		} array;					/* xltypeMulti */
+		struct 
+		{
+			union
+			{
+				int level;			/* xlflowRestart */
+				int tbctrl;			/* xlflowPause */
+				IDSHEET idSheet;		/* xlflowGoto */
+			} valflow;
+			RW rw;				       	/* xlflowGoto */
+			COL col;			       	/* xlflowGoto */
+			BYTE xlflow;
+		} flow;						/* xltypeFlow */
+		struct
+		{
+			union
+			{
+				BYTE *lpbData;			/* data passed to XL */
+				HANDLE hdata;			/* data returned from XL */
+			} h;
+			long cbData;
+		} bigdata;					/* xltypeBigData */
+	} val;
+	DWORD xltype;
+} XLOPER12, *LPXLOPER12;
+```
+The burden is on you to set the appropriate `.val` members.
+The `xll` library provides the C++ class `OPER` to help you with this.
+Although C++ is strongly typed the `OPER` class is designed
+to behave much like a cell in a spreadsheet. E.g., `OPER o = 1.23` results in `o.xltype == xltypeNum`
+and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted string with
+`o.xltype == xltypeStr` and `o.val.str == "\03foo" (== {3, 'f', 'o', 'o')})`. The C++ class for
+`OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
+'do the right thing' when you use it let me know because that would be a design flaw on my part.
+
+
 Excel knows about floating point doubles and various integer types. These are indicated by, `XLL_DOUBLE`, 
 `XLL_WORD`, ..., `XLL_LONG`. The corresponding arguments in C functions can be declared as `DOUBLE`, `WORD`,
 ..., `LONG` but you can use `double`, `unsigned`,  and `int` if you prefer. Integer and long types are both 32-bit.
@@ -234,12 +307,7 @@ defined in the `xll` namespace. It is a _variant_
 type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
 nil, simple reference, multiple reference or integer. The `xltype` member indicates the type and can be one of
 `xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
-`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. Although C++ is strongly typed the `OPER` class is designed
-to behave much like a cell in a spreadsheet. E.g., `OPER o = 1.23` results in `o.xltype == xltypeNum`
-and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted string with
-`o.xltype == xltypeStr` and `o.val.str == "\03foo" (== {3, 'f', 'o', 'o')})`. The C++ class for
-`OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
-'do the right thing' when you use it let me know because that would be a design flaw on my part.
+`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. 
 
 `OPER`s are specializations of the [`XOPER`](https://github.com/xlladdins/xll/blob/master/xll/oper.h#L27) 
 class which publicly inherits from the `XLOPERX` struct defined the header file
@@ -272,6 +340,30 @@ The missing type is used only for function arguments.
 It indicates no argument was provided by the calling Excel function. 
 This is predefined as `Missing`,`Missing4` and `Missing12`.
 It is an error to return this type from a function. 
+
+### Specifying Argument Types
+
+A feature of the Excel C SDK is that it allows you to specify more argument types than the `.xltype`
+field allows. You can use this to your advantage
+to have Excel check argument types before calling your function.
+If someone using your code calls a function with an invalid argument type then Excel returns 
+`#VALUE!`.
+On the other hand, it does not allow you to check the argument type and display a
+more informative error message. If you want to do this, specify the argument as `XLL_LPXLOPER`
+to get a pointer to the fundamental `XLOPER` Excel data type. 
+
+Another feature is that you can tell Excel you do not want it to hand you reference types.
+If you specify the argument type as `XLL_LPOPER` then Excel will coerce the reference
+and hand you the value it refers to. If the reference is a 2-dimensional range
+you will get an `xltypeMulti`. If the reference is a single cell then you will get
+an `OPER` with `xltype` corresponding to the cell value.
+
+You can also use this to provide pointers to internal Excel data structures 
+that can be passed to C++ functions and avoid copying data.
+
+The C SDK uses a [character string](https://docs.microsoft.com/en-us/office/client-developer/excel/data-types-used-by-excel#registration-data-type-codes)
+to indicate function signatures. The `xll` library defines `XLL_`_TYPE_ character
+strings to make these easier to use.
 
 ### FP Data Type
 
