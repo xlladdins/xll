@@ -819,7 +819,7 @@ namespace xll {
 				return;
 			}
 
-			ensure (n < traits<X>::charmax);
+			ensure (n <= traits<X>::charmax);
 
 			xchar* tmp = (xchar*)malloc(((size_t)n + 2) * sizeof(xchar));
 			ensure(tmp);
