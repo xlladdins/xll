@@ -212,10 +212,10 @@ namespace xll {
 #define X(a, b)                                        \
 	template<class T>                                  \
 		requires either_base_of_v<XLOPER, XLOPER12, T> \
-	inline constexpr T X##a = { .xltype = xltype##a }; \
-	inline constexpr XLOPER a##4 = X##a<XLOPER>;       \
-	inline constexpr XLOPER12 a##12 = X##a<XLOPER12>;  \
-	inline constexpr XLOPERX a = X##a<XLOPERX>;        \
+	inline T X##a = { .xltype = xltype##a }; \
+	inline XLOPER a##4 = X##a<XLOPER>;       \
+	inline XLOPER12 a##12 = X##a<XLOPER12>;  \
+	inline XLOPERX a = X##a<XLOPERX>;        \
 
 	XLL_NULL_TYPE(X)
 #undef X
