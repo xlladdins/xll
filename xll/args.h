@@ -56,7 +56,7 @@ namespace xll {
 		}
 		const OPER& operator[](const OPER& name) const
 		{
-			static OPER o = Nil;
+			static OPER o;
 			auto i = argMap.find(name);
 			return i != argMap.end() ? i->second : o;
 		}
