@@ -562,6 +562,21 @@ namespace xll {
 		{
 			return xll::index(*this, rw, col);
 		}
+		// key-value lookup using MATCH
+		const XOPER& operator[](const XOPER& key) const
+		{
+			if (size() % 2 != 0) {
+				return XErrNA<XLOPERX>;
+			}
+
+			XOPER i = Excel(xlfMatch, key, *this, XOPER(0));
+
+			return i ? operator[](i.as_int() + 1) : XErrNA<XLOPERX>;
+		}
+		const XOPER& operator[](const char* key) const
+		{
+			return operator[](XOPER(key));
+		}
 
 		XOPER<X>& drop(int n)
 		{
@@ -819,7 +834,7 @@ namespace xll {
 				return;
 			}
 
-			ensure (n < traits<X>::charmax);
+			ensure (n <= traits<X>::charmax);
 
 			xchar* tmp = (xchar*)malloc(((size_t)n + 2) * sizeof(xchar));
 			ensure(tmp);
