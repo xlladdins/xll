@@ -220,11 +220,11 @@ namespace xll {
 		}
 		double& as_num()
 		{
-			return operator[](0).val.num;
+			return val.num;
 		}
 		double as_num() const
 		{
-			return operator[](0).val.num;
+			return val.num;
 		}
 
 		// xltypeStr
