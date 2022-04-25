@@ -131,10 +131,9 @@ namespace xll {
 		}
 
 		// Convert handle in caller to pointer.
-		template<class T>
-		static T* coerce(const OPER& caller)
+		static T* coerce(const OPER& cell)
 		{
-			OPER o = Excel(xlCoerce, caller);
+			const OPER o = Excel(xlCoerce, cell);
 
 			return o.xltype == xltypeNum ? to_pointer<T>(o.val.num) : nullptr;
 		}
@@ -145,14 +144,14 @@ namespace xll {
 		/// <summary>
 		/// Add a handle to the collection.
 		/// </summary>
-		handle(T* p) noexcept
+		explicit handle(T* p) noexcept
 			: p{ p }
 		{
 			// store unique_ptr
 			ps.emplace(std::unique_ptr<T>(p));
 		
 			// delete and erase if calling cell has a valid pointer to T
-			erase(coerce<T>(caller[p] = Excel(xlfCaller)));
+			erase(coerce(caller[p] = Excel(xlfCaller)));
 
 			// returned by HANDLE.TYPENAME(handle)
 			handle_typename[p] = typeid(*p).name();
@@ -164,7 +163,7 @@ namespace xll {
 			: p(to_pointer<T>(h))
 		{
 			if (check and p) {
-				if (ps.find(p) == ps.end()) {
+				if (!ps.contains(p)) {
 					// unknown handle
 					p = nullptr;
 				}
@@ -200,12 +199,12 @@ namespace xll {
 			caller[p_] = ErrNA;
 		}
 
-		bool is_temporary() const
+		[[nodiscard]] bool is_temporary() const
 		{
 			return caller[p] == ErrNA;
 		}
 
-		void swap(handle& h)
+		void swap(handle& h) noexcept
 		{
 			using std::swap;
 
@@ -219,18 +218,18 @@ namespace xll {
 		}
 
 		// return value for Excel
-		HANDLEX get() const
+		[[nodiscard]] HANDLEX get() const
 		{
 			return to_handle(p);
 		}
 		// underlying pointer
-		T* ptr() const
+		[[nodiscard]] T* ptr() const
 		{
 			return p;
 		}
 
 		// act like a unique pointer
-		typename std::add_lvalue_reference<T>::type operator*() const
+		typename std::add_lvalue_reference_t<T> operator*() const
 		{
 			return *p;
 		}
@@ -270,10 +269,10 @@ namespace xll {
 				union {
 					T* h;
 					uint8_t c[8];
-				} hc;
+				} hc = { 0 };
 
-				for (unsigned i = 0; i < 8; ++i) {
-					hc.c[7 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
+				for (unsigned i = 0; i < 6; ++i) {
+					hc.c[5 - i] = (c2h(pc[2 * i]) << 4) + c2h(pc[2 * i + 1]);
 				}
 
 				return to_handle<T>(hc.h);
@@ -287,9 +286,9 @@ namespace xll {
 				} hc;
 				hc.h = to_pointer<T>(h);
 
-				for (unsigned i = 0; i < 8; ++i) {
-					pc[2 * i] = h2c(hc.c[7 - i] >> 4);
-					pc[2 * i + 1] = h2c(hc.c[7 - i] & 0x0F);
+				for (unsigned i = 0; i < 6; ++i) {
+					pc[2 * i] = h2c(hc.c[5 - i] >> 4);
+					pc[2 * i + 1] = h2c(hc.c[5 - i] & 0x0F);
 				}
 			}
 
@@ -300,9 +299,13 @@ namespace xll {
 			codec(const char* prefix, const char* suffix)
 				: H(prefix), off(H.val.str[0])
 			{
-				H.append("0123456789ABCDEF");
+				H.append("456789ABCDEF");
 				H.append(suffix);
 			}
+			// use 
+			codec()
+				: codec(typeid(T).name(), "")
+			{ }
 
 			// does not allocate memory
 			const XOPER<X>& encode(HANDLEX h)
@@ -313,24 +316,25 @@ namespace xll {
 			}
 
 			// does not allocate memory
-			HANDLEX decode(const XOPER<X>& _H)
+			HANDLEX decode(const XOPER<X>& H_)
 			{
-				ensure(_H.is_str());
+				ensure(H_.is_str());
 
 				// No prefix or suffix check. It will fail when used.
 				// Extra chars appended to suffix ok.
 				// Could use this to add, e.g., a timestamp.
-				ensure(_H.val.str[0] >= H.val.str[0]);
+				ensure(H_.val.str[0] >= H.val.str[0]);
 								
-				return decode_(_H.val.str + 1 + off);
+				return decode_(H_.val.str + 1 + off);
 			}
 		};
 	};
-
+	/*!!!remove 
 	template<class T>
-	void swap(handle<T> &h, handle<T>& k)
+	void swap(handle<T> &h, handle<T>& k) noexcept
 	{
 		h.swap(k);
 	}
+	*/
 
 }

@@ -20,7 +20,7 @@ namespace xll {
 	/// Individual argument for add-in function.
 	/// </summary>
 	struct Arg {
-		typedef typename const char* cstr;
+		using cstr = const char*;
 
 		cstr type;
 		cstr name;
@@ -56,7 +56,7 @@ namespace xll {
 		}
 		const OPER& operator[](const OPER& name) const
 		{
-			static OPER o = Nil;
+			static OPER o;
 			auto i = argMap.find(name);
 			return i != argMap.end() ? i->second : o;
 		}

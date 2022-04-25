@@ -6,15 +6,15 @@
 #include <cstring>
 #include <iostream>
 #include <limits>
+#include <string_view>
 #include "excel.h"
 #include "utf8.h"
-#include "fms_view.h"
 
 namespace xll {
 
-	// simple and inefficent decoder for Excel types
+	// simple and inefficient decoder for Excel types
 	template<class X, class T = typename traits<X>::xcstr>
-	inline XOPER<X> decode(const fms::view<const T>& v)
+	inline XOPER<X> decode(const std::basic_string_view<T>& v)
 	{
 		XOPER<X> o(v.buf, v.len);
 
@@ -47,10 +47,10 @@ namespace xll {
 
 	inline int codec_test()
 	{
-#define CODEC_CHECK(a,b) ensure(decode<XLOPERX>(fms::view<const TCHAR>(_T(a))) == b);
+#define CODEC_CHECK(a,b) ensure(decode<XLOPERX>(std::basic_string_view<TCHAR>(_T(a))) == b);
 		XLL_CODEC_TEST(CODEC_CHECK)
 #undef CODEC_CHECK
-#define CODEC_CHECK(a,b,...) ensure(decode<XLOPERX>(fms::view<const TCHAR>(_T(b))) == XOPER<XLOPERX>(XOPER<XLOPERX>::Err::a));
+#define CODEC_CHECK(a,b,...) ensure(decode<XLOPERX>(std::basic_string_view<TCHAR>(_T(b))) == XOPER<XLOPERX>(XOPER<XLOPERX>::Err::a));
 		XLL_ERR(CODEC_CHECK)
 #undef CODEC_CHECK
 

@@ -926,28 +926,46 @@ namespace xll {
 
 	struct Name {
 		OPER name;
-		Name(const OPER& name)
-			: name(name)
+		bool hidden;
+		OPER category;
+		bool local;
+		Name(const OPER& name, bool hidden = false, const OPER& category = Missing, bool local = false)
+			: name(name), hidden(hidden), category(category), local(local)
 		{ }
-		Name(const char* name)
-			: name(name)
-		{ }
-		OPER Define(const OPER& ref, bool local)
+		// https://xlladdins.github.io/Excel4Macros/define.name.html
+		static OPER Define(const OPER& name, const OPER& value, bool hidden = false, const OPER& category = Missing, bool local = false)
 		{
-			return Excel(xlcDefineName, name, ref, OPER(3), Missing, OPER(false), Missing, OPER(local));
+			return Excel(xlcDefineName, name, value, Missing, Missing, OPER(hidden), category, OPER(local));
 		}
-		OPER Delete()
+		OPER Define(const OPER& value) const
+		{
+			return Define(name, value, hidden, category, local);
+		}
+		// https://xlladdins.github.io/Excel4Macros/delete.name.html
+		OPER Delete() const
 		{
 			return Excel(xlcDeleteName, name);
 		}
-		OPER Get()
+		// https://xlladdins.github.io/Excel4Macros/get.name.html
+		OPER Get() const
 		{
 			return Excel(xlfGetName, name);
 		}
 		// xlcSetName is only for macro sheets
+		operator OPER () const
+		{
+			return Get();
+		}
+		Name& operator=(const OPER& value)
+		{
+			Define(value);
+
+			return *this;
+		}
 	};
 
 	struct Document {
+		// https://xlladdins.github.io/Excel4Macros/get.document.html
 		static OPER Book()
 		{
 			return Excel(xlfGetDocument, OPER(88)); // Book
@@ -1026,4 +1044,5 @@ namespace xll {
 			return Excel(xlGetBinaryName, name);
 		}
 	};
+
 }

@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>xll-msvc16-x64</id>
+        <id>xll-v142</id>
         <version>0.0.0.1</version>
         <authors>Keith A. Lewis</authors>
+		<owners>KALX LLC</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>NuGet package for xll add-in library.</description>
+        <description>NuGet package for the xll add-in library.</description>
+		<title>xll</title>
+		<tags>native, Excel, add-in</tags>
+		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/xlladdins/xll</projectUrl>
     </metadata>
     <files>
         <file src=".\README.md" target="README.md" />
-		<file src=".\build-nuget\**\*.*" target="build\native" />
-    </files>
+		<file src=".\xll.props" target="build\native" />
+		<file src=".\xll\*.h" target="build\native\include" />
+		<file src=".\Debug\xll.lib" target="build\native\lib\x86\Debug" />
+		<file src=".\Release\xll.lib" target="build\native\lib\x86\Release" />
+		<file src=".\x64\Debug\xll.lib" target="build\native\lib\x64\Debug" />
+		<file src=".\x64\Release\xll.lib" target="build\native\lib\x64\Release" />
+	</files>
 </package>

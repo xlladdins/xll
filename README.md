@@ -9,25 +9,28 @@ There are newer technologies available using C# and JavaScript that are appropri
 possible numerical performance from Excel this library is for you.
 
 Plug your code, or a third party library, into Excel by
-writing a thin wrapper that gathers data from Excel, calls any function, and returns the result.
+writing a thin wrapper that gathers arguments from Excel, call any function, and return the result.
 Use the full power of Excel to explore and perfect your code. Anyone can use your
 handiwork by opening the self-contained `.xll` file you produce.
 The xll library can also generate documentation integrated into Excel's help system.
 Hopefully you will get to the quality problem of others using your product and
 you can tell them to go to the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277)
-as your first line of defense against them taking up your precious time.
+so you can get back to writing more cool stuff.
 
-The major usability enhancement for devlopers in the latest version is that all strings are now UTF-8. 
+The major usability enhancement for developers in the latest version is that all strings are now UTF-8. 
 They are a L"ot" nicer to use than wide character strings.
 The library still provides high performance access to [numeric arrays](#the-fp-data-type) and lets you easily create
-[handles](#handles) for embedding C++ objects that can use
-[single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
-to simplify interfaces.
+[handles](#handles) for embedding C++ objects. This lets you use Excel to orchestrate code operating on memory up to
+machine limits that runs at native speed.
+You can also use [single inheritance](https://docs.microsoft.com/en-us/cpp/cpp/single-inheritance)
+to make your software more convenient to use.
 
 ## Prerequisites
 
 [Windows 10](https://www.microsoft.com/en-us/software-download/windows10)  
-  The Excel SDK is not supported on MacOS.
+  The Excel SDK is not supported on MacOS. You will have to install
+  a [Windows virtual machine](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/)
+  on your Mac. I've had success with VirtualBox.
 
 [Visual Studio 2019](https://visualstudio.microsoft.com/)  
   Use the Community Edition and install the `Desktop development with C++` and 
@@ -50,7 +53,7 @@ The `xll::AddIn` class is used to register Excel functions and macros.
 [global scope](https://docs.microsoft.com/en-us/cpp/cpp/scope-visual-cpp)
 so they will be 
 [constructed](https://docs.microsoft.com/en-us/cpp/build/run-time-library-behavior)
-when the xll is loaded. The contructors store information Excel needs when
+when the xll is loaded. The constructors store information Excel needs when
 [`xlAutoOpen`](https://docs.microsoft.com/en-us/office/client-developer/excel/xlautoopen)
 is called. 
 The xll library 
@@ -115,7 +118,7 @@ the built-in Excel functon
 
 <img src="images/gamma.png" width="450" height="250">
 
-_All functions called from Excel must be declared with_ `WINAPI` which is defined to be 
+All functions called from Excel must be declared `WINAPI` which is defined to be 
 [`__stdcall`](https://docs.microsoft.com/en-us/cpp/cpp/stdcall).
 This is an artifact of the original versions of Excel being written in Pascal.
 The line `#pragma XLLEXPORT` causes the function to be exported
@@ -213,30 +216,97 @@ The destructor for `version` will release the memory when it goes out of scope.
 
 ### Excel Data Types
 
-Excel knows about floating point doubles and various integer types. These are indicated by, `XLL_DOUBLE`, 
-`XLL_WORD`, ..., `XLL_LONG`. The corresponding arguments in C functions can be declared as `DOUBLE`, `WORD`,
-..., `LONG` but you can use `double`, `unsigned`,  and `int` if you prefer. Integer and long types are both 32-bit.
+At the C SDK level the fundamental data types are the `XLOPER` and `XLOPER12` 
+structs for pre and post Excel 2007 respectively.
+Each is a discriminated union where the `.xltype` member determines the type.
 
-Excel has two flavors of strings: counted Pascal strings and null terminate C strings.
-Early versions of Excel involved Pascal which uses counted strings where the first character
-was the length of the string. Excel 2007 introduced wide character strings having 16-bit characters.
-The old limit was 255 characters to a string. The post Excel 2007 limit is 65535 characters.
-You can tell Excel to give you a `char*` counted or null terminated string by specifying the
-`XLL_PSTRING4` of `XLL_CSTRING4` data type in the `AddIn` constructor.
-Use `XLL_PSTRING12` or `XLL_CSTRING12` to tell Excel to give you a `wchar_t*`.
-For maximum portability use `XLL_PSTRINGX` or `XLL_CSTRINGX` with corresponding argument `TCHAR*`.
+```C++
+/*
+** XLOPER12 structure 
+**
+** Excel 12's fundamental data type: can hold data
+** of any type. Use "U" as the argument type in the 
+** REGISTER function.
+**/
+
+typedef struct xloper12 
+{
+	union 
+	{
+		double num;				    /* xltypeNum */
+		XCHAR *str;				    /* xltypeStr */
+		BOOL xbool;				    /* xltypeBool */
+		int err;				    /* xltypeErr */
+		int w;
+		struct 
+		{
+			WORD count;			    /* always = 1 */
+			XLREF12 ref;
+		} sref;						/* xltypeSRef */
+		struct 
+		{
+			XLMREF12 *lpmref;
+			IDSHEET idSheet;
+		} mref;						/* xltypeRef */
+		struct 
+		{
+			struct xloper12 *lparray;
+			RW rows;
+			COL columns;
+		} array;					/* xltypeMulti */
+		struct 
+		{
+			union
+			{
+				int level;			/* xlflowRestart */
+				int tbctrl;			/* xlflowPause */
+				IDSHEET idSheet;	/* xlflowGoto */
+			} valflow;
+			RW rw;				    /* xlflowGoto */
+			COL col;			    /* xlflowGoto */
+			BYTE xlflow;
+		} flow;						/* xltypeFlow */
+		struct
+		{
+			union
+			{
+				BYTE *lpbData;	    /* data passed to XL */
+				HANDLE hdata;		/* data returned from XL */
+			} h;
+			long cbData;
+		} bigdata;					/* xltypeBigData */
+	} val;
+	DWORD xltype;
+} XLOPER12, *LPXLOPER12;
+```
+The burden is on you to set the appropriate `.val` members for each `.xltype`.
+The `xll` library provides the C++ class `OPER` to help you with this.
+Although C++ is strongly typed the `OPER` class is designed
+to behave much like a cell in a spreadsheet. E.g., `OPER o = 1.23` results in `o.xltype == xltypeNum`
+and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted string with
+`o.xltype == xltypeStr` and `o.val.str == "\03foo" (== {3, 'f', 'o', 'o')})`. The C++ class for
+`OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
+'do the right thing' when you use it let me know because that would be a design flaw on my part.
 
 A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPER` type
 defined in the `xll` namespace. It is a _variant_
 type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
 nil, simple reference, multiple reference or integer. The `xltype` member indicates the type and can be one of
 `xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
-`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. Although C++ is strongly typed the `OPER` class is designed
-to behave much like a cell in a spreadsheet. E.g., `OPER o = 1.23` results in `o.xltype == xltypeNum`
-and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted string with
-`o.xltype == xltypeStr` and `o.val.str == "\03foo" (== {3, 'f', 'o', 'o')})`. The C++ class for
-`OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
-'do the right thing' when you use it let me know because that would be a design flaw on my part.
+`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. 
+
+Excel cells can be floating point doubles or various integer types. These are indicated by, `XLL_DOUBLE`, 
+`XLL_WORD`, ..., `XLL_LONG`. The corresponding arguments in C functions can be declared as `DOUBLE`, `WORD`,
+..., `LONG` but you can use `double`, `unsigned`,  and `int` if you prefer. Integer and long types are both 32-bit.
+
+Excel has two flavors of strings: counted Pascal strings and null terminate C strings.
+Early versions of Excel involved Pascal which uses counted strings where the first character
+is the length of the string. Excel 2007 introduced wide character strings having 16-bit characters.
+The old limit was 255 characters to a string. The post Excel 2007 limit is 65535 characters.
+You can tell Excel to give you a counted or null terminated `char*` string by specifying the
+`XLL_PSTRING4` of `XLL_CSTRING4` data type in the `AddIn` constructor.
+Use `XLL_PSTRING12` or `XLL_CSTRING12` to tell Excel to give you a `wchar_t*`.
+For maximum portability use `XLL_PSTRINGX` or `XLL_CSTRINGX` with corresponding argument `TCHAR*`.
 
 `OPER`s are specializations of the [`XOPER`](https://github.com/xlladdins/xll/blob/master/xll/oper.h#L27) 
 class which publicly inherits from the `XLOPERX` struct defined the header file
@@ -269,6 +339,30 @@ The missing type is used only for function arguments.
 It indicates no argument was provided by the calling Excel function. 
 This is predefined as `Missing`,`Missing4` and `Missing12`.
 It is an error to return this type from a function. 
+
+### Specifying Argument Types
+
+A feature of the Excel C SDK is that it allows you to specify more argument types than the `.xltype`
+field allows. You can use this to your advantage
+to have Excel check argument types before calling your function.
+If someone using your code calls a function with an invalid argument type then Excel returns 
+`#VALUE!`.
+On the other hand, it does not allow you to check the argument type and display a
+more informative error message. If you want to do this, specify the argument as `XLL_LPXLOPER`
+to get a pointer to the fundamental `XLOPER` Excel data type. 
+
+Another feature is that you can tell Excel you do not want it to hand you reference types.
+If you specify the argument type as `XLL_LPOPER` then Excel will coerce the reference
+and hand you the value it refers to. If the reference is a 2-dimensional range
+you will get an `xltypeMulti`. If the reference is a single cell then you will get
+an `OPER` with `xltype` corresponding to the cell value.
+
+You can also use this to provide pointers to internal Excel data structures 
+that can be passed to C++ functions and avoid copying data.
+
+The C SDK uses a [character string](https://docs.microsoft.com/en-us/office/client-developer/excel/data-types-used-by-excel#registration-data-type-codes)
+to indicate function signatures. The `xll` library defines `XLL_`_type_ character
+strings to make these easier to use.
 
 ### FP Data Type
 
@@ -310,6 +404,41 @@ The `FPX` data type also has member functions for `rows`, `columns`, and `size`.
 To be STL friendly the member functions `begin` and `end` are provided for
 both `const` and non-const iterators over array elements.
 
+## String
+
+The `xll` library uses only UTF-8 strings but Excel (post 2007) uses either 8-bit ASCII `unsigned char*` or 
+16-bit wide character `unsigned short*` strings.
+The easiest way of getting strings in and out of Excel is to use an `OPER` of type `xltypeStr`. Use `OPER::is_str()` to detect if it is a string.
+The library will take care of encoding and decoding strings for you.
+
+To get strings directly from Excel specify the argument as `XLL_PSTRING`, `XLL_CSTRING`, `XLL_PSTRING12`, or `XLL_PSTRING12`.
+The `P` indicates the string is counted with the first character being its length. The `C` indicates the string will be null terminated
+as is the custom in C. You can return strings directly to Excel by specifying the appropriate return type in `Function`.
+
+When returning a pointer to an `OPER` that is a string you must indicate to Excel how the memory was allocated. If the `OPER` was
+allocated on the call stack then you must set the `xlbitDLLFree` bit using `o.xltype |= xlbitDLLFree`. If Excel
+allocated the string then you must set the `xlbitXLFree` bit. An `OPER` returned from a call to `Excel` has this
+bit set already. The easiest method is to declare the `OPER` as `static` so the memory will stick around
+after the function returns, however this is not thread safe.
+
+## Multi
+
+The `xltypeMulti` type is a two dimensional array of `OPER`s. Specify the type as `XLL_LPOPER` as the `AddIn` argument type.
+It has a `val.array.lparray` pointer to a row major array of `OPER`s having dimension `val.array.row` by `val.array.columns`.
+The constructor takes two integers indicating the number of rows and columns. It can be indexed linearly with
+`OPER::operator[](int i)` or `OPER::operator()(int row, int column)` for two dimensional arrays.
+
+If the argument type is specified to be `XLL_LPXLOPER` and the argument is a reference then Excel with provide you
+with a single reference type, `xltypeSRef`, or a multiple reference type, `xltypeRef`. If you specify
+`XLL_LPOPER` and the argument is a reference then Excel calls `xlCoerce` on the reference to get its value
+before handing it to you.
+
+When returning a pointer to an `OPER` that is a multi you must indicate to Excel how the memory was allocated. If the `OPER` was
+allocated on the call stack then you must set the `xlbitDLLFree` bit using `o.xltype |= xlbitDLLFree`. If Excel
+allocated the multi then you must set the `xlbitXLFree` bit. An `OPER` returned from a call to `Excel` has this
+bit set already. The easiest method is to declare the `OPER` as `static` so the memory will stick around
+after the function returns, however this is not thread safe.
+
 ## Handle
 
 Handles are used to embed C++ objects in Excel. 
@@ -317,7 +446,7 @@ Call `xll::handle<T>(T*)` using `new` to create an object of type `T`.
 The call `xll::handle<T> h(new T(...))` creates a handle `h` to 
 an object of type `T` using any constructor for `T`.
 If the cell a function is being called from contains a handle returned by
-a previous call, then the correspoding C++ object is `delete`d 
+a previous call, then the corresponding C++ object is `delete`d 
 and the new handle is returned to the cell. 
 
 Use `h.ptr()` to get the underlying C++ pointer and `h.get()` to get 
