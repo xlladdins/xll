@@ -198,7 +198,7 @@ is computed by Excel.
 Excel does not write these values to the registry until the Excel session is terminated.
 )";
 		Installer(const OPER& _dir = OPER(Template()))
-			: state(INIT), dir(_dir)
+			: dir(_dir), state(INIT)
 		{
 			if (dir.val.str[dir.val.str[0]] != '\\') {
 				dir.append("\\");

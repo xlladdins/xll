@@ -9,12 +9,13 @@
 namespace xll {
 
 	// convertible to double
-	inline static const int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
+	inline static constexpr int xltypeNumeric = (xltypeNum | xltypeBool | xltypeInt);
 	// do not involve memory allocation
-	inline static const int xltypeScalar = (xltypeNumeric | xltypeErr | xltypeMissing | xltypeNil | xltypeSRef);
+	inline static constexpr int xltypeScalar = (xltypeNumeric | xltypeErr | xltypeMissing | xltypeNil | xltypeSRef | xltypeRef);
 	// turn off xlbit flags
-	inline static const int xlbitmask = ~(xlbitXLFree | xlbitDLLFree);
+	inline static constexpr int xlbitmask = ~(xlbitXLFree | xlbitDLLFree);
 
+	// Strip off xlbit flags.
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
 	inline int type(const X& x)
 	{
@@ -211,10 +212,10 @@ namespace xll {
 #define X(a, b)                                        \
 	template<class T>                                  \
 		requires either_base_of_v<XLOPER, XLOPER12, T> \
-	inline constexpr T X##a = { .xltype = xltype##a }; \
-	inline constexpr XLOPER a##4 = X##a<XLOPER>;       \
-	inline constexpr XLOPER12 a##12 = X##a<XLOPER12>;  \
-	inline constexpr XLOPERX a = X##a<XLOPERX>;        \
+	inline T X##a = { .xltype = xltype##a }; \
+	inline XLOPER a##4 = X##a<XLOPER>;       \
+	inline XLOPER12 a##12 = X##a<XLOPER12>;  \
+	inline XLOPERX a = X##a<XLOPERX>;        \
 
 	XLL_NULL_TYPE(X)
 #undef X

@@ -15,13 +15,13 @@ namespace xll {
  
         AddIn(const Args& args) noexcept
         {
-            const auto& key = args.FunctionText();
-            if (Map.find(key) != Map.end()) {
+            const OPER& key = args.FunctionText();
+            auto i = Map.insert_or_assign(key, args);
+            if (!i.second) {
                 std::basic_string<TCHAR> msg{ TEXT("AddIn previously defined: ") };
                 msg.append(key.val.str + 1, key.val.str[0]);
                 MessageBox(GetForegroundWindow(), msg.c_str(), 0, MB_OK);
             }
-            Map[key] = args;
         }
 
         static size_t Erase(const OPER& key)

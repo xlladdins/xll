@@ -12,21 +12,21 @@ namespace xll {
 	template<class X> requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	struct traits { };
 	
-#define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER::val. ## b) x##c;
+#define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER::val.##b) x##c;
 	template<>
 	struct traits<XLOPER> {
-		typedef typename XLOPER xtype;
-		typedef typename XLOPER12 typex; // the other type
-		typedef typename XLMREF xmref;
+		typedef XLOPER xtype;
+		typedef XLOPER12 typex; // the other type
+		typedef XLMREF xmref;
 		XLL_TYPE_SCALAR(XLL_TYPE_TRAITS)
 		XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
-		typedef typename const CHAR* xcstr;
-		typedef typename CHAR xchar;
-		typedef typename WORD xword;
-		typedef typename WORD xrw;
-		typedef typename BYTE xcol;
-		typedef typename _FP xfp;
-		typedef typename std::basic_string<xchar> xstring;
+		typedef const CHAR* xcstr;
+		typedef CHAR xchar;
+		typedef WORD xword;
+		typedef WORD xrw;
+		typedef BYTE xcol;
+		typedef _FP xfp;
+		typedef std::basic_string<xchar> xstring;
 		static const int argmax = 255;
 		static const int charmax = 0xFF;
 		static int WINAPI MessageBoX(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType)
@@ -73,22 +73,22 @@ namespace xll {
 #define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER12::val. ## b) x##c;
 	template<>
 	struct traits<XLOPER12> {
-		typedef typename XLOPER12 xtype;
-		typedef typename XLOPER typex; // not XLOPER12
-		//typedef typename XLREF12 xref;
-		typedef typename XLMREF12 xmref;
+		typedef XLOPER12 xtype;
+		typedef XLOPER typex; // not XLOPER12
+		//typedef XLREF12 xref;
+		typedef XLMREF12 xmref;
 		XLL_TYPE_SCALAR(XLL_TYPE_TRAITS)
 		XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
-		typedef typename XCHAR xchar;
-		typedef typename const XCHAR* xcstr;
-		//typedef typename INT32 xint;
-		typedef typename WORD xword;
-		typedef typename RW xrw;
-		typedef typename COL xcol;
-		//typedef typename INT32 xbool;
-		//typedef typename int xerr;
-		typedef typename _FP12 xfp;
-		typedef typename std::basic_string<xchar> xstring;
+		typedef XCHAR xchar;
+		typedef const XCHAR* xcstr;
+		//typedef INT32 xint;
+		typedef WORD xword;
+		typedef RW xrw;
+		typedef COL xcol;
+		//typedef INT32 xbool;
+		//typedef int xerr;
+		typedef _FP12 xfp;
+		typedef std::basic_string<xchar> xstring;
 		static const int argmax = 255;
 		static const int charmax = 0x7FFF;
 		static int WINAPI MessageBoX(HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)

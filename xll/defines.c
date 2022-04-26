@@ -3,13 +3,13 @@
 
 // array designators not allowed in C++
 #undef X
-#define X(a,b,c) [xlerr##a] = b,
+#define X(a,b,c) [xlerr##a] = (b),
 const LPCSTR xll_err_str[] = {
 	XLL_ERR(X)
 };
 #undef X
 
-#define X(a,b,c) [xlerr##a] = c,
+#define X(a,b,c) [xlerr##a] = (c),
 const LPCSTR xll_err_desc[] = {
 	XLL_ERR(X)
 };

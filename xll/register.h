@@ -1,20 +1,23 @@
 // register.h - Register an add-in
 #pragma once
-#include "shlwapi.h"
+#include "Shlwapi.h"
 #include "splitpath.h"
 #include "args.h"
 
-// HelpTopic url base
-extern const char* XLL_URL;
-
-struct xll_url_set {
-	xll_url_set(const char* url)
-	{
-		XLL_URL = url;
-	}
-};
-
-namespace xll{
+namespace xll {
+	// where the documentation goes
+	class xll_url_base {
+		inline static const char* url = "";
+	public:
+		static void set(const char* url_)
+		{
+			url = url_;
+		}
+		static const char* get()
+		{
+			return url;
+		}
+	};
 
 	inline OPER Register(const Args& args)
 	{
@@ -36,7 +39,7 @@ namespace xll{
 			path sp(moduleText.as_cstr());
 			OPER name(sp.dirname().c_str());
 			*/
-			OPER name(XLL_URL);
+			OPER name(xll_url_base::get());
 			name.append(args.FunctionText().safe());
 			name.append(".html!0");
 			name.as_cstr(); // null terminate
@@ -81,7 +84,7 @@ namespace xll{
 		oper.back() = &xEmpty;
 
 		XLOPERX registerId = { .xltype = xltypeNil };
-		int ret = traits<XLOPERX>::Excelv(xlfRegister, &registerId, count, (XLOPERX**)&oper[0]);
+		int ret = traits<XLOPERX>::Excelv(xlfRegister, &registerId, count, const_cast<XLOPERX**>(&oper[0]));
 		if (ret != xlretSuccess || registerId.xltype != xltypeNum) {
 			OPER xMsg("Failed to register: ");
 			Excel(xlcAlert, xMsg & args.FunctionText(), OPER(2));

@@ -889,7 +889,7 @@ int test_oper_err()
 	return 0;
 }
 int test_oper_err_ = test_oper_err();
-
+/*!!! remove
 int test_mref()
 {
 	{
@@ -915,6 +915,7 @@ int test_mref()
 	return 0;
 }
 int test_mref_ = test_mref();
+*/
 /*
 int test_max()
 {

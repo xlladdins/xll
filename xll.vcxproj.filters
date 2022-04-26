@@ -19,6 +19,9 @@
     <Filter Include="docs">
       <UniqueIdentifier>{e7aeeab2-741f-45a5-adf6-a240f7fb0fbf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{20ca5263-e145-4330-ad05-24993109ac4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="xll\xll.h">
@@ -148,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="xll\macrofun\xll_install.cpp">
       <Filter>macrofun</Filter>
+    </ClCompile>
+    <ClCompile Include="xll\utility\xll_throttle.cpp">
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
