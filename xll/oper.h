@@ -25,7 +25,7 @@ namespace xll {
 	/// error, range, single reference, or integer. 
 	template<class X>  
 		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
-	class XOPER final : public X {
+	class XOPER : public X {
 		typedef typename traits<X>::typex X_; // the _other_ type
 		typedef typename traits<X>::xchar xchar;
 		typedef typename traits<X_>::xchar charx;
