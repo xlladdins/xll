@@ -27,7 +27,7 @@ to make your software more convenient to use.
 
 ## Prerequisites
 
-[Windows 10](https://www.microsoft.com/en-us/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-us/software-download/windows11)
+[Windows 10](https://www.microsoft.com/en-us/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-us/software-download/windows11)  
   The Excel SDK is not supported on MacOS. You will have to install
   a [Windows virtual machine](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/)
   on your Mac. I've had success with VirtualBox.
