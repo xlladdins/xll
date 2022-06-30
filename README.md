@@ -43,7 +43,7 @@ to make your software more convenient to use.
 ## Get Started
 
 [Use this template](https://github.com/xlladdins/xll_template/generate) to generate a new repository.  
-Open in Visual Studio 2019 and double click on the solution (`.sln`).  
+Open in Visual Studio and double click on the solution (`.sln`).  
 Press `F5` to build the add-in and start Excel with it loaded in the debugger.
 
 ## AddIn
