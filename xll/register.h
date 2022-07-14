@@ -60,8 +60,9 @@ namespace xll {
 		}
 
 		// indicates function returns a handle
-		if (args.isHandle()) {
-			ensure(args.isUncalced());
+		if (args.isHandle() and !args.isUncalced()) {
+			std::string warn = args.FunctionText().to_string() + ": returns handle but not uncalced";
+			XLL_WARNING(warn.c_str());
 		}
 
 		unsigned count = 11 + static_cast<int>(args.ArgumentCount());
