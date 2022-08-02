@@ -142,7 +142,8 @@ AIM and OPENn not set
   
 ## Troubleshooting
   
-From Govert: \\
+From Govert:  
+```
 Some comments and first steps:
 •	When you try to load the wrong bitness add-in, Excel opens the binary file as text, and you get exactly the content you show.
 •	When you try to load the wrong bitness add-in, the code in the add-in never executes.
@@ -158,3 +159,4 @@ My next suggestions (in decreasing confidence) would be to look for other config
 •	You can also do a Process Monitor trace to see what registry entries are read by the process as it tries to load the add-in. This is a bit tedious but has pointed me in the right direction once or twice.
 Finally my suggestions deteriorate into the usual:
 •	Uninstall and reinstall Office.
+```
