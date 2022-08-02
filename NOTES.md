@@ -39,6 +39,7 @@ https://www.drdobbs.com/architecture-and-design/faking-dde-with-private-servers/
 Exception thrown at ... in EXCEL.EXE: 0xC0000005:
 https://docs.microsoft.com/en-us/office/client-developer/excel/how-to-call-xll-functions-from-the-function-wizard-or-replace-dialog-boxes?redirectedfrom=MSDN
 
+```
 #define CLASS_NAME_BUFFSIZE  50
 #define WINDOW_TEXT_BUFFSIZE  50
 // Data structure used as input to xldlg_enum_proc(), called by
@@ -106,17 +107,18 @@ bool called_from_paste_fn_dlg(void)
     EnumWindows((WNDENUMPROC)xldlg_enum_proc, (LPARAM)&es);
     return es.is_dlg;
 }
+```
 
 ## AddinManager
 
 states: uninstalled, known, installed, loaded
 
 AIM: HKCU\Software\Microsoft\Office\<version>\Excel\Add-in Manager
-    - value name: full path
+    - value name: full path  
 OPENn: HKCU\Software\Microsoft\Office\<version>\Excel\Options\Open<n>
-    - value name: OPENn  data: "/R full_path" 
+    - value name: OPENn  data: "/R full_path"  
 DIR: %AppData%\Microsoft\Templates\ 
-    - trusted location;
+    - trusted location;  
 
 AddinManager uses AIM or OPENn but never both
 
@@ -132,9 +134,27 @@ Status of add-in manager.
 
 If in OPENn check for newer.
 
-
 ## First Use
 AIM and OPENn not set
     Prompt to install xlGetName in Template
     Prompt for New to add to AIM
     Prompt to Add (does not work?)
+  
+## Troubleshooting
+  
+From Govert: \\
+Some comments and first steps:
+•	When you try to load the wrong bitness add-in, Excel opens the binary file as text, and you get exactly the content you show.
+•	When you try to load the wrong bitness add-in, the code in the add-in never executes.
+•	It sounds like the problem machines are somehow configured to not load .xll add-ins, hence are falling back to the open-as-text behaviour.
+•	In this case Excel-DNA is probably not involved either, and any .xll add-in will fail. You can try these pure native add-ins from the Excel2013 XLL SDK: https://www.dropbox.com/sh/f7v40h7xgf2uj19/AADXCjIlsgQgKI_vpYjRxfFha?dl=0
+(If you're not comfortable running the binaries, I can help you download the SDK and rebuild it yourself - there is a bit of fiddling needed.)
+•	Once you've established that no .xll add-ins work on these machines, at least Excel-DNA and .NET are out of the way too.
+My next suggestions (in decreasing confidence) would be to look for other configuration options that might be clocking add-ins.
+•	Temporarily disable the Trend Micro to be quite sure it is not blocking the .xll files being loaded.
+•	Check that VBA is installed (just press F11 and confirm, that the VBA IDE is displayed). VBA is an optional component at install time, and is required to be present for any add-ins (including .xll add-ins) to be supported by Excel.
+•	Check whether .xla add-ins can be loaded. Maybe there is some setting blocking all add-ins.
+•	Try to figure out whether Group Policy settings have been applied. This is not always easy, as Office virtualizes the registry so it can be super confusing. But for example in the past these was a Group Policy options that blocks the COM object model from working (something about Automation being disabled).
+•	You can also do a Process Monitor trace to see what registry entries are read by the process as it tries to load the add-in. This is a bit tedious but has pointed me in the right direction once or twice.
+Finally my suggestions deteriorate into the usual:
+•	Uninstall and reinstall Office.
