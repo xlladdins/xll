@@ -46,6 +46,12 @@ to make your software more convenient to use.
 Open in Visual Studio and double click on the solution (`.sln`).  
 Press `F5` to build the add-in and start Excel with it loaded in the debugger.
 
+If your add-in does not load you should check your security settings.
+From the `File` tab select `Options`, then `Trust Center`. Click on the `Trust Center Settings...` button.
+Select `Macro Settings` and choose `Enable VBA Macros`. Do not open add-ins you do not trust.
+If you download an xll from the web you may have to right click on it, `Properties` and choose
+`Unblock` at the bottom of the dialog.
+
 ## AddIn
 
 The `xll::AddIn` class is used to register Excel functions and macros.
