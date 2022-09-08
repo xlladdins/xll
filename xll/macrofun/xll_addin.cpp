@@ -118,7 +118,7 @@ LPOPER WINAPI xll_addin_args(LPOPER pname, LPOPER pkeys)
 		}
 		ensure(pargs || !__FUNCTION__ ": failed to find find function");
 
-		if (pkeys->xltype == xltypeMissing or !*pkeys) {
+		if (pkeys->xltype == xltypeMissing || !*pkeys) {
 			pkeys = &keys;
 		}
 		result = OPER(rows(*pkeys), columns(*pkeys));

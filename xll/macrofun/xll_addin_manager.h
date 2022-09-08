@@ -73,7 +73,7 @@ namespace xll {
 			if (known) {
 				// There is no Excel function for this.
 				Reg::Key aim(HKEY_CURRENT_USER, Aim());
-				ensure(aim and ERROR_SUCCESS == RegDeleteValue(aim, known.as_cstr()));
+				ensure(aim && ERROR_SUCCESS == RegDeleteValue(aim, known.as_cstr()));
 			}
 
 			return known;
@@ -118,7 +118,7 @@ namespace xll {
 			for (const Reg::Value& value : opt.Values()) {
 				if (value.type == REG_SZ) {
 					PCTSTR match = _tcsstr(value, name.as_cstr());
-					if (match and 0 == _tcsncmp(match, name.val.str + 1, name.val.str[0])) {
+					if (match && 0 == _tcsncmp(match, name.val.str + 1, name.val.str[0])) {
 						open = value.name.c_str();
 
 						break;

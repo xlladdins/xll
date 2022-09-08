@@ -173,7 +173,7 @@ namespace xll {
 		return x;
 	}
 
-	// take from front (n > 0) or back (n < 0)
+	// take from front (n > 0) || back (n < 0)
 	template<class X> 
 		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	inline X take(X x, int n)
@@ -241,7 +241,7 @@ inline auto operator<=>(const X& x, const X& y)
 	auto ytype = xll::type(y);
 
 	// xltypeNil is least type
-	if (xtype == xltypeNil or ytype == xltypeNil) {
+	if (xtype == xltypeNil || ytype == xltypeNil) {
 		return (xtype != xltypeNil) <=> (ytype != xltypeNil);
 	}
 

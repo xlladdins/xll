@@ -34,7 +34,7 @@ namespace xll {
 
 		OPER moduleText = Excel(xlGetName);
 		OPER helpTopic = args.HelpTopic();
-		if (!helpTopic and args.Documentation().length() > 0) {
+		if (!helpTopic && args.Documentation().length() > 0) {
 			/*
 			path sp(moduleText.as_cstr());
 			OPER name(sp.dirname().c_str());
@@ -47,20 +47,20 @@ namespace xll {
 			xll::traits<XLOPERX>::xchar buf[2048];
 			DWORD len = 2048;
 			HRESULT result = UrlCreateFromPath(name.val.str + 1, buf, &len, 0);
-			ensure(S_OK == result or S_FALSE == result);
+			ensure(S_OK == result || S_FALSE == result);
 
 			helpTopic = OPER(buf, len);
 		}
 		else if (helpTopic.is_str()) {
 			// Help URLs must end with "!0"
 			const auto& ht = helpTopic.val.str;
-			if (ht[0] > 2 and ht[ht[0]] != '0' and ht[ht[0] - 1] != '!') {
+			if (ht[0] > 2 && ht[ht[0]] != '0' && ht[ht[0] - 1] != '!') {
 				helpTopic &= OPER("!0");
 			}
 		}
 
 		// indicates function returns a handle
-		if (args.isHandle() and !args.isUncalced()) {
+		if (args.isHandle() && !args.isUncalced()) {
 			std::string warn = args.FunctionText().to_string() + ": returns handle but not uncalced";
 			XLL_WARNING(warn.c_str());
 		}

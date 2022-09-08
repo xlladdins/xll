@@ -85,13 +85,13 @@ namespace xll {
 
 	inline bool equal(const _FP* a, const _FP* b)
 	{
-		return a->rows == b->rows and a->columns == b->columns
-			and std::equal(begin(*a), end(*a), begin(*b));
+		return a->rows == b->rows && a->columns == b->columns
+			&& std::equal(begin(*a), end(*a), begin(*b));
 	}
 	inline bool equal(const _FP12* a, const _FP12* b)
 	{
-		return a->rows == b->rows and a->columns == b->columns
-			and std::equal(begin(*a), end(*a), begin(*b));
+		return a->rows == b->rows && a->columns == b->columns
+			&& std::equal(begin(*a), end(*a), begin(*b));
 	}
 
 	inline _FP12* drop(_FP12* pa, int n)
@@ -484,7 +484,7 @@ namespace xll {
 	private:
 		void fp_alloc(xint r, xint c)
 		{
-			ensure(r >= 0 and c >= 0);
+			ensure(r >= 0 && c >= 0);
 			xint n = r * c;
 			if (n == 0) {
 				fp = nullptr;
@@ -500,7 +500,7 @@ namespace xll {
 		}
 		void fp_realloc(xint r, xint c)
 		{
-			ensure(r >= 0 and c >= 0);
+			ensure(r >= 0 && c >= 0);
 			xint n = r * c;
 			if (n == 0) {
 				fp_free();

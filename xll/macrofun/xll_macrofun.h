@@ -236,10 +236,10 @@ namespace xll {
 			OPER value_type = Missing;
 			OPER levels = Missing;
 
-			if (type == Type::Constants or type == Type::Formulas) {
+			if (type == Type::Constants || type == Type::Formulas) {
 				value_type = OPER((int)value);
 			}
-			else if (type == Type::Precedents or type == Type::Dependents) {
+			else if (type == Type::Precedents || type == Type::Dependents) {
 				levels = OPER((int)level);
 			}
 
@@ -360,9 +360,9 @@ namespace xll {
 		EditColor(int _r, int _g, int _b)
 			: r(_r), g(_g), b(_b)
 		{
-			ensure(0 <= _r and _r <= 255);
-			ensure(0 <= _g and _g <= 255);
-			ensure(0 <= _b and _b <= 255);
+			ensure(0 <= _r && _r <= 255);
+			ensure(0 <= _g && _g <= 255);
+			ensure(0 <= _b && _b <= 255);
 		}
 		// Add from end of color palette
 		OPER Color(int index = 0) const
@@ -371,7 +371,7 @@ namespace xll {
 				ensure(--count > 1);
 				index = count;
 			}
-			ensure(0 <= index and index <= 56);
+			ensure(0 <= index && index <= 56);
 			ensure(Excel(xlcEditColor, OPER(index), OPER(r), OPER(g), OPER(b)));
 
 			return OPER(count);
@@ -1031,7 +1031,7 @@ namespace xll {
 		{
 			XLOPERX x = { .xltype = xltypeMissing };
 
-			if (len and data) {
+			if (len && data) {
 				x.xltype = xltypeBigData;
 				x.val.bigdata.cbData = len;
 				x.val.bigdata.h.lpbData = data;
