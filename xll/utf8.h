@@ -27,7 +27,7 @@ namespace utf8 {
 
 		ws = (wchar_t*)malloc((static_cast<size_t>(wn) + 2) * sizeof(wchar_t));
 		if (ws) {
-			ensure(!n or wn == MultiByteToWideChar(CP_UTF8, 0, s, n, ws + 1, wn));
+			ensure(!n || wn == MultiByteToWideChar(CP_UTF8, 0, s, n, ws + 1, wn));
 			ensure(wn <= WCHAR_MAX);
 			// MBTWC includes terminating null if n == -1
 			ws[0] = static_cast<wchar_t>(wn - (n == -1));
@@ -64,7 +64,7 @@ namespace utf8 {
 
 		s = (char*)malloc(static_cast<size_t>(n) + 2);
 		if (nullptr != s) {
-			ensure(!wn or n == WideCharToMultiByte(CP_UTF8, 0, ws, wn, s + 1, n, NULL, NULL));
+			ensure(!wn || n == WideCharToMultiByte(CP_UTF8, 0, ws, wn, s + 1, n, NULL, NULL));
 			// ???NormalizeString
 			ensure(n <= UCHAR_MAX);
 			// WCTMBS includes terminating null if wn == -1

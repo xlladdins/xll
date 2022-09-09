@@ -26,7 +26,7 @@ namespace xll {
 		else {
 			// bool or err
 			o_ = Excel(xlfEvaluate, o);
-			if (!o_.is_err() or o == XOPER<X>(xll_err_str[o_.val.err])) {
+			if (!o_.is_err() || o == XOPER<X>(xll_err_str[o_.val.err])) {
 				o = o_;
 			}
 		}

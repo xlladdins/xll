@@ -162,14 +162,14 @@ namespace xll {
 		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
 		{
-			if (check and p) {
+			if (check && p) {
 				if (!ps.contains(p)) {
 					// unknown handle
 					p = nullptr;
 				}
 			}
 			// handle was created by a function argument
-			if (p and caller[p] == Excel(xlfCaller)) {
+			if (p && caller[p] == Excel(xlfCaller)) {
 				is_temporary(p);
 			}
 		}

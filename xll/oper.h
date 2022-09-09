@@ -387,7 +387,7 @@ namespace xll {
 
 			if (s.is_str()) {
 				for (int i = 1; i <= s.val.str[0]; ++i) {
-					if (s.val.str[i] != '.' and !traits<X>::alnum(s.val.str[i])) {
+					if (s.val.str[i] != '.' && !traits<X>::alnum(s.val.str[i])) {
 						s.val.str[i] = u;
 					}
 				}
@@ -411,7 +411,7 @@ namespace xll {
 		}
 		bool operator==(bool xbool) const
 		{
-			return xltype == xltypeBool and val.xbool == static_cast<typename traits<X>::xbool>(xbool);
+			return xltype == xltypeBool && val.xbool == static_cast<typename traits<X>::xbool>(xbool);
 		}
 
 		[[nodiscard]] bool is_bool() const
@@ -740,7 +740,7 @@ namespace xll {
 				return val.mref.lpmref->reftbl[i];
 			}
 
-			ensure(i == 0 and type() == xltypeSRef);
+			ensure(i == 0 && type() == xltypeSRef);
 
 			return val.sref.ref;
 		}
@@ -752,7 +752,7 @@ namespace xll {
 				return val.mref.lpmref->reftbl[i];
 			}
 
-			ensure(i == 0 and type() == xltypeSRef);
+			ensure(i == 0 && type() == xltypeSRef);
 
 			return val.sref.ref;
 		}
@@ -795,8 +795,8 @@ namespace xll {
 		// true if memory overlaps with x
 		bool overlap(const X& x) const
 		{
-			return (begin() <= xll::begin(x) and xll::begin(x) < end()) 
-				|| (begin() < xll::end(x)    and xll::end(x)  <= end());
+			return (begin() <= xll::begin(x) && xll::begin(x) < end()) 
+				|| (begin() < xll::end(x)    && xll::end(x)  <= end());
 		}
 
 		void oper_free()
@@ -866,13 +866,13 @@ namespace xll {
 			bool counted = (n == -1);
 			if (counted) {
 				n = str[0];
-				if (n == 0 or str[1] == 0) {
+				if (n == 0 || str[1] == 0) {
 					free(const_cast<xchar*>(str));
 
 					return; // noop
 				}
 			}
-			else if (n == 0 or str[0] == 0) {
+			else if (n == 0 || str[0] == 0) {
 				return; // noop
 			}
 
