@@ -18,14 +18,14 @@ AddIn xai_throttle(
 LPXLOPERX WINAPI xll_throttle(LPXLOPERX px)
 {
 #pragma XLLEXPORT
+	static OPER o;
+
 	try {
-		OPER o = Excel(xlCoerce, Excel(xlfCaller));
-		if (o.as_num() == 0) {
-			*(LPOPER)px = Excel(xlfEvaluate, *px);
+		o = Excel(xlCoerce, Excel(xlfCaller));
+		if (o[0].is_num() && o[0].as_num() == 0) {
+			o = *px; // Excel(xlfEvaluate, *px);
 		}
-		else {
-			*px = o;
-		}
+		px = &o;
 	}
 	catch (const std::exception& ex) {
 		XLL_ERROR(ex.what());
