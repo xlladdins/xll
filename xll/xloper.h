@@ -33,6 +33,7 @@ namespace xll {
 		case xltypeRef:
 			return height(x.val.mref.lpmref->reftbl[0]);
 		case xltypeNil:
+		case xltypeMissing:
 			return 0;
 		}
 		
@@ -50,6 +51,7 @@ namespace xll {
 		case xltypeRef:
 			return width(x.val.mref.lpmref->reftbl[0]);
 		case xltypeNil:
+		case xltypeMissing:
 			return 0;
 		}
 
