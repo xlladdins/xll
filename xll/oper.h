@@ -65,7 +65,11 @@ namespace xll {
 		}
 		XOPER(const X& x)
 		{
-			if (x.xltype & xltypeScalar) {
+			if (x.xltype == xltypeBigData) {
+				xltype = x.xltype;
+				val.bigdata = x.val.bigdata;
+			}
+			else if (x.xltype & xltypeScalar) {
 				xltype = (x.xltype & xltypeScalar);
 				val = x.val;
 			}
@@ -83,9 +87,6 @@ namespace xll {
 				std::copy(ref_begin(x), ref_end(x), val.mref.lpmref->reftbl);
 			}
 			*/
-			else if (x.xltype & xltypeBigData) {
-				throw std::runtime_error("XOPER: xltypeBigData not supported yet");
-			}
 			else {
 				throw std::runtime_error("XOPER: unknown xltype");
 			}
