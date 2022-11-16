@@ -328,7 +328,7 @@ namespace xll {
 				XOPER<X> xNum = XExcel<X>(xlfText, x, xGeneral);
 				append(xNum.val.str + 1, xNum.val.str[0]);
 			}
-			else if (x.xltype == xltypeStr) {
+			else if (xll::type(x) == xltypeStr) {
 				append(x.val.str + 1, x.val.str[0]);
 			}
 			else {
