@@ -52,7 +52,7 @@ namespace xll {
 	template<class T>
 	inline HANDLEX safe_handle(T* p)
 	{
-		safe_pointers.insert(p);
+		safe_pointers.insert((void*)p);
 
 		return to_handle<T>(p);
 	}
@@ -62,7 +62,7 @@ namespace xll {
 	{
 		T* p = to_pointer<T>(h);
 
-		return safe_pointers.contains(p) ? p : nullptr;
+		return safe_pointers.contains((void*)p) ? p : nullptr;
 	}
 
 	// typeid<T>.name() given pointer
