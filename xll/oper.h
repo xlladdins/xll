@@ -65,7 +65,11 @@ namespace xll {
 		}
 		XOPER(const X& x)
 		{
-			if (x.xltype & xltypeScalar) {
+			if (x.xltype == xltypeBigData) {
+				xltype = x.xltype;
+				val.bigdata = x.val.bigdata;
+			}
+			else if (x.xltype & xltypeScalar) {
 				xltype = (x.xltype & xltypeScalar);
 				val = x.val;
 			}
@@ -83,9 +87,6 @@ namespace xll {
 				std::copy(ref_begin(x), ref_end(x), val.mref.lpmref->reftbl);
 			}
 			*/
-			else if (x.xltype & xltypeBigData) {
-				throw std::runtime_error("XOPER: xltypeBigData not supported yet");
-			}
 			else {
 				throw std::runtime_error("XOPER: unknown xltype");
 			}
@@ -319,15 +320,22 @@ namespace xll {
 		}
 		XOPER& append(const X& x)
 		{
-			if (x.xltype == xltypeNil) {
-				return *this;
+			if (xltype == xltypeNil) {
+				operator=(x);
+			}
+			else if (x.xltype == xltypeNum) {
+				static const XOPER<X> xGeneral("General");
+				XOPER<X> xNum = XExcel<X>(xlfText, x, xGeneral);
+				append(xNum.val.str + 1, xNum.val.str[0]);
+			}
+			else if (xll::type(x) == xltypeStr) {
+				append(x.val.str + 1, x.val.str[0]);
+			}
+			else {
+				operator=(XErrValue<X>);
 			}
 
-			ensure(x.xltype & xltypeStr);
-
-			return xltype == xltypeNil
-				? operator=(x)
-				: append(x.val.str + 1, x.val.str[0]);
+			return *this;
 		}
 		XOPER& append(const X_& x)
 		{
@@ -646,6 +654,9 @@ namespace xll {
 		};
 		const XOPER& push_back(const X& x, Side side = Side::Bottom)
 		{
+			if (x.xltype == xltypeNil) {
+				return *this;
+			}
 			if (xltype == xltypeNil) {
 				operator=(x);
 

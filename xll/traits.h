@@ -9,7 +9,9 @@
 namespace xll {
 
 	// XLOPER/XLOPER12 traits
-	template<class X> requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
+	template<class X> requires (
+		std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X> || std::is_same_v<char, X> || std::is_same_v<wchar_t, X>
+		)
 	struct traits { };
 	
 #define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER::val.##b) x##c;
