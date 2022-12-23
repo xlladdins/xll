@@ -39,6 +39,7 @@ namespace xll {
 		typedef typename traits<X>::xref xref;
 
 	public:
+		using value_type = traits<X>::xtype;
 		using X::xltype;
 		using X::val;
 
