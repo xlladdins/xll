@@ -228,6 +228,12 @@ namespace xll {
 			return val.num;
 		}
 
+		explicit XOPER(time_t t)
+		{
+			xltype = xltypeNum;
+			val.num = static_cast<double>(25569. + t / 86400.);
+		}
+
 		// xltypeStr
 		[[nodiscard]] bool is_str() const
 		{
