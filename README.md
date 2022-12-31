@@ -13,9 +13,8 @@ writing a thin wrapper that gathers arguments from Excel, call any function, and
 Use the full power of Excel to explore and perfect your code. Anyone can use your
 handiwork by opening the self-contained `.xll` file you produce.
 The xll library can also generate documentation integrated into Excel's help system.
-Hopefully you will get to the quality problem of others using your product and
-you can tell them to go to the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277)
-so you can get back to writing more cool stuff.
+People using your code can use the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277).
+to see how you want to document the code you wrote.
 
 The major usability enhancement for developers in the latest version is that all strings are now UTF-8. 
 They are a L"ot" nicer to use than wide character strings.
