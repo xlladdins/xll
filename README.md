@@ -2,7 +2,7 @@
  
  ![build workflow](https://github.com/xlladdins/xll/actions/workflows/msbuild.yml/badge.svg)
 
-This library makes it simple to call C, C++, or even Fortran code from Excel.
+The xll library makes it simple to call C, C++, or even Fortran code from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 There are newer technologies available using C# and JavaScript that are appropriate for certain problems, but if you need the highest
@@ -10,12 +10,12 @@ possible numerical performance from Excel this library is for you.
 
 Plug your code, or a third party library, into Excel by
 writing a thin wrapper that gathers arguments from Excel, call any function, and return the result.
-Use the full power of Excel to explore and perfect your code. Anyone can use your
-handiwork by opening the self-contained `.xll` file you produce.
+Use the full power of Excel to explore and perfect your code. 
+Anyone can use your handiwork by opening the self-contained `.xll` file you produce.
+
 The xll library can also generate documentation integrated into Excel's help system.
-Hopefully you will get to the quality problem of others using your product and
-you can tell them to go to the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277)
-so you can get back to writing more cool stuff.
+People using your code can use the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277).
+to see how you documented the code you wrote.
 
 The major usability enhancement for developers in the latest version is that all strings are now UTF-8. 
 They are a L"ot" nicer to use than wide character strings.
@@ -398,7 +398,7 @@ Since `FPX` does **not** inherit from the C structs you must use
 the `FPX::get()` member function to get a pointer to the underlying struct.
 This is used to return arrays to Excel where the return type is
 `XLL_FPX`. Since you are returning a pointer you must make sure the memory
-at which it points continues to exist after the function returns. Typically
+it points to exist after the function returns. Typically
 this is done by declaring a `static xll::FPX` in the function body.
 
 Use `xll::FPX a(2,3)` to create a 2 by 3 array of doubles and `a(1,0)` to access

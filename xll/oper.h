@@ -39,6 +39,7 @@ namespace xll {
 		typedef typename traits<X>::xref xref;
 
 	public:
+		using value_type = traits<X>::xtype;
 		using X::xltype;
 		using X::val;
 
@@ -226,6 +227,12 @@ namespace xll {
 		double as_num() const
 		{
 			return val.num;
+		}
+
+		explicit XOPER(time_t t)
+		{
+			xltype = xltypeNum;
+			val.num = static_cast<double>(25569. + t / 86400.);
 		}
 
 		// xltypeStr
