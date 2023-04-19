@@ -85,12 +85,12 @@ namespace xll {
 
 	// ref iterator
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline typename const traits<X>::xref* ref_begin(const X& x)
+	inline const traits<X>::xref* ref_begin(const X& x)
 	{
 		return type(x) == xltypeRef ? x.val.mref.lpmref->reftbl : nullptr;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline typename const traits<X>::xref* ref_end(const X& x)
+	inline const traits<X>::xref* ref_end(const X& x)
 	{
 		return type(x) == xltypeRef ? x.val.mref.lpmref->reftbl + x.val.mref.lpmref->count : nullptr;
 	}
