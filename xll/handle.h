@@ -163,13 +163,13 @@ namespace xll {
 			: p(to_pointer<T>(h))
 		{
 			if (check && p) {
-				if (!ps.contains(p) and !safe_handle(p)) {
+				if (!ps.contains(p) and !safe_pointers.contains(p)) {
 					// unknown handle
 					p = nullptr;
 				}
 			}
 			// handle was created by a function argument
-			if (p && !safe_handle(p) && caller[p] == Excel(xlfCaller)) {
+			if (p && !safe_pointers.contains(p) && caller[p] == Excel(xlfCaller)) {
 				is_temporary(p);
 			}
 		}
