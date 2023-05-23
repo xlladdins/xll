@@ -25,7 +25,7 @@ namespace xll {
 	/// error, range, single reference, or integer. 
 	template<class X>  
 		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
-	class XOPER final : public X {
+	class XOPER : public X {
 		typedef typename traits<X>::typex X_; // the _other_ type
 		typedef typename traits<X>::xchar xchar;
 		typedef typename traits<X_>::xchar charx;
@@ -39,6 +39,7 @@ namespace xll {
 		typedef typename traits<X>::xref xref;
 
 	public:
+		using value_type = traits<X>::xtype;
 		using X::xltype;
 		using X::val;
 
@@ -65,7 +66,11 @@ namespace xll {
 		}
 		XOPER(const X& x)
 		{
-			if (x.xltype & xltypeScalar) {
+			if (x.xltype == xltypeBigData) {
+				xltype = x.xltype;
+				val.bigdata = x.val.bigdata;
+			}
+			else if (x.xltype & xltypeScalar) {
 				xltype = (x.xltype & xltypeScalar);
 				val = x.val;
 			}
@@ -83,9 +88,6 @@ namespace xll {
 				std::copy(ref_begin(x), ref_end(x), val.mref.lpmref->reftbl);
 			}
 			*/
-			else if (x.xltype & xltypeBigData) {
-				throw std::runtime_error("XOPER: xltypeBigData not supported yet");
-			}
 			else {
 				throw std::runtime_error("XOPER: unknown xltype");
 			}
@@ -220,11 +222,17 @@ namespace xll {
 		}
 		double& as_num()
 		{
-			return operator[](0).val.num;
+			return val.num;
 		}
 		double as_num() const
 		{
-			return operator[](0).val.num;
+			return val.num;
+		}
+
+		explicit XOPER(time_t t)
+		{
+			xltype = xltypeNum;
+			val.num = static_cast<double>(25569. + t / 86400.);
 		}
 
 		// xltypeStr
@@ -319,15 +327,22 @@ namespace xll {
 		}
 		XOPER& append(const X& x)
 		{
-			if (x.xltype == xltypeNil) {
-				return *this;
+			if (xltype == xltypeNil) {
+				operator=(x);
+			}
+			else if (x.xltype == xltypeNum) {
+				static const XOPER<X> xGeneral("General");
+				XOPER<X> xNum = XExcel<X>(xlfText, x, xGeneral);
+				append(xNum.val.str + 1, xNum.val.str[0]);
+			}
+			else if (xll::type(x) == xltypeStr) {
+				append(x.val.str + 1, x.val.str[0]);
+			}
+			else {
+				operator=(XErrValue<X>);
 			}
 
-			ensure(x.xltype & xltypeStr);
-
-			return xltype == xltypeNil
-				? operator=(x)
-				: append(x.val.str + 1, x.val.str[0]);
+			return *this;
 		}
 		XOPER& append(const X_& x)
 		{
@@ -387,7 +402,7 @@ namespace xll {
 
 			if (s.is_str()) {
 				for (int i = 1; i <= s.val.str[0]; ++i) {
-					if (s.val.str[i] != '.' and !traits<X>::alnum(s.val.str[i])) {
+					if (s.val.str[i] != '.' && !traits<X>::alnum(s.val.str[i])) {
 						s.val.str[i] = u;
 					}
 				}
@@ -411,7 +426,7 @@ namespace xll {
 		}
 		bool operator==(bool xbool) const
 		{
-			return xltype == xltypeBool and val.xbool == static_cast<typename traits<X>::xbool>(xbool);
+			return xltype == xltypeBool && val.xbool == static_cast<typename traits<X>::xbool>(xbool);
 		}
 
 		[[nodiscard]] bool is_bool() const
@@ -562,6 +577,21 @@ namespace xll {
 		{
 			return xll::index(*this, rw, col);
 		}
+		// key-value lookup using MATCH
+		const XOPER& operator[](const XOPER& key) const
+		{
+			if (size() % 2 != 0) {
+				return XErrNA<XLOPERX>;
+			}
+
+			XOPER i = Excel(xlfMatch, key, *this, XOPER(0));
+
+			return i ? operator[](i.as_int() + 1) : XErrNA<XLOPERX>;
+		}
+		const XOPER& operator[](const char* key) const
+		{
+			return operator[](XOPER(key));
+		}
 
 		XOPER<X>& drop(int n)
 		{
@@ -631,6 +661,9 @@ namespace xll {
 		};
 		const XOPER& push_back(const X& x, Side side = Side::Bottom)
 		{
+			if (x.xltype == xltypeNil) {
+				return *this;
+			}
 			if (xltype == xltypeNil) {
 				operator=(x);
 
@@ -725,7 +758,7 @@ namespace xll {
 				return val.mref.lpmref->reftbl[i];
 			}
 
-			ensure(i == 0 and type() == xltypeSRef);
+			ensure(i == 0 && type() == xltypeSRef);
 
 			return val.sref.ref;
 		}
@@ -737,7 +770,7 @@ namespace xll {
 				return val.mref.lpmref->reftbl[i];
 			}
 
-			ensure(i == 0 and type() == xltypeSRef);
+			ensure(i == 0 && type() == xltypeSRef);
 
 			return val.sref.ref;
 		}
@@ -780,8 +813,8 @@ namespace xll {
 		// true if memory overlaps with x
 		bool overlap(const X& x) const
 		{
-			return (begin() <= xll::begin(x) and xll::begin(x) < end()) 
-				|| (begin() < xll::end(x)    and xll::end(x)  <= end());
+			return (begin() <= xll::begin(x) && xll::begin(x) < end()) 
+				|| (begin() < xll::end(x)    && xll::end(x)  <= end());
 		}
 
 		void oper_free()
@@ -819,7 +852,7 @@ namespace xll {
 				return;
 			}
 
-			ensure (n < traits<X>::charmax);
+			ensure (n <= traits<X>::charmax);
 
 			xchar* tmp = (xchar*)malloc(((size_t)n + 2) * sizeof(xchar));
 			ensure(tmp);
@@ -851,13 +884,13 @@ namespace xll {
 			bool counted = (n == -1);
 			if (counted) {
 				n = str[0];
-				if (n == 0 or str[1] == 0) {
+				if (n == 0 || str[1] == 0) {
 					free(const_cast<xchar*>(str));
 
 					return; // noop
 				}
 			}
-			else if (n == 0 or str[0] == 0) {
+			else if (n == 0 || str[0] == 0) {
 				return; // noop
 			}
 

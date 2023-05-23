@@ -230,7 +230,7 @@ xll_paste_open(void)
 			OPER oAdj(1, 5);
 			oAdj(0, 0) = "Paste Function";
 			oAdj(0, 1) = "XLL.PASTE.FUNCTION";
-			oAdj(0, 3) = "Paste function under cursor into spreadsheet.";
+			oAdj(0, 3) = "Paste function under input_cursor into spreadsheet.";
 			Excel(xlfAddCommand, OPER(7), OPER(4), oAdj, oPos);
 		}
 	}

@@ -52,7 +52,7 @@ namespace xll {
 	template<class T>
 	inline HANDLEX safe_handle(T* p)
 	{
-		safe_pointers.insert(p);
+		safe_pointers.insert((void*)p);
 
 		return to_handle<T>(p);
 	}
@@ -62,7 +62,7 @@ namespace xll {
 	{
 		T* p = to_pointer<T>(h);
 
-		return safe_pointers.contains(p) ? p : nullptr;
+		return safe_pointers.contains((void*)p) ? p : nullptr;
 	}
 
 	// typeid<T>.name() given pointer
@@ -162,14 +162,14 @@ namespace xll {
 		handle(HANDLEX h, bool check = true) noexcept
 			: p(to_pointer<T>(h))
 		{
-			if (check and p) {
-				if (!ps.contains(p)) {
+			if (check && p) {
+				if (!ps.contains(p) and !safe_pointers.contains(p)) {
 					// unknown handle
 					p = nullptr;
 				}
 			}
 			// handle was created by a function argument
-			if (p and caller[p] == Excel(xlfCaller)) {
+			if (p && !safe_pointers.contains(p) && caller[p] == Excel(xlfCaller)) {
 				is_temporary(p);
 			}
 		}

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>xll</id>
+    <version>1.0.0</version>
+    <title>xll add-in library</title>
+    <authors>Keith A. Lewis</authors>
+    <owners></owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectUrl>https://github.com/xlladdins/xll</projectUrl>
+    <description>Wrapper for Excel C SDK</description>
+    <summary>Create xll add-ins for Excel</summary>
+    <copyright>KALX, LLC</copyright>
+    <language>en-US</language>
+    <tags>native, Excel, add-in</tags>
+  </metadata>
+  <files>
+    <file src="build\xll.props" target="build\xll.props" />
+    <file src="content\x64\XLCALL32.LIB" target="content\x64\XLCALL32.LIB" />
+    <file src="content\addin.h" target="content\addin.h" />
+    <file src="content\args.h" target="content\args.h" />
+    <file src="content\auto.cpp" target="content\auto.cpp" />
+    <file src="content\auto.h" target="content\auto.h" />
+    <file src="content\concepts.h" target="content\concepts.h" />
+    <file src="content\debug.cpp" target="content\debug.cpp" />
+    <file src="content\defines.c" target="content\defines.c" />
+    <file src="content\defines.h" target="content\defines.h" />
+    <file src="content\dllmain.cpp" target="content\dllmain.cpp" />
+    <file src="content\ensure.h" target="content\ensure.h" />
+    <file src="content\error.cpp" target="content\error.cpp" />
+    <file src="content\error.h" target="content\error.h" />
+    <file src="content\excel.h" target="content\excel.h" />
+    <file src="content\exports.h" target="content\exports.h" />
+    <file src="content\fp.h" target="content\fp.h" />
+    <file src="content\handle.h" target="content\handle.h" />
+    <file src="content\inc.txt" target="content\inc.txt" />
+    <file src="content\on.h" target="content\on.h" />
+    <file src="content\oper.h" target="content\oper.h" />
+    <file src="content\platform.h" target="content\platform.h" />
+    <file src="content\register.h" target="content\register.h" />
+    <file src="content\registry.h" target="content\registry.h" />
+    <file src="content\splitpath.h" target="content\splitpath.h" />
+    <file src="content\sref.h" target="content\sref.h" />
+    <file src="content\traits.h" target="content\traits.h" />
+    <file src="content\tsort.txt" target="content\tsort.txt" />
+    <file src="content\utf8.h" target="content\utf8.h" />
+    <file src="content\win.h" target="content\win.h" />
+    <file src="content\XLCALL.CPP" target="content\XLCALL.CPP" />
+    <file src="content\XLCALL.H" target="content\XLCALL.H" />
+    <file src="content\XLCALL32.LIB" target="content\XLCALL32.LIB" />
+    <file src="content\xll.h" target="content\xll.h" />
+    <file src="content\xllio.h" target="content\xllio.h" />
+    <file src="content\xll_codec.h" target="content\xll_codec.h" />
+    <file src="content\xloper.h" target="content\xloper.h" />
+  </files>
+</package>

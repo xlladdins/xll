@@ -33,6 +33,7 @@ namespace xll {
 		case xltypeRef:
 			return height(x.val.mref.lpmref->reftbl[0]);
 		case xltypeNil:
+		case xltypeMissing:
 			return 0;
 		}
 		
@@ -50,6 +51,7 @@ namespace xll {
 		case xltypeRef:
 			return width(x.val.mref.lpmref->reftbl[0]);
 		case xltypeNil:
+		case xltypeMissing:
 			return 0;
 		}
 
@@ -85,12 +87,12 @@ namespace xll {
 
 	// ref iterator
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline typename const traits<X>::xref* ref_begin(const X& x)
+	inline const traits<X>::xref* ref_begin(const X& x)
 	{
 		return type(x) == xltypeRef ? x.val.mref.lpmref->reftbl : nullptr;
 	}
 	template<class X> requires either_base_of_v<XLOPER, XLOPER12, X>
-	inline typename const traits<X>::xref* ref_end(const X& x)
+	inline const traits<X>::xref* ref_end(const X& x)
 	{
 		return type(x) == xltypeRef ? x.val.mref.lpmref->reftbl + x.val.mref.lpmref->count : nullptr;
 	}
@@ -173,7 +175,7 @@ namespace xll {
 		return x;
 	}
 
-	// take from front (n > 0) or back (n < 0)
+	// take from front (n > 0) || back (n < 0)
 	template<class X> 
 		requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
 	inline X take(X x, int n)
@@ -212,10 +214,10 @@ namespace xll {
 #define X(a, b)                                        \
 	template<class T>                                  \
 		requires either_base_of_v<XLOPER, XLOPER12, T> \
-	inline constexpr T X##a = { .xltype = xltype##a }; \
-	inline constexpr XLOPER a##4 = X##a<XLOPER>;       \
-	inline constexpr XLOPER12 a##12 = X##a<XLOPER12>;  \
-	inline constexpr XLOPERX a = X##a<XLOPERX>;        \
+	inline T X##a = { .xltype = xltype##a }; \
+	inline XLOPER a##4 = X##a<XLOPER>;       \
+	inline XLOPER12 a##12 = X##a<XLOPER12>;  \
+	inline XLOPERX a = X##a<XLOPERX>;        \
 
 	XLL_NULL_TYPE(X)
 #undef X
@@ -241,7 +243,7 @@ inline auto operator<=>(const X& x, const X& y)
 	auto ytype = xll::type(y);
 
 	// xltypeNil is least type
-	if (xtype == xltypeNil or ytype == xltypeNil) {
+	if (xtype == xltypeNil || ytype == xltypeNil) {
 		return (xtype != xltypeNil) <=> (ytype != xltypeNil);
 	}
 

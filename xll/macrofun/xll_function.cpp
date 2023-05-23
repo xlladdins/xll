@@ -62,6 +62,8 @@ LPOPER WINAPI xll_eval(const LPOPER pcell)
 
 #ifdef _DEBUG
 
+#if 0
+
 int test_eval()
 {
 	try {
@@ -127,8 +129,6 @@ int test_eval()
 	return TRUE;
 }
 Auto<OpenAfter> xaoa_test_eval(test_eval);
-
-#if 0
 
 
 #endif // _DEBUG

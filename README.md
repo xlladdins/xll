@@ -2,7 +2,7 @@
  
  ![build workflow](https://github.com/xlladdins/xll/actions/workflows/msbuild.yml/badge.svg)
 
-This library makes it simple to call C, C++, or even Fortran code from Excel.
+The xll library makes it simple to call C, C++, or even Fortran code from Excel.
 It is much easier to use than the Microsoft
 [Excel Software Development Kit](https://docs.microsoft.com/en-us/office/client-developer/excel/welcome-to-the-excel-software-development-kit).
 There are newer technologies available using C# and JavaScript that are appropriate for certain problems, but if you need the highest
@@ -10,12 +10,12 @@ possible numerical performance from Excel this library is for you.
 
 Plug your code, or a third party library, into Excel by
 writing a thin wrapper that gathers arguments from Excel, call any function, and return the result.
-Use the full power of Excel to explore and perfect your code. Anyone can use your
-handiwork by opening the self-contained `.xll` file you produce.
+Use the full power of Excel to explore and perfect your code. 
+Anyone can use your handiwork by opening the self-contained `.xll` file you produce.
+
 The xll library can also generate documentation integrated into Excel's help system.
-Hopefully you will get to the quality problem of others using your product and
-you can tell them to go to the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277)
-so you can get back to writing more cool stuff.
+People using your code can use the Function Wizard and click on [Help with this function](https://github.com/xlladdins/xll/blob/346790160ea9d7dbea8559d5fb9b48fe09967886/xll/args.h#L277).
+to see how you documented the code you wrote.
 
 The major usability enhancement for developers in the latest version is that all strings are now UTF-8. 
 They are a L"ot" nicer to use than wide character strings.
@@ -27,12 +27,12 @@ to make your software more convenient to use.
 
 ## Prerequisites
 
-[Windows 10](https://www.microsoft.com/en-us/software-download/windows10)  
+[Windows 10](https://www.microsoft.com/en-us/software-download/windows10) or [Windows 11](https://www.microsoft.com/en-us/software-download/windows11)  
   The Excel SDK is not supported on MacOS. You will have to install
   a [Windows virtual machine](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines/)
   on your Mac. I've had success with VirtualBox.
 
-[Visual Studio 2019](https://visualstudio.microsoft.com/)  
+[Visual Studio](https://visualstudio.microsoft.com/)  
   Use the Community Edition and install the `Desktop development with C++` and 
   [`GitHub Extension for Visual Studio`](https://marketplace.visualstudio.com/items?itemName=GitHub.GitHubExtensionforVisualStudio)
   workload.
@@ -43,8 +43,14 @@ to make your software more convenient to use.
 ## Get Started
 
 [Use this template](https://github.com/xlladdins/xll_template/generate) to generate a new repository.  
-Open in Visual Studio 2019 and double click on the solution (`.sln`).  
+Open in Visual Studio and double click on the solution (`.sln`).  
 Press `F5` to build the add-in and start Excel with it loaded in the debugger.
+
+If your add-in does not load you should check your security settings.
+From the `File` tab select `Options`, then `Trust Center`. Click on the `Trust Center Settings...` button.
+Select `Macro Settings` and choose `Enable VBA Macros`. Do not open add-ins you do not trust.
+If you download an xll from the web you may have to right click on it, `Properties` and choose
+`Unblock` at the bottom of the dialog.
 
 ## AddIn
 
@@ -233,14 +239,14 @@ typedef struct xloper12
 {
 	union 
 	{
-		double num;				       	/* xltypeNum */
-		XCHAR *str;				       	/* xltypeStr */
-		BOOL xbool;				       	/* xltypeBool */
-		int err;				       	/* xltypeErr */
+		double num;				    /* xltypeNum */
+		XCHAR *str;				    /* xltypeStr */
+		BOOL xbool;				    /* xltypeBool */
+		int err;				    /* xltypeErr */
 		int w;
 		struct 
 		{
-			WORD count;			       	/* always = 1 */
+			WORD count;			    /* always = 1 */
 			XLREF12 ref;
 		} sref;						/* xltypeSRef */
 		struct 
@@ -260,18 +266,18 @@ typedef struct xloper12
 			{
 				int level;			/* xlflowRestart */
 				int tbctrl;			/* xlflowPause */
-				IDSHEET idSheet;		/* xlflowGoto */
+				IDSHEET idSheet;	/* xlflowGoto */
 			} valflow;
-			RW rw;				       	/* xlflowGoto */
-			COL col;			       	/* xlflowGoto */
+			RW rw;				    /* xlflowGoto */
+			COL col;			    /* xlflowGoto */
 			BYTE xlflow;
 		} flow;						/* xltypeFlow */
 		struct
 		{
 			union
 			{
-				BYTE *lpbData;			/* data passed to XL */
-				HANDLE hdata;			/* data returned from XL */
+				BYTE *lpbData;	    /* data passed to XL */
+				HANDLE hdata;		/* data returned from XL */
 			} h;
 			long cbData;
 		} bigdata;					/* xltypeBigData */
@@ -279,7 +285,7 @@ typedef struct xloper12
 	DWORD xltype;
 } XLOPER12, *LPXLOPER12;
 ```
-The burden is on you to set the appropriate `.val` members.
+The burden is on you to set the appropriate `.val` members for each `.xltype`.
 The `xll` library provides the C++ class `OPER` to help you with this.
 Although C++ is strongly typed the `OPER` class is designed
 to behave much like a cell in a spreadsheet. E.g., `OPER o = 1.23` results in `o.xltype == xltypeNum`
@@ -288,8 +294,14 @@ and `o.val.num == 1.23`. Assigning a string `o = "foo"` results in a counted str
 `OPER` takes care of all memory managment so it acts like a built-in type. If it doesn't
 'do the right thing' when you use it let me know because that would be a design flaw on my part.
 
+A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPER` type
+defined in the `xll` namespace. It is a _variant_
+type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
+nil, simple reference, multiple reference or integer. The `xltype` member indicates the type and can be one of
+`xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
+`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. 
 
-Excel knows about floating point doubles and various integer types. These are indicated by, `XLL_DOUBLE`, 
+Excel cells can be floating point doubles or various integer types. These are indicated by, `XLL_DOUBLE`, 
 `XLL_WORD`, ..., `XLL_LONG`. The corresponding arguments in C functions can be declared as `DOUBLE`, `WORD`,
 ..., `LONG` but you can use `double`, `unsigned`,  and `int` if you prefer. Integer and long types are both 32-bit.
 
@@ -301,13 +313,6 @@ You can tell Excel to give you a counted or null terminated `char*` string by sp
 `XLL_PSTRING4` of `XLL_CSTRING4` data type in the `AddIn` constructor.
 Use `XLL_PSTRING12` or `XLL_CSTRING12` to tell Excel to give you a `wchar_t*`.
 For maximum portability use `XLL_PSTRINGX` or `XLL_CSTRINGX` with corresponding argument `TCHAR*`.
-
-A _cell_ (or a 2-dimensional row-major range of cells) corresponds to the `OPER` type
-defined in the `xll` namespace. It is a _variant_
-type that can be a number, string, boolean, reference, error, multi (if it is a range), missing,
-nil, simple reference, multiple reference or integer. The `xltype` member indicates the type and can be one of
-`xltypeNum`, `xltypeStr`, `xltypeBool`, `xltypeRef`, `xltypeErr`, `xltypeMulti`, `xltypeMissing`,
-`xltypeNil`, `xltypeSRef`, `xltypeRef`, or `xltypeInt`. 
 
 `OPER`s are specializations of the [`XOPER`](https://github.com/xlladdins/xll/blob/master/xll/oper.h#L27) 
 class which publicly inherits from the `XLOPERX` struct defined the header file
@@ -393,7 +398,7 @@ Since `FPX` does **not** inherit from the C structs you must use
 the `FPX::get()` member function to get a pointer to the underlying struct.
 This is used to return arrays to Excel where the return type is
 `XLL_FPX`. Since you are returning a pointer you must make sure the memory
-at which it points continues to exist after the function returns. Typically
+it points to exist after the function returns. Typically
 this is done by declaring a `static xll::FPX` in the function body.
 
 Use `xll::FPX a(2,3)` to create a 2 by 3 array of doubles and `a(1,0)` to access

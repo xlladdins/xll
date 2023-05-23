@@ -9,9 +9,11 @@
 namespace xll {
 
 	// XLOPER/XLOPER12 traits
-	template<class X> requires (std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X>)
-	struct traits { };
-	
+	template<class X> requires (
+		std::is_same_v<XLOPER, X> || std::is_same_v<XLOPER12, X> || std::is_same_v<char, X> || std::is_same_v<wchar_t, X>
+		)
+		struct traits { };
+
 #define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER::val.##b) x##c;
 	template<>
 	struct traits<XLOPER> {
@@ -19,8 +21,8 @@ namespace xll {
 		typedef XLOPER12 typex; // the other type
 		typedef XLMREF xmref;
 		XLL_TYPE_SCALAR(XLL_TYPE_TRAITS)
-		XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
-		typedef const CHAR* xcstr;
+			XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
+			typedef const CHAR* xcstr;
 		typedef CHAR xchar;
 		typedef WORD xword;
 		typedef WORD xrw;
@@ -51,7 +53,7 @@ namespace xll {
 		static xchar* cpy(xchar* dest, size_t ndest, const xchar* src, size_t nsrc)
 		{
 			ensure(0 == strncpy_s(dest, ndest, src, nsrc));
-	
+
 			return dest;
 		}
 		static int cmp(const xchar* dest, const xchar* src, unsigned n)
@@ -78,8 +80,8 @@ namespace xll {
 		//typedef XLREF12 xref;
 		typedef XLMREF12 xmref;
 		XLL_TYPE_SCALAR(XLL_TYPE_TRAITS)
-		XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
-		typedef XCHAR xchar;
+			XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
+			typedef XCHAR xchar;
 		typedef const XCHAR* xcstr;
 		//typedef INT32 xint;
 		typedef WORD xword;
@@ -133,4 +135,3 @@ namespace xll {
 #undef XLL_TYPE_TRAITS
 
 } // namespace xll
-

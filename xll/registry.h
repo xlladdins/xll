@@ -29,7 +29,7 @@ namespace Reg {
 	// add trailing character if missing
 	inline std::basic_string<TCHAR> tack(std::basic_string<TCHAR>& s, TCHAR c = TEXT('\\'))
 	{
-		if (s.length() != 0 and s.back() != c) {
+		if (s.length() != 0 && s.back() != c) {
 			s.push_back(c);
 		}
 
@@ -252,7 +252,7 @@ namespace Reg {
 		}
 		~Key()
 		{
-			if (hkey and disp) {
+			if (hkey && disp) {
 				RegCloseKey(hkey);
 			}
 		}
