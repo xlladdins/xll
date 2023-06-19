@@ -189,7 +189,8 @@
       </Command>
     </PostBuildEvent>
     <PostBuildEvent>
-      <Message>Sign</Message>
+      <Message>
+      </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
