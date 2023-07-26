@@ -23,7 +23,7 @@ namespace xll {
 	public:
 		Auto(macro&& m)
 		{
-			macros.emplace_back(m);
+			macros.push_back(m);
 		}
 		static int Call(void)
 		{

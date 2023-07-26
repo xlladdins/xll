@@ -2,11 +2,6 @@
 <!-- Property file for xll add-ins. Assumes git submodule for xll exists -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
-  <ItemGroup>
-    <ProjectReference Include="xll\xll.vcxproj">
-      <Project>{367249bb-b8a3-4671-b095-a5db904dbd6d}</Project>
-    </ProjectReference>
-  </ItemGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
