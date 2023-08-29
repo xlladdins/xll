@@ -196,12 +196,14 @@ namespace xll {
 		// mark p_ as temporary
 		void is_temporary(T* p_)
 		{
-			caller[p_] = ErrNA;
+			if (!safe_pointers.contains((void*)p_)) {
+				caller[p_] = ErrNA;
+			}
 		}
 
 		[[nodiscard]] bool is_temporary() const
 		{
-			return caller[p] == ErrNA;
+			return (!safe_pointers.contains((void*)p)) and caller[p] == ErrNA;
 		}
 
 		void swap(handle& h) noexcept
