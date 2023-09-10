@@ -163,7 +163,7 @@ namespace xll {
 			: p(to_pointer<T>(h))
 		{
 			if (check && p) {
-				if (!ps.contains(p) and !safe_pointers.contains(p)) {
+				if (!ps.contains(p) && !safe_pointers.contains(p)) {
 					// unknown handle
 					p = nullptr;
 				}
@@ -203,7 +203,7 @@ namespace xll {
 
 		[[nodiscard]] bool is_temporary() const
 		{
-			return (!safe_pointers.contains((void*)p)) and caller[p] == ErrNA;
+			return (!safe_pointers.contains((void*)p)) && caller[p] == ErrNA;
 		}
 
 		void swap(handle& h) noexcept
