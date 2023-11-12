@@ -479,7 +479,7 @@ public:
 then we can embed `base` objects in Excel using
 ```C++
 AddIn xai_base(
-    Function(XLL_HANDLEX, "?xll_base", "XLL.BASE")
+    Function(XLL_HANDLEX, "xll_base", "XLL.BASE")
     .Arguments({
         Arg(XLL_LPOPER, "x", "is a cell or range of cells")
     })
