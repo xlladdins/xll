@@ -497,7 +497,7 @@ HANDLEX WINAPI xll_base(LPOPERX px)
 and access them with
 ```C++
 AddIn xai_base_get(
-    Function(XLL_LPOPER, "?xll_base_get", "XLL.BASE.GET")
+    Function(XLL_LPOPER, "xll_base_get", "XLL.BASE.GET")
     .Arguments({
         Arg(XLL_HANDLEX, "handle", "is a handle returned by XLL.BASE")
     })
