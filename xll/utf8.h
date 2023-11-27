@@ -66,7 +66,7 @@ namespace utf8 {
 		if (nullptr != s) {
 			ensure(!wn || n == WideCharToMultiByte(CP_UTF8, 0, ws, wn, s + 1, n, NULL, NULL));
 			// ???NormalizeString
-			ensure(n <= UCHAR_MAX);
+			ensure(n <= SHRT_MAX);
 			// WCTMBS includes terminating null if wn == -1
 			s[0] = static_cast<char>(n - (wn == -1));
 			s[s[0] + 1] = 0;
