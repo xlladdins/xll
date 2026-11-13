@@ -84,7 +84,7 @@ XLL_CONST(WORD, XLL_ALERT_INFO, XLL_ALERT_INFO,
 	"ALERT.LEVEL flag for information[4].", "XLL", "")
 
 AddIn xai_alert_level(
-	Function(XLL_WORD, "xll_alert_level_", "XLL.ALERT.LEVEL")
+	Function(XLL_WORD, "_xll_alert_level_", "XLL.ALERT.LEVEL")
 	.Arguments({
 		Arg(XLL_LPOPER, "level", "is the alert level mask to set.", "=XLL_ALERT_ERROR()"),
 	})
@@ -99,7 +99,7 @@ is stored at <code>HKEY_CURRENT_USER\Software\KALX\xll\xll_alert_level</code>
 in the registry to persist across Excel sessions.
 )")
 );
-DWORD WINAPI xll_alert_level_(LPOPER plevel)
+extern "C" DWORD WINAPI xll_alert_level_(LPOPER plevel)
 {
 #pragma XLLEXPORT
 	DWORD oal = xll_alert_level;
