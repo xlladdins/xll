@@ -21,8 +21,8 @@ inline auto operator<=>(const X & x, const X & y)
 // operator<=> only generates comparisons for C++ classes
 // inheriting from extern "C" XLREF subverts auto genereration
 #define REF_CTW(op) \
-	inline bool operator ## op(const XLREF& x, const XLREF& y) { return x <=> y op 0; } \
-	inline bool operator ## op(const XLREF12& x, const XLREF12& y) { return x <=> y op 0; } \
+	inline bool operator op(const XLREF& x, const XLREF& y) { return x <=> y op 0; } \
+	inline bool operator op(const XLREF12& x, const XLREF12& y) { return x <=> y op 0; } \
 
 REF_CTW(==)
 REF_CTW(!=)

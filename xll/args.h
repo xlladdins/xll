@@ -113,7 +113,19 @@ namespace xll {
 		}
 		Args& Arguments(const std::vector<Arg>& args)
 		{
-			return Arguments(std::initializer_list<Arg>(&args[0], &args[0] + args.size()));
+			const char* comma = "";
+			for (const auto& arg : args) {
+				key("typeText") &= arg.type;
+				key("argumentType").push_back(OPER(arg.type));
+				key("argumentName").push_back(OPER(arg.name));
+				key("argumentHelp").push_back(OPER(arg.help));
+				key("argumentDefault").push_back(OPER(arg.init));
+				key("argumentText") &= comma;
+				key("argumentText") &= arg.name;
+				comma = ", ";
+			}
+
+			return *this;
 		}
 
 		Args& Uncalced()

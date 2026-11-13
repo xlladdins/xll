@@ -14,7 +14,7 @@ namespace xll {
 		)
 		struct traits { };
 
-#define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER::val.##b) x##c;
+#define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER::val.b) x##c;
 	template<>
 	struct traits<XLOPER> {
 		typedef XLOPER xtype;
@@ -72,7 +72,7 @@ namespace xll {
 	};
 #undef XLL_TYPE_TRAITS
 
-#define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER12::val. ## b) x##c;
+#define XLL_TYPE_TRAITS(a,b,c,d,e) typedef decltype(XLOPER12::val.b) x##c;
 	template<>
 	struct traits<XLOPER12> {
 		typedef XLOPER12 xtype;
@@ -83,7 +83,6 @@ namespace xll {
 			XLL_TYPE_ALLOC(XLL_TYPE_TRAITS)
 			typedef XCHAR xchar;
 		typedef const XCHAR* xcstr;
-		//typedef INT32 xint;
 		typedef WORD xword;
 		typedef RW xrw;
 		typedef COL xcol;
