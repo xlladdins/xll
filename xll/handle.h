@@ -73,20 +73,20 @@ namespace xll {
 	struct unique_ptrcmp {
 		using is_transparent = void;
 
-		template<class T>
-		bool operator()(const std::unique_ptr<T>& a, const T* b) const
+		template<class U>
+		bool operator()(const std::unique_ptr<U>& a, const U* b) const
 		{
 			return a.get() < b;
 		}
 
-		template<class T>
-		bool operator()(const T* a, const std::unique_ptr<T>& b) const
+		template<class U>
+		bool operator()(const U* a, const std::unique_ptr<U>& b) const
 		{
 			return a < b.get();
 		}
 
-		template<class T>
-		bool operator()(const std::unique_ptr<T>& a, const std::unique_ptr<T>& b) const
+		template<class U>
+		bool operator()(const std::unique_ptr<U>& a, const std::unique_ptr<U>& b) const
 		{
 			return a.get() < b.get();
 		}

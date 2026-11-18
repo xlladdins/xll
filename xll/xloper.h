@@ -1,8 +1,10 @@
 // xloper.h - XLOPER related code
 // Copyright (c) KALX, LLC. All rights reserved. No warranty made.
 #pragma once
+#include <cstdint>
 #include <compare>
 #include <concepts>
+#include <limits>
 #include "traits.h"
 #include "sref.h"
 
@@ -317,8 +319,8 @@ inline auto operator<=>(const X& x, const X& y)
 }
 
 #define XLOPER_CMP(op) \
-	inline bool operator##op(const XLOPER& x, const XLOPER& y) { return x <=> y op 0; } \
-	inline bool operator##op(const XLOPER12& x, const XLOPER12& y) { return x <=> y op 0; } \
+	inline bool operator op(const XLOPER& x, const XLOPER& y) { return x <=> y op 0; } \
+	inline bool operator op(const XLOPER12& x, const XLOPER12& y) { return x <=> y op 0; } \
 
 XLOPER_CMP(==)
 XLOPER_CMP(!=)

@@ -35,7 +35,6 @@ namespace xll {
 		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xrw xrw;
 		typedef typename traits<X>::xcol xcol;
-		typedef typename traits<X>::xint xint;
 		typedef typename traits<X>::xref xref;
 
 	public:
